@@ -136,7 +136,7 @@
     "brand_description": "<p><\/p>",
     "brand_image_width": 100,
     "social_facebook_link": "",
-    "social_instagram_link": "https:\/\/www.instagram.com\/plaeto.shoes\/",
+    "social_instagram_link": "",
     "social_youtube_link": "https:\/\/www.youtube.com\/@plaetoshoes",
     "social_tiktok_link": "",
     "social_twitter_link": "https:\/\/twitter.com\/plaetoshoes",
@@ -226,6 +226,17 @@
           "button": "#ffffff",
           "button_label": "#334fb4",
           "secondary_button_label": "#ffffff",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-b52cae98-4605-45a7-9d47-dfdfef21c315": {
+        "settings": {
+          "background": "#ffffff",
+          "background_gradient": "",
+          "text": "#000000",
+          "button": "#121212",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#121212",
           "shadow": "#121212"
         }
       }
