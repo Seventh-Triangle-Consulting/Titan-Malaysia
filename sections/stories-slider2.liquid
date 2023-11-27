@@ -1,0 +1,673 @@
+{{ 'stories-slider2.css' | asset_url | stylesheet_tag }}
+
+<div class="stories_slider2">
+  <main role="main">
+    <div class="stories_slider_div">
+      <div class="daily-stories">
+        <div class="daily-stories__outer">
+          <div class="daily-stories__container">
+            {% for media in product.media %}
+              {% if media.media_type == 'image' %}
+                <div class="slide" data-timeout="4000" data-mediaIndex="{{ forloop.index0 }}">
+                  {{ media | image_url: width: '1000' | image_tag }}
+                </div>
+
+              {% elsif media.media_type == 'video' %}
+                <div class="slide video" data-timeout="22000" data-mediaIndex="{{ forloop.index0 }}">
+                  {{ media | video_tag }}
+                </div>
+
+              {% elsif media.media_type == 'model' %}
+                <div class="slide" data-timeout="4000" data-mediaIndex="{{ forloop.index0 }}">
+                  {{ media | model_viewer_tag: width: '1000' }}
+                </div>
+
+              {% else %}
+
+              {% endif %}
+            {% endfor %}
+            {% comment %}
+              <div class="slide" data-timeout="2000">
+                  {{ product.media[0] | image_url: width:'1000' | image_tag }}
+              </div>
+              <div class="slide" data-timeout="3000">
+                  {{ product.media[1] | image_url: width:'1000' | image_tag }}
+              </div>
+              <div class="slide video" data-timeout="3000">
+                  <video source ="{{ product.media[2].value.sources[1].url }}" preload="true" muted="muted"></video>
+              </div>
+              <div class="slide" data-timeout="3000">
+                  {{ product.media[3] | image_url: width:'1000' | image_tag }}
+               </div>
+              <div class="slide" data-timeout="3000">
+                  {{ product.media[3] | image_url: width:'1000' | image_tag }}
+              </div>
+              <div class="slide" data-timeout="3000">
+                  {{ product.media[4] | image_url: width:'1000' | image_tag }}
+              </div>
+              <div class="slide" data-timeout="3000">
+                  {{ product.media[5] | image_url: width:'1000' | image_tag }}
+               </div>
+            {% endcomment %}
+          </div>
+        </div>
+
+        <div class="progress-bars" data-count="4">
+          {% for imgNumber in product.media %}
+            <div class="bar" data-index="{{ forloop.index0 }}" data-mediaIndex="{{ forloop.index0 }}">
+              <span style="animation-duration: 4000ms;"></span>
+            </div>
+          {% endfor %}
+
+          {% comment %}
+            <div class="bar" data-index="1"><span style="animation-duration: 4000ms;"></span></div>
+            <div class="bar video" data-index="2"><span style="animation-duration: 6000ms"></span></div>
+            <div class="bar" data-index="3"><span style="animation-duration: 4000ms;"></span></div>
+            <div class="bar" data-index="4"><span style="animation-duration: 4000ms;"></span></div>
+            <div class="bar" data-index="5"><span style="animation-duration: 4000ms;"></span></div>
+            <div class="bar" data-index="6"><span style="animation-duration: 4000ms;"></span></div>
+          {% endcomment %}
+        </div>
+      </div>
+
+      <span id="prev-slide">{% render 'slider-left-arrow' %}</span>
+      <span id="next-slide">{% render 'slider-right-arrow' %}</span>
+
+      <div class="central-area" data-state="playing">
+        <div class="button">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+            <path id="path_play" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 8l6 4-6 4V8z" />
+            <path id="path_pause" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 15V9M14 15V9" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="custom_product_info">
+    <div class="product_info_heading_div">
+      <h1>{{ product.title }}</h1>
+    </div>
+    {% render 'price' %}
+    <p>{{ block.settings.offers_available_number }}</p>
+    <p class="offers_available_number_mobile"></p>
+    {% liquid
+      assign rating_decimal = product.metafields.reviews.rating.value | split: '.'
+      assign decimal = rating_decimal[1]
+      assign finaldecimal = decimal | divided_by: 10
+    %}
+    {% if product.metafields.reviews.rating.value != blank %}
+      <div class="card__badge reviews mobile">
+        <a href="#judgeme_product_reviews">
+          <span class="text">{{ rating_decimal[0] }}.{{ finaldecimal }} </span>
+          <span class="jdgm-star jdgm--on"></span>
+          <span class="jdgm-prev-badge__text text"> | {{ product.metafields.reviews.rating_count }} </span>
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<script>
+const container = document.querySelector(".daily-stories__outer");
+const imgs_wrapper = document.querySelector(".daily-stories__container");
+const imgs = document.querySelectorAll(".daily-stories .slide");
+const bars = document.querySelectorAll(".progress-bars .bar");
+const prevBtn = document.querySelector("#prev-slide");
+const nextBtn = document.querySelector("#next-slide");
+const centralArea = document.querySelector(".central-area");
+const total_imgs = imgs.length;
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+ {% comment %} const CM_container = document.querySelector(".context-menu-container");  {% endcomment %}
+ {% comment %} const CM_button = CM_container.querySelector("a.button"); {% endcomment %}
+{% comment %} const cm_link_save = document.querySelector("#c-menu_save");
+const cm_link_share = document.querySelector("#c-menu_share");
+const cm_link_copy = document.querySelector("#c-menu_copy");
+const cm_link_cancel = document.querySelector("#c-menu_cancel");  {% endcomment %}
+
+let entryURL;
+
+let container_width = container.clientWidth;
+let current_index = 0;
+let pointer_is_down = false;
+let [start_x, end_x] = [0, 0];
+let move_distance = 0;
+let timersSet = [];
+let dataSet = [];
+let timer;
+
+// function reload() {
+//     window.location.reload(false);
+// }
+
+function init() {
+    container_width = container.clientWidth;
+    {% comment %} CM_container.style.width = `${container_width - 30}px`; {% endcomment %}
+    imgs_wrapper.style.width = `${container_width * total_imgs}px`;
+}
+
+function collections() {
+    for (var i = 0; i < total_imgs; ++i) {
+        timersSet.push(imgs[i].getAttribute("data-timeout"));
+
+        if (imgs[i].classList.contains("video")) {
+            dataSet.push(imgs[i].querySelector("video")?.getAttribute("src"));
+        } else {
+            dataSet.push(imgs[i].querySelector("img")?.getAttribute("src"));
+        }
+    }
+}
+
+{% comment %} function redirect(url) {
+    if (url !== null) {
+        window.location = "https://f5.local/" + url; // Redirect to "entry" URL
+    } else {
+        window.location = "https://f5.local/"; // Redirect to homepage
+    }
+} {% endcomment %}
+
+function slidesAutoPlay() {
+    clearTimeout(timer);
+
+    timer = setTimeout(() => {
+        if (current_index < total_imgs - 1) {
+            nextSlide();
+        } else {
+            console.log("End of Story");
+        }
+    }, timersSet[current_index]);
+}
+
+// Mousemove and Touchmove Event
+function createDraggingEffects() {
+    {% comment %} if (document.body.classList.contains("menu-open")) return; // Disallow slides dragging if context menu is open {% endcomment %}
+
+    const max_distance = 2;
+    const scrolled_distance =
+        current_index * container_width + (start_x - end_x) / max_distance;
+
+    switchImages(-scrolled_distance);
+} 
+
+// Set slide "active"
+function setSlideActive(i) {
+    const currentSlide = imgs[i];
+
+    imgs.forEach((el) => el.classList.remove("active"));
+    currentSlide.classList.add("active");
+
+
+    if(document.querySelector(".slide.active").classList.contains("video"))
+        {
+         document.querySelector(".central-area").style.display="flex";   
+        }
+        else{ 
+             document.querySelector(".central-area").style.display="none";   
+        }
+
+    playVideo();
+}
+
+// Set bar "active / animate"
+function setBarActive(i) {
+    bars.forEach((el, index) => {
+        if (index >= i) {
+            el.classList.remove("animate");
+        }
+        if (index < i) {
+            el.classList.add("seen");
+            el.classList.remove("animate");
+        } else {
+            el.classList.remove("seen");
+        }
+    });
+
+    bars[i].classList.add("animate");
+}
+
+// Set current slide active
+function setActive() {
+    if (current_index < total_imgs - 1) {
+        // if ain't LAST
+        setBarActive(parseInt(current_index, 10) + 1);
+    } else {
+        setBarActive(0);
+    }
+
+    {% comment %} if(document.querySelector(".slide.active").classList.contains("video"))
+    {
+     document.querySelector(".central-area").style.display="flex";   
+     console.log("Flex");
+    }
+    else{ 
+    document.querySelector(".central-area").style.display="none";   
+    console.log("None");
+        } {% endcomment %}
+
+    setTimeout(() => {
+        setBarActive(current_index);
+        setSlideActive(current_index);
+    }, 1);
+}
+
+// Mouseup and Touchend Event
+function calculateFinalMoveDistance() {
+    const scrolled_distance = Math.abs(start_x - end_x);
+    const minimum_distance = 50;
+
+    {% comment %} if (document.body.classList.contains("menu-open")) return; // Disallow slides switching if context menu is open {% endcomment %}
+
+    if (scrolled_distance < minimum_distance && current_index !== 0) {
+        move_distance = -(current_index * container_width);
+        switchImages();
+        return false;
+    }
+
+    stopVideo(); // Stop video on current slide if any were playing
+
+    if ((start_x > end_x) & (current_index < total_imgs - 1)) {
+        // scroll next
+        current_index++;
+    } else if (start_x < end_x && current_index > 0) {
+        // scroll prev
+        current_index--;
+    } else if (current_index === 0) {
+        setBarActive(1); // hack to reset animation's play state of first slide
+    }
+
+    move_distance = -(current_index * container_width);
+    switchImages(move_distance);
+
+    updateSaveImgSrc();
+
+    setActive();
+
+    slidesAutoPlay();
+}
+
+// Switch to Next Slide
+function nextSlide() {
+    if (current_index < total_imgs - 1) {
+        // check if it isn't LAST slide
+
+        {% comment %} if (document.body.classList.contains("menu-open")) return; // Disallow slides switching if context menu is open {% endcomment %}
+
+        document.body.classList.remove("paused"); // Un-Pause slider
+
+        stopVideo(); // Stop video on current slide if any were playing
+
+        current_index++;
+
+        move_distance = -(current_index * container_width);
+        switchImages(move_distance);
+        updateSaveImgSrc();
+
+        setActive();
+
+        slidesAutoPlay();
+    }
+
+}
+
+// Switch to Prev Slide
+function prevSlide() {
+    if (current_index >= 0) {
+        // check if it isn't FIRST slide
+
+        if (document.body.classList.contains("menu-open")) return; // Disallow slides switching if context menu is open
+
+        document.body.classList.remove("paused"); // Un-Pause slider
+
+        stopVideo(); // Stop video on current slide if any were playing
+
+        if (current_index > 0) {
+            // decrease index only if larger than 0
+            current_index--;
+        }
+
+        move_distance = -(current_index * container_width);
+        switchImages(move_distance);
+        updateSaveImgSrc();
+
+        setActive();
+
+        slidesAutoPlay();
+    }
+}
+
+// Switch to specific Slide
+function slideTo(i) {
+    if (document.body.classList.contains("menu-open")) return; // Disallow slides switching if context menu is open
+
+    document.body.classList.remove("paused"); // Un-Pause slider
+    stopVideo(); // Stop video on current slide if any were playing
+
+    current_index = i;
+
+    move_distance = -(current_index * container_width);
+    switchImages(move_distance);
+    updateSaveImgSrc();
+
+    setActive();
+
+    slidesAutoPlay();
+}
+
+function pauseVideo() {
+    if (isVideo()) {
+        const v = imgs[current_index].querySelector("video");
+        v.muted = true;
+        v.pause();
+    }
+}
+
+function playVideo() {
+    if (isVideo()) {
+        const v = imgs[current_index].querySelector("video");
+        {% comment %} console.log(imgs);
+        console.log(imgs[current_index]); {% endcomment %}
+        v.muted = true;
+        v.play();
+    }
+}
+
+function stopVideo() {
+    if (isVideo()) {
+        const v = imgs[current_index].querySelector("video");
+        v.pause();
+        v.currentTime = 0;
+    }
+}
+
+function toggleMute() {
+    if (isVideo()) {
+        const v = imgs[current_index].querySelector("video");
+        v.muted = !v.muted;
+    }
+}
+
+function cancelAnimation() {
+    clearTimeout(timer);
+}
+
+// Switch Images
+function switchImages(scrolled_number) {
+    const distance = scrolled_number || move_distance;
+    imgs_wrapper.style.transform = `translate3d(${distance}px, 0px, 0px)`;
+}
+
+// Mouseleave event
+function handleMouseLeave(e) {
+    if (!pointer_is_down) return false;
+
+    pointer_is_down = false;
+    [start_x, end_x] = [0, 0];
+    switchImages();
+}
+
+// Update SRC of "Save Image" button on context menu
+function updateSaveImgSrc() {
+    {% comment %} cm_link_save.href = dataSet[current_index]; {% endcomment %}
+}
+
+// Toggle Play/Pause of Carousel
+function toggleSliderAutoplay(e) {
+    const state = e.target.getAttribute("data-state");
+    console.log(state);
+
+    if (state === "paused") {
+        centralArea.setAttribute("data-state", "playing");
+        document.body.classList.remove("paused");
+
+        setActive();
+
+        slidesAutoPlay();
+
+        stopVideo();
+        playVideo();
+    } else {
+        centralArea.setAttribute("data-state", "paused");
+        document.body.classList.add("paused");
+        cancelAnimation();
+        pauseVideo();
+    }
+}
+
+// Check if Slide contains video
+function isVideo() {
+    return imgs[current_index].classList.contains("video");
+}
+
+// Handle Context-Menu
+{% comment %} function CM_Handle(e) {
+    e.preventDefault();
+
+    CM_container.classList.toggle("active");
+
+    if (CM_container.classList.contains("active")) {
+        document.body.classList.add("menu-open");
+        cancelAnimation();
+        pauseVideo();
+        updateSaveImgSrc();
+    } else {
+        document.body.classList.remove("menu-open");
+
+        setActive();
+
+        slidesAutoPlay();
+
+        stopVideo();
+        playVideo();
+    }
+}
+
+function copyText(element) {
+    const textToCopy = element.href;
+    const tempInput = document.createElement("input");
+
+    tempInput.type = "text";
+    tempInput.value = textToCopy;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("Copy");
+    document.body.removeChild(tempInput);
+
+    toaster("Link copied to clipboard", "success");
+} {% endcomment %}
+
+// Bind Events on document ready
+document.addEventListener("DOMContentLoaded", () => {
+    init();
+    collections();
+
+    setSlideActive(0);
+    setBarActive(0);
+
+    slidesAutoPlay();
+
+    if (isMobile) {
+        document.body.classList.add("mobile");
+    }
+});
+
+// Handle PREV Slide btn
+prevBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    prevSlide();
+});
+
+// Handle NEXT Slide btn
+nextBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    nextSlide();
+});
+
+// Handle click on Central Area - Play/Pause animation
+centralArea.addEventListener("click", (e) => {
+    e.preventDefault();
+    toggleSliderAutoplay(e);
+});
+
+
+
+// Handle Mouse events
+container.addEventListener("mousedown", (e) => {
+    e.preventDefault();
+
+    pointer_is_down = true;
+    start_x = e.pageX;
+});
+
+container.addEventListener("mousemove", (e) => {
+    e.preventDefault();
+
+    if (!pointer_is_down) return false;
+    end_x = e.pageX;
+    createDraggingEffects();
+});
+
+container.addEventListener("mouseup", (e) => {
+   e.preventDefault();
+
+   pointer_is_down = false;
+    calculateFinalMoveDistance();
+});
+
+container.addEventListener("mouseleave", handleMouseLeave);
+
+// // Handle Touch events
+container.addEventListener("touchstart", (e) => {
+    pointer_is_down = true;     start_x = e.touches[0].pageX;
+});
+
+container.addEventListener("touchmove", (e) => {
+   if (!pointer_is_down) return false;
+    end_x = e.touches[0].pageX;
+   createDraggingEffects();
+});
+
+container.addEventListener("touchend", (e) => {
+    pointer_is_down = false;
+    calculateFinalMoveDistance();
+});
+
+
+
+
+
+
+
+// Handle Progress Bar Click
+bars.forEach((bar) => {
+    bar.addEventListener("click", () => {
+        slideTo(bar.getAttribute("data-index"));
+    });
+});
+
+
+
+
+ window.addEventListener("DOMContentLoaded", () => { 
+   try{
+     document.querySelectorAll(".bar").forEach((e)=>{
+        let duration =  document.querySelector(".daily-stories .slide.video video")?.duration * 1000;
+        if(e.getAttribute("data-mediaIndex") == document.querySelector(".slide.video")?.getAttribute("data-mediaIndex"))
+        {
+           e.querySelector("span").style.animationDuration = duration+"ms";
+           console.log("Duration Added");
+        }
+            
+       })
+   }
+   catch(e){
+     console.log(e)
+   }
+
+    
+    
+
+
+}); 
+
+const slides = document.querySelectorAll('.slide');
+let isPinching = false;
+let initialPinchDistance = 0;
+let initialScale = 1;
+let sliderPaused = false;
+let imageZoomedIn = false; 
+
+slides.forEach(slide => {
+  slide.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 2) {
+      // Calculate the initial distance between two fingers (pinch)
+      initialPinchDistance = Math.hypot(
+        e.touches[1].pageX - e.touches[0].pageX,
+        e.touches[1].pageY - e.touches[0].pageY
+      );
+      initialScale = parseFloat(slide.style.transform.replace('scale(', '')) || 1;
+      isPinching = true;
+    }
+  });
+
+  slide.addEventListener('touchmove', (e) => {
+    if (isPinching && e.touches.length === 2) {
+      // Calculate the current distance between two fingers (pinch)
+      const currentPinchDistance = Math.hypot(
+        e.touches[1].pageX - e.touches[0].pageX,
+        e.touches[1].pageY - e.touches[0].pageY
+      );
+      // Calculate the scale factor
+      const scale = (currentPinchDistance / initialPinchDistance) * initialScale;
+
+      // Limit the minimum and maximum scale
+      const minScale = 1;
+      const maxScale = 2;
+      const clampedScale = Math.min(maxScale, Math.max(minScale, scale));
+
+      slide.style.transform = `scale(${clampedScale})`;
+
+      // Check if the image is zoomed in
+      if (clampedScale > 1) {
+        if (!imageZoomedIn) { // Pause the slider only once when zoomed in
+          sliderPaused = true;
+          centralArea.setAttribute("data-state", "paused");
+          document.body.classList.add("paused");
+          cancelAnimation();
+          pauseVideo();
+          imageZoomedIn = true; // Set the zoom state flag
+        }
+      } else {
+        if (imageZoomedIn) { // Resume the slider only once when zoomed out
+          sliderPaused = false;
+          centralArea.setAttribute("data-state", "playing");
+          document.body.classList.remove("paused");
+          setActive();
+          slidesAutoPlay();
+          stopVideo();
+          playVideo();
+          imageZoomedIn = false; // Reset the zoom state flag
+        }
+      }
+    }
+  });
+
+  slide.addEventListener('touchend', () => {
+    isPinching = false;
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Stories Slider 2 Section",
+
+  "settings": [],
+  "presets": [
+    {
+      "name": "Stories Slider 2 Section"
+    }
+  ]
+}
+{% endschema %}

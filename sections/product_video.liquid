@@ -1,0 +1,124 @@
+<style>
+   .section-{{ section.id }}-margin {
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+  }
+  .product_video_heading{text-align:center;margin-bottom:25px;}
+  .product_video{display:flex;justify-content:center;position:relative;}
+  .product_video .video_div{width:750px;height:auto;}
+  .play-button-dropdown{position:absolute;top:40%;cursor: pointer;}
+  .product_video_heading{color:#000;text-align:center;font-style:normal;font-weight:500;line-height:28px;letter-spacing:0.3px;}
+
+  @media screen and (max-width: 750px) {
+    .section-{{ section.id }}-margin {
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+    }
+    .product_video_section .product_video .video_div{width:100%;}
+    .product_video_section{padding-left:20px;padding-right:20px;}
+    .product_video_heading{padding:0 21px;font-size:23px;}
+  }
+</style>
+{% assign product_video = product.metafields.custom.product_page_video.value %}
+<section class="product_video_section section-{{ section.id }}-margin page-width">
+  {% if product_video != blank %}
+    <h2 class="product_video_heading">{{ section.settings.show_video_text }}</h2>
+    <div class="product_video">
+      {% comment %}
+        <video
+          class="desktop_product_video video"
+          src="{{ product_video }}"
+        ></video>
+      {% endcomment %}
+
+      <video class="video_div">
+        <source
+          src="{{ product.metafields.custom.product_page_video.value.sources[1].url }}"
+          type="video/mp4"
+          id="homevideo"
+          width="100%"
+          controlsList="nodownload"
+          muted="muted"
+          loop="loop"
+          playsinline="playsinline"
+          preload="metadata"
+          data-aos="fade-up"
+          poster=" "
+          allowfullscreen
+          controls
+        >
+      </video>
+
+      <svg
+        class="play-button-dropdown"
+        xmlns="http://www.w3.org/2000/svg"
+        width="61"
+        height="61"
+        viewBox="0 0 61 61"
+        fill="none"
+      >
+        <path d="M30.5 0C13.6795 0 0 13.6795 0 30.5C0 47.3205 13.6795 61 30.5 61C47.3205 61 61 47.3205 61 30.5C61 13.6795 47.3205 0 30.5 0ZM30.5 4.06667C45.1227 4.06667 56.9333 15.8773 56.9333 30.5C56.9333 45.1226 45.1227 56.9333 30.5 56.9333C15.8773 56.9333 4.06667 45.1226 4.06667 30.5C4.06667 15.8773 15.8773 4.06667 30.5 4.06667ZM23.2986 17.6222C21.7317 17.6575 20.3734 18.916 20.3333 20.7146V40.2642C20.3869 42.6623 22.7814 44.117 24.8872 42.9753L41.8316 33.1688C42.7538 32.6331 43.3778 31.65 43.3778 30.5C43.3778 29.35 42.7538 28.3668 41.8316 27.8312L24.8872 18.0247C24.3607 17.7392 23.8209 17.6105 23.2986 17.6222Z" fill="white"></path>
+      </svg>
+    </div>
+  {% endif %}
+</section>
+
+<script>
+  let dropDownVideo = document.querySelector('.product_video video');
+  let dropDownPlayButton = document.querySelector('.product_video .play-button-dropdown');
+
+  
+  function togglePlayVideo(video, playButton) {
+    if (video.paused) {
+      video.play();
+      playButton.style.display = 'none';
+    } else {
+      video.pause();
+      playButton.style.display = 'block';
+    }
+  }
+  dropDownPlayButton?.addEventListener('click', function () {
+    togglePlayVideo(dropDownVideo, dropDownPlayButton);
+  });
+  dropDownVideo?.addEventListener('click', function () {
+    togglePlayVideo(dropDownVideo, dropDownPlayButton);
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Product Video ",
+  "settings": [
+    {
+      "type": "text",
+      "id": "show_video_text",
+      "label": "Shpow Video Heading",
+      "default": "Discover the Elate shoe in 2 minutes "
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom Desktop",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom Mobile",
+      "default": 36
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Product Video"
+    }
+  ]
+}
+{% endschema %}

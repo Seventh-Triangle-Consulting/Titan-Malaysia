@@ -1,0 +1,476 @@
+<style>
+  .stories {
+    margin-bottom: 10px;
+  }
+  .stories .main-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+   .stories_product_div .card__badge.reviews span{font-size:15px;line-height:28px;}
+  .stories_product_div .card__badge.reviews span.text{color:#000;font-family:'Rubik-Medium';}
+  .stories img {
+    max-width: 100%;
+    display: block;
+  }
+ 
+ .product_info_cross.bottom{right: 20px;
+    top: 25%;
+    position: absolute;z-index:5;}
+  .stories .text-content {
+    margin-right: 50px;
+    text-align: right;
+    min-width: 300px;
+  }
+  .stories .text {
+    color: #1d1d1f;
+    font-size: 2.5rem;
+    margin: 0;
+    font-weight: 300;
+  }
+  .stories .instagram {
+    font-size: 4rem;
+    margin: 0;
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .stories .slide {
+    position: relative;
+    width: 100%;
+    display: grid;
+    height: auto;
+    padding: 00px 0;
+    overflow: hidden;
+  }
+
+  .stories .slide-items {
+    position: relative;
+    grid-area: 1/1;
+    overflow: hidden;
+  }
+
+  .stories .slide-items img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+
+  .stories .slide-nav {
+    grid-area: 1/1;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .stories .slide-items > * {
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .stories .slide-items > .active {
+    position: relative;
+    opacity: 1;
+    poiter-events: initial;
+  }
+
+  .stories .slide-nav button {
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    opacity: 0;
+  }
+
+  .stories .slide-thumb {
+    display: flex;
+    grid-column: 1/3;
+    padding: 0 15px;
+  }
+
+  .stories .slide-thumb > span {
+    flex: 1;
+    display: block;
+    height: 2px;
+    background: #afafaf;
+    margin: 3px;
+    margin-top: 20px;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .stories .slide-thumb > span.done:after {
+    content: '';
+    display: block;
+    height: inherit;
+    background: rgba(141, 141, 141, 1);
+    border-radius: 3px;
+  }
+
+  .stories .slide-thumb > span.active:after {
+    content: '';
+    display: block;
+    height: inherit;
+    background: rgba(0, 0, 0, 1);
+    border-radius: 3px;
+    transform: translateX(-100%);
+    animation: thumb 5s forwards linear;
+  }
+
+  @keyframes thumb {
+    to {
+      transform: initial;
+    }
+  }
+  @media (min-width: 750px) {
+    .stories {
+      display: none;
+    }
+    .product_info_cross.bottom{display:none;}
+  }
+
+  .custom_product_info {
+    margin-top: 12px;
+    padding: 0 20px;
+    {% comment %} position: absolute; {% endcomment %}
+    width: 100%;
+    padding-bottom:2px;
+  }
+  .custom_product_info h1 {
+    color: #000;
+    font-family: 'Rubik-Regular';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 23px;
+    margin: 0;
+    width: 90%;
+  }
+  .product_info_heading_div {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+  }
+  .custom_product_info .price-item--sale {
+    color: #000;
+    font-family: 'Rubik-Medium';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 26px;
+  }
+  .custom_product_info .price--on-sale .price-item--regular {
+    color: rgba(0, 0, 0, 0.4);
+    font-family: 'Rubik-Regular';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px;
+  }
+  .custom_product_info .percent_discount {
+    color: #dd5041;
+    font-family: 'Rubik-Regular';
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px;
+  }
+  .offers_available_number_mobile {
+    color: rgba(0, 0, 0, 0.6);
+    font-family: 'Rubik-Regular';
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px;
+  }
+</style>
+<div class="stories">
+  <div class="main-wrapper">
+    <div data-slide="slide" class="slide">
+      <div class="slide-items">
+        {% for image in product.media %}
+          <div class="stories_product_div">
+            {{ image | image_url: width: '1000' | image_tag }}
+            <div class="custom_product_info">
+              <div class="product_info_heading_div">
+                <h1>{{ product.title }}</h1>
+                {% comment %}
+                  <svg
+                    class="product_info_cross"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="17"
+                    height="17"
+                    viewBox="0 0 17 17"
+                    fill="none"
+                  >
+                    <path d="M16 1L1 16" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M1 1L16 16" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                {% endcomment %}
+              </div>
+              {% render 'price' %}
+              <p>{{ block.settings.offers_available_number }}</p>
+              <p class="offers_available_number_mobile"></p>
+              {% liquid
+                assign rating_decimal = product.metafields.reviews.rating.value | split: '.'
+                assign decimal = rating_decimal[1]
+                assign finaldecimal = decimal | divided_by: 10
+              %}
+              <div class="card__badge reviews mobile b">
+                <a href="#judgeme_product_reviews">
+                  <span class="text">{{ rating_decimal[0] }}.{{ finaldecimal }} </span>
+                <span class="jdgm-star jdgm--on"></span>
+                <span class="jdgm-prev-badge__text text"> | {{ product.metafields.reviews.rating_count }} </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      <nav class="slide-nav">
+        <div class="slide-thumb"></div>
+        <button class="slide-prev">Previous</button>
+        <button class="slide-next">Next</button>
+      </nav>
+    </div>
+  </div>
+</div>
+{% comment %}
+        <svg
+    class="product_info_cross bottom"
+    xmlns="http://www.w3.org/2000/svg"
+    width="17"
+    height="17"
+    viewBox="0 0 17 17"
+    fill="none"
+  >
+    <path d="M16 1L1 16" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M1 1L16 16" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+{% endcomment %}
+<script>
+  class SlideStories {
+    constructor(id) {
+      this.slide = document.querySelector(`[data-slide=${id}]`);
+      this.active = 0;
+      this.init();
+    }
+
+    activeSlide(index) {
+      this.active = index;
+      this.items.forEach((item) => {
+        item.classList.remove('active');
+      });
+      this.items[index].classList.add('active');
+      this.thumbItems.forEach((item) => {
+        item.classList.remove('active');
+      });
+      this.thumbItems[index].classList.add('active');
+      this.autoSlide();
+      console.log(this.thumbItems.classList);
+    }
+
+    prev() {
+      if (this.active > 0) {
+        this.activeSlide(this.active - 1);
+      } else {
+        this.activeSlide(this.items.length - 1);
+      }
+    }
+
+    next() {
+      if (this.active < this.items.length - 1) {
+        this.activeSlide(this.active + 1);
+      } else {
+        this.activeSlide(0);
+      }
+    }
+
+    addNavigation() {
+      const nextBtn = this.slide.querySelector('.slide-next');
+      const prevBtn = this.slide.querySelector('.slide-prev');
+      nextBtn.addEventListener('click', this.next);
+      prevBtn.addEventListener('click', this.prev);
+    }
+
+    addThumbItems() {
+      this.items.forEach(() => (this.thumb.innerHTML += `<span></span>`));
+      this.thumbItems = Array.from(this.thumb.children);
+    }
+
+    autoSlide() {
+      clearTimeout(this.timeout);
+      this.timeout = setTimeout(this.next, 6000);
+    }
+
+    clearSlideTimeout() {}
+
+    init() {
+      this.next = this.next.bind(this);
+      this.prev = this.prev.bind(this);
+      this.items = this.slide.querySelectorAll('.slide-items > *');
+      this.thumb = this.slide.querySelector('.slide-thumb');
+      this.addThumbItems();
+      this.activeSlide(0);
+      this.addNavigation();
+
+      this.items.forEach((item) => {
+        item.addEventListener('longpress', (e) => {
+          this.clearSlideTimeout();
+        });
+
+        item.addEventListener('touchend', (e) => {
+          this.autoSlide();
+        });
+      });
+    }
+  }
+  new SlideStories('slide');
+
+  {% comment %} const crossButton = document.querySelector('.product_info_cross');
+
+  crossButton?.addEventListener('click', function () {
+    // Check the referrer URL to determine if user came from another page
+    const referrer = document.referrer;
+
+    if (referrer && referrer.includes('plaetoshoes')) {
+      // User came from another product page, go back to the previous page
+      history.back();
+    } else {
+      // User landed directly on the product or from a different page, redirect to the homepage
+      window.location.href = '/';
+    }
+  }); {% endcomment %}
+</script>
+
+{% comment %}
+  <style>
+    .stories div:empty {
+      display: block;
+    }
+
+    .stories .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .stories .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .stories .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .stories .autoplay-progress {
+      position: absolute;
+      right: 16px;
+      bottom: 16px;
+      z-index: 10;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: var(--swiper-theme-color);
+    }
+
+    .stories .autoplay-progress svg {
+      --progress: 0;
+      position: absolute;
+      left: 0;
+      top: 0px;
+      z-index: 10;
+      width: 100%;
+      height: 100%;
+      stroke-width: 4px;
+      stroke: var(--swiper-theme-color);
+      fill: none;
+      stroke-dashoffset: calc(125.6 * (1 - var(--progress)));
+      stroke-dasharray: 125.6;
+      transform: rotate(-90deg);
+    }
+  </style>
+
+  <div class="stories">
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        {% for image in product.images %}
+          <div class="swiper-slide">
+            {{ image | image_url: width: '400' | image_tag }}
+          </div>
+        {% endfor %}
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+      <div class="autoplay-progress">
+        <svg viewBox="0 0 48 48">
+          <circle cx="24" cy="24" r="20"></circle>
+        </svg>
+        <span></span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener(
+      'DOMContentLoaded',
+      () => {
+        const progressCircle = document.querySelector('.autoplay-progress svg');
+        const progressContent = document.querySelector('.autoplay-progress span');
+        var swiper = new Swiper('.mySwiper', {
+          spaceBetween: 30,
+          centeredSlides: true,
+          loop: true,
+          autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+          },
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+          on: {
+            autoplayTimeLeft(s, time, progress) {
+              progressCircle.style.setProperty('--progress', 1 - progress);
+              progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+            },
+          },
+        });
+      },
+      { once: true }
+    );
+  </script>
+{% endcomment %}
+
+{% schema %}
+{
+  "name": "Stories Slider Section",
+
+  "settings": [],
+  "presets": [
+    {
+      "name": "Stories Slider Section"
+    }
+  ]
+}
+{% endschema %}

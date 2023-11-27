@@ -1,0 +1,524 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+
+{% if section.settings.image_shape == 'blob' %}
+  {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+
+{%- if section.settings.enable_quick_add -%}
+  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+.recentlyviewed_{{ section.id }} .swiper-pagination{margin-bottom: -15px;}
+.recentlyviewed_{{ section.id }} .swiper-button-next{display:block; right:10px; top:39%;}
+.recentlyviewed_{{ section.id }} .swiper-button-prev{display:block; left:3px; top:39%;}
+.recentlyviewed_{{ section.id }} .swiper-button-prev svg{transform: rotate(180deg);}
+.recentlyviewed_{{ section.id }} .swiper-button-next:after, .recentlyviewed_{{ section.id }} .swiper-button-prev:after{display:none;font-size:20px;}
+.recentlyviewed_{{ section.id }} .swiper-button-next.swiper-button-lock,.recentlyviewed_{{ section.id }} .swiper-button-prev.swiper-button-lock{display:none;}
+.recentlyviewed_{{ section.id }} .grid__item .card__media .media{background:none !important;}  
+.recentlyviewed_{{ section.id }} .swiper-pagination-bullet-active{background:#000;}
+.recentviewtitle{font-weight:500 !important;}
+.recentlyviewed_slider .card__heading a{text-decoration: none ;}
+.recentlyviewed_{{ section.id }} .card__badge{display:none;}
+.recentlyviewed_{{ section.id }} .card_badge_rating{display:block;}
+.recentlyviewed_{{ section.id }} .card_badge_rating span:first-child{padding-right:5px;}
+
+  
+@media screen and (max-width: 750px) {
+    ul.mobile_grid_1 .grid__item{max-width:100%;}  
+  .recentlyviewed_{{ section.id }} .swiper-button-next{right:1px; top:32%;}
+  .recentlyviewed_{{ section.id }} .swiper-button-prev{left:5px; top:32%;}
+  .recentlyviewed_{{ section.id }} .swiper-button-next svg{width:25px}
+  .recentlyviewed_{{ section.id }} .swiper-button-prev svg{width:25px;}
+  .recentviewtitle{font-weight:500 !important; font-size:25px;}
+  .recentlyviewed_{{ section.id }} .badge.badge--bottom-left{position:absolute !important;top:0px;}
+  .recentlyviewed_slider .price--on-sale .price__sale{display:flex !important; column-gap:3px !important;}  
+}
+@media screen and (min-width:768px) and (max-width:819px) {
+  .recentlyviewed_{{ section.id }} .swiper-button-next{right:15px; top:31%;}
+  .recentlyviewed_{{ section.id }} .swiper-button-prev{left:5px; top:31%;}
+}
+@media screen and (min-width:820px) and (max-width:1024px) {
+  .recentlyviewed_{{ section.id }} .swiper-button-next{right:15px; top:33.5%;}
+  .recentlyviewed_{{ section.id }} .swiper-button-prev{left:5px; top:33.5%;}
+}  
+@media screen and (min-width:1025px) and (max-width:1600px) {
+  .recentlyviewed_{{ section.id }} .swiper-button-next{right:15px; top:35%;}
+  .recentlyviewed_{{ section.id }} .swiper-button-prev{left:5px; top:35%;}
+}  
+.recentlyviewed_slider .price--on-sale .price__sale{display:flex; column-gap:8px}  
+
+  
+{%- endstyle -%}
+
+{%- liquid
+  assign products_to_display = section.settings.collection.all_products_count
+
+  if section.settings.collection.all_products_count > section.settings.products_to_show
+    assign products_to_display = section.settings.products_to_show
+    assign more_in_collection = true
+  endif
+
+  assign columns_mobile_int = section.settings.columns_mobile | plus: 0
+  assign show_mobile_slider = false
+  if section.settings.swipe_on_mobile 
+    assign show_mobile_slider = true
+  endif
+-%}
+
+
+
+
+<div class="color-{{ section.settings.color_scheme }} isolate gradient ffff">
+  <div class="collection section-{{ section.id }}-padding{% if section.settings.full_width %} collection--full-width{% endif %}">
+    <div class="collection__title title-wrapper title-wrapper--no-top-margin page-width{% if show_mobile_slider %}  {% endif %}">
+      {%- if section.settings.title != blank -%}
+        <h2 class="title inline-richtext recentviewtitle {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+          {{ section.settings.title }}
+        </h2>
+      {%- endif -%}
+      {%- if section.settings.description != blank
+        or section.settings.show_description
+        and section.settings.collection.description != empty
+      -%}
+        <div class="collection__description {{ section.settings.description_style }} rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+          {%- if section.settings.show_description -%}
+            {{ section.settings.collection.description }}
+          {%- else -%}
+            {{ section.settings.description -}}
+          {%- endif %}
+        </div>
+      {%- endif -%}
+    </div>
+    <div class="{% if section.settings.full_width %} slider-component-full-width{% endif %} page-width page-width-desktop">
+     <slider-component class="slider-mobile-gutter recentlyviewed_slider swiper recentlyviewed_{{ section.id }}">
+      <ul
+        id="Slider-{{ section.id }}"
+        class=" {% if show_mobile_slider == false %} grid {% endif %}  product-grid contains-card contains-card--product{% if settings.card_style == 'standard' %} contains-card--standard{% endif %} grid--{{ section.settings.columns_desktop }}-col-desktop{% if section.settings.collection == blank %} grid--2-col-tablet-down{% else %} grid--{{ section.settings.columns_mobile }}-col-tablet-down{% endif %} swiper-wrapper  {% if section.settings.columns_mobile == "1" %} mobile_grid_1  {% endif %}"
+        role="list"
+        aria-label="{{ 'general.slider.name' | t }}"
+      >
+      </ul>
+       {% if section.settings.swipe_navigation %}
+            <div class="swiper-button-next">{% render 'slider-right-arrow' %}</div>
+            <div class="swiper-button-prev">{% render 'slider-left-arrow' %}</div>
+       {% endif %}
+        {% if section.settings.swipe_pagination %}
+            <div class="swiper-pagination"></div>
+       {% endif %}
+    </slider-component>
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+
+function recentlyViewedproduct(){
+    let setctionid = "Slide-{{ section.id }}";
+    let productIdsArr = [];
+   
+    let productIdsArray = [];
+    let productIds = getCookie('recentlyViewed');
+    window.productIds_exist = false;
+    
+    if (productIds != null){
+                window.productIds_exist = true;
+                productIdsArr = productIds.split(",");
+                productIdsArr.forEach(pid =>{
+                   productIdsArray.push("gid://shopify/Product/"+pid);
+                })
+                productIdsArray.reverse();
+                let variables = {"ids": productIdsArray};
+                let myHeaders = new Headers();
+                myHeaders.append("X-Shopify-Storefront-Access-Token", "37b26e97f42adfe69e31aede5d08c978");
+                myHeaders.append("Content-Type", "application/json");
+                let graphql = JSON.stringify({
+                   query: "query GetProduct($ids: [ID!]!) {\r\n  nodes(ids: $ids) {\r\n    ... on Product {\r\n      id\r\n      title\r\n      featuredImage {\r\n        url(transform: {maxHeight: 270, maxWidth: 270})\r\n        altText\r\n        height\r\n        width\r\n      }\r\n      onlineStoreUrl\r\n      variants(first:1) {\r\n        nodes {\r\n          availableForSale\r\n          price {\r\n            amount\r\n            currencyCode\r\n          }\r\n          compareAtPrice {\r\n            amount\r\n            currencyCode\r\n          }\r\n        }\r\n      }\r\n      metafields(identifiers: {key: \"badge\", namespace: \"judgeme\"}) {\r\n        value\r\n        key\r\n        id\r\n      }\r\n    }\r\n  }\r\n}",
+                  variables:variables
+                })
+                 //query: "query GetProduct($ids: [ID!]!) {\r\n  nodes(ids: $ids) {\r\n    ... on Product {\r\n      id\r\n      title\r\n      featuredImage {\r\n        url(transform: {maxHeight: 270, maxWidth: 270})\r\n        altText\r\n        height\r\n        width\r\n      }\r\n      onlineStoreUrl\r\n      variants(first:1) {\r\n        nodes {\r\n          availableForSale\r\n          price {\r\n            amount\r\n            currencyCode\r\n          }\r\n          compareAtPrice {\r\n            amount\r\n            currencyCode\r\n          }\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+                let requestOptions = {
+                  method: 'POST',
+                  headers: myHeaders,
+                  body: graphql,
+                  redirect: 'follow'
+                };
+                fetch("https://plaetoshoes.myshopify.com/api/2023-07/graphql.json", requestOptions)
+                  .then(response => response.json())
+                  .then(result => {
+
+                    let recentlydata = result.data.nodes;
+                    let sectionSelector = document.getElementById("Slider-{{ section.id }}");
+                    
+                    for (var i = 0; i < recentlydata.length; i++) {
+                      let li = document.createElement('li');
+                      let card_wrapper = document.createElement('div');
+                      let card = document.createElement('div');
+                      let card__inner = document.createElement('div');
+                      let card__media = document.createElement('div');
+                      let card__media_content = document.createElement('div');
+                      let card__badge = document.createElement('div');
+                      let card__badge_span = document.createElement('span');
+                      let media = document.createElement('div');
+                      let image = document.createElement('img');
+                      let card__content = document.createElement('div');
+                      let card__information = document.createElement('div');
+                      let h3 = document.createElement('h3');
+                      let atag = document.createElement('a');
+                      let atag_img = document.createElement('a');
+                      let card_information = document.createElement('div');
+                      let price = document.createElement('div');
+                      let price__container = document.createElement('div');
+                      let price__regular = document.createElement('div');
+                      let price__sale = document.createElement('div');
+                      let span_regular_p1 = document.createElement('span');
+
+                     let discount = document.createElement('span');
+                      let discount_inner = document.createElement('span');  
+
+                      let price__sale_p1 = document.createElement('span');
+                      let price__sale_s = document.createElement('s');
+                      let price__sale_p2 = document.createElement('span');
+                      let variants = [];
+
+                      let htmlString = recentlydata[i].metafields[0].value
+                      let tempElement = document.createElement('div');
+                        tempElement.innerHTML = htmlString;
+                      let data_rating = tempElement.querySelector('.jdgm-prev-badge').getAttribute('data-average-rating');
+
+                      let data_rating_slice = data_rating.slice(0, 3);
+                      
+                      let data_rating_parseint = parseFloat(data_rating_slice);
+                      let data_reviews = tempElement.querySelector('.jdgm-prev-badge').getAttribute('data-number-of-reviews');
+
+                      
+                      
+                            let ratingandreview_box = `<div class="card__badge reviews bottom left card_badge_rating"><span class="text">${data_rating_parseint}</span><span class="jdgm-star jdgm--on"></span><span class="jdgm-prev-badge__text text"> | ${data_reviews}</span></div>`;
+                     
+
+                       li.classList.add("grid__item");
+                       li.classList.add("swiper-slide");
+                      card_wrapper.classList.add("card-wrapper");
+                      card_wrapper.classList.add("product-card-wrapper");
+                      card_wrapper.classList.add("underline-links-hover");
+                      card.classList.add("card");
+                      card.classList.add("card--standard");
+                      card.classList.add("card--media");
+                      card__inner.classList.add("card__inner");
+                      card__inner.classList.add("ratio");
+                      card__inner.style = "--ratio-percent: 100.0%;";
+                      card__media.classList.add("card__media");
+                      media.classList.add("media");
+                      card__media_content.classList.add("card__content");
+                      card__badge.classList.add("card__badge");
+                      card__badge.classList.add("bottom");
+                      card__badge.classList.add("left");
+                      card__badge_span.classList.add("badge");
+                      card__badge_span.classList.add("badge--bottom-left");
+                      card__badge_span.classList.add("color-accent-2");
+                      card__content.classList.add("card__content");
+                      card__information.classList.add("card__information");
+                      h3.classList.add("card__heading");
+                      h3.classList.add("h5");
+                      atag.classList.add("full-unstyled-link");
+                      card_information.classList.add("card-information");
+                      price.classList.add("price");
+                      price__container.classList.add("price__container");
+                      price__regular.classList.add("price__regular");
+                      price__sale.classList.add("price__sale");
+                      discount.classList.add("discount");
+                      discount_inner.classList.add("percent_discount");  
+                      span_regular_p1.classList.add("price-item");
+                      span_regular_p1.classList.add("price-item--regular");
+                      price__sale_s.classList.add("price-item");
+                      price__sale_s.classList.add("price-item--regular");
+                      price__sale_p2.classList.add("price-item");
+                      price__sale_p2.classList.add("price-item--sale");
+                      price__sale_p2.classList.add("price-item--last");
+                      li.appendChild(card_wrapper)
+                      card_wrapper.appendChild(card)
+                      card.appendChild(card__inner)
+                      card__inner.appendChild(atag_img);
+                      if(data_rating_parseint != 0){
+                      card__inner.insertAdjacentHTML('beforeend', ratingandreview_box);
+                      }
+                      atag_img.setAttribute("href",recentlydata[i].onlineStoreUrl);
+                      atag_img.textContent = recentlydata[i].title;
+                      atag_img.appendChild(card__media)
+                      card__media.appendChild(media)
+                       media.appendChild(image);
+                      image.setAttribute("src",recentlydata[i].featuredImage.url);
+                      image.setAttribute("width",recentlydata[i].featuredImage.width);
+                      image.setAttribute("height",recentlydata[i].featuredImage.height);
+                      image.setAttribute("alt",recentlydata[i].featuredImage.alt);
+                      atag_img.appendChild(card__media_content);
+                      card__media_content.appendChild(card__badge);
+                      card__badge.appendChild(card__badge_span);
+                      card.appendChild(card__content);
+                      card__content.appendChild(card__information);
+                      card__information.appendChild(h3);
+                      h3.appendChild(atag)
+                      atag.setAttribute("href",recentlydata[i].onlineStoreUrl);
+                      atag.textContent = recentlydata[i].title;
+                      card__information.appendChild(card_information);
+                      card_information.appendChild(price);
+                      price.appendChild(price__container);
+                      price__container.appendChild(price__regular);
+                      price__regular.appendChild(span_regular_p1);
+                      price__container.appendChild(price__sale);
+                      price__sale.appendChild(price__sale_p2);
+                      price__sale.appendChild(price__sale_p1);       
+                      price__sale_p1.appendChild(price__sale_s);
+                      discount.appendChild(discount_inner); 
+                      price__sale.appendChild(discount); 
+                      variants = recentlydata[i].variants.nodes;
+                      variants.forEach(elem=>{
+                        let pprice = parseInt(elem.price.amount);
+                        let pcompare_Atprice = parseInt(elem.compareAtPrice.amount);
+                        if(pcompare_Atprice > pprice){
+                          price.classList.add("price--on-sale");
+                        }
+                        if(elem.availableForSale){
+                          card__badge_span.textContent = "Sale";
+                        }else{
+                          card__badge_span.textContent = "Sold Out";
+                        }
+                        
+                        let __price = elem.price.amount;
+                        let __price_parse = parseFloat(__price);
+                        let compare__at_price = elem.compareAtPrice.amount;
+                        let compare__at_price1 = parseFloat(compare__at_price);
+                        span_regular_p1.textContent = "₹ " + __price_parse;
+                        price__sale_s.textContent = "₹ " + compare__at_price1;
+                        price__sale_p2.textContent = "₹ " + __price_parse;
+
+                        const mrp = elem.compareAtPrice.amount;
+                        const salePrice = elem.price.amount;
+                        const percentageDiscount = ((mrp - salePrice) / mrp) * 100;
+                        const percentage_discount = percentageDiscount.toFixed(2);
+                        const percentage_dis = Math.round(percentage_discount)
+                        discount_inner.textContent = "("+percentage_dis+"%)";  
+                 });
+                 sectionSelector.appendChild(li); 
+
+
+                    }
+                  })
+                  .catch(error => console.log('error', error));
+               
+    }else{
+             document.getElementById("shopify-section-{{ section.id }}").style.display = "none";         
+    }
+
+                      
+}
+
+recentlyViewedproduct();
+
+function getCookie(cookieName) {
+    let name = cookieName + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let cookieArray = decodedCookie.split(';');
+    
+    for (let i = 0; i < cookieArray.length; i++) {
+         let cookie = cookieArray[i].trim();
+        
+        if (cookie.indexOf(name) == 0) {
+            return cookie.substring(name.length, cookie.length);
+        }
+    }
+return null;
+}
+
+document.addEventListener("DOMContentLoaded", (event) => {
+
+  {% if show_mobile_slider %}
+              if(productIds_exist){
+                               let swiper = new Swiper(".recentlyviewed_{{ section.id }}", {
+                                        slidesPerView: {{ section.settings.columns_mobile }},
+                                        spaceBetween:10,
+                                         {% if section.settings.swipe_pagination %}
+                                                pagination: {
+                                                  el: ".swiper-pagination",
+                                                  clickable: true,
+                                                },
+                                         {% endif %}
+                                       {% if section.settings.swipe_navigation %}
+                                                navigation: {
+                                                nextEl: ".swiper-button-next",
+                                                prevEl: ".swiper-button-prev",
+                                                },
+                                       {% endif %}
+                                        breakpoints: {
+                                          640: {
+                                            slidesPerView: {{ section.settings.columns_mobile }},
+                                            spaceBetween: 10,
+                                          },
+                                          768: {
+                                            slidesPerView: 3,
+                                            spaceBetween:20,
+                                          },
+                                          1024: {
+                                            slidesPerView: {{ section.settings.columns_desktop }},
+                                            spaceBetween:20,
+                                          },
+                                        },
+                              });
+               }
+  {% endif %}
+
+});      
+  
+</script>
+
+
+
+
+
+{% schema %}
+{
+  "name": "Recently Viewed",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "Recently Viewed",
+      "label": "t:sections.featured-collection.settings.title.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "t:sections.featured-collection.settings.description.label"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 8,
+      "step": 1,
+      "default": 4,
+      "label": "Number of columns"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "t:sections.featured-collection.settings.full_width.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "swipe_on_mobile",
+      "label": "Enable carousel on Mobile and desktop",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "swipe_navigation",
+      "label": "Enable swipe navigation",
+      "default": false
+    },
+     {
+      "type": "checkbox",
+      "id": "swipe_pagination",
+      "label": "Enable swipe pagination",
+      "default": false
+    },
+   
+    {
+      "type": "header",
+      "content": "t:sections.featured-collection.settings.header_mobile.content"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "default": "2",
+      "label": "t:sections.featured-collection.settings.columns_mobile.label",
+      "options": [
+        {
+          "value": "1",
+          "label": "t:sections.featured-collection.settings.columns_mobile.options__1.label"
+        },
+        {
+          "value": "2",
+          "label": "t:sections.featured-collection.settings.columns_mobile.options__2.label"
+        }
+      ]
+    },
+   
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Recently Viewed"
+    }
+  ]
+}
+{% endschema %}

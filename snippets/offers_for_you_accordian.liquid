@@ -1,0 +1,60 @@
+<style>
+  .offers_accordian_content {
+    display: block;
+    overflow: hidden;
+    max-height: 0px;
+    transition: max-height 0.2s ease-out;
+  }
+</style>
+
+<div class="offers_for_you_accordian">
+  <div class="offers_accordian_tab">
+    <h4>Offers for you</h4>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="icon icon-caret"
+      width="16"
+      height="9"
+      viewBox="0 0 16 9"
+      fill="none"
+    >
+      <path d="M1 1L8 8L15 1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+  </div>
+  <div class="offers_accordian_content">
+    lkjeghfuegfu dsugfiyubfigiyfgeyf sdefgiyrgbfiwergfiy dsbfifgewif uesdagfyergifgwerifg sgedyfgerwfiu7erwgfrew
+  </div>
+</div>
+
+<script>
+  let accHeading = document.querySelectorAll('.offers_accordian_tab');
+  let accPanel = document.querySelectorAll('.offers_accordian_content');
+  let svg = document.querySelector('.offers_accordian_tab svg');
+
+  document.querySelector('.offers_accordian_content').style.maxHeight = '1000px';
+  for (let i = 0; i < accHeading.length; i++) {
+    // Execute whenever an accordion is clicked
+    accHeading[i].onclick = function () {
+      if (this.nextElementSibling.style.maxHeight) {
+        hidePanels(); // Hide All open Panels
+      } else {
+        showPanel(this); // Show the panel
+      }
+    };
+  }
+
+  // Function to Show a Panel
+  function showPanel(elem) {
+    hidePanels();
+    elem.classList.add('active');
+    elem.nextElementSibling.style.maxHeight = elem.nextElementSibling.scrollHeight + 'px';
+  }
+
+  // Function to Hide all shown Panels
+  function hidePanels() {
+    for (let i = 0; i < accPanel.length; i++) {
+      accPanel[i].style.maxHeight = null;
+      accHeading[i].classList.remove('active');
+    }
+  }
+</script>

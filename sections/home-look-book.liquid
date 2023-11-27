@@ -1,0 +1,182 @@
+{{ 'look_book.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .look-book-section-{{ section.id }} {
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+        margin-top: 50px;
+    }
+    .look-book .swiper-slide {width: calc(100% / 4); margin-right: 10px;}
+  @media(max-width:749px)
+  {
+    .look-book-section-{{ section.id }} {
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+       margin-top: 20px;
+      }
+    }
+</style>
+
+<div class="look-book look-book-section-{{ section.id }}" id="{{ section.id }}">
+  <div class="look_book_div">
+    <h2 class="look_book_heading">{{ section.settings.look_book_heading }}</h2>
+    <div class="swiper look_book_swiper">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          {% if block.settings.look_book_block_image != blank %}
+            <div class="swiper-slide">
+             
+              <a href="{{ block.settings.look_book_block_url }}">
+          
+              {% if image.alt %}
+                {% assign alt = image.alt %}
+              {% else %}
+                {% assign alt = 'Look Book Image' %}
+              {% endif %}
+              {{ block.settings.look_book_block_image | image_url: width: '500' | image_tag: class: '', alt: alt }}
+              <h4>{{ block.settings.look_book_block_text }}</h4>
+              </a>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    <div class="swiper-button-next">
+      <svg
+        class="desktop_next_button"
+        width="37"
+        height="37"
+        viewBox="0 0 37 37"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle cx="18.5" cy="18.5" r="18.5" fill="black"/>
+        <path d="M23.2974 19.9433C23.5468 19.7064 23.7132 19.3512 23.7132 18.9956C23.7132 18.6403 23.5471 18.2851 23.2974 18.048L15.689 10.8225C15.1484 10.3092 14.2337 10.3092 13.6934 10.8225C13.1529 11.3359 13.1529 12.2046 13.6934 12.7177L20.2622 18.9957L13.6932 25.2341C13.402 25.5106 13.2773 25.8262 13.2773 26.1817C13.2773 26.537 13.402 26.8923 13.6932 27.1294C14.2338 27.6428 15.1485 27.6428 15.6888 27.1294L23.2974 19.9433Z" fill="white"/>
+      </svg>
+
+      <svg
+        class="mobile_next_button"
+        width="34"
+        height="34"
+        viewBox="0 0 34 34"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M21.6413 18.463C21.8564 18.2272 22 17.8735 22 17.5196C22 17.1659 21.8567 16.8122 21.6413 16.5762L15.0798 9.38329C14.6136 8.87224 13.8248 8.87224 13.3588 9.38329C12.8927 9.89435 12.8927 10.7591 13.3588 11.2699L19.0238 17.5197L13.3587 23.7299C13.1075 24.0052 13 24.3194 13 24.6733C13 25.027 13.1075 25.3807 13.3587 25.6167C13.8248 26.1278 14.6137 26.1278 15.0796 25.6167L21.6413 18.463Z" fill="black"/>
+        <circle cx="17" cy="17" r="16.5" stroke="black" stroke-opacity="0.3"/>
+      </svg>
+    </div>
+    <div class="swiper-button-prev">
+      <svg
+        class="desktop_prev_button"
+        width="34"
+        height="34"
+        viewBox="0 0 37 37"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle cx="18.5" cy="18.5" r="18.5" fill="black"/>
+        <path d="M23.2974 19.9433C23.5468 19.7064 23.7132 19.3512 23.7132 18.9956C23.7132 18.6403 23.5471 18.2851 23.2974 18.048L15.689 10.8225C15.1484 10.3092 14.2337 10.3092 13.6934 10.8225C13.1529 11.3359 13.1529 12.2046 13.6934 12.7177L20.2622 18.9957L13.6932 25.2341C13.402 25.5106 13.2773 25.8262 13.2773 26.1817C13.2773 26.537 13.402 26.8923 13.6932 27.1294C14.2338 27.6428 15.1485 27.6428 15.6888 27.1294L23.2974 19.9433Z" fill="white"/>
+      </svg>
+
+      <svg
+        class="mobile_prev_button"
+        width="34"
+        height="34"
+        viewBox="0 0 34 34"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M21.6413 18.463C21.8564 18.2272 22 17.8735 22 17.5196C22 17.1659 21.8567 16.8122 21.6413 16.5762L15.0798 9.38329C14.6136 8.87224 13.8248 8.87224 13.3588 9.38329C12.8927 9.89435 12.8927 10.7591 13.3588 11.2699L19.0238 17.5197L13.3587 23.7299C13.1075 24.0052 13 24.3194 13 24.6733C13 25.027 13.1075 25.3807 13.3587 25.6167C13.8248 26.1278 14.6137 26.1278 15.0796 25.6167L21.6413 18.463Z" fill="black"/>
+        <circle cx="17" cy="17" r="16.5" stroke="black" stroke-opacity="0.3"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<script>
+  window.addEventListener(
+    'DOMContentLoaded',
+    () => {
+      let look_book_swiper{{- section.id | remove: "--" | remove: "__" | remove: "-" }} = new Swiper('#{{- section.id }} .look_book_swiper', {
+        slidesPerView: 1.25,
+        spaceBetween: 10,
+        centeredSlides:false,
+        breakpoints: {
+            750: {
+            slidesPerView: 3,
+            spaceBetween: 16,
+          },
+          900: {
+            slidesPerView: 4,
+            spaceBetween: 16,
+          },
+        },
+        navigation: {
+          nextEl: '#{{- section.id }} .swiper-button-next',
+          prevEl: '#{{- section.id }} .swiper-button-prev',
+        },
+      });
+    },
+    { once: true }
+  );
+</script>
+{% schema %}
+{
+  "name": "Look Book",
+  "settings": [
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom Desktop",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom Mobile",
+      "default": 36
+    },
+    {
+      "type": "text",
+      "id": "look_book_heading",
+      "label": "Heading"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Look Book",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "look_book_block_image",
+          "label": "Image",
+          "info": "Image size should be 325px X 230px"
+        },
+        {
+          "type": "url",
+          "id": "look_book_block_url",
+          "label": "URL"
+        },
+        {
+          "type": "text",
+          "id": "look_book_block_text",
+          "label": "Look Book Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Look Book"
+    }
+  ]
+}
+{% endschema %}

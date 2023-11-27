@@ -1,0 +1,87 @@
+.homepage-main-banner-container .mobile-banner-image{display:none}
+.homepage-main-banner-container .desktop-banner-image,.mobile-banner-image{width:100%;height:auto}
+.homepage-main-banner-container .swiper-pagination-bullet-active{background:#fff}
+.desktop_banner_content{position:absolute;width:100%;}
+.desktop_banner_content.bottom-center,.desktop_banner_content.bottom-left,.desktop_banner_content.bottom-right{bottom:13%;}
+.desktop_banner_content.top-center,.desktop_banner_content.top-left,.desktop_banner_content.top-right{bottom:unset;top:13%;}
+.desktop_banner_content.middle-right,.desktop_banner_content.middle-left,.desktop_banner_content.middle-center{bottom:unset;top:45%;}
+.mobile_banner_content{position:absolute;bottom:0;display:none;width:100%;background:linear-gradient(180deg,rgba(0,0,0,0) 0,rgba(7,7,7,.72) 100%)}
+
+.mobile_banner_content.bottom-center,.mobile_banner_content.bottom-left,.mobile_banner_content.bottom-right{bottom:0;}
+.mobile_banner_content.top-center,.mobile_banner_content.top-left,.mobile_banner_content.top-right{top:5%;}
+.mobile_banner_content.middle-center,.mobile_banner_content.middle-left,.mobile_banner_content.middle-right{top:35%;}
+.mobile_banner_content_div{margin-bottom:38px}
+.homepage-main-banner-container .swiper-button-prev{transform:rotate(180deg)}
+.homepage-main-banner-container .swiper-button-prev:after,.homepage-main-banner-container .swiper-rtl .swiper-button-next:after{content:" "}
+.homepage-main-banner-container .swiper-button-next:after,.homepage-main-banner-container .swiper-rtl .swiper-button-prev:after{content:" "}
+.homepage-main-banner-container .swiper-button-next.swiper-button-disabled,.homepage-main-banner-container .swiper-button-prev.swiper-button-disabled{display:none}
+.relative{position:relative}
+.homepage-main-banner-container .swiper-button-prev{width:37px;height:37px; left: 20px;  }
+.homepage-main-banner-container .swiper-button-next{width:37px;height:37px; right: 20px;}
+.desktop_banner_text1{font-family:'Rubik-SemiBold';font-size:clamp(25px,calc(37 * (100vw / 1600)),40px);font-weight:600;line-height:normal;letter-spacing:.01em;text-align:left;color:#fff}
+.desktop_banner_text2{font-family:'Rubik-Regular';font-size:clamp(20px,calc(30 * (100vw / 1600)),35px);font-weight:400;line-height:normal;letter-spacing:.01em;text-align:left;color:#fff;margin-bottom:20px}
+.desktop_banner_content .desktop_button_text1{text-decoration:none;font-family:Rubik-Medium;font-size:clamp(15px,calc(20 * (100vw / 1600)),25px);font-weight:500;line-height:34px;
+letter-spacing:.02em;text-align:center;border-radius:4px;padding:8px 25px;width:220px;}
+.desktop_banner_content .desktop_button_text2{font-family:Rubik-Medium;text-decoration:none;font-size:clamp(15px,calc(20 * (100vw / 1600)),25px);font-weight:500;line-height:34px;
+letter-spacing:.02em;text-align:center;border-radius:4px;padding:8px 25px;width:220px;}
+.mobile_banner_content .mobile_banner_text1{font-family:Rubik-Bold;font-size:29px;font-weight:700;line-height:normal;letter-spacing:.58px;margin-bottom:17px;text-align:center}
+.mobile_banner_content .mobile_button_text1,.mobile_banner_content .mobile_button_text2{font-family:Rubik-Medium;font-size:18px;font-weight:500;line-height:34px;
+letter-spacing:.36px;border-radius:4px;padding: 7px 5px;
+    width: 150px;
+    text-align: center;}
+.homepage-main-banner-container .swiper-horizontal>.swiper-pagination-bullets,.swiper-pagination-bullets.swiper-pagination-horizontal{bottom:18px}
+
+.flex-11{display:flex;gap:11px;justify-content: space-between;}
+.flex-11 a{text-decoration:none}
+.flex-27{display:flex;gap:27px;}
+.homepage-main-banner .swiper-pagination .swiper-pagination-bullet{    width: 10.93px;
+    height: 10.93px;}
+.desktop_banner_content.bottom-center .flex-27,.desktop_banner_content.top-center .flex-27,.desktop_banner_content.middle-center .flex-27{justify-content:center;}
+.desktop_banner_content.bottom-left .flex-27,.desktop_banner_content.top-left .flex-27,.desktop_banner_content.middle-left .flex-27{justify-content:left;padding-left:2rem;}
+.desktop_banner_content.bottom-right .flex-27,.desktop_banner_content.top-right .flex-27,.desktop_banner_content.middle-right .flex-27{justify-content:right;padding-right:2rem;}
+
+.flex-27 a{text-decoration:none}
+@media screen and (min-width:1920px){
+.homepage-main-banner-container .swiper-button-next svg,.homepage-main-banner-container .swiper-button-prev svg,.homepage-main-banner-container .swiper-button-next,.homepage-main-banner-container .swiper-button-prev {
+    width: 50px;
+    height: 50px;}
+}
+@media screen and (max-width:820px){
+  .homepage-main-banner-container .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: 9px;
+}
+}
+@media only screen and (max-width:749px){
+.homepage-main-banner-container .desktop-banner-image{display:none}
+.homepage-main-banner-container .mobile-banner-image{display:block}
+.desktop_banner_content{display:none}
+  .mobile_banner_content.bottom-center, .mobile_banner_content.bottom-left, .mobile_banner_content.bottom-right {bottom: 0px;}
+  .homepage-main-banner-container .swiper-button-prev,.homepage-main-banner-container .swiper-button-next{display:none;}
+ .mobile_banner_content.bottom-left{place-items: self-start;padding-left:10px;}
+.mobile_banner_content{display:grid;place-items:center}
+.homepage-main-banner-container .swiper-horizontal>.swiper-pagination-bullets,.swiper-pagination-bullets.swiper-pagination-horizontal{bottom:10px}
+}
+
+@media only screen and (max-width:380px){ 
+    .mobile_banner_content .mobile_button_text1, .mobile_banner_content .mobile_button_text2{padding:7px 10px;}
+  .mobile_banner_content_div{    margin-bottom: 37px;}
+}
+@media only screen and (max-width:367px){ 
+  .homepage-main-banner-container .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: 5px;
+}
+    .mobile_banner_content .mobile_button_text1, .mobile_banner_content .mobile_button_text2{padding:7px 10px;font-size: 14px;
+    width: 120px;}
+  .mobile_banner_content_div {
+    margin-bottom: 34px;
+}
+}
+  @media screen and (max-width:320px){
+    .homepage-main-banner-container .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: 5px;
+}
+    .mobile_banner_content_div {
+    margin-bottom: 30px;
+}
+  }
+  

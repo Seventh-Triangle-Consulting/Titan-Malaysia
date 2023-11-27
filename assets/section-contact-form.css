@@ -1,0 +1,69 @@
+.contact img {
+  max-width: 100%;
+}
+
+.contact .form__message {
+  align-items: flex-start;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+    .contact__fields .field.fullname{grid-column: 1/3;}
+.contact.page-width--narrow{max-width: 96rem;}
+.contact .title{text-align:center;margin-bottom:10px;}
+.contact .subheading{text-align:center;padding-bottom:20px;font-size: clamp(calc(22 * .8px),calc(22 * (100vw / var(--viewportDesktop))),calc(22 * 1.6px));
+    line-height: clamp(41px, calc(42 * (100vw /  var(--viewportDesktop))), 43px);color: rgba(0, 0, 0, 1);}
+.contact .icon-success {
+  margin-top: 0.2rem;
+}
+#ContactForm .field__label{position:unset;font-size: clamp(calc(19 * .8px),calc(19 * (100vw / var(--viewportDesktop))),calc(19 * 1.6px));
+    line-height: clamp(24px, calc(26 * (100vw /  var(--viewportDesktop))), 27px);color: rgba(0, 0, 0, 1);}
+#ContactForm .field{display:unset;}
+#ContactForm .field:after{content:'';box-shadow:none}
+.contact__fields .field input,#ContactForm input,#ContactForm textarea{border:1px solid #000;    border-radius: 3px;    padding-top: 8px;}
+.contact__button {text-align:center;}
+.contact__button .button{background-color: rgba(239, 49, 51, 1);padding:8px 66px;border-radius:4px;
+                        font-size: clamp(calc(18 * .8px),calc(18 * (100vw / var(--viewportDesktop))),calc(18 * 1.6px));font-family: var(--font-family-h2);
+    line-height: clamp(22px, calc(22.52 * (100vw /  var(--viewportDesktop))), 24px);}
+.contact .field {
+  margin-bottom: 1.5rem;
+}
+
+@media screen and (min-width: 750px) {
+  .contact .field {
+    margin-bottom: 2rem;padding-top: 1rem;
+  }
+}
+
+.contact__button {
+  margin-top: 3rem;
+}
+
+@media screen and (min-width: 750px) {
+  .contact__button {
+    margin-top: 4rem;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .contact__fields {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 2rem;
+  }
+}
+@media screen and (max-width:749px){
+  .contact__fields{    flex-direction: column;
+    display: flex;}
+  .contact .subheading{font-size:19px;line-height:24px;}
+  #ContactForm .field__label{font-size:19px;line-height:26px;}
+  .contact__button {
+    text-align: left;}
+  .contact__button .button{font-size:17px;line-height:34px;}
+
+
+}

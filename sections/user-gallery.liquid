@@ -1,0 +1,119 @@
+{{ 'user_gallery.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .user-gallery-section-{{ section.id }} {
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+    }
+
+  @media(max-width:749px)
+  {
+    .user-gallery-section-{{ section.id }} {
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+      }
+    }
+</style>
+
+{% assign user_gallery_images = product.metafields.custom.user_gallery_images %}
+{% if product.metafields.custom.user_gallery_images != blank %}
+  <div class="user-gallery user-gallery-section-{{ section.id }}" id="{{ section.id }}">
+    <div class="user_gallery_div">
+      <h2>User Gallery</h2>
+      <div class="swiper user_gallery_swiper">
+        <div class="swiper-wrapper">
+          {% for image in user_gallery_images.value %}
+            <div class="swiper-slide">
+              {% if image.alt %}
+                {% assign alt = image.alt %}
+              {% else %}
+                {% assign alt = 'Product Image' %}
+              {% endif %}
+              {{ image | image_url: width: '500' | image_tag: class: '', loading: 'lazy', alt: alt }}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="swiper-button-next">
+        <svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="18.5" cy="18.5" r="18.5" fill="black"/>
+          <path d="M23.2974 19.9433C23.5468 19.7064 23.7132 19.3512 23.7132 18.9956C23.7132 18.6403 23.5471 18.2851 23.2974 18.048L15.689 10.8225C15.1484 10.3092 14.2337 10.3092 13.6934 10.8225C13.1529 11.3359 13.1529 12.2046 13.6934 12.7177L20.2622 18.9957L13.6932 25.2341C13.402 25.5106 13.2773 25.8262 13.2773 26.1817C13.2773 26.537 13.402 26.8923 13.6932 27.1294C14.2338 27.6428 15.1485 27.6428 15.6888 27.1294L23.2974 19.9433Z" fill="white"/>
+        </svg>
+      </div>
+      <div class="swiper-button-prev">
+        <svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="18.5" cy="18.5" r="18.5" fill="black"/>
+          <path d="M23.2974 19.9433C23.5468 19.7064 23.7132 19.3512 23.7132 18.9956C23.7132 18.6403 23.5471 18.2851 23.2974 18.048L15.689 10.8225C15.1484 10.3092 14.2337 10.3092 13.6934 10.8225C13.1529 11.3359 13.1529 12.2046 13.6934 12.7177L20.2622 18.9957L13.6932 25.2341C13.402 25.5106 13.2773 25.8262 13.2773 26.1817C13.2773 26.537 13.402 26.8923 13.6932 27.1294C14.2338 27.6428 15.1485 27.6428 15.6888 27.1294L23.2974 19.9433Z" fill="white"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+<script>
+  window.addEventListener(
+    'DOMContentLoaded',
+    () => {
+      var user_gallery_swiper = new Swiper('#{{- section.id }} .user_gallery_swiper', {
+        centeredSlides: true,
+        slidesPerView: 2,
+        spaceBetween: 10,
+        loop: true,
+        breakpoints: {
+          300: {
+            slidesPerView: 1.35,
+            centeredSlides: true,
+            spaceBetween: 6,
+          },
+          750: {
+            slidesPerView: 3,
+            centeredSlides: false,
+            spaceBetween: 16,
+            loop: false,
+          },
+           900: {
+            slidesPerView: 4,
+            centeredSlides: false,
+            spaceBetween: 16,
+            loop: false,
+          },
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+    },
+    { once: true }
+  );
+</script>
+{% schema %}
+{
+  "name": "User Gallery",
+  "settings": [
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Top Desktop",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom Mobile",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "user gallery"
+    }
+  ]
+}
+{% endschema %}

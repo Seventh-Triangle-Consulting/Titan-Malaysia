@@ -1,0 +1,291 @@
+{%  if collection.metafields.custom.tab_collections.value != blank %}
+{{ 'plp-tab-section.css' | asset_url | stylesheet_tag }}
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+{{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+<link rel="preload" href="{{ 'component-rte.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<style>
+  .plp-tab-section.plp-padding {
+  margin-top: {{ section.settings.desktop_padding_top_plp }}rem;
+  padding-left: {{ section.settings.desktop_padding_left_plp }}rem;
+  padding-right: {{ section.settings.desktop_padding_left_plp }}rem;
+  }
+
+  @media screen and (max-width: 750px){
+    .plp-tab-section.plp-padding{
+        margin-top: {{ section.settings.mobile_padding_top_plp }}rem;
+        padding-left: {{ section.settings.mobile_padding_left_plp }}rem;
+        padding-right: {{ section.settings.mobile_padding_left_plp }}rem;
+    }
+  }
+</style>
+
+<section class="plp-tab-section plp-padding" id="plp-tab-slider">
+  <div class="plp-tab-container">
+    <div class="plp-tab-header page-width">
+      <div class="plp-heading-container">
+        <div class="plp-main-heading">
+          <h2>{{ section.settings['plp-heading'] }}</h2>
+        </div>
+        {% if section.settings['plp-sub-heading'] != blank %}
+        <div class="plp-sub-heading">
+          <p>{{ section.settings['plp-sub-heading'] }}</p>
+        </div>{% endif %}
+        
+      </div>
+
+      <div class="tab_plp">
+      
+        {% for tabnames in collection.metafields.custom.tab_names.value %}
+          
+          <div
+            class="{% if forloop.first %}active-tab-plp {% endif %}"
+            data-collectiontab="collection-{{ forloop.index0 }}"
+          >
+          
+            <span>{{ tabnames }}</span>
+          </div>
+          
+        {% endfor %}
+      </div>
+      
+              
+    </div>
+
+    <div>
+      <div class="plp-swiper-container page-width" id="{{ section.id }}">
+        {% for collectionurl in collection.metafields.custom.tab_collections.value %}
+        
+          <div
+            class="plp-swiper-container-outer   {% if forloop.first %} active-plp {% endif %}"
+            data-collectiontab="collection-{{forloop.index0}}"
+          >
+            <div class="swiper mySwipper-plp">
+              <div class="swiper-wrapper swipper-wrapper-plp">
+                {% for product in collections[collectionurl.handle].products limit: 5 %}
+                  <div
+                    class="swiper-slide"
+                  >
+                    {% render 'card-product',
+                     card_product: product,
+                    media_aspect_ratio: section.settings.image_ratio,
+                    show_secondary_image: section.settings.show_secondary_image,
+                    show_vendor: section.settings.show_vendor,
+                    show_rating: section.settings.show_rating,
+                    lazy_load: lazy_load,
+                    show_quick_add: section.settings.enable_quick_add,
+                    add_size_selector: section.settings.enable_size_selector,
+                    add-to-card: section.settings.enable_add_to_card,
+
+                    section_id: section.id
+
+                  %}
+                  </div>
+                {% endfor %}
+              </div>
+              
+              <div class="swiper-pagination"></div>
+              <div class="plp-nav-btns">
+                       <div class="swiper-ctrl collection-button-prev">{% render 'icon-arrow-next' %}</div>
+                       <div class="swiper-ctrl collection-button-next">{% render 'icon-arrow-next' %}</div>
+    
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+<script data-defer="nodefer">
+  window.addEventListener(
+    'DOMContentLoaded',
+    () => {
+      let plptabSwiper = new Swiper(`#{{ section.id }} .mySwipper-plp`, {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        grabCursor: true,
+        lazy: true,
+        loop: true,
+        freeMode: {
+          enabled: true,
+          sticky: true,
+        },
+        breakpoints: {
+          300: {
+            slidesPerView: 1.5,
+            spaceBetween: 10,
+            centeredSlides: false,
+            loop: true,
+          },
+          500: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+            centeredSlides: false,
+            loop: true,
+          },
+          901: {
+            slidesPerView: 4,
+            spaceBetween: 10,
+            centeredSlides: false,
+            loop: false,
+          },
+        },
+        navigation: {
+    nextEl: '.collection-button-next',
+    prevEl: '.collection-button-prev',
+  },
+        pagination: {
+          el: `#{{ section.id }} .swiper-pagination`,
+          clickable: true,
+        },
+      });
+    },
+    { once: true }
+  );
+</script>
+
+<script data-defer="nodefer">
+  const plpTab = document.querySelectorAll('.tab_plp div');
+  plpTab.forEach((tabBest) => {
+    tabBest.addEventListener('click', (event) => {
+      const collectiontab = tabBest.getAttribute('data-collectiontab');
+      plpTab.forEach((tabBest) => {
+        tabBest.classList.remove('active-tab-plp');
+      });
+      showplpContent(collectiontab);
+      tabBest.classList.add('active-tab-plp');
+    });
+  });
+
+  function showplpContent(collectiontab) {
+    const bestCollectionContent = document.querySelectorAll('.plp-tab-section .plp-swiper-container-outer');
+    bestCollectionContent.forEach((contentBest) => {
+      if (contentBest.getAttribute('data-collectiontab') === collectiontab) {
+        contentBest.classList.add('active-plp');
+      } else {
+        contentBest.classList.remove('active-plp');
+      }
+    });
+  }
+</script>
+
+{% schema %}
+{
+  "name": "plp Tab",
+  "settings": [
+    {
+      "type": "text",
+      "id": "plp-heading",
+      "label": "Section Heading",
+      "default": "<span>Best</span> Sellers",
+      "info": "Use <span> tag for bold text"
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_top_plp",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "rem",
+      "label": "Desktop Padding Top",
+      "default": 6
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_left_plp",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "rem",
+      "label": "Desktop Padding Left",
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top_plp",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "rem",
+      "label": "Mobile Padding Top",
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_left_plp",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "rem",
+      "label": "Mobile Padding Left",
+      "default": 1
+    },
+   {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.main-collection-product-grid.settings.image_ratio.options__1.label"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.main-collection-product-grid.settings.image_ratio.options__2.label"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.main-collection-product-grid.settings.image_ratio.options__3.label"
+        }
+      ],
+      "default": "adapt",
+      "label": "t:sections.main-collection-product-grid.settings.image_ratio.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_secondary_image",
+      "default": false,
+      "label": "t:sections.main-collection-product-grid.settings.show_secondary_image.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "default": false,
+      "label": "t:sections.main-collection-product-grid.settings.show_vendor.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "default": false,
+      "label": "t:sections.main-collection-product-grid.settings.show_rating.label",
+      "info": "t:sections.main-collection-product-grid.settings.show_rating.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_quick_add",
+      "default": false,
+      "label": "t:sections.main-collection-product-grid.settings.enable_quick_buy.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_size_selector",
+      "default": false,
+      "label": "Enable Size Selector"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_add_to_card",
+      "default": false,
+      "label": "Enable Add To Cart"
+    }
+  ],
+  "presets": [
+    {
+      "name": "plp Tab"
+    }
+  ]
+}
+{% endschema %}

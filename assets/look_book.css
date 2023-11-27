@@ -1,0 +1,43 @@
+.look-book{position:relative}
+.look_book_div{max-width:1920px;padding:0 120px;margin:0 auto;position:relative}
+.look-book .swiper-button-next:after,.look-book .swiper-button-prev:after{content:''}
+.look-book .swiper-button-prev svg{transform:rotate(180deg);}
+.look-book h2{color:#000;text-align:center;font-family:'Rubik-Medium';font-style:normal;font-weight:500;line-height: clamp(32px, calc(35.55 * (100vw /  var(--viewportDesktop))), 34px);letter-spacing:.3px;}
+.look_book_swiper{padding:23px 0 0;}
+.look-book .swiper-wrapper{line-height:0}
+.look_book_swiper div:empty{display:block}
+.look_book_swiper .swiper-slide img{width:100%;height:auto}
+.look-book .swiper-button-prev.swiper-button-disabled{display:none;}
+.look-book .swiper-button-next.swiper-button-disabled{display:none;}
+.noneD{display:none}
+
+.look-book .mobile_next_button{display:none;}
+.look-book .mobile_prev_button{display:none;}
+@media screen and (min-width: 1900px){
+  .look-book .swiper-button-next {
+    right: 100px !important;}
+  .look-book .swiper-button-prev {
+    left: 100px !important;}
+.look-book .swiper-button-next,.look-book .swiper-button-prev{width:5rem;}
+
+}
+@media (max-width:749px){
+.look_book_swiper{padding:0 0 0 20px;}
+.look-book h2{font-size:25px;padding:0 0 14px 0;line-height:29.63px;}
+.look-book .swiper-button-prev.swiper-button-disabled{display:block;}
+.look-book .swiper-button-next.swiper-button-disabled{display:block;}
+.look_book_div{padding:0}
+.look-book .swiper-button-next .desktop_next_button, .look-book .swiper-button-prev .desktop_prev_button{display:none;}
+.look-book .swiper-button-next{width:34px;height:34px;top: unset;bottom:-42px;right: 39%;z-index:2;}
+.look-book .swiper-button-prev{width:34px;height:34px;top: unset;bottom: -42px;left: 41%;z-index:2;}
+.look-book .mobile_next_button{display:block;}
+.look-book .mobile_prev_button{display:block;}
+}
+
+@media (min-width:750px){
+.look-book .swiper-button-next{right:105px;top:60%;    z-index: 2;}
+.look-book .swiper-button-prev{left:105px;top:60%;    z-index: 2;}
+}
+@media (max-width:400px){
+  .look-book .swiper-button-next{right:36%;}
+}

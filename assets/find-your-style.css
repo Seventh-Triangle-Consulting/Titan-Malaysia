@@ -1,0 +1,130 @@
+  .find_your_style_container{  display:flex;line-height: 0; padding:unset;  align-items: center; }
+  .find_your_style_container select, .selectbox-title {-webkit-appearance: none;-moz-appearance: none;text-indent: 1px;text-overflow: ''; cursor:pointer;  border: unset;box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.25);
+   background: url(https://cdn.shopify.com/s/files/1/0559/6964/4716/files/Vector_4_7290c7ab-2f53-45d7-b80a-9b49813ff171.png) 96% / 7% no-repeat #fff;}
+  .find_style_heading{color:#fff;}
+  .find_your_style_container .right-side{width:50%;}
+   .find_your_style_container .right-side .category{position:relative;display: flex;}  
+   .find_your_style_container .right-side .category svg,.find_your_style_container .right-side .category img{left: 10px; position: absolute;  top: 36px;}
+   .find_your_style_container .category{ width: 53%;    margin: auto;}
+   .find_your_style_container select:focus, .selectbox-title:focus{box-shadow:none;outline: none;}
+   .find_your_style_container option, .find_your_style_container .ul-list li{font-size: clamp(calc(20 * .8px),calc(20 * (100vw / var(--viewportDesktop))),calc(20 * 1.6px));
+    line-height: clamp(26px, calc(26 * (100vw /  var(--viewportDesktop))), 26px);}
+  .find_your_style_container select, .selectbox-title{ display:flex; align-items: center;color:#000;  padding-left:5rem; height: 5.5rem;border-radius:3px;
+    width: 100%;margin-top:20px;font-size: clamp(calc(20 * .8px),calc(20 * (100vw / var(--viewportDesktop))),calc(20 * 1.6px));
+    line-height: clamp(26px, calc(26 * (100vw /  var(--viewportDesktop))), 26px);}
+  .find_your_style_container .button{width: 53%; background:transparent;;text-align:center;}
+  .find_your_style_container .button:after,.find_your_style_container .button:before{content:none;}
+  .find_style_description p{padding-top:1rem;font-size: clamp(calc(19 * .8px),calc(19 * (100vw / var(--viewportDesktop))),calc(19 * 1.8px));color:#fff;
+    line-height: clamp(28px, calc(29 * (100vw /  var(--viewportDesktop))), 35px);}
+  .find_your_style_container .button button{margin-top:1rem;border:1px solid #fff;padding:6px 39px;border-radius:33px; font-size: clamp(calc(19 * .8px),calc(19 * (100vw / var(--viewportDesktop))),calc(19 * 1.3px));
+    line-height: clamp(33px, calc(34 * (100vw /  var(--viewportDesktop))), 35px);font-family:'Rubik-Medium';font-weight:500;color:#fff;    background: transparent;}
+  .left-side-img img{  width:100%; height:auto; }
+  .find_your_style_container .right-side{text-align:center;}
+  .left-side-img{ flex-basis:50%;}
+  .find_your_style_container .right-side .category svg.icon-caret{display:none;left:unset;right:9px;width:24px;height:12px;top:30px;}
+
+
+.selectbox { width:100%; display:flex;text-align: left; justify-content:center;}
+.selectbox-content {  overflow:auto; display:none; background:#fff; margin-top:3px; position: absolute; width: 100%; z-index: 5; top: 7rem;box-shadow: 1px 1px 2px #000;}
+.selectbox-content ul { list-style:none; margin:0px; padding:20px 0px; cursor: pointer;  position: relative; }
+.selectbox-content ul li { padding-top:5px; width:100%; padding-left: 20px; display: flex;align-items: center;}
+.selectbox-content ul li input[type=checkbox] { width:18px; height:18px; margin-right:1rem; accent-color: #DD5041;}
+.categoryError{ color:#ffff; display:none; font-size: 15px;  padding-top: 0.5rem;}
+
+.ul-list li {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.ul-list li input {
+  padding: 0;
+  height: initial;
+  width: initial;
+  margin-bottom: 0;
+  display: none;
+  cursor: pointer;
+}
+
+.ul-list li label {
+  position: relative;
+  cursor: pointer;
+      display: flex;
+    align-items: center;
+}
+
+.ul-list li label:before {
+    content: "";
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: 1px solid #5d5c5c;
+    padding: 8px;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    cursor: pointer;
+    margin-right: 9px;
+}
+
+
+.ul-list li input:checked + label:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 5px;
+    left: 6px;
+    width: 6px;
+    height: 14px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  
+}
+.ul-list li input:checked + label:before {
+   background-color: #DD5041;
+
+}
+
+
+@media screen and (min-width:2200px){
+  .find_your_style_container .button button{margin-top:4rem;}
+  .find_style_menu{margin-top:2rem;}
+}
+@media screen and (min-width:900px) and (max-width:1100px) {
+  .find_style_description p{margin-top:0;padding-top:0;}
+  .find_your_style_container select, .selectbox-title{height:5rem;}
+    .selectbox-content { top: 7rem;}
+}
+  @media screen and (min-width:750px) and (max-width:900px){
+   .left-side-img{display:none;}
+    .find_your_style_container{    flex-direction: column;}
+   .find_your_style_container .right-side{padding: 2rem;}
+     .find_your_style_container .category{ width: 100%;}
+    .find_your_style_container .right-side .category,.find_your_style_container .right-side{text-align:center;}
+    .find_your_style_container select, .selectbox-title{width:100%;}
+    .selectbox-content { top: 7rem;}
+  }
+  @media screen and (max-width:749px){
+    .left-side-img{display:none;}
+    .find_your_style_container .right-side {
+    padding-left: 0rem;
+}
+    .find_your_style_container .right-side .category svg.icon-caret{right:30px;}
+    .find_your_style_container{    flex-direction: column;}
+    .find_your_style_container .right-side {
+    width: 100%;text-align:center;padding-top:2rem;}
+    .find_your_style_container .button {width:100%;}
+     .find_your_style_container .category{ width: 100%;padidng: 0 2rem;}
+    .find_your_style_container .right-side .category{display:flex;justify-content:center;}
+     .find_your_style_container .button button{margin-bottom:2rem;font-size:17px;line-height:34px;}
+   .find_your_style_container select, .selectbox-title{ width:90%;}
+    .find_your_style_container option,.find_your_style_container select, .selectbox-title,  .find_your_style_container .ul-list li{font-size:20px;line-height:26px;font-family: 'Rubik-Regular';}
+    .find_style_description p{font-size:19px;line-height:24px;padding:0 3px;padding-bottom:1rem;    padding-top: 1rem;}
+    .find_your_style_container .right-side .category svg{left:7%;}  
+    .selectbox-content { margin-top: unset; width: 90%; top: 7rem;}
+  }
+  @media screen and (max-width: 320px){
+   .find_style_description p {
+    font-size: 17px;line-height:22px;
+}
+     .find_your_style_container .right-side .category svg{left:3rem;}  
+  }

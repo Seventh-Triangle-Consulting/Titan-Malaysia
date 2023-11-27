@@ -1,0 +1,170 @@
+<style>
+  .activesss .sort-tick-filter {
+    display: block;
+  }
+  .sort-tick-filter {
+    position: absolute;
+    right: 0;
+    top: 25%;
+    display: none;
+  }
+  ul.sorting_divs {
+    list-style: none;
+    padding: unset;    padding-left: 7%;
+  }
+  li.sorting_list {
+    position: relative;
+    min-height: 46px;
+    gap: 10px;
+  }
+  .short-new {
+    width: 100%;
+    z-index: 9;
+  }
+
+  .line {
+    width: 55px;
+    height: 3px;
+    background-color: #383838ab;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    display: flex !important;
+    top: 8px;
+    position: relative;
+    opacity: 0.3;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  @media screen and (max-width: 820px) {
+    .sort-head {
+      font-weight: 600;
+      font-family: var(--font-family-h2);
+      font-size: clamp(20px, calc(22 * (100vw / 428)), 24px);
+      line-height: 26.07px;
+      letter-spacing: 0.01em;
+      color: #000000;
+      padding-left: 7%;
+      margin-bottom: 0;
+    }
+    .sorting_list {
+      font-size: clamp(18px, calc(19 * (100vw / 428)), 20px);
+      line-height: 22px;
+      letter-spacing: 0.01em;
+      color: #000000;
+      display: flex;
+      align-items: center;
+    }
+    .sorting_list input {
+      accent-color: black;
+      height: 23px;
+      width: 23px;
+    }
+    .short-new current {
+      background: #ffffff;
+      border: 1px solid rgba(34, 31, 32, 0.1);
+      border-radius: 33px;
+      border-bottom-right-radius: unset;
+      border-bottom-left-radius: unset;
+    }
+    .actives {
+      background: rgba(34, 31, 32, 0.07);
+      min-height: 56px;
+    }
+  }
+  @media screen and (min-width: 821px) {
+    .short-new {
+      display: none;
+    }
+  }
+</style>
+
+<div class="short-new">
+  <div class="line" onclick="closeSort()"></div>
+  <h2 class="sort-head">{{ 'products.facets.sort_by_label' | t }}</h2>
+  <ul class="sorting_divs">
+    <li class="sorting_list">
+      <input type="radio" id="featured" name="sortOption" value="manual" onclick="selectedSort(event || window.event)">
+      <label for="featured">Featured</label>
+    </li>
+    <li class="sorting_list">
+      <input
+        type="radio"
+        id="popularity"
+        name="sortOption"
+        value="best-selling"
+        onclick="selectedSort(event || window.event)"
+      >
+      <label for="popularity">Best Selling</label>
+    </li>
+ 
+    <li class="sorting_list">
+      <input
+        type="radio"
+        id="title-ascending"
+        name="sortOption"
+        value="title-ascending"
+        onclick="selectedSort(event || window.event)"
+      >
+      <label for="title-ascending">Alphabetically: A-Z</label>
+    </li>
+    <li class="sorting_list">
+      <input
+        type="radio"
+        id="title-descending"
+        name="sortOption"
+        value="title-descending"
+        onclick="selectedSort(event || window.event)"
+      >
+      <label for="title-descending">Alphabetically: Z-A</label>
+    </li>
+      
+    <li class="sorting_list">
+      <input
+        type="radio"
+        id="price-low-high"
+        name="sortOption"
+        value="price-ascending"
+        onclick="selectedSort(event || window.event)"
+      >
+      <label for="price-low-high">Price: Low to High</label>
+    </li>
+    
+    <li class="sorting_list">
+      <input
+        type="radio"
+        id="price-high-low"
+        name="sortOption"
+        value="price-descending"
+        onclick="selectedSort(event || window.event)"
+      >
+      <label for="price-high-low">Price: High to Low</label>
+    </li>
+
+      {% comment %}
+     <li class="sorting_list">
+      <input
+        type="radio"
+        id="created-ascending"
+        name="sortOption"
+        value="created-ascending"
+        onclick="selectedSort(event || window.event)"
+      >
+      <label for="created-ascending">Date, old to new</label>
+    </li>
+        {% endcomment %}
+    <li class="sorting_list">
+      <input
+        type="radio"
+        id="created-descending"
+        name="sortOption"
+        value="created-descending"
+        onclick="selectedSort(event || window.event)"
+      >
+      <label for="created-descending">Launch Date</label>
+    </li>
+
+  </ul>
+</div>
+

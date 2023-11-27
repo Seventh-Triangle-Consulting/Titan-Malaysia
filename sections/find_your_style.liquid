@@ -1,0 +1,381 @@
+{{ 'find-your-style.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .find_your_style_container-{{ section.id }}{
+   background:{{ section.settings.body_color }};
+   margin-top:{{section.settings.mg_top}}px;
+   margin-bottom: 60px;
+ }
+  
+  @media screen and (max-width:768px){
+    .find_your_style_container-{{ section.id }}{
+   margin-bottom: 25px;
+ }
+  }
+</style>
+<section class="find_your_style_container-{{ section.id }}">
+<div class="find_your_style_container  ">
+  {% if section.settings.left_img != blank  %}
+  <div class="left-side-img">
+     {{ section.settings.left_img | image_url: width: 800 | image_tag: loading: 'lazy'}}
+  </div>
+{% endif %}
+  <div class="right-side">
+         <h2 class="find_style_heading">{{ section.settings.find-style-heading }}</h2>
+         <div class="find_style_description">{{ section.settings.style-paragraph }}</div>
+         <div class="find_style_menu">
+           {%  assign optionname = section.settings.option-name | split:'##' %}
+            {%  assign optionicon = section.settings.option-icon | split:',' %}
+         
+           <div class="category">
+           {% render 'icon-gender' %}
+           <select id="category" >
+            <option value=""> {{ optionname[0] }}</option>
+             {% for block in section.blocks %}
+               <option value="{{ block.settings.gender-name}}">{{ block.settings.gender-name}}</option>
+             {% endfor %}
+          </select>
+             {% render 'icon-caret' %}
+           </div>
+           <p class="categoryError">Please Select Gender</p>
+
+          <div class="panel-body category">
+              <div class="selectbox selectwrap " >
+                
+                <div class="selectbox-title" onclick="openDropdown(event || window.event)" >
+                  {% render 'icon-purpose' %}
+                  <span class="plzselect">{{ optionname[1] }}</span>
+                     {% render 'icon-caret' %}
+               </div>
+              
+                <div class="selectbox-content">
+                   <ul class="ul-list" id="purpose"></ul>
+                 </div>
+      
+              </div>
+           
+      
+      
+          </div>
+
+        <div class="panel-body category">
+              <div class="selectbox selectwrap ">
+                
+                <div class="selectbox-title"  onclick="openDropdown(event || window.event)" >
+                  {% render 'icon-color' %}
+                  <span class="plzselect">{{ optionname[2] }}</span>
+                     {% render 'icon-caret' %}
+               </div>
+              
+                <div class="selectbox-content">
+                   <ul class="ul-list" id="color"></ul>
+                 </div>
+      
+              </div>
+           
+      
+      
+          </div>
+
+
+           
+         </div>
+    <div class="button">
+            <button id="submitButton" onclick="submitStyle()">SUBMIT</button>
+</div>
+  </div>
+
+
+  
+</div>
+</section>
+ <script>
+    
+        const categorySelect = document.getElementById("category");
+        const purposeSelect = document.getElementById("purpose");
+        const colorSelect = document.getElementById("color");
+       
+        const options = {
+            {% for block in section.blocks %}
+                {{ block.settings.gender-name }}: {
+                    purpose: ["{{ block.settings.purpose_id | split: ',' | join: '", "' }}"],
+                    color: ["{{ block.settings.color_id | split: ',' | join: '", "' }}"]
+                }
+                {%- unless forloop.last -%}
+                    ,
+                {%- endunless -%}
+            {% endfor %}
+        };
+
+
+   
+        categorySelect.addEventListener("change", function () {
+           if( document.querySelector('.categoryError').style.display=="block" ) document.querySelector('.categoryError').style.display="none";  
+           
+            const selectedCategory = categorySelect.value;
+            document.querySelector("#purpose").innerHTML = '';
+            document.querySelector("#color").innerHTML = '';
+            // colorSelect.innerHTML = '<option value="">Select Color</option>';
+
+            if (selectedCategory in options) {
+                const purposeOptions = options[selectedCategory].purpose;
+                const colorOptions = options[selectedCategory].color;
+
+               
+                purposeOptions.forEach(function (option) {
+                        var ulList = document.querySelector("#purpose");
+                        var li = document.createElement("li");
+                        var input = document.createElement("input");
+                        var label = document.createElement("label");
+                      
+                        input.className = `checkbox-custom`;
+                        input.type = "checkbox";
+                        input.name = `checkAll-${option}`;
+                        input.id = option;
+                      
+                        label.htmlFor = option;
+                        label.className = "checkbox-custom-label custom-checkbox checkbox";
+                        label.textContent = option;
+                      
+                        li.appendChild(input);
+                        li.appendChild(label);
+                        ulList.appendChild(li);
+
+
+                });
+
+             
+                // purposeSelect.style.display = "block";
+
+              
+                colorOptions.forEach(function (option) {
+                     var ulList1 = document.querySelector("#color");
+                        var li1 = document.createElement("li");
+                        var input1 = document.createElement("input");
+                        var label1 = document.createElement("label");
+                      
+                        input1.className = `checkbox-custom-${option}`;
+                        input1.type = "checkbox";
+                        input1.name = `checkAll-${option}`;
+                        input1.id = option;
+                      
+                        label1.htmlFor = option;
+                        label1.className = "checkbox-custom-label checkbox";
+                        label1.textContent = option;
+                      
+                        li1.appendChild(input1);
+                        li1.appendChild(label1);
+                        ulList1.appendChild(li1);
+                });
+
+              
+                // colorSelect.style.display = "block";
+            }
+        });
+
+
+
+window.addEventListener('click', function(event) {
+  var target = event.target;
+  if (
+    !target.classList.contains('selectbox-content') &&
+    !target.closest('.selectbox-title') && !target.closest('.plzselect') &&  !target.closest('.ul-list') &&  !target.closest('.ul-list li')) {
+    document.querySelectorAll('.selectbox-content').forEach((x)=>{
+    if(x.style.display ==='block') x.style.display="none";
+    })
+  }
+ 
+}); 
+
+
+function openDropdown(event) {
+  var selectboxContent = event.target.closest('.selectbox').querySelector('.selectbox-content');
+  var allDropdowns = document.querySelectorAll('.selectbox-content');
+  
+  allDropdowns.forEach((dropdown) => {
+    if (dropdown !== selectboxContent) {
+      dropdown.style.display = 'none';
+    }
+  });
+
+  if (selectboxContent.style.display === 'block') {
+    selectboxContent.style.display = 'none';
+  } else {
+    selectboxContent.style.display = 'block';
+    if(!selectboxContent.querySelector('.ul-list li')){
+       document.querySelector('.categoryError').style.display="block";
+    }
+    else{
+       document.querySelector('.categoryError').style.display="none";      
+    }
+             
+  
+  }
+}
+
+
+
+
+      
+  
+  function emptySelectedValues(){
+  
+     setTimeout(()=>{
+             categorySelect.innerHTML = '<option value="">Select Gender</option>';
+             purposeSelect.innerHTML = ' ';
+             colorSelect.innerHTML = ' ';
+     },500)
+   }
+   
+  function submitStyle() {
+       try{
+            const selectedCategory = categorySelect.value.replace(/\s/g, '+');
+            const selectedPurpose = [];
+            const selectedColor = [];
+
+
+
+             if(document.querySelectorAll('#purpose li input').length>1){
+                document.querySelectorAll('#purpose li input').forEach((x)=>{
+                if(x.checked){ selectedPurpose.push(x.id.replace(/\s/g, '+')) } })
+             }
+         
+            if(document.querySelectorAll('#color li input').length>1){
+                document.querySelectorAll('#color li input').forEach((x)=>{
+                if(x.checked){ selectedColor.push(x.id.replace(/\s/g, '+')) } })
+             }
+
+       
+          
+         if(selectedCategory != "" &&  selectedPurpose != "" && selectedColor != ""){
+             location.href= `https://plaeto.in/collections/all?sort_by=title-ascending&filter.v.price.gte=&filter.v.price.lte=&filter.p.m.custom.gender_filter=${selectedCategory}&filter.p.m.custom.purpose=${selectedPurpose}&filter.p.m.custom.color_filter=${selectedColor}`
+             emptySelectedValues();
+          }
+          else if(selectedCategory != "" &&  selectedPurpose != "" && selectedColor == "" ){
+             location.href= `https://plaeto.in/collections/all?sort_by=title-ascending&filter.v.price.gte=&filter.v.price.lte=&filter.p.m.custom.gender_filter=${selectedCategory}&filter.p.m.custom.purpose=${selectedPurpose}`
+             emptySelectedValues();
+          }
+          else if(selectedCategory != "" &&  selectedColor != "" && selectedPurpose == ""){
+             location.href= `https://plaeto.in/collections/all?sort_by=title-ascending&filter.v.price.gte=&filter.v.price.lte=&filter.p.m.custom.gender_filter=${selectedCategory}&filter.p.m.custom.color_filter=${selectedColor}`
+             emptySelectedValues();
+          }
+         else if(selectedCategory != ""){
+            location.href= `https://plaeto.in/collections/all?sort_by=title-ascending&filter.v.price.gte=&filter.v.price.lte=&filter.p.m.custom.gender_filter=${selectedCategory}`
+            emptySelectedValues();
+         }
+       }catch(e){
+         console.log(e)
+       }
+          
+  }
+   
+    </script>
+    
+    
+{% schema %}
+  {
+    "name": "Find Your Style",
+    "settings": [
+      {
+      "type": "range",
+      "id": "mg_top",
+      "min": 0,
+      "max": 36,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin Top",
+      "default": 16
+    }, 
+      {
+      "type": "range",
+      "id": "mg_bottom",
+      "min": 0,
+      "max": 36,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin Bottom",
+      "default": 16
+    },
+      {
+      "type": "image_picker",
+      "id": "left_img",
+      "label": "Image"
+    },
+      {
+      "type": "color",
+      "id": "body_color",
+      "label": "Background Color",
+      "default": "#FAF7C7"
+    },
+      {
+      "type": "text",
+      "id": "find-style-heading",
+      "label": "Heading",
+      "default": "Find Your Style"
+    },
+      {
+        "type": "richtext",
+        "id": "style-paragraph",
+        "label": "Paragraph"
+      },
+      {
+        "type": "link_list",
+        "id": "find_style_menu",
+        "label": "Menu"
+      },
+       {
+      "type": "text",
+      "id": "option-name",
+      "label": "Option Name",
+      "info": "Add option ## seprate"
+    },
+        {
+      "type": "text",
+      "id": "option-icon",
+      "label": "Option SVG Icons",
+      "info": "Add option , seprate"
+    },
+
+      {
+        "type": "text",
+        "id": "find-style-btn",
+        "label": "Button Text",
+        "default": "SUBMIT"
+      }
+
+  ],
+    "blocks": [{
+      "name": "category",
+       "type": "text",
+        "settings": [
+          
+      {
+      "type": "text",
+      "id": "gender-name",
+      "label": "Gender"
+    },
+    {
+      "type": "html",
+      "id": "purpose_id",
+      "label": "Purpose",
+      "info":"add purpose comma separated"
+    },
+    {
+      "type": "html",
+      "id": "color_id",
+      "label": "Color",
+      "info":"add colors comma separated"
+    }
+
+    
+  ]
+    }],
+    "presets": [{"name": "Find Your Style"}]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

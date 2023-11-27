@@ -1,0 +1,161 @@
+@media screen and (max-width: 749px) {
+  .articles-wrapper .article {
+    width: 100%;
+  }
+}
+.card.article-card .card__heading a{text-decoration:none;    text-align: center;}
+.card.article-card:hover .readmore{text-underline-offset: 0.6rem;}
+.card.article-card  .card__inner:after{content:none;}
+.article-card__image-wrapper.card__media a{width:100%;height:100%;position:absolute;z-index:1;}
+.article-card__info  .datenadtime span{ font-size: clamp(calc(19 * .8px),calc(19 * (100vw / var(--viewportDesktop))),calc(19 * 1.1px));
+    line-height: clamp(29px, calc(30 * (100vw /  var(--viewportDesktop))), 31px);color: rgba(0, 0, 0, 0.45);}
+.card.article-card .card__inner .card__media{z-index:unset;}
+.card .article-card__info{display:flex;gap:1rem;align-items: center;justify-content: center;}
+.article-card__info   li{font-size: clamp(calc(18 * .8px),calc(18 * (100vw / var(--viewportDesktop))),calc(18 * 1.1px));  list-style:disc;
+    line-height: clamp(23px, calc(24 * (100vw /  var(--viewportDesktop))), 22px);color: rgba(0, 0, 0, 0.45);text-transform: lowercase;}
+.article-card__info ul{list-style-position: inside;
+  padding-left: 1.5rem;}
+.main-blog .card__heading a{font-size: clamp(calc(22 * .8px),calc(22 * (100vw / var(--viewportDesktop))),calc(22 * 1.1px));
+    line-height: clamp(29px, calc(30 * (100vw /  var(--viewportDesktop))), 28px);    letter-spacing: .16px;}
+.main-blog .card.article-card .card__heading a,.main-blog .card.article-card .card__heading {height:58px;}
+.main-blog  .article-card .readmore{font-size: clamp(calc(19 * .8px),calc(19 * (100vw / var(--viewportDesktop))),calc(19 * 1.1px));    font-weight: 500;
+    line-height: clamp(45px, calc(46 * (100vw /  var(--viewportDesktop))), 44px);color: rgba(0, 0, 0, 1);letter-spacing: .32px;}
+
+.article {
+  display: flex;
+  align-items: center;justify-content: center;
+}
+
+.article.grid__item {
+  padding: 0;
+}
+
+.grid--peek .article-card {
+  box-sizing: border-box;
+}
+
+.article-card__image-wrapper > a {
+  display: block;
+}
+
+.article-card__title {
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.article-card__title a:after {
+  bottom: 0;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.article-card__link.link {
+  padding: 0;
+}
+
+.article-card__link {
+  text-underline-offset: 0.3rem;
+}
+
+
+.article-card .readmore{ font-size: clamp(calc(17 * .8px),calc(17 * (100vw / var(--viewportDesktop))),calc(17 * 1.1px));
+    line-height: clamp(45px, calc(46 * (100vw /  var(--viewportDesktop))), 45px);
+        color: rgba(65, 64, 66, 1);text-underline-offset:0.6rem;}
+
+
+.article-card__info {
+  padding-top: 0.4rem;
+}
+
+.article-card__footer {
+  letter-spacing: 0.1rem;
+  font-size: 1.4rem;
+}
+
+.article-card__footer:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.article-card__footer:last-child {
+  margin-top: auto;
+}
+
+.article-card__excerpt {
+  width: 100%;
+  margin-top: 1.2rem;
+}
+
+.article-card__link:not(:only-child) {
+  margin-right: 3rem;
+}
+
+@media screen and (min-width: 990px) {
+  .article-card__link:not(:only-child) {
+    margin-right: 4rem;
+  }
+}
+
+.article-card__image--small .ratio::before {
+  padding-bottom: 11rem;
+}
+
+.article-card__image--medium .ratio::before {
+  padding-bottom: 22rem;
+}
+
+.article-card__image--large .ratio::before {
+  padding-bottom: 33rem;
+}
+
+@media screen and (min-width: 750px) {
+  .article-card__image--small .ratio::before {
+    padding-bottom: 14.3rem;
+  }
+
+  .article-card__image--medium .ratio::before {
+    padding-bottom: 21.9rem;
+  }
+
+  .article-card__image--large .ratio::before {
+    padding-bottom: 27.5rem;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .article-card__image--small .ratio::before {
+    padding-bottom: 17.7rem;
+  }
+
+  .article-card__image--medium .ratio::before {
+    padding-bottom: 30.7rem;
+  }
+
+  .article-card__image--large .ratio::before {
+    padding-bottom: 40.7rem;
+  }
+}
+
+/* check for flexbox gap in older Safari versions */
+@supports not (inset: 10px) {
+  .articles-wrapper.grid {
+    margin: 0 0 5rem 0;
+  }
+
+  @media screen and (min-width: 750px) {
+    .articles-wrapper.grid {
+      margin-bottom: 7rem;
+    }
+  }
+}
+@media screen and (max-width:320px){
+.main-blog .card.article-card .card__heading a, .main-blog .card.article-card .card__heading {
+    height: 50px;
+}
+  .main-blog .card__heading a{font-size:18px !important;}
+}

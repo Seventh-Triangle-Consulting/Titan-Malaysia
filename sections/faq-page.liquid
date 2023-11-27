@@ -1,0 +1,130 @@
+
+{%- style -%}
+  .section-{{ section.id }}-margin {
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+  }
+  @media screen and (max-width: 750px) {
+    .section-{{ section.id }}-margin {
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+    }
+  }
+{%- endstyle -%}
+<style>
+  .page-faq .heading{text-align:center;padding-bottom:1rem;}
+.page-faq details[open] summary .arrow-up svg{ display:none;}
+  .page-faq details[open] summary .arrow-down svg{transform: rotate(180deg); display:block;}
+.pagefaqsection .question{ font-size: clamp(calc(23 * .8px),calc(23 * (100vw / var(--viewportDesktop))),calc(23 * 1.1px));
+    line-height: clamp(26px, calc(27.26 * (100vw /  var(--viewportDesktop))), 28px);color:#000;padding:2rem 0;}
+.pagefaqsection details{border-bottom: 1px solid rgba(65, 64, 66, 0.4);}
+ .pagefaqsection .answer p{font-size: clamp(calc(21 * .8px),calc(21 * (100vw / var(--viewportDesktop))),calc(21 * 1.1px));
+    line-height: clamp(26px, calc(27.26 * (100vw /  var(--viewportDesktop))), 28px);}
+    .pagefaqsection .question svg{height: 14px;width: 28px;    margin-top: -10px;}
+.pagefaqsection .answer{ font-size: clamp(calc(21 * .8px),calc(21 * (100vw / var(--viewportDesktop))),calc(21 * 1.1px));
+    line-height: clamp(26px, calc(27.26 * (100vw /  var(--viewportDesktop))), 28px);color:#000;padding-bottom:1.8rem;}
+@media screen and (max-width:768px){
+  .page-faq .heading{line-height:29.63px;}
+  .pagefaqsection .question{font-size:18px;line-height:21.33px;padding-right:25px;}
+  .pagefaqsection .answer{font-size:16px;line-height:22.33px;}
+  .pagefaqsection .question svg {height: 10px; width: 20px;top: 2.4rem;    right: 0rem;margin-top:0;}
+  .pagefaqsection .answer p{font-size:16px;}
+}
+</style>
+<div class="page-faq page-width section-{{ section.id }}-margin">
+<h2 class="heading">{{ section.settings.heading }}</h2>
+  <div class="pagefaqsection page-width">
+    {%- for block in section.blocks -%}
+     <details class="accordion-item">
+  <summary class="accordion-header">
+    <p class="question">{{ block.settings.title}}<span class="arrow-down">{% render 'icon-caret' %}</span><span class="arrow-up">{% render 'icon-caret' %}</p>
+  </summary>
+  <div class="answer accordion-body">
+   {{ block.settings.answer }}
+  </div>
+</details>
+    {% endfor %}
+  </div>
+</div>
+  <script>
+const details = document.querySelectorAll(".pagefaqsection details");
+
+details.forEach((targetDetail) => {
+  targetDetail.addEventListener("click", () => {
+    // Close all the details that are not targetDetail.
+    details.forEach((detail) => {
+      if (detail !== targetDetail) {
+        detail.removeAttribute("open");
+      }
+    });
+  });
+});
+</script>
+
+
+{% schema %}
+  {
+    "name": "FAQ",
+    "settings": [
+     
+     {
+  "type": "text",
+  "id": "heading",
+  "label": "Section Heading"
+},
+     {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin Bottom Desktop",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin Bottom Mobile",
+      "default": 36
+    }
+    ],
+    "blocks": [
+      {
+        "type": "question",
+        "name": "Question",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Question",
+            "default": "Question"
+          },
+          {
+            "type": "richtext",
+            "id": "answer",
+            "label": "Answer",
+            "default": "<p>Answer</p>"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "FAQ",
+        "category": "Text",
+        "settings": {},
+        "blocks": [
+          {
+            "type": "question"
+          },
+          {
+            "type": "question"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

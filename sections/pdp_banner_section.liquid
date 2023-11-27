@@ -1,0 +1,136 @@
+<style>
+  .pdp-banner-section-{{ section.id }} {
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+  }
+  .pdp-banners {
+    line-height: 0;
+  }
+
+  .mobile_banner_text_B{color: #000;font-family:'Rubik';font-size: 24px;font-style: normal;font-weight: 600;line-height: 31px; letter-spacing: 0.24px;}
+  @media screen and (max-width: 749px) {
+    .pdp-banner-section-{{ section.id }} {
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+    }
+  }
+
+  .pdp-mobile-banner-div {
+    display: none;
+  }
+  .pdp-mobile-banner{
+    width: 100%;
+    height: auto;
+  }
+  .pdp-desktop-banner {
+    width: 100%;
+    height: auto;
+  }
+  @media (max-width: 749px) {
+    .pdp-mobile-banner-div{
+      display: block;
+    }
+    .pdp-desktop-banner-div {
+      display: none;
+    }
+    .pdp-mobile-banner-div .swiper-pagination-bullet-active{background:rgba(0,0,1);}
+    {% comment %} .mobileBannersText{padding:0 0 54px;text-align:center;background-color: rgba(230, 230, 230, 1); }{% endcomment %}
+    .mobileBannersText{position: absolute;margin: 0 auto;padding-top: 10px;width: 100%;text-align: center;}
+      .padding66{padding-bottom:65px;}
+    
+  }
+</style>
+{% if product.metafields.custom.product_desktop_banner %}
+  <div class="pdp-banner-section-{{ section.id }}" id="{{ section.id }}">
+    {% assign desktopBanner = product.metafields.custom.product_desktop_banner.value %}
+    {% assign mobileBanners = product.metafields.custom.product_mobile_banners %}
+    {% assign mobileBannersText = product.metafields.custom.product_mobile_banners_text.value %}
+
+    <div class="pdp-banners">
+      {% if desktopBanner != empty %}
+        <div class="pdp-desktop-banner-div">
+          {% if desktopBanner.alt %}
+            {% assign altD = image.alt %}
+          {% else %}
+            {% assign altD = 'Product Banner Image' %}
+          {% endif %}
+
+          {{
+            desktopBanner
+            | image_url: width: '1600'
+            | image_tag: class: 'pdp-desktop-banner', loading: 'lazy', alt: altD
+          }}
+        </div>
+      {% endif %}
+
+      <div class="pdp-mobile-banner-div">
+        <div class="swiper pdp_mobile_banner">
+          <div class="swiper-wrapper padding66">
+            {% for imageM in mobileBanners.value %}
+              <div class="swiper-slide">
+                {{ imageM | image_url: width: '600' | image_tag: class: 'pdp-mobile-banner' }}
+                <div class="mobileBannersText">
+                  {% assign text = mobileBannersText[forloop.index0] | split: '##' %}
+                  {% assign text1 = text[0] %}
+                  {% assign text2 = text[1] %}
+                  <p class="mobile_banner_text_B">{{ text1 }}</p>
+                  <p>{{ text2 }}</p>
+                  {% comment %} {{ mobileBannersText[forloop.index0] }} {% endcomment %}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+<script>
+  window.addEventListener(
+    'DOMContentLoaded',
+    () => {
+      var pdp_mobile_banner = new Swiper('#{{- section.id }} .pdp_mobile_banner', {
+        pagination: {
+          el: '.swiper-pagination',
+        },
+      });
+    },
+    { once: true }
+  );
+</script>
+
+{% schema %}
+{
+  "name": "PDP Banner section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom Desktop",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom Mobile",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "pdp banner section"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}

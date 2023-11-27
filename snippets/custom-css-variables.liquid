@@ -1,0 +1,123 @@
+{% style %}
+  :root {
+    /* Viewport Variable For Desktop */
+    --viewportDesktop : {{ settings.desktop-viewport }};
+
+    /* H1 */
+    --mobile-font-size-h1: {{ settings.mobile-font-size-h1 }}px;
+
+
+    --desktop-font-size-h1: {{ settings.desktop-font-size-h1 }};
+
+    /* H2 */
+    --mobile-font-size-h2: {{ settings.mobile-font-size-h2 }}px;
+
+
+    --desktop-font-size-h2: {{ settings.desktop-font-size-h2 }};
+
+    /* H3 */
+    --mobile-font-size-h3: {{ settings.mobile-font-size-h3 }}px;
+    --mobile-letter-spacing-h3: {{ settings.mobile-letter-spacing-h3 }}px;
+
+
+    --desktop-font-size-h3: {{ settings.desktop-font-size-h3 }};
+    --desktop-letter-spacing-h3: {{ settings.desktop-letter-spacing-h3 }}px;
+
+    /* H4 */
+    --mobile-font-size-h4: {{ settings.mobile-font-size-h4 }}px;
+    --mobile-letter-spacing-h4: {{ settings.mobile-letter-spacing-h4 }}px;
+
+
+    --desktop-font-size-h4: {{ settings.desktop-font-size-h4 }};
+    --desktop-letter-spacing-h4: {{ settings.desktop-letter-spacing-h4 }}px;
+
+    /* H5 */
+    --mobile-font-size-h5: {{ settings.mobile-font-size-h5 }}px;
+    --mobile-letter-spacing-h5: {{ settings.mobile-letter-spacing-h5 }}px;
+
+
+    --desktop-font-size-h5: {{ settings.desktop-font-size-h5 }};
+    --desktop-letter-spacing-h5: {{ settings.desktop-letter-spacing-h5 }}px;
+
+    /* H6 */
+    --mobile-font-size-h6: {{ settings.mobile-font-size-h6 }}px;
+    --mobile-letter-spacing-h6: {{ settings.mobile-letter-spacing-h6 }}px;
+
+
+    --desktop-font-size-h6: {{ settings.desktop-font-size-h6 }};
+    --desktop-letter-spacing-h6: {{ settings.desktop-letter-spacing-h6 }}px;
+
+    /* P */
+    --mobile-font-size-p: {{ settings.mobile-font-size-p }}px;
+    --mobile-letter-spacing-p: {{ settings.mobile-letter-spacing-p }}px;
+
+
+    --desktop-font-size-p: {{ settings.desktop-font-size-p }};
+    --desktop-letter-spacing-p: {{ settings.desktop-letter-spacing-p }}px;
+
+    /* a */
+    --mobile-font-size-a: {{ settings.mobile-font-size-a }}px;
+    --mobile-letter-spacing-a: {{ settings.mobile-letter-spacing-a }}px;
+
+
+    --desktop-font-size-a: {{ settings.desktop-font-size-a }};
+    --desktop-letter-spacing-a: {{ settings.desktop-letter-spacing-a }}px;
+
+    /* Desktop Padding Left and Right*/
+    --desktop-padding: {{ settings.desktop-padding }}px;
+    --mobile-padding: {{ settings.mobile-padding }}px;
+    --tablet-padding: {{ settings.padding_tablet }}px;
+
+    /* Font Family For h1...h6, p , a */
+    --font-family-h1:{% if settings['font-file-h1'] != '' %}{{ settings['font-file-h1'] | split: '?v=' | first | split: '/' | last | split: '.' | first }}{% else %}{{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }}{% endif %};
+    --font-family-h2: {% if settings['font-file-h2'] != '' %}{{ settings['font-file-h2'] | split: '?v=' | first | split: '/' | last | split: '.' | first }}{% else %}{{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }}{% endif %};
+    --font-family-h3: {% if settings['font-file-h3'] != '' %}{{ settings['font-file-h3'] | split: '?v=' | first | split: '/' | last | split: '.' | first }}{% else %}{{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }}{% endif %};
+    --font-family-h4: {% if settings['font-file-h4'] != '' %}{{ settings['font-file-h4'] | split: '?v=' | first | split: '/' | last | split: '.' | first }}{% else %}{{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }}{% endif %};
+    --font-family-h5: {% if settings['font-file-h5'] != '' %}{{ settings['font-file-h5'] | split: '?v=' | first | split: '/' | last | split: '.' | first }}{% else %}{{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }}{% endif %};
+    --font-family-h6: {% if settings['font-file-h6'] != '' %}{{ settings['font-file-h6'] | split: '?v=' | first | split: '/' | last | split: '.' | first }}{% else %}{{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }}{% endif %};
+    --font-family-p: {% if settings['font-file-p'] != '' %}{{ settings['font-file-p'] | split: '?v=' | first | split: '/' | last | split: '.' | first }}{% else %}{{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }}{% endif %};
+    --font-family-a: {% if settings['font-file-a'] != '' %}{{ settings['font-file-a'] | split: '?v=' | first | split: '/' | last | split: '.' | first }}{% else %}{{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }}{% endif %};
+
+
+    /* Line Height For h1...h6, p , a */
+    {% assign desktop-line-height-h1 = settings.desktop-line-height-h1 | split: " " | first | plus: "0.00" %}
+    {% assign mobile-line-height-h1 = settings.mobile-line-height-h1 | split: " " | first | plus: "0.00" %}
+    --desktop-line-height-h1: {% if desktop-line-height-h1 == 0.00 %}normal{% elsif desktop-line-height-h1 < 1 or desktop-line-height-h1 > 2 %}1{% else %}{{ desktop-line-height-h1 }}{% endif %};
+    --mobile-line-height-h1: {% if mobile-line-height-h1 == 0.00 %}normal{% elsif mobile-line-height-h1 < 1 or mobile-line-height-h1 > 2 %}1{% else %}{{ mobile-line-height-h1 }}{% endif %};
+
+    {% assign desktop-line-height-h2 = settings.desktop-line-height-h2 | split: " " | first | plus: "0.00" %}
+    {% assign mobile-line-height-h2 = settings.mobile-line-height-h2 | split: " " | first | plus: "0.00" %}
+    --desktop-line-height-h2: {% if desktop-line-height-h2 == 0.00 %}normal{% elsif desktop-line-height-h2 < 1 or desktop-line-height-h2 > 2 %}1{% else %}{{ desktop-line-height-h2 }}{% endif %};
+    --mobile-line-height-h2: {% if mobile-line-height-h2 == 0.00 %}normal{% elsif mobile-line-height-h2 < 1 or mobile-line-height-h2 > 2 %}1{% else %}{{ mobile-line-height-h2 }}{% endif %};
+
+    {% assign desktop-line-height-h3 = settings.desktop-line-height-h3 | split: " " | first | plus: "0.00" %}
+    {% assign mobile-line-height-h3 = settings.mobile-line-height-h3 | split: " " | first | plus: "0.00" %}
+    --desktop-line-height-h3: {% if desktop-line-height-h3 == 0.00 %}normal{% elsif desktop-line-height-h3 < 1 or desktop-line-height-h3 > 2 %}1{% else %}{{ desktop-line-height-h3 }}{% endif %};
+    --mobile-line-height-h3: {% if mobile-line-height-h3 == 0.00 %}normal{% elsif mobile-line-height-h3 < 1 or mobile-line-height-h3 > 2 %}1{% else %}{{ mobile-line-height-h3 }}{% endif %};
+
+    {% assign desktop-line-height-h4 = settings.desktop-line-height-h4 | split: " " | first | plus: "0.00" %}
+    {% assign mobile-line-height-h4 = settings.mobile-line-height-h4 | split: " " | first | plus: "0.00" %}
+    --desktop-line-height-h4: {% if desktop-line-height-h4 == 0.00 %}normal{% elsif desktop-line-height-h4 < 1 or desktop-line-height-h4 > 2 %}1{% else %}{{ desktop-line-height-h4 }}{% endif %};
+    --mobile-line-height-h4: {% if mobile-line-height-h4 == 0.00 %}normal{% elsif mobile-line-height-h4 < 1 or mobile-line-height-h4 > 2 %}1{% else %}{{ mobile-line-height-h4 }}{% endif %};
+
+    {% assign desktop-line-height-h5 = settings.desktop-line-height-h5 | split: " " | first | plus: "0.00" %}
+    {% assign mobile-line-height-h5 = settings.mobile-line-height-h5 | split: " " | first | plus: "0.00" %}
+    --desktop-line-height-h5: {% if desktop-line-height-h5 == 0.00 %}normal{% elsif desktop-line-height-h5 < 1 or desktop-line-height-h5 > 2 %}1{% else %}{{ desktop-line-height-h5 }}{% endif %};
+    --mobile-line-height-h5: {% if mobile-line-height-h5 == 0.00 %}normal{% elsif mobile-line-height-h5 < 1 or mobile-line-height-h5 > 2 %}1{% else %}{{ mobile-line-height-h5 }}{% endif %};
+
+    {% assign desktop-line-height-h6 = settings.desktop-line-height-h6 | split: " " | first | plus: "0.00" %}
+    {% assign mobile-line-height-h6 = settings.mobile-line-height-h6 | split: " " | first | plus: "0.00" %}
+    --desktop-line-height-h6: {% if desktop-line-height-h6 == 0.00 %}normal{% elsif desktop-line-height-h6 < 1 or desktop-line-height-h6 > 2 %}1{% else %}{{ desktop-line-height-h6 }}{% endif %};
+    --mobile-line-height-h6: {% if mobile-line-height-h6 == 0.00 %}normal{% elsif mobile-line-height-h6 < 1 or mobile-line-height-h6 > 2 %}1{% else %}{{ mobile-line-height-h6 }}{% endif %};
+
+    {% assign desktop-line-height-p = settings.desktop-line-height-p | split: " " | first | plus: "0.00" %}
+    {% assign mobile-line-height-p = settings.mobile-line-height-p | split: " " | first | plus: "0.00" %}
+    --desktop-line-height-p: {% if desktop-line-height-p == 0.00 %}normal{% elsif desktop-line-height-p < 1 or desktop-line-height-p > 2 %}1{% else %}{{ desktop-line-height-p }}{% endif %};
+    --mobile-line-height-p: {% if mobile-line-height-p == 0.00 %}normal{% elsif mobile-line-height-p < 1 or mobile-line-height-p > 2 %}1{% else %}{{ mobile-line-height-p }}{% endif %};
+
+    {% assign desktop-line-height-a = settings.desktop-line-height-a | split: " " | first | plus: "0.00" %}
+    {% assign mobile-line-height-a = settings.mobile-line-height-a | split: " " | first | plus: "0.00" %}
+    --desktop-line-height-a: {% if desktop-line-height-a == 0.00 %}normal{% elsif desktop-line-height-a < 1 or desktop-line-height-a > 2 %}1{% else %}{{ desktop-line-height-a }}{% endif %};
+    --mobile-line-height-a: {% if mobile-line-height-a == 0.00 %}normal{% elsif mobile-line-height-a < 1 or mobile-line-height-a > 2 %}1{% else %}{{ mobile-line-height-a }}{% endif %};
+  }
+{% endstyle %}

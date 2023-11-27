@@ -1,0 +1,244 @@
+<style>
+    .shopByCollection_Tabs{display: inline-block;cursor: pointer;background-color:#fff;line-height:0;
+    transition:0.3s;color: #000;font-family: Rubik;font-size: 23px;font-weight: 400;line-height: 34px;letter-spacing: 0.23px;padding:2px 0;}
+    .shopByCollection .swiper-slide{width:calc(100% / 3);margin-right: 16px;}
+    .shopByCollection_Tabs.active{border-radius:42px;background:#dd5041;color:#fff;overflow:hidden;color: #FFF;
+    font-family: Rubik;font-size: 23px;font-style: normal;font-weight: 500;line-height: 34px;letter-spacing: 0.23px;
+    padding:2px 26px;}
+    .shopByCollection_TabContent{display: none;padding:10px 10px 20px;}
+    .shopByCollection_TabContent.active{display:block;}
+    .shopByCollection-section-{{ section.id }} {margin-bottom:{{ section.settings.margin_bottom_desktop }}px;max-width:1920px;margin-left:auto;margin-right:auto;padding:0 120px;}
+    .shop_by_category_heading{color: #000;font-family: Rubik;font-style: normal;margin-bottom:12px;text-align:center;
+    font-weight: 500; line-height: clamp(32px, calc(35.55 * (100vw /  var(--viewportDesktop))), 34px);letter-spacing: 0.3px;}
+    .flex_tabs{display:flex;gap:30px;align-items:center;margin-bottom:25px;justify-content:center;}
+    .shopByCategory_block_image{padding-bottom:10px;line-height:0;}
+    .shopByCategory_block_image img{width:100%;height:auto;line-height:0;}
+    .shopByCollection_cardText{text-align: center;color:#000;font-family: Rubik;font-size: 23px;font-weight: 500;line-height: normal;letter-spacing:0.23px;padding-bottom:19px;}
+    {% comment %} .shopByCollection_swiper .shopByCollection_TabContent{width:unset;} {% endcomment %}
+    .shopByCol_buttons{display:flex;gap:13px;}
+    .shopByCol_buttons a{text-decoration:none;width:100%;color: #000;font-family: 'Rubik-SemiBold';font-size: 16px;font-style: normal;font-weight: 500;line-height: 34px;letter-spacing: 0.32px;text-align:center;
+    border-radius:4px;border: 1px solid #000;}
+
+
+    .shopByCollection .shopByCollection_swiper .swiper-slide{
+     opacity: 0;transform: scale(0.97) translateY(3%);transform-origin: center;animation-delay: inherit;
+     animation-duration: 0.65s;animation-timing-function: cubic-bezier(0, 0, 0.3, 1);
+     animation-delay: inherit;animation-direction: normal;animation-fill-mode: forwards;
+     animation-name: animation1;}
+
+     @keyframes animation1{
+      0% {
+        opacity: 0.7;
+        transform: scale(0.97) translateY(3%);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1) translateY(0px);
+      }
+    }
+    @media(max-width:1080px)
+    { .shopByCol_buttons{flex-direction:column};}
+
+    @media(max-width:749px) {
+    .shopByCollection-section-{{ section.id }} {margin-bottom: {{ section.settings.margin_bottom_mobile }}px;padding:0 0 0 0px;}
+    .shopByCollection_Tabs.active{font-size: 18px;line-height: 34px; letter-spacing:0.18px;    font-family: 'Rubik-SemiBold';}
+    .shopByCollection_Tabs{font-size: 18px;line-height: 34px;letter-spacing:0.18px;    font-family: 'Rubik-Regular';}
+    .flex_tabs{gap:23px;}
+    .shopByCollection_cardText{font-size:20px;padding-bottom:8px;}
+    .shopByCollection_TabContent{padding: 10px 10px 15px;}
+    .shopByCol_buttons{gap:9px;}
+        .shop_by_category_heading{line-height:29.63px;}
+  }
+  @media (max-width: 320px){
+.shopByCollection_Tabs.active {
+    font-size: 14px;
+}
+  }
+</style>
+
+<div class="shopByCollection shopByCollection-section-{{ section.id }}" id="{{ section.id }}">
+  <h2 class="shop_by_category_heading">{{ section.settings.shop_by_category_heading }}</h2>
+
+  {% assign shopByCollection_Tabs = section.settings.shopByCategory_Tabs | split: '##' %}
+  <div class="flex_tabs">
+    <h3 class="shopByCollection_Tabs" data-collection="{{ shopByCollection_Tabs[0] }}">
+      {{ shopByCollection_Tabs[0] }}
+    </h3>
+    <h3 class="shopByCollection_Tabs" data-collection="{{ shopByCollection_Tabs[1] }}">
+      {{ shopByCollection_Tabs[1] }}
+    </h3>
+    <h3 class="shopByCollection_Tabs" data-collection="{{ shopByCollection_Tabs[2] }}">
+      {{ shopByCollection_Tabs[2] }}
+    </h3>
+    {% comment %}
+      <h3 class="shopByCollection_Tabs" data-collection="{{ shopByCollection_Tabs[3] }}">
+        {{ shopByCollection_Tabs[3] }}
+      </h3>
+      <h3 class="shopByCollection_Tabs" data-collection="{{ shopByCollection_Tabs[4] }}">
+        {{ shopByCollection_Tabs[4] }}
+      </h3>
+    {% endcomment %}
+  </div>
+
+  <div class="swiper shopByCollection_swiper">
+    <div class="swiper-wrapper">
+      {% for block in section.blocks %}
+        <div
+          class="swiper-slide shopByCollection_TabContent"
+          data-collection="{{ block.settings.data_collection }}"
+          style="background-color:{{ block.settings.shopCollection_color }}; animation-delay: {{ forloop.index0 | divided_by: 10.0 | round: 2 }}s;"
+        >
+          <div class="shopByCategory_block_image">
+            {{ block.settings.shopByCategory_block_image | image_url: width: '300' | image_tag }}
+          </div>
+          <p class="shopByCollection_cardText">{{ block.settings.shopByCategory_sub_heading }}</p>
+          <div class="shopByCol_buttons">
+            <a href="{{ block.settings.shopByCategory_button1_url }}">
+              {{- block.settings.shopByCategory_button1_text -}}
+            </a>
+            <a href="{{ block.settings.shopByCategory_button2_url }}">
+              {{- block.settings.shopByCategory_button2_text -}}
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+  window.addEventListener(
+    'DOMContentLoaded',
+    () => {
+      let shopByCollection{{- section.id | remove: "--" | remove: "__" | remove: "-" }} = new Swiper('#{{- section.id }} .shopByCollection_swiper', {
+        slidesPerView: 1.30,
+        spaceBetween: 10,
+        breakpoints: {
+          750: {
+            slidesPerView: 3,
+            spaceBetween: 16,
+          },
+        },
+      });
+    },
+    { once: true }
+  );
+
+  const tabs = document.querySelectorAll('.shopByCollection_Tabs');
+  const tabContents = document.querySelectorAll('.shopByCollection_TabContent');
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const dataId = tab.getAttribute('data-collection');
+      tabContents.forEach((content) => {
+        content.classList.remove('active');
+      document.querySelector('.shopByCollection  .swiper-wrapper').style.transform="translate3d(0px, 0px, 0px)";
+      });
+      tabContents.forEach((content) => {
+        if (content.getAttribute('data-collection') === dataId) {
+          content.classList.add('active');
+        }
+      });
+      tabs.forEach((t) => {
+        t.classList.remove('active');
+      });
+      tab.classList.add('active');
+    });
+  });
+  tabs[0].click();
+</script>
+
+{% schema %}
+{
+  "name": "Shop By Category",
+  "settings": [
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom Desktop",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom Mobile",
+      "default": 36
+    },
+    {
+      "type": "text",
+      "id": "shop_by_category_heading",
+      "label": "Heading",
+      "default": "Shop by Collection"
+    },
+    {
+      "type": "text",
+      "id": "shopByCategory_Tabs",
+      "label": "Categories ( Separate the categories with ##)",
+      "default": "Multiplay##Slip-ons##Sneakers"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Collection Block",
+      "settings": [
+        { "type": "text", "id": "data_collection", "label": "Collection Name" },
+        {
+          "type": "image_picker",
+          "id": "shopByCategory_block_image",
+          "label": "Image",
+          "info": "Image size should be 325px X 230px"
+        },
+        {
+          "type": "text",
+          "id": "shopByCategory_sub_heading",
+          "label": "Sub Heading",
+          "default": "The Festive Edit"
+        },
+        {
+          "type": "text",
+          "id": "shopByCategory_button1_text",
+          "label": "Button 1 Text",
+          "default": "SHOP MEN"
+        },
+        {
+          "type": "text",
+          "id": "shopByCategory_button2_text",
+          "label": "Button 2 Text",
+          "default": "SHOP WOMEN"
+        },
+        {
+          "type": "url",
+          "id": "shopByCategory_button1_url",
+          "label": "Button 1 URL"
+        },
+        {
+          "type": "url",
+          "id": "shopByCategory_button2_url",
+          "label": "Button 2 URL"
+        },
+        {
+          "type": "color",
+          "id": "shopCollection_color",
+          "label": "Color for Card"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Shop By Category"
+    }
+  ]
+}
+{% endschema %}

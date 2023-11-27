@@ -1,0 +1,312 @@
+
+{{ 'sustainability-tab-section.css' | asset_url | stylesheet_tag }}
+
+
+<style>
+  .sustainability-tab-section.sustainability-padding {
+  margin-top: {{ section.settings.desktop_padding_top_sustainability }}rem;
+  
+
+  @media screen and (max-width: 750px){
+    .sustainability-tab-section.sustainability-padding{
+        margin-top: {{ section.settings.mobile_padding_top_sustainability }}rem;
+
+    }
+  }
+</style>
+
+<section class="sustainability-tab-section sustainability-padding page-width" id="sustainability-tab-slider">
+  <div class="sustainability-tab-container">
+    {% if section.settings.tabhead != blank %}
+    <div class="sustainability-tab-header page-width">
+      <div class="tab_sustainability">
+      
+          {% assign tabhead = section.settings.tabhead | split:'##' %}
+            {%assign sizes= tabhead .size | minus:1  %}
+          {%for i in (0..sizes) %}
+          <div
+            class="{% if forloop.first %}active-tab-sustainability {% endif %}"
+            data-sustainibilitytab="pagetab-{{ forloop.index0 }}"
+          >         
+            <span>{{ tabhead[i]  }}</span>
+          </div>    
+        {% endfor %}
+      </div>             
+    </div>
+          {% endif %}
+              <div
+            class="sustainability-swiper-container-outer   active-sustainability"
+            data-sustainibilitytab="pagetab-0">
+            <div class="swiper mySwipper-sustainability">
+              <div class="swiper-wrapper swipper-wrapper-sustainability"> 
+                 {%- for block in section.blocks -%}
+             {% case block.type %}
+                    {%- when 'material' -%}    
+               
+                  <div class="container {% if forloop.last > 1 %} material swiper-slide {% else%} factories {% endif %}">
+                  <div class="box">
+                  {{ block.settings.image| image_url: width: 600 | image_tag: loading: 'lazy'}}
+                  </div>
+                    <div class="content">
+                    <h4 class="heading">{{ block.settings.texth }}</h4>
+                    <div class="para">{{ block.settings.subtext }}</div>
+                   </div>
+                  </div>           
+                
+               {% endcase %}
+                   {% endfor %}
+              </div>
+              {% comment %}
+             <div class="swiper-scrollbar"></div>
+              <div class="sustainability-nav-btns">
+                       <div class="swiper-ctrl pagetab-button-prev">{% render 'icon-arrow-next' %}</div>
+                       <div class="swiper-ctrl pagetab-button-next">{% render 'icon-arrow-next' %}</div>
+
+              </div>
+              {% endcomment %}
+            </div>
+              </div>
+     <div
+            class="sustainability-swiper-container-outer "
+            data-sustainibilitytab="pagetab-1">
+            <div class="mySwipper-sustainability">
+              {%- for block in section.blocks -%}
+             {% case block.type %}
+                  {%- when 'factories' -%}                                   
+                  <div class="container factories">
+                  
+                    <div class="content">
+                    <h4 class="heading">{{ block.settings.texth }}</h4>
+                    <div class="para">{{ block.settings.subtext }}</div>
+                  </div>
+                    <div class="box">
+                  {{ block.settings.image| image_url: width: 600 | image_tag: loading: 'lazy'}}
+                  </div>
+              </div>
+              {% endcase %}
+                {% endfor %}
+            </div>
+     </div>
+  <div
+            class="sustainability-swiper-container-outer   {% if forloop.first %} active-sustainability {% endif %}"
+            data-sustainibilitytab="pagetab-2">
+            <div class="mySwipper-sustainability">
+     {%- for block in section.blocks -%}
+             {% case block.type %}
+                  {%- when 'recovery' -%}                                   
+                  <div class="container factories">
+                    <div class="content">
+                    <h4 class="heading">{{ block.settings.texth }}</h4>
+                    <div class="para">{{ block.settings.subtext }}</div>
+                  </div>
+                  <div class="box">
+                  {{ block.settings.image| image_url: width: 600 | image_tag: loading: 'lazy'}}
+                  </div>
+                    
+                  </div>
+                 {% endcase %}  
+                  {% endfor %}
+              </div>
+            </div>
+          
+             
+  </div>
+</section>
+
+<script data-defer="nodefer">
+  window.addEventListener(
+    'DOMContentLoaded',
+    () => {
+      let sustaintabSwiper = new Swiper(`.mySwipper-sustainability`, {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        grabCursor: true,
+        lazy: true,
+        loop: false,
+        freeMode: {
+          enabled: true,
+          sticky: true,
+        },
+        breakpoints: {
+          300: {
+            slidesPerView: 1.4,
+            spaceBetween: 15,
+          },
+          500: {
+            slidesPerView: 2,
+            spaceBetween: 10,        
+          },
+          901: {
+            slidesPerView: 3.5,
+            spaceBetween: 30,
+          
+          },
+        },
+        navigation: {
+    nextEl: '.pagetab-button-next',
+    prevEl: '.pagetab-button-prev',
+  },
+         scrollbar: {
+    el: '.swiper-scrollbar',
+    draggable: true,
+  },
+      });
+    },
+    { once: true }
+  );
+</script>
+<script data-defer="nodefer">
+  const sustainabilityTab = document.querySelectorAll('.tab_sustainability div');
+  sustainabilityTab.forEach((tabBest) => {
+    tabBest.addEventListener('click', (event) => {
+      const sustainibilitytab = tabBest.getAttribute('data-sustainibilitytab');
+      sustainabilityTab.forEach((tabBest) => {
+        tabBest.classList.remove('active-tab-sustainability');
+      });
+      showsustainabilityContent(sustainibilitytab);
+      tabBest.classList.add('active-tab-sustainability');
+    });
+  });
+
+  function showsustainabilityContent(sustainibilitytab) {
+    const sustainilbilittab = document.querySelectorAll('.sustainability-tab-section .sustainability-swiper-container-outer');
+    sustainilbilittab.forEach((contentBest) => {
+      if (contentBest.getAttribute('data-sustainibilitytab') === sustainibilitytab) {
+        contentBest.classList.add('active-sustainability');
+      } else {
+        contentBest.classList.remove('active-sustainability');
+      }
+    });
+  }
+</script>
+
+{% schema %}
+{
+  "name": "sustainability Tab",
+  "settings": [
+    {
+          "type": "text",
+          "id": "tabhead",
+          "label": " Tab Headings",
+          "info":"Add Heading ## sperated"
+        },
+    {
+      "type": "range",
+      "id": "desktop_padding_top_sustainability",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "rem",
+      "label": "Desktop Padding Top",
+      "default": 6
+    },
+ 
+    {
+      "type": "range",
+      "id": "mobile_padding_top_sustainability",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "rem",
+      "label": "Mobile Padding Top",
+      "default": 3
+    }
+  ],
+   "blocks": [
+    {
+      "type": "material",
+      "name": "Material Block",
+      "settings": [
+         {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Images",
+           "info":"Recommended size 373X367"
+        },
+         {
+          "type": "text",
+          "id": "text",
+          "label": "Block Name",
+           "default":"Material Block"
+        },
+        {
+          "type": "richtext",
+          "id": "texth",
+          "label": "Headings"
+        },
+         {
+          "type": "richtext",
+          "id": "subtext",
+          "label":"Sub Text"
+        }
+       
+      ]
+    },
+     {
+      "type": "factories",
+      "name": "Factories Block",
+      "settings": [
+         {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Images",
+           "info":"Recommended size 612X420"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Block Name",
+           "default":"Facotries Block"
+        },
+        {
+          "type": "richtext",
+          "id": "texth",
+          "label": "Headings"
+        },
+         {
+          "type": "richtext",
+          "id": "subtext",
+          "label":"Sub Text"
+        }
+       
+      ]
+    },
+     {
+      "type": "recovery",
+      "name": "Recycle",
+      "settings": [
+         {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Images",
+           "info":"Recommended size 612X420"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Block Name",
+           "default":"Factories Block"
+        },
+        {
+          "type": "richtext",
+          "id": "texth",
+          "label": "Headings",
+          "info": "Recycle block"
+        },
+         {
+          "type": "richtext",
+          "id": "subtext",
+          "label":"Sub Text"
+        }
+       
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "sustainability Tab"
+    }
+  ]
+}
+  
+{% endschema %}

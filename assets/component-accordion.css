@@ -1,0 +1,66 @@
+.accordion summary {
+  display: flex;
+  position: relative;
+  line-height: 1;
+  padding: 1.5rem 0;
+  align-items: center;
+}
+
+.accordion .summary__title {
+  display: flex;
+  flex: 1;
+}
+
+/* .accordion .summary__title + .icon-caret {
+  height: calc(var(--font-heading-scale) * 0.6rem);
+} */
+
+.accordion + .accordion {
+  margin-top: 0;
+  border-top: none;
+}
+
+.accordion {
+  margin-top: 2.5rem;
+  margin-bottom: 0;
+  /* border-top: 0.1rem solid rgba(var(--color-foreground), 0.08); */
+  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
+}
+
+.pdp_accordion h2{color: #000;font-family: "Rubik-Medium";font-size: 20px;font-style: normal;font-weight: 500;line-height: normal;letter-spacing: 0.2px;}
+.pdp_accordion p{color: #414042;font-family: "Rubik-Regular";font-size: 17px;font-style: normal;font-weight: 400;line-height: 27px;}
+.accordion__content  .read-more{display:none;}
+.pdp_accordion h2{color: #000;font-family: "Rubik-Medium";font-size: 20px;font-style: normal;font-weight: 500;line-height: normal;letter-spacing: 0.2px;}
+.pdp_accordion ul li,.pdp_accordion ol li,.pdp_accordion p,.pdp_accordion a,.pdp_accordion span{    margin: 10px 0px;color: #414042;font-family: "Rubik-Regular";font-size: 17px;font-style: normal;font-weight: 400;line-height: 27px;}
+.pdp_accordion p a,.pdp_accordion p a span{color:#EF3133;}
+
+.pdp_accordion ul{list-style:disc;}.pdp_accordion ol{list-style:auto;}
+.accordion__title {
+  display: inline-block;
+  max-width: calc(100% - 6rem);
+  min-height: 1.6rem;
+  margin: 0;
+  word-break: break-word;
+}
+
+.accordion .icon-accordion {
+  align-self: center;
+  fill: rgb(var(--color-foreground));
+  height: calc(var(--font-heading-scale) * 2rem);
+  margin-right: calc(var(--font-heading-scale) * 1rem);
+  width: calc(var(--font-heading-scale) * 2rem);
+}
+
+.accordion details[open] > summary .icon-caret {
+  transform: rotate(180deg);
+}
+
+.accordion__content {
+  margin-bottom: 1.5rem;
+  word-break: break-word;
+  overflow-x: auto;
+}
+
+.accordion__content img {
+  max-width: 100%;
+}

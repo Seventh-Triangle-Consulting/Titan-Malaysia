@@ -1,0 +1,180 @@
+h1,
+.h1 {
+  font-size: clamp(calc(var(--desktop-font-size-h1) * 0.9px),calc(var(--desktop-font-size-h1) * (100vw / var(--viewportDesktop))),calc(var(--desktop-font-size-h1) * 1.1px));
+  line-height: var(--desktop-line-height-h1);
+  font-family: var(--font-family-h1) ,sans-serif;
+}
+
+h2,
+.h2 {
+  font-size: clamp(calc(var(--desktop-font-size-h2) * 0.9px),calc(var(--desktop-font-size-h2) * (100vw / var(--viewportDesktop))),calc(var(--desktop-font-size-h2) * 1.1px));
+  line-height: var(--desktop-line-height-h2);
+  font-family: var(--font-family-h2) ,sans-serif;
+}
+
+
+h3,
+.h3 {
+  font-size: clamp(calc(var(--desktop-font-size-h3) * 0.9px),calc(var(--desktop-font-size-h3) * (100vw / var(--viewportDesktop))),calc(var(--desktop-font-size-h3) * 1.1px));
+  letter-spacing: var(--desktop-letter-spacing-h3);
+  line-height: var(--desktop-line-height-h3);
+  font-family: var(--font-family-h3) ,sans-serif;
+
+}
+
+h4,
+.h4 {
+  font-size: clamp(calc(var(--desktop-font-size-h4) * 0.9px),calc(var(--desktop-font-size-h4) * (100vw / var(--viewportDesktop))),calc(var(--desktop-font-size-h4) * 1.1px));
+  letter-spacing: var(--desktop-letter-spacing-h4);
+  line-height: var(--desktop-line-height-h4);
+  font-family: var(--font-family-h4) ,sans-serif;
+}
+
+h5,
+.h5 {
+  font-size: clamp(calc(var(--desktop-font-size-h5) * 0.9px),calc(var(--desktop-font-size-h5) * (100vw / var(--viewportDesktop))),calc(var(--desktop-font-size-h5) * 1.1px));
+  letter-spacing: var(--desktop-letter-spacing-h5);
+  line-height: var(--desktop-line-height-h5);
+  font-family: var(--font-family-h5) ,sans-serif;
+}
+
+h6,
+.h6 {
+  font-size: clamp(calc(var(--desktop-font-size-h6) * 0.9px),calc(var(--desktop-font-size-h6) * (100vw / var(--viewportDesktop))),calc(var(--desktop-font-size-h6) * 1.1px));
+  letter-spacing: var(--desktop-letter-spacing-h6);
+  line-height: var(--desktop-line-height-h6);
+  font-family: var(--font-family-h6) ,sans-serif;
+}
+
+p,.shopify-policy__container p,.shopify-policy__container a {
+
+  font-size: clamp(calc(var(--desktop-font-size-p) * 0.9px),calc(var(--desktop-font-size-p) * (100vw / var(--viewportDesktop))),calc(var(--desktop-font-size-p) * 1.1px));
+  letter-spacing: var(--desktop-letter-spacing-p);
+  line-height: var(--desktop-line-height-p);
+  font-family: var(--font-family-p) ,sans-serif;
+}
+
+.shopify-policy__container li,.shopify-policy__container a,.shopify-policy__container p{color: rgba(65, 64, 66, 1);}
+.shopify-policy__container a{    color: #dd5041;    text-decoration: underline;}
+a {
+  font-size: clamp(calc(var(--desktop-font-size-a) * 0.9px),calc(var(--desktop-font-size-a) * (100vw / var(--viewportDesktop))),calc(var(--desktop-font-size-a) * 1.1px));
+  letter-spacing: var(--desktop-letter-spacing-a);
+  line-height: var(--desktop-line-height-a);
+  font-family: var(--font-family-a) ,sans-serif;
+  color: inherit;
+}
+.announcement-bar__message ,.announcement-bar__message  span{font-size: clamp(calc(17 * .9px),calc(17 * (100vw / var(--viewportDesktop))),calc(17 * 1.1px));font-family: var(--font-family-h2);
+                           line-height: clamp(24px, calc(26 * (100vw / var(--viewportDesktop))), 27px);letter-spacing:.16px;}
+.no-underline {
+  text-decoration: none !important;
+}
+
+h1 > a,
+h2 > a,
+h3 > a,
+h4 > a,
+h5 > a,
+.h0 > a,
+.h1 > a,
+.h2 > a,
+.h3 > a,
+.h4 > a,
+.h5 > a,
+span {
+  font-size: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  font-family: inherit;
+  color: inherit;
+}
+
+.page-width {
+  padding-left: var(--desktop-padding);
+  padding-right: var(--desktop-padding);
+}
+.shopify-policy__container p, .shopify-policy__container fieldset, .shopify-policy__container table {
+    margin-bottom: 1em;
+}
+.shopify-policy__container {max-width: 95ch !important;}
+.shopify-policy__container .pt-4,.shopify-policy__container h2{ margin:15px 0;}
+.shopify-policy__container strong{ font-size: clamp(calc(var(--desktop-font-size-p) * 0.9px),calc(var(--desktop-font-size-p) * (100vw / var(--viewportDesktop))),calc(var(--desktop-font-size-p) * 1.1px));
+color:#000;}
+.shopify-policy__container li{line-height: clamp(26px,calc(27.26 * (100vw / var(--viewportDesktop))),28px);    list-style: disc;}
+#shopify-section-template--16171332698284__1697087009aadaaacf{height:40rem;}
+@media only screen and (min-width: 767px) and (max-width: 1150px){
+.page-width {
+    padding-left:  var( --tablet-padding)!important;
+      padding-right:  var( --tablet-padding)!important;
+}
+}
+/* Mobile 320px - 749px */
+@media only screen and (max-width: 749px) {
+
+  h1,
+  .h1 {
+    font-size: var(--mobile-font-size-h1);
+    line-height: var(--mobile-line-height-h1);
+  }
+
+  h2,
+  .h2 {
+    font-size: var(--mobile-font-size-h2);
+    line-height: var(--mobile-line-height-h2);
+  }
+
+
+  h3,
+  .h3 {
+    font-size: var(--mobile-font-size-h3);
+    letter-spacing: var(--mobile-letter-spacing-h3);
+    line-height: var(--mobile-line-height-h3);
+  }
+
+  h4,
+  .h4 {
+    font-size: var(--mobile-font-size-h4);
+    letter-spacing: var(--mobile-letter-spacing-h4);
+    line-height: var(--mobile-line-height-h4);
+  }
+
+  h5,
+  .h5 {
+    font-size: var(--mobile-font-size-h5);
+    letter-spacing: var(--mobile-letter-spacing-h5);
+    line-height: var(--mobile-line-height-h5);
+  }
+
+  h6,
+  .h6 {
+    font-size: var(--mobile-font-size-h6);
+    letter-spacing: var(--mobile-letter-spacing-h6);
+    line-height: var(--mobile-line-height-h6);
+  }
+
+  p,.shopify-policy__container li {
+    font-size: var(--mobile-font-size-p);
+    letter-spacing: var(--mobile-letter-spacing-p);
+    line-height: var(--mobile-line-height-p);
+  }
+ 
+  a {
+    font-size: var(--mobile-font-size-a);
+    letter-spacing: var(--mobile-letter-spacing-a);
+    line-height: var(--mobile-line-height-a);
+  }
+
+  .page-width {
+    padding-left: var(--mobile-padding);
+    padding-right: var(--mobile-padding);
+  }
+ .announcement-bar__message  span{
+  font-size:14px;
+   line-height:26px;letter-spacing:.16px;
+  }
+}
+@media screen and (max-width:320px){
+  .announcement-bar__message span {
+    font-size: 12px;
+  }
+}
+

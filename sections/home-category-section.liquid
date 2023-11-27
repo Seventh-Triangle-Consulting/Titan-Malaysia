@@ -1,0 +1,126 @@
+<style>
+  .home-category-section-{{ section.id }}{
+  margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+  }
+  .home_category_swiper{padding: 0 120px;margin: 0 auto;max-width: 1920px;}
+  .home_category_swiper{padding:0 120px;margin:0 auto;}
+  .home_category_swiper_div img{width:100%;height:auto;}
+  .home_category_text{position: absolute;transform: translate(-50%,-50%);left: 50%;top: 50%;  border-bottom-style: solid;
+  border-bottom-width: 2px;padding-bottom: 3px;font-size: clamp(20px, calc(30 * (100vw / 1600)), 45px);color: #FFF;text-align: center;font-family: 'Rubik-Medium';font-style: normal;font-weight: 500;
+  line-height: 26px;letter-spacing: 0.3px;}
+  .home-category .swiper-slide{ width:calc(100% / 3 ); margin-right:23px;  }
+
+  @media screen and (max-width: 750px) {
+  .home-category-section-{{ section.id }} {margin-bottom: {{ section.settings.margin_bottom_mobile }}px;}
+  .home_category_swiper{padding: 0 0 0 20px;}
+    .home-category .swiper-slide{width:68%;}
+  .home_category_text{font-size:22px;}
+  }
+</style>
+
+<div class="home-category home-category-section-{{ section.id }}" id="{{ section.id }}">
+  <div class="swiper home_category_swiper">
+    <div class="swiper-wrapper">
+      {% for block in section.blocks %}
+        {% if block.settings.home_category_image != blank %}
+          <div class="swiper-slide">
+            {% liquid
+              if block.settings.mobile_banner_image.alt
+                assign alt = block.settings.sld_image.alt
+              else
+                assign alt = 'Home Category Images'
+              endif
+            %}
+            <a href="{{ block.settings.home_category_block_url }}">
+              <div class="home_category_swiper_div">
+                {{ block.settings.home_category_image | image_url: width: 440 | image_tag: alt: alt }}
+                <h4 class="home_category_text">{{ block.settings['home-category-text'] }}</h4>
+              </div>
+            </a>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+  window.addEventListener(
+    'DOMContentLoaded',
+    () => {
+      var home_category_swiper = new Swiper('.home_category_swiper', {
+        slidesPerView: 1.5,
+        spaceBetween: 7,
+        breakpoints: {
+          749: {
+            slidesPerView: 3,
+            spaceBetween: 23,
+          },
+        },
+      });
+    },
+    { once: true }
+  );
+</script>
+
+{% schema %}
+{
+  "name": "Home Category Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "category_heading",
+      "label": "Heading"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin Bottom Desktop",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom Mobile",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Home Category block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "home_category_image",
+          "label": "Image",
+          "info": "Image size should be 440px X 518px"
+        },
+        {
+          "type": "url",
+          "id": "home_category_block_url",
+          "label": "Category URL"
+        },
+        {
+          "type": "text",
+          "id": "home-category-text",
+          "label": "Category"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "home category section"
+    }
+  ]
+}
+{% endschema %}

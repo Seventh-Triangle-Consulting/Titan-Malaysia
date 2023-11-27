@@ -1,0 +1,121 @@
+{{ 'collection-slider-banner.css' | asset_url | stylesheet_tag }}
+{%- style -%}
+  .section-{{ section.id }}-margin {
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+  }
+
+  @media screen and (max-width: 750px) {
+    .section-{{ section.id }}-margin {
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+    }
+  }
+{%- endstyle -%}
+<div class="collection_top_slider_banner_main_div section-{{ section.id }}-margin">
+  <div class="swiper collectionTop-{{ section.id }}">
+    <div class="swiper-wrapper">
+      {% for banners in collection.metafields.custom.desktop_banners.value %}
+        <div class="swiper-slide collection_top_slider_middle_img banner-image desktop">
+          
+          {% if forloop.index0 == 0 %}
+            {% assign lazy = "eager" %}
+            {% else %}
+            {% assign lazy = "lazy" %}
+          {% endif %}
+          {{ banners | image_url: width: 1800 | image_tag: class: "banner-image desktop", loading: lazy }}
+          
+        </div>
+      {% endfor %}
+        {% for banners in  collection.metafields.custom.mobile_banners.value %}
+       <div class="swiper-slide collection_top_slider_middle_img banner-image mobile">
+          
+          {% if forloop.index0 == 0 %}
+            {% assign lazy = "eager" %}
+            {% else %}
+            {% assign lazy = "lazy" %}
+          {% endif %}
+           {{ banners| image_url: width: 475 | image_tag: class: "banner-image mobile", loading: lazy }}
+    
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="collection-top-nav-arrows">
+      <div class="arrow-wrap">
+        <div class="swiper-prev-collection">
+          <svg width="37" height="37" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="svg-prev">
+            <circle class="circle-border" id="Ellipse 74" opacity="0.6" cx="13" cy="13" r="12.5" transform="matrix(-1 0 0 1 26 0)"/>
+            <path class="arrow-path" id="Vector" d="M14.5284 8.2335C14.8642 7.91788 15.3979 7.92308 15.7283 8.24392C16.0577 8.56578 16.0631 9.08555 15.739 9.41264L12.0653 12.9896L15.7379 16.5666H15.739C15.9037 16.7218 15.9978 16.9354 16 17.1594C16.0021 17.3823 15.9112 17.5979 15.7497 17.7562C15.5871 17.9135 15.3658 18.002 15.1369 18C14.9069 17.9979 14.6877 17.9062 14.5283 17.7458L10.2503 13.5792C9.91657 13.2532 9.91657 12.7261 10.2503 12.4001L14.5284 8.2335Z"/>
+            </g>
+          </svg>
+        </div>
+
+        <div class="autoplay-progress swiper-next-collection">
+          <svg width="37" height="37" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" id="circle">
+            <g id="svg-next">
+            <circle id="progress" opacity="1" cx="13" cy="13" r="12.5"/>
+            <circle class="circle-border" id="Ellipse 74" opacity="0.6" cx="13" cy="13" r="12.5" transform="matrix(-1 0 0 1 26 0)"/>
+            <path class="arrow-path" id="Vector" d="M11.4716 8.2335C11.1358 7.91788 10.6021 7.92308 10.2717 8.24392C9.94226 8.56578 9.9369 9.08555 10.261 9.41264L13.9347 12.9896L10.2621 16.5666H10.261C10.0963 16.7218 10.0022 16.9354 10 17.1594C9.9979 17.3823 10.0888 17.5979 10.2503 17.7562C10.4129 17.9135 10.6342 18.002 10.8631 18C11.0931 17.9979 11.3123 17.9062 11.4717 17.7458L15.7497 13.5792C16.0834 13.2532 16.0834 12.7261 15.7497 12.4001L11.4716 8.2335Z"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+      
+            </div>
+<script>
+    
+    window.addEventListener('DOMContentLoaded', () => {
+      const TopBannerSwiper{{- section.id | remove: "--" | remove: "__" | remove: "-" }} = new Swiper('.collectionTop-{{ section.id }}', {
+        lopp: true,
+        effect: "fade",
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+        navigation: {
+          nextEl: '.collectionTop-{{ section.id }} .swiper-next-collection, .collectionTop-{{ section.id }} .collection_top_slider_right_img',
+          prevEl: '.collectionTop-{{ section.id }} .swiper-prev-collection',
+        },
+         pagination: {
+          el: `.collectionTop-{{ section.id }} .swiper-pagination`,
+          clickable: true,
+        },
+      });
+    });
+     
+</script>
+
+{% schema %}
+{
+  "name": "Collection Slider Banner",
+  "settings": [{
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin Bottom Desktop",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin Bottom Mobile",
+      "default": 36
+    }],
+  "presets": [
+    {
+      "name": "collection-slider-banner"
+    }
+  ]
+}
+{% endschema %}

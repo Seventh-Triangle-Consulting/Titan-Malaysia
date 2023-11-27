@@ -1,0 +1,16 @@
+.plp-faq .heading{text-align:center;padding-bottom:1rem;}
+.plp-faq details[open] summary .arrow-up svg{ display:none;}
+  .plp-faq details[open] summary .arrow-down svg{transform: rotate(180deg); display:block;}
+.plpfaqsection .question{ font-size: clamp(calc(23 * .8px),calc(23 * (100vw / var(--viewportDesktop))),calc(23 * 1.1px));
+    line-height: clamp(26px, calc(27.26 * (100vw /  var(--viewportDesktop))), 28px);color:#000;padding:2rem 0;}
+.plpfaqsection details{border-bottom: 1px solid rgba(65, 64, 66, 0.4);}
+    .plpfaqsection .question svg{height: 14px;width: 28px;}
+.plpfaqsection .answer{ font-size: clamp(calc(21 * .8px),calc(21 * (100vw / var(--viewportDesktop))),calc(21 * 1.1px));
+    line-height: clamp(26px, calc(27.26 * (100vw /  var(--viewportDesktop))), 28px);color:#000;padding-bottom:1.8rem;}
+
+@media screen and (max-width:768px){
+  .plp-faq .heading{line-height:29.63px;}
+  .plpfaqsection .question{font-size:18px;line-height:21.33px;padding-right:25px;}
+  .plpfaqsection .answer{font-size:16px;line-height:22.33px;}
+  .plpfaqsection .question svg {height: 10px; width: 20px;top: 2.4rem;    right: 0rem;}
+}

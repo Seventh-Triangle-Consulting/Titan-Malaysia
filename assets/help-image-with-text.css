@@ -1,0 +1,115 @@
+.help-image-with-text .container{display:flex;    align-items: center;}
+.help-image-with-text .imagesection, .help-image-with-text .contentsection{width:50%;padding:4rem 6rem;}
+.help-image-with-text .imagesection{padding-top:0;}
+.help-image-with-text{position:relative;}
+.help-image-with-text .imagesection img{width:70%;height:auto;    position: relative;
+    transform: rotate(-4deg);
+}
+.help-image-with-text a{color:#fff;}
+.help-image-with-text .swiper-ctrl.help-button-prev {position:absolute;left:20px;z-index:2;top:55%;}
+.help-image-with-text .swiper-ctrl.help-button-next{position:absolute;right:20px;z-index:2;top:55%;}
+   .help-image-with-text .swiper-ctrl.help-button-prev svg{ transform: rotate(180deg);}
+.help-image-with-text .contentsection p strong{font-family:'Rubik-Medium';    font-weight: 500;font-size: clamp(calc(var(--desktop-font-size-p) * .9px),calc(var(--desktop-font-size-p) * (100vw / var(--viewportDesktop))),calc(var(--desktop-font-size-p) * 1.1px));}
+.help-image-with-text .imagesection{text-align:center;}
+.help-image-with-text .contentsection .image-with-text__heading {    text-align: center;
+  font-size: clamp(calc(25 * .8px),calc(25 * (100vw / var(--viewportDesktop))),calc(25 * 1.1px));
+    line-height: clamp(30px, calc(31 * (100vw /  var(--viewportDesktop))), 32px);color:#fff;
+}
+.help-image-with-text .swiper-ctrl.help-button-prev.swiper-button-disabled,.help-image-with-text .swiper-ctrl.help-button-next.swiper-button-disabled{display:none;}
+.help-image-with-text .swiper-slide{position:relative;padding-top:12rem;}
+.help-image-with-text .imagesection.icon{position: absolute;top: 5%;left: 15%;width: 28%;}
+.help-image-with-text .contentsection p,.help-image-with-text .contentsection p strong{     text-align: center;line-height: clamp(27px, calc(28 * (100vw /  var(--viewportDesktop))), 29px);padding:1rem 0;color: #fff;
+}
+
+.help-image-with-text .bottomcontentsection{text-align:center;    padding: 4rem 4rem 0rem 4rem;}
+.help-image-with-text .bottomcontentsection h2{ font-size: clamp(calc(25 * .8px),calc(25 * (100vw / var(--viewportDesktop))),calc(25 * 1.1px)); line-height: clamp(17px, calc(18 * (100vw /  var(--viewportDesktop))), 19px);padding-bottom:3rem;}
+.help-image-with-text .bottomcontentsection .button{background:#dd5041;padding:8px 35px;border-radius:4px;color:#fff;font-family: var(--font-family-h2);
+  font-size: clamp(calc(20 * .8px),calc(20 * (100vw / var(--viewportDesktop))),calc(20 * 1.1px));letter-spacing:.32px; line-height: clamp(33px, calc(34 * (100vw /  var(--viewportDesktop))), 35px);text-transform:uppercase;}
+.help-image-with-text .bottomcontentsection .button:after{content:none;}
+@media screen and (min-width:2200px){
+ .help-image-with-text .imagesection.icon {
+    top: 1%;
+    left: 23%;
+    width: 22%;
+} 
+}
+@media screen and (min-width:1200px) and (max-width:1440px){
+.help-image-with-text .imagesection.icon {
+    top: 10%;
+    left: 16%;}
+}
+@media screen and (max-width:1024px){
+  .help-image-with-text .imagesection, .help-image-with-text .contentsection{padding: 2rem;}
+  .help-image-with-text .imagesection img {width: 100%;top:-22px;}
+  .help-image-with-text .imagesection.icon{top:6%;left:17%;}
+}
+@media screen and (min-width:750px) and (max-width:820px){
+.help-image-with-text .imagesection img{width:50%;}
+  .help-image-with-text .imagesection.icon {
+    top: 6% !important;
+  }
+  .help-image-with-text {
+    padding-top: 2rem !important;
+}
+  
+}
+@media screen and (max-width:820px){
+.help-image-with-text .container{flex-direction:column;} 
+  .help-image-with-text .imagesection, .help-image-with-text .contentsection{width:100%;padding:1rem 0;}
+  .help-image-with-text .contentsection .image-with-text__heading{font-size:22px;line-height:28px;  font-family: var(--font-family-h6),sans-serif;}
+  .help-image-with-text .contentsection p,.help-image-with-text .contentsection p strong{font-size:18px;line-height:30px;}
+  .help-image-with-text .bottomcontentsection h2{font-size:20px;line-height:22px;   font-family: var(--font-family-h6),sans-serif;}
+  .help-image-with-text .bottomcontentsection .button{font-size:17px;line-height:34px;}
+  .help-image-with-text .imagesection.icon { top: 1%; left: 25%;width: 45%;}
+  .help-image-with-text{padding-top: 12rem;}
+}
+@media screen and (max-width:749px){
+  .help-image-with-text a{font-size:14px;}
+.help-image-with-text .container{position: relative; margin-top: 13rem;    padding: 0 4rem;}
+  .help-image-with-text .imagesection img{width:55%;}
+   .help-image-with-text .imagesection.icon { top: -34%; left: 25%;width: 60%;}
+  .help-image-with-text .swiper-slide{padding-top: 4rem;}
+  .help-image-with-text{padding-top:2rem;}
+  .help-image-with-text .swiper-ctrl.help-button-prev svg,.help-image-with-text .swiper-ctrl.help-button-next svg{width:25px;}
+    .help-image-with-text .contentsection{    padding-top: 17rem;}
+  .help-image-with-text .swiper-ctrl.help-button-prev{left:10px;}
+  .help-image-with-text .swiper-ctrl.help-button-next{right:10px;}
+      .help-image-with-text .imagesection{position: absolute;top: -80px;}
+  
+}
+@media screen and (max-width:450px){
+  .help-image-with-text .container{height:48rem;}
+  .help-image-with-text .imagesection.icon{top:-32%;}
+}
+@media screen  and (min-width:500px) and (max-width:550px){
+.help-image-with-text .contentsection{padding-top:23rem;}
+}
+
+@media screen and (max-width:391px){
+ .help-image-with-text .imagesection.icon { top: -30%;}
+  .help-image-with-text .contentsection {
+    padding-top: 16rem;
+}
+}
+@media screen and (max-width:360px){
+ .help-image-with-text .imagesection.icon { top: -28%;}
+   .help-image-with-text .contentsection {
+    padding-top: 14rem;
+}
+  .help-image-with-text .container{height:48rem;}
+}
+@media screen and (max-width:350px){
+.help-image-with-text .bottomcontentsection .button {
+    font-size: 14px;}
+  .help-image-with-text .contentsection p, .help-image-with-text .contentsection p strong {
+    font-size: 16px;}
+  .help-image-with-text .contentsection .image-with-text__heading{font-size:20px;}
+  .help-image-with-text .contentsection {
+    padding-top: 10rem;
+} 
+}
+@media screen and (max-width: 320px){
+.help-image-with-text .imagesection.icon {
+    top: -28%;
+}
+}

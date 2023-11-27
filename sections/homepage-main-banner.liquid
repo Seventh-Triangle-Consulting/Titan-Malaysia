@@ -1,0 +1,274 @@
+{{ 'homepage-main-banner.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-margin {
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+  }
+
+  @media screen and (max-width: 750px) {
+    .section-{{ section.id }}-margin {
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="homepage-main-banner-container section-{{ section.id }}-margin" id="{{ section.id }}">
+  <div class="homepage-main-banner">
+    <div class="swiper main-banner-swiper">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <div class="swiper-slide relative">
+            {% if block.settings.desktop_banner_image != blank %}
+              {% if forloop.index0 == 0 %}
+                {% assign lazy = 'eager' %}
+              {% else %}
+                {% assign lazy = 'lazy' %}
+              {% endif %}
+              {% if block.settings.mobile_banner_image.alt %}
+                {% assign alt = block.settings.desktop_banner_image.alt %}
+              {% else %}
+                {% assign alt = 'Home Page Banner' %}
+              {% endif %}
+              {{
+                block.settings.desktop_banner_image
+                | image_url: width: 1600
+                | image_tag: class: 'desktop-banner-image', loading: lazy
+              }}
+              <div class="desktop_banner_content {{ block.settings.content-position }}">
+                {% assign desktop_banner_text = block.settings.desktop_banner_text | split: '##' %}
+                <h2 class="desktop_banner_text1">{{ desktop_banner_text[0] }}</h2>
+                <h3 class="desktop_banner_text2">{{ desktop_banner_text[1] }}</h3>
+                <div class="flex-27">
+                  <a href="{{ block.settings.button_link1 }}">
+                    <h3 class="desktop_button_text1" style="background-color:{{ block.settings.buttoncolor }}; color:{{ block.settings.buttontextcolor }}">{{ block.settings.button_text1 }}</h3>
+                  </a>
+                   {% if block.settings.button_text2!= blank %}
+                  <a href="{{ block.settings.button_link2 }}">
+                    <h3 class="desktop_button_text2" style="background-color:{{ block.settings.buttoncolor }}; color:{{ block.settings.buttontextcolor }}">{{ block.settings.button_text2 }}</h3>
+                  </a>
+                     {% endif %}
+                </div>
+              </div>
+            {% endif %}
+            {% if block.settings.mobile_banner_image != blank %}
+              {% if forloop.index0 == 0 %}
+                {% assign lazy = 'eager' %}
+              {% else %}
+                {% assign lazy = 'lazy' %}
+              {% endif %}
+              {% if block.settings.mobile_banner_image.alt %}
+                {% assign alt = image.alt %}
+              {% else %}
+                {% assign alt = 'Home Page Banner' %}
+              {% endif %}
+              {{
+                block.settings.mobile_banner_image
+                | image_url: width: 600
+                | image_tag: class: 'mobile-banner-image', loading: lazy, alt: alt
+              }}
+              <div class="mobile_banner_content {{ block.settings.content-position }}">
+                <div class="mobile_banner_content_div">
+                  <h2 class="mobile_banner_text1">{{ block.settings.mobile_banner_text }}</h2>
+                  <div class="flex-11">
+                    <a href="{{ block.settings.button_link1 }}">
+                      <h3 class="mobile_button_text1"  style="background-color:{{ block.settings.buttoncolor }}; color:{{ block.settings.buttontextcolor }}">{{ block.settings.button_text1 }}</h3>
+                    </a>
+              {% if block.settings.button_text2!= blank %}
+                    <a href="{{ block.settings.button_link2 }}">
+                      <h3 class="mobile_button_text2"  style="background-color:{{ block.settings.buttoncolor }}; color:{{ block.settings.buttontextcolor }}">{{ block.settings.button_text2 }}</h3>
+                    </a>
+                {% endif %}
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+      <div class="swiper-pagination"></div>
+      {% if section.blocks.size > 1 %}
+        <div class="swiper-button-next">
+          {% render 'slider-right-arrow' %}
+        </div>
+        <div class="swiper-button-prev">
+          {% render 'slider-left-arrow' %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<script> 
+  window.addEventListener(
+    'DOMContentLoaded',
+    () => {
+  const mainBannerSwiper{{- section.id | remove: "--" | remove: "__" | remove: "-" }} = new Swiper(`#{{ section.id }} .main-banner-swiper`, {
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    navigation: {
+        nextEl: '#{{ section.id }} .swiper-button-next',
+        prevEl: '#{{ section.id }} .swiper-button-prev',
+    },
+    {% if section.settings.autoplay == true %}
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+    {% endif %}
+  });
+},
+{ once: true }
+);
+</script>
+
+{% schema %}
+{
+  "name": "Main Banner Image",
+  "settings": [
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin Bottom Desktop",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin Bottom Mobile",
+      "default": 36
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Autoplay Enable/Disable"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Banner Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "desktop_banner_image",
+          "label": "Desktop Banner Image",
+          "info": "Image size should be 1920px X 710px"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_banner_image",
+          "label": "Mobile Banner Image",
+          "info": "Image size should be 770px X 900px"
+        },
+        {
+          "type": "text",
+          "id": "desktop_banner_text",
+          "label": "Desktop Banner Text",
+          "info": "Separate the text with double hash"
+        },
+        {
+          "type": "text",
+          "id": "mobile_banner_text",
+          "label": "Mobile Banner Text"
+        },
+        {
+          "type": "text",
+          "id": "button_text1",
+          "label": "Text for Button 1"
+        },
+        {
+          "type": "url",
+          "id": "button_link1",
+          "label": "Link for Button 1"
+        },
+        {
+          "type": "text",
+          "id": "button_text2",
+          "label": "Text for Button 2"
+        },
+        {
+          "type": "url",
+          "id": "button_link2",
+          "label": "Link for Button 2"
+        },
+         {
+          "type": "color",
+          "id": "buttoncolor",
+          "label": "Button Background Color"
+        },
+          {
+          "type": "color",
+          "id": "buttontextcolor",
+          "label": "Button Text Color"
+        },
+        
+        {
+  "type": "select",
+  "id": "content-position",
+  "label": "Content Position",
+  "options": [
+    {
+      "value": "top-left",
+      "label": "Top-Left"
+    },
+	{
+      "value": "top-center",
+      "label": "Top-Center"
+    },
+	{
+      "value": "top-right",
+      "label": "Top-Right"
+    },
+	{
+      "value": "middle-left",
+      "label": "Middle-Left"
+    },
+    {
+      "value": "middle-center",
+      "label": "Middle-Center"
+    },
+	{
+      "value": "middle-right",
+      "label": "Middle-Right"
+    },
+	{
+      "value": "bottom-left",
+      "label": "Bottom-Left"
+    },
+    {
+      "value": "bottom-center",
+      "label": "Bottom-Center"
+    },
+	{
+      "value": "bottom-right",
+      "label": "Bottom-Right"
+    }
+  ],
+  "default": "bottom-center"
+}
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Main Banner Image"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,185 @@
+<style>
+      .sld_div div:empty{display:block;}
+      .sld_sub_heading{margin-bottom: 7px;color: #000;text-align: center;font-family: "Rubik-SemiBold";font-size: 23px;font-style: normal;font-weight: 600;line-height: 26px;letter-spacing: 0.23px;}
+      .sld_sub_text{color: #000;text-align: center;font-family: "Rubik-Regular";font-size: 18px;font-style: normal;font-weight: 400;line-height: 23px;letter-spacing: 0.18px;}
+      .sld_content_image{border-radius: 6px;background-color:#DDEBF3;line-height:0;display:flex;justify-content:center;margin-bottom:13px;}
+      .sld_swiper{width:80%;}
+      .sld_heading{color:#000;font-family:'Rubik-Medium';font-style: normal;font-weight: 500;line-height: normal;letter-spacing: 0.3px;margin:0;text-align:center;margin-bottom:16px;}
+      .sld_empty_div{display:none;}
+      .science-led-design-{{ section.id }} .sld_swiper .swiper-wrapper{justify-content:center;}
+      .science-led-design-{{ section.id }}{
+      margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+      }
+     .sld_swiper .swiper-pagination-bullet-active {background: #000;}
+     .science-led-design-{{ section.id }} .swiper-pagination{display:none;}
+      .science-led-design-{{ section.id }} .swiper-slide{  width:calc(100% / 4);margin-right:38px;}
+
+      @media screen and (max-width: 750px) {
+        .science-led-design-{{ section.id }} .swiper-slide{  width:calc(100% / 1);margin-right:0px;}
+
+      .science-led-design-{{ section.id }} {margin-bottom: {{ section.settings.margin_bottom_mobile }}px;}
+         .science-led-design-{{ section.id }} .sld_swiper .swiper-wrapper{justify-content:flex-start;    padding-bottom: 20px;}
+      .sld_swiper{width:100%;padding-left:20px;}
+        .science-led-design-{{ section.id }} .swiper-pagination{bottom:-7px;display:block;}
+      .sld_empty_div{display:block;width:156px;height:118px;margin-top:30px;border-radius:6px;}
+      .sld_content_image{
+        background-color: transparent !important;
+        position: absolute;
+        left: 50%;
+        right: 50%;
+        transform: translate(-50%);}
+
+      .sld_content_div{position:relative;}
+
+      .sld_sub_heading{color:#000;text-align:left;font-size:21px;margin:6px 0;text-align:center;}
+      .sld_sub_text{color: #000;font-size: 17px;line-height:17px;text-align:center;}
+  }
+</style>
+
+<section class="science-led-design-{{ section.id }}" id="{{ section.id }}">
+  <div class="sld_div">
+    <h1 class="sld_heading h2">{{ section.settings.sld_heading }}</h1>
+
+    <div class="swiper sld_swiper">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          {% if block.settings.sld_image != blank %}
+            <div class="swiper-slide">
+              {% liquid
+                if forloop.index0 == 0
+                  assign lazy = 'eager'
+                else
+                  assign lazy = 'lazy'
+                endif
+                if block.settings.mobile_banner_image.alt
+                  assign alt = block.settings.sld_image.alt
+                else
+                  assign alt = 'science led design'
+                endif
+              %}
+              {% comment %} <div class="sld_content_div"> {% endcomment %}
+              <div class="sld_content_div">
+                <div class="sld_content_image" style="background-color: {{ block.settings.empty_div_color }};">
+                  {{
+                    block.settings.sld_image
+                    | image_url: width: 175
+                    | image_tag: class: 'desktop-banner-image', loading: lazy, alt: alt
+                  }}
+                </div>
+                <div class="sld_empty_div" style="background-color: {{ block.settings.empty_div_color }};"></div>
+                <h3 class="sld_sub_heading">{{ block.settings.sld_sub_heading }}</h3>
+                <p class="sld_sub_text">{{ block.settings.sld_sub_text }}</p>
+                {% comment %} </div> {% endcomment %}
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  window.addEventListener(
+    'DOMContentLoaded',
+    () => {
+      var sld_swiper = new Swiper('.sld_swiper', {
+        slidesPerView: 1,
+        //spaceBetween: 24,
+        breakpoints: {
+          0:{
+            slidesPerView: 1,
+            spaceBetween:0,
+          },
+            500:{
+              slidesPerView: 3.1,
+              spaceBetween:24,
+            },
+          630: {
+            slidesPerView: 3.5,
+            spaceBetween:25,
+            {% comment %} spaceBetween: 38, {% endcomment %}
+          },
+          1280:{
+            slidesPerView: 4,
+            spaceBetween:38,
+          }
+        },
+         pagination: {
+          el: `.swiper-pagination`,
+          clickable: true,
+        },
+      });
+    },
+    { once: true }
+  );
+</script>
+
+{% schema %}
+{
+  "name": "Science Led Design",
+  "settings": [
+    {
+      "type": "text",
+      "id": "sld_heading",
+      "label": "Heading"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin Bottom Desktop",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin Bottom Mobile",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Science-led Design Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "sld_image",
+          "label": "Image",
+          "info": "Image size should be 270px X 170px"
+        },
+        {
+          "type": "color",
+          "id": "empty_div_color",
+          "label": "Color for the block",
+          "default": "#000000"
+        },
+        {
+          "type": "text",
+          "id": "sld_sub_heading",
+          "label": "Block Sub Heading"
+        },
+        {
+          "type": "text",
+          "id": "sld_sub_text",
+          "label": "Block Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Science Led Design"
+    }
+  ]
+}
+{% endschema %}

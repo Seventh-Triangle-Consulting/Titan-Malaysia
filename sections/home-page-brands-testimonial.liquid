@@ -1,0 +1,199 @@
+{{ 'homepage-brands-testimonial.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+  }
+
+  @media screen and (max-width: 750px) {
+    .section-{{ section.id }}-padding {
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="brands-testimonial  section-{{ section.id }}-padding">
+  <div class="page-width">
+
+  <div thumbsSlider="" class="swiper mySwiper3">
+    <div class="swiper-hover swiper-wrapper">
+      {% for block in section.blocks %}
+        <div class="swiper-slide">
+          {{ block.settings.Brands_testimonial_image | image_url: width: 300 | image_tag: loading: 'lazy', class:'Brands_testimonial_image'}}
+         
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="swiper mySwiper2">
+    <div class="swiper-wrapper">
+      {% for block in section.blocks %}
+        <div class="swiper-slide">
+          <p class="center_text">{{ block.settings.Brands_testimonial_content }}</p>
+          <div class="bottom_line1">
+            <a href="{{ block.settings.Readmore_link }}">
+              <p class="button_style">{{ block.settings.Readmore }}</p>
+              <div class="bottom_line2"></div>
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+     </div>
+</section>
+
+<script>
+  window.addEventListener(
+    'DOMContentLoaded',
+    () => {
+      var swipertop = new Swiper('.mySwiper3', {
+        slidesPerView: 3,
+        grabCursor: true,
+        centeredSlides: true,
+        pauseOnMouseEnter: true,
+        loop: true,
+        autoplay: {
+          delay: 2000,
+        },
+        breakpoints: {
+          480: {
+            centeredSlides: true,
+            slidesPerView: 4,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 5,
+            spaceBetween: 10,
+          },
+        },
+      });
+      var swiper2 = new Swiper('.mySwiper2', {
+        spaceBetween: 10,
+        slidesPerView: 1,
+        grabCursor: true,
+       
+        pauseOnMouseEnter: true,
+        autoplay: {
+          delay: 2000,
+        },
+        loop: true,
+        breakpoints: {
+          480: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+          768: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        thumbs: {
+          swiper: swipertop,
+        },
+                
+      });
+
+      function handleMouseEnter() {
+        swipertop.autoplay.stop();
+        swiper2.autoplay.stop();
+      }
+
+      function handleMouseLeave() {
+        swipertop.autoplay.start();
+        swiper2.autoplay.start();
+      }
+
+      document.querySelector('.mySwiper3').addEventListener('mouseenter', handleMouseEnter);
+      document.querySelector('.mySwiper3').addEventListener('mouseleave', handleMouseLeave);
+
+      document.querySelector('.mySwiper2').addEventListener('mouseenter', handleMouseEnter);
+      document.querySelector('.mySwiper2').addEventListener('mouseleave', handleMouseLeave);
+    },
+    { once: true }
+  );
+</script>
+
+{% schema %}
+{
+  "name": "Brands Testimonials",
+  "settings": [
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin Bottom Desktop",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin Bottom Mobile",
+      "default": 36
+    },
+    {
+      "type": "text",
+      "id": "main_title",
+      "label": "Main Title",
+      "default": "Enter Title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "Select",
+      "name": "Brands",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "Brands_testimonial_image",
+          "label": "Brands Testimonial Image",
+          "info": "Dimensions 250px X 61px"
+        },
+
+        {
+          "type": "text",
+          "id": "Brands_testimonial_content",
+          "label": "Brands Testimonial Content",
+          "default": "Brands Content"
+        },
+        {
+          "type": "text",
+          "id": "Readmore",
+          "label": "Readmore Button",
+          "default": "Read More"
+        },
+
+        {
+          "type": "url",
+          "id": "Readmore_link",
+          "label": "Read More Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brands Testimonials"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

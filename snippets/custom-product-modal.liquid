@@ -1,0 +1,244 @@
+<style>
+
+  /* Images */
+.product-image-thumb,
+.product-image {
+  width: 100%;
+  height: auto;
+}
+
+/* Swipers */
+.product-media-swiper,
+.product-media-swiper-thumbnail {
+  width: 100%;
+  height: auto;
+}
+
+/* Swiper Wrapper */
+.product-media-swiper .swiper-wrapper,
+.product-media-swiper-thumbnail .swiper-wrapper {
+  line-height: 0;
+  margin-bottom: 10px;
+}
+
+/* Swiper Slide */
+.product-media-swiper .swiper-slide,
+.product-media-swiper-thumbnail .swiper-slide {
+  line-height: 0;
+  /* Crops Images into Square Aspect Ratio */
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+/* Swiper Buttons */
+.product-media-swiper .swiper-next,
+.product-media-swiper .swiper-prev,
+.product-media-swiper-thumbnail .swiper-next,
+.product-media-swiper-thumbnail .swiper-prev,
+.product-zoom-modal-overlay .swiper .swiper-next,
+.product-zoom-modal-overlay .swiper .swiper-prev {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  cursor: pointer;
+}
+
+/* Swiper Button Diabled State */
+.product-media-swiper .swiper-next.swiper-button-disabled,
+.product-media-swiper .swiper-prev.swiper-button-disabled,
+.product-media-swiper-thumbnail .swiper-next.swiper-button-disabled,
+.product-media-swiper-thumbnail .swiper-prev.swiper-button-disabled,
+.product-zoom-modal-overlay .swiper .swiper-next.swiper-button-disabled,
+.product-zoom-modal-overlay .swiper .swiper-prev.swiper-button-disabled {
+  opacity: 0.5;
+}
+
+/* Swiper Button Icons / SVG */
+.product-media-swiper .swiper-next svg path,
+.product-media-swiper .swiper-prev svg path {
+  fill: #fff;
+}
+
+.product-media-swiper.swiper-button-disabled .swiper-next svg path,
+.product-media-swiper.swiper-button-disabled .swiper-prev svg path,
+.product-media-swiper-thumbnail.swiper-button-disabled .swiper-next svg path,
+.product-media-swiper-thumbnail.swiper-button-disabled .swiper-prev svg path,
+.product-zoom-modal-overlay
+  .swiper.swiper-button-disabled
+  .swiper-next
+  svg
+  path,
+.product-zoom-modal-overlay
+  .swiper.swiper-button-disabled
+  .swiper-prev
+  svg
+  path {
+  opacity: 0.25;
+}
+
+/* Swiper Button Positioning */
+.product-zoom-modal-overlay .zoom-swiper .swiper-next,
+.product-zoom-modal-overlay .zoom-swiper .swiper-prev,
+.product-media-swiper-thumbnail .swiper-next,
+.product-media-swiper-thumbnail .swiper-prev {
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.product-zoom-modal-overlay .swiper .swiper-next,
+.product-media-swiper .swiper-next {
+  right: 20px;
+}
+
+.product-zoom-modal-overlay .swiper .swiper-prev,
+.product-media-swiper .swiper-prev {
+  left: 20px;
+}
+
+.product-media-swiper-thumbnail .swiper-next {
+  right: 12px;
+}
+
+.product-media-swiper-thumbnail .swiper-prev {
+  left: 12px;
+}
+
+/* Zoom Slider */
+.zoom-button {
+  display: none;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  background-color: #000;
+  padding: 8px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.zoom-button.active {
+  display: inline-flex;
+}
+
+/* Product Zoom Slider */
+.product-zoom-modal-overlay {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.65);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  z-index: 10;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  opacity: 0;
+  transition: opacity 0.55s ease-in-out;
+  pointer-events: none;
+}
+
+.product-zoom-modal-overlay.active {
+  opacity: 1;
+  pointer-events: unset;
+}
+
+.product-zoom-modal-overlay .zoom-close-button {
+  display: inline-flex;
+  position: absolute;
+
+  background-color: #000;
+  padding: 8px;
+
+  left: unset;
+  bottom: unset;
+  right: 10px;
+  top: 10px;
+  z-index: 11;
+  cursor: pointer;
+}
+
+.product-zoom-modal-overlay .zoom-swiper {
+  width: 100%;
+}
+
+.product-zoom-modal-overlay .zoom-swiper .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-zoom-modal-overlay .zoom-swiper img {
+  width: auto;
+  height: 80%;
+}
+
+@media only screen and (max-width: 767px) {
+  .product-zoom-modal-overlay .zoom-swiper img {
+    width: 100%;
+    height: auto;
+  }
+  .product-media-swiper .zoom-button svg {
+    width: 28px;
+    height: 28px;
+  }
+  .product-media-swiper .swiper-next svg,
+  .product-media-swiper .swiper-prev svg {
+    width: 12px;
+    height: 22px;
+  }
+  .product-media-swiper-thumbnail .swiper-wrapper {
+    margin-bottom: 20px;
+  }
+  .product-media-swiper-thumbnail .swiper-next svg,
+  .product-media-swiper-thumbnail .swiper-prev svg {
+    width: 13px;
+    height: 13px;
+  }
+}
+
+</style>
+
+
+<div data-id="zoomModal" class="product-zoom-modal-overlay">
+  <div data-id="zoomCloseButton" class="zoom-close-button" aria-label="Product Modal Close Button" aria-role="button" onclick="modalCloseHandler()">
+     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <path d="M0.780908 15.9999C0.62637 15.9999 0.475295 15.9541 0.346792 15.8682C0.21829 15.7824 0.118132 15.6604 0.0589893 15.5176C-0.00015362 15.3748 -0.0156252 15.2177 0.0145315 15.0662C0.0446883 14.9146 0.119119 14.7754 0.228408 14.6661L14.6659 0.228609C14.8124 0.0820768 15.0112 -0.000244141 15.2184 -0.000244141C15.4256 -0.000244141 15.6244 0.0820768 15.7709 0.228609C15.9174 0.375141 15.9998 0.573881 15.9998 0.781109C15.9998 0.988337 15.9174 1.18708 15.7709 1.33361L1.33341 15.7711C1.26092 15.8437 1.17479 15.9013 1.07998 15.9406C0.985164 15.9799 0.883528 16 0.780908 15.9999Z"
+        fill="#fff"/>
+      <path d="M15.2188 15.9999C15.1161 16 15.0145 15.9799 14.9197 15.9406C14.8249 15.9013 14.7388 15.8437 14.6663 15.7711L0.228761 1.33361C0.0822293 1.18708 -9.15527e-05 0.988337 -9.15527e-05 0.781109C-9.15527e-05 0.573881 0.0822293 0.375141 0.228761 0.228609C0.375294 0.0820768 0.574034 -0.000244141 0.781261 -0.000244141C0.988489 -0.000244141 1.18723 0.0820768 1.33376 0.228609L15.7713 14.6661C15.8806 14.7754 15.955 14.9146 15.9851 15.0662C16.0153 15.2177 15.9998 15.3748 15.9407 15.5176C15.8815 15.6604 15.7814 15.7824 15.6529 15.8682C15.5244 15.9541 15.3733 15.9999 15.2188 15.9999Z"
+        fill="#fff"/>
+    </svg>
+  </div>
+  <div class="swiper zoom-swiper" data-id="zoomSwiper">
+    <div class="swiper-wrapper">
+      {%- for media in product.media -%}
+        <div class="swiper-slide zoom-slide">
+          {{
+            media
+            | image_url: width: 1080
+            | image_tag: class: 'product-image', loading: 'lazy', alt: media.alt
+            | escape
+          }}
+        </div>
+      {% endfor %}
+    </div>
+    {% comment %} Swiper Prev / Next Button {% endcomment %}
+    <div class="swiper-next">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+        <path d="M21.8657 10.676L14.9907 3.80104C14.8117 3.62199 14.5216 3.62199 14.3426 3.80104C14.1636 3.98009 14.1636 4.27013 14.3426 4.44913L20.4353 10.5418L0.458348 10.5418C0.205004 10.5418 0 10.7468 0 11.0001C0 11.2535 0.205004 11.4585 0.458348 11.4585L20.4353 11.4585L14.3426 17.551C14.1636 17.7301 14.1636 18.0201 14.3426 18.1991C14.4321 18.2886 14.5494 18.3334 14.6667 18.3334C14.784 18.3334 14.9012 18.2886 14.9908 18.1991L21.8658 11.3241C22.0448 11.1451 22.0448 10.8551 21.8657 10.676Z"
+          fill="#000"/>
+      </svg>
+    </div>
+    <div class="swiper-prev">
+     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+      <path d="M0.134276 11.324L7.00928 18.199C7.18833 18.378 7.47837 18.378 7.65737 18.199C7.83642 18.0199 7.83642 17.7299 7.65737 17.5509L1.56475 11.4582L21.5417 11.4582C21.795 11.4582 22 11.2532 22 10.9999C22 10.7465 21.795 10.5415 21.5417 10.5415L1.56475 10.5415L7.65738 4.44896C7.83643 4.26991 7.83643 3.97987 7.65738 3.80087C7.56787 3.71136 7.45057 3.66659 7.3333 3.66659C7.21604 3.66659 7.09878 3.71136 7.00923 3.80087L0.134232 10.6759C-0.0447744 10.8549 -0.0447744 11.1449 0.134276 11.324Z"
+        fill="#000"/>
+    </svg>
+    </div>
+  </div>
+</div>
+

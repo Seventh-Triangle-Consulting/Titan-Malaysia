@@ -1,0 +1,81 @@
+<script>
+  document.addEventListener("DOMContentLoaded", (event) => {
+    {% if template.name == "product" %}
+      recentlypdSaveOnpdPage()
+    {% else %}
+      recentlypdSave();
+    {% endif %}
+  });
+const recentlypdSave = ()=> {
+
+            document.querySelectorAll('a[href]').forEach(x=>{
+             x.addEventListener('click', (m)=>{
+               if(m.target.closest('.card-wrapper')){
+                 let productid = m.target.closest('.card-wrapper').getAttribute("data-productid");
+                 setPproductId(productid);
+               } 
+             })
+            })    
+}
+const recentlypdSaveOnpdPage = ()=> {
+     if(document.querySelector("div[data-productid]")){
+       
+      let productSelector = document.querySelector("div[data-productid]");
+      let productid = productSelector.getAttribute("data-productid");
+      setPproductId(productid);
+       
+     }
+}
+
+function setPproductId(productid){
+          let cookieValue = getCookie('recentlyViewed');
+          if (cookieValue != null) {
+          let productArray = [];
+              productArray = cookieValue.split(",");
+              productArray.push(productid);
+          let uniqueArray = Array.from(new Set(productArray));
+          let uniqueArray_reverse = uniqueArray.reverse();
+          let uniqueArray_4limit = uniqueArray.slice(0, {{settings.recentlyViewedsaveproduct}});
+          let productidStringValue =  uniqueArray_4limit.toString();
+              setProductIdCookie(productidStringValue);
+          } else {
+             console.log('Username cookie not found.');
+             setProductIdCookie(productid);
+          }
+}
+  
+function setProductIdCookie(productid) {
+  const cookieName = "recentlyViewed";
+  const cookieValue = productid;
+  const expirationDate = new Date();
+  expirationDate.setDate(expirationDate.getDate() + 7);
+  const cookieString = `${cookieName}=${cookieValue}; expires=${expirationDate.toUTCString()}; path=/`;
+  document.cookie = cookieString;
+}
+
+function getCookie(cookieName) {
+    let name = cookieName + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let cookieArray = decodedCookie.split(';');
+    
+    for (let i = 0; i < cookieArray.length; i++) {
+         let cookie = cookieArray[i].trim();
+        
+        if (cookie.indexOf(name) == 0) {
+            return cookie.substring(name.length, cookie.length);
+        }
+    }
+return null;
+}
+
+
+
+
+
+
+  
+
+
+  
+  
+</script>
