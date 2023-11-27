@@ -46,7 +46,7 @@
         </h2>
         <ul class="collection-list list-unstyled row_ashish row mb-0 fabrics-ul-style {{ row_xs }} {{ row_sm }} {{ row_lg }}">
             {% for block in section.blocks %}
-                {% render 'collection-fabrics', collection: collections[block.settings.collection] %}
+                {% render 'collection-watches', collection: collections[block.settings.collection] %}
             {% endfor %}
         </ul>
         {% unless section.settings.btn_text == blank %}
