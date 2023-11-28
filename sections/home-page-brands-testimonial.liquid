@@ -18,9 +18,11 @@
   <div thumbsSlider="" class="swiper mySwiper3">
     <div class="swiper-hover swiper-wrapper">
       {% for block in section.blocks %}
-        <div class="swiper-slide">
-          {{ block.settings.Brands_testimonial_image | image_url: width: 300 | image_tag: loading: 'lazy', class:'Brands_testimonial_image'}}    
-        </div>
+        {% if block.settings.Brands_testimonial_image != blank %}
+            <div class="swiper-slide">
+              {{ block.settings.Brands_testimonial_image | image_url: width: 300 | image_tag: loading: 'lazy', class:'Brands_testimonial_image'}}    
+            </div>
+         {% endif %}
       {% endfor %}
     </div>
   </div>
