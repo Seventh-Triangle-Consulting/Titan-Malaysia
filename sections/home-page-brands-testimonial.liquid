@@ -3,6 +3,7 @@
 {%- style -%}
   .section-{{ section.id }}-padding {
     margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+    background-color:{{ section.settings.brand_bg_color }};
   }
 
   @media screen and (max-width: 750px) {
@@ -144,6 +145,12 @@
       "unit": "px",
       "label": "Margin Bottom Mobile",
       "default": 36
+    },
+    {
+      "type": "color",
+      "id": "brand_bg_color",
+      "label": "Background Color",
+      "default": "#fff"
     },
     {
       "type": "text",
