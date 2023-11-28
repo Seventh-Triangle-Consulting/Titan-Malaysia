@@ -320,18 +320,6 @@ function  changeCss () {
            window.psn();
              });
     </script>
-<script>
-
-  $(document).ready(function(){
-    $('.p-ul-header button').on('click',function(){ 
-      var id = $(this).attr('data-id');
-            $('.ga-pl').removeClass('ga-active');
-      $('#'+id).addClass('ga-active');
-      $('.p-ul-header button').removeClass('ga-active');
-      $(this).addClass('ga-active');
-    });
-  });
-</script>
   <!-- --------------- BEGIN PRAGMA SITE WIDGET JS --------------- -->
 {% include 'pragma-site-widget' %}
 {{ 'pragma-site-widget.js' | asset_url | script_tag }}
