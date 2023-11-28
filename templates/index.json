@@ -145,20 +145,36 @@
           "type": "cp",
           "settings": {
             "coll": "children",
-            "coll_name": ""
+            "coll_name": "Children's Watch"
+          }
+        },
+        "e69498c4-196d-43db-9727-27b451d65b9f": {
+          "type": "cp",
+          "settings": {
+            "coll": "female",
+            "coll_name": "Female's Watch"
+          }
+        },
+        "a40033be-0e8b-4147-93d4-ec084dbce89a": {
+          "type": "cp",
+          "settings": {
+            "coll": "mens-watch",
+            "coll_name": "Men's Watch"
           }
         }
       },
       "block_order": [
-        "ddc3a3e7-8d77-4a3a-b558-7c2e8b6d0eff"
+        "ddc3a3e7-8d77-4a3a-b558-7c2e8b6d0eff",
+        "e69498c4-196d-43db-9727-27b451d65b9f",
+        "a40033be-0e8b-4147-93d4-ec084dbce89a"
       ],
       "settings": {
         "recommended_mode": false,
-        "collection": "",
+        "collection": "mens-watch",
         "limit": 5,
         "bg_color": "bg-white",
         "text_align": "text-center",
-        "title": "Featured Products",
+        "title": "Most Loved",
         "title_size": "h2",
         "btn_text": "View all products",
         "btn_color": "btn-primary",
