@@ -155,7 +155,7 @@
       "settings": {
         "recommended_mode": false,
         "collection": "",
-        "limit": 8,
+        "limit": 5,
         "bg_color": "bg-white",
         "text_align": "text-center",
         "title": "Featured Products",
