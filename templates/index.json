@@ -97,13 +97,8 @@
         "title_size": "h2",
         "btn_text": "",
         "btn_color": "btn-primary",
-        "row_xs": 2,
-        "row_sm": 2,
-        "row_lg": 9,
-        "pt": 0,
-        "pb": 0,
-        "mt": 0,
-        "mb": 0
+        "desktop_margin_bottom": 0,
+        "mobile_margin_bottom": 0
       }
     },
     "451768ba-558a-46f8-8f07-3fb30eb32deb": {
