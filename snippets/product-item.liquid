@@ -227,13 +227,6 @@
 {% endfor %}
 <li class="product-item CustomCardCollection py-3 px-lg-5  px-md-4 mb-4" product-variant="{{ product.selected_or_first_available_variant.id }}">
     <a class="position-relative d-block" href="{{ product.url | within: collection }}">
-        {% unless product.available %}
-            {% unless product.tags contains "Bundle" %}
-                <span class="badge-sold-out badge bg-secondary position-absolute">
-                    {{ 'product.sold_out' | t }}
-                </span>
-            {% endunless %}
-        {% endunless %}
         <div 
             class="Imageparent Imageparent_rspnsv">
             {% if comboCmpPrice > 0 and comboCmpPrice > comboPrice %}
