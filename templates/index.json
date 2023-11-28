@@ -206,6 +206,7 @@
         "0e1bd032-dfba-4012-8f4f-9fce042f0e76": {
           "type": "Select",
           "settings": {
+            "Brands_testimonial_image": "shopify:\/\/shop_images\/Titanevoke_D.jpg",
             "Brands_testimonial_content": "Footwear brand titan raises funds from Florintree, others",
             "Readmore": "Read More",
             "Readmore_link": "https:\/\/www.livemint.com\/companies\/start-ups\/footwear-brand-titan-raises-funds-from-florintree-others\/amp-11658079237096.html"
@@ -214,6 +215,7 @@
         "c70c505b-ac2e-4a64-abc9-559f4b0d3800": {
           "type": "Select",
           "settings": {
+            "Brands_testimonial_image": "shopify:\/\/shop_images\/Titan-Logo-PNG.png",
             "Brands_testimonial_content": "These former Nike, Adidas executives are building a startup for ‘growing feet’",
             "Readmore": "Read More",
             "Readmore_link": "https:\/\/www.moneycontrol.com\/news\/business\/companies\/these-former-nike-adidas-executives-are-building-a-startup-for-growing-feet-8194651.html"
@@ -222,6 +224,7 @@
         "9a42c1d3-c5b9-4a3f-b8f4-45609c5e761d": {
           "type": "Select",
           "settings": {
+            "Brands_testimonial_image": "shopify:\/\/shop_images\/TW_Ranveer_030723_Header.jpg",
             "Brands_testimonial_content": "30 Startups To Watch: The Startups That Caught Our Eye In January 2022",
             "Readmore": "Read More",
             "Readmore_link": "https:\/\/inc42.com\/features\/30-startups-to-watch-the-startups-that-caught-our-eye-in-january-2022\/"
@@ -230,42 +233,46 @@
         "13363174-2de1-47cc-89c9-181e1b541cc4": {
           "type": "Select",
           "settings": {
+            "Brands_testimonial_image": "shopify:\/\/shop_images\/AX1326_4.jpg",
             "Brands_testimonial_content": "WHAT NATIONAL STARTUP DAY MEANS FOR STARTUPS",
             "Readmore": "Read More",
             "Readmore_link": "https:\/\/yourstory.com\/2022\/01\/startup-ecosystem-on-national-startup-day-2022-insights-government"
           }
         },
-        "274eb60f-d978-4460-8031-ec91a867a5f2": {
+        "eaca338f-f711-4d4a-b9b5-9bb7d9078f16": {
           "type": "Select",
           "settings": {
-            "Brands_testimonial_content": "Your guide to good foot health for children going back to school",
+            "Brands_testimonial_image": "shopify:\/\/shop_images\/Titan-Logo-PNG.png",
+            "Brands_testimonial_content": "These former Nike, Adidas executives are building a startup for ‘growing feet’",
             "Readmore": "Read More",
-            "Readmore_link": "https:\/\/timesofindia.indiatimes.com\/blogs\/voices\/your-guide-to-good-foot-health-for-children-going-back-to-school\/"
+            "Readmore_link": "https:\/\/www.moneycontrol.com\/news\/business\/companies\/these-former-nike-adidas-executives-are-building-a-startup-for-growing-feet-8194651.html"
           }
         },
-        "1dafb176-3deb-4779-9f49-e58e4851bd87": {
+        "1bf0d109-f009-4829-afba-a379a03ba7e1": {
           "type": "Select",
-          "disabled": true,
           "settings": {
-            "Brands_testimonial_content": "Former executives from Nike & Apple launch titan, India’s first foot-health focused shoes",
+            "Brands_testimonial_image": "shopify:\/\/shop_images\/TW_Ranveer_030723_Header.jpg",
+            "Brands_testimonial_content": "30 Startups To Watch: The Startups That Caught Our Eye In January 2022",
             "Readmore": "Read More",
-            "Readmore_link": "https:\/\/health.economictimes.indiatimes.com\/news\/industry\/former-executives-from-nike-apple-launch-titan-indias-first-foot-health-focused-shoes\/87319122"
+            "Readmore_link": "https:\/\/inc42.com\/features\/30-startups-to-watch-the-startups-that-caught-our-eye-in-january-2022\/"
           }
         },
-        "7d73f267-1fb3-40b9-a937-d0cc2066df82": {
+        "c6f35a42-b822-4cd6-8468-1a0722c7ef8e": {
           "type": "Select",
           "settings": {
-            "Brands_testimonial_content": "titan: Making Shoes That Fit Indian Children",
+            "Brands_testimonial_image": "shopify:\/\/shop_images\/Titanevoke_D.jpg",
+            "Brands_testimonial_content": "Footwear brand titan raises funds from Florintree, others",
             "Readmore": "Read More",
-            "Readmore_link": "https:\/\/www.outlookindia.com\/outlook-spotlight\/titan-making-shoes-that-fit-indian-children-news-186029"
+            "Readmore_link": "https:\/\/www.livemint.com\/companies\/start-ups\/footwear-brand-titan-raises-funds-from-florintree-others\/amp-11658079237096.html"
           }
         },
-        "fff4c4f4-d559-4b85-b12e-bf8cfe27b5a4": {
+        "cdc55fbe-90bf-4881-abd0-6cdd284c151d": {
           "type": "Select",
           "settings": {
-            "Brands_testimonial_content": "These 29 former Nike execs started their own businesses. Here's where they are now — and what insiders say their exits mean for Nike's future and entrepreneurial spirit.",
+            "Brands_testimonial_image": "shopify:\/\/shop_images\/AX1326_4.jpg",
+            "Brands_testimonial_content": "WHAT NATIONAL STARTUP DAY MEANS FOR STARTUPS",
             "Readmore": "Read More",
-            "Readmore_link": "https:\/\/www.businessinsider.com\/20-nike-execs-who-started-their-own-businesses-heres-where-they-are-now-2022-6?IR=T"
+            "Readmore_link": "https:\/\/yourstory.com\/2022\/01\/startup-ecosystem-on-national-startup-day-2022-insights-government"
           }
         }
       },
@@ -274,10 +281,10 @@
         "c70c505b-ac2e-4a64-abc9-559f4b0d3800",
         "9a42c1d3-c5b9-4a3f-b8f4-45609c5e761d",
         "13363174-2de1-47cc-89c9-181e1b541cc4",
-        "274eb60f-d978-4460-8031-ec91a867a5f2",
-        "1dafb176-3deb-4779-9f49-e58e4851bd87",
-        "7d73f267-1fb3-40b9-a937-d0cc2066df82",
-        "fff4c4f4-d559-4b85-b12e-bf8cfe27b5a4"
+        "eaca338f-f711-4d4a-b9b5-9bb7d9078f16",
+        "1bf0d109-f009-4829-afba-a379a03ba7e1",
+        "c6f35a42-b822-4cd6-8468-1a0722c7ef8e",
+        "cdc55fbe-90bf-4881-abd0-6cdd284c151d"
       ],
       "settings": {
         "margin_bottom_desktop": 12,
