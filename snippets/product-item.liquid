@@ -1,0 +1,439 @@
+{% render 'Collectioncardstyle' %}
+
+{% liquid
+    assign img_width  = 600
+    assign img_height = 600
+    assign img_thumbnail = 'img-thumbnail' %}
+<style>
+
+  .webkit_clamp{
+                  -webkit-line-clamp: unset !important;
+
+  }
+    .prductitm_hdng_mrgn{
+              -webkit-line-clamp: unset !important;
+  }
+      .mob_prod_title{
+          display: none !important;
+        }
+
+      .Mob_customProDis{
+          display:none !important;
+        }
+
+    @media only screen and (min-width:1400px){
+  .prductitm_hdng_mrgn{
+        margin-bottom: 0% !important;
+  }
+  }
+
+  @media only screen and (max-width:787px)
+  {
+    .product-item .view-blank .product-options
+    {
+        display:block !important;
+    }
+  .product-item .view-blank .product-options .input-group .product-option
+      {
+        font-size:3.641vw !important;
+        } 
+    .bundleColl_atc{
+      width: 100%!important;
+    font-size: 4.6vw!important;
+    text-transform: uppercase;
+    padding: 2% 1%;
+    }
+  }
+ .product-item .view-blank .product-options
+  {
+    width: 100%;
+    display: flex;
+    gap: 5px;
+  }
+  .product-item .view-blank .product-options .input-group .product-option
+  {
+    font-size: 0.7vw;
+    border-radius: 10px;
+    font-family: 'AvenirLTStd Roman';
+    min-height:unset;
+  }
+    .bundleColl_atc{
+      min-height: 42px;
+    color: #fff;
+    text-transform: uppercase;
+    margin-top: 1%;
+    width: 100%;
+    border: none;
+    background-color: #6EB3BC;
+    /* color: #F6ECA2; */
+    font-size: 1.1vw;
+    font-family: 'AvenirLTStd Black';
+    border-radius: 10px;
+    }
+  .bundleColl_atc:hover
+  {
+    color:#fff;
+  }
+    .product-item CustomCardCollection {
+        position: relative;
+    }
+    .product-item .Imageparent .discount-tag {
+        position: absolute;
+        top: 1%;
+        z-index: 998;
+        width: fit-content;
+       right:2%;
+    }
+    .product-item .Imageparent .discount-tag span {
+        border-bottom-left-radius: 5px;
+        font-weight: bold;
+       background-color: #fff;
+    opacity: 80%;
+        height: 23px;
+        width: 80px;
+        text-align: left;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #282728;
+        font-size: 13px;
+        font-family: "Inter-Medium";
+        margin-left: 0;
+    }
+    .view-atc {
+        min-height: 42px;
+        color: #fff;
+        text-transform: uppercase;
+        width: 68%;
+        border: none;
+        background-color: #6EB3BC;
+        /* color: #F6ECA2; */
+        font-size: 1.1vw;
+        font-family: 'AvenirLTStd Black';
+        border-radius: 10px;
+        padding: 8px 10px;
+        display: block;
+        text-align: center;
+        margin: auto;
+    }
+   
+    .view-atc:hover {
+        color: #ffffff
+    }
+    .tags {
+        position: absolute;
+        top: 1%;
+        right: 1%;
+        z-index: 998;
+        width: 44%;
+    }
+  .Imageparent{
+    position: relative;
+  }
+    .tags3 {
+        position: absolute;
+       display: flex;
+    width: 100%;
+    gap: 10px;
+       left:4px;
+         bottom: 4px;
+    }
+    .back {
+        width: 40%;
+       border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        font-weight: bold;
+      margin-right:0!important;
+      background-color: #fff;
+    opacity: 80%;
+      margin: inherit;
+    }
+    @media only screen and (max-width:787px)
+  {
+        .tags {
+            right: 2%;
+        }
+     .back {
+        border-bottom-left-radius: 0;
+       border-top-left-radius: 5px;
+    }
+        .product-item .Imageparent .discount-tag span {
+            width: 60px !important;
+            font-size: 12px !important;
+        }
+        .product-item .Imageparent .discount-tag {
+            right: 1% !important;
+        }
+        .view-atc {
+            width: 100% !important;
+            font-size: 4.5vw !important;
+            text-transform: uppercase;
+            padding: 2% 0;
+            margin-top: 16%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .view-blank {
+            margin-top: 12%;
+        }
+   
+    }
+      @media only screen and (max-width:600px){
+    .Desk_prod_title{
+              display:none !important;
+        }
+    .mob_prod_title{
+          display:block !important;
+          height: 64px !important;
+        }
+    .Mob_customProDis{
+          display:block !important;
+        }
+    .Desk_customProDis{
+          display:none !important;
+        }
+    .view-blank_rspnsv{
+      margin-top:-8%!important;
+    }
+        
+  }
+</style>
+
+{% comment %}
+    edited bby parth
+{% endcomment %}
+
+{% if product.has_only_default_variant %}
+
+    <style>
+        @media(max-width: 500px) {
+            .best-container .CustomCardCollection .addSpace {
+                margin-top: 23%;
+                display: block !important;
+            }
+        }
+    </style>
+
+{% endif %}
+{% assign metaContent = product.metafields.custom.variantcombination.value %}
+{% assign comboPrice = 0 %}
+{% assign comboCmpPrice = 0 %}
+{% for meta in product.metafields.custom.variantcombination.value %}
+  {% assign splittedValue = meta | split: '##' %}
+  {% assign comboVariant = all_products[splittedValue[0]] %}
+  {% assign comboPrice = comboPrice | plus:comboVariant.selected_or_first_available_variant.price %}
+  {% assign comboCmpPrice = comboCmpPrice | plus:comboVariant.selected_or_first_available_variant.compare_at_price %}
+{% endfor %}
+<li class="product-item CustomCardCollection py-3 px-lg-5  px-md-4 mb-4" product-variant="{{ product.selected_or_first_available_variant.id }}">
+    <a class="position-relative d-block" href="{{ product.url | within: collection }}">
+        {% unless product.available %}
+            {% unless product.tags contains "Bundle" %}
+                <span class="badge-sold-out badge bg-secondary position-absolute">
+                    {{ 'product.sold_out' | t }}
+                </span>
+            {% endunless %}
+        {% endunless %}
+        <div 
+            class="Imageparent Imageparent_rspnsv">
+            {% if comboCmpPrice > 0 and comboCmpPrice > comboPrice %}
+              <div class="discount-tag updated-tag">
+                  <span>
+                    {{-
+                    comboCmpPrice
+                    | minus: comboPrice
+                    | times: 1.0
+                    | divided_by: comboCmpPrice
+                    | times: 100
+                    | floor
+                    -}}% OFF
+                  </span>
+              </div>
+            {% else %}
+            
+                {% if  product.selected_or_first_available_variant.compare_at_price != blank %}
+                    {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
+                        <div class="discount-tag">
+                            <span>{{ product.selected_or_first_available_variant.compare_at_price | minus:product.selected_or_first_available_variant.price |times:1.0 | divided_by:product.selected_or_first_available_variant.compare_at_price   | times: 100 | floor }}% OFF</span>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+
+            <!--         third-one -->
+           {% assign product_tags = product.tags | join: ' ' %}
+
+
+    <div class="tags3">
+  {% if product_tags contains 'Black' %}
+        {% render 'Tags-NewArrivals-collection' %}
+{% endif %}
+         {% if product_tags contains 'beige' %}
+                {% render 'Tags-Bestseller-collection' %}
+           {% endif %}
+      
+    </div>
+
+
+           {% comment %}
+            <img class="product-item-img img-fluid  {{ img_thumbnail }}" srcset="{%- if product.featured_image.width >= 165 -%}{{ product.featured_image | img_url: '165x' }} 165w,{%- endif -%} {%- if product.featured_image.width >= 360 -%}{{ product.featured_image | img_url:'360x' }} 360w,{%- endif -%} {%- if product.featured_image.width >= 535 -%}{{ product.featured_image | img_url: '535x' }} 535w,{%- endif -%} {%- if product.featured_image.width >= 750 -%}{{ product.featured_image | img_url:'750x' }} 600w,{%- endif -%} {%- if product.featured_image.width >= 1000 -%}{{ product.featured_image | img_url:'1200x' }} 1000w,{%- endif -%} {%- if product.featured_image.width >= 1500 -%}{{ product.featured_image | img_url: '1500x' }} 1500w,{%- endif -%} {{ product.featured_image | img_url:'' }} {{ product.featured_image.width }}w" src="{{ product.featured_image | img_url:'1500x' }}" sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width:750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)" alt="{{ product.featured_image.alt | escape }}" loading="lazy" width="{{ product.featured_image.width }}" height="{{ product.featured_image.height }}">
+           {% endcomment %}
+        <img class="product-item-img img-fluid  {{ img_thumbnail }}" srcset="{%- if product.featured_image.width >= 165 -%}{{ product.featured_image | img_url: '165x' }} 165w,{%- endif -%} {%- if product.featured_image.width >= 360 -%}{{ product.featured_image | img_url:'360x' }} 360w,{%- endif -%} {%- if product.featured_image.width >= 535 -%}{{ product.featured_image | img_url: '535x' }} 535w,{%- endif -%} {%- if product.featured_image.width >= 750 -%}{{ product.featured_image | img_url:'750x' }} 600w,{%- endif -%} {%- if product.featured_image.width >= 1000 -%}{{ product.featured_image | img_url:'800x' }} 1000w,{%- endif -%} {%- if product.featured_image.width >= 1500 -%}{{ product.featured_image | img_url: '800x' }} 1500w,{%- endif -%} {{ product.featured_image | img_url:'800x' }} {{ product.featured_image.width }}w" src="{{ product.featured_image | img_url:'800x' }}" sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width:750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)" alt="{{ product.featured_image.alt | escape }}" loading="lazy" width="{{ product.featured_image.width }}" height="{{ product.featured_image.height }}">
+            
+            </div>
+
+            <h3 class="product-item-title h6 mb-6  Desk_prod_title">
+                {{ product.title | strip_html | truncatewords: 7 }}
+            </h3>
+            <h3 class="product-item-title h6 mb-2 prductitm_hdng_mrgn mob_prod_title">
+                {{ product.title | strip_html | truncatewords: 7 }}
+            </h3>
+            {% comment %}
+                <h4 class="customProDis">{{ product.metafields.pro.desc }}</h4>
+            {% endcomment %}
+           
+                <h4 class="customProDis webkit_clamp Desk_customProDis">{{ product.metafields.description.subtitle | truncatewords:8}}</h4>
+                <h4 class="customProDis webkit_clamp Mob_customProDis">{{ product.metafields.description.subtitle | truncatewords:7 }}</h4>
+
+           
+        </a>
+        {% assign bundval = 0 %}
+        {% for tag in product.tags %}
+            {% if tag == "Bundle" %}
+                {% assign bundval = 1 %}
+            {% endif %}
+        {% endfor %}
+        {% if bundval != 1 %}
+            <div class="ColCardfooter card-desc">
+                <div class="product-item-price ">
+                    <span class="product-item-price-compare text-muted me-1" style="{% unless product.compare_at_price > product.price %}display: none{% endunless %}">
+                        <span class="visually-hidden">
+                            {{ 'product.regular_price' | t }}
+                        </span>
+                        <s>{{ product.compare_at_price | money }}</s>
+                    </span>
+                    <span class="product-item-price-final {% if product.compare_at_price > product.price %}text-success{% endif %}">
+                        {{ product.price | money }}
+                    </span>
+                </div>
+
+
+                <div class="CollAtcdiv {% if product.has_only_default_variant %} addSpace {% endif %}">
+                    {% unless product.has_only_default_variant %}
+
+
+                        <ul class="product-options list-unstyled overflow-hidden" aria-label="{{ 'product.product_options' | t }}">
+
+                            {% for option in product.options_with_values %}
+
+
+                                <li class="input-group  {% assign option_small = option.name | downcase %}{% if option_small =='color' %}d-none{% endif %}">
+                                    {% comment %}
+                                        <label class="input-group-text" for="product-option-{{ option.name | handleize }}">
+                                                    {{ option.name }}
+                                                </label>
+                                    {% endcomment %}
+                                    <select id="product-option-{{ option.name | handleize }}" class="product-option form-select" data-product-handle="{{ product.handle }}" onchange="onChangeOption(this)">
+                                        {% for value in product.variants %}
+                                          {% if value.inventory_quantity > 0 %}
+                                            <option value="{{ value.option1 }}" data-id="{{ value.id }}" data-qty="{{ value.inventory_quantity }}" data-policy="{{ value.inventory_policy }}" {% if value==option.selected_value %} selected {% endif %}>
+                                                {{ value.option1 }}
+                                            </option>
+                                          {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                </li>
+                            {% endfor %}
+                        </ul>
+
+                    {% endunless %}
+
+                    <button class="btn-atc customatc btn-offer sze_rspnsv" onclick="collAtcv(this)" data-text="{{ 'product.add_to_cart' | t }}" my_variant="{{ product.first_available_variant.title }}" {% if product.first_available_variant %} {% else %} style="opacity: 0.5;" {% endif %}>
+                        {% if product.first_available_variant %}
+                            {{ 'product.add_to_cart' | t }}
+                        {% else %}
+                            {{ 'product.sold_out' | t }}
+                        {% endif %}
+                    </button>
+                    <div class="loaderbtn">
+                        <div class="loaderrrmain">
+                            <div class="loaderatc"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        {% else %}
+            <div class="view-blank view-blank_rspnsv">
+                <div class="product-item-price product-item-price_rspnsv" style="opacity:1;">
+                    {% if comboCmpPrice > 0 and comboCmpPrice > comboPrice %}
+                    <span class="product-item-price-compare text-muted me-1 cmp-price-updated">
+                        <span class="visually-hidden">
+                            {{ 'product.regular_price' | t }}
+                        </span>
+                        <s>{{ comboCmpPrice | money }}</s>
+                    </span>
+                    {% else %}
+                      <span class="product-item-price-compare text-muted me-1" style="{% unless product.compare_at_price > product.price %}display: none{% endunless %}">
+                          <span class="visually-hidden">
+                              {{ 'product.regular_price' | t }}
+                          </span>
+                          <s></s>
+                      </span>
+                    {% endif %}
+                    {% if comboPrice > 0 %}
+                      <span class="product-item-price-final price-updated {% if product.compare_at_price > product.price %}text-success{% endif %}">
+                          {{ comboPrice | money }}
+                      </span>
+                    {% else %}
+                       <span class="product-item-price-final {% if product.compare_at_price > product.price %}text-success{% endif %}">
+                        {{ product.price | money }}
+                       </span>
+                    {% endif %}
+                </div>
+                <ul 
+                  class="product-options list-unstyled overflow-hidden" 
+                  aria-label="{{ 'product.product_options' | t }}"
+                  handleAndName="{% for x in product.metafields.custom.variantcombination.value %}{{ x }}{% unless forloop.last %}@@{% endunless %}{% endfor %}"
+                  onload="window.MyAsyncFunction(event)"
+                  >
+                      {% assign productObjects = product.metafields.custom.variantcombination.value | split: '##' %}
+                      {% assign productVal = all_products[productObjects] %}
+                      {% for currentPorduct in product.metafields.custom.variantcombination.value %}
+                        {% assign currentHandle = currentPorduct | split: '##' %}
+                        {% assign iteratingProduct = all_products[currentHandle[0]] %}
+                        {% for myOption in iteratingProduct.options_with_values %}
+                          <li class="input-group  {% assign option_small = myOption.name | downcase %}{% if option_small =='color' %}d-none{% endif %}">
+                             {% comment %}   
+                                <label class="input-group-text" for="product-option-{{ myOption.name | handleize }}">
+                                    {{ currentHandle[1] }}
+                                </label>
+                             {% endcomment %}
+                            <select onchange="window.VariantChange(window.event||event)" id="product-option-{{ myOption.name | handleize }}" class="product-option form-select" data-product-handle="{{ iteratingProduct.handle }}">
+                                {% for myValue in iteratingProduct.variants %}
+                                  {% if myValue.inventory_quantity > 0 or myValue.inventory_policy == "continue" %}
+                                    <option class="{% if option_small =='color' %}d-none{% endif %}" col-price="{{ myValue.price }}" col-cmpPrice="{{ myValue.compare_at_price }}" value="{{ myValue.option1 }}" data-id="{{ myValue.id }}" data-qty="{{ myValue.inventory_quantity }}" data-policy="{{ myValue.inventory_policy }}" {% if myValue==myOption.selected_value %} selected {% endif %}>
+                                       {{ currentHandle[1] | truncatewords: 1, "" }} {{ myValue.option1 }}
+                                    </option>
+                                  {% endif %}
+                                {% endfor %}
+                            </select>
+                          </li>
+                        {% endfor %}
+                      {% endfor %}
+                </ul>
+            </div>
+            <button
+                class="bundleColl_atc btn-atc btn w-100 add-to-cart-btn text-center"
+                type="button"
+                data-text="{{ 'product.add_to_cart' | t }}"
+                onclick="bundleAtc(this)"
+                selected-variants=""
+                selected-combo=""
+              >
+                  {{ 'product.add_to_cart' | t }}
+              </button>
+        {% endif %}
+
+    </li>
+</li>
