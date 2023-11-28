@@ -29,17 +29,6 @@
 
 }
 </style>
-{% liquid 
-    assign pt = section.settings.pt | prepend: 'pt-'
-    assign pb = section.settings.pb | prepend: 'pb-'
-    assign mt = section.settings.mt | prepend: 'mt-'
-    assign mb = section.settings.mb | prepend: 'mb-'
-
-    assign row_xs =  section.settings.row_xs | prepend: 'row-cols-'
-    assign row_sm =  section.settings.row_sm | prepend: 'row-cols-sm-'
-    assign row_lg =  section.settings.row_lg | prepend: 'row-cols-lg-'
-
-%}
 
 <section id="featured-collections-{{ section.id }}" class="featured-collections Upper-section-collec titan-homepahe-featured-collection bgcolorfabrics bg-color {{ section.settings.text_align }} {{ pt }} {{ pb }} {{ mt }} {{ mb }}">
     <div class="container-fluid fabrics-container">
@@ -48,7 +37,7 @@
                 {{ section.settings.title }}
             </h2>
         {% endif %}
-        <ul class="collection-list list-unstyled row_ashish row mb-0 fabrics-ul-style {{ row_xs }} {{ row_sm }} {{ row_lg }}">
+        <ul class="collection-list list-unstyled row_ashish row mb-0 fabrics-ul-style">
             {% for block in section.blocks %}
                 {% render 'collection-watches', collection: collections[block.settings.collection] %}
             {% endfor %}
@@ -129,36 +118,6 @@
         {
             "type": "header",
             "content": "Items per row"
-        },
-        {
-            "type": "range",
-            "id": "row_xs",
-            "label": "Mobile",
-            "info": "up to 575px",
-            "min": 1,
-            "max": 3,
-            "step": 1,
-            "default": 2
-        },
-        {
-            "type": "range",
-            "id": "row_sm",
-            "label": "Tablet",
-            "info": "576px - 991px",
-            "min": 1,
-            "max": 4,
-            "step": 1,
-            "default": 2
-        },
-        {
-            "type": "range",
-            "id": "row_lg",
-            "label": "Desktop",
-            "info": "992px and up",
-            "min": 1,
-            "max": 15,
-            "step": 1,
-            "default": 3
         },
         {
             "type": "header",
