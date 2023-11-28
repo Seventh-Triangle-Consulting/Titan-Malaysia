@@ -312,47 +312,12 @@
 
 
                 <div class="CollAtcdiv {% if product.has_only_default_variant %} addSpace {% endif %}">
-                    {% unless product.has_only_default_variant %}
-
-
-                        <ul class="product-options list-unstyled overflow-hidden" aria-label="{{ 'product.product_options' | t }}">
-
-                            {% for option in product.options_with_values %}
-
-
-                                <li class="input-group  {% assign option_small = option.name | downcase %}{% if option_small =='color' %}d-none{% endif %}">
-                                    {% comment %}
-                                        <label class="input-group-text" for="product-option-{{ option.name | handleize }}">
-                                                    {{ option.name }}
-                                                </label>
-                                    {% endcomment %}
-                                    <select id="product-option-{{ option.name | handleize }}" class="product-option form-select" data-product-handle="{{ product.handle }}" onchange="onChangeOption(this)">
-                                        {% for value in product.variants %}
-                                          {% if value.inventory_quantity > 0 %}
-                                            <option value="{{ value.option1 }}" data-id="{{ value.id }}" data-qty="{{ value.inventory_quantity }}" data-policy="{{ value.inventory_policy }}" {% if value==option.selected_value %} selected {% endif %}>
-                                                {{ value.option1 }}
-                                            </option>
-                                          {% endif %}
-                                        {% endfor %}
-                                    </select>
-                                </li>
-                            {% endfor %}
-                        </ul>
-
-                    {% endunless %}
+                  
 
                     <button class="btn-atc customatc btn-offer sze_rspnsv" onclick="collAtcv(this)" data-text="{{ 'product.add_to_cart' | t }}" my_variant="{{ product.first_available_variant.title }}" {% if product.first_available_variant %} {% else %} style="opacity: 0.5;" {% endif %}>
-                        {% if product.first_available_variant %}
-                            {{ 'product.add_to_cart' | t }}
-                        {% else %}
-                            {{ 'product.sold_out' | t }}
-                        {% endif %}
+                         View More  
                     </button>
-                    <div class="loaderbtn">
-                        <div class="loaderrrmain">
-                            <div class="loaderatc"></div>
-                        </div>
-                    </div>
+                    
                 </div>
 
             </div>
