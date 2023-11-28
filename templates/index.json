@@ -20,26 +20,12 @@
           "settings": {
             "collection": "mens-watch"
           }
-        },
-        "4279d2bc-ae3b-4ac6-acb1-b66f2a2ba771": {
-          "type": "collection",
-          "settings": {
-            "collection": "watches"
-          }
-        },
-        "7cb1561a-442e-49ac-bac5-d06e5db582c5": {
-          "type": "collection",
-          "settings": {
-            "collection": ""
-          }
         }
       },
       "block_order": [
         "68f582f7-57e7-4631-a288-d5c535a209b1",
         "08594649-c092-4ac4-8c66-391b598b42d7",
-        "b903bca4-a9de-4fbe-861b-89d7e6e47140",
-        "4279d2bc-ae3b-4ac6-acb1-b66f2a2ba771",
-        "7cb1561a-442e-49ac-bac5-d06e5db582c5"
+        "b903bca4-a9de-4fbe-861b-89d7e6e47140"
       ],
       "settings": {
         "bg_color": "",
