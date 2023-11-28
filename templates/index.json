@@ -138,6 +138,26 @@
         "mobile_margin_bottom": 30
       }
     },
+    "18fff5d4-d4ff-4b85-9cb2-e1d0120c3963": {
+      "type": "homepage-product-card",
+      "settings": {
+        "recommended_mode": false,
+        "collection": "",
+        "limit": 8,
+        "bg_color": "bg-white",
+        "text_align": "text-center",
+        "title": "Featured Products",
+        "title_size": "h2",
+        "btn_text": "View all products",
+        "btn_color": "btn-primary",
+        "row_sm": 2,
+        "row_lg": 4,
+        "pt": 0,
+        "pb": 0,
+        "mt": 0,
+        "mb": 0
+      }
+    },
     "b8288058-a547-4fee-bfe1-0f766e5e082c": {
       "type": "home-page-shop-by-concern",
       "blocks": {
@@ -289,6 +309,7 @@
       "settings": {
         "margin_bottom_desktop": 12,
         "margin_bottom_mobile": 12,
+        "brand_bg_color": "#fff",
         "main_title": "Enter Title"
       }
     },
@@ -899,6 +920,7 @@
   "order": [
     "9b1a63d6-499c-4620-8f1b-a38878dab3d7",
     "bfe6cd2b-1256-45c9-8448-e96663707a03",
+    "18fff5d4-d4ff-4b85-9cb2-e1d0120c3963",
     "b8288058-a547-4fee-bfe1-0f766e5e082c",
     "84601aa3-45ff-4f93-a11f-81666de3da23",
     "451768ba-558a-46f8-8f07-3fb30eb32deb",
