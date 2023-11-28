@@ -1,0 +1,214 @@
+{{ 'homepage-shop-by-concern-section.css' | asset_url | stylesheet_tag }}
+
+<section class="homepage-shop-by-concern-section section-{{ section.id }}-padding" id="{{ section.id }}">
+  <p class="section_title_shop_by_concern">{{ section.settings.main_title }}</p>
+  <!-- Slider main container -->
+  <div class="swiper shop-by-concern-slider-section">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      {% for block in section.blocks %}
+        <div class="swiper-slide slide_shop_by_concern">
+          <!-- card -->
+          <a href="{{ block.settings.shop_by_concern_link }}">
+            <div class="card_image_wrapper">
+              <img
+                class="desktop_card_image"
+                srcset="
+                  {%- if block.settings.desktop_card_image.width >= 550 -%}{{ block.settings.desktop_card_image | image_url: width: 550, format: 'webp' }} 550w,{%- endif -%}
+                  {%- if block.settings.desktop_card_image.width >= 1100 -%}{{ block.settings.desktop_card_image | image_url: width: 1100, format: 'webp' }} 1100w,{%- endif -%}
+                  {%- if block.settings.desktop_card_image.width >= 1445 -%}{{ block.settings.desktop_card_image | image_url: width: 1445, format: 'webp' }} 1445w,{%- endif -%}
+                  {%- if block.settings.desktop_card_image.width >= 1680 -%}{{ block.settings.desktop_card_image | image_url: width: 1680, format: 'webp' }} 1680w,{%- endif -%}
+                  {%- if block.settings.desktop_card_image.width >= 2048 -%}{{ block.settings.desktop_card_image | image_url: width: 2048, format: 'webp' }} 2048w,{%- endif -%}
+                  {%- if block.settings.desktop_card_image.width >= 2200 -%}{{ block.settings.desktop_card_image | image_url: width: 2200, format: 'webp' }} 2200w,{%- endif -%}
+                  {%- if block.settings.desktop_card_image.width >= 2890 -%}{{ block.settings.desktop_card_image | image_url: width: 2890, format: 'webp' }} 2890w,{%- endif -%}
+                  {%- if block.settings.desktop_card_image.width >= 3000 -%}{{ block.settings.desktop_card_image | image_url: width: 3000, format: 'webp' }} 3000w,{%- endif -%}
+                  {%- if block.settings.desktop_card_image.width >= 3840 -%}{{ block.settings.desktop_card_image | image_url: width: 3840, format: 'webp' }} 3840w,{%- endif -%}
+                  {{ block.settings.desktop_card_image | image_url }} {{ block.settings.desktop_card_image.width }}w
+                "
+                src="{{ block.settings.desktop_card_image | image_url: width: block.settings.desktop_card_image.width, format: 'webp' }}"
+                {% if forloop.index0 == 0 %}
+                  loading="eager"
+                {% else %}
+                  loading="lazy"
+                {% endif %}
+                sizes="100vw"
+                alt="{% if block.settings.desktop_card_image.alt %} {{ block.settings.desktop_card_image.alt | escape }} {% else %}desktop-card-image{% endif %}"
+                width="{{ block.settings.desktop_card_image.width }}"
+                height="{{ block.settings.desktop_card_image.height }}"
+              >
+              <img
+                class="mobile_card_image"
+                srcset="
+                  {%- if block.settings.mobile_card_image.width >= 550 -%}{{ block.settings.mobile_card_image | image_url: width: 550, format: 'webp' }} 550w,{%- endif -%}
+                  {%- if block.settings.mobile_card_image.width >= 1100 -%}{{ block.settings.mobile_card_image | image_url: width: 1100, format: 'webp' }} 1100w,{%- endif -%}
+                  {%- if block.settings.mobile_card_image.width >= 1445 -%}{{ block.settings.mobile_card_image | image_url: width: 1445, format: 'webp' }} 1445w,{%- endif -%}
+                  {%- if block.settings.mobile_card_image.width >= 1680 -%}{{ block.settings.mobile_card_image | image_url: width: 1680, format: 'webp' }} 1680w,{%- endif -%}
+                  {%- if block.settings.mobile_card_image.width >= 2048 -%}{{ block.settings.mobile_card_image | image_url: width: 2048, format: 'webp' }} 2048w,{%- endif -%}
+                  {%- if block.settings.mobile_card_image.width >= 2200 -%}{{ block.settings.mobile_card_image | image_url: width: 2200, format: 'webp' }} 2200w,{%- endif -%}
+                  {%- if block.settings.mobile_card_image.width >= 2890 -%}{{ block.settings.mobile_card_image | image_url: width: 2890, format: 'webp' }} 2890w,{%- endif -%}
+                  {%- if block.settings.mobile_card_image.width >= 3000 -%}{{ block.settings.mobile_card_image | image_url: width: 3000, format: 'webp' }} 3000w,{%- endif -%}
+                  {%- if block.settings.mobile_card_image.width >= 3840 -%}{{ block.settings.mobile_card_image | image_url: width: 3840, format: 'webp' }} 3840w,{%- endif -%}
+                  {{ block.settings.mobile_card_image | image_url }} {{ block.settings.mobile_card_image.width }}w
+                "
+                src="{{ block.settings.mobile_card_image | image_url: width: block.settings.mobile_card_image.width, format: 'webp' }}"
+                {% if forloop.index0 == 0 %}
+                  loading="eager"
+                {% else %}
+                  loading="lazy"
+                {% endif %}
+                sizes="100vw"
+                alt="{% if block.settings.mobile_card_image.alt %} {{ block.settings.mobile_card_image.alt | escape }} {% else %}mobile-card-image{% endif %}"
+                width="{{ block.settings.mobile_card_image.width }}"
+                height="{{ block.settings.mobile_card_image.height }}"
+              >
+              <div class="overlay-text-container">
+                <div class="overlay-text">
+                  <p>{{ block.settings.shop_by_concern_title }}</p>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- If we need navigation buttons -->
+    <div class="both-concern-button">
+      <div class="swiper-button-next swiper-custom-btn">
+        {% render 'concern-left-arrow' %}
+      </div>
+      <div class="swiper-button-prev swiper-custom-btn">
+        {% render 'concern-right-arrow' %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  window.addEventListener(
+    'DOMContentLoaded',
+    () => {
+  const swiper2{{- section.id | remove: "--" | remove: "__" | remove: "-" }} = new Swiper(`#{{ section.id }} .shop-by-concern-slider-section`, {
+    centeredSlides: true,
+    // centeredSlidesBounds: true,
+    spaceBetween: 38,
+    effect: 'creative',
+    slidesPerView: 1,
+    // initialSlide: 1,
+    loop: true,
+    creativeEffect: {
+      perspective: true,
+      limitProgress: 6,
+      prev: {
+        translate: ['-65%', '3%', 0],
+        rotate: [0, 0, -7],
+        origin: 'center 410%',
+      },
+      next: {
+        translate: ['65%', '3%', 0],
+        rotate: [0, 0, 7],
+        origin: 'center 410%',
+      },
+    },
+    navigation: {
+      nextEl: '#{{ section.id }} .swiper-button-next',
+      prevEl: '#{{ section.id }} .swiper-button-prev',
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 2,
+      },
+      500: {
+        slidesPerView: 3,
+      },
+      768: {
+        slidesPerView: 4,
+      },
+      1024: {
+        slidesPerView: 4,
+      },
+      1250: {
+        slidesPerView: 5,
+      },
+    },
+  });
+},
+{ once: true }
+);
+</script>
+
+{% schema %}
+{
+  "name": "Shop By Concern",
+  "settings": [
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin Bottom Desktop",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin Bottom Mobile",
+      "default": 36
+    },
+    {
+      "type": "text",
+      "id": "main_title",
+      "label": "Heading Title",
+      "default": "Shop by Concerns"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Slide",
+      "type": "slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "desktop_card_image",
+          "label": "Card Image Desktop",
+          "info": "Recommended Size : 400x534px"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_card_image",
+          "label": "Card Image Mobile",
+          "info": "Recommended Size : 180X245px"
+        },
+        {
+          "type": "text",
+          "id": "shop_by_concern_title",
+          "label": "Shop By Concern Title",
+          "default": "Shop By Concern Title"
+        },
+        {
+          "type": "url",
+          "id": "shop_by_concern_link",
+          "label": "Shop By Concern Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop by Concern"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
