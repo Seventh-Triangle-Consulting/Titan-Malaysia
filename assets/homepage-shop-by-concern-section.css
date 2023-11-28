@@ -9,6 +9,7 @@
   color: #000000;
   letter-spacing: 0.02em;
 }
+.both-concern-button .swiper-button-next:after, .both-concern-button .swiper-button-prev:after{display:none;}
 .card_image_wrapper {
   max-width: 289px;
   position: relative;
