@@ -1,4 +1,7 @@
 <style>
+ #featured-collections-{{ section.id }}{
+     margin-bottom:{{ section.settings.desktop_margin_bottom }}px;
+  }
 .Upper-section-collec  .bg-color{background-color: #fff7e5 !important;width:100%;}
 .Upper-section-collec  .padding_none{font-family:"NeutraDisplay-Bold";font-size:2.292vw;color:#231F20;}
 /* .Upper-section-collec {background-color:#FFF7E5;} */
@@ -26,7 +29,11 @@
 .Upper-section-collec .fabrics-title{font-size:5.128vw;line-height:9.231vw;margin-top:3%;}
 .Upper-section-collec .fabrics-ul-style{margin-bottom: 3% !important;}
 .Upper-section-collec .fabrics-li{max-width:150px;padding:0 !important;width: 23%;margin-left: 2%;}
-
+}
+@media screen and (max-width:768px){
+  #featured-collections-{{ section.id }}{
+      margin-bottom:{{ section.settings.mobile_margin_bottom }}px;
+  }
 }
 </style>
 
@@ -124,41 +131,25 @@
             "content": "Spacing"
         },
         {
-            "type": "range",
-            "id": "pt",
-            "label": "Padding top",
-            "min": 0,
-            "max": 20,
-            "step": 1,
-            "default": 0
-        },
-        {
-            "type": "range",
-            "id": "pb",
-            "label": "Padding bottom",
-            "min": 0,
-            "max": 20,
-            "step": 1,
-            "default": 0
-        },
-        {
-            "type": "range",
-            "id": "mt",
-            "label": "Margin top",
-            "min": 0,
-            "max": 20,
-            "step": 1,
-            "default": 0
-        },
-        {
-            "type": "range",
-            "id": "mb",
-            "label": "Margin bottom",
-            "min": 0,
-            "max": 20,
-            "step": 1,
-            "default": 0
-        }
+        "type": "range",
+        "id": "desktop_margin_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Desktop Margin Bottom",
+        "default": 20
+      },
+      {
+        "type": "range",
+        "id": "mobile_margin_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Mobile Margin Bottom",
+        "default": 20
+      }
     ],
     "blocks": [
         {
