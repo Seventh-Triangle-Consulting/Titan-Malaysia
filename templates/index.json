@@ -140,6 +140,18 @@
     },
     "18fff5d4-d4ff-4b85-9cb2-e1d0120c3963": {
       "type": "homepage-product-card",
+      "blocks": {
+        "ddc3a3e7-8d77-4a3a-b558-7c2e8b6d0eff": {
+          "type": "cp",
+          "settings": {
+            "coll": "children",
+            "coll_name": ""
+          }
+        }
+      },
+      "block_order": [
+        "ddc3a3e7-8d77-4a3a-b558-7c2e8b6d0eff"
+      ],
       "settings": {
         "recommended_mode": false,
         "collection": "",
@@ -309,7 +321,7 @@
       "settings": {
         "margin_bottom_desktop": 12,
         "margin_bottom_mobile": 12,
-        "brand_bg_color": "#fff",
+        "brand_bg_color": "#ffffff",
         "main_title": "Enter Title"
       }
     },
