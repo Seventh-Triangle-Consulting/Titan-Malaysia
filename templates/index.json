@@ -51,9 +51,9 @@
       "settings": {
         "bg_color": "",
         "text_align": "text-center",
-        "title": "Featured Collections",
+        "title": "",
         "title_size": "h2",
-        "btn_text": "View all collections",
+        "btn_text": "",
         "btn_color": "btn-primary",
         "row_xs": 2,
         "row_sm": 2,
