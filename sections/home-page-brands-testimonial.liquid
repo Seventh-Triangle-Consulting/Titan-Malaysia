@@ -32,7 +32,7 @@
           {% if block.settings.Brands_testimonial_content != blank %}<p class="center_text">{{ block.settings.Brands_testimonial_content }}</p>{% endif %}
           <div class="bottom_line1">
             <a href="{{ block.settings.Readmore_link }}">
-              <p class="button_style">{{ block.settings.Readmore }}</p>
+              {% if block.settings.Readmore != blank %}<p class="button_style">{{ block.settings.Readmore }}</p>{% endif %}
               <div class="bottom_line2"></div>
             </a>
           </div>
