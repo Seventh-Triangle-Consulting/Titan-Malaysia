@@ -200,6 +200,91 @@
         "main_title": "Shop by Concerns"
       }
     },
+    "84601aa3-45ff-4f93-a11f-81666de3da23": {
+      "type": "home-page-brands-testimonial",
+      "blocks": {
+        "0e1bd032-dfba-4012-8f4f-9fce042f0e76": {
+          "type": "Select",
+          "settings": {
+            "Brands_testimonial_content": "Footwear brand titan raises funds from Florintree, others",
+            "Readmore": "Read More",
+            "Readmore_link": "https:\/\/www.livemint.com\/companies\/start-ups\/footwear-brand-titan-raises-funds-from-florintree-others\/amp-11658079237096.html"
+          }
+        },
+        "c70c505b-ac2e-4a64-abc9-559f4b0d3800": {
+          "type": "Select",
+          "settings": {
+            "Brands_testimonial_content": "These former Nike, Adidas executives are building a startup for ‘growing feet’",
+            "Readmore": "Read More",
+            "Readmore_link": "https:\/\/www.moneycontrol.com\/news\/business\/companies\/these-former-nike-adidas-executives-are-building-a-startup-for-growing-feet-8194651.html"
+          }
+        },
+        "9a42c1d3-c5b9-4a3f-b8f4-45609c5e761d": {
+          "type": "Select",
+          "settings": {
+            "Brands_testimonial_content": "30 Startups To Watch: The Startups That Caught Our Eye In January 2022",
+            "Readmore": "Read More",
+            "Readmore_link": "https:\/\/inc42.com\/features\/30-startups-to-watch-the-startups-that-caught-our-eye-in-january-2022\/"
+          }
+        },
+        "13363174-2de1-47cc-89c9-181e1b541cc4": {
+          "type": "Select",
+          "settings": {
+            "Brands_testimonial_content": "WHAT NATIONAL STARTUP DAY MEANS FOR STARTUPS",
+            "Readmore": "Read More",
+            "Readmore_link": "https:\/\/yourstory.com\/2022\/01\/startup-ecosystem-on-national-startup-day-2022-insights-government"
+          }
+        },
+        "274eb60f-d978-4460-8031-ec91a867a5f2": {
+          "type": "Select",
+          "settings": {
+            "Brands_testimonial_content": "Your guide to good foot health for children going back to school",
+            "Readmore": "Read More",
+            "Readmore_link": "https:\/\/timesofindia.indiatimes.com\/blogs\/voices\/your-guide-to-good-foot-health-for-children-going-back-to-school\/"
+          }
+        },
+        "1dafb176-3deb-4779-9f49-e58e4851bd87": {
+          "type": "Select",
+          "disabled": true,
+          "settings": {
+            "Brands_testimonial_content": "Former executives from Nike & Apple launch titan, India’s first foot-health focused shoes",
+            "Readmore": "Read More",
+            "Readmore_link": "https:\/\/health.economictimes.indiatimes.com\/news\/industry\/former-executives-from-nike-apple-launch-titan-indias-first-foot-health-focused-shoes\/87319122"
+          }
+        },
+        "7d73f267-1fb3-40b9-a937-d0cc2066df82": {
+          "type": "Select",
+          "settings": {
+            "Brands_testimonial_content": "titan: Making Shoes That Fit Indian Children",
+            "Readmore": "Read More",
+            "Readmore_link": "https:\/\/www.outlookindia.com\/outlook-spotlight\/titan-making-shoes-that-fit-indian-children-news-186029"
+          }
+        },
+        "fff4c4f4-d559-4b85-b12e-bf8cfe27b5a4": {
+          "type": "Select",
+          "settings": {
+            "Brands_testimonial_content": "These 29 former Nike execs started their own businesses. Here's where they are now — and what insiders say their exits mean for Nike's future and entrepreneurial spirit.",
+            "Readmore": "Read More",
+            "Readmore_link": "https:\/\/www.businessinsider.com\/20-nike-execs-who-started-their-own-businesses-heres-where-they-are-now-2022-6?IR=T"
+          }
+        }
+      },
+      "block_order": [
+        "0e1bd032-dfba-4012-8f4f-9fce042f0e76",
+        "c70c505b-ac2e-4a64-abc9-559f4b0d3800",
+        "9a42c1d3-c5b9-4a3f-b8f4-45609c5e761d",
+        "13363174-2de1-47cc-89c9-181e1b541cc4",
+        "274eb60f-d978-4460-8031-ec91a867a5f2",
+        "1dafb176-3deb-4779-9f49-e58e4851bd87",
+        "7d73f267-1fb3-40b9-a937-d0cc2066df82",
+        "fff4c4f4-d559-4b85-b12e-bf8cfe27b5a4"
+      ],
+      "settings": {
+        "margin_bottom_desktop": 12,
+        "margin_bottom_mobile": 12,
+        "main_title": "Enter Title"
+      }
+    },
     "451768ba-558a-46f8-8f07-3fb30eb32deb": {
       "type": "homepage-main-banner",
       "blocks": {
@@ -785,91 +870,6 @@
         "bgcolor": "#4995d1"
       }
     },
-    "84601aa3-45ff-4f93-a11f-81666de3da23": {
-      "type": "home-page-brands-testimonial",
-      "blocks": {
-        "0e1bd032-dfba-4012-8f4f-9fce042f0e76": {
-          "type": "Select",
-          "settings": {
-            "Brands_testimonial_content": "Footwear brand titan raises funds from Florintree, others",
-            "Readmore": "Read More",
-            "Readmore_link": "https:\/\/www.livemint.com\/companies\/start-ups\/footwear-brand-titan-raises-funds-from-florintree-others\/amp-11658079237096.html"
-          }
-        },
-        "c70c505b-ac2e-4a64-abc9-559f4b0d3800": {
-          "type": "Select",
-          "settings": {
-            "Brands_testimonial_content": "These former Nike, Adidas executives are building a startup for ‘growing feet’",
-            "Readmore": "Read More",
-            "Readmore_link": "https:\/\/www.moneycontrol.com\/news\/business\/companies\/these-former-nike-adidas-executives-are-building-a-startup-for-growing-feet-8194651.html"
-          }
-        },
-        "9a42c1d3-c5b9-4a3f-b8f4-45609c5e761d": {
-          "type": "Select",
-          "settings": {
-            "Brands_testimonial_content": "30 Startups To Watch: The Startups That Caught Our Eye In January 2022",
-            "Readmore": "Read More",
-            "Readmore_link": "https:\/\/inc42.com\/features\/30-startups-to-watch-the-startups-that-caught-our-eye-in-january-2022\/"
-          }
-        },
-        "13363174-2de1-47cc-89c9-181e1b541cc4": {
-          "type": "Select",
-          "settings": {
-            "Brands_testimonial_content": "WHAT NATIONAL STARTUP DAY MEANS FOR STARTUPS",
-            "Readmore": "Read More",
-            "Readmore_link": "https:\/\/yourstory.com\/2022\/01\/startup-ecosystem-on-national-startup-day-2022-insights-government"
-          }
-        },
-        "274eb60f-d978-4460-8031-ec91a867a5f2": {
-          "type": "Select",
-          "settings": {
-            "Brands_testimonial_content": "Your guide to good foot health for children going back to school",
-            "Readmore": "Read More",
-            "Readmore_link": "https:\/\/timesofindia.indiatimes.com\/blogs\/voices\/your-guide-to-good-foot-health-for-children-going-back-to-school\/"
-          }
-        },
-        "1dafb176-3deb-4779-9f49-e58e4851bd87": {
-          "type": "Select",
-          "disabled": true,
-          "settings": {
-            "Brands_testimonial_content": "Former executives from Nike & Apple launch titan, India’s first foot-health focused shoes",
-            "Readmore": "Read More",
-            "Readmore_link": "https:\/\/health.economictimes.indiatimes.com\/news\/industry\/former-executives-from-nike-apple-launch-titan-indias-first-foot-health-focused-shoes\/87319122"
-          }
-        },
-        "7d73f267-1fb3-40b9-a937-d0cc2066df82": {
-          "type": "Select",
-          "settings": {
-            "Brands_testimonial_content": "titan: Making Shoes That Fit Indian Children",
-            "Readmore": "Read More",
-            "Readmore_link": "https:\/\/www.outlookindia.com\/outlook-spotlight\/titan-making-shoes-that-fit-indian-children-news-186029"
-          }
-        },
-        "fff4c4f4-d559-4b85-b12e-bf8cfe27b5a4": {
-          "type": "Select",
-          "settings": {
-            "Brands_testimonial_content": "These 29 former Nike execs started their own businesses. Here's where they are now — and what insiders say their exits mean for Nike's future and entrepreneurial spirit.",
-            "Readmore": "Read More",
-            "Readmore_link": "https:\/\/www.businessinsider.com\/20-nike-execs-who-started-their-own-businesses-heres-where-they-are-now-2022-6?IR=T"
-          }
-        }
-      },
-      "block_order": [
-        "0e1bd032-dfba-4012-8f4f-9fce042f0e76",
-        "c70c505b-ac2e-4a64-abc9-559f4b0d3800",
-        "9a42c1d3-c5b9-4a3f-b8f4-45609c5e761d",
-        "13363174-2de1-47cc-89c9-181e1b541cc4",
-        "274eb60f-d978-4460-8031-ec91a867a5f2",
-        "1dafb176-3deb-4779-9f49-e58e4851bd87",
-        "7d73f267-1fb3-40b9-a937-d0cc2066df82",
-        "fff4c4f4-d559-4b85-b12e-bf8cfe27b5a4"
-      ],
-      "settings": {
-        "margin_bottom_desktop": 12,
-        "margin_bottom_mobile": 12,
-        "main_title": "Enter Title"
-      }
-    },
     "3054ea28-533b-49f5-9d94-722439ec7043": {
       "type": "featured-blog",
       "settings": {
@@ -893,6 +893,7 @@
     "9b1a63d6-499c-4620-8f1b-a38878dab3d7",
     "bfe6cd2b-1256-45c9-8448-e96663707a03",
     "b8288058-a547-4fee-bfe1-0f766e5e082c",
+    "84601aa3-45ff-4f93-a11f-81666de3da23",
     "451768ba-558a-46f8-8f07-3fb30eb32deb",
     "77731bdd-80c6-4fe0-8d61-1e2f17ba9413",
     "72f4052f-35ea-45a7-8fe9-645447733226",
@@ -905,7 +906,6 @@
     "fa2d5db8-df37-4a53-aa03-0fbb67d8ffb4",
     "image_banner",
     "aecbe159-de05-43cf-892a-79cfa76d1662",
-    "84601aa3-45ff-4f93-a11f-81666de3da23",
     "3054ea28-533b-49f5-9d94-722439ec7043"
   ]
 }
