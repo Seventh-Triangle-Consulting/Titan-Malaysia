@@ -767,6 +767,14 @@
         "padding_top": 12,
         "padding_bottom": 24
       }
+    },
+    "bfe6cd2b-1256-45c9-8448-e96663707a03": {
+      "type": "homepage-collection-cards",
+      "settings": {
+        "heading": "",
+        "description": "",
+        "id": ""
+      }
     }
   },
   "order": [
@@ -784,6 +792,7 @@
     "image_banner",
     "aecbe159-de05-43cf-892a-79cfa76d1662",
     "84601aa3-45ff-4f93-a11f-81666de3da23",
-    "3054ea28-533b-49f5-9d94-722439ec7043"
+    "3054ea28-533b-49f5-9d94-722439ec7043",
+    "bfe6cd2b-1256-45c9-8448-e96663707a03"
   ]
 }
