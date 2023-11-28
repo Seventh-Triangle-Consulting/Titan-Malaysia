@@ -100,10 +100,10 @@
   color: rgba(var(--color-foreground), 0.7);
 }
 
-.plaeto_main_product .price .price-item--sale{font-family:'Rubik-Medium';color: #000;font-size:25px;line-height: 26px;}
-.plaeto_main_product .price  .price-item--regular{color: rgba(0, 0, 0, 0.40);font-family: 'Rubik-Regular';font-size: 22px;font-weight: 400;line-height: 26px;}
-.plaeto_main_product .price .price__badge-sale{display:none;}
-.plaeto_main_product .discount_percentage{color: #DD5041;font-family:'Rubik-Regular';font-size: 22px;font-style: normal;font-weight: 400;line-height: 26px;}
+.titan_main_product .price .price-item--sale{font-family:'Rubik-Medium';color: #000;font-size:25px;line-height: 26px;}
+.titan_main_product .price  .price-item--regular{color: rgba(0, 0, 0, 0.40);font-family: 'Rubik-Regular';font-size: 22px;font-weight: 400;line-height: 26px;}
+.titan_main_product .price .price__badge-sale{display:none;}
+.titan_main_product .discount_percentage{color: #DD5041;font-family:'Rubik-Regular';font-size: 22px;font-style: normal;font-weight: 400;line-height: 26px;}
 
 @media screen and (max-width:350px){
   .price .price-item{margin:0;}
