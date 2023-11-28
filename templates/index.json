@@ -102,11 +102,55 @@
             "subtitle": "",
             "btn": "Men Watch"
           }
+        },
+        "acaacd30-4128-4d18-816f-7e5b0e0c8593": {
+          "type": "block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Titanevoke_D.jpg",
+            "btnurl": "shopify:\/\/collections\/female",
+            "title": "",
+            "subtitle": "",
+            "btn": "Female Watch"
+          }
+        },
+        "429b3224-1911-4ff4-9ad0-96b36e0dfa1a": {
+          "type": "block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/TW_Ranveer_030723_Header.jpg",
+            "btnurl": "shopify:\/\/collections\/mens-watch",
+            "title": "",
+            "subtitle": "",
+            "btn": "Men Watch"
+          }
+        },
+        "f4391388-6009-421b-b3bc-32789de6f70e": {
+          "type": "block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/TW_Ranveer_030723_Header.jpg",
+            "btnurl": "shopify:\/\/collections\/mens-watch",
+            "title": "",
+            "subtitle": "",
+            "btn": "Men Watch"
+          }
+        },
+        "841a6fce-0a4d-4ae7-b138-981bd4617d16": {
+          "type": "block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Titanevoke_D.jpg",
+            "btnurl": "shopify:\/\/collections\/female",
+            "title": "",
+            "subtitle": "",
+            "btn": "Female Watch"
+          }
         }
       },
       "block_order": [
         "c83101a8-0c19-445f-bdbc-6871ca79ac95",
-        "a690d5c1-c20e-45e5-92a3-ecca92a8ce2c"
+        "a690d5c1-c20e-45e5-92a3-ecca92a8ce2c",
+        "acaacd30-4128-4d18-816f-7e5b0e0c8593",
+        "429b3224-1911-4ff4-9ad0-96b36e0dfa1a",
+        "f4391388-6009-421b-b3bc-32789de6f70e",
+        "841a6fce-0a4d-4ae7-b138-981bd4617d16"
       ],
       "settings": {
         "heading": "What Are You Looking For ?",
