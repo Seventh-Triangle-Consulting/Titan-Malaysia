@@ -52,8 +52,8 @@ margin-bottom:1% !important;
 } 
 </style>
 {% liquid
-    assign img_width  = 100
-    assign img_height = 100
+    assign img_width  = 200
+    assign img_height = 200
     assign img_thumbnail = 'img-thumbnail'
     assign image = collection.image | default: collection.products.first.featured_image
 %}
