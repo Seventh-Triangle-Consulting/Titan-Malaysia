@@ -6,7 +6,7 @@
 .Upper-section-collec  .fabrics-container {overflow-x: scroll;width: 100%!important;}
 .Upper-section-collec  .fabric-btn-text {font-size:1.146vw;line-height:1.354vw;font-family: 'AvenirLTStd Roman';color: #231F20;}
 .Upper-section-collec  .fabrics-container::-webkit-scrollbar {display: none;}
-
+.titan-homepahe-featured-collection img{height:150px;width:150px;}
 /* Hide scrollbar for IE, Edge and Firefox */
 .Upper-section-collec  .fabrics-container {
   -ms-overflow-style: none;  /* IE and Edge */
@@ -39,11 +39,13 @@
 
 %}
 
-<section id="featured-collections-{{ section.id }}" class="featured-collections Upper-section-collec bgcolorfabrics bg-color {{ section.settings.text_align }} {{ pt }} {{ pb }} {{ mt }} {{ mb }}">
+<section id="featured-collections-{{ section.id }}" class="featured-collections Upper-section-collec titan-homepahe-featured-collection bgcolorfabrics bg-color {{ section.settings.text_align }} {{ pt }} {{ pb }} {{ mt }} {{ mb }}">
     <div class="container-fluid fabrics-container">
-        <h2 class="title mb-4 padding_none {{ section.settings.title_size }}">
-            {{ section.settings.title }}
-        </h2>
+       {% if section.settings.title != blank %}
+            <h2 class="title mb-4 padding_none {{ section.settings.title_size }}">
+                {{ section.settings.title }}
+            </h2>
+        {% endif %}
         <ul class="collection-list list-unstyled row_ashish row mb-0 fabrics-ul-style {{ row_xs }} {{ row_sm }} {{ row_lg }}">
             {% for block in section.blocks %}
                 {% render 'collection-watches', collection: collections[block.settings.collection] %}
