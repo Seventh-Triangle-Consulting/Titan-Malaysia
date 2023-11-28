@@ -1,3 +1,30 @@
+<style>
+  .coll_cardss .swiper{ padding-bottom:1%;}
+  .coll_cardss .title-wrapper{ padding-top: 3%; padding-bottom: 2%;}
+  .swiper-pagination{display:none;}
+  .hidenav .swiper-but-prev,.hidenav .swiper-but-next{display:none;}
+  .{{section.id}}.coll_cardss{position:relative;}
+  .collection_cards h2.title{ padding: 0 0.7rem; font-family: 'IndyPimp Regular'; font-size: 2.292vw; text-align: center; }
+  .collection_cards{ overflow:hidden; width: 90%; margin: auto;}
+  .collection_contents {width: 100%;justify-content: center;text-align: center;padding: 0 0.7rem;position: relative;/*display: flex;*/align-items: end;}
+  a.collection_img_wrapper {width: 100%;overflow:hidden;}
+  .collection_cardsshop{background-color: #9C6365;padding: 4rem 2rem 4rem 2rem;margin: 0; max-width: 100%;width: 100%;}
+  .collection_cardsshop .description{ text-align: center; color: #fff;font-size: 12px;margin-top:0;}
+  .collection_cardsshop h2 {font-family:Authentic_Signature !important;font-size: 48px;color:#fff;margin-bottom:0;}
+  .collection_text_wrapper{padding-top:22px;} 
+  .collection_cardsshop .collection_text_wrapper a{color:#fff;text-decoration:underline;}
+  .collection_text_wrapper h3{display:none;color:#fff;margin:0 0 .5rem;font-family: Agrandir_Regular;font-weight: 400;}
+  .collection_text_wrapper p, .collection_text_wrapper a{color:#000; margin:0 0 1rem; font-weight:bold; font-family: 'AvenirLTStd Book';}
+  .collection_img_wrapper img{transition: .3s linear;width:100%;height:auto !important; /*background: rgba(51,49,59,1) 0% 0% no-repeat padding-box;filter: brightness(.61);*/ border-radius: 15px;}
+  .collection_img_wrapper img:hover{transform: scale(1.05);}
+@media only screen and (max-width:787px){
+      .coll_cardss .swiper { padding-bottom: 1% !important;}
+      .collection_cards h2.title{ font-size: 4.615vw !important; line-height: 12.462vw !important; margin-top: 3% !important;}
+}
+@media only screen and (min-width:1900px){
+      .collection_text_wrapper_rspnsv{ font-size: 22px; }
+  }
+</style>
 <div class="{{section.id}} coll_cardss collection_cards{{section.settings.id}} page-width {% if section.blocks.size < 5%}hidenav{%endif%}">
   
       {%- unless section.settings.heading == blank -%}
@@ -54,146 +81,7 @@
             <div class="customcards-swiper-pagination "> </div>
         
        </div>
-</div>
-  
-  <script>
- 
-      var collection_cards{{section.id | replace:"-",""}} = new Swiper('.collection_card_container-{{section.id}}',
-         {
-      slidesPerView:1,
-      breakpoints: {
-                      200: {
-                        slidesPerView: 1,
-                        loop:true,
-                      },
-                     787: {
-                        slidesPerView:1,
-                      },
-                      1023:{
-                        slidesPerView:4,
-                        loop:false,
-  
-                      },
-               },
-         speed:500,
-      navigation: {
-            nextEl: ".{{section.id}} .swiper-but-next",
-            prevEl: ".{{section.id}} .swiper-but-prev",
-      },    
-           pagination: {
-      clickable: true,
-      el: '.customcards-swiper-pagination',
-     type: 'bullets',
-  },
-    });
-  
-
-  </script>
-  
-  
-  <style>
-    
-    @media only screen and (min-width:1900px){
-      .collection_text_wrapper_rspnsv{
-            font-size: 22px;
-      }
-    }
-    .coll_cardss .swiper
-    {
-      padding-bottom:1%;
-    }
-    .coll_cardss .title-wrapper
-    {
-      padding-top: 3%;
-    padding-bottom: 2%;
-    }
-    .swiper-pagination{display:none;}
-.hidenav .swiper-but-prev,.hidenav .swiper-but-next{display:none;}
-  .{{section.id}}.coll_cardss{position:relative;}
-  
-     .{{section.id}} .swiper-but-next{position: absolute;
-      top: 50%;
-      right: -20px;
-      z-index: 10;
-      width:3rem;
-      display: inline-block;cursor:pointer;
-      }
-   
-    .{{section.id}} .swiper-but-prev{position: absolute;
-      top: 50%;
-      left: -20px;
-      z-index: 10;
-      width:3rem;
-      display: inline-block;cursor:pointer;
-      }
-    .{{section.id}} .swiper-but-prev svg{transform: rotate(-180deg);}
-     
-   
-  /*   .collection_cards .swiper-wrapper {column-gap: var(--grid-desktop-horizontal-spacing);row-gap: var(--grid-desktop-vertical-spacing);}*/
-   .collection_cards h2.title
-    {
-      padding: 0 0.7rem;
-      font-family: 'IndyPimp Regular';
-    font-size: 2.292vw;
-    text-align: center;
-    }
-    .collection_cards
-    {
-      overflow:hidden;
-      width: 90%;
-    margin: auto;
-    }
-  /* .collection_container {display:flex;align-items: center;justify-content: center;} */
-    .collection_contents {width: 100%;justify-content: center;text-align: center;padding: 0 0.7rem;position: relative;/*display: flex;*/align-items: end;}
-    a.collection_img_wrapper {width: 100%;overflow:hidden;}
-    .collection_cardsshop{background-color: #9C6365;padding: 4rem 2rem 4rem 2rem;margin: 0;
-      max-width: 100%;width: 100%;}
-    .collection_cardsshop .description{ text-align: center;
-      color: #fff;font-size: 12px;margin-top:0;}
-    .collection_cardsshop h2 {font-family:Authentic_Signature !important;font-size: 48px;color:#fff;margin-bottom:0;}
-     .collection_text_wrapper{padding-top:22px;} 
-    .collection_cardsshop .collection_text_wrapper a{color:#fff;text-decoration:underline;}
-    .collection_text_wrapper h3{display:none;color:#fff;margin:0 0 .5rem;font-family: Agrandir_Regular;font-weight: 400;}
-     .collection_text_wrapper p, .collection_text_wrapper a
-    {
-      color:#000;
-      margin:0 0 1rem;
-      font-weight:bold;
-      font-family: 'AvenirLTStd Book';
-    }
-    .collection_img_wrapper img{transition: .3s linear;width:100%;height:auto !important; /*background: rgba(51,49,59,1) 0% 0% no-repeat padding-box;filter: brightness(.61);*/ border-radius: 15px;}
-  
-    .collection_img_wrapper img:hover{transform: scale(1.05);}
-    
-    @media only screen and (max-width:1023px){
-    .{{section.id}}  .swiper-slide{width:43%;}
-    }
-    @media only screen and (max-width:787px)
-    {
-      .coll_cardss .swiper {
-    padding-bottom: 1% !important;
-}
-      .customcards-swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
-    text-align: center;
-}
-      .swiper-pagination{display:block !important;}
-      .collection_cards h2.title 
-      {
-        font-size: 4.615vw !important;
-    line-height: 12.462vw !important;
-    margin-top: 3% !important;
-      }
-    }
-     @media only screen and (max-width:600px){
-       /* .collection_cards2 .swiper-button-next, .collection_cards2 .swiper-button-prev,
-         .collection_cards1 .swiper-button-next, .collection_cards1 .swiper-button-prev{top:42%;}*/
-       .{{section.id}} .swiper-but-next{display:none;}
-       .{{section.id}} .swiper-but-prev{display:none;}
-    .{{section.id}}  .swiper-slide{width:70%;}
-    }
-  </style>
-  
-  
+</div>   
 {% schema %}
     {
       "name": "HomePage Col Cards",
