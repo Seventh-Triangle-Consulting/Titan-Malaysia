@@ -70,6 +70,6 @@ margin-bottom:1% !important;
         <h3 class="collection-item-title h6 mb-0 fabric-btn-text">
             {{ collection.title }}
         </h3>
-      <p class="fabric-sub-text">{{ colsubtext }}</p>
+      {% if colsubtext != blank %}<p class="fabric-sub-text">{{ colsubtext }}</p>{% endif %}
     </a>
 </li>
