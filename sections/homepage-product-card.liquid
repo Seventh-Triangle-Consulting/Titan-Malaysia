@@ -80,7 +80,7 @@ color: #fff;
           {% liquid 
               assign c = block.settings.coll
           %}
-          <div id="ga-pl-{{ block.id }}" class="product-list list-unstyled row mx-n3 mb-0 bs-ul ga-pl {% if forloop.index == 1 %} ga-active {% endif %} {{ row_sm }} {{ row_lg }}">
+          <div id="ga-pl-{{ block.id }}" class="product-list list-unstyled row mx-n3 mb-0 bs-ul ga-pl {% if forloop.index == 1 %} ga-active {% endif %}">
               {% liquid
                   if section.settings.recommended_mode
                       for product in c.products
