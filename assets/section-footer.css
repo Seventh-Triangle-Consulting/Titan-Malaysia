@@ -25,6 +25,7 @@ footer{border:1px solid #dadada !important;}
 .custom-titan-footer{
   display:flex;
   justify-content:space-around;
+  flex-wrap:wrap;
 }
 .footer__content-top {
   padding-bottom: 3rem;
