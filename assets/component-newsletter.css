@@ -27,7 +27,7 @@
 .newsletter-form__field-wrapper .field:hover.field:after{box-shadow:none;border-radius: 3px;}
 .newsletter-form__field-wrapper .field:after{border: 1px solid #fff;
     box-shadow: none;border-radius: 3px;}
-.newsletter-form__field-wrapper label{color:#fff;}
+.newsletter-form__field-wrapper label{color:#000;}
 .newsletter-form__field-wrapper .field {
   z-index: 0;
 }
