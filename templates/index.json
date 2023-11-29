@@ -267,6 +267,17 @@
         "kids_collection": ""
       }
     },
+    "96a7a223-41c4-4f2c-bfe1-91cd7d09a867": {
+      "type": "best-sellers",
+      "settings": {
+        "margin_bottom_desktop": 56,
+        "margin_bottom_mobile": 10,
+        "bestsellers_heading": "BestSeller",
+        "men_collection": "children",
+        "women_collection": "female",
+        "kids_collection": "mens-watch"
+      }
+    },
     "b8288058-a547-4fee-bfe1-0f766e5e082c": {
       "type": "home-page-shop-by-concern",
       "blocks": {
@@ -420,17 +431,6 @@
         "margin_bottom_mobile": 12,
         "brand_bg_color": "#ffffff",
         "main_title": "Enter Title"
-      }
-    },
-    "96a7a223-41c4-4f2c-bfe1-91cd7d09a867": {
-      "type": "best-sellers",
-      "settings": {
-        "margin_bottom_desktop": 56,
-        "margin_bottom_mobile": 10,
-        "bestsellers_heading": "BestSeller",
-        "men_collection": "children",
-        "women_collection": "female",
-        "kids_collection": "mens-watch"
       }
     },
     "77731bdd-80c6-4fe0-8d61-1e2f17ba9413": {
@@ -941,9 +941,9 @@
     "451768ba-558a-46f8-8f07-3fb30eb32deb",
     "bfe6cd2b-1256-45c9-8448-e96663707a03",
     "ea859a94-e175-434c-9150-808b79a056e5",
+    "96a7a223-41c4-4f2c-bfe1-91cd7d09a867",
     "b8288058-a547-4fee-bfe1-0f766e5e082c",
     "84601aa3-45ff-4f93-a11f-81666de3da23",
-    "96a7a223-41c4-4f2c-bfe1-91cd7d09a867",
     "77731bdd-80c6-4fe0-8d61-1e2f17ba9413",
     "72f4052f-35ea-45a7-8fe9-645447733226",
     "ba902416-aec4-4dd9-b4c0-3351a9f0ee9e",
