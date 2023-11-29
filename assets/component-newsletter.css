@@ -6,7 +6,7 @@
   width: 100%;
   position: relative;
 }
-.newsletter-form__field-wrapper label{color:#ccc;}
+.newsletter-form__field-wrapper label{color:#ccc !important;}
 @media screen and (min-width: 750px) {
   .newsletter-form {
     align-items: flex-start;
