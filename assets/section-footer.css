@@ -1,5 +1,5 @@
 @media screen and (min-width:1400px){
-  .custom-titan-footer{justify-content:space-around;}
+  .custom-titan-footer{justify-content:space-between;}
 }
 .custom_newsletter-form__button{
   margin-top: 1rem !important;
