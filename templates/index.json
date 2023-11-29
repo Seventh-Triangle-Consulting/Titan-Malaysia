@@ -306,6 +306,34 @@
     },
     "ea859a94-e175-434c-9150-808b79a056e5": {
       "type": "homepage-most-loved",
+      "blocks": {
+        "3deb7a32-dfa7-4043-9e39-fa7a5dfee106": {
+          "type": "cp",
+          "settings": {
+            "coll": "mens-watch",
+            "coll_name": "Men"
+          }
+        },
+        "af37dc5d-8950-4db2-abe5-dcf87b68cc6a": {
+          "type": "cp",
+          "settings": {
+            "coll": "female",
+            "coll_name": "Women"
+          }
+        },
+        "6e15a41e-590e-4372-8e3a-4cefcc93c373": {
+          "type": "cp",
+          "settings": {
+            "coll": "children",
+            "coll_name": "Childer"
+          }
+        }
+      },
+      "block_order": [
+        "3deb7a32-dfa7-4043-9e39-fa7a5dfee106",
+        "af37dc5d-8950-4db2-abe5-dcf87b68cc6a",
+        "6e15a41e-590e-4372-8e3a-4cefcc93c373"
+      ],
       "settings": {
         "margin_bottom_desktop": 36,
         "margin_bottom_mobile": 36,
