@@ -71,7 +71,7 @@
 
   <div class="bestsellers_tab">
     {% for block in section.blocks %}
-      <button class="bestsellers_tablinks" onclick="openCity(event, '{{ block.settings.coll }}')">{{ block.settings.coll_name }}</button>
+      <button class="bestsellers_tablinks" onclick="openCategory(event, '{{ block.settings.coll }}')">{{ block.settings.coll_name }}</button>
     {% endfor %}
    
   </div>
@@ -154,6 +154,10 @@
     }
     document.getElementById(category).style.display = 'block';
     evt.currentTarget.className += ' active';
+  }
+
+  function openCategory(evt, category){
+    console.log(category+"category")
   }
 
   window.addEventListener(
