@@ -110,7 +110,7 @@
       <div class="swiper-wrapper">
         {% for product in collection_kids.products %}
           <div class="swiper-slide" style="animation-delay: {{ forloop.index0 | divided_by: 10.0 | round: 2 }}s">
-            {% render 'related-products-card-product', card_product: product %}
+            {% render 'related-products-card-product', card_product: product, viewMore: true %}
           </div>
         {% endfor %}
       </div>
