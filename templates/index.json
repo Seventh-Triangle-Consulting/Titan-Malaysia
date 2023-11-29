@@ -80,6 +80,96 @@
         "mobile_margin_bottom": 30
       }
     },
+    "451768ba-558a-46f8-8f07-3fb30eb32deb": {
+      "type": "homepage-main-banner",
+      "blocks": {
+        "cd7ce330-2bb0-43b5-878c-b0553b6a33b4": {
+          "type": "image",
+          "settings": {
+            "desktop_banner_text": "",
+            "mobile_banner_text": "",
+            "button_text1": "SHOP MEN",
+            "button_link1": "https:\/\/titan.in\/collections\/men",
+            "button_text2": "SHOP WOMEN",
+            "button_link2": "https:\/\/titan.in\/collections\/women",
+            "buttoncolor": "#ffffff",
+            "buttontextcolor": "#dd5041",
+            "content-position": "bottom-center"
+          }
+        },
+        "7ef9c912-23eb-4309-a0a4-4f95f038ae15": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "desktop_banner_text": "",
+            "mobile_banner_text": "",
+            "button_text1": "SHOP NOW",
+            "button_link1": "https:\/\/titan.in\/products\/titan-one-nation-limited-edition",
+            "button_text2": "",
+            "button_link2": "",
+            "buttoncolor": "#ffffff",
+            "buttontextcolor": "#dd5041",
+            "content-position": "bottom-right"
+          }
+        },
+        "fd7de387-2f00-4796-868f-281a7e91b7e9": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "desktop_banner_text": "",
+            "mobile_banner_text": "",
+            "button_text1": "SHOP NOW",
+            "button_link1": "shopify:\/\/collections\/men",
+            "button_text2": "",
+            "button_link2": "",
+            "buttoncolor": "#ffffff",
+            "buttontextcolor": "#dd5041",
+            "content-position": "bottom-center"
+          }
+        },
+        "e930e230-48ba-4582-b349-62e873c9ce6d": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "desktop_banner_text": "",
+            "mobile_banner_text": "",
+            "button_text1": "SHOP NOW",
+            "button_link1": "https:\/\/titan.in\/collections\/men",
+            "button_text2": "",
+            "button_link2": "",
+            "buttoncolor": "#ffffff",
+            "buttontextcolor": "#dd5041",
+            "content-position": "bottom-left"
+          }
+        },
+        "4b5c54f3-7737-4b64-b68f-cd9a7ff1923c": {
+          "type": "image",
+          "settings": {
+            "desktop_banner_text": "",
+            "mobile_banner_text": "",
+            "button_text1": "SHOP NOW",
+            "button_link1": "https:\/\/titan.in\/products\/titan-unisex-sneakers-for-men-women-all-white",
+            "button_text2": "",
+            "button_link2": "",
+            "buttoncolor": "#ffffff",
+            "buttontextcolor": "#dd5041",
+            "content-position": "bottom-center"
+          }
+        }
+      },
+      "block_order": [
+        "cd7ce330-2bb0-43b5-878c-b0553b6a33b4",
+        "7ef9c912-23eb-4309-a0a4-4f95f038ae15",
+        "fd7de387-2f00-4796-868f-281a7e91b7e9",
+        "e930e230-48ba-4582-b349-62e873c9ce6d",
+        "4b5c54f3-7737-4b64-b68f-cd9a7ff1923c"
+      ],
+      "settings": {
+        "margin_bottom_desktop": 44,
+        "margin_bottom_mobile": 24,
+        "autoplay": false
+      }
+    },
     "b8288058-a547-4fee-bfe1-0f766e5e082c": {
       "type": "home-page-shop-by-concern",
       "blocks": {
@@ -341,96 +431,6 @@
         "men_collection": "",
         "women_collection": "",
         "kids_collection": ""
-      }
-    },
-    "451768ba-558a-46f8-8f07-3fb30eb32deb": {
-      "type": "homepage-main-banner",
-      "blocks": {
-        "cd7ce330-2bb0-43b5-878c-b0553b6a33b4": {
-          "type": "image",
-          "settings": {
-            "desktop_banner_text": "",
-            "mobile_banner_text": "",
-            "button_text1": "SHOP MEN",
-            "button_link1": "https:\/\/titan.in\/collections\/men",
-            "button_text2": "SHOP WOMEN",
-            "button_link2": "https:\/\/titan.in\/collections\/women",
-            "buttoncolor": "#ffffff",
-            "buttontextcolor": "#dd5041",
-            "content-position": "bottom-center"
-          }
-        },
-        "7ef9c912-23eb-4309-a0a4-4f95f038ae15": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "desktop_banner_text": "",
-            "mobile_banner_text": "",
-            "button_text1": "SHOP NOW",
-            "button_link1": "https:\/\/titan.in\/products\/titan-one-nation-limited-edition",
-            "button_text2": "",
-            "button_link2": "",
-            "buttoncolor": "#ffffff",
-            "buttontextcolor": "#dd5041",
-            "content-position": "bottom-right"
-          }
-        },
-        "fd7de387-2f00-4796-868f-281a7e91b7e9": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "desktop_banner_text": "",
-            "mobile_banner_text": "",
-            "button_text1": "SHOP NOW",
-            "button_link1": "shopify:\/\/collections\/men",
-            "button_text2": "",
-            "button_link2": "",
-            "buttoncolor": "#ffffff",
-            "buttontextcolor": "#dd5041",
-            "content-position": "bottom-center"
-          }
-        },
-        "e930e230-48ba-4582-b349-62e873c9ce6d": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "desktop_banner_text": "",
-            "mobile_banner_text": "",
-            "button_text1": "SHOP NOW",
-            "button_link1": "https:\/\/titan.in\/collections\/men",
-            "button_text2": "",
-            "button_link2": "",
-            "buttoncolor": "#ffffff",
-            "buttontextcolor": "#dd5041",
-            "content-position": "bottom-left"
-          }
-        },
-        "4b5c54f3-7737-4b64-b68f-cd9a7ff1923c": {
-          "type": "image",
-          "settings": {
-            "desktop_banner_text": "",
-            "mobile_banner_text": "",
-            "button_text1": "SHOP NOW",
-            "button_link1": "https:\/\/titan.in\/products\/titan-unisex-sneakers-for-men-women-all-white",
-            "button_text2": "",
-            "button_link2": "",
-            "buttoncolor": "#ffffff",
-            "buttontextcolor": "#dd5041",
-            "content-position": "bottom-center"
-          }
-        }
-      },
-      "block_order": [
-        "cd7ce330-2bb0-43b5-878c-b0553b6a33b4",
-        "7ef9c912-23eb-4309-a0a4-4f95f038ae15",
-        "fd7de387-2f00-4796-868f-281a7e91b7e9",
-        "e930e230-48ba-4582-b349-62e873c9ce6d",
-        "4b5c54f3-7737-4b64-b68f-cd9a7ff1923c"
-      ],
-      "settings": {
-        "margin_bottom_desktop": 44,
-        "margin_bottom_mobile": 24,
-        "autoplay": false
       }
     },
     "77731bdd-80c6-4fe0-8d61-1e2f17ba9413": {
@@ -938,12 +938,12 @@
   },
   "order": [
     "9b1a63d6-499c-4620-8f1b-a38878dab3d7",
+    "451768ba-558a-46f8-8f07-3fb30eb32deb",
     "b8288058-a547-4fee-bfe1-0f766e5e082c",
     "84601aa3-45ff-4f93-a11f-81666de3da23",
     "bfe6cd2b-1256-45c9-8448-e96663707a03",
     "96a7a223-41c4-4f2c-bfe1-91cd7d09a867",
     "ea859a94-e175-434c-9150-808b79a056e5",
-    "451768ba-558a-46f8-8f07-3fb30eb32deb",
     "77731bdd-80c6-4fe0-8d61-1e2f17ba9413",
     "72f4052f-35ea-45a7-8fe9-645447733226",
     "ba902416-aec4-4dd9-b4c0-3351a9f0ee9e",
