@@ -293,52 +293,15 @@
         "mobile_margin_bottom": 30
       }
     },
-    "18fff5d4-d4ff-4b85-9cb2-e1d0120c3963": {
-      "type": "homepage-product-card",
-      "blocks": {
-        "ddc3a3e7-8d77-4a3a-b558-7c2e8b6d0eff": {
-          "type": "cp",
-          "settings": {
-            "coll": "children",
-            "coll_name": "Children's Watch"
-          }
-        },
-        "e69498c4-196d-43db-9727-27b451d65b9f": {
-          "type": "cp",
-          "settings": {
-            "coll": "female",
-            "coll_name": "Female's Watch"
-          }
-        },
-        "a40033be-0e8b-4147-93d4-ec084dbce89a": {
-          "type": "cp",
-          "settings": {
-            "coll": "mens-watch",
-            "coll_name": "Men's Watch"
-          }
-        }
-      },
-      "block_order": [
-        "ddc3a3e7-8d77-4a3a-b558-7c2e8b6d0eff",
-        "e69498c4-196d-43db-9727-27b451d65b9f",
-        "a40033be-0e8b-4147-93d4-ec084dbce89a"
-      ],
+    "96a7a223-41c4-4f2c-bfe1-91cd7d09a867": {
+      "type": "best-sellers",
       "settings": {
-        "recommended_mode": false,
-        "collection": "mens-watch",
-        "limit": 13,
-        "bg_color": "bg-white",
-        "text_align": "text-center",
-        "title": "Most Loved",
-        "title_size": "h2",
-        "btn_text": "View all products",
-        "btn_color": "btn-primary",
-        "row_sm": 2,
-        "row_lg": 4,
-        "pt": 0,
-        "pb": 0,
-        "mt": 0,
-        "mb": 0
+        "margin_bottom_desktop": 56,
+        "margin_bottom_mobile": 10,
+        "bestsellers_heading": "Bestsellers",
+        "men_collection": "men",
+        "women_collection": "women",
+        "kids_collection": "kids"
       }
     },
     "451768ba-558a-46f8-8f07-3fb30eb32deb": {
@@ -514,17 +477,6 @@
         "category_heading": "",
         "margin_bottom_desktop": 52,
         "margin_bottom_mobile": 24
-      }
-    },
-    "96a7a223-41c4-4f2c-bfe1-91cd7d09a867": {
-      "type": "best-sellers",
-      "settings": {
-        "margin_bottom_desktop": 56,
-        "margin_bottom_mobile": 10,
-        "bestsellers_heading": "Bestsellers",
-        "men_collection": "men",
-        "women_collection": "women",
-        "kids_collection": "kids"
       }
     },
     "ba902416-aec4-4dd9-b4c0-3351a9f0ee9e": {
@@ -950,11 +902,10 @@
     "b8288058-a547-4fee-bfe1-0f766e5e082c",
     "84601aa3-45ff-4f93-a11f-81666de3da23",
     "bfe6cd2b-1256-45c9-8448-e96663707a03",
-    "18fff5d4-d4ff-4b85-9cb2-e1d0120c3963",
+    "96a7a223-41c4-4f2c-bfe1-91cd7d09a867",
     "451768ba-558a-46f8-8f07-3fb30eb32deb",
     "77731bdd-80c6-4fe0-8d61-1e2f17ba9413",
     "72f4052f-35ea-45a7-8fe9-645447733226",
-    "96a7a223-41c4-4f2c-bfe1-91cd7d09a867",
     "ba902416-aec4-4dd9-b4c0-3351a9f0ee9e",
     "95e1b5d0-1544-4108-b95d-842776fc6b57",
     "1697087009aadaaacf",
