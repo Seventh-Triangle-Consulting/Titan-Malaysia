@@ -1,9 +1,9 @@
 @media screen and (min-width:1225px){
   .custom-titan-footer{justify-content:space-between !important;flex-wrap:nowrap !important;gap:0 !important;}
+    .footer__content-top{padding-right:5rem;padding-left:5rem;}
 }
 @media screen and (min-width:769px){
   .custom-social-share{display: flex; flex-direction: column; justify-content: center;}
-  .footer__content-top{padding-right:5rem;padding-left:5rem;}
   .newsletter-form__button{margin-top:0 !important;height:50px !important;}
   .newsletter-form__field-wrapper{display: flex;gap: 2%;}
 }
