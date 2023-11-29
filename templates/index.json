@@ -325,7 +325,7 @@
           "type": "cp",
           "settings": {
             "coll": "children",
-            "coll_name": "Childer"
+            "coll_name": "Child"
           }
         }
       },
