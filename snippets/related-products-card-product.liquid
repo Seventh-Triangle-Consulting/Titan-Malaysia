@@ -177,12 +177,6 @@
     {% endif %}
           </div>
         </div>
-
-  
-        <a href="{{ card_product.url }}" id="cardheading_{{card_product.id  | append:forloop_index }}" class="full-unstyled-link" aria-labelledby="CardLink-{{ section_id }}-{{ card_product.id }} Badge-{{ section_id }}-{{ card_product.id }}">
-        View More
-        </a>
-
   
         {%- if show_quick_add -%}
           <div class="quick-add no-js-hidden">
@@ -362,3 +356,6 @@
     </div>
   </div>
 {%- endif -%}
+ <a href="{{ card_product.url }}" id="cardheading_{{card_product.id  | append:forloop_index }}" class="full-unstyled-link" aria-labelledby="CardLink-{{ section_id }}-{{ card_product.id }} Badge-{{ section_id }}-{{ card_product.id }}">
+        View More
+        </a>
