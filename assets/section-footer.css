@@ -183,7 +183,7 @@
 .footer__list-social.list-social:only-child {
   justify-content: center;
 }
-.footer-block__newsletter .footer-block__heading {color:#fff;}
+.footer-block__newsletter .footer-block__heading {color:#000;}
 .footer-block__newsletter {
   text-align: center;
   flex-grow: 1; padding: 3.9rem 2rem;margin-bottom: 4rem;background-color:#414042;
