@@ -236,7 +236,7 @@
 .card__information .price .price-item.price-item--regular{  letter-spacing: normal;  color: rgba(0, 0, 0, 0.4);
   font-size: clamp(calc(19 * .8px),calc(19 * (100vw / var(--viewportDesktop))),calc(19 * 1.1px));line-height: clamp(25px, calc(26 * (100vw /  var(--viewportDesktop))), 27px);}
 
-.card__information .price .percent_discount{color: rgba(221, 80, 65, 1);letter-spacing:normal;font-size: clamp(calc(20 * .8px),calc(20 * (100vw / var(--viewportDesktop))),calc(20 * 1.1px));line-height: clamp(25px, calc(26 * (100vw /  var(--viewportDesktop))), 27px);}
+.card__information .price .percent_discount{color: #000;letter-spacing:normal;font-size: clamp(calc(20 * .8px),calc(20 * (100vw / var(--viewportDesktop))),calc(20 * 1.1px));line-height: clamp(25px, calc(26 * (100vw /  var(--viewportDesktop))), 27px);}
 .card__heading:last-child {
   margin-bottom: 0;
 }
