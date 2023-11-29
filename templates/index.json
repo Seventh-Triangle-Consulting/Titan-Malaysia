@@ -515,7 +515,6 @@
         "2c389a2a-25bb-43a3-b9b3-41481274ffdb",
         "70d2c1f9-47e7-4bc8-aed0-9057a0ad4314"
       ],
-      "disabled": true,
       "settings": {
         "sld_heading": "Engineered For Play",
         "margin_bottom_desktop": 60,
@@ -648,7 +647,6 @@
         "e09614fc-cbd7-44b2-bbe0-e7e063c7dbb4",
         "e45702e4-583a-48f1-93c3-8666af4eca32"
       ],
-      "disabled": true,
       "settings": {
         "margin_bottom_desktop": 44,
         "margin_bottom_mobile": 28,
@@ -728,7 +726,6 @@
         "062210cd-2348-446f-a666-7d81cde50f66",
         "c25f6c88-52c1-4545-8f96-4d99331fc04b"
       ],
-      "disabled": true,
       "settings": {
         "testimonial_heading": "Testimonials",
         "margin_bottom_desktop": 64,
@@ -737,7 +734,6 @@
     },
     "1697087009aadaaacf": {
       "type": "apps",
-      "disabled": true,
       "settings": {
         "include_margins": true
       }
@@ -812,7 +808,6 @@
         "c5d87047-61c5-4dc1-abd2-21ca4d813a4a",
         "fd8d0b64-a4fc-413f-8ad7-06fd40d39259"
       ],
-      "disabled": true,
       "settings": {
         "margin_bottom_desktop": 54,
         "margin_bottom_mobile": 68,
@@ -821,7 +816,6 @@
     },
     "5c47a1a0-a6f3-416b-a1fc-c66884001ab8": {
       "type": "our-story",
-      "disabled": true,
       "settings": {
         "margin_bottom_desktop": 16,
         "margin_bottom_mobile": 26,
@@ -833,7 +827,6 @@
     },
     "fa2d5db8-df37-4a53-aa03-0fbb67d8ffb4": {
       "type": "home-positive-impact",
-      "disabled": true,
       "settings": {
         "margin_bottom_desktop": 8,
         "margin_bottom_mobile": 10,
@@ -868,7 +861,6 @@
         "heading",
         "button"
       ],
-      "disabled": true,
       "settings": {
         "image_overlay_opacity": 40,
         "image_height": "large",
@@ -921,7 +913,6 @@
         "3fa8ef9e-571b-4011-8ab4-545f572abcaf",
         "2445ebe1-163a-4df6-a789-a9f932341b2e"
       ],
-      "disabled": true,
       "settings": {
         "margin_bottom_desktop": 12,
         "margin_bottom_mobile": 8,
@@ -930,7 +921,6 @@
     },
     "3054ea28-533b-49f5-9d94-722439ec7043": {
       "type": "featured-blog",
-      "disabled": true,
       "settings": {
         "heading": "Trending Blogs",
         "heading_size": "h2",
