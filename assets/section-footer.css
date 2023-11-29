@@ -6,6 +6,8 @@
   border: none;
   font-size:14px;
 }
+.custom-social-share .div_1 d-flex{display:flex;flex-direction:column;}
+.custom-social-share .div_1 d-flex span{display:inline-flex;}
 .footer-block__details-content .list-menu__item--link{
   font-family:Roboto-Regular;
   font-size:14px !important;
