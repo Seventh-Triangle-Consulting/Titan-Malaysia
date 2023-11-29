@@ -4,6 +4,8 @@
 @media screen and (min-width:769px){
   .custom-social-share{display: flex; flex-direction: column; justify-content: center;}
   .footer__content-top{padding-right:5rem;padding-left:5rem;}
+  .newsletter-form__button{margin-top:0 !important;height:50px;}
+  .newsletter-form__field-wrapper{display: flex;gap: 2%;}
 }
 .custom-social-share{}
 .custom-social-share p{line-height:1;}
