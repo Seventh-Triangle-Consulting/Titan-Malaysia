@@ -8,7 +8,8 @@
 }
 .footer-block_para{
   font-size:16px;
-  font-size:Roboto-Regular;
+  font-family:Roboto-Regular;
+  text-align:left;
 }
 .footer:not(.color-background-1) {
   border-top: none;
