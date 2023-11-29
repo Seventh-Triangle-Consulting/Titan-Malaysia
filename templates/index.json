@@ -267,6 +267,45 @@
         "kids_collection": ""
       }
     },
+    "72f4052f-35ea-45a7-8fe9-645447733226": {
+      "type": "home-category-section",
+      "blocks": {
+        "f7831ae6-921b-4c61-85fd-5f940d263ad1": {
+          "type": "image",
+          "settings": {
+            "home_category_image": "shopify:\/\/shop_images\/Titanevoke_D.jpg",
+            "home_category_block_url": "https:\/\/titan.in\/collections\/men",
+            "home-category-text": "Men"
+          }
+        },
+        "dd56e6ae-e9d3-4e20-ae01-8fb80368519d": {
+          "type": "image",
+          "settings": {
+            "home_category_image": "shopify:\/\/shop_images\/Titanevoke_D.jpg",
+            "home_category_block_url": "https:\/\/titan.in\/collections\/women",
+            "home-category-text": "Women"
+          }
+        },
+        "3896f564-efef-4f58-b05c-d400eed159e7": {
+          "type": "image",
+          "settings": {
+            "home_category_image": "shopify:\/\/shop_images\/Titanevoke_D.jpg",
+            "home_category_block_url": "shopify:\/\/collections\/kids",
+            "home-category-text": "Kids"
+          }
+        }
+      },
+      "block_order": [
+        "f7831ae6-921b-4c61-85fd-5f940d263ad1",
+        "dd56e6ae-e9d3-4e20-ae01-8fb80368519d",
+        "3896f564-efef-4f58-b05c-d400eed159e7"
+      ],
+      "settings": {
+        "category_heading": "",
+        "margin_bottom_desktop": 52,
+        "margin_bottom_mobile": 24
+      }
+    },
     "96a7a223-41c4-4f2c-bfe1-91cd7d09a867": {
       "type": "best-sellers",
       "settings": {
@@ -480,42 +519,6 @@
         "sld_heading": "Engineered For Play",
         "margin_bottom_desktop": 60,
         "margin_bottom_mobile": 32
-      }
-    },
-    "72f4052f-35ea-45a7-8fe9-645447733226": {
-      "type": "home-category-section",
-      "blocks": {
-        "f7831ae6-921b-4c61-85fd-5f940d263ad1": {
-          "type": "image",
-          "settings": {
-            "home_category_block_url": "https:\/\/titan.in\/collections\/men",
-            "home-category-text": "Men"
-          }
-        },
-        "dd56e6ae-e9d3-4e20-ae01-8fb80368519d": {
-          "type": "image",
-          "settings": {
-            "home_category_block_url": "https:\/\/titan.in\/collections\/women",
-            "home-category-text": "Women"
-          }
-        },
-        "3896f564-efef-4f58-b05c-d400eed159e7": {
-          "type": "image",
-          "settings": {
-            "home_category_block_url": "shopify:\/\/collections\/kids",
-            "home-category-text": "Kids"
-          }
-        }
-      },
-      "block_order": [
-        "f7831ae6-921b-4c61-85fd-5f940d263ad1",
-        "dd56e6ae-e9d3-4e20-ae01-8fb80368519d",
-        "3896f564-efef-4f58-b05c-d400eed159e7"
-      ],
-      "settings": {
-        "category_heading": "",
-        "margin_bottom_desktop": 52,
-        "margin_bottom_mobile": 24
       }
     },
     "ba902416-aec4-4dd9-b4c0-3351a9f0ee9e": {
@@ -941,11 +944,11 @@
     "451768ba-558a-46f8-8f07-3fb30eb32deb",
     "bfe6cd2b-1256-45c9-8448-e96663707a03",
     "ea859a94-e175-434c-9150-808b79a056e5",
+    "72f4052f-35ea-45a7-8fe9-645447733226",
     "96a7a223-41c4-4f2c-bfe1-91cd7d09a867",
     "b8288058-a547-4fee-bfe1-0f766e5e082c",
     "84601aa3-45ff-4f93-a11f-81666de3da23",
     "77731bdd-80c6-4fe0-8d61-1e2f17ba9413",
-    "72f4052f-35ea-45a7-8fe9-645447733226",
     "ba902416-aec4-4dd9-b4c0-3351a9f0ee9e",
     "95e1b5d0-1544-4108-b95d-842776fc6b57",
     "1697087009aadaaacf",
