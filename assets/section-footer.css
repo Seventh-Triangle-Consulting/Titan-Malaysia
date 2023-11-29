@@ -3,6 +3,7 @@
 }
 @media screen and (min-width:769px){
   .custom-social-share{display: flex; flex-direction: column; justify-content: center;}
+  .footer__content-top{padding-right:5rem;padding-left:5rem;}
 }
 .custom-social-share{}
 .custom-social-share p{line-height:1;}
