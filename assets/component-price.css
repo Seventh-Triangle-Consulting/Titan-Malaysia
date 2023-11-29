@@ -88,6 +88,7 @@
   text-decoration: line-through;
   color: rgba(var(--color-foreground), 0.75);
   font-size: 1.3rem;
+  font-family:Roboto-Light;
 }
 
 .unit-price {
