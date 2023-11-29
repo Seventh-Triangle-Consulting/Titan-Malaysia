@@ -6,7 +6,7 @@
   width: 100%;
   position: relative;
 }
-
+.newsletter-form__field-wrapper input::placeholder{opacity:1;color:#ccc;}
 @media screen and (min-width: 750px) {
   .newsletter-form {
     align-items: flex-start;
