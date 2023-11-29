@@ -67,34 +67,32 @@
 </style>
 
 <div class="mostloved mostloved-section-{{ section.id }}" id="{{ section.id }}">
-  <div class="mostloved_div">
-    <h2 class="mostloved_heading">{{ section.settings.mostloved_heading }}</h2>
-  </div>
+        <div class="mostloved_div">
+          <h2 class="mostloved_heading">{{ section.settings.mostloved_heading }}</h2>
+        </div>
 
-  <div class="mostloved_tab">
-    {% for block in section.blocks %}
-      <button class="mostloved_tablinks" onclick="openCategory(event, '{{ block.settings.coll }}')">{{ block.settings.coll_name }}</button>
-    {% endfor %}
-   
-  </div>
+        <div class="mostloved_tab">
+                {% for block in section.blocks %}
+                  <button class="mostloved_tablinks" onclick="openCategory(event, '{{ block.settings.coll }}')">{{ block.settings.coll_name }}</button>
+                {% endfor %}   
+        </div>
 
  {% for block in section.blocks %}
-     <div id="{{ block.settings.coll }}" class="mostloved_tabcontent">
-      {% assign collection_men = block.settings.coll %}
-      <div class="swiper collection-swiper-men">
-        <div class="swiper-wrapper">
-          {% for product in collection_men.products %}
-            <div class="swiper-slide" style="animation-delay: {{ forloop.index0 | divided_by: 10.0 | round: 2 }}s">
-              {% render 'related-products-card-product', card_product: product %}
-               <a class="most-loved-view-more-btn" href="{{ product.url }}">View More</a>
+             <div id="{{ block.settings.coll }}" class="mostloved_tabcontent">
+              {% assign collection_men = block.settings.coll %}
+                <div class="swiper collection-swiper-men">
+                    <div class="swiper-wrapper">
+                        {% for product in collection_men.products %}
+                                <div class="swiper-slide" style="animation-delay: {{ forloop.index0 | divided_by: 10.0 | round: 2 }}s">
+                                  {% render 'related-products-card-product', card_product: product %}
+                                   <a class="most-loved-view-more-btn" href="{{ product.url }}">View More</a>
+                                </div>
+                          {% endfor %}
+                     </div>
+                </div>
             </div>
-          {% endfor %}
-        </div>
-  
-      </div>
-    </div>
-  {% endfor %}
-
+{% endfor %}
+</div>
 <script>
    document.querySelectorAll('.mostloved_tablinks')[0].click();
   
