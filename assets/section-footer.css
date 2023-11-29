@@ -21,6 +21,7 @@
 }
 .custom-titan-footer{
   display:flex;
+  justify-content:space-around;
 }
 .footer__content-top {
   padding-bottom: 3rem;
