@@ -191,7 +191,7 @@
                     </div>
                   {%- when 'link_list' -%}
                     {%- if block.settings.menu != blank -%}
-                      <ul id="mobiledescp_{{forloop.index}}" class="footer-block__details-content list-unstyled "{% if forloop.index != 1 %}style="display:none;" {% endif %}>
+                      <ul id="mobiledescp_{{forloop.index}}" class="footer-block__details-content list-unstyled " style="display:none;">
                         {%- for link in block.settings.menu.links -%}
                           <li>
                             <a
