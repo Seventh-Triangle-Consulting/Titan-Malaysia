@@ -6,8 +6,8 @@
   border: none;
   font-size:14px;
 }
-.custom-social-share .div_1 {display:flex;flex-direction:column;margin-bottom:1rem;}
-.custom-social-share .div_1 span{display:inline-flex;}
+.custom-social-share .div_1 {display:flex;flex-direction:column;}
+.custom-social-share .div_1 span{display:inline-flex;margin-bottom:1rem;}
 .footer-block__details-content .list-menu__item--link{
   font-family:Roboto-Regular;
   font-size:14px !important;
