@@ -231,8 +231,7 @@
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;}
-.card__information .price .price-item.price-item--sale { letter-spacing: normal;font-family: var(--font-family-h2);line-height: clamp(25px, calc(26 * (100vw /  var(--viewportDesktop))), 27px);font-weight:500;color:#000;
- font-size: clamp(calc(22 * .8px),calc(22 * (100vw / var(--viewportDesktop))),calc(22 * 1.1px));}
+.card__information .price .price-item.price-item--sale { letter-spacing: normal;font-family: Roboto-Medium;line-height: clamp(25px, calc(26 * (100vw /  var(--viewportDesktop))), 27px);font-weight:500;
 .card__information .price .price-item.price-item--regular{  letter-spacing: normal;  color: rgba(0, 0, 0, 0.4);
   font-size: clamp(calc(19 * .8px),calc(19 * (100vw / var(--viewportDesktop))),calc(19 * 1.1px));line-height: clamp(25px, calc(26 * (100vw /  var(--viewportDesktop))), 27px);}
 
