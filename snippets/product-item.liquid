@@ -5,7 +5,7 @@
     assign img_height = 600
     assign img_thumbnail = 'img-thumbnail' %}
 <style>
-
+  li.product-item.CustomCardCollection.py-3.px-lg-5.px-md-4.mb-4{ width: 20%; padding-right: 1rem!important; padding-left: 1rem!important;}
   .webkit_clamp{
                   -webkit-line-clamp: unset !important;
 
@@ -227,13 +227,6 @@
 {% endfor %}
 <li class="product-item CustomCardCollection py-3 px-lg-5  px-md-4 mb-4" product-variant="{{ product.selected_or_first_available_variant.id }}">
     <a class="position-relative d-block" href="{{ product.url | within: collection }}">
-        {% unless product.available %}
-            {% unless product.tags contains "Bundle" %}
-                <span class="badge-sold-out badge bg-secondary position-absolute">
-                    {{ 'product.sold_out' | t }}
-                </span>
-            {% endunless %}
-        {% endunless %}
         <div 
             class="Imageparent Imageparent_rspnsv">
             {% if comboCmpPrice > 0 and comboCmpPrice > comboPrice %}
@@ -319,47 +312,14 @@
 
 
                 <div class="CollAtcdiv {% if product.has_only_default_variant %} addSpace {% endif %}">
-                    {% unless product.has_only_default_variant %}
+                  
 
-
-                        <ul class="product-options list-unstyled overflow-hidden" aria-label="{{ 'product.product_options' | t }}">
-
-                            {% for option in product.options_with_values %}
-
-
-                                <li class="input-group  {% assign option_small = option.name | downcase %}{% if option_small =='color' %}d-none{% endif %}">
-                                    {% comment %}
-                                        <label class="input-group-text" for="product-option-{{ option.name | handleize }}">
-                                                    {{ option.name }}
-                                                </label>
-                                    {% endcomment %}
-                                    <select id="product-option-{{ option.name | handleize }}" class="product-option form-select" data-product-handle="{{ product.handle }}" onchange="onChangeOption(this)">
-                                        {% for value in product.variants %}
-                                          {% if value.inventory_quantity > 0 %}
-                                            <option value="{{ value.option1 }}" data-id="{{ value.id }}" data-qty="{{ value.inventory_quantity }}" data-policy="{{ value.inventory_policy }}" {% if value==option.selected_value %} selected {% endif %}>
-                                                {{ value.option1 }}
-                                            </option>
-                                          {% endif %}
-                                        {% endfor %}
-                                    </select>
-                                </li>
-                            {% endfor %}
-                        </ul>
-
-                    {% endunless %}
-
-                    <button class="btn-atc customatc btn-offer sze_rspnsv" onclick="collAtcv(this)" data-text="{{ 'product.add_to_cart' | t }}" my_variant="{{ product.first_available_variant.title }}" {% if product.first_available_variant %} {% else %} style="opacity: 0.5;" {% endif %}>
-                        {% if product.first_available_variant %}
-                            {{ 'product.add_to_cart' | t }}
-                        {% else %}
-                            {{ 'product.sold_out' | t }}
-                        {% endif %}
+                      <button class="btn-atc customatc btn-offer sze_rspnsv">
+                           <a href="{{ product.url | within: collection }}" class="btn-atc customatc btn-offer sze_rspnsv">
+                               View More  
+                          </a>
                     </button>
-                    <div class="loaderbtn">
-                        <div class="loaderrrmain">
-                            <div class="loaderatc"></div>
-                        </div>
-                    </div>
+                    
                 </div>
 
             </div>
