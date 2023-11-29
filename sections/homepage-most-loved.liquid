@@ -1,33 +1,33 @@
 <style>
-     .bestsellers-section-{{ section.id }} .card__badge{display:none;}
-    .bestsellers-section-{{ section.id }} {margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+     .mostloved-section-{{ section.id }} .card__badge{display:none;}
+    .mostloved-section-{{ section.id }} {margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
     max-width:1920px;margin-left:auto;margin-right:auto;}
-    .bestsellers .swiper-slide{ width:calc(100% / 4);margin-right:16px;}
-    .bestsellers div:empty{display:block;}
-     .bestsellers_div{text-align:center;    padding-right: 120px;}
-    .bestsellers .swiper-scrollbar{left:0;width:100%;}
+    .mostloved .swiper-slide{ width:calc(100% / 4);margin-right:16px;}
+    .mostloved div:empty{display:block;}
+     .mostloved_div{text-align:center;    padding-right: 120px;}
+    .mostloved .swiper-scrollbar{left:0;width:100%;}
     .swiper-scrollbar-drag{background-color:#000;bottom:0px;}
-    .bestsellers_heading{color:#000;font-family: PlayfairDisplay-Bold;line-height: normal;letter-spacing: 0.3px;
+    .mostloved_heading{color:#000;font-family: PlayfairDisplay-Bold;line-height: normal;letter-spacing: 0.3px;
      margin-bottom:14px;}
-    .bestsellers_tabcontent .swiper-wrapper{padding-bottom:1.5rem;}
-    .bestsellers_tab {overflow: hidden;display:flex;gap:28px;justify-content:center;    padding-right: 120px;}
-    .bestsellers_tab button {text-transform:capitalize;background-color: inherit;float: left;border: none;outline: none;cursor: pointer;padding:2px 0;
+    .mostloved_tabcontent .swiper-wrapper{padding-bottom:1.5rem;}
+    .mostloved_tab {overflow: hidden;display:flex;gap:28px;justify-content:center;    padding-right: 120px;}
+    .mostloved_tab button {text-transform:capitalize;background-color: inherit;float: left;border: none;outline: none;cursor: pointer;padding:2px 0;
      transition: 0.3s;font-size: 17px;color: #000;font-family:Roboto-Light;font-size: 15px;font-style: normal;border-radius:42px;
      font-weight: 400;line-height: 34px;letter-spacing: 0.23px;}
-    .bestsellers_tab button.active {background-color: #000 !important;color: #FFF;font-family:'Roboto-Medium';font-size: 15px;font-style: normal;font-weight: 500;line-height: 34px;
+    .mostloved_tab button.active {background-color: #000 !important;color: #FFF;font-family:'Roboto-Medium';font-size: 15px;font-style: normal;font-weight: 500;line-height: 34px;
      letter-spacing: 0.23px;}
-     .bestsellers_tab button{border-radius:8px;padding: 0 20px;border:2px solid black;}
-    .bestsellers_tabcontent {display: none;border-top: none;margin-top:25px;}
+     .mostloved_tab button{border-radius:8px;padding: 0 20px;border:2px solid black;}
+    .mostloved_tabcontent {display: none;border-top: none;margin-top:25px;}
 
-    .bestsellers .collection-swiper-men .swiper-slide,
-    .bestsellers .collection-swiper-women .swiper-slide,
-    .bestsellers .collection-swiper-kids .swiper-slide{
+    .mostloved .collection-swiper-men .swiper-slide,
+    .mostloved .collection-swiper-women .swiper-slide,
+    .mostloved .collection-swiper-kids .swiper-slide{
      opacity: 0;transform: scale(0.97) translateY(3%);transform-origin: center;animation-delay: inherit;}
 
 
-    .bestsellers .collection-swiper-men .swiper-slide,
-    .bestsellers .collection-swiper-women .swiper-slide,
-    .bestsellers .collection-swiper-kids .swiper-slide{
+    .mostloved .collection-swiper-men .swiper-slide,
+    .mostloved .collection-swiper-women .swiper-slide,
+    .mostloved .collection-swiper-kids .swiper-slide{
     animation-duration: 0.65s;animation-timing-function: cubic-bezier(0, 0, 0.3, 1);
     animation-delay: inherit;animation-direction: normal;animation-fill-mode: forwards;
     animation-name: product_card_animation;
@@ -45,18 +45,18 @@
     }
   }
 @media screen and (min-width:2500px){
-  .bestsellers-section-{{ section.id }} {
+  .mostloved-section-{{ section.id }} {
     max-width:2560px;margin-left: 25rem;
 }
 }
     @media(max-width:749px)
     {
-      .bestsellers_tab,.bestsellers_div{padding-right:0;}
-        .bestsellers-section-{{ section.id }} {margin-bottom: {{ section.settings.margin_bottom_mobile }}px;padding-left:20px;}
-        .bestsellers_tab{gap:17px;}
-        .bestsellers .swiper-scrollbar{ display:none;}
-        .bestsellers_tab button{font-size:20px !important;font-family:'Rubik-Regular';}
-.bestsellers_tabcontent .card__heading, .bestsellers_tabcontent .card__heading a {
+      .mostloved_tab,.mostloved_div{padding-right:0;}
+        .mostloved-section-{{ section.id }} {margin-bottom: {{ section.settings.margin_bottom_mobile }}px;padding-left:20px;}
+        .mostloved_tab{gap:17px;}
+        .mostloved .swiper-scrollbar{ display:none;}
+        .mostloved_tab button{font-size:20px !important;font-family:'Rubik-Regular';}
+.mostloved_tabcontent .card__heading, .mostloved_tabcontent .card__heading a {
     font-size: clamp(18px,calc(18 * (100vw / 428)),18px);
     line-height: clamp(23px,calc(24 * (100vw / 428)),25px);
     height: 49px;
@@ -64,20 +64,20 @@
     }
 </style>
 
-<div class="bestsellers bestsellers-section-{{ section.id }}" id="{{ section.id }}">
-  <div class="bestsellers_div">
-    <h2 class="bestsellers_heading">{{ section.settings.bestsellers_heading }}</h2>
+<div class="mostloved mostloved-section-{{ section.id }}" id="{{ section.id }}">
+  <div class="mostloved_div">
+    <h2 class="mostloved_heading">{{ section.settings.mostloved_heading }}</h2>
   </div>
 
-  <div class="bestsellers_tab">
+  <div class="mostloved_tab">
     {% for block in section.blocks %}
-      <button class="bestsellers_tablinks" onclick="openCategory(event, '{{ block.settings.coll }}')">{{ block.settings.coll_name }}</button>
+      <button class="mostloved_tablinks" onclick="openCategory(event, '{{ block.settings.coll }}')">{{ block.settings.coll_name }}</button>
     {% endfor %}
    
   </div>
 
  {% for block in section.blocks %}
-     <div id="{{ block.settings.coll }}" class="bestsellers_tabcontent">
+     <div id="{{ block.settings.coll }}" class="mostloved_tabcontent">
       {% assign collection_men = block.settings.coll %}
       <div class="swiper collection-swiper-men">
         <div class="swiper-wrapper">
@@ -94,7 +94,7 @@
   {% endfor %}
 
   
- {% comment %} <div id="men" class="bestsellers_tabcontent">
+ {% comment %} <div id="men" class="mostloved_tabcontent">
     {% assign collection_men = section.settings.men_collection %}
     <div class="swiper collection-swiper-men">
       <div class="swiper-wrapper">
@@ -109,7 +109,7 @@
     </div>
   </div>
 
-  <div id="women" class="bestsellers_tabcontent">
+  <div id="women" class="mostloved_tabcontent">
     {% assign collection_women = section.settings.women_collection %}
     <div class="swiper collection-swiper-women">
       <div class="swiper-wrapper">
@@ -123,7 +123,7 @@
     </div>
   </div>
 
-  <div id="kids" class="bestsellers_tabcontent">
+  <div id="kids" class="mostloved_tabcontent">
     {% assign collection_kids = section.settings.kids_collection %}
     <div class="swiper collection-swiper-kids">
       <div class="swiper-wrapper">
@@ -143,13 +143,13 @@
     console.log(category+"category")
      var i, tabcontent, tablinks;
     console.log("heloooo"+category);
-    bestsllers_tabcontent = document.getElementsByClassName('bestsellers_tabcontent');
+    bestsllers_tabcontent = document.getElementsByClassName('mostloved_tabcontent');
     for (i = 0; i < bestsllers_tabcontent.length; i++) {
       bestsllers_tabcontent[i].style.display = 'none';
     }
-    bestsellers_tablinks = document.getElementsByClassName('bestsellers_tablinks');
-    for (i = 0; i < bestsellers_tablinks.length; i++) {
-      bestsellers_tablinks[i].className = bestsellers_tablinks[i].className.replace(' active', '');
+    mostloved_tablinks = document.getElementsByClassName('mostloved_tablinks');
+    for (i = 0; i < mostloved_tablinks.length; i++) {
+      mostloved_tablinks[i].className = mostloved_tablinks[i].className.replace(' active', '');
     }
     document.getElementById(category).style.display = 'block';
     evt.currentTarget.className += ' active';
@@ -244,9 +244,9 @@
     },
     {
       "type": "text",
-      "id": "bestsellers_heading",
+      "id": "mostloved_heading",
       "label": "Heading",
-      "default": "Bestsellers"
+      "default": "mostloved"
     },
     {
       "type": "collection",
