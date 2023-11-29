@@ -167,19 +167,7 @@
                 {% endif %}
               >
                 {%- if block.settings.heading != blank -%}
-                  <h6 class="footer-block__heading inline-richtext" onclick="footermobilemenu({{forloop.index}})" >{{- block.settings.heading -}}
-                      <span id="iconplus_{{forloop.index}}" class="footersvgicon iconplus">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="8" viewBox="0 0 19 10" fill="none" style=" float:right;margin-top: -20px;">
-                        <path d="M1 1L9.5 9L18 1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                   </span>
-                <span id="iconminus_{{forloop.index}}" class="footersvgicon iconminus"> 
-              
-                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="8" viewBox="0 0 19 10" fill="none" style="float:right;margin-top: -20px;">
-                    <path d="M1 1L9.5 9L18 1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-            </span>
-                  </h6>
+                  <h6 class="footer-block__heading inline-richtext" onclick="footermobilemenu({{forloop.index}})" >{{- block.settings.heading -}} </h6>
                 {%- endif -%}
 
                 {%- case block.type -%}
