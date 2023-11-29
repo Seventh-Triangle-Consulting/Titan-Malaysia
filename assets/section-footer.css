@@ -6,7 +6,10 @@
   border: none;
   font-size:14px;
 }
-
+.footer-block_para{
+  font-size:16px;
+  font-size:Roboto-Regular;
+}
 .footer:not(.color-background-1) {
   border-top: none;
 }
