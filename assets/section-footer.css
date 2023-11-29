@@ -4,6 +4,7 @@
   background: black;
   color: white;
   border: none;
+  font-size:14px;
 }
 
 .footer:not(.color-background-1) {
