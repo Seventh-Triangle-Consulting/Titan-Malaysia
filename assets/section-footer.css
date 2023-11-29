@@ -1,4 +1,10 @@
-
+.custom_newsletter-form__button{
+  margin-top: 1rem;
+  float: inline-start;
+  background: black;
+  color: white;
+  border: none;
+}
 
 .footer:not(.color-background-1) {
   border-top: none;
