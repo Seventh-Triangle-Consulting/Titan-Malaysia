@@ -71,7 +71,7 @@
 
   <div class="bestsellers_tab">
     {% for block in section.blocks %}
-      <button class="bestsellers_tablinks" onclick="openCity(event, {{ block.id }})">{{ block.settings.coll }}</button>
+      <button class="bestsellers_tablinks" onclick="openCity(event, {{ block.id }})">{{ block.settings.coll_name }}</button>
     {% endfor %}
     <button class="bestsellers_tablinks" onclick="openCity(event, 'men')">{{ section.settings.men_collection }}</button>
     <button class="bestsellers_tablinks" onclick="openCity(event, 'women')">{{ section.settings.women_collection }}</button>
