@@ -207,7 +207,7 @@
   {% assign comboPrice = comboPrice | plus:comboVariant.selected_or_first_available_variant.price %}
   {% assign comboCmpPrice = comboCmpPrice | plus:comboVariant.selected_or_first_available_variant.compare_at_price %}
 {% endfor %}
-<div class="product-item CustomCardCollection py-3 px-lg-5  px-md-4 mb-4" product-variant="{{ product.selected_or_first_available_variant.id }}">
+<div class="product-item CustomCardCollection">
     <a class="position-relative d-block" href="{{ product.url | within: collection }}">
        
         <div 
