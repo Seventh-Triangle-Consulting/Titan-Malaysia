@@ -178,7 +178,7 @@
 .footer__list-social.list-social:only-child {
   justify-content: center;
 }
-.footer-block__newsletter .footer-block__heading {color:#000;}
+.footer-block__newsletter .footer-block__heading {color:#000;text-align:left;}
 .footer-block__newsletter {
   text-align: center;
   flex-grow: 1; padding: 0rem 2rem;margin-bottom: 4rem;
