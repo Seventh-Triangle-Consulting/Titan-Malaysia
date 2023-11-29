@@ -73,8 +73,6 @@ footer{border:1px solid #dadada !important;}
 
   .footer__content-top {
     padding-bottom: 0rem;
-    padding-left: calc(3rem / var(--font-body-scale));
-    padding-right: calc(3rem / var(--font-body-scale));
   }
 }
 
