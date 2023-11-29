@@ -62,6 +62,7 @@
           {% liquid 
               assign c = block.settings.coll
           %}
+          <div>
           <ul id="ga-pl-{{ block.id }}" class="product-list list-unstyled row mx-n3 mb-0 bs-ul ga-pl {% if forloop.index == 1 %} ga-active {% endif %} {{ row_sm }} {{ row_lg }}">
               {% liquid
                   if section.settings.recommended_mode
@@ -74,7 +75,7 @@
                       endfor
                   endif
               %}
-          </ul>
+          </ul></div>
         {% endfor %}
         {% unless section.settings.recommended_mode and section.settings.btn_text == blank %}
             <a class="btn mt-6 mb-0 bs-viewall {{ section.settings.btn_color }}" href="{{ collections[section.settings.collection].url }}">
