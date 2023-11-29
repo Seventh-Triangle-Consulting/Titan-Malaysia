@@ -1,8 +1,30 @@
 <style>
-  .best-container .CustomCardCollection .product-item-title{ color:black;}
-  .best-container .CustomCardCollection .CollAtcdiv .customatc { background-color:#000000; color: #fff; padding: 8px 2px;}
-  .best-title{padding-top:3%;padding-bottom:2%;font-family: "IndyPimp Regular";color: #6EB3BC;font-size:2.292vw;line-height:3.750vw;}
-  .bs-viewall{
+  .best-container .CustomCardCollection .product-item-title 
+  {
+/*     color: #F6ECA2; */
+/*     color: #6EB3BC; */
+    color:black;
+  }
+  .best-container .CustomCardCollection .CollAtcdiv .customatc
+  {
+/*     background-color:#F6ECA2; */
+    background-color:#000000;
+
+/*     edited by parth */
+/*     color:#6EB3BC; */
+color: #fff;
+/* end */
+    
+    padding: 8px 2px;
+  }
+.best-title{padding-top:3%;padding-bottom:2%;font-family: "IndyPimp Regular"; /* edited by parth  */ color: #6EB3BC /*end*/;font-size:2.292vw;line-height:3.750vw;}
+/* .bs-main-container{margin-top:5%;} */
+
+/*   edited by parth */
+/* .best-container{background-color: #6EB3BC !important;} */
+/* end */
+  
+.bs-viewall{
     text-decoration: underline;
     border-radius: 0;
     background-color: unset;
@@ -11,11 +33,7 @@
     color: black;
     font-size: 1.510vw;
     margin-top: 0 !important;
-    margin-bottom: 1% !important;
-    display:block;
-    width:fit-content;
-    margin:auto;
-  }
+    margin-bottom: 1% !important;}
 
 @media(max-width:991px){
 .bs-ul{display: -webkit-box;flex-wrap: nowrap;overflow-x: scroll;}
@@ -163,7 +181,7 @@
 
 {% schema %}
 {
-    "name": "Homepage Product Card",
+    "name": "Best Seller Section",
    "blocks":[
        {
         "type":"cp",
