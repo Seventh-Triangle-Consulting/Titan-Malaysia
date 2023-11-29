@@ -13,9 +13,7 @@
     max-width: 100%;
     height: auto;
   }
-  .CustomCardCollection{width:20%;}
-  .featured-products .product-list{display:none;}
-  .featured-products .ga-active{display:flex;}
+ 
   .webkit_clamp{ -webkit-line-clamp: unset !important;}
   .prductitm_hdng_mrgn{ -webkit-line-clamp: unset !important; }
   .mob_prod_title{ display: none !important; }
@@ -209,7 +207,7 @@
   {% assign comboPrice = comboPrice | plus:comboVariant.selected_or_first_available_variant.price %}
   {% assign comboCmpPrice = comboCmpPrice | plus:comboVariant.selected_or_first_available_variant.compare_at_price %}
 {% endfor %}
-<div class="product-item CustomCardCollection">
+<li class="product-item CustomCardCollection py-3 px-lg-5  px-md-4 mb-4" product-variant="{{ product.selected_or_first_available_variant.id }}">
     <a class="position-relative d-block" href="{{ product.url | within: collection }}">
        
         <div 
@@ -367,4 +365,5 @@
               </button>
         {% endif %}
 
-    </div>
+    </li>
+</li>
