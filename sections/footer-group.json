@@ -1,1 +1,51 @@
-{"name":"t:sections.footer.name","type":"footer","sections":{"footer":{"type":"footer","blocks":{"663643c3-bb0f-4f87-b3a3-ee767a5cf9a3":{"type":"link_list","settings":{"heading":"SHOP","menu":"shop"}},"dd8b9a24-1973-44bf-8330-b5a38343e204":{"type":"link_list","settings":{"heading":"COMPANY","menu":"our-company"}},"2324ba1c-4b28-406e-89ae-84eb6b1d00b1":{"type":"link_list","settings":{"heading":"HELP","menu":"help"}},"fd0dd5b5-7cd6-4e7b-8ef7-7ab3c22dd0d2":{"type":"link_list","settings":{"heading":"ALSO AVAILABLE AT","menu":"available-at"}},"979a6d03-428d-4370-8086-1f4e208c6a90":{"type":"link_list","settings":{"heading":"LEGAL","menu":"legal"}}},"block_order":["663643c3-bb0f-4f87-b3a3-ee767a5cf9a3","dd8b9a24-1973-44bf-8330-b5a38343e204","2324ba1c-4b28-406e-89ae-84eb6b1d00b1","fd0dd5b5-7cd6-4e7b-8ef7-7ab3c22dd0d2","979a6d03-428d-4370-8086-1f4e208c6a90"],"settings":{"color_scheme":"background-1","newsletter_enable":true,"newsletter_heading":"Get latest offers in your inbox","newsletter_subheading":"","enable_follow_on_shop":true,"show_social":true,"enable_country_selector":false,"enable_language_selector":false,"payment_enable":false,"show_policy":false,"margin_top":0,"padding_top":0,"padding_bottom":20}}},"order":["footer"]}
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "9a3dad6a-40e9-4f3c-86b3-9128487babb8": {
+          "type": "menu",
+          "settings": {
+            "menu": "footer",
+            "title": "INFO",
+            "title_size": "h6"
+          }
+        },
+        "4a793830-e175-43ac-a161-7476f0ce780f": {
+          "type": "menu",
+          "settings": {
+            "menu": "footer-2",
+            "title": "LEGAL",
+            "title_size": "h6"
+          }
+        },
+        "b67c92cd-7fe4-43b7-a814-fe7ba95cebff": {
+          "type": "menu",
+          "settings": {
+            "menu": "footer-2",
+            "title": "ABOUT",
+            "title_size": "h6"
+          }
+        }
+      },
+      "block_order": [
+        "9a3dad6a-40e9-4f3c-86b3-9128487babb8",
+        "4a793830-e175-43ac-a161-7476f0ce780f",
+        "b67c92cd-7fe4-43b7-a814-fe7ba95cebff"
+      ],
+      "settings": {
+        "bg_color": "bg-dark text-white",
+        "pt": 1,
+        "pb": 4,
+        "pn-footer": "&nbsp &nbsp  18002660123",
+        "email-footer": "&nbsp &nbspcustomercare@titan.co.in",
+        "footer-svg-logo": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"19.0134mm\" height=\"5.5269mm\" version=\"1.0\" style=\"shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd\" viewbox=\"0 0 1901.34 552.69\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\" xml:space=\"preserve\">\n <defs>\n  <style type=\"text\/css\">\n   \n    .fil0 {fill:black}\n    .fil1 {fill:#040607}\n   \n  <\/style>\n <\/defs>\n <g id=\"Layer_x0020_1\">\n  <metadata id=\"CorelCorpID_0Corel-Layer\"><\/metadata>\n  <g id=\"_105559048296128\">\n   <path class=\"fil0\" d=\"M820.65 263.19c0,29.34 -0.01,51.19 6.6,79.28l17.22 49.58c19.16,42.7 51.75,84.64 90.18,110.21 7.35,4.89 12.38,8.62 20.4,13 104.89,57.28 244.21,50.42 330.2,-35.57 9.03,-9.03 33.25,-35.37 36.38,-47.12 -2.19,-3 -78.87,-57.45 -88.26,-59.64 -3.75,14.02 -37.29,46.71 -51.67,55.68 -45.43,28.31 -103.1,30.26 -153.08,8.31 -19.13,-8.41 -33.15,-21.35 -47.58,-35.91 -27.59,-27.84 -45.88,-82.55 -45.88,-123.51 0,-174.44 181.67,-212.53 258.25,-143.74 9.98,8.97 26.82,22.94 30.41,36.39 12.95,-0.29 28.88,-15.82 44.86,-26.71 14.97,-10.22 28.72,-20.71 43.41,-30.54 -2.8,-12.03 -22.55,-35.87 -31.51,-44.83 -86.5,-86.47 -247.92,-87.35 -343.06,-19.61l-28.09 22c-14.73,13.7 -26.66,25.78 -38.7,42.41 -28.2,38.95 -50.08,99.31 -50.08,150.32z\"><\/path>\n   <path class=\"fil0\" d=\"M1643.69 210.71c1.31,1.87 1.12,1.17 2.54,4.62l5.63 18.22c15.88,42.9 23.49,68.22 42.94,114.51 4.64,11.05 17.19,35.64 18.08,46.34l-138.37 0 37.49 -88.95c6.35,-16.02 10.73,-28.44 16.48,-45.54l15.21 -49.2zm-243.33 341.14l109.74 0 26.24 -62.03 219.48 0c3.41,14.63 22.83,49.79 23.85,62.03l121.67 0 -100.22 -221.84c-3.11,-6.24 -4.66,-11.32 -7.92,-18.32 -5.48,-11.77 -10.48,-23.19 -15.94,-34.16l-62.82 -137.57c-5.8,-11.98 -9.91,-22.58 -15.19,-34.91 -2.74,-6.4 -5.31,-10.44 -7.81,-16.04 -8.56,-19.17 -34.98,-74.41 -38.2,-88.24l-14.32 0 -178.88 412.75c-5.04,11.23 -9.35,22.1 -14.39,33.32l-37.8 86.26c-3,7.24 -5.81,11.54 -7.49,18.75z\"><\/path>\n   <path class=\"fil1\" d=\"M-0 15.08l0 520.07c0,6.44 1.14,6.58 2.39,11.93 22.77,5.3 34.43,0 57.25,0 22.49,0 32.57,5.19 54.87,0 1.25,-5.35 2.39,-5.49 2.39,-11.93l0 -520.07c0,-6.44 -1.14,-6.57 -2.39,-11.92 -22.44,-5.23 -78.69,-2.39 -104.97,-2.39 -7.33,0 -9.54,6.99 -9.54,14.31z\"><\/path>\n   <polygon class=\"fil0\" points=\"586.86,551.85 698.99,551.85 698.99,0.77 586.86,0.77 \"><\/polygon>\n   <path class=\"fil1\" d=\"M133.59 275.12c0,13.4 51.88,78.71 60.34,89.96 5.95,7.9 10.42,14.74 16,22.16 5.52,7.34 10.77,13.92 16.23,21.94l63.16 87.14c11.45,15.36 20.63,28.78 31.97,44.37 12.01,16.53 28.22,11.16 65.18,11.16 25.45,0 50.89,0 76.34,0 -2.21,-9.48 -23,-36.19 -30.03,-46.31l-132.19 -182.72c-5.92,-8.39 -8.76,-13.94 -16.08,-22.08l-71.57 -85.88c-4.14,-4.64 -4.68,-6.06 -8.55,-10.54 -5.69,-6.62 -6.46,-4.06 -8.77,-12.7l-7.16 0c-2.79,10.45 -54.87,71.97 -54.87,83.5z\"><\/path>\n   <path class=\"fil1\" d=\"M295.82 210.71l148.94 -177.89c7.76,-9.93 18.61,-20.45 20.44,-27.28 -39.82,0 -86.36,-0.74 -121.79,-1.2 -18.14,-0.24 -19.1,7.74 -33.62,27.1l-54.18 72.26c-28.36,37.8 -34.04,20.71 24.22,89.59 3.14,3.71 13.44,15.55 15.99,17.42z\"><\/path>\n  <\/g>\n <\/g>\n<\/svg>"
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}
