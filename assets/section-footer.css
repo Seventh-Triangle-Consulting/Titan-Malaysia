@@ -3,7 +3,9 @@
 .footer:not(.color-background-1) {
   border-top: none;
 }
-
+.custom-titan-footer{
+  display:flex;
+}
 .footer__content-top {
   padding-bottom: 3rem;
   display: block;
