@@ -202,7 +202,7 @@ footer{border:1px solid #dadada !important;}
 .footer-block__newsletter .footer-block__heading {color:#000;text-align:left;font-size:16px;}
 .footer-block__newsletter {
   text-align: center;
-  flex-grow: 1; padding: 4rem 2rem 4rem 0;margin-bottom: 4rem;
+  flex-grow: 1; padding: 4rem 2rem 4rem 0;margin-bottom: 0rem;
 }
 
 .newsletter-form__field-wrapper {
