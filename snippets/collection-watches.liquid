@@ -21,7 +21,7 @@
     assign image = collection.image | default: collection.products.first.featured_image
 %}
 
-<li class="collection-item p-3 mb-4 fabrics-li {{ slider }}">
+<div class="collection-item p-3 mb-4 fabrics-li {{ slider }}">
     <a class="collection-card" href="{{ collection.url }}">
         <img 
             class="img-fluid mb-3 fabrics-style"
@@ -37,4 +37,4 @@
       {% endif %}
       {% if colsubtext != blank %}<p class="fabric-sub-text">{{ colsubtext }}</p>{% endif %}
     </a>
-</li>
+</div>
