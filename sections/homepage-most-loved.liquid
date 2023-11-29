@@ -92,51 +92,6 @@
     </div>
   {% endfor %}
 
-  
- {% comment %} <div id="men" class="mostloved_tabcontent">
-    {% assign collection_men = section.settings.men_collection %}
-    <div class="swiper collection-swiper-men">
-      <div class="swiper-wrapper">
-        {% for product in collection_men.products %}
-          <div class="swiper-slide" style="animation-delay: {{ forloop.index0 | divided_by: 10.0 | round: 2 }}s">
-            {% render 'related-products-card-product', card_product: product %}
-          </div>
-        {% endfor %}
-      </div>
-
-      <div class="swiper-scrollbar"></div>
-    </div>
-  </div>
-
-  <div id="women" class="mostloved_tabcontent">
-    {% assign collection_women = section.settings.women_collection %}
-    <div class="swiper collection-swiper-women">
-      <div class="swiper-wrapper">
-        {% for product in collection_women.products %}
-          <div class="swiper-slide" style="animation-delay: {{ forloop.index0 | divided_by: 10.0 | round: 2 }}s">
-            {% render 'related-products-card-product', card_product: product %}
-          </div>
-        {% endfor %}
-      </div>
-      <div class="swiper-scrollbar"></div>
-    </div>
-  </div>
-
-  <div id="kids" class="mostloved_tabcontent">
-    {% assign collection_kids = section.settings.kids_collection %}
-    <div class="swiper collection-swiper-kids">
-      <div class="swiper-wrapper">
-        {% for product in collection_kids.products %}
-          <div class="swiper-slide" style="animation-delay: {{ forloop.index0 | divided_by: 10.0 | round: 2 }}s">
-            {% render 'related-products-card-product', card_product: product %}
-          </div>
-        {% endfor %}
-      </div>
-      <div class="swiper-scrollbar"></div>
-    </div>
-  </div>
-</div>{% endcomment %}
-
 <script>
    document.querySelectorAll('.mostloved_tablinks')[0].click();
   
