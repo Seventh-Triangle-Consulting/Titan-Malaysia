@@ -5,7 +5,7 @@
     assign img_height = 600
     assign img_thumbnail = 'img-thumbnail' %}
 <style>
-  .row-cols-sm-2>*{flex: 0 0 0 auto; width: 20%; padding-right: 1rem!important; padding-left: 1rem!important;}
+  li.product-item.CustomCardCollection.py-3.px-lg-5.px-md-4.mb-4{flex: 0 0 auto; width: 20%; padding-right: 1rem!important; padding-left: 1rem!important;}
   .webkit_clamp{
                   -webkit-line-clamp: unset !important;
 
@@ -315,9 +315,7 @@
                   
 
                       <button class="btn-atc customatc btn-offer sze_rspnsv">
-                           <a href="{{ product.url | within: collection }}" class="btn-atc customatc btn-offer sze_rspnsv">
-                               View More  
-                          </a>
+                         View More  
                     </button>
                     
                 </div>
