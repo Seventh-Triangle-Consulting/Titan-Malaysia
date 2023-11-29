@@ -1,6 +1,7 @@
 @media screen and (min-width:1400px){
-  .custom-titan-footer{justify-content:space-between;}
+  .custom-titan-footer{justify-content:space-between;flex-wrap:nowrap;gap:0;}
 }
+.custom-social-share p{line-height:1;}
 .custom_newsletter-form__button{
   margin-top: 1rem !important;
   float: inline-start;
