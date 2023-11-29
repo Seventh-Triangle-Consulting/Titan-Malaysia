@@ -139,23 +139,6 @@
 </div>{% endcomment %}
 
 <script>
-  document.querySelectorAll('.bestsellers_tablinks')[0].click();
-
-  function openCity(evt, category) {
-    var i, tabcontent, tablinks;
-    console.log("heloooo"+category);
-    bestsllers_tabcontent = document.getElementsByClassName('bestsellers_tabcontent');
-    for (i = 0; i < bestsllers_tabcontent.length; i++) {
-      bestsllers_tabcontent[i].style.display = 'none';
-    }
-    bestsellers_tablinks = document.getElementsByClassName('bestsellers_tablinks');
-    for (i = 0; i < bestsellers_tablinks.length; i++) {
-      bestsellers_tablinks[i].className = bestsellers_tablinks[i].className.replace(' active', '');
-    }
-    document.getElementById(category).style.display = 'block';
-    evt.currentTarget.className += ' active';
-  }
-
   function openCategory(evt, category){
     console.log(category+"category")
      var i, tabcontent, tablinks;
