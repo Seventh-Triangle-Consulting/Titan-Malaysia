@@ -526,7 +526,7 @@
   .footer-block__newsletter .footer-block__heading{line-height: clamp(21px,calc(22.52 * (100vw / var(--viewportDesktop))),23px);    margin-bottom: 10px;}
   p.footer-block__heading.para{line-height: clamp(20px,calc(21.33 * (100vw / var(--viewportDesktop))),22px);}
   .newsletter-form__field-wrapper{padding-top:.8rem;}
-  .footer-block__details-content .list-menu__item--link{font-family: 'Roboto-Regular';line-height: clamp(22px,calc(23.7 * (100vw / var(--viewportDesktop))),24px);}
+  .footer-block__details-content .list-menu__item--link{font-family: 'Roboto-Regular';font-size:14px;}
   .footer__content-top .footer-block__heading{font-weight:500;line-height: clamp(23px,calc(24.89 * (100vw / var(--viewportDesktop))),25px);}
 }
 @media screen and (max-width: 320px){
