@@ -71,13 +71,13 @@
 
   <div class="bestsellers_tab">
     {% for block in section.blocks %}
-      <button class="bestsellers_tablinks" onclick="openCity(event, {{ block.id }})">{{ block.settings.coll_name }}</button>
+      <button class="bestsellers_tablinks" onclick="openCity(event, '{{ block.settings.coll }}')">{{ block.settings.coll_name }}</button>
     {% endfor %}
    
   </div>
 
  {% for block in section.blocks %}
-     <div id="{{ block.id }}" class="bestsellers_tabcontent">
+     <div id="{{ block.settings.coll }}" class="bestsellers_tabcontent">
       {% assign collection_men = block.settings.coll %}
       <div class="swiper collection-swiper-men">
         <div class="swiper-wrapper">
