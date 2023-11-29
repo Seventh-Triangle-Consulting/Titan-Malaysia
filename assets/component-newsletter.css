@@ -68,8 +68,7 @@
 }
 
 .newsletter-form__button:not(:focus-visible):not(.focused) {
-  box-shadow: inherit;
-  background-color: #fff;    border-radius: 0 3px 3px 0;
+  border-radius: 0 3px 3px 0;
 }
 
 .newsletter-form__button .icon {
