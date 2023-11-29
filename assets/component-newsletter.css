@@ -77,4 +77,5 @@
   .newsletter-form__field-wrapper .field__label{font-size:17px;font-family: 'Rubik-Regular';}
   .custom-titan-footer{flex-direction:column;}
   .newsletter-form__button{margin-top:0 !important;height:50px;}
+  .newsletter-form__field-wrapper{display:flex;gap:5%;}
 }
