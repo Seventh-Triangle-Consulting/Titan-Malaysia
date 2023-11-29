@@ -43,11 +43,11 @@
                 {{ section.settings.title }}
             </h2>
         {% endif %}
-        <ul class="collection-list list-unstyled row_ashish row mb-0 fabrics-ul-style">
+        <div class="collection-list list-unstyled row_ashish row mb-0 fabrics-ul-style">
             {% for block in section.blocks %}
                 {% render 'collection-watches', collection: collections[block.settings.collection] %}
             {% endfor %}
-        </ul>
+        </div>
         {% unless section.settings.btn_text == blank %}
             <div class="text-center">
                 <a class="btn mt-8 mb-0 {{ section.settings.btn_color }}" href="{{ routes.collections_url }}">
