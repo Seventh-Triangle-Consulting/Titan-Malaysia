@@ -1,5 +1,7 @@
 <style>
      .mostloved-section-{{ section.id }} .card__badge{display:none;}
+    .most-loved-view-more-btn{width: 100%; display: flex; align-items: center; justify-content: center; background: black; color: white; text-transform: capitalize; text-decoration: initial;
+    padding: 8px; border-radius: 10px;}
     .mostloved-section-{{ section.id }} {margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
     max-width:1920px;margin-left:auto;margin-right:auto;}
     .mostloved .swiper-slide{ width:calc(100% / 4);margin-right:16px;}
@@ -84,7 +86,7 @@
           {% for product in collection_men.products %}
             <div class="swiper-slide" style="animation-delay: {{ forloop.index0 | divided_by: 10.0 | round: 2 }}s">
               {% render 'related-products-card-product', card_product: product %}
-               <a href="{{ product.url }}">View More</a>
+               <a class="most-loved-view-more-btn" href="{{ product.url }}">View More</a>
             </div>
           {% endfor %}
         </div>
