@@ -38,7 +38,7 @@ footer{border:1px solid #dadada !important;}
     padding: 4px;
 }
 
-.footer__content-bottom-wrapper.socialicons{border-bottom: 1px solid rgba(0, 0, 0, 0.3);padding-bottom: 2rem;}
+.footer__content-bottom-wrapper.socialicons{border-bottom: 1px solid #dadada;padding-bottom: 2rem;}
 @media screen and (min-width: 950px) {
   .footer-block.grid__item.footer-block--menu{width:18%;}
 }
