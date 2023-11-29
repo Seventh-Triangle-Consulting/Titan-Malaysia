@@ -1,5 +1,5 @@
 @media screen and (min-width:1400px){
-  .custom-titan-footer{justify-content:space-between;flex-wrap:nowrap;gap:0;}
+  .custom-titan-footer{justify-content:space-between !important;flex-wrap:nowrap !important;gap:0 !important;}
 }
 .custom-social-share p{line-height:1;}
 .custom_newsletter-form__button{
