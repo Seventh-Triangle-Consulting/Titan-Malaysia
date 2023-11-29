@@ -94,7 +94,7 @@
   {% endfor %}
 
   
-  <div id="men" class="bestsellers_tabcontent">
+ {% comment %} <div id="men" class="bestsellers_tabcontent">
     {% assign collection_men = section.settings.men_collection %}
     <div class="swiper collection-swiper-men">
       <div class="swiper-wrapper">
@@ -136,7 +136,7 @@
       <div class="swiper-scrollbar"></div>
     </div>
   </div>
-</div>
+</div>{% endcomment %}
 
 <script>
   document.querySelectorAll('.bestsellers_tablinks')[0].click();
