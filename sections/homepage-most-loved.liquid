@@ -1,12 +1,254 @@
-{% schema %}
-  {
-    "name": "Section name",
-    "settings": []
+<style>
+     .bestsellers-section-{{ section.id }} .card__badge{display:none;}
+    .bestsellers-section-{{ section.id }} {margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+    max-width:1920px;margin-left:auto;margin-right:auto;}
+    .bestsellers .swiper-slide{ width:calc(100% / 4);margin-right:16px;}
+    .bestsellers div:empty{display:block;}
+     .bestsellers_div{text-align:center;    padding-right: 120px;}
+    .bestsellers .swiper-scrollbar{left:0;width:100%;}
+    .swiper-scrollbar-drag{background-color:#000;bottom:0px;}
+    .bestsellers_heading{color:#000;font-family: PlayfairDisplay-Bold;line-height: normal;letter-spacing: 0.3px;
+     margin-bottom:14px;}
+    .bestsellers_tabcontent .swiper-wrapper{padding-bottom:1.5rem;}
+    .bestsellers_tab {overflow: hidden;display:flex;gap:28px;justify-content:center;    padding-right: 120px;}
+    .bestsellers_tab button {text-transform:capitalize;background-color: inherit;float: left;border: none;outline: none;cursor: pointer;padding:2px 0;
+     transition: 0.3s;font-size: 17px;color: #000;font-family:Roboto-Light;font-size: 15px;font-style: normal;border-radius:42px;
+     font-weight: 400;line-height: 34px;letter-spacing: 0.23px;}
+    .bestsellers_tab button.active {background-color: #000 !important;color: #FFF;font-family:'Roboto-Medium';font-size: 15px;font-style: normal;font-weight: 500;line-height: 34px;
+     letter-spacing: 0.23px;}
+     .bestsellers_tab button{border-radius:8px;padding: 0 20px;border:2px solid black;}
+    .bestsellers_tabcontent {display: none;border-top: none;margin-top:25px;}
+
+    .bestsellers .collection-swiper-men .swiper-slide,
+    .bestsellers .collection-swiper-women .swiper-slide,
+    .bestsellers .collection-swiper-kids .swiper-slide{
+     opacity: 0;transform: scale(0.97) translateY(3%);transform-origin: center;animation-delay: inherit;}
+
+
+    .bestsellers .collection-swiper-men .swiper-slide,
+    .bestsellers .collection-swiper-women .swiper-slide,
+    .bestsellers .collection-swiper-kids .swiper-slide{
+    animation-duration: 0.65s;animation-timing-function: cubic-bezier(0, 0, 0.3, 1);
+    animation-delay: inherit;animation-direction: normal;animation-fill-mode: forwards;
+    animation-name: product_card_animation;
+     }
+
+  @keyframes product_card_animation {
+    0% {
+      opacity: 0.7;
+      transform: scale(0.97) translateY(3%);
+    }
+
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0px);
+    }
   }
+@media screen and (min-width:2500px){
+  .bestsellers-section-{{ section.id }} {
+    max-width:2560px;margin-left: 25rem;
+}
+}
+    @media(max-width:749px)
+    {
+      .bestsellers_tab,.bestsellers_div{padding-right:0;}
+        .bestsellers-section-{{ section.id }} {margin-bottom: {{ section.settings.margin_bottom_mobile }}px;padding-left:20px;}
+        .bestsellers_tab{gap:17px;}
+        .bestsellers .swiper-scrollbar{ display:none;}
+        .bestsellers_tab button{font-size:20px !important;font-family:'Rubik-Regular';}
+.bestsellers_tabcontent .card__heading, .bestsellers_tabcontent .card__heading a {
+    font-size: clamp(18px,calc(18 * (100vw / 428)),18px);
+    line-height: clamp(23px,calc(24 * (100vw / 428)),25px);
+    height: 49px;
+}
+    }
+</style>
+
+<div class="bestsellers bestsellers-section-{{ section.id }}" id="{{ section.id }}">
+  <div class="bestsellers_div">
+    <h2 class="bestsellers_heading">{{ section.settings.bestsellers_heading }}</h2>
+  </div>
+
+  <div class="bestsellers_tab">
+    <button class="bestsellers_tablinks" onclick="openCity(event, 'men')">{{ section.settings.men_collection }}</button>
+    <button class="bestsellers_tablinks" onclick="openCity(event, 'women')">{{ section.settings.women_collection }}</button>
+    <button class="bestsellers_tablinks" onclick="openCity(event, 'kids')">{{ section.settings.kids_collection }}</button>
+  </div>
+
+  <div id="men" class="bestsellers_tabcontent">
+    {% assign collection_men = section.settings.men_collection %}
+    <div class="swiper collection-swiper-men">
+      <div class="swiper-wrapper">
+        {% for product in collection_men.products %}
+          <div class="swiper-slide" style="animation-delay: {{ forloop.index0 | divided_by: 10.0 | round: 2 }}s">
+            {% render 'related-products-card-product', card_product: product %}
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="swiper-scrollbar"></div>
+    </div>
+  </div>
+
+  <div id="women" class="bestsellers_tabcontent">
+    {% assign collection_women = section.settings.women_collection %}
+    <div class="swiper collection-swiper-women">
+      <div class="swiper-wrapper">
+        {% for product in collection_women.products %}
+          <div class="swiper-slide" style="animation-delay: {{ forloop.index0 | divided_by: 10.0 | round: 2 }}s">
+            {% render 'related-products-card-product', card_product: product %}
+          </div>
+        {% endfor %}
+      </div>
+      <div class="swiper-scrollbar"></div>
+    </div>
+  </div>
+
+  <div id="kids" class="bestsellers_tabcontent">
+    {% assign collection_kids = section.settings.kids_collection %}
+    <div class="swiper collection-swiper-kids">
+      <div class="swiper-wrapper">
+        {% for product in collection_kids.products %}
+          <div class="swiper-slide" style="animation-delay: {{ forloop.index0 | divided_by: 10.0 | round: 2 }}s">
+            {% render 'related-products-card-product', card_product: product %}
+          </div>
+        {% endfor %}
+      </div>
+      <div class="swiper-scrollbar"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.bestsellers_tablinks')[0].click();
+
+  function openCity(evt, category) {
+    var i, tabcontent, tablinks;
+    bestsllers_tabcontent = document.getElementsByClassName('bestsellers_tabcontent');
+    for (i = 0; i < bestsllers_tabcontent.length; i++) {
+      bestsllers_tabcontent[i].style.display = 'none';
+    }
+    bestsellers_tablinks = document.getElementsByClassName('bestsellers_tablinks');
+    for (i = 0; i < bestsellers_tablinks.length; i++) {
+      bestsellers_tablinks[i].className = bestsellers_tablinks[i].className.replace(' active', '');
+    }
+    document.getElementById(category).style.display = 'block';
+    evt.currentTarget.className += ' active';
+  }
+
+  window.addEventListener(
+    'DOMContentLoaded',
+    () => {
+      var collection_swiper_men = new Swiper('#{{- section.id }} .collection-swiper-men', {
+        slidesPerView: 1.5,
+        spaceBetween: 10,
+        grabCursor: true,
+        lazy: true,
+        loop: true,
+        
+        breakpoints: {
+           630: {
+            slidesPerView: 2.5,
+          },
+          900: {
+            slidesPerView: 4.2,
+            spaceBetween: 16,
+          },
+        },
+        scrollbar: {
+          el: '.swiper-scrollbar',
+        },
+      });
+
+      var collection_swiper_women = new Swiper('#{{- section.id }} .collection-swiper-women', {
+        slidesPerView: 1.5,
+        spaceBetween: 10,
+        grabCursor: true,
+        lazy: true,
+        loop: true,
+  
+        breakpoints: {
+          750: {
+            slidesPerView: 4,
+            spaceBetween: 23,
+          },
+        },
+        scrollbar: {
+          el: '.swiper-scrollbar',
+        },
+      });
+
+      var collection_swiper_kids = new Swiper('#{{- section.id }} .collection-swiper-kids', {
+        slidesPerView: 1.5,
+        grabCursor: true,
+        lazy: true,
+        loop: true,
+        spaceBetween: 10,
+        breakpoints: {
+          750: {
+            slidesPerView: 4,
+            spaceBetween: 16,
+          },
+        },
+        scrollbar: {
+          el: '.swiper-scrollbar',
+        },
+      });
+    },
+    { once: true }
+  );
+</script>
+
+{% schema %}
+{
+  "name": "Most Loved",
+  "settings": [
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom Desktop",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom Mobile",
+      "default": 36
+    },
+    {
+      "type": "text",
+      "id": "bestsellers_heading",
+      "label": "Heading",
+      "default": "Bestsellers"
+    },
+    {
+      "type": "collection",
+      "id": "men_collection",
+      "label": "Men Collection"
+    },
+    {
+      "type": "collection",
+      "id": "women_collection",
+      "label": "Women Collection"
+    },
+    {
+      "type": "collection",
+      "id": "kids_collection",
+      "label": "Kids Collection"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Most Loved"
+    }
+  ]
+}
 {% endschema %}
-
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}
