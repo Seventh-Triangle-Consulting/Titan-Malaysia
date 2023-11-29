@@ -2,8 +2,8 @@
   text-align: center;
   font-family: PlayfairDisplay-Medium;
   font-weight: 500;
-  font-size: 2.188vw;
-  line-height: 2.188vw;
+  font-size: 28px;
+  line-height: 1;
   margin-bottom: 30px;
   margin-top: 0px;
   color: #000000;
@@ -205,8 +205,6 @@
     display: none;
   }
   .homepage-shop-by-concern-section .section_title_shop_by_concern {
-    font-size: 26px;
-    line-height: 26px;
     letter-spacing: 0.02em;
   }
 
