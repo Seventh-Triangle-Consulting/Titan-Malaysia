@@ -22,7 +22,7 @@
 .newsletter-form__field-wrapper .field__input {
   padding-right: 5rem;background-color: transparent;color: #fff;font-family: 'Rubik-Regular';
 }
-.newsletter-form__field-wrapper .field{border:#FEFCFB 1px solid}
+.newsletter-form__field-wrapper .field{border:#000 2px solid}
 .newsletter-form__field-wrapper .field__input:hover{box-shadow:none;}
 .newsletter-form__field-wrapper .field__input:focus{box-shadow:none;}
 .newsletter-form__field-wrapper .field:hover.field:after{box-shadow:none;border-radius: 3px;}
