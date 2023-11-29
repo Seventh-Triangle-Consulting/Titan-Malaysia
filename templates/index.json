@@ -298,10 +298,10 @@
       "settings": {
         "margin_bottom_desktop": 56,
         "margin_bottom_mobile": 10,
-        "bestsellers_heading": "Bestsellers",
-        "men_collection": "men",
-        "women_collection": "women",
-        "kids_collection": "kids"
+        "bestsellers_heading": "MOST LOVED",
+        "men_collection": "children",
+        "women_collection": "female",
+        "kids_collection": "mens-watch"
       }
     },
     "451768ba-558a-46f8-8f07-3fb30eb32deb": {
