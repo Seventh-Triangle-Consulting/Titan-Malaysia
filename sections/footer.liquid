@@ -267,12 +267,31 @@
     {%- endunless -%}
   {%- endif -%}
 
+ <div>
+  <div class="div_1 d-flex">
+          <span>  
+              <svg xmlns="http://www.w3.org/2000/svg" width="19.928" height="19.87" viewBox="0 0 19.928 19.87">
+                  <g id="Call" transform="translate(-1.982 -2.039)">
+                  <path id="Vector" d="M17.458,10.96a3.147,3.147,0,0,1-.67-.12,9.44,9.44,0,0,1-1.31-.39,2,2,0,0,0-2.48,1l-.22.45a12.18,12.18,0,0,1-2.66-2,12.18,12.18,0,0,1-2-2.66l.42-.28a2,2,0,0,0,1-2.48,10.33,10.33,0,0,1-.39-1.31c-.05-.22-.09-.45-.12-.68a3,3,0,0,0-3-2.49h-3a3,3,0,0,0-3,3.41,19,19,0,0,0,16.52,16.46h.38a3,3,0,0,0,3-3.01v-3a3,3,0,0,0-2.47-2.9Zm.5,6a1,1,0,0,1-.34.75,1.06,1.06,0,0,1-.82.25A17,17,0,0,1,2.088,3.18a1.09,1.09,0,0,1,.25-.82,1,1,0,0,1,.75-.34h3a1,1,0,0,1,1,.79q.06.41.15.81A11.12,11.12,0,0,0,7.7,5.17l-1.4.65a1,1,0,0,0-.49,1.33,14.49,14.49,0,0,0,7,7,1.042,1.042,0,0,0,1.33-.52l.62-1.4a13.69,13.69,0,0,0,1.58.46q.4.09.81.15a1,1,0,0,1,.79,1Z" transform="translate(1.982 2.039)" fill="#f8b6c1"/>
+                  </g>
+              </svg>
+              <p>{{ section.settings.pn-footer }}</p>
+          </span>
+        <span> 
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" viewBox="0 0 20 16">
+                    <g id="Email" transform="translate(-2 -4)">
+                    <path id="Vector" d="M17,0H3A3,3,0,0,0,0,3V13a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V3a3,3,0,0,0-3-3Zm-.573,2L10.6,6.8a.994.994,0,0,1-1.165.028L3.573,2ZM17,14H3a1,1,0,0,1-1-1V3.3L8.2,8.4a2.972,2.972,0,0,0,1.788.593,3.074,3.074,0,0,0,1.848-.621L18,3.3V13a1,1,0,0,1-1,1Z" transform="translate(2 4)" fill="#f8b6c1"/>
+                    </g>
+                </svg>
+                <p>{{ section.settings.email-footer }}</p>
+          </span>
+        </div>
   <div class="footersocialicons">
           {%- if section.settings.show_social and has_social_icons -%}
             {%- render 'social-icons', class: 'footer__list-social' -%}
           {%- endif -%}
     </div>
-                      
+ </div>                     
                     </div>
   <div
     class="footer__content-bottom{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
