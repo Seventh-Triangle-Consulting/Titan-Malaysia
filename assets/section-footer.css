@@ -26,6 +26,7 @@ footer{border:1px solid #dadada !important;}
   display:flex;
   justify-content:flex-start;
   flex-wrap:wrap;
+  gap:5%;
 }
 .footer__content-top {
   padding-bottom: 3rem;
