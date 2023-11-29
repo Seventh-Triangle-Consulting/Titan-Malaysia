@@ -266,26 +266,3 @@
   }
   
 </style>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var buttons = document.querySelectorAll('.p-ul-header button');
-
-    buttons.forEach(function (button) {
-        button.addEventListener('click', function () {
-            var id = this.getAttribute('data-id');
-
-            document.querySelectorAll('.ga-pl').forEach(function (element) {
-                element.classList.remove('ga-active');
-            });
-
-            document.getElementById(id).classList.add('ga-active');
-
-            buttons.forEach(function (button) {
-                button.classList.remove('ga-active');
-            });
-
-            this.classList.add('ga-active');
-        });
-    });
-});
-</script>
