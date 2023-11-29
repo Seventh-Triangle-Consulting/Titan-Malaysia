@@ -79,4 +79,5 @@
   .newsletter-form__button{margin-top:0 !important;height:50px;}
   .newsletter-form__field-wrapper{display:flex;gap:2%;}
   .footer-block__newsletter{margin-bottom:0;}
+  .footer-block_para{margin-bottom:4%;}
 }
