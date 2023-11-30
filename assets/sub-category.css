@@ -2,11 +2,12 @@
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
-  justify-content: center;
   column-gap: 2.5rem;
   margin-top: 36px;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  width:fit-content;
+  margin:auto;
 }
 .sub-category-slide a{
   text-decoration:initial;
