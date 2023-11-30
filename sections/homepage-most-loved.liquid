@@ -84,9 +84,7 @@
                     <div class="swiper-wrapper">
                         {% for product in collection_men.products %}
                                 <div class="swiper-slide" style="animation-delay: {{ forloop.index0 | divided_by: 10.0 | round: 2 }}s">
-                                  {% render 'related-products-card-product', card_product: product , 
-                                    show_quick_add: section.settings.show_quick_add
-                                  %}
+                                  
                                    {% render 'card-product',
                                           card_product: product,
                                           lazy_load: true,
