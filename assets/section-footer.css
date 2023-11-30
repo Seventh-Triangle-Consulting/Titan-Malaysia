@@ -1,6 +1,6 @@
 @media screen and (min-width:1225px){
   .custom-titan-footer{justify-content:space-between !important;flex-wrap:nowrap !important;gap:0 !important;}
-    .footer__content-top{padding-right:5rem;padding-left:5rem;}
+  .footer__content-top{padding-right:5rem;padding-left:5rem;}
 }
 @media screen and (min-width:769px){
   .custom-social-share{display: flex; flex-direction: column; justify-content: center;}
@@ -10,119 +10,37 @@
 }
 .footersocialicons{margin-top:2%;}
 .custom-social-share p{line-height:1;}
-.custom_newsletter-form__button{
-  float: inline-start;
-  background: black;
-  color: white;
-  border: none;
-  font-size:14px;
-}
+.custom_newsletter-form__button{float: inline-start;background: black;color: white;border: none;font-size:14px;}
 footer{border:1px solid #dadada !important;}
 .custom-social-share .div_1 {display:flex;flex-direction:column;}
 .custom-social-share .div_1 span{display:inline-flex;align-items:flex-end;gap:3%;}
-.footer-block__details-content .list-menu__item--link{
-  font-family:Roboto-Regular;
-  font-size:14px !important;
-}
-.footer-block_para{
-  font-size:16px;
-  font-family:Roboto-Regular;
-  text-align:left;
-  margin-bottom:8%;
-}
-.footer:not(.color-background-1) {
-  border-top: none;
-}
-.custom-titan-footer{
-  display:flex;
-  justify-content:flex-start;
-  flex-wrap:wrap;
-  gap:5%;
-}
-.footer__content-top {
-  padding-bottom: 3rem;
-  display: block;
-}
-.footersocialicons .list-social__item .icon {
-    height: 4.2rem;
-    width: 4.2rem;
-}
-.footersocialicons .list-social__link {
-    padding: 4px;
-}
-
+.footer-block__details-content .list-menu__item--link{font-family:Roboto-Regular;font-size:14px !important;}
+.footer-block_para{font-size:16px;font-family:Roboto-Regular;text-align:left;margin-bottom:8%;}
+.footer:not(.color-background-1) {border-top: none;}
+.custom-titan-footer{display:flex;justify-content:flex-start;flex-wrap:wrap;gap:5%;}
+.footer__content-top {padding-bottom: 3rem;display: block;}
+.footersocialicons .list-social__item .icon {height: 4.2rem;width: 4.2rem;}
+.footersocialicons .list-social__link {padding: 4px;}
 .footer__content-bottom-wrapper.socialicons{border-bottom: 1px solid #dadada;padding-bottom: 2rem;}
 @media screen and (min-width: 950px) {
   .footer-block.grid__item.footer-block--menu{width:18%;}
 }
-@media screen and (max-width: 749px) {
-  .footer .grid {
-    display: block;
-  }
-
-  .footer-block.grid__item {
-    padding: 0;
-    margin: 2rem 0;
-    width: 100%;
-  }
-
-
-
-  .footer-block.grid__item:first-child {
-    margin-top: 0;
-  }
-
-  .footer__content-top {
-    padding-bottom: 0rem;
-  }
+@media screen and (max-width: 768px) {
+  .footer .grid {display: block;}
+  .footer-block.grid__item {padding: 0;margin: 2rem 0;width: 100%;}
+  .footer-block.grid__item:first-child {margin-top: 0;}
+  .footer__content-top {padding-bottom: 0rem;}
+  .footer__content-bottom {flex-wrap: wrap;padding-top: 0;padding-left: 0;padding-right: 0;row-gap: 1.5rem;}
+  .footer__content-bottom-wrapper {flex-wrap: wrap;row-gap: 1.5rem;justify-content: center;}
+  .footer__localization:empty + .footer__column {padding-top: 1.5rem;}
 }
-
-@media screen and (min-width: 750px) {
-  .footer__content-top .grid {
-    row-gap: 6rem;
-    margin-bottom: 0;
-  }
+@media screen and (min-width: 768px) {
+  .footer__content-top .grid {row-gap: 6rem;margin-bottom: 0;}
 }
-
-.footer__content-bottom {
-  
-  padding-top: 1rem;
-}
-
-.footer__content-bottom:only-child {
-  border-top: 0;
-}
-
-.footer__content-bottom-wrapper {
-  display: flex;justify-content: center;
-  width: 100%;
-}
-
-@media screen and (max-width: 749px) {
-  .footer__content-bottom {
-    flex-wrap: wrap;
-    padding-top: 0;
-    padding-left: 0;
-    padding-right: 0;
-    row-gap: 1.5rem;
-  }
-
-  .footer__content-bottom-wrapper {
-    flex-wrap: wrap;
-    row-gap: 1.5rem;
-    justify-content: center;
-  }
-}
-
-.footer__localization:empty + .footer__column--info {
-  align-items: center;
-}
-
-@media screen and (max-width: 749px) {
-  .footer__localization:empty + .footer__column {
-    padding-top: 1.5rem;
-  }
-}
+.footer__content-bottom {padding-top: 1rem;}
+.footer__content-bottom:only-child {border-top: 0;}
+.footer__content-bottom-wrapper {display: flex;justify-content: center;width: 100%;}
+.footer__localization:empty + .footer__column--info {align-items: center;}
 
 .footer__column {
   width: 100%;
