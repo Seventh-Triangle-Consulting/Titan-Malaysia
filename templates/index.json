@@ -6,9 +6,9 @@
         "358e1d4a-afbf-4b56-92df-72326a087314": {
           "type": "slideshow",
           "settings": {
-            "collection_slide_url": "shopify:\/\/collections\/mens-watch",
+            "collection_slide_url": "shopify:\/\/collections\/watches",
             "collection_slide_image": "shopify:\/\/shop_images\/AX1326.jpg",
-            "collection_slide_text": "Men"
+            "collection_slide_text": "Watches"
           }
         },
         "e3091330-71fb-4a99-b821-d78a16ba2e80": {
@@ -16,7 +16,7 @@
           "settings": {
             "collection_slide_url": "shopify:\/\/collections\/mens-watch",
             "collection_slide_image": "shopify:\/\/shop_images\/AX1326.jpg",
-            "collection_slide_text": "Men"
+            "collection_slide_text": "Premium watches"
           }
         },
         "e6316d43-6878-485d-92ab-9ee4421ea22b": {
@@ -24,7 +24,7 @@
           "settings": {
             "collection_slide_url": "shopify:\/\/collections\/mens-watch",
             "collection_slide_image": "shopify:\/\/shop_images\/AX1326.jpg",
-            "collection_slide_text": "Men"
+            "collection_slide_text": "New Arrival"
           }
         },
         "a2f19bab-dc1a-4586-9295-f5904a7ab380": {
@@ -32,7 +32,7 @@
           "settings": {
             "collection_slide_url": "shopify:\/\/collections\/mens-watch",
             "collection_slide_image": "shopify:\/\/shop_images\/AX1326.jpg",
-            "collection_slide_text": "Men"
+            "collection_slide_text": "Smart"
           }
         },
         "8dada3ef-b2cc-4b22-8bd3-22f5f32d9518": {
@@ -40,7 +40,7 @@
           "settings": {
             "collection_slide_url": "shopify:\/\/collections\/mens-watch",
             "collection_slide_image": "shopify:\/\/shop_images\/AX1326.jpg",
-            "collection_slide_text": "Men"
+            "collection_slide_text": "Clocks"
           }
         },
         "bc934d4c-5839-4f67-84b9-f5fc22e41623": {
@@ -48,7 +48,7 @@
           "settings": {
             "collection_slide_url": "shopify:\/\/collections\/mens-watch",
             "collection_slide_image": "shopify:\/\/shop_images\/AX1326.jpg",
-            "collection_slide_text": "Men"
+            "collection_slide_text": "Sales"
           }
         }
       },
