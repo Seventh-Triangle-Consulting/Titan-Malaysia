@@ -633,6 +633,7 @@
         "062210cd-2348-446f-a666-7d81cde50f66",
         "c25f6c88-52c1-4545-8f96-4d99331fc04b"
       ],
+      "disabled": true,
       "settings": {
         "testimonial_heading": "Testimonials",
         "margin_bottom_desktop": 64,
