@@ -84,7 +84,9 @@
                     <div class="swiper-wrapper">
                         {% for product in collection_men.products %}
                                 <div class="swiper-slide" style="animation-delay: {{ forloop.index0 | divided_by: 10.0 | round: 2 }}s">
-                                  {% render 'related-products-card-product', card_product: product , show_quick_add: true%}
+                                  {% render 'related-products-card-product', card_product: product , 
+                                    show_quick_add: true
+                                  %}
                                    <a class="most-loved-view-more-btn" href="{{ product.url }}">View More</a>
                                 </div>
                           {% endfor %}
