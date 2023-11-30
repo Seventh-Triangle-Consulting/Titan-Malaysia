@@ -3,84 +3,68 @@
     "9b1a63d6-499c-4620-8f1b-a38878dab3d7": {
       "type": "homepage-featured-collection",
       "blocks": {
-        "68f582f7-57e7-4631-a288-d5c535a209b1": {
-          "type": "collection",
+        "38c4dc68-383d-4bba-b229-aa897744391e": {
+          "type": "slideshow",
           "settings": {
-            "collection": "watches"
+            "collection_slide_url": "shopify:\/\/collections",
+            "collection_slide_image": "shopify:\/\/shop_images\/AX1326.jpg",
+            "collection_slide_text": "Men"
           }
         },
-        "0cbff8f6-6f11-4a2d-b8f7-7873ddc2d360": {
-          "type": "collection",
+        "cc8f130c-ed3b-4450-aca6-fcb3c9d92f6a": {
+          "type": "slideshow",
           "settings": {
-            "collection": "children"
+            "collection_slide_url": "shopify:\/\/collections",
+            "collection_slide_image": "shopify:\/\/shop_images\/AX1326.jpg",
+            "collection_slide_text": "Men"
           }
         },
-        "633b9de9-4545-41a1-b54d-60c273cd4aac": {
-          "type": "collection",
+        "b2cca0b1-98cb-47db-947a-a570638638d7": {
+          "type": "slideshow",
           "settings": {
-            "collection": "children"
+            "collection_slide_url": "shopify:\/\/collections",
+            "collection_slide_image": "shopify:\/\/shop_images\/AX1326.jpg",
+            "collection_slide_text": "Men"
           }
         },
-        "f242db7a-8411-49da-80af-f03542a6d331": {
-          "type": "collection",
+        "5d0aa0cf-89d8-4b7a-a449-3d42df2e64af": {
+          "type": "slideshow",
           "settings": {
-            "collection": "watches"
+            "collection_slide_url": "shopify:\/\/collections",
+            "collection_slide_image": "shopify:\/\/shop_images\/AX1326.jpg",
+            "collection_slide_text": "Men"
           }
         },
-        "ad22e898-0ec0-4e8f-a389-8b9d0b2abb83": {
-          "type": "collection",
+        "461e6cad-bb97-4b24-90e3-faba48ec2599": {
+          "type": "slideshow",
           "settings": {
-            "collection": "children"
+            "collection_slide_url": "shopify:\/\/collections",
+            "collection_slide_image": "shopify:\/\/shop_images\/AX1326.jpg",
+            "collection_slide_text": "Men"
           }
         },
-        "19a585d1-c774-42dc-9030-8f5afa4b06a9": {
-          "type": "collection",
+        "c7a0f521-82b1-4fc6-ae6f-1ae800b643a3": {
+          "type": "slideshow",
           "settings": {
-            "collection": "watches"
-          }
-        },
-        "574387f8-b863-4fdd-9af2-b694800dd9dc": {
-          "type": "collection",
-          "disabled": true,
-          "settings": {
-            "collection": "children"
-          }
-        },
-        "7078ea3c-c3cf-4eec-aeab-f681a5b68e7e": {
-          "type": "collection",
-          "disabled": true,
-          "settings": {
-            "collection": "watches"
-          }
-        },
-        "68ebc66a-1e69-44da-8856-85535faa18a0": {
-          "type": "collection",
-          "disabled": true,
-          "settings": {
-            "collection": "children"
+            "collection_slide_url": "shopify:\/\/collections",
+            "collection_slide_image": "shopify:\/\/shop_images\/AX1326.jpg",
+            "collection_slide_text": "Men"
           }
         }
       },
       "block_order": [
-        "68f582f7-57e7-4631-a288-d5c535a209b1",
-        "0cbff8f6-6f11-4a2d-b8f7-7873ddc2d360",
-        "633b9de9-4545-41a1-b54d-60c273cd4aac",
-        "f242db7a-8411-49da-80af-f03542a6d331",
-        "ad22e898-0ec0-4e8f-a389-8b9d0b2abb83",
-        "19a585d1-c774-42dc-9030-8f5afa4b06a9",
-        "574387f8-b863-4fdd-9af2-b694800dd9dc",
-        "7078ea3c-c3cf-4eec-aeab-f681a5b68e7e",
-        "68ebc66a-1e69-44da-8856-85535faa18a0"
+        "38c4dc68-383d-4bba-b229-aa897744391e",
+        "cc8f130c-ed3b-4450-aca6-fcb3c9d92f6a",
+        "b2cca0b1-98cb-47db-947a-a570638638d7",
+        "5d0aa0cf-89d8-4b7a-a449-3d42df2e64af",
+        "461e6cad-bb97-4b24-90e3-faba48ec2599",
+        "c7a0f521-82b1-4fc6-ae6f-1ae800b643a3"
       ],
       "settings": {
-        "bg_color": "",
-        "text_align": "text-center",
-        "title": "",
-        "title_size": "h2",
-        "btn_text": "",
-        "btn_color": "btn-primary",
-        "desktop_margin_bottom": 30,
-        "mobile_margin_bottom": 30
+        "margin_bottom_desktop": 36,
+        "margin_bottom_mobile": 36,
+        "border_top_left_radius": 20,
+        "border_top_right_radius": 20
       }
     },
     "451768ba-558a-46f8-8f07-3fb30eb32deb": {
