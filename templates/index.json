@@ -433,25 +433,6 @@
       "settings": {
         "include_margins": true
       }
-    },
-    "3054ea28-533b-49f5-9d94-722439ec7043": {
-      "type": "featured-blog",
-      "disabled": true,
-      "settings": {
-        "heading": "Trending Blogs",
-        "heading_size": "h2",
-        "blog": "stories",
-        "post_limit": 3,
-        "columns_desktop": 3,
-        "color_scheme": "",
-        "show_image": true,
-        "show_date": false,
-        "show_author": false,
-        "show_view_all": true,
-        "show_description": false,
-        "padding_top": 12,
-        "padding_bottom": 24
-      }
     }
   },
   "order": [
@@ -463,7 +444,6 @@
     "96a7a223-41c4-4f2c-bfe1-91cd7d09a867",
     "b8288058-a547-4fee-bfe1-0f766e5e082c",
     "84601aa3-45ff-4f93-a11f-81666de3da23",
-    "1697087009aadaaacf",
-    "3054ea28-533b-49f5-9d94-722439ec7043"
+    "1697087009aadaaacf"
   ]
 }
