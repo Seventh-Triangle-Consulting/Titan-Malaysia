@@ -43,6 +43,7 @@ footer{border:1px solid #dadada !important;}
   .newsletter-form__field-wrapper{display: flex;gap: 2%;}
   .footersocialicons{margin-top:10%;}
    .footer-block--newsletter{width:33%;}
+  .footer__content-top{width:50%;}
 }
 @media screen and (max-width: 768px) {
   .footer .grid {display: block;}
