@@ -22,6 +22,13 @@ footer{border:1px solid #dadada !important;}
 .footer-block--newsletter:only-child {margin-top: 0;}
 .footer-block__heading {margin-bottom: 3%;margin-top: 0; font-family:PlayfairDisplay-Bold;font-size:16px;}
 .footer__content-top  .footer-block__heading {font-weight:600;color: rgba(0, 0, 0, 1);    margin-bottom: 0;}
+.footer__list-social:empty,
+.footer-block--newsletter:empty {display: none;}
+.footer__follow-on-shop {display: flex; text-align: center;}
+.footer__list-social.list-social:only-child {justify-content: flex-start;}
+.footer-block__newsletter .footer-block__heading {color:#000;text-align:left;font-size:16px;}
+.footer-block__newsletter {text-align: center;flex-grow: 1; padding: 4rem 2rem 4rem 0;margin-bottom: 0rem;}
+.newsletter-form__field-wrapper {max-width: 36rem;}
 @media screen and (min-width: 950px) {
   .footer-block.grid__item.footer-block--menu{width:18%;}
 }
@@ -56,14 +63,6 @@ footer{border:1px solid #dadada !important;}
   .footer-block__newsletter .footer-block__heading {font-size: clamp(calc(var(--desktop-font-size-h5) * .9px),calc(var(--desktop-font-size-h5) * (100vw / var(--viewportDesktop))),calc(var(--desktop-font-size-h5) * 1.1px));margin-bottom: 12px;line-height: clamp(23px,calc(24.89 * (100vw / var(--viewportDesktop))),25px);    letter-spacing: 0.36px;}
   p.footer-block__heading.para {  font-size: clamp(calc(19 * .9px),calc(19 * (100vw / var(--viewportDesktop))),calc(19 * 1.1px));    margin-bottom: 15px;line-height: clamp(21px,calc(22.52 * (100vw / var(--viewportDesktop))),23px);}
 }
-.footer__list-social:empty,
-.footer-block--newsletter:empty {display: none;}
-.footer__follow-on-shop {display: flex; text-align: center;}
-.footer__list-social.list-social:only-child {justify-content: flex-start;
-}
-.footer-block__newsletter .footer-block__heading {color:#000;text-align:left;font-size:16px;}
-.footer-block__newsletter {text-align: center;flex-grow: 1; padding: 4rem 2rem 4rem 0;margin-bottom: 0rem;}
-.newsletter-form__field-wrapper {max-width: 36rem;}
 @media screen and (min-width: 750px) {
   /* Pushes other components to the right of the flexbox */
   .footer-block__newsletter:not(:only-child) {
