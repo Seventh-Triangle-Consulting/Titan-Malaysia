@@ -536,6 +536,7 @@
         "3fa8ef9e-571b-4011-8ab4-545f572abcaf",
         "2445ebe1-163a-4df6-a789-a9f932341b2e"
       ],
+      "disabled": true,
       "settings": {
         "margin_bottom_desktop": 12,
         "margin_bottom_mobile": 8,
@@ -544,6 +545,7 @@
     },
     "3054ea28-533b-49f5-9d94-722439ec7043": {
       "type": "featured-blog",
+      "disabled": true,
       "settings": {
         "heading": "Trending Blogs",
         "heading_size": "h2",
