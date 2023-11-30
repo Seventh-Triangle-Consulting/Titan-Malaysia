@@ -87,6 +87,12 @@
                                   {% render 'related-products-card-product', card_product: product , 
                                     show_quick_add: section.settings.show_quick_add
                                   %}
+                                   {% render 'card-product',
+                                          card_product: product,
+                                          lazy_load: true,
+                                          show_quick_add: section.settings.enable_quick_add,
+                                          section_id: section.id
+                                    %}
                                    <a class="most-loved-view-more-btn" href="{{ product.url }}">View More</a>
                                 </div>
                           {% endfor %}
@@ -186,7 +192,7 @@
     },
     {
       "type": "checkbox",
-      "id": "show_quick_add",
+      "id": "enable_quick_add",
       "label": "Show Quick Add",
       "default": true
     }
