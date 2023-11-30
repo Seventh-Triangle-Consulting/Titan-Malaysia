@@ -443,7 +443,7 @@
         "post_limit": 3,
         "columns_desktop": 3,
         "color_scheme": "",
-        "show_image": false,
+        "show_image": true,
         "show_date": false,
         "show_author": false,
         "show_view_all": true,
