@@ -1,11 +1,4 @@
-.newsletter-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  width: 100%;
-  position: relative;
-}
+.newsletter-form {display: flex;flex-direction: column;justify-content: center;align-items: flex-start;width: 100%;position: relative;}
 .custom-social-share .div_1 span:first-child{margin-bottom:3%;}
 .newsletter-form__field-wrapper .field{ width: 200px; height: 40px;}
 .newsletter-form__field-wrapper label{color:#ccc !important;font-size:10px !important;}
