@@ -4,7 +4,7 @@
 }
 @media screen and (min-width:769px){
   .custom-social-share{display: flex; flex-direction: column; justify-content: center;}
-  .newsletter-form__button{margin-top:0 !important;height:50px !important;}
+  .newsletter-form__button{margin-top:0 !important;}
   .newsletter-form__field-wrapper{display: flex;gap: 2%;}
 }
 .footersocialicons{margin-top:2rem;}
