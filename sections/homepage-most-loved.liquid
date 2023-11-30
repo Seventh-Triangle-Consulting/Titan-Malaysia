@@ -6,43 +6,30 @@
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 <style>
-     .mostloved-section-{{ section.id }} .card__badge{display:none;}
-    .most-loved-view-more-btn{width: fit-content; display: flex; align-items: center; justify-content: center; background: black; color: white; text-transform: uppercase; text-decoration: initial;
-    padding:10px 5%; border-radius: 10px;font-family:Roboto-Medium;margin:auto;}
-    .mostloved-section-{{ section.id }} {margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
-    max-width:1920px;margin-left:auto;margin-right:auto;}
+    .mostloved-section-{{ section.id }} .card__badge{display:none;}
+    .most-loved-view-more-btn{width: fit-content; display: flex; align-items: center; justify-content: center; background: black; color: white; text-transform: uppercase; text-decoration: initial;padding:10px 5%; border-radius: 10px;font-family:Roboto-Medium;margin:auto;}
+    .mostloved-section-{{ section.id }} {margin-bottom: {{ section.settings.margin_bottom_desktop }}px;max-width:1920px;margin-left:auto;margin-right:auto;}
     .mostloved .swiper-slide{ width:calc(100% / 4);margin-right:16px;}
     .mostloved div:empty{display:block;}
-     .mostloved_div{text-align:center;    padding-right: 120px;}
+    .mostloved_div{text-align:center;    padding-right: 120px;}
     .mostloved .swiper-scrollbar{left:0;width:100%;}
-    .swiper-scrollbar-drag{background-color:#000;bottom:0px;}
-    .mostloved_heading{color:#000;font-family: PlayfairDisplay-Bold;line-height: normal;letter-spacing: 0.3px;font-size:28px;
-     margin-bottom:14px;}
+    .mostloved_heading{color:#000;font-family: PlayfairDisplay-Bold;line-height: normal;letter-spacing: 0.3px;font-size:28px; margin-bottom:14px;}
     .mostloved_tabcontent .swiper-wrapper{padding-bottom:1.5rem;}
     .mostloved_tab {overflow: hidden;display:flex;gap:28px;justify-content:center;    padding-right: 120px;}
-    .mostloved_tab button {text-transform:capitalize;background-color: inherit;float: left;border: none;outline: none;cursor: pointer;padding:2px 0;
-     transition: 0.3s;font-size: 17px;color: #000;font-family:Roboto-Light;font-size: 15px;font-style: normal;border-radius:42px;
-     font-weight: 400;line-height: 34px;letter-spacing: 0.23px;}
-    .mostloved_tab button.active {background-color: #000 !important;color: #FFF;font-family:'Roboto-Medium';font-size: 15px;font-style: normal;font-weight: 500;line-height: 34px;
-     letter-spacing: 0.23px;}
-     .mostloved_tab button{border-radius:8px;padding: 0 20px;border:2px solid black;}
+    .mostloved_tab button {text-transform:capitalize;background-color: inherit;float: left;border: none;outline: none;cursor: pointer;padding:2px 0;transition: 0.3s;font-size: 17px;color: #000;font-family:Roboto-Light;font-size: 15px;font-style: normal;border-radius:42px;font-weight: 400;line-height: 34px;letter-spacing: 0.23px;}
+    .mostloved_tab button.active {background-color: #000 !important;color: #FFF;font-family:'Roboto-Medium';font-size: 15px;font-style: normal;font-weight: 500;line-height: 34px; letter-spacing: 0.23px;}
+    .mostloved_tab button{border-radius:8px;padding: 0 20px;border:2px solid black;}
     .mostloved_tabcontent {display: none;border-top: none;margin-top:25px;}
-
     .mostloved .collection-swiper-men .swiper-slide,
     .mostloved .collection-swiper-women .swiper-slide,
-    .mostloved .collection-swiper-kids .swiper-slide{
-     opacity: 0;transform: scale(0.97) translateY(3%);transform-origin: center;animation-delay: inherit;}
-
-
+    .mostloved .collection-swiper-kids .swiper-slide{ opacity: 0;transform: scale(0.97) translateY(3%);transform-origin: center;animation-delay: inherit;}
     .mostloved .collection-swiper-men .swiper-slide,
     .mostloved .collection-swiper-women .swiper-slide,
     .mostloved .collection-swiper-kids .swiper-slide{
     animation-duration: 0.65s;animation-timing-function: cubic-bezier(0, 0, 0.3, 1);
     animation-delay: inherit;animation-direction: normal;animation-fill-mode: forwards;
-    animation-name: product_card_animation;
-     }
-
-  @keyframes product_card_animation {
+    animation-name: product_card_animation;}
+@keyframes product_card_animation {
     0% {
       opacity: 0.7;
       transform: scale(0.97) translateY(3%);
@@ -54,17 +41,14 @@
     }
   }
 @media screen and (min-width:2500px){
-  .mostloved-section-{{ section.id }} {
-    max-width:2560px;margin-left: 25rem;
+  .mostloved-section-{{ section.id }}{max-width:2560px;margin-left: 25rem;}
 }
+@media(max-width:749px){
+  .mostloved_tab,.mostloved_div{padding-right:0;}
+  .mostloved-section-{{ section.id }} {margin-bottom: {{ section.settings.margin_bottom_mobile }}px;padding-left:20px;}
+  .mostloved_tab{gap:17px;flex-wrap:wrap;}
+  .mostloved .swiper-scrollbar{ display:none;}
 }
-    @media(max-width:749px)
-    {
-      .mostloved_tab,.mostloved_div{padding-right:0;}
-        .mostloved-section-{{ section.id }} {margin-bottom: {{ section.settings.margin_bottom_mobile }}px;padding-left:20px;}
-        .mostloved_tab{gap:17px;flex-wrap:wrap;}
-        .mostloved .swiper-scrollbar{ display:none;}
-    }
 </style>
 
 <div class="mostloved mostloved-section-{{ section.id }} page-width" id="{{ section.id }}">
