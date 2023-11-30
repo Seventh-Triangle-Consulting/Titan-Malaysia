@@ -6,7 +6,7 @@
         "68f582f7-57e7-4631-a288-d5c535a209b1": {
           "type": "collection",
           "settings": {
-            "collection": "children"
+            "collection": "watches"
           }
         },
         "0cbff8f6-6f11-4a2d-b8f7-7873ddc2d360": {
@@ -21,10 +21,22 @@
             "collection": "children"
           }
         },
+        "f242db7a-8411-49da-80af-f03542a6d331": {
+          "type": "collection",
+          "settings": {
+            "collection": "watches"
+          }
+        },
         "ad22e898-0ec0-4e8f-a389-8b9d0b2abb83": {
           "type": "collection",
           "settings": {
             "collection": "children"
+          }
+        },
+        "19a585d1-c774-42dc-9030-8f5afa4b06a9": {
+          "type": "collection",
+          "settings": {
+            "collection": "watches"
           }
         },
         "574387f8-b863-4fdd-9af2-b694800dd9dc": {
@@ -33,25 +45,13 @@
             "collection": "children"
           }
         },
+        "7078ea3c-c3cf-4eec-aeab-f681a5b68e7e": {
+          "type": "collection",
+          "settings": {
+            "collection": "watches"
+          }
+        },
         "68ebc66a-1e69-44da-8856-85535faa18a0": {
-          "type": "collection",
-          "settings": {
-            "collection": "children"
-          }
-        },
-        "6ca30a0c-6eee-4832-812d-bf6709e3b534": {
-          "type": "collection",
-          "settings": {
-            "collection": "children"
-          }
-        },
-        "103e30b1-c6f9-42e0-af45-b9c405be6dee": {
-          "type": "collection",
-          "settings": {
-            "collection": "children"
-          }
-        },
-        "d3985a5b-efef-4bd5-b017-e7163b00e077": {
           "type": "collection",
           "settings": {
             "collection": "children"
@@ -62,12 +62,12 @@
         "68f582f7-57e7-4631-a288-d5c535a209b1",
         "0cbff8f6-6f11-4a2d-b8f7-7873ddc2d360",
         "633b9de9-4545-41a1-b54d-60c273cd4aac",
+        "f242db7a-8411-49da-80af-f03542a6d331",
         "ad22e898-0ec0-4e8f-a389-8b9d0b2abb83",
+        "19a585d1-c774-42dc-9030-8f5afa4b06a9",
         "574387f8-b863-4fdd-9af2-b694800dd9dc",
-        "68ebc66a-1e69-44da-8856-85535faa18a0",
-        "6ca30a0c-6eee-4832-812d-bf6709e3b534",
-        "103e30b1-c6f9-42e0-af45-b9c405be6dee",
-        "d3985a5b-efef-4bd5-b017-e7163b00e077"
+        "7078ea3c-c3cf-4eec-aeab-f681a5b68e7e",
+        "68ebc66a-1e69-44da-8856-85535faa18a0"
       ],
       "settings": {
         "bg_color": "",
