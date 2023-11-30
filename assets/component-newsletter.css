@@ -10,10 +10,14 @@
 .newsletter-form__field-wrapper .field{ width: 200px; height: 40px;}
 .newsletter-form__field-wrapper label{color:#ccc !important;font-size:10px !important;}
 .newsletter-form__button{height: 40px !important;}
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 768px) {
   .newsletter-form {
     align-items: flex-start;
     max-width: 36rem;
+  }
+  .footer__blocks-wrapper{
+    width: 80%;
+    gap: 15%;
   }
 }
 
