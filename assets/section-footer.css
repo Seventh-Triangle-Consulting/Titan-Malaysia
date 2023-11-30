@@ -12,6 +12,16 @@ footer{border:1px solid #dadada !important;}
 .footersocialicons .list-social__item .icon {height: 4.2rem;width: 4.2rem;}
 .footersocialicons .list-social__link {padding: 4px;}
 .footer__content-bottom-wrapper.socialicons{border-bottom: 1px solid #dadada;padding-bottom: 2rem;}
+.footer__content-bottom {padding-top: 1rem;}
+.footer__content-bottom:only-child {border-top: 0;}
+.footer__content-bottom-wrapper {display: flex;justify-content: center;width: 100%;}
+.footer__localization:empty + .footer__column--info {align-items: center;}
+.footer__column {width: 100%;align-items: flex-end;}
+.footer__column--info {display: flex;flex-direction: column;justify-content: center;align-items: center;padding-left: 2rem;padding-right: 2rem;}
+.footer-block:empty {display: none;}
+.footer-block--newsletter:only-child {margin-top: 0;}
+.footer-block__heading {margin-bottom: 3%;margin-top: 0; font-family:PlayfairDisplay-Bold;font-size:16px;}
+.footer__content-top  .footer-block__heading {font-weight:600;color: rgba(0, 0, 0, 1);    margin-bottom: 0;}
 @media screen and (min-width: 950px) {
   .footer-block.grid__item.footer-block--menu{width:18%;}
 }
@@ -42,16 +52,6 @@ footer{border:1px solid #dadada !important;}
   .footer-block {display: block;margin-top: 0;}
   .footer-block--newsletter {flex-wrap: nowrap;justify-content: center;}  
 }
-.footer__content-bottom {padding-top: 1rem;}
-.footer__content-bottom:only-child {border-top: 0;}
-.footer__content-bottom-wrapper {display: flex;justify-content: center;width: 100%;}
-.footer__localization:empty + .footer__column--info {align-items: center;}
-.footer__column {width: 100%;align-items: flex-end;}
-.footer__column--info {display: flex;flex-direction: column;justify-content: center;align-items: center;padding-left: 2rem;padding-right: 2rem;}
-.footer-block:empty {display: none;}
-.footer-block--newsletter:only-child {margin-top: 0;}
-.footer-block__heading {margin-bottom: 3%;margin-top: 0; font-family:PlayfairDisplay-Bold;font-size:16px;}
-.footer__content-top  .footer-block__heading {font-weight:600;color: rgba(0, 0, 0, 1);    margin-bottom: 0;}
 @media screen and (min-width: 990px) {
   .footer-block__newsletter .footer-block__heading {font-size: clamp(calc(var(--desktop-font-size-h5) * .9px),calc(var(--desktop-font-size-h5) * (100vw / var(--viewportDesktop))),calc(var(--desktop-font-size-h5) * 1.1px));margin-bottom: 12px;line-height: clamp(23px,calc(24.89 * (100vw / var(--viewportDesktop))),25px);    letter-spacing: 0.36px;}
   p.footer-block__heading.para {  font-size: clamp(calc(19 * .9px),calc(19 * (100vw / var(--viewportDesktop))),calc(19 * 1.1px));    margin-bottom: 15px;line-height: clamp(21px,calc(22.52 * (100vw / var(--viewportDesktop))),23px);}
