@@ -41,18 +41,21 @@
         },
         "574387f8-b863-4fdd-9af2-b694800dd9dc": {
           "type": "collection",
+          "disabled": true,
           "settings": {
             "collection": "children"
           }
         },
         "7078ea3c-c3cf-4eec-aeab-f681a5b68e7e": {
           "type": "collection",
+          "disabled": true,
           "settings": {
             "collection": "watches"
           }
         },
         "68ebc66a-1e69-44da-8856-85535faa18a0": {
           "type": "collection",
+          "disabled": true,
           "settings": {
             "collection": "children"
           }
@@ -219,7 +222,8 @@
         "mostloved_heading": "Most Loved",
         "men_collection": "",
         "women_collection": "",
-        "kids_collection": ""
+        "kids_collection": "",
+        "enable_quick_add": true
       }
     },
     "72f4052f-35ea-45a7-8fe9-645447733226": {
