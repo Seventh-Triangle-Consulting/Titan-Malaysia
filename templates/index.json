@@ -3,68 +3,60 @@
     "9b1a63d6-499c-4620-8f1b-a38878dab3d7": {
       "type": "homepage-featured-collection",
       "blocks": {
-        "38c4dc68-383d-4bba-b229-aa897744391e": {
-          "type": "slideshow",
+        "bf812cbe-2ea8-47b5-9116-ca00c032165f": {
+          "type": "collection",
           "settings": {
-            "collection_slide_url": "shopify:\/\/collections",
-            "collection_slide_image": "shopify:\/\/shop_images\/AX1326.jpg",
-            "collection_slide_text": "Men"
+            "collection": "children"
           }
         },
-        "cc8f130c-ed3b-4450-aca6-fcb3c9d92f6a": {
-          "type": "slideshow",
+        "611e68f9-71a9-437e-a14d-8c982d17bb90": {
+          "type": "collection",
           "settings": {
-            "collection_slide_url": "shopify:\/\/collections",
-            "collection_slide_image": "shopify:\/\/shop_images\/AX1326.jpg",
-            "collection_slide_text": "Men"
+            "collection": "children"
           }
         },
-        "b2cca0b1-98cb-47db-947a-a570638638d7": {
-          "type": "slideshow",
+        "fae5de43-c4df-4f6a-80c2-b610124ee8ff": {
+          "type": "collection",
           "settings": {
-            "collection_slide_url": "shopify:\/\/collections",
-            "collection_slide_image": "shopify:\/\/shop_images\/AX1326.jpg",
-            "collection_slide_text": "Men"
+            "collection": "children"
           }
         },
-        "5d0aa0cf-89d8-4b7a-a449-3d42df2e64af": {
-          "type": "slideshow",
+        "24c886e6-67e6-48ca-86f8-2e617a67b5d7": {
+          "type": "collection",
           "settings": {
-            "collection_slide_url": "shopify:\/\/collections",
-            "collection_slide_image": "shopify:\/\/shop_images\/AX1326.jpg",
-            "collection_slide_text": "Men"
+            "collection": "children"
           }
         },
-        "461e6cad-bb97-4b24-90e3-faba48ec2599": {
-          "type": "slideshow",
+        "6c43c5f1-d13b-4da3-8dde-77cf9202414a": {
+          "type": "collection",
           "settings": {
-            "collection_slide_url": "shopify:\/\/collections",
-            "collection_slide_image": "shopify:\/\/shop_images\/AX1326.jpg",
-            "collection_slide_text": "Men"
+            "collection": "children"
           }
         },
-        "c7a0f521-82b1-4fc6-ae6f-1ae800b643a3": {
-          "type": "slideshow",
+        "ad7260ea-730c-43e0-8d80-53b47fa76646": {
+          "type": "collection",
           "settings": {
-            "collection_slide_url": "shopify:\/\/collections",
-            "collection_slide_image": "shopify:\/\/shop_images\/AX1326.jpg",
-            "collection_slide_text": "Men"
+            "collection": "children"
           }
         }
       },
       "block_order": [
-        "38c4dc68-383d-4bba-b229-aa897744391e",
-        "cc8f130c-ed3b-4450-aca6-fcb3c9d92f6a",
-        "b2cca0b1-98cb-47db-947a-a570638638d7",
-        "5d0aa0cf-89d8-4b7a-a449-3d42df2e64af",
-        "461e6cad-bb97-4b24-90e3-faba48ec2599",
-        "c7a0f521-82b1-4fc6-ae6f-1ae800b643a3"
+        "bf812cbe-2ea8-47b5-9116-ca00c032165f",
+        "611e68f9-71a9-437e-a14d-8c982d17bb90",
+        "fae5de43-c4df-4f6a-80c2-b610124ee8ff",
+        "24c886e6-67e6-48ca-86f8-2e617a67b5d7",
+        "6c43c5f1-d13b-4da3-8dde-77cf9202414a",
+        "ad7260ea-730c-43e0-8d80-53b47fa76646"
       ],
       "settings": {
-        "margin_bottom_desktop": 36,
-        "margin_bottom_mobile": 36,
-        "border_top_left_radius": 20,
-        "border_top_right_radius": 20
+        "bg_color": "",
+        "text_align": "text-center",
+        "title": "Featured Collections",
+        "title_size": "h2",
+        "btn_text": "",
+        "btn_color": "btn-primary",
+        "desktop_margin_bottom": 20,
+        "mobile_margin_bottom": 20
       }
     },
     "451768ba-558a-46f8-8f07-3fb30eb32deb": {
