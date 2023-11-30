@@ -229,31 +229,31 @@
           "type": "image",
           "settings": {
             "home_category_image": "shopify:\/\/shop_images\/fff_2.png",
-            "home_category_block_url": "https:\/\/titan.in\/collections\/men",
+            "home_category_block_url": "shopify:\/\/collections\/mens-watch",
             "home-category-text": "SHOP NOW"
           }
         },
-        "d697ddaa-6da8-4818-a6ec-1ef5b48a70f5": {
+        "ceba0b13-d2b7-4c0f-99b1-3d0b87d2cc5a": {
           "type": "image",
           "settings": {
             "home_category_image": "shopify:\/\/shop_images\/fff_2.png",
-            "home_category_block_url": "https:\/\/titan.in\/collections\/men",
+            "home_category_block_url": "shopify:\/\/collections\/mens-watch",
             "home-category-text": "SHOP NOW"
           }
         },
-        "5ebd1344-87df-422a-ab71-ea5817e3042c": {
+        "fa8f82cb-165c-4b34-ac01-ebf9e4f8873e": {
           "type": "image",
           "settings": {
             "home_category_image": "shopify:\/\/shop_images\/fff_2.png",
-            "home_category_block_url": "https:\/\/titan.in\/collections\/men",
+            "home_category_block_url": "shopify:\/\/collections\/mens-watch",
             "home-category-text": "SHOP NOW"
           }
         }
       },
       "block_order": [
         "f7831ae6-921b-4c61-85fd-5f940d263ad1",
-        "d697ddaa-6da8-4818-a6ec-1ef5b48a70f5",
-        "5ebd1344-87df-422a-ab71-ea5817e3042c"
+        "ceba0b13-d2b7-4c0f-99b1-3d0b87d2cc5a",
+        "fa8f82cb-165c-4b34-ac01-ebf9e4f8873e"
       ],
       "settings": {
         "category_heading": "",
