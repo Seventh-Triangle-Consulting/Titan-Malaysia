@@ -545,7 +545,6 @@
     },
     "3054ea28-533b-49f5-9d94-722439ec7043": {
       "type": "featured-blog",
-      "disabled": true,
       "settings": {
         "heading": "Trending Blogs",
         "heading_size": "h2",
