@@ -1,64 +1,5 @@
 {
   "sections": {
-    "9b1a63d6-499c-4620-8f1b-a38878dab3d7": {
-      "type": "homepage-featured-collection",
-      "blocks": {
-        "bf812cbe-2ea8-47b5-9116-ca00c032165f": {
-          "type": "collection",
-          "settings": {
-            "collection": "children"
-          }
-        },
-        "611e68f9-71a9-437e-a14d-8c982d17bb90": {
-          "type": "collection",
-          "settings": {
-            "collection": "children"
-          }
-        },
-        "fae5de43-c4df-4f6a-80c2-b610124ee8ff": {
-          "type": "collection",
-          "settings": {
-            "collection": "children"
-          }
-        },
-        "24c886e6-67e6-48ca-86f8-2e617a67b5d7": {
-          "type": "collection",
-          "settings": {
-            "collection": "children"
-          }
-        },
-        "6c43c5f1-d13b-4da3-8dde-77cf9202414a": {
-          "type": "collection",
-          "settings": {
-            "collection": "children"
-          }
-        },
-        "ad7260ea-730c-43e0-8d80-53b47fa76646": {
-          "type": "collection",
-          "settings": {
-            "collection": "children"
-          }
-        }
-      },
-      "block_order": [
-        "bf812cbe-2ea8-47b5-9116-ca00c032165f",
-        "611e68f9-71a9-437e-a14d-8c982d17bb90",
-        "fae5de43-c4df-4f6a-80c2-b610124ee8ff",
-        "24c886e6-67e6-48ca-86f8-2e617a67b5d7",
-        "6c43c5f1-d13b-4da3-8dde-77cf9202414a",
-        "ad7260ea-730c-43e0-8d80-53b47fa76646"
-      ],
-      "settings": {
-        "bg_color": "",
-        "text_align": "text-center",
-        "title": "",
-        "title_size": "h2",
-        "btn_text": "",
-        "btn_color": "btn-primary",
-        "desktop_margin_bottom": 20,
-        "mobile_margin_bottom": 20
-      }
-    },
     "e5c9ba37-6a8f-4aab-b88d-d74cf1cabeea": {
       "type": "subcategory-collection",
       "blocks": {
@@ -481,7 +422,6 @@
     }
   },
   "order": [
-    "9b1a63d6-499c-4620-8f1b-a38878dab3d7",
     "e5c9ba37-6a8f-4aab-b88d-d74cf1cabeea",
     "451768ba-558a-46f8-8f07-3fb30eb32deb",
     "bfe6cd2b-1256-45c9-8448-e96663707a03",
