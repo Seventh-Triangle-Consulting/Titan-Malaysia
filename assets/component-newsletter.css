@@ -6,7 +6,6 @@
   width: 100%;
   position: relative;
 }
-.custom-social-share .div_1 span:first-child{margin-bottom:10%;}
 .footer-block__newsletter .footer-block_para{width:65%;}
 .newsletter-form__field-wrapper .field{ width: 200px; height: 40px;}
 .newsletter-form__field-wrapper label{color:#ccc !important;font-size:10px !important;}
@@ -16,6 +15,7 @@
     align-items: flex-start;
     max-width: 36rem;
   }
+  .custom-social-share .div_1 span:first-child{margin-bottom:10%;}
   .footer__blocks-wrapper{
     width: 80%;
     gap: 15%;
