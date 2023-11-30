@@ -434,115 +434,6 @@
         "include_margins": true
       }
     },
-    "5c47a1a0-a6f3-416b-a1fc-c66884001ab8": {
-      "type": "our-story",
-      "disabled": true,
-      "settings": {
-        "margin_bottom_desktop": 16,
-        "margin_bottom_mobile": 26,
-        "our_story_heading": "Our Story",
-        "our_story_text": "The journey began with the goal of creating world class shoes for the Indian feet",
-        "linktext": "Know More",
-        "linkurl": "shopify:\/\/pages\/our-story"
-      }
-    },
-    "fa2d5db8-df37-4a53-aa03-0fbb67d8ffb4": {
-      "type": "home-positive-impact",
-      "disabled": true,
-      "settings": {
-        "margin_bottom_desktop": 8,
-        "margin_bottom_mobile": 10,
-        "positive_impact_heading": "Positive Impact Created",
-        "positive_impact_sub_text": "",
-        "home_positve_impact_url": "https:\/\/titan.in\/pages\/sustainability-goals"
-      }
-    },
-    "image_banner": {
-      "type": "image-banner",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
-          }
-        },
-        "button": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify:\/\/collections\/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "button"
-      ],
-      "disabled": true,
-      "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "color_scheme": "inverse",
-        "image_behavior": "none",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
-      }
-    },
-    "aecbe159-de05-43cf-892a-79cfa76d1662": {
-      "type": "help-image-with-text",
-      "blocks": {
-        "63879d83-b74c-4394-bfb1-44bc5c8b8228": {
-          "type": "block",
-          "settings": {
-            "heading": "<strong>Enabling circular economy through schools & Goonj<\/strong>",
-            "caption": "",
-            "text": "<p>At titan, our mission is about creating innovative and comfortable footwear while taking a responsible stance towards the planet and its inhabitants.<br\/><a href=\"\/pages\/contribution-to-society\" title=\"CONTRIBUTION TO SOCIETY\">Read More<\/a><\/p>",
-            "button_label": "",
-            "button_link": "shopify:\/\/pages\/contribution-to-society"
-          }
-        },
-        "3fa8ef9e-571b-4011-8ab4-545f572abcaf": {
-          "type": "block",
-          "settings": {
-            "heading": " Parikrama School",
-            "caption": "",
-            "text": "<p>The partnership between Parikrama Humanity Foundation and titan began when a long-time supporter of Parikrama - Mr Swaroop Kittu Kolluri introduced the foundation to titan. <\/p><p><a href=\"\/pages\/parikrama-school\" title=\"Parikrama School\">Read More<\/a><\/p>",
-            "button_label": "",
-            "button_link": "shopify:\/\/pages\/parikrama-school"
-          }
-        },
-        "2445ebe1-163a-4df6-a789-a9f932341b2e": {
-          "type": "block",
-          "settings": {
-            "heading": "<strong>Walking for Change: Kiran Verma's Inspiring Journey<\/strong>",
-            "caption": "",
-            "text": "<p>In a world where social media often overshadows the stories of everyday heroes, Kiran Verma's remarkable journey stands as a testament to human endurance and the power of a single,<br\/><a href=\"\/pages\/walking-for-change-kiran-vermas-inspiring-journey\" title=\"Walking for Change: Kiran Verma's Inspiring Journey\">Read More<\/a><\/p>",
-            "button_label": "",
-            "button_link": "shopify:\/\/pages\/walking-for-change-kiran-vermas-inspiring-journey"
-          }
-        }
-      },
-      "block_order": [
-        "63879d83-b74c-4394-bfb1-44bc5c8b8228",
-        "3fa8ef9e-571b-4011-8ab4-545f572abcaf",
-        "2445ebe1-163a-4df6-a789-a9f932341b2e"
-      ],
-      "disabled": true,
-      "settings": {
-        "margin_bottom_desktop": 12,
-        "margin_bottom_mobile": 8,
-        "bgcolor": "#4995d1"
-      }
-    },
     "3054ea28-533b-49f5-9d94-722439ec7043": {
       "type": "featured-blog",
       "settings": {
@@ -572,10 +463,6 @@
     "b8288058-a547-4fee-bfe1-0f766e5e082c",
     "84601aa3-45ff-4f93-a11f-81666de3da23",
     "1697087009aadaaacf",
-    "5c47a1a0-a6f3-416b-a1fc-c66884001ab8",
-    "fa2d5db8-df37-4a53-aa03-0fbb67d8ffb4",
-    "image_banner",
-    "aecbe159-de05-43cf-892a-79cfa76d1662",
     "3054ea28-533b-49f5-9d94-722439ec7043"
   ]
 }
