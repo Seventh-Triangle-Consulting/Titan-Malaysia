@@ -84,7 +84,7 @@ cart-drawer:not(.is-empty) .cart-drawer__collection {
     width: calc(9rem / var(--font-body-scale) + var(--inputs-border-width) * 2);}
 .cart-item .quantity.cart-quantity .quantity__button {
     width: calc(3rem / var(--font-body-scale));}
-.drawer__header .drawercarticon{position:relative;padding-top: 10px;}
+.drawer__header .drawercarticon{position:relative;padding-top: 10px;visibility: hidden;}
 .drawer__header .drawercarticon .cart-count-bubble{left:1rem;}
 .drawer__heading {
   margin: 0 0 1rem;

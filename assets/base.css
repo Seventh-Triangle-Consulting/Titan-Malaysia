@@ -117,6 +117,18 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   padding-right: 3rem;
 }
 
+.template-404 p{
+   font-size: 14px;
+   font-family: Roboto-Regular;
+}
+.template-404 .title{
+  font-family: PlayfairDisplay-Bold;
+  font-size: 28px;
+}
+.template-404 .button{
+  font-family:Roboto-Medium;
+  font-size: 14px;
+}
 @media screen and (min-width: 750px) {
   .page-width {
     padding: 0 5rem;
@@ -1195,7 +1207,6 @@ deferred-media {
   --alpha-button-background: 0;
   --alpha-button-border: 0.2;
 }
-
 .button,
 .shopify-challenge__button,
 .customer button,
@@ -1238,7 +1249,7 @@ button.shopify-payment-button__button--unbranded {
   justify-content: center;
   align-items: center;
   border: 0;
-  /* padding: 0 3rem; */
+  padding: 0 3rem;
   cursor: pointer;
   font: inherit;
   font-size: 1.5rem;
@@ -1743,7 +1754,7 @@ details[open] > .share-button__fallback {
   transition: top var(--duration-short) ease, font-size var(--duration-short) ease;
   color: rgba(var(--color-foreground), 0.75);
   letter-spacing: 0.1rem;
-  line-height: 1.5;
+  line-height: 1.8;
 }
 
 .field__input:focus ~ .field__label,

@@ -7,7 +7,7 @@
   .newsletter-form__button{margin-top:0 !important;}
   .newsletter-form__field-wrapper{display: flex;gap: 2%;}
 }
-.footersocialicons{margin-top:2rem;}
+.footersocialicons{margin-top:10%;}
 .custom-social-share p{line-height:1;}
 .custom_newsletter-form__button{
   float: inline-start;
