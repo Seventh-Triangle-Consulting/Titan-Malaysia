@@ -6,6 +6,7 @@
   width: 100%;
   position: relative;
 }
+.footer-block__newsletter .footer-block_para{width:65%;}
 .newsletter-form__field-wrapper .field{ width: 200px; height: 40px;}
 .newsletter-form__field-wrapper label{color:#ccc !important;font-size:10px !important;}
 .newsletter-form__button{height: 40px !important;}
