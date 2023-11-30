@@ -228,32 +228,32 @@
         "f7831ae6-921b-4c61-85fd-5f940d263ad1": {
           "type": "image",
           "settings": {
-            "home_category_image": "shopify:\/\/shop_images\/Titanevoke_D.jpg",
+            "home_category_image": "shopify:\/\/shop_images\/fff_2.png",
             "home_category_block_url": "https:\/\/titan.in\/collections\/men",
             "home-category-text": "SHOP NOW"
           }
         },
-        "dd56e6ae-e9d3-4e20-ae01-8fb80368519d": {
+        "d697ddaa-6da8-4818-a6ec-1ef5b48a70f5": {
           "type": "image",
           "settings": {
-            "home_category_image": "shopify:\/\/shop_images\/Titanevoke_D.jpg",
-            "home_category_block_url": "https:\/\/titan.in\/collections\/women",
-            "home-category-text": "Women"
+            "home_category_image": "shopify:\/\/shop_images\/fff_2.png",
+            "home_category_block_url": "https:\/\/titan.in\/collections\/men",
+            "home-category-text": "SHOP NOW"
           }
         },
-        "3896f564-efef-4f58-b05c-d400eed159e7": {
+        "5ebd1344-87df-422a-ab71-ea5817e3042c": {
           "type": "image",
           "settings": {
-            "home_category_image": "shopify:\/\/shop_images\/Titanevoke_D.jpg",
-            "home_category_block_url": "shopify:\/\/collections\/kids",
-            "home-category-text": "Kids"
+            "home_category_image": "shopify:\/\/shop_images\/fff_2.png",
+            "home_category_block_url": "https:\/\/titan.in\/collections\/men",
+            "home-category-text": "SHOP NOW"
           }
         }
       },
       "block_order": [
         "f7831ae6-921b-4c61-85fd-5f940d263ad1",
-        "dd56e6ae-e9d3-4e20-ae01-8fb80368519d",
-        "3896f564-efef-4f58-b05c-d400eed159e7"
+        "d697ddaa-6da8-4818-a6ec-1ef5b48a70f5",
+        "5ebd1344-87df-422a-ab71-ea5817e3042c"
       ],
       "settings": {
         "category_heading": "",
