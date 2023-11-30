@@ -1,5 +1,10 @@
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
+{%- if section.settings.enable_quick_add -%}
+  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
 <style>
      .mostloved-section-{{ section.id }} .card__badge{display:none;}
     .most-loved-view-more-btn{width: 100%; display: flex; align-items: center; justify-content: center; background: black; color: white; text-transform: uppercase; text-decoration: initial;
