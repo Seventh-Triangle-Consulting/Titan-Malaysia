@@ -29,7 +29,7 @@ footer{border:1px solid #dadada !important;}
 .footer-block__newsletter .footer-block__heading {color:#000;text-align:left;font-size:16px;}
 .footer-block__newsletter {text-align: center;flex-grow: 1; padding: 4rem 2rem 4rem 0;margin-bottom: 0rem;}
 .newsletter-form__field-wrapper {max-width: 36rem;}
-@media screen and (min-width: 950px) {
+@media screen and (min-width: 800px) {
   .footer-block.grid__item.footer-block--menu{width:18%;}
   .footer-block--newsletter{width:33%;}
   .footer__content-top{width:33%;}
