@@ -98,9 +98,6 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
-  <!-- --------------- BEGIN PRAGMA SITE WIDGET CSS --------------- -->
-{{ 'pragma-site-widget.css' | asset_url | stylesheet_tag }}
-<!-- --------------- END PRAGMA SITE WIDGET CSS --------------- -->
     <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -320,10 +317,6 @@ function  changeCss () {
            window.psn();
              });
     </script>
-  <!-- --------------- BEGIN PRAGMA SITE WIDGET JS --------------- -->
-{% include 'pragma-site-widget' %}
-{{ 'pragma-site-widget.js' | asset_url | script_tag }}
-<!-- --------------- END PRAGMA SITE WIDGET JS --------------- -->
 	<!-- --------------- BEGIN 1CHECKOUT JS --------------- -->
 {{ '1checkout.js' | asset_url | script_tag }}
 <!-- --------------- END 1CHECKOUT JS --------------- -->
