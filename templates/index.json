@@ -427,55 +427,6 @@
         "main_title": "Enter Title"
       }
     },
-    "77731bdd-80c6-4fe0-8d61-1e2f17ba9413": {
-      "type": "science-led-design",
-      "blocks": {
-        "510f8d59-94db-495a-a96d-61e970ad4306": {
-          "type": "image",
-          "settings": {
-            "empty_div_color": "rgba(0,0,0,0)",
-            "sld_sub_heading": "Tilt Lacing",
-            "sld_sub_text": "Aligns with foot's natural motion"
-          }
-        },
-        "0360115c-7e49-4024-a537-bca8a2d4b77c": {
-          "type": "image",
-          "settings": {
-            "empty_div_color": "rgba(0,0,0,0)",
-            "sld_sub_heading": "Cushioning",
-            "sld_sub_text": "Lasts 5x longer than any athletic shoe"
-          }
-        },
-        "2c389a2a-25bb-43a3-b9b3-41481274ffdb": {
-          "type": "image",
-          "settings": {
-            "empty_div_color": "rgba(0,0,0,0)",
-            "sld_sub_heading": "Wider toe box",
-            "sld_sub_text": "Ensures even pressure distribution"
-          }
-        },
-        "70d2c1f9-47e7-4bc8-aed0-9057a0ad4314": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "empty_div_color": "#f9dad5",
-            "sld_sub_heading": "Tilt Lacing",
-            "sld_sub_text": "The shoe that’s ready for everyday twists & turns"
-          }
-        }
-      },
-      "block_order": [
-        "510f8d59-94db-495a-a96d-61e970ad4306",
-        "0360115c-7e49-4024-a537-bca8a2d4b77c",
-        "2c389a2a-25bb-43a3-b9b3-41481274ffdb",
-        "70d2c1f9-47e7-4bc8-aed0-9057a0ad4314"
-      ],
-      "settings": {
-        "sld_heading": "Engineered For Play",
-        "margin_bottom_desktop": 60,
-        "margin_bottom_mobile": 32
-      }
-    },
     "ba902416-aec4-4dd9-b4c0-3351a9f0ee9e": {
       "type": "shop-by-category",
       "blocks": {
@@ -902,7 +853,6 @@
     "96a7a223-41c4-4f2c-bfe1-91cd7d09a867",
     "b8288058-a547-4fee-bfe1-0f766e5e082c",
     "84601aa3-45ff-4f93-a11f-81666de3da23",
-    "77731bdd-80c6-4fe0-8d61-1e2f17ba9413",
     "ba902416-aec4-4dd9-b4c0-3351a9f0ee9e",
     "95e1b5d0-1544-4108-b95d-842776fc6b57",
     "1697087009aadaaacf",
