@@ -1,3 +1,10 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{%- if section.settings.enable_quick_add -%}
+  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
 <style>
      .bestsellers-section-{{ section.id }} .card__badge{display:none;}
     .bestsellers-section-{{ section.id }} {margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
