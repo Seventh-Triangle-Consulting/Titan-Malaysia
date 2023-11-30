@@ -29,10 +29,8 @@ footer{border:1px solid #dadada !important;}
 .footer-block__newsletter .footer-block__heading {color:#000;text-align:left;font-size:16px;}
 .footer-block__newsletter {text-align: center;flex-grow: 1; padding: 4rem 2rem 4rem 0;margin-bottom: 0rem;}
 .newsletter-form__field-wrapper {max-width: 36rem;}
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 950px) {
   .footer-block.grid__item.footer-block--menu{width:18%;}
-  .footer-block--newsletter{width:33%;}
-  .footer__content-top{width:33%;}
 }
 @media screen and (min-width:1225px){
   .custom-titan-footer{justify-content:space-between !important;flex-wrap:nowrap !important;gap:0 !important;}
@@ -43,6 +41,8 @@ footer{border:1px solid #dadada !important;}
   .newsletter-form__button{margin-top:0 !important;}
   .newsletter-form__field-wrapper{display: flex;gap: 2%;}
   .footersocialicons{margin-top:10%;}
+  .footer-block--newsletter{width:33%;}
+  .footer__content-top{width:33%;}
 }
 @media screen and (max-width: 768px) {
   .footer .grid {display: block;}
