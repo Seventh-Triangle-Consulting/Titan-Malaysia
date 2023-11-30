@@ -50,6 +50,46 @@
             "collection_slide_image": "shopify:\/\/shop_images\/AX1326.jpg",
             "collection_slide_text": "Men"
           }
+        },
+        "a3d89d69-577f-4c8c-babf-dfafced2e62f": {
+          "type": "slideshow",
+          "settings": {
+            "collection_slide_url": "shopify:\/\/collections\/mens-watch",
+            "collection_slide_image": "shopify:\/\/shop_images\/AX1326.jpg",
+            "collection_slide_text": "Men"
+          }
+        },
+        "57556a18-37a6-4ad6-ba5a-6edd9783463d": {
+          "type": "slideshow",
+          "settings": {
+            "collection_slide_url": "shopify:\/\/collections\/mens-watch",
+            "collection_slide_image": "shopify:\/\/shop_images\/AX1326.jpg",
+            "collection_slide_text": "Men"
+          }
+        },
+        "e0926f22-b416-4f96-99d8-db1cb040752d": {
+          "type": "slideshow",
+          "settings": {
+            "collection_slide_url": "shopify:\/\/collections\/mens-watch",
+            "collection_slide_image": "shopify:\/\/shop_images\/AX1326.jpg",
+            "collection_slide_text": "Men"
+          }
+        },
+        "488251bf-548d-4e71-9d3f-013afc39a5a2": {
+          "type": "slideshow",
+          "settings": {
+            "collection_slide_url": "shopify:\/\/collections\/mens-watch",
+            "collection_slide_image": "shopify:\/\/shop_images\/AX1326.jpg",
+            "collection_slide_text": "Men"
+          }
+        },
+        "e7a9bab8-e6f3-47be-ac42-d860eaedf55d": {
+          "type": "slideshow",
+          "settings": {
+            "collection_slide_url": "shopify:\/\/collections\/mens-watch",
+            "collection_slide_image": "shopify:\/\/shop_images\/AX1326.jpg",
+            "collection_slide_text": "Men"
+          }
         }
       },
       "block_order": [
@@ -58,7 +98,12 @@
         "e6316d43-6878-485d-92ab-9ee4421ea22b",
         "a2f19bab-dc1a-4586-9295-f5904a7ab380",
         "8dada3ef-b2cc-4b22-8bd3-22f5f32d9518",
-        "bc934d4c-5839-4f67-84b9-f5fc22e41623"
+        "bc934d4c-5839-4f67-84b9-f5fc22e41623",
+        "a3d89d69-577f-4c8c-babf-dfafced2e62f",
+        "57556a18-37a6-4ad6-ba5a-6edd9783463d",
+        "e0926f22-b416-4f96-99d8-db1cb040752d",
+        "488251bf-548d-4e71-9d3f-013afc39a5a2",
+        "e7a9bab8-e6f3-47be-ac42-d860eaedf55d"
       ],
       "settings": {
         "margin_bottom_desktop": 36,
