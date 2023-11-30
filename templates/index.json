@@ -429,6 +429,7 @@
     },
     "1697087009aadaaacf": {
       "type": "apps",
+      "disabled": true,
       "settings": {
         "include_margins": true
       }
@@ -503,6 +504,7 @@
         "c5d87047-61c5-4dc1-abd2-21ca4d813a4a",
         "fd8d0b64-a4fc-413f-8ad7-06fd40d39259"
       ],
+      "disabled": true,
       "settings": {
         "margin_bottom_desktop": 54,
         "margin_bottom_mobile": 68,
