@@ -2824,7 +2824,7 @@ details[open] > .header__submenu {
 
 .header__menu-item span {
   transition: text-decoration var(--duration-short) ease;
-  font-family: var(--font-family-h2);font-weight:500;color:rgba(0, 0, 0, 1);
+  font-family: Roboto-Regular;font-weight:500;color:rgba(0, 0, 0, 1);
   text-transform: uppercase;line-height: var(--desktop-line-height-a);
   font-size: clamp(calc(var(--desktop-font-size-a) * 0.1px),calc(var(--desktop-font-size-a) * (100vw / var(--viewportDesktop))),calc(var(--desktop-font-size-a) * 1.1px));
    
@@ -2835,14 +2835,14 @@ details[open] > .header__submenu {
 .header__menu-item:hover span {
   /*text-decoration: underline;*/
   text-underline-offset: 0.2rem;
-color: rgba(239, 49, 51, 1);
+  font-family: Roboto-Bold;
 }
 
 details[open] > .header__menu-item {
   text-decoration: underline;
-  text-underline-offset: 4rem;
+  text-underline-offset: 2rem;
     text-decoration-thickness: 2px;
-color: rgba(239, 49, 51, 1);
+color: #000
 }
 
 details[open]:hover > .header__menu-item {
@@ -2855,9 +2855,9 @@ details[open] > .header__menu-item .icon-caret {
 
 .header__menu-item  .header__active-menu-item {
   transition: text-decoration-thickness var(--duration-short) ease;
-  color: rgba(239, 49, 51, 1);
   text-decoration: underline;
   text-underline-offset: 0.3rem;
+  font-family: Roboto-Bold;
 }
 
 .header__menu-item:hover .header__active-menu-item {
