@@ -434,85 +434,9 @@
         "include_margins": true
       }
     },
-    "639ad062-8e0e-4c7a-a73f-ec7d0a937c27": {
-      "type": "home-look-book",
-      "blocks": {
-        "3471cf32-ddbe-44e4-a809-8042156236ad": {
-          "type": "image",
-          "settings": {
-            "look_book_block_url": "https:\/\/titan.in\/products\/titan-nova-unisex-sports-shoes-black-dark-grey",
-            "look_book_block_text": ""
-          }
-        },
-        "7c95eed5-4dca-4e31-b0ff-9c47d463bbfe": {
-          "type": "image",
-          "settings": {
-            "look_book_block_url": "https:\/\/titan.in\/products\/titan-womens-drift-sports-shoes-black-green",
-            "look_book_block_text": ""
-          }
-        },
-        "7bde83df-d3fe-459a-9087-63f5212e96ab": {
-          "type": "image",
-          "settings": {
-            "look_book_block_url": "https:\/\/titan.in\/products\/titan-unisex-sneakers-for-women-all-white",
-            "look_book_block_text": ""
-          }
-        },
-        "846d43d3-e65d-48f3-9981-4586ef415e71": {
-          "type": "image",
-          "settings": {
-            "look_book_block_url": "https:\/\/titan.in\/products\/titan-womens-slam-sports-shoes-black-mint",
-            "look_book_block_text": ""
-          }
-        },
-        "34f082a5-2a09-4521-bd34-f1e6497ac424": {
-          "type": "image",
-          "settings": {
-            "look_book_block_url": "https:\/\/titan.in\/products\/titan-nova-unisex-sports-shoes-black-dark-grey",
-            "look_book_block_text": ""
-          }
-        },
-        "3c284aca-215d-46fa-8896-29328b487d06": {
-          "type": "image",
-          "settings": {
-            "look_book_block_url": "https:\/\/titan.in\/products\/titan-slam-unisex-sports-shoes-black-mint",
-            "look_book_block_text": ""
-          }
-        },
-        "c5d87047-61c5-4dc1-abd2-21ca4d813a4a": {
-          "type": "image",
-          "settings": {
-            "look_book_block_url": "https:\/\/titan.in\/products\/titan-womens-ignite-sports-shoes-black-grey",
-            "look_book_block_text": ""
-          }
-        },
-        "fd8d0b64-a4fc-413f-8ad7-06fd40d39259": {
-          "type": "image",
-          "settings": {
-            "look_book_block_url": "https:\/\/titan.in\/products\/titan-drift-unisex-sports-shoes-black-malachite-green",
-            "look_book_block_text": ""
-          }
-        }
-      },
-      "block_order": [
-        "3471cf32-ddbe-44e4-a809-8042156236ad",
-        "7c95eed5-4dca-4e31-b0ff-9c47d463bbfe",
-        "7bde83df-d3fe-459a-9087-63f5212e96ab",
-        "846d43d3-e65d-48f3-9981-4586ef415e71",
-        "34f082a5-2a09-4521-bd34-f1e6497ac424",
-        "3c284aca-215d-46fa-8896-29328b487d06",
-        "c5d87047-61c5-4dc1-abd2-21ca4d813a4a",
-        "fd8d0b64-a4fc-413f-8ad7-06fd40d39259"
-      ],
-      "disabled": true,
-      "settings": {
-        "margin_bottom_desktop": 54,
-        "margin_bottom_mobile": 68,
-        "look_book_heading": "Look Book"
-      }
-    },
     "5c47a1a0-a6f3-416b-a1fc-c66884001ab8": {
       "type": "our-story",
+      "disabled": true,
       "settings": {
         "margin_bottom_desktop": 16,
         "margin_bottom_mobile": 26,
@@ -524,6 +448,7 @@
     },
     "fa2d5db8-df37-4a53-aa03-0fbb67d8ffb4": {
       "type": "home-positive-impact",
+      "disabled": true,
       "settings": {
         "margin_bottom_desktop": 8,
         "margin_bottom_mobile": 10,
@@ -645,7 +570,6 @@
     "b8288058-a547-4fee-bfe1-0f766e5e082c",
     "84601aa3-45ff-4f93-a11f-81666de3da23",
     "1697087009aadaaacf",
-    "639ad062-8e0e-4c7a-a73f-ec7d0a937c27",
     "5c47a1a0-a6f3-416b-a1fc-c66884001ab8",
     "fa2d5db8-df37-4a53-aa03-0fbb67d8ffb4",
     "image_banner",
