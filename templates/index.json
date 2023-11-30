@@ -59,6 +59,73 @@
         "mobile_margin_bottom": 20
       }
     },
+    "e5c9ba37-6a8f-4aab-b88d-d74cf1cabeea": {
+      "type": "subcategory-collection",
+      "blocks": {
+        "358e1d4a-afbf-4b56-92df-72326a087314": {
+          "type": "slideshow",
+          "settings": {
+            "collection_slide_url": "shopify:\/\/collections\/mens-watch",
+            "collection_slide_image": "shopify:\/\/shop_images\/AX1326.jpg",
+            "collection_slide_text": "Men"
+          }
+        },
+        "e3091330-71fb-4a99-b821-d78a16ba2e80": {
+          "type": "slideshow",
+          "settings": {
+            "collection_slide_url": "shopify:\/\/collections\/mens-watch",
+            "collection_slide_image": "shopify:\/\/shop_images\/AX1326.jpg",
+            "collection_slide_text": "Men"
+          }
+        },
+        "e6316d43-6878-485d-92ab-9ee4421ea22b": {
+          "type": "slideshow",
+          "settings": {
+            "collection_slide_url": "shopify:\/\/collections\/mens-watch",
+            "collection_slide_image": "shopify:\/\/shop_images\/AX1326.jpg",
+            "collection_slide_text": "Men"
+          }
+        },
+        "a2f19bab-dc1a-4586-9295-f5904a7ab380": {
+          "type": "slideshow",
+          "settings": {
+            "collection_slide_url": "shopify:\/\/collections\/mens-watch",
+            "collection_slide_image": "shopify:\/\/shop_images\/AX1326.jpg",
+            "collection_slide_text": "Men"
+          }
+        },
+        "8dada3ef-b2cc-4b22-8bd3-22f5f32d9518": {
+          "type": "slideshow",
+          "settings": {
+            "collection_slide_url": "shopify:\/\/collections\/mens-watch",
+            "collection_slide_image": "shopify:\/\/shop_images\/AX1326.jpg",
+            "collection_slide_text": "Men"
+          }
+        },
+        "bc934d4c-5839-4f67-84b9-f5fc22e41623": {
+          "type": "slideshow",
+          "settings": {
+            "collection_slide_url": "shopify:\/\/collections\/mens-watch",
+            "collection_slide_image": "shopify:\/\/shop_images\/AX1326.jpg",
+            "collection_slide_text": "Men"
+          }
+        }
+      },
+      "block_order": [
+        "358e1d4a-afbf-4b56-92df-72326a087314",
+        "e3091330-71fb-4a99-b821-d78a16ba2e80",
+        "e6316d43-6878-485d-92ab-9ee4421ea22b",
+        "a2f19bab-dc1a-4586-9295-f5904a7ab380",
+        "8dada3ef-b2cc-4b22-8bd3-22f5f32d9518",
+        "bc934d4c-5839-4f67-84b9-f5fc22e41623"
+      ],
+      "settings": {
+        "margin_bottom_desktop": 36,
+        "margin_bottom_mobile": 36,
+        "border_top_left_radius": 20,
+        "border_top_right_radius": 20
+      }
+    },
     "451768ba-558a-46f8-8f07-3fb30eb32deb": {
       "type": "homepage-main-banner",
       "blocks": {
@@ -417,6 +484,7 @@
   },
   "order": [
     "9b1a63d6-499c-4620-8f1b-a38878dab3d7",
+    "e5c9ba37-6a8f-4aab-b88d-d74cf1cabeea",
     "451768ba-558a-46f8-8f07-3fb30eb32deb",
     "bfe6cd2b-1256-45c9-8448-e96663707a03",
     "ea859a94-e175-434c-9150-808b79a056e5",
