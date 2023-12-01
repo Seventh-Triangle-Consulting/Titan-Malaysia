@@ -8,6 +8,9 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+.sub-category-slide a{
+  text-decoration:initial ;
+}
 .sub-category-container .sub-category {
   text-align: center;
 }
