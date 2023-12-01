@@ -83,8 +83,8 @@
   }
 
   .product--large:not(.product--no-media) .product__info-wrapper {
-    padding: 44px 0 0 55px;
-    max-width: 38%;
+    padding: 0px 0 0 55px;
+    max-width: 67%;
     width: calc(35% - var(--grid-desktop-horizontal-spacing) / 2);
   }
 
