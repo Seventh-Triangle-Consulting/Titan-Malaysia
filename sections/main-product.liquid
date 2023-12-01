@@ -836,7 +836,14 @@
             <div class="column-description">{{ product.type }}</div>
          </div>
       </div>
-      <div></div>
+      <div>
+        <div>
+           <div class="column-heading text-uppercase">SOLD BY</div>
+           <div class="column-description">{{ section.settings.country_of_origin }}</div>
+            <div class="column-description">{{ section.settings.manufacturer_name }}</div>
+            <div class="column-description">{{ section.settings.manufacturer_address }}</div>
+        </div>
+      </div>
     </div>
 
                           
@@ -2587,6 +2594,21 @@ function validatePinCode(pincode) {
       "id": "return_exchange_text",
       "label": "Return and Exchange Text",
       "default": "7 Days Return and Exchange"
+    },
+    {
+      "type": "text",
+      "id": "country_of_origin",
+      "label": "Country of origin"
+    },
+    {
+      "type": "text",
+      "id": "manufacturer_name",
+      "label": "Country of origin"
+    },
+    {
+      "type": "text",
+      "id": "manufacturer_address",
+      "label": "Country of origin"
     },
     {
       "type": "checkbox",
