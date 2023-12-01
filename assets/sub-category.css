@@ -8,6 +8,9 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+.sub-category__slide-text h6{
+  font-size:14px;
+}
 .sub-category-slide a{
   text-decoration:initial ;
 }
