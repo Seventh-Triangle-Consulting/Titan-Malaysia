@@ -25,6 +25,9 @@
 .price__regular .price-item--regular{
   font-size:14px;
 }
+.price__sale .price-item--sale{
+  font-size:14px;
+}
 .price__regular .price-item--regular {
   margin-right: 0;
 }
