@@ -1,6 +1,7 @@
 .product {
   margin: 0;
 }
+.pdp_shipping_returns img{height:auto;width:100%;}
 .price__badge-sold-out {margin-top:0.2rem;}
 .pdp_shipping_returns{display: flex; flex-wrap: wrap; align-items: center;}
 .pdp_shipping , .pdp_returns_policy{width:50%;}
