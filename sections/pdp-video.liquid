@@ -1,0 +1,58 @@
+ 
+  {% if section.settings.deskktop != blank %}
+    <h2  class="videosectionheading">{{ section.settings.heading }}</h2>
+    <div class="desk-vid">
+  <video
+id="homevideo" class ="pro-vid" width="100%"  height="auto" src="{{ section.settings.deskktop.sources[1].url }}" playsinline="playsinline" loading="lazy" preload="metadata" type="video/mp4" controls 
+loop="false"  autoplay="" muted="muted" >
+</video>
+    </div>
+   {% endif %}
+
+{% if section.settings.Mobile != blank %}
+  <div class="mob-vid">
+  <video
+id="homevideo" class ="pro-vid" width="100%" height="auto" loading="lazy" src="{{ section.settings.Mobile.sources[1].url }}" playsinline="playsinline" preload="metadata" type="video/mp4" controls 
+loop="false"  autoplay="" muted="muted" >
+</video> 
+  </div>
+{% endif %}
+<style>
+.mob-vid{display:none;}
+.videosectionheading{font-family: "IndyPimp Regular" !important;font-family: "Inter-Semibold";font-size: 2.292vw;line-height: 3.750vw;color: #231F20;text-align: center;
+    text-transform: uppercase;    margin-bottom: 0;
+    background-color: #6eb3bc;
+    color: #fff;}
+  @media screen and (max-width:749px){
+   .mob-vid{display:block;}
+    .videosectionheading{font-size:18px;line-height: 48px;}
+    .desk-vid{display:none;}
+    }
+  </style>
+{% schema %}
+  {
+    "name": "pdp-videp",
+    "settings": [
+      {
+  "type": "text",
+  "id": "heading",
+  "label": "section heading"
+},
+  {
+  "type": "video",
+  "id": "deskktop",
+  "label": "video for desktop"
+},
+      
+       {
+  "type": "video",
+  "id": "Mobile",
+  "label": "video for mobile"
+   }
+      
+    ],
+  
+"presets":[{"name":"pdp-video"}]
+  }
+{% endschema %}
+  
