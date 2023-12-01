@@ -70,7 +70,39 @@
     data-productid="{{ product.id }}"
   >
     <div class="grid__item product__media-wrapper{% if section.settings.media_position == 'right' %} medium-hide large-up-hide{% endif %}">
-      {% render 'product-media-slider', variant_images: variant_images %}
+      
+      <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
+         <div class="swiper-wrapper">
+            {%- for media in product.media -%}    
+                  <div class="swiper-slide">
+                       {{
+                          media
+                          | image_url: width: 1400
+                          | image_tag: class: 'product-image'
+                        }}
+                  </div>
+            {%- endfor -%}
+         </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+
+         <div thumbsSlider="" class="swiper mySwiper">
+            <div class="swiper-wrapper">
+             {%- for media in product.media -%}  
+                  <div class="swiper-slide">
+                       {{
+                          media
+                          | image_url: width: 1400
+                          | image_tag: class: 'product-image'
+                        }}
+                  </div>
+               {% endfor %}
+            </div>
+       </div>
+
+
+      
       {% comment %}{% render 'product-media-gallery', variant_images: variant_images %}{% endcomment %}
     </div>
     <div class="plaeto_main_product product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
