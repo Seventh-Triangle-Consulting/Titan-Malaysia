@@ -1,5 +1,5 @@
 @media screen and (min-width:1200px){
-  .sub-category-container .sub-category .collection-image-container{width:15rem;}
+  .sub-category-container .sub-category .collection-image-container{width:15rem !important;}
 }
 .sub-category-container .sub-category {
   display: flex;
