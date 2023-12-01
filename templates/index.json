@@ -116,41 +116,61 @@
         "c83101a8-0c19-445f-bdbc-6871ca79ac95": {
           "type": "block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Titanevoke_D.jpg",
+            "image": "shopify:\/\/shop_images\/casual.png",
             "btnurl": "shopify:\/\/collections\/female",
             "title": "",
             "subtitle": "",
-            "btn": "Shop Watch"
+            "btn": "Casual"
           }
         },
         "a690d5c1-c20e-45e5-92a3-ecca92a8ce2c": {
           "type": "block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/TW_Ranveer_030723_Header.jpg",
+            "image": "shopify:\/\/shop_images\/Casual_2.png",
             "btnurl": "shopify:\/\/collections\/mens-watch",
             "title": "",
             "subtitle": "",
-            "btn": "Shop Watch"
+            "btn": "Casual 2"
           }
         },
         "acaacd30-4128-4d18-816f-7e5b0e0c8593": {
           "type": "block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Titanevoke_D.jpg",
+            "image": "shopify:\/\/shop_images\/Fitness.png",
             "btnurl": "shopify:\/\/collections\/female",
             "title": "",
             "subtitle": "",
-            "btn": "Shop Watch"
+            "btn": "Fitness"
           }
         },
         "429b3224-1911-4ff4-9ad0-96b36e0dfa1a": {
           "type": "block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/TW_Ranveer_030723_Header.jpg",
+            "image": "shopify:\/\/shop_images\/Partywear.png",
             "btnurl": "shopify:\/\/collections\/mens-watch",
             "title": "",
             "subtitle": "",
-            "btn": "Shop Watch"
+            "btn": "Partywear"
+          }
+        },
+        "aa576bbb-753d-4268-b018-d0d749590f09": {
+          "type": "block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Workwear.png",
+            "btnurl": "",
+            "title": "",
+            "subtitle": "",
+            "btn": "Workwear"
+          }
+        },
+        "ac49a18a-0ee7-474c-8d82-47fba1f74803": {
+          "type": "block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Workwear_2.png",
+            "btnurl": "",
+            "title": "",
+            "subtitle": "",
+            "btn": "Workwear_2"
           }
         }
       },
@@ -158,7 +178,9 @@
         "c83101a8-0c19-445f-bdbc-6871ca79ac95",
         "a690d5c1-c20e-45e5-92a3-ecca92a8ce2c",
         "acaacd30-4128-4d18-816f-7e5b0e0c8593",
-        "429b3224-1911-4ff4-9ad0-96b36e0dfa1a"
+        "429b3224-1911-4ff4-9ad0-96b36e0dfa1a",
+        "aa576bbb-753d-4268-b018-d0d749590f09",
+        "ac49a18a-0ee7-474c-8d82-47fba1f74803"
       ],
       "settings": {
         "heading": "What Are You Looking For ?",
