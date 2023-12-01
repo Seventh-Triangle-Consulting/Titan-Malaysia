@@ -571,12 +571,12 @@
                           <p>{{ section.settings.cod_text }}</p>
                     </div>
                     <div class="pdp_returns_policy">
-                          <div class="icon">
+                          <div class="icon">  
                                 {{
-                                                section.settings.return_exchange_img
-                                                | image_url: width: 100
-                                                | image_tag: class: 'return-excahange-image', loading: 'lazy'
-                                              }}
+                                    section.settings.return_exchange_img
+                                    | image_url: width: 100
+                                    | image_tag: class: 'payment-image', loading: 'lazy'
+                                  }}
                             </div>
                           <p>{{ section.settings.return_exchange_text }}</p>
                     </div>
