@@ -71,7 +71,7 @@
   >
     <div class="grid__item product__media-wrapper{% if section.settings.media_position == 'right' %} medium-hide large-up-hide{% endif %}">
       
-      <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
+      <div class="custom-desktop-slider-main" style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
          <div class="swiper-wrapper">
             {%- for media in product.media -%}    
                   <div class="swiper-slide">
@@ -87,7 +87,7 @@
             <div class="swiper-button-prev"></div>
           </div>
 
-         <div thumbsSlider="" class="swiper mySwiper">
+         <div thumbsSlider="custom-desktop-slider-main-thumbs-up" class="swiper mySwiper">
             <div class="swiper-wrapper">
              {%- for media in product.media -%}  
                   <div class="swiper-slide">
