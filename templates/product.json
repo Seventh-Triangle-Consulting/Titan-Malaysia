@@ -61,6 +61,9 @@
         "share"
       ],
       "settings": {
+        "offers_for_you1": "",
+        "offers_for_you2": "",
+        "offers_for_you3": "",
         "enable_sticky_info": true,
         "media_size": "large",
         "constrain_to_viewport": true,
@@ -86,6 +89,7 @@
         "image_ratio": "square",
         "image_shape": "default",
         "show_secondary_image": true,
+        "enable_colorswatch": false,
         "show_vendor": false,
         "show_rating": false,
         "columns_mobile": "2",
