@@ -71,7 +71,7 @@
         "cd7ce330-2bb0-43b5-878c-b0553b6a33b4": {
           "type": "image",
           "settings": {
-            "desktop_banner_image": "shopify:\/\/shop_images\/fff.png",
+            "desktop_banner_image": "shopify:\/\/shop_images\/Banner.png",
             "mobile_banner_image": "shopify:\/\/shop_images\/fff_1.png",
             "desktop_banner_text": "",
             "mobile_banner_text": "",
@@ -86,8 +86,8 @@
         },
         "4b5c54f3-7737-4b64-b68f-cd9a7ff1923c": {
           "type": "image",
-          "disabled": true,
           "settings": {
+            "desktop_banner_image": "shopify:\/\/shop_images\/6.png",
             "desktop_banner_text": "",
             "mobile_banner_text": "",
             "button_text1": "SHOP NOW",
