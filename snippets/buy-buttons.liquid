@@ -103,6 +103,7 @@
           {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
         {%- endif -%}
 
+      {%- if show_dynamic_checkout -%}
         <div class="product-form__buttons">
           {%- liquid
             assign check_against_inventory = true
@@ -143,7 +144,6 @@
               </div>
             </button>
           {% endcomment %}
-          {%- if show_dynamic_checkout -%}
             {{ form | payment_button }}
             <button
               {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}
@@ -154,9 +154,9 @@
               id="custom_buy_button"
             >
               BUY NOW
-            </button>
-          {%- endif -%}
+            </button>  
         </div>
+             {%- endif -%}
 
         <button
           id="ProductSubmitButton-{{ section_id }}"
