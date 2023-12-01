@@ -1144,76 +1144,9 @@ window.addEventListener('DOMContentLoaded',() => {
           { once: true }
         );
 
-        const size_guide = document.getElementById('size-guide');
-        const sg_open_modal = document.getElementById('sg-open-modal');
-        const sg_close_modal = document.getElementById('sg-close-modal');
-
-        sg_open_modal.addEventListener('click', () => {
-          size_guide.style.display = 'block';
-          setTimeout(() => {
-            size_guide.style.opacity = '1';
-          }, 300);
-        });
-
-        sg_close_modal.addEventListener('click', () => {
-          size_guide.style.opacity = '0';
-          setTimeout(() => {
-            size_guide.style.display = 'none';
-          }, 300);
-        });
-
-        window.addEventListener('click', (event) => {
-          if (event.target === size_guide) {
-            size_guide.style.opacity = '0';
-            setTimeout(() => {
-              size_guide.style.display = 'none';
-            }, 300);
-          }
-        });
+       
 
       
-
-    {% comment %} google sheet :  https://docs.google.com/spreadsheets/d/1pZpMnqiwWeNchjgICE2R8D7hBiwQJri6wwsRseZaz6Q/edit?pli=1#gid=0 {% endcomment %}
-
-    {% comment %} function copyText1() {
-      let copyText1 = document.querySelector('.copyText1');
-      navigator.clipboard.writeText(copyText1.textContent);
-      console.log( navigator.clipboard.writeText(copyText1.textContent));
-      {% comment %} alert('Copied the text: ' + copyText1.textContent); {% endcomment %}
-    } {% endcomment %}
-
-    {% comment %} function copyText2() {
-      let copyText2 = document.querySelector('.copyText2');
-      navigator.clipboard.writeText(copyText2.textContent);
-    }
-     function copyText3() {
-      let copyText3 = document.querySelector('.copyText3');
-      navigator.clipboard.writeText(copyText3.textContent);
-    } {% endcomment %}
-
-    function copyOfferToClipboard(text,event) {
-      event.target.classList.add("copied")
-      event.target.innerText = "COPIED"
-     const textArea = document.createElement("textarea");
-     textArea.value = text;
-     // Append the text area to the document
-     document.body.appendChild(textArea);
-     // Select the text in the text area
-     textArea.select();
-     try {
-    // Copy the selected text to the clipboard
-    document.execCommand("copy");
-    console.log("Text copied to clipboard: " + text);
-    setTimeout(()=>{
-      event.target.classList.remove("copied")
-      event.target.innerText = "COPY"
-    },3000)
-    } catch (err) {
-    console.error("Unable to copy text to clipboard: " + err);
-    }
-    // Remove the temporary text area
-    document.body.removeChild(textArea);
-    }
 
 
 
