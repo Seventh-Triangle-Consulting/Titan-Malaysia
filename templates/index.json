@@ -115,22 +115,13 @@
       "blocks": {
         "c83101a8-0c19-445f-bdbc-6871ca79ac95": {
           "type": "block",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/casual.png",
             "btnurl": "shopify:\/\/collections\/female",
             "title": "",
             "subtitle": "",
             "btn": "Casual"
-          }
-        },
-        "a690d5c1-c20e-45e5-92a3-ecca92a8ce2c": {
-          "type": "block",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Casual_2.png",
-            "btnurl": "shopify:\/\/collections\/mens-watch",
-            "title": "",
-            "subtitle": "",
-            "btn": "Casual 2"
           }
         },
         "acaacd30-4128-4d18-816f-7e5b0e0c8593": {
@@ -153,8 +144,19 @@
             "btn": "Partywear"
           }
         },
+        "a690d5c1-c20e-45e5-92a3-ecca92a8ce2c": {
+          "type": "block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Casual_2.png",
+            "btnurl": "shopify:\/\/collections\/mens-watch",
+            "title": "",
+            "subtitle": "",
+            "btn": "Casual 2"
+          }
+        },
         "aa576bbb-753d-4268-b018-d0d749590f09": {
           "type": "block",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/Workwear.png",
             "btnurl": "",
@@ -176,9 +178,9 @@
       },
       "block_order": [
         "c83101a8-0c19-445f-bdbc-6871ca79ac95",
-        "a690d5c1-c20e-45e5-92a3-ecca92a8ce2c",
         "acaacd30-4128-4d18-816f-7e5b0e0c8593",
         "429b3224-1911-4ff4-9ad0-96b36e0dfa1a",
+        "a690d5c1-c20e-45e5-92a3-ecca92a8ce2c",
         "aa576bbb-753d-4268-b018-d0d749590f09",
         "ac49a18a-0ee7-474c-8d82-47fba1f74803"
       ],
