@@ -2,9 +2,9 @@
   margin: 0;
 }
 .custom-desktop-slider-main-thumbs-up .swiper-button-next, .custom-desktop-slider-main-thumbs-up .swiper-button-prev{display:block;}
-.custom-desktop-slider-main-thumbs-up .swiper-button-next:after,.custom-desktop-slider-main-thumbs-up .swiper-button-prev:after{color:black;}
+.custom-desktop-slider-main-thumbs-up .swiper-button-next:after,.custom-desktop-slider-main-thumbs-up .swiper-button-prev:after{color:black;font-size:15px;}
 .custom-desktop-slider-main .swiper-button-next, .custom-desktop-slider-main .swiper-button-prev{display:block;}
-.custom-desktop-slider-main .swiper-button-next:after,.custom-desktop-slider-main .swiper-button-prev:after{color:black;}
+.custom-desktop-slider-main .swiper-button-next:after,.custom-desktop-slider-main .swiper-button-prev:after{color:black;font-size:25px;}
 .product.grid {
   gap: 0;
 }
