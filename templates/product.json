@@ -61,6 +61,9 @@
         "share"
       ],
       "settings": {
+        "cod_svg": "shopify:\/\/shop_images\/COD.png",
+        "cod_text": "COD available",
+        "return_exchange_text": "7 Days Return and Exchange",
         "offers_for_you1": "",
         "offers_for_you2": "",
         "offers_for_you3": "",
