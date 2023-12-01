@@ -36,7 +36,9 @@
 .sub-category-container .sub-category .heading-text {
   margin: 5px 0;
 }
-
+ .sub-category-container .sub-category:nth-child(1) {
+    padding: 0 2rem 0 2rem;
+  }
 @media screen and (max-width: 768px) {
   .sub-category-container .sub-category {
     overflow-x: scroll;
