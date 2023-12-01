@@ -1,7 +1,7 @@
 .product {
   margin: 0;
 }
-
+.custom-desktop-slider-main .swiper-button-next, .custom-desktop-slider-main .swiper-button-prev{display:block;}
 .product.grid {
   gap: 0;
 }
