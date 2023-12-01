@@ -1,6 +1,7 @@
 .product {
   margin: 0;
 }
+.custom-product-description{display:flex;}
 .product__media-wrapper{align-self:flex-start;}
 .pdp_shipping_returns .icon{width:50px;height:50px;}
 .pdp_shipping_returns img{height:auto;width:100%;}
