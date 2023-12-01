@@ -45,7 +45,7 @@ footer{border:1px solid #dadada !important;}
    .footer-block--newsletter{width:33%;}
   .footer__content-top{width:50%;}
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .footer .grid {display: block;}
   .footer-block.grid__item {padding: 0;margin: 2rem 0;width: 100%;}
   .footer-block.grid__item:first-child {margin-top: 0;}
