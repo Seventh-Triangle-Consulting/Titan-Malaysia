@@ -2,7 +2,7 @@
   margin: 0;
 }
 .custom-type .row{margin-bottom:7%;}
-.custom-product-description p{font-size:14px;font-family: Roboto-Regular;}
+.custom-product-description p{font-size:16px;font-family: Roboto-Regular;}
 .custom-description-title, .custom-type .column-heading{ font-size: 20px; font-family: Roboto-Bold; margin-bottom: 5px; color: #000;}
 .custom-product-description{display:flex;}
 .custom-description, .custom-type{width:50%;}
