@@ -1,0 +1,88 @@
+<style>
+  
+    .faq-section{ background: #6EB3BC; padding: 2% 10%;}
+    .faq-section .faq{ font-size: 3.2vw; color: #282728;font-family: 'AvenirLTStd Black';margin-bottom:2%; }
+    .faq-section .faq-question{ font-size: 1.5vw; line-height:2.32vw; color:#ffffff;  font-family:"Inter-Regular";letter-spacing:0px;}
+    .faq-section .acc-head{ background: #282728;padding: 12px 3% 4px 3%;}
+    .faq-section .faq--item{ margin-bottom: 4%;}
+   .faq-section .faq-answer{ font-size: 1.40vw; /*line-height:45px; */ color:#231F20;  font-family:"Inter-Regular";} 
+   @media (min-width:500px) and (max-width: 992px){
+     .faq-section .faq {font-size: 30px;}
+     .faq-section .faq-question { font-size: 22px; line-height: 17px;}
+     .faq-section .faq-answer {font-size: 18px;}
+     .faq-section{padding: 5% 6%;}
+   }
+  @media( max-width:500px){
+    .faq-section 
+    {
+      padding: 4% 5%;
+    }
+    .faq-section .faq{ font-size:6vw; margin-bottom:1%;}
+    .faq-section .acc-head{ padding: 8px 3%;}
+    .faq-section .faq-question{font-size: 4vw;}
+    .faq-section .faq-answer{ font-size: 3.9vw;padding: 10px;}
+  }
+</style>
+
+<div class="container-fluid faq-section">
+      <h2 class="text-center  faq">{{ section.settings.faq_title }}</h2><br>
+    <div class="accordion accordion-flush faq-accordion" id="accordionFlushExample">
+         {% for block in section.blocks %}
+            <div class="accordion-item faq--item ">
+              <h3 class="accordion-header" id="flush-heading{{forloop.index}}">
+                  <button class="accordion-button collapsed acc-head" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{forloop.index}}" aria-expanded="false" aria-controls="flush-collapse{{forloop.index}}">
+                   <h6 class="faq-question">  {{ block.settings.faq_title }} </h6>
+                  </button>
+              </h3>
+              <div id="flush-collapse{{forloop.index}}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{forloop.index}}" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body  faq-answer">{{ block.settings.Faq-paragraph }}</div>
+              </div>
+            </div>
+        {% endfor %}
+   </div>
+ </div>
+
+{% schema %}
+  {
+    "name": "FAQ",
+    "settings": [
+      {
+        "type": "text",
+        "id": "faq_title",
+        "label": "Heading",
+        "default": "FAQ"
+      }
+
+    ],
+    "blocks": [
+     {
+       "name": "Question",
+       "type": "text",
+       "settings": [
+         
+         {
+            "type": "text",
+            "id": "faq_title",
+            "label": "FAQ Question"
+          
+          },
+       
+        {
+          "type": "richtext",
+          "id": "Faq-paragraph",
+          "label": "Paragraph"
+           
+        }
+         
+       ]
+     }
+  ],
+     "presets":[{"name": "FAQ"}]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
