@@ -1,6 +1,7 @@
 .product {
   margin: 0;
 }
+.price__badge-sold-out {margin-top:0.2rem;}
 .custom-desktop-slider-main-thumbs-up .swiper-button-next, .custom-desktop-slider-main-thumbs-up .swiper-button-prev{display:block;}
 .custom-desktop-slider-main-thumbs-up .swiper-button-next:after,.custom-desktop-slider-main-thumbs-up .swiper-button-prev:after{color:black;font-size:15px;}
 .custom-desktop-slider-main .swiper-button-next, .custom-desktop-slider-main .swiper-button-prev{display:block;}
