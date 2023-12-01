@@ -2,6 +2,9 @@
   margin: 0;
 }
 .custom-product-description{display:flex;}
+.custom-description, .custom-type{width:50%;}
+.custom-description{padding-right:4rem;border-right:1px solid black;}
+.custom-type{padding-left:4rem;}
 .product__media-wrapper{align-self:flex-start;}
 .pdp_shipping_returns .icon{width:50px;height:50px;}
 .pdp_shipping_returns img{height:auto;width:100%;}
