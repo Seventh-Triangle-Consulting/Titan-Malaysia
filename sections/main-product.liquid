@@ -349,7 +349,6 @@ assign img_thumbnail = 'img-thumbnail'
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-4 mb-4 mb-lg-0 ">
-        {% render 'Breadcrumbs' %}
         <div class="grid__item product__media-wrapper">
            <media-gallery id="MediaGallery-{{ section.id }}" role="region" class="{% if section.settings.enable_sticky_info %}product__media-gallery{% endif %} mediarelativeimg"aria-label="{{ 'products.product.media.gallery_viewer' | t }}" data-desktop-layout="{{ section.settings.gallery_layout }}">
         <div id="GalleryStatus-{{ section.id }}" class="visually-hidden" role="status"></div>
