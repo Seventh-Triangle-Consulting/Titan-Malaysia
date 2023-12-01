@@ -69,7 +69,7 @@
     class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}"
     data-productid="{{ product.id }}"
   >
-    <div class="grid__item product__media-wrapper{% if section.settings.media_position == 'right' %} medium-hide large-up-hide{% endif %}">
+    <div id="{{ section.id }}" class="grid__item product__media-wrapper{% if section.settings.media_position == 'right' %} medium-hide large-up-hide{% endif %}">
       
       <div class="custom-desktop-slider-main swiper mySwiper2" style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" >
          <div class="swiper-wrapper">
@@ -957,7 +957,7 @@
 <script>
 window.addEventListener('DOMContentLoaded',() => {
 
-      var swiper = new Swiper(".mySwiper", {
+      var swiper = new Swiper("#{{ section.id }} .mySwiper", {
           loop: true,
           spaceBetween: 10,
           slidesPerView: 4,
@@ -969,7 +969,7 @@ window.addEventListener('DOMContentLoaded',() => {
         },
         });
             
-      var swiper2 = new Swiper(".custom-desktop-slider-main", {
+      var swiper2 = new Swiper("#{{ section.id }} .custom-desktop-slider-main", {
         loop: true,
         spaceBetween: 10,
         navigation: {
