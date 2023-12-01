@@ -6,9 +6,7 @@
   }
 
   .sub-category-container .sub-category .collection-image {
-    border-top-left-radius: {{ section.settings.border_top_left_radius }}px;
-    border-bottom-right-radius: {{ section.settings.border_top_left_radius }}px;
-    /* border-radius: {{ section.settings.border_radius }}%; */
+    border-radius:50%;
   }
 
   @media screen and (max-width: 750px) {
@@ -68,26 +66,6 @@
       "unit": "px",
       "label": "Margin Bottom Mobile",
       "default": 36
-    },
-    {
-      "type": "range",
-      "id": "border_top_left_radius",
-      "min": 20,
-      "max": 40,
-      "step": 1,
-      "unit": "px",
-      "label": "Border Top Left Radius",
-      "default": 20
-    },
-    {
-      "type": "range",
-      "id": "border_top_right_radius",
-      "min": 20,
-      "max": 40,
-      "step": 1,
-      "unit": "px",
-      "label": "Border Top Right Radius",
-      "default": 20
     }
   ],
   "blocks": [
