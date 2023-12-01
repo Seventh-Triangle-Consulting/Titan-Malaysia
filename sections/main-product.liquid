@@ -549,80 +549,7 @@
                 </div>
               </div>
 
-              <div class="offers_for_you_accordian">
-                <div class="offers_accordian_tab active">
-                  <h4>Offers for you</h4>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="icon icon-caret"
-                    width="16"
-                    height="9"
-                    viewBox="0 0 16 9"
-                    fill="none"
-                  >
-                    <path d="M1 1L8 8L15 1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                  </svg>
-                </div>
-                <div class="offers_accordian_content">
-                  <div class="swiper offers_for_accordian_swiper">
-                    <div class="swiper-wrapper">
-                      <div class="swiper-slide">
-                        {% assign offers1 = section.settings.offers_for_you1 | split: '##' %}
-                        <p class="offers1_p">{{ offers1[0] }}</p>
-                      {% if offers1[1] != blank %}
-                        <div class="offers1-div">
-                          <p class="discount-name copyText1">{{ offers1[1] }}</p>
-                          {% comment %} <div class="centralize copy" onclick="copyText1()">
-                            <button>
-                              <span>COPY</span>
-                              <span>COPIED</span>
-                            </button>
-                          </div> {% endcomment %}
-                          <div class="centralize copy">
-                            <p class="copy_offer_btn" onclick="copyOfferToClipboard('{{ offers1[1] }}',event)">
-                            COPY
-                            </p>
-                          </div> 
-                        </div>
-                      {% endif %}
-                      </div>
-                  {% if section.settings.offers_for_you2 != blank %}
-                      <div class="swiper-slide">
-                        {% assign offers2 = section.settings.offers_for_you2 | split: '##' %}
-                        <p class="offers2_p">{{ offers2[0] }}</p>
-                      {% if offers2[1] != blank %}
-                        <div class="offers2-div">
-                          <p class="discount-name copyText2">{{ offers2[1] }}</p>
-                          {% comment %} <div class="centralize1 copy" onclick="copyText2()">
-                            <button>
-                              <span>COPY</span>
-                              <span>COPIED</span>
-                            </button>
-                          </div> {% endcomment %}
-                          <div class="centralize copy">
-                            <p class="copy_offer_btn" onclick="copyOfferToClipboard('{{ offers2[1] }}',event)">COPY</p>
-                          </div> 
-                        </div>
-                        {% endif %}
-                      </div>
-              {% endif %}
-            {% if section.settings.offers_for_you3 != blank %}
-            <div class="swiper-slide">
-                        {% assign offers3 = section.settings.offers_for_you3 | split: '##' %}
-                        <p class="offers3_p">{{ offers3[0] }}</p>
-                      {% if offers3[1] != blank %}
-                        <div class="offers3-div">
-                          <p class="discount-name copyText3">{{ offers3[1] }}</p>
-                          <div class="centralize copy">
-                            <p class="copy_offer_btn" onclick="copyOfferToClipboard('{{ offers3[1] }}',event)">COPY</p>
-                          </div> 
-                          {% comment %} <button class="copy" onclick="copyText3()">COPY</button> {% endcomment %}
-                        </div>
-                        {% endif %}
-                      </div>
-              {% endif %}
-                    </div>
-                  </div>
+            
                   <div class=" swiper product_usp ">
                     {% assign product_usp = product.metafields.custom.product_usp.value %}
                       <div class="swiper-wrapper">
@@ -639,8 +566,7 @@
               </div>
                   </div>
             
-                </div>
-              </div>
+            
 
             {%- when 'rating' -%}
               {%- if product.metafields.reviews.rating.value != blank -%}
