@@ -99,6 +99,8 @@
                   </div>
                {% endfor %}
             </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
        </div>
 
 
@@ -961,6 +963,10 @@ window.addEventListener('DOMContentLoaded',() => {
           slidesPerView: 4,
           freeMode: true,
           watchSlidesProgress: true,
+          navigation: {
+          nextEl: ". custom-desktop-slider-main-thumbs-up .swiper-button-next",
+          prevEl: ". custom-desktop-slider-main-thumbs-up .swiper-button-prev",
+        },
         });
             
       var swiper2 = new Swiper(".custom-desktop-slider-main", {
