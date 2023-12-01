@@ -820,7 +820,7 @@
     {%- endif -%}
 
     <div class="custom-product-description">
-        <div>
+        <div class="custom-description">
               {% for block in section.blocks %}
                {%- case block.type -%}
                {%- when 'description' -%} 
@@ -830,7 +830,7 @@
                 {% endcase %}
              {% endfor %}
          </div>
-      <div>
+      <div class="custom-type">
         <div class="row description-row">
             <div class="column-heading text-uppercase">PRODUCT TYPE</div>
             <div class="column-description">{{ product.type }}</div>
