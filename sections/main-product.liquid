@@ -71,7 +71,7 @@
   >
     <div class="grid__item product__media-wrapper{% if section.settings.media_position == 'right' %} medium-hide large-up-hide{% endif %}">
       
-      <div class="custom-desktop-slider-main" style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
+      <div class="custom-desktop-slider-main swiper mySwiper2" style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" >
          <div class="swiper-wrapper">
             {%- for media in product.media -%}    
                   <div class="swiper-slide">
@@ -965,7 +965,7 @@
           watchSlidesProgress: true,
         });
             
-      var swiper2 = new Swiper(".mySwiper2", {
+      var swiper2 = new Swiper(".custom-desktop-slider-main", {
         loop: true,
         spaceBetween: 10,
         navigation: {
