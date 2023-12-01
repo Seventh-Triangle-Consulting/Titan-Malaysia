@@ -7,48 +7,48 @@
           "type": "slideshow",
           "settings": {
             "collection_slide_url": "shopify:\/\/collections\/watches",
-            "collection_slide_image": "shopify:\/\/shop_images\/AX1326.jpg",
-            "collection_slide_text": "Watches"
+            "collection_slide_image": "shopify:\/\/shop_images\/automatic.png",
+            "collection_slide_text": "Automatic"
           }
         },
         "e3091330-71fb-4a99-b821-d78a16ba2e80": {
           "type": "slideshow",
           "settings": {
             "collection_slide_url": "shopify:\/\/collections\/mens-watch",
-            "collection_slide_image": "shopify:\/\/shop_images\/1a7f6KkNLybqTOT-6KHv1KUYIUvlVkEsR.jpg",
-            "collection_slide_text": "Premium watches"
+            "collection_slide_image": "shopify:\/\/shop_images\/Best_Sellers.png",
+            "collection_slide_text": "Best Sellers"
           }
         },
         "e6316d43-6878-485d-92ab-9ee4421ea22b": {
           "type": "slideshow",
           "settings": {
             "collection_slide_url": "shopify:\/\/collections\/mens-watch",
-            "collection_slide_image": "shopify:\/\/shop_images\/AX1727.jpg",
-            "collection_slide_text": "New Arrival"
+            "collection_slide_image": "shopify:\/\/shop_images\/Edge.png",
+            "collection_slide_text": "Edge"
           }
         },
         "a2f19bab-dc1a-4586-9295-f5904a7ab380": {
           "type": "slideshow",
           "settings": {
             "collection_slide_url": "shopify:\/\/collections\/mens-watch",
-            "collection_slide_image": "shopify:\/\/shop_images\/1-Zlb2zPlUtY6mmex1FXkxaE4Pr7zIkhC.jpg",
-            "collection_slide_text": "Smart"
+            "collection_slide_image": "shopify:\/\/shop_images\/mechanical.png",
+            "collection_slide_text": "Mechanical"
           }
         },
         "8dada3ef-b2cc-4b22-8bd3-22f5f32d9518": {
           "type": "slideshow",
           "settings": {
             "collection_slide_url": "shopify:\/\/collections\/mens-watch",
-            "collection_slide_image": "shopify:\/\/shop_images\/AX1326.jpg",
-            "collection_slide_text": "Clocks"
+            "collection_slide_image": "shopify:\/\/shop_images\/Smart.png",
+            "collection_slide_text": "Smart"
           }
         },
         "bc934d4c-5839-4f67-84b9-f5fc22e41623": {
           "type": "slideshow",
           "settings": {
             "collection_slide_url": "shopify:\/\/collections\/mens-watch",
-            "collection_slide_image": "shopify:\/\/shop_images\/1hQe41PB1E5i6BkA5ylHHURlTMlR3b2wa.jpg",
-            "collection_slide_text": "Sales"
+            "collection_slide_image": "shopify:\/\/shop_images\/Trending.png",
+            "collection_slide_text": "Trending"
           }
         }
       },
