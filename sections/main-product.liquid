@@ -818,6 +818,17 @@
        {% render 'product-media-gallery', variant_images: variant_images, is_duplicate: true %}
       </div>
     {%- endif -%}
+
+    {% for block in section.blocks %}
+       {%- case block.type -%}
+       {%- when 'description' -%} 
+             {%- if product.description != blank -%} 
+                <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}> {{ product.description }} </div> 
+            {%- endif -%}
+        {% endcase %}
+     {% endfor %}
+
+                          
   </div>
   <div class="productformmobilesticky"></div>
   {% render 'product-media-modal', variant_images: variant_images %}
