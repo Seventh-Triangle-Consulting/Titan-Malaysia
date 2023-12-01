@@ -94,8 +94,8 @@
   color: rgba(var(--color-foreground), 0.75);
   font-size: 12px;
 }
-.price-item--sale, #discount{
-  font-size: 1.5rem;
+.price-item--sale, #discount .percent_discount {
+  font-size: 14px;
 } 
 .unit-price {
   display: block;
