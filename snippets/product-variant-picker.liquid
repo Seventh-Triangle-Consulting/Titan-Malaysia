@@ -86,11 +86,9 @@
       >
         {%- for variant in product.variants -%}
           <option
-            {% comment %}
               {% if variant == product.selected_or_first_available_variant %}
                 selected="selected"
               {% endif %}
-            {% endcomment %}
             {% if variant.available == false %}
               disabled
             {% endif %}
