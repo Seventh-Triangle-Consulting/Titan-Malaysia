@@ -130,7 +130,7 @@
                 </a>
               </div>
             {%- when 'price' -%}
-              <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
+              <div class="no-js-hidden price-main-div" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                 {%- render 'custom-price',
                   product: product,
                   use_variant: true,
@@ -1040,6 +1040,7 @@ window.addEventListener('DOMContentLoaded',() => {
     }
   </script>
 <script>
+  product__title
     let clone = document.querySelector('.product-form').cloneNode(true);
     let clone1 = document.querySelector('variant-radios').cloneNode(true);
     document.querySelector('.productformmobilesticky').appendChild(clone); 
