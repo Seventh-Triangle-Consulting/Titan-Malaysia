@@ -888,7 +888,7 @@
     <script src="{{ 'product-model.js' | asset_url }}" defer></script>
   {%- endif -%}
 
-
+{% render 'sticky-products-card-product', card_product: product %}
 <script>
 window.addEventListener('DOMContentLoaded',() => {
 
