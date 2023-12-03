@@ -865,6 +865,7 @@
   <div class="productformmobilesticky"></div>
   <div class="productformdesktopsticky">
     <div class="productformdesktoptitle"></div>
+          {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
   </div>
   {% render 'product-media-modal', variant_images: variant_images %}
 
@@ -907,18 +908,7 @@
   {%- endif -%}
 
 <script>
- let clone2 = document.querySelector('.product__title').cloneNode(true);
-    let clone3 = document.querySelector('.price-main-div').cloneNode(true);
-    let clone1 = document.querySelector('.variant-radios').cloneNode();
-    let clone = document.querySelector('.product-form').cloneNode(true);
-    document.querySelector('.productformmobilesticky').appendChild(clone); 
 
-   document.querySelector('.productformdesktoptitle').appendChild(clone2);
-   document.querySelector('.productformdesktoptitle').appendChild(clone3);
-   document.querySelector('.productformdesktopsticky').appendChild(clone1); 
-   document.querySelector('.productformdesktopsticky').appendChild(clone); 
-
-  
 window.addEventListener('DOMContentLoaded',() => {
 
       var swiper = new Swiper("#{{ section.id }} .mySwiper", {
@@ -1053,6 +1043,16 @@ window.addEventListener('DOMContentLoaded',() => {
     }
   </script>
 <script>
+
+    let clone2 = document.querySelector('.product__title').cloneNode(true);
+    let clone3 = document.querySelector('.price-main-div').cloneNode(true);
+    let clone = document.querySelector('.product-form').cloneNode(true);
+    document.querySelector('.productformmobilesticky').appendChild(clone); 
+
+   document.querySelector('.productformdesktoptitle').appendChild(clone2);
+   document.querySelector('.productformdesktoptitle').appendChild(clone3); 
+   document.querySelector('.productformdesktopsticky').appendChild(clone); 
+  
     const isProductSoldOut = () => {
       try{
       let isSoldOut = false;
