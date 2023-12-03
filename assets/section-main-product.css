@@ -10,7 +10,7 @@
 .productformdesktopsticky .product-form__input{
   flex:auto !important;
 }
-.field__input:focus-visible, .select__select:focus-visible{
+.productformdesktopsticky .field__input:focus-visible, .select__select:focus-visible{
   box-shadow:none !important;
 }
 .productformdesktopsticky{
