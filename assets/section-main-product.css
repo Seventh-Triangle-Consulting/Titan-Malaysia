@@ -283,10 +283,6 @@
 
 /* Product form */
 
-.product-form {
-  display: block;
-}
-
 .product-form__error-message-wrapper:not([hidden]) {
   display: flex;
   align-items: flex-start;
