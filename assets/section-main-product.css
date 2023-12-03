@@ -12,6 +12,7 @@
     display: flex;
     justify-content: space-between;
 }
+.productformdesktopsticky .product-form__input--dropdown{margin-bottom:0 !important;}
 .productformdesktopsticky .product-form .form{display:block !important;}
 .productformdesktopsticky-variant-atc{
     display: flex;
