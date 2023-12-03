@@ -5,8 +5,7 @@
 }
 @media screen and (max-width:750px){
   .custom-product-description{flex-direction:column;}
-  .custom-description, .custom-type{width:100%;}
-  .custom-description, .custom-type{padding:0;border:none;}
+  .custom-description, .custom-type{padding:0;border:none;width:100% !important;}
 }
 .product{ margin: 0;}
 .custom-product-description{margin-top:5%;}
