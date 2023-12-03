@@ -1040,7 +1040,9 @@ window.addEventListener('DOMContentLoaded',() => {
     }
   </script>
 <script>
-  product__title
+
+    let clone2 = document.querySelector('.product__title').cloneNode(true);
+    let clone3 = document.querySelector('.price-main-div').cloneNode(true);
     let clone = document.querySelector('.product-form').cloneNode(true);
     let clone1 = document.querySelector('variant-radios').cloneNode(true);
     document.querySelector('.productformmobilesticky').appendChild(clone); 
