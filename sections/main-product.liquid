@@ -863,7 +863,9 @@
                           
   </div>
   <div class="productformmobilesticky"></div>
-  <div class="productformdesktopsticky"></div>
+  <div class="productformdesktopsticky">
+    <div class="productformdesktoptitle"></div>
+  </div>
   {% render 'product-media-modal', variant_images: variant_images %}
 
   {% assign popups = section.blocks | where: 'type', 'popup' %}
@@ -1047,8 +1049,8 @@ window.addEventListener('DOMContentLoaded',() => {
     let clone1 = document.querySelector('variant-radios').cloneNode(true);
     document.querySelector('.productformmobilesticky').appendChild(clone); 
 
-   document.querySelector('.productformdesktopsticky').appendChild(clone2);
-   document.querySelector('.productformdesktopsticky').appendChild(clone3); 
+   document.querySelector('.productformdesktoptitle').appendChild(clone2);
+   document.querySelector('.productformdesktoptitle').appendChild(clone3); 
    document.querySelector('.productformdesktopsticky').appendChild(clone1);
    document.querySelector('.productformdesktopsticky').appendChild(clone); 
   
