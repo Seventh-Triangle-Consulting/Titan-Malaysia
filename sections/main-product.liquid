@@ -1067,35 +1067,6 @@ window.addEventListener('DOMContentLoaded',() => {
             console.error(error);     
       }
     }
-
-
-   
- 
-
-
-function validateInput(event) {
-    try{
-    
-      let currInputLength = event.currentTarget.value.length;
-      let inputMaxLength = event.currentTarget.maxLength;
-   
-     if (currInputLength > inputMaxLength) {
-    
-        event.currentTarget.value = event.currentTarget.value.slice(0, inputMaxLength);
-       
-      }
-      else if (currInputLength < inputMaxLength  ) {
-       
-         document.querySelector('.pinMsg').innerHTML = " ";
-      }
-     
-    
-    }catch (error) {
-        console.error(error);     
-    }
-  }
-
-
    
   </script>
 </section>
