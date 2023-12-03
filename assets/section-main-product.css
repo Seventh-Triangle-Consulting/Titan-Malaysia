@@ -3,8 +3,8 @@
   .pdp_shipping{margin-bottom:2%;}
   .pdp_shipping_returns{flex-direction:center !important;align-items:baseline !important;}
 }
-.productformdesktopsticky .variant-selects{
-  display: flex;
+.productformdesktopsticky variant-selects{
+  display: flex !important;
   gap: 10px;
 }
 .productformdesktopsticky{
