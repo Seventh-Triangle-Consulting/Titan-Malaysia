@@ -58,8 +58,7 @@
         <input
           type="hidden"
           name="id"
-          {% comment %} value="{{ product.selected_or_first_available_variant.id }}" {% endcomment %}
-          disabled
+          value="{{ card_product.selected_or_first_available_variant.id }}"
           class="product-variant-id"
         >
         {% assign productType = product.type | handleize %}
