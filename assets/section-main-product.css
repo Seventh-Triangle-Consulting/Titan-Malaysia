@@ -6,7 +6,7 @@
 @media screen and (max-width:749px){
   .custom-product-description{flex-direction:column;}
   .custom-description, .custom-type{padding:0 !important;border:none !important;width:100% !important;}
-  .custom-product-description .row{margin-bottom:2%;}
+  .custom-product-description .row{margin-bottom:2% !important;}
   .product-form .form{display:flex;flex-direction:row;}
   .titan_main_product{padding:0;}
   .column-description-hide{display:none;}
