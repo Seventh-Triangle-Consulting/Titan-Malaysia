@@ -572,7 +572,8 @@
                           <p>{{ section.settings.return_exchange_text }}</p>
                     </div>
               </div>
-    
+
+            {% if product_usp != blank %}
                   <div class=" swiper product_usp ">
                     {% assign product_usp = product.metafields.custom.product_usp.value %}
                       <div class="swiper-wrapper">
@@ -587,7 +588,7 @@
                                  <div class="swiper-ctrl usp-btn-next">{% render 'color-next-arrow' %}</div>
                           </div>
                   </div>
-                
+             {% endif %}   
 
             {%- when 'rating' -%}
               {%- if product.metafields.reviews.rating.value != blank -%}
