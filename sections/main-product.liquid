@@ -865,6 +865,7 @@
   <div class="productformmobilesticky"></div>
   <div class="productformdesktopsticky">
     <div class="productformdesktoptitle"></div>
+    {% render 'product-variant-picker', product: product, product_form_id: product_form_id %}
   </div>
   {% render 'product-media-modal', variant_images: variant_images %}
 
@@ -1046,12 +1047,10 @@ window.addEventListener('DOMContentLoaded',() => {
     let clone2 = document.querySelector('.product__title').cloneNode(true);
     let clone3 = document.querySelector('.price-main-div').cloneNode(true);
     let clone = document.querySelector('.product-form').cloneNode(true);
-    let clone1 = document.querySelector('variant-radios').cloneNode(true);
     document.querySelector('.productformmobilesticky').appendChild(clone); 
 
    document.querySelector('.productformdesktoptitle').appendChild(clone2);
    document.querySelector('.productformdesktoptitle').appendChild(clone3); 
-   document.querySelector('.productformdesktopsticky').appendChild(clone1);
    document.querySelector('.productformdesktopsticky').appendChild(clone); 
   
     const isProductSoldOut = () => {
