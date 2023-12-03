@@ -3,6 +3,21 @@
   .pdp_shipping{margin-bottom:2%;}
   .pdp_shipping_returns{flex-direction:center !important;align-items:baseline !important;}
 }
+.productformdesktopsticky{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: white;
+    z-index: 11;
+}
+.productformdesktopsticky-title-image{
+    display: flex;
+    align-items: center;
+    gap: 2%;
+    padding-left: 1%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
 @media screen and (max-width:749px){
   .custom-product-description{flex-direction:column;}
   .custom-description, .custom-type{padding:0 !important;border:none !important;width:100% !important;}
