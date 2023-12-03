@@ -863,7 +863,7 @@
                           
   </div>
   <div class="productformmobilesticky"></div>
-  <div class="productformdesktopsticky">
+  <div class="productformdesktopsticky hide-productformdesktopsticky">
     <div class="productformdesktopsticky-title-image">
         <div class="product-image">
           {{
@@ -921,21 +921,27 @@
 
 <script>
 
-   document.querySelector('.productformdesktopsticky').style.display = "none";
-    window.onscroll = function () {
-      console.log(pageYOffset);
-      console.log(document.querySelector('.pdp_shipping_returns ').offsetTop);
-      if (pageYOffset >= document.querySelector('.pdp_shipping_returns ').offsetTop) {
-        if (window.screen.width > 749) { document.querySelector('.productformdesktopsticky').style.display = "flex"; }
-        else {
-          document.querySelector('.productformdesktopsticky').style.display = "flex";
+document.addEventListener('DOMContentLoaded', function() {
+      var productForm = document.querySelector('.productformdesktopsticky');
+      var mainProduct = document.querySelector('.main-product');
+      var productFormOffsetTop = productForm.offsetTop;
+
+      function toggleProductForm() {
+        if (window.scrollY >= productFormOffsetTop) {
+          productForm.classList.remove('hide-productformdesktopsticky');
+          console.log("remove")
+        } else {
+          productForm.classList.add('hide-productformdesktopsticky');
+          console.log("add")
         }
       }
-      else {
-        document.querySelector('.productformdesktopsticky').style.display = "none";
-      }
 
-    }; 
+      // Initial check
+      toggleProductForm();
+
+      // Add scroll event listener
+      window.addEventListener('scroll', toggleProductForm);
+    });
 
   
 window.addEventListener('DOMContentLoaded',() => {
