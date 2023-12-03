@@ -3,7 +3,7 @@
   .pdp_shipping{margin-bottom:2%;}
   .pdp_shipping_returns{flex-direction:center !important;align-items:baseline !important;}
 }
-.select:after{
+.select:after, .field:after{
   box-shadow:none;
 }
 .hide-productformdesktopsticky{
