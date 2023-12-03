@@ -1640,6 +1640,8 @@ a.product__text {
     display: flex;
     align-self: stretch;
   }
+  .custom-atc-qty-slector .pdp_ATC{width:50vw !important;}
+  .custom-atc-qty-slector .pdp_ATC span{font-size:14px;}
 
   .product-media-container.media-fit-cover .media {
     /* allow media img element to scale relative to modal-opener/product-media-container */
