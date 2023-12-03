@@ -6,6 +6,9 @@
 .productformdesktopsticky .field:after,.productformdesktopsticky .select:after,.productformdesktopsticky .field:hover.field:after,.productformdesktopsticky .select:hover.select:after,.productformdesktopsticky .select__select:hover.select__select:after{
   box-shadow:none;
 }
+.pdp_shipping_returns{
+  margin-top:40px;
+}
 .quantity__button{
   background-color:#000 !important;
   color:#fff;
