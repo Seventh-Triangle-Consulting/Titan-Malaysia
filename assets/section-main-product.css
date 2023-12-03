@@ -12,6 +12,7 @@
     display: flex;
     justify-content: space-between;
 }
+.productformdesktopsticky .product-form .form{display:block !important;}
 .productformdesktopsticky-variant-atc{
     display: flex;
     align-items: center;
