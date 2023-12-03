@@ -3,10 +3,12 @@
   .pdp_shipping{margin-bottom:2%;}
   .pdp_shipping_returns{flex-direction:center !important;align-items:baseline !important;}
 }
-@media screen and (max-width:750px){
+@media screen and (max-width:749px){
   .custom-product-description{flex-direction:column;}
   .custom-description, .custom-type{padding:0 !important;border:none !important;width:100% !important;}
   .custom-product-description .row{margin-bottom:5%;}
+  .product-form .form{display:flex;flex-direction:row;}
+  .titan_main_product{padding:0;}
 }
 .product{ margin: 0;}
 .custom-product-description{margin-top:5%;}
@@ -1756,10 +1758,6 @@ font-size: 19px;font-weight: 500;line-height: 34px;letter-spacing: 0.38px;paddin
   .product__info-wrapper {
     padding: 0 2rem 0 5rem;
 }
-}
-@media(max-width:749px)
-{.product-form .form{display:flex;flex-direction:row;}
-.titan_main_product{padding:0 20px;}
 }
 
 .titan_main_product .percent_discount{color: #DD5041;font-family:Roboto-Bold;font-size: 16px;line-height:1;}
