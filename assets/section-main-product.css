@@ -6,6 +6,17 @@
 .productformdesktopsticky .field:after,.productformdesktopsticky .select:after,.productformdesktopsticky .field:hover.field:after,.productformdesktopsticky .select:hover.select:after,.productformdesktopsticky .select__select:hover.select__select:after{
   box-shadow:none;
 }
+.custom-atc-qty-slector{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+.custom-atc-qty-slector product-form{
+  margin:0 !important;
+}
+.custom-atc-qty-slector .pdp_ATC{
+  width:25vw;
+}
 .pdp_ATC span{
   font-size:1.3vw;
   line-height:1;
