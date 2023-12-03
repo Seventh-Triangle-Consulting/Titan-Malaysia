@@ -573,23 +573,6 @@
                     </div>
               </div>
 
-            {% if product_usp != blank %}
-                  <div class=" swiper product_usp ">
-                    {% assign product_usp = product.metafields.custom.product_usp.value %}
-                      <div class="swiper-wrapper">
-                            {% for usp in product_usp  %}
-                                        <div class=" swiper-slide usp_icon_title">
-                                          {{ usp.icon | image_url: width: '200' | image_tag }}
-                                        </div>
-                            {% endfor %}
-                         </div>
-                          <div class="usp-nav-btns">
-                                 <div class="swiper-ctrl usp-btn-prev">{% render 'color-next-arrow' %}</div>
-                                 <div class="swiper-ctrl usp-btn-next">{% render 'color-next-arrow' %}</div>
-                          </div>
-                  </div>
-             {% endif %}   
-
             {%- when 'rating' -%}
               {%- if product.metafields.reviews.rating.value != blank -%}
                 {% liquid
