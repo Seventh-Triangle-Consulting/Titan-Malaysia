@@ -1047,8 +1047,10 @@ window.addEventListener('DOMContentLoaded',() => {
     let clone1 = document.querySelector('variant-radios').cloneNode(true);
     document.querySelector('.productformmobilesticky').appendChild(clone); 
 
+   document.querySelector('.productformdesktopsticky').appendChild(clone2);
+   document.querySelector('.productformdesktopsticky').appendChild(clone3); 
    document.querySelector('.productformdesktopsticky').appendChild(clone1);
-    document.querySelector('.productformdesktopsticky').appendChild(clone); 
+   document.querySelector('.productformdesktopsticky').appendChild(clone); 
   
     const isProductSoldOut = () => {
       try{
