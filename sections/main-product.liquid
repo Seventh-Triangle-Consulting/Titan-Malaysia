@@ -817,13 +817,13 @@
     {%- endif -%}
 
     <div class="custom-product-description">
-        <div class="row description-row">
-              <div class="column-heading text-uppercase">PRODUCT DESCRIPTION</div>
+        <div class="row description-row custom-description">
+              <div class="custom-description-title">PRODUCT DESCRIPTION</div>
               {% for block in section.blocks %}
                {%- case block.type -%}
                {%- when 'description' -%} 
                      {%- if product.description != blank -%} 
-                        <div class="column-description" {{ block.shopify_attributes }}> {{ product.description }} </div> 
+                        <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}> {{ product.description }} </div> 
                     {%- endif -%}
                 {% endcase %}
              {% endfor %}
