@@ -864,6 +864,13 @@
   </div>
   <div class="productformmobilesticky"></div>
   <div class="productformdesktopsticky">
+    <div class="product-image">
+      {{
+                          product.media[0]
+                          | image_url: width: product.media.width
+                          | image_tag: class: 'product-image'
+                        }}
+    </div>
     <div class="productformdesktoptitle"></div>
           {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
   </div>
