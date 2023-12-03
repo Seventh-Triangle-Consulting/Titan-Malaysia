@@ -930,6 +930,7 @@ document.addEventListener('DOMContentLoaded', function() {
       var productFormOffsetTop = mainProduct.offsetTop;
 
       function toggleProductForm() {
+        console.log(productFormOffsetTop);
         if (window.scrollY >= productFormOffsetTop) {
           productForm.classList.remove('hide-productformdesktopsticky');
         } else {
