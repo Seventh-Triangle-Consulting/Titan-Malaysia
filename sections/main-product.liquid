@@ -920,7 +920,26 @@
   {%- endif -%}
 
 <script>
+document.addEventListener('DOMContentLoaded', function() {
+      var productForm = document.querySelector('.productformdesktopsticky');
+      var mainProduct = document.querySelector('.main-product');
+      var productFormOffsetTop = productForm.offsetTop;
 
+      function toggleProductForm() {
+        if (window.scrollY >= productFormOffsetTop) {
+          productForm.classList.remove('hide-productformdesktopsticky');
+        } else {
+          productForm.classList.add('hide-productformdesktopsticky');
+        }
+      }
+
+      // Initial check
+      toggleProductForm();
+
+      // Add scroll event listener
+      window.addEventListener('scroll', toggleProductForm);
+    });
+  
 window.addEventListener('DOMContentLoaded',() => {
 
       var swiper = new Swiper("#{{ section.id }} .mySwiper", {
