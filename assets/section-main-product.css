@@ -6,6 +6,10 @@
 .productformdesktopsticky .field:after,.productformdesktopsticky .select:after,.productformdesktopsticky .field:hover.field:after,.productformdesktopsticky .select:hover.select:after,.productformdesktopsticky .select__select:hover.select__select:after{
   box-shadow:none;
 }
+.pdp_ATC span{
+  font-size:10px;
+  line-height:1;
+}
 .hide-productformdesktopsticky{
   display:none !important
 }
