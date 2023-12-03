@@ -1,1 +1,108 @@
-{"sections":{"main":{"type":"main-page","settings":{"padding_top":28,"padding_bottom":28}},"b16e5ede-41ff-44ce-a9ee-9a928dd0d770":{"type":"icon-with-caption","blocks":{"template--16179472302252__b16e5ede-41ff-44ce-a9ee-9a928dd0d770-text-1":{"type":"text","settings":{"text":"Free Shipping","image":"shopify:\/\/shop_images\/Free_shipping_034b3e82-b48a-4fb0-8826-5dfbfb4b826c.svg"}},"69eb9303-9261-4bec-8662-2b41143daa45":{"type":"text","settings":{"text":"30-day return","image":"shopify:\/\/shop_images\/Icon_Returns.svg"}},"dca8bbfb-4486-476a-9069-7d6f2a728cd1":{"type":"text","settings":{"text":"Easily washable","image":"shopify:\/\/shop_images\/Easily_washable_fb21044e-7183-4c79-93c6-37ea612796ce.svg"}},"a6fcb87d-5d6d-46bb-99ec-37bf9d2a4d99":{"type":"text","settings":{"text":"Earth Friendly","image":"shopify:\/\/shop_images\/Earth-friendly_303179c9-0056-42a0-81fe-4828fa9376b8.svg"}}},"block_order":["template--16179472302252__b16e5ede-41ff-44ce-a9ee-9a928dd0d770-text-1","69eb9303-9261-4bec-8662-2b41143daa45","dca8bbfb-4486-476a-9069-7d6f2a728cd1","a6fcb87d-5d6d-46bb-99ec-37bf9d2a4d99"],"settings":{"bgcolor":"","showmobile":true,"heading":"","margin_bottom_desktop":8,"margin_bottom_mobile":8}},"8f169efa-beba-4e2f-b58e-9dc18b76f64a":{"type":"find-us-online","blocks":{"template--16179472302252__8f169efa-beba-4e2f-b58e-9dc18b76f64a-text-1":{"type":"text","settings":{"image":"shopify:\/\/shop_images\/Group_238452_0185d53c-32dd-4a5f-9d24-5b441438c1de.png","links":"https:\/\/www.amazon.in\/stores\/page\/CFE05C3D-8D1F-4296-98BC-6A79ACFACD01?ingress=3"}},"c948d91e-0faf-49a7-91cb-d4bdf41e0acd":{"type":"text","settings":{"image":"shopify:\/\/shop_images\/Group_238451_3d6b543c-ebba-4682-a03c-8fd388e1381b.png","links":"https:\/\/www.flipkart.com\/search?q=titan+shoes&otracker=search&otracker1=search&marketplace=FLIPKART&as-show=on&as=off&p%5B%5D=facets.brand%255B%255D%3Dtitan"}},"41713adc-8fb8-423f-a412-4b30ad042ae9":{"type":"text","settings":{"image":"shopify:\/\/shop_images\/Myntra_logo_1_2214875f-49e2-485b-80e4-f4ac0e22d6bb.png","links":"https:\/\/www.myntra.com\/titan"}},"19eba8ca-6ba2-4edb-bb49-7acb095e17c9":{"type":"text","settings":{"image":"shopify:\/\/shop_images\/image_73.png","links":"https:\/\/www.ajio.com\/b\/titan?query=:relevance"}}},"block_order":["template--16179472302252__8f169efa-beba-4e2f-b58e-9dc18b76f64a-text-1","c948d91e-0faf-49a7-91cb-d4bdf41e0acd","41713adc-8fb8-423f-a412-4b30ad042ae9","19eba8ca-6ba2-4edb-bb49-7acb095e17c9"],"settings":{"bgcolor":"#fef7b8","heading":"Find Us Online","showmobile":true,"margin_bottom_desktop":36,"margin_bottom_mobile":36}}},"order":["main","b16e5ede-41ff-44ce-a9ee-9a928dd0d770","8f169efa-beba-4e2f-b58e-9dc18b76f64a"]}
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "b16e5ede-41ff-44ce-a9ee-9a928dd0d770": {
+      "type": "icon-with-caption",
+      "blocks": {
+        "template--16179472302252__b16e5ede-41ff-44ce-a9ee-9a928dd0d770-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "Free Shipping",
+            "image": "shopify:\/\/shop_images\/Free_shipping_034b3e82-b48a-4fb0-8826-5dfbfb4b826c.svg"
+          }
+        },
+        "69eb9303-9261-4bec-8662-2b41143daa45": {
+          "type": "text",
+          "settings": {
+            "text": "30-day return",
+            "image": "shopify:\/\/shop_images\/Icon_Returns.svg"
+          }
+        },
+        "dca8bbfb-4486-476a-9069-7d6f2a728cd1": {
+          "type": "text",
+          "settings": {
+            "text": "Easily washable",
+            "image": "shopify:\/\/shop_images\/Easily_washable_fb21044e-7183-4c79-93c6-37ea612796ce.svg"
+          }
+        },
+        "a6fcb87d-5d6d-46bb-99ec-37bf9d2a4d99": {
+          "type": "text",
+          "settings": {
+            "text": "Earth Friendly",
+            "image": "shopify:\/\/shop_images\/Earth-friendly_303179c9-0056-42a0-81fe-4828fa9376b8.svg"
+          }
+        }
+      },
+      "block_order": [
+        "template--16179472302252__b16e5ede-41ff-44ce-a9ee-9a928dd0d770-text-1",
+        "69eb9303-9261-4bec-8662-2b41143daa45",
+        "dca8bbfb-4486-476a-9069-7d6f2a728cd1",
+        "a6fcb87d-5d6d-46bb-99ec-37bf9d2a4d99"
+      ],
+      "settings": {
+        "bgcolor": "",
+        "showmobile": true,
+        "heading": "",
+        "margin_bottom_desktop": 8,
+        "margin_bottom_mobile": 8
+      }
+    },
+    "8f169efa-beba-4e2f-b58e-9dc18b76f64a": {
+      "type": "find-us-online",
+      "blocks": {
+        "template--16179472302252__8f169efa-beba-4e2f-b58e-9dc18b76f64a-text-1": {
+          "type": "text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_238452_0185d53c-32dd-4a5f-9d24-5b441438c1de.png",
+            "links": "https:\/\/www.amazon.in\/stores\/page\/CFE05C3D-8D1F-4296-98BC-6A79ACFACD01?ingress=3"
+          }
+        },
+        "c948d91e-0faf-49a7-91cb-d4bdf41e0acd": {
+          "type": "text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_238451_3d6b543c-ebba-4682-a03c-8fd388e1381b.png",
+            "links": "https:\/\/www.flipkart.com\/search?q=titan+shoes&otracker=search&otracker1=search&marketplace=FLIPKART&as-show=on&as=off&p%5B%5D=facets.brand%255B%255D%3Dtitan"
+          }
+        },
+        "41713adc-8fb8-423f-a412-4b30ad042ae9": {
+          "type": "text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Myntra_logo_1_2214875f-49e2-485b-80e4-f4ac0e22d6bb.png",
+            "links": "https:\/\/www.myntra.com\/titan"
+          }
+        },
+        "19eba8ca-6ba2-4edb-bb49-7acb095e17c9": {
+          "type": "text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_73.png",
+            "links": "https:\/\/www.ajio.com\/b\/titan?query=:relevance"
+          }
+        }
+      },
+      "block_order": [
+        "template--16179472302252__8f169efa-beba-4e2f-b58e-9dc18b76f64a-text-1",
+        "c948d91e-0faf-49a7-91cb-d4bdf41e0acd",
+        "41713adc-8fb8-423f-a412-4b30ad042ae9",
+        "19eba8ca-6ba2-4edb-bb49-7acb095e17c9"
+      ],
+      "settings": {
+        "bgcolor": "#fef7b8",
+        "heading": "Find Us Online",
+        "showmobile": true,
+        "margin_bottom_desktop": 36,
+        "margin_bottom_mobile": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "b16e5ede-41ff-44ce-a9ee-9a928dd0d770",
+    "8f169efa-beba-4e2f-b58e-9dc18b76f64a"
+  ]
+}
