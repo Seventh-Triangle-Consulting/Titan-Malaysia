@@ -1,4 +1,4 @@
-@media screen and (ma-width:1024px){
+@media screen and (max-width:1024px){
   .pdp_shipping, .pdp_returns_policy{width:100%;}
   .pdp_shipping{margin-bottom:2%;}
   .pdp_shipping_returns{flex-direction:center;align-items:baseline;}
