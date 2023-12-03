@@ -3,7 +3,7 @@
   .pdp_shipping{margin-bottom:2%;}
   .pdp_shipping_returns{flex-direction:center !important;align-items:baseline !important;}
 }
-.field:hover.field:after, .select:hover.select:after, .select__select:hover.select__select:after{
+.field:after, .select:after, .field:hover.field:after, .select:hover.select:after, .select__select:hover.select__select:after{
   box-shadow:none;
 }
 .hide-productformdesktopsticky{
