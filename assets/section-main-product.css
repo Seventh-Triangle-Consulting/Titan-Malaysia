@@ -9,6 +9,8 @@
     width: 100%;
     background: white;
     z-index: 11;
+    display: flex;
+    justify-content: space-between;
 }
 .productformdesktopsticky-title-image{
     display: flex;
