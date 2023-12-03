@@ -904,6 +904,7 @@
   {%- endif -%}
 
 <script>
+
 window.addEventListener('DOMContentLoaded',() => {
 
       var swiper = new Swiper("#{{ section.id }} .mySwiper", {
@@ -935,7 +936,21 @@ window.addEventListener('DOMContentLoaded',() => {
     { once: true }
   );
           
-   
+ document.addEventListener('DOMContentLoaded', function() {
+      // Select all elements with the class custom-description-title
+      var titleElements = document.querySelectorAll('.custom-description-title');
+
+      // Add click event listener to each title element
+      titleElements.forEach(function(titleElement) {
+        titleElement.addEventListener('click', function() {
+          // Toggle the class column-description-hide on the next sibling
+          var nextSibling = this.nextElementSibling;
+          if (nextSibling) {
+            nextSibling.classList.toggle('column-description-hide');
+          }
+        });
+      });
+    });   
 
 </script>
   <script>
