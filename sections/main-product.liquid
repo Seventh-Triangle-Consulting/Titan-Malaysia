@@ -1089,7 +1089,8 @@ window.addEventListener('DOMContentLoaded',() => {
    document.querySelector('.productformdesktoptitle').appendChild(clone2);
    document.querySelector('.productformdesktoptitle').appendChild(clone3); 
    document.querySelector('.productformdesktopsticky-variant-atc').appendChild(clone); 
-   document.querySelector('.custom-atc-product').appendChild(clone); 
+   let cloneNew = document.querySelector('.product-form').cloneNode(true);
+   document.querySelector('.custom-atc-product').appendChild(cloneNew); 
   
   
     const isProductSoldOut = () => {
