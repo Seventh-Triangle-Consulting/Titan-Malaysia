@@ -942,9 +942,8 @@ window.addEventListener('DOMContentLoaded',() => {
 
       // Add click event listener to each title element
       titleElements.forEach(function(titleElement) {
-        titleElement.addEventListener('click', function(e) {
+        titleElement.addEventListener('click', function() {
           // Toggle the class svg-transform on all elements with the same class
-          e.classList.toggle('svg-transform');
           var nextSibling = this.nextElementSibling;
           if (nextSibling) {
             nextSibling.classList.toggle('column-description-hide');
