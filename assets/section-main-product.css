@@ -12,8 +12,10 @@
     justify-content: space-between;
    gap:20px;
 }
+.product-form{display:none;}
 .custom-atc-qty-slector product-form{
   margin:0 !important;
+  display:block;
 }
 .custom-atc-qty-slector .pdp_ATC{
   width:25vw;
