@@ -20,6 +20,7 @@
               name="options[{{ option.name | escape }}]"
               form="{{ product_form_id }}"
             >
+              {%- for value in option.values -%}
               <option
       value="{{ value | escape }}"
       {% if option.selected_value == value %}
@@ -32,6 +33,7 @@
         {{- value -}}
       {%- endif %}
     </option>
+              {% endfor %}
             </select>
             {% render 'icon-caret' %}
           </div>
