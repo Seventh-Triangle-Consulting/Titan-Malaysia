@@ -12,6 +12,17 @@
     display: flex;
     justify-content: space-between;
 }
+.productformdesktopsticky select{
+  border-radius: 6px;
+  height: 56px;
+  margin-top: -4%;
+  background-color: #fff;
+  padding: 0 5rem 0 10px;
+  font-size: 1.3vw;
+}
+..productformdesktopsticky select:after{
+  border-radius:6px !important;
+}
 .productformdesktopsticky .product-form__input--dropdown{margin-bottom:0 !important;}
 .productformdesktopsticky .product-form .form{display:block !important;}
 .productformdesktopsticky-variant-atc{
