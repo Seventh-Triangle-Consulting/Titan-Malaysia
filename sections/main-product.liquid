@@ -873,7 +873,9 @@
                             }}
         </div>
         <div class="productformdesktoptitle"></div>
-              {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
+        <div class="productformdesktopsticky-variant-atc">
+             {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
+        </div>
       </div>
    </div>
   {% render 'product-media-modal', variant_images: variant_images %}
