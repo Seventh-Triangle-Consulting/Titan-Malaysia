@@ -868,7 +868,7 @@
     {% for block in section.blocks %}
         {%- case block.type -%}
            {%- when 'variant_picker' -%}
-               {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
+              {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
         {% endcase %}
     {% endfor %}
   </div>
