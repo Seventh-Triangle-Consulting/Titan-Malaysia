@@ -9,6 +9,7 @@
   .custom-product-description .row{margin-bottom:5%;}
   .product-form .form{display:flex;flex-direction:row;}
   .titan_main_product{padding:0;}
+  .custom-product-description{margin-top:0%;}
 }
 .product{ margin: 0;}
 .custom-product-description{margin-top:5%;}
