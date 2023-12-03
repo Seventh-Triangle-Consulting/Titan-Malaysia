@@ -12,6 +12,26 @@
     display: flex;
     justify-content: space-between;
 }
+.productformdesktopsticky-variant-atc{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.pdp_ATC{
+    background: #282728;
+    font-size: 1.4vw;
+    color: #fff;
+    height: 56px;
+    font-family: AvenirLTStd Black;
+    text-transform: uppercase;
+    border: 10px!important;
+    border-radius: 8px!important;
+    padding: 0 75px;
+    flex-basis: 50%;
+    box-shadow: none;
+    width: 18vw;
+    margin-right: 20px;
+}
 .productformdesktopsticky-title-image{
     display: flex;
     align-items: center;
