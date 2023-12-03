@@ -923,14 +923,13 @@
   {%- endif -%}
 
 <script>
-
 document.addEventListener('DOMContentLoaded', function() {
       var productForm = document.querySelector('.productformdesktopsticky');
       var mainProduct = document.querySelector('.pdp_shipping_returns');
       var productFormOffsetTop = mainProduct.offsetTop;
 
       function toggleProductForm() {
-        console.log(productFormOffsetTop);
+        console.log(productFormOffsetTop+100);
         if (window.scrollY >= productFormOffsetTop) {
           productForm.classList.remove('hide-productformdesktopsticky');
         } else {
