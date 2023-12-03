@@ -20,6 +20,7 @@
   box-shadow:none;
 }
 .product-form{display:none;}
+.productformdesktopsticky product-form{display:block;}
 .custom-atc-qty-slector product-form{
   margin:0 !important;
   display:block;
