@@ -1869,6 +1869,8 @@ border:none;background:transparent;} */
 }
 @media(max-width:749px)
 {
+   .custom-desktop-slider-main-thumbs-up{display:none;}{display:none;}
+   .custom-desktop-slider-main img{height:auto;width:100%;}
   .jdgm-rev-widg.jdgm-rev-widg{padding-top:0 !important;}
   .card__badge.reviews, .card__badge.reviews span {
     margin-top: 5px;}
