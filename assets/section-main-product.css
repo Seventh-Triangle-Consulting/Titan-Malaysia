@@ -16,6 +16,9 @@
     justify-content: space-between;
    gap:20px;
 }
+.quantity:after{
+  box-shadow:none;
+}
 .product-form{display:none;}
 .custom-atc-qty-slector product-form{
   margin:0 !important;
