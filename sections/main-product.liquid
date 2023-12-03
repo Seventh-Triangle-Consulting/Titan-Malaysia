@@ -323,8 +323,8 @@
                     >
                   </span>
                 </label>
-              <div>
-                 <div>Hello</div>
+              <div class="custom-atc-qty-slector">
+                 <div class="custom-atc-product"></div>
                 <div class="price-per-item__container">
                   <quantity-input class="quantity" data-url="{{ product.url }}" data-section="{{ section.id }}">
                     <button class="quantity__button no-js-hidden" name="minus" type="button">
@@ -1088,6 +1088,8 @@ window.addEventListener('DOMContentLoaded',() => {
    document.querySelector('.productformdesktoptitle').appendChild(clone2);
    document.querySelector('.productformdesktoptitle').appendChild(clone3); 
    document.querySelector('.productformdesktopsticky-variant-atc').appendChild(clone); 
+   document.querySelector('.custom-atc-product').appendChild(clone); 
+  
   
     const isProductSoldOut = () => {
       try{
