@@ -15,6 +15,11 @@
           "settings": {
           }
         },
+        "b607d1c0-5375-49f3-859b-52d3887260ae": {
+          "type": "rating",
+          "settings": {
+          }
+        },
         "price": {
           "type": "price",
           "settings": {
@@ -47,6 +52,7 @@
       "block_order": [
         "vendor",
         "title",
+        "b607d1c0-5375-49f3-859b-52d3887260ae",
         "price",
         "variant_picker",
         "quantity_selector",
