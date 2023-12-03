@@ -99,10 +99,6 @@
             <div class="swiper-button-prev"></div>
        </div>
     </div>
-
-    <div class="mobile" style="width:100%;">
-     {% render 'product-media-gallery', variant_images: variant_images %}
-     </div>
      
     <div class="titan_main_product product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
       <product-info
