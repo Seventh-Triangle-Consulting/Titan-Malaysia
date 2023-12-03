@@ -7,7 +7,7 @@
   box-shadow:none;
 }
 .quantity__button{
-  background-color:#000;
+  background-color:#000 !important;
   color:#fff;
 }
 .custom-atc-qty-slector{
