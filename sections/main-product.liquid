@@ -813,7 +813,7 @@
                {%- case block.type -%}
                {%- when 'description' -%} 
                      {%- if product.description != blank -%} 
-                        <div class="column-description product__description rte quick-add-hidden column-description-hide" {{ block.shopify_attributes }}> {{ product.description }} </div> 
+                        <div class="desccriptiom-custom-acc column-description product__description rte quick-add-hidden column-description-hide" {{ block.shopify_attributes }}> {{ product.description }} </div> 
                     {%- endif -%}
                 {% endcase %}
              {% endfor %}
@@ -828,7 +828,7 @@
                         </svg>
                 </div>
                 </div>
-                <div class="column-description column-description-hide ">{{ product.type }}</div>
+                <div class="desccriptiom-custom-acc column-description column-description-hide ">{{ product.type }}</div>
              </div>
         {% endif %}
         {% if product.metafields.custom.model_stats != blank %}
@@ -840,7 +840,7 @@
                         </svg>
                 </div>
               </div>
-              <div class="column-description column-description-hide ">{{ product.metafields.custom.model_stats }}</div>
+              <div class="desccriptiom-custom-acc column-description column-description-hide ">{{ product.metafields.custom.model_stats }}</div>
             </div>
         {% endif %}
         <div>
