@@ -53,10 +53,9 @@
       value="{{ value | escape }}"
       form="{{ product_form_id }}"
       data-size = "size"
-      {% comment %}
       {% if option.selected_value == value %}
         checked
-      {% endif %}{% endcomment %}
+      {% endif %}
       {% if option_disabled %}
         class="disabled"
       {% endif %}
