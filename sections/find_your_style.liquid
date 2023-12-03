@@ -248,19 +248,19 @@ function openDropdown(event) {
        
           
          if(selectedCategory != "" &&  selectedPurpose != "" && selectedColor != ""){
-             location.href= `https://plaeto.in/collections/all?sort_by=title-ascending&filter.v.price.gte=&filter.v.price.lte=&filter.p.m.custom.gender_filter=${selectedCategory}&filter.p.m.custom.purpose=${selectedPurpose}&filter.p.m.custom.color_filter=${selectedColor}`
+             location.href= `https://titan.in/collections/all?sort_by=title-ascending&filter.v.price.gte=&filter.v.price.lte=&filter.p.m.custom.gender_filter=${selectedCategory}&filter.p.m.custom.purpose=${selectedPurpose}&filter.p.m.custom.color_filter=${selectedColor}`
              emptySelectedValues();
           }
           else if(selectedCategory != "" &&  selectedPurpose != "" && selectedColor == "" ){
-             location.href= `https://plaeto.in/collections/all?sort_by=title-ascending&filter.v.price.gte=&filter.v.price.lte=&filter.p.m.custom.gender_filter=${selectedCategory}&filter.p.m.custom.purpose=${selectedPurpose}`
+             location.href= `https://titan.in/collections/all?sort_by=title-ascending&filter.v.price.gte=&filter.v.price.lte=&filter.p.m.custom.gender_filter=${selectedCategory}&filter.p.m.custom.purpose=${selectedPurpose}`
              emptySelectedValues();
           }
           else if(selectedCategory != "" &&  selectedColor != "" && selectedPurpose == ""){
-             location.href= `https://plaeto.in/collections/all?sort_by=title-ascending&filter.v.price.gte=&filter.v.price.lte=&filter.p.m.custom.gender_filter=${selectedCategory}&filter.p.m.custom.color_filter=${selectedColor}`
+             location.href= `https://titan.in/collections/all?sort_by=title-ascending&filter.v.price.gte=&filter.v.price.lte=&filter.p.m.custom.gender_filter=${selectedCategory}&filter.p.m.custom.color_filter=${selectedColor}`
              emptySelectedValues();
           }
          else if(selectedCategory != ""){
-            location.href= `https://plaeto.in/collections/all?sort_by=title-ascending&filter.v.price.gte=&filter.v.price.lte=&filter.p.m.custom.gender_filter=${selectedCategory}`
+            location.href= `https://titan.in/collections/all?sort_by=title-ascending&filter.v.price.gte=&filter.v.price.lte=&filter.p.m.custom.gender_filter=${selectedCategory}`
             emptySelectedValues();
          }
        }catch(e){
