@@ -1859,7 +1859,7 @@ font-size: 19px;font-weight: 500;line-height: 34px;letter-spacing: 0.38px;paddin
   .product__title { padding-top: 25px;}
   .discount-name{font-size:14px;}
   .product__info-wrapper {
-    padding: 0 2rem 0 5rem;
+    padding: 0 2rem 0 2rem;
 }
 }
 
