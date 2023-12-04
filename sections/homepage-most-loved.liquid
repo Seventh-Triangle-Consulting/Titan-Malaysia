@@ -1,0 +1,201 @@
+<style>
+    .mostloved-section-{{ section.id }} .card__badge{display:none;}
+    .most-loved-view-more-btn{width: fit-content; display: flex; align-items: center; justify-content: center; background: black; color: white; text-transform: uppercase; text-decoration: initial;padding:10px 5%; border-radius: 10px;font-family:Roboto-Medium;margin:auto;}
+    .mostloved-section-{{ section.id }} {margin-bottom: {{ section.settings.margin_bottom_desktop }}px;max-width:1920px;margin-left:auto;margin-right:auto;}
+    .mostloved .swiper-slide{ width:calc(100% / 4);margin-right:16px;}
+    .mostloved div:empty{display:block;}
+    .mostloved_div{text-align:center;    padding-right: 120px;}
+    .mostloved .swiper-scrollbar{left:0;width:100%;}
+    .mostloved_heading{color:#000;font-family: PlayfairDisplay-Bold;line-height: normal;letter-spacing: 0.3px;font-size:28px; margin-bottom:14px;}
+    .mostloved_tabcontent .swiper-wrapper{padding-bottom:1.5rem;}
+    .mostloved_tab {overflow: hidden;display:flex;gap:28px;justify-content:center;    padding-right: 120px;}
+    .mostloved_tab button {text-transform:capitalize;background-color: inherit;float: left;border: none;outline: none;cursor: pointer;padding:2px 0;transition: 0.3s;font-size: 17px;color: #000;font-family:Roboto-Light;font-size: 15px;font-style: normal;border-radius:42px;font-weight: 400;line-height: 34px;letter-spacing: 0.23px;}
+    .mostloved_tab button.active {background-color: #000 !important;color: #FFF;font-family:'Roboto-Medium';font-size: 15px;font-style: normal;font-weight: 500;line-height: 34px; letter-spacing: 0.23px;}
+    .mostloved_tab button{border-radius:8px;padding: 0 20px;border:2px solid black;}
+    .mostloved_tabcontent {display: none;border-top: none;margin-top:25px;}
+    .mostloved .collection-swiper-men .swiper-slide,
+    .mostloved .collection-swiper-women .swiper-slide,
+    .mostloved .collection-swiper-kids .swiper-slide{ opacity: 0;transform: scale(0.97) translateY(3%);transform-origin: center;animation-delay: inherit;}
+    .mostloved .collection-swiper-men .swiper-slide,
+    .mostloved .collection-swiper-women .swiper-slide,
+    .mostloved .collection-swiper-kids .swiper-slide{
+    animation-duration: 0.65s;animation-timing-function: cubic-bezier(0, 0, 0.3, 1);
+    animation-delay: inherit;animation-direction: normal;animation-fill-mode: forwards;
+    animation-name: product_card_animation;}
+@keyframes product_card_animation {
+    0% {
+      opacity: 0.7;
+      transform: scale(0.97) translateY(3%);
+    }
+
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0px);
+    }
+  }
+@media screen and (min-width:2500px){
+  .mostloved-section-{{ section.id }}{max-width:2560px;margin-left: 25rem;}
+}
+@media(max-width:749px){
+  .mostloved_tab,.mostloved_div{padding-right:0;}
+  .mostloved-section-{{ section.id }} {margin-bottom: {{ section.settings.margin_bottom_mobile }}px;padding-left:20px;}
+  .mostloved_tab{gap:17px;flex-wrap:wrap;}
+  .mostloved .swiper-scrollbar{ display:none;}
+}
+</style>
+
+<div class="mostloved mostloved-section-{{ section.id }} page-width" id="{{ section.id }}">
+        <div class="mostloved_div">
+          <h2 class="mostloved_heading">{{ section.settings.mostloved_heading }}</h2>
+        </div>
+
+        <div class="mostloved_tab">
+                {% for block in section.blocks %}
+                  <button class="mostloved_tablinks" onclick="openCategory(event, '{{ block.settings.coll }}')">{{ block.settings.coll_name }}</button>
+                {% endfor %}   
+        </div>
+
+ {% for block in section.blocks %}
+             <div id="{{ block.settings.coll }}" class="mostloved_tabcontent">
+              {% assign collection_men = block.settings.coll %}
+                <div class="swiper collection-swiper-men">
+                    <div class="swiper-wrapper">
+                        {% for product in collection_men.products %}
+                                <div class="swiper-slide" style="animation-delay: {{ forloop.index0 | divided_by: 10.0 | round: 2 }}s">
+                                  
+                                   {% render 'related-products-card-product',
+                                          card_product: product,
+                                          lazy_load: true,
+                                          show_quick_add: section.settings.enable_quick_add,
+                                          section_id: section.id
+                                    %}
+                                </div>
+                          {% endfor %}
+                     </div>
+                </div>
+                <a class="most-loved-view-more-btn" href="{{ collection_men.url }}">View More</a>
+            </div>
+{% endfor %}
+</div>
+<script>
+   document.querySelectorAll('.mostloved_tablinks')[0].click();
+  
+  function openCategory(evt, category){
+    console.log(category+"category")
+     var i, tabcontent, tablinks;
+    console.log("heloooo"+category);
+    bestsllers_tabcontent = document.getElementsByClassName('mostloved_tabcontent');
+    for (i = 0; i < bestsllers_tabcontent.length; i++) {
+      bestsllers_tabcontent[i].style.display = 'none';
+    }
+    mostloved_tablinks = document.getElementsByClassName('mostloved_tablinks');
+    for (i = 0; i < mostloved_tablinks.length; i++) {
+      mostloved_tablinks[i].className = mostloved_tablinks[i].className.replace(' active', '');
+    }
+    document.getElementById(category).style.display = 'block';
+    evt.currentTarget.className += ' active';
+  }
+
+  window.addEventListener(
+    'DOMContentLoaded',
+    () => {
+      var collection_swiper_men = new Swiper('#{{- section.id }} .collection-swiper-men', {
+        slidesPerView: 1.5,
+        spaceBetween: 10,
+        grabCursor: true,
+        lazy: true,
+        loop: true,
+        
+        breakpoints: {
+           630: {
+            slidesPerView: 2.5,
+          },
+          900: {
+            slidesPerView: 4,
+            spaceBetween: 16,
+          },
+        },
+      });
+    },
+    { once: true }
+  );
+</script>
+
+{% schema %}
+{
+  "name": "Most Loved",
+  "settings": [
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom Desktop",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom Mobile",
+      "default": 36
+    },
+    {
+      "type": "text",
+      "id": "mostloved_heading",
+      "label": "Heading",
+      "default": "mostloved"
+    },
+    {
+      "type": "collection",
+      "id": "men_collection",
+      "label": "Men Collection"
+    },
+    {
+      "type": "collection",
+      "id": "women_collection",
+      "label": "Women Collection"
+    },
+    {
+      "type": "collection",
+      "id": "kids_collection",
+      "label": "Kids Collection"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_quick_add",
+      "label": "Show Quick Add",
+      "default": true
+    }
+
+  ],
+  "blocks":[
+       {
+        "type":"cp",
+        "name":"Collection",
+        "settings":[
+          {
+            "type":"collection",
+            "id":"coll",
+            "label":"Collection"
+          },
+          {
+            "type":"text",
+            "id":"coll_name",
+            "label":"Collection Name"
+          }
+        ]
+      }
+    ],
+  "presets": [
+    {
+      "name": "Most Loved"
+    }
+  ]
+}
+{% endschema %}

@@ -39,13 +39,6 @@
 
         {% if enable_filtering %}
           {% comment %} Heading is the first tabbable element on filter type horizontal {% endcomment %}
-           <h2
-                      class="facets__heading facets__heading--vertical caption-large text-body"
-                      id="verticalTitle"
-                      tabindex="-1"
-                    >
-                      Filters
-                    </h2>
           <div
             id="FacetsWrapperDesktop"
             {% if filter_type == 'horizontal' %}
@@ -59,11 +52,16 @@
             {%- endif -%}
             {% comment %} Pills are right below the title for filter type vertical {% endcomment %}
             {%- if filter_type == 'vertical' -%}
-              
               <div class="active-facets active-facets-desktop">
                 <div class="active-facets-vertical-filter">
                   {%- unless results.filters == empty -%}
-                   
+                    <h2
+                      class="facets__heading facets__heading--vertical caption-large text-body"
+                      id="verticalTitle"
+                      tabindex="-1"
+                    >
+                      {{ 'products.facets.filter_by_label' | t }}
+                    </h2>
                   {%- endunless -%}
                   <facet-remove class="active-facets__button-wrapper">
                     <a href="{{ results_url }}" class="active-facets__button-remove underlined-link">
@@ -76,7 +74,7 @@
                     <facet-remove>
                       <a href="{{ value.url_to_remove }}" class="active-facets__button active-facets__button--light">
                         <span class="active-facets__button-inner button button--tertiary">
-                          {{ value.label | escape }}
+                          {{ filter.label }}: {{ value.label | escape }}
                           {% render 'icon-close-small' %}
                           <span class="visually-hidden">{{ 'products.facets.clear_filter' | t }}</span>
                         </span>
@@ -112,17 +110,15 @@
 
             <script src="{{ 'show-more.js' | asset_url }}" defer="defer"></script>
             {% comment %} Filters for both horizontal and vertical filter {% endcomment %}
-             {%- for filter in results.filters -%}
-               {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
+            {%- for filter in results.filters -%}
+              {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
               {% case filter.type %}
-               
                 {% when 'boolean', 'list' %}
-                 {% if filter.label != 'Gender' %}
                   <details
                     id="Details-{{ forloop.index }}-{{ section.id }}"
-                    class="{% if filter_type == 'horizontal' %}disclosure-has-popup facets__disclosure{% else %} facets__disclosure-vertical{% endif %} js-filter  details_{{ forloop.index }}{%  if filter.label == 'Size (UK)' %} sizedetails {% endif %}{%  if filter.label == 'Color' %} colordetails {% endif %}"
+                    class="{% if filter_type == 'horizontal' %}disclosure-has-popup facets__disclosure{% else %} facets__disclosure-vertical{% endif %} js-filter"
                     data-index="{{ forloop.index }}"
-                    {% if filter_type == 'vertical' %}
+                    {% if filter_type == 'vertical' and forloop.index == 1 %}
                       open
                     {% endif %}
                   >
@@ -139,7 +135,6 @@
                             >
                           {%- endif -%}
                         </span>
-                       
                         {% render 'icon-caret' %}
                       </div>
                     </summary>
@@ -165,13 +160,11 @@
                           class="{% if filter_type != 'vertical' %} facets__list{% endif %} list-unstyled no-js-hidden"
                           role="list"
                         >
-
-                
                           {%- for value in filter.values -%}
                             <li class="list-menu__item facets__item{% if forloop.index > 10 and filter_type == 'vertical' %} show-more-item hidden{% endif %}">
                               <label
                                 for="Filter-{{ filter.param_name | escape }}-{{ forloop.index }}"
-                                class="facet-checkbox test123{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}  {% if filter.label == 'Color' %}colorlabel{% endif %}"
+                                class="facet-checkbox{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}"
                               >
                                 <input
                                   type="checkbox"
@@ -186,9 +179,15 @@
                                   {% endif %}
                                 >
 
-                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
-                               <rect x="0.5" y="0.5" width="24" height="24" rx="2.5" stroke="black" stroke-opacity="0.6"/>
-                                 </svg>
+                                <svg
+                                  width="1.6rem"
+                                  height="1.6rem"
+                                  viewBox="0 0 16 16"
+                                  aria-hidden="true"
+                                  focusable="false"
+                                >
+                                  <rect width="16" height="16" stroke="currentColor" fill="none" stroke-width="1"></rect>
+                                </svg>
 
                                 <svg
                                   aria-hidden="true"
@@ -205,34 +204,8 @@
                                     stroke-linecap="round"
                                     stroke-linejoin="round" />
                                 </svg>
-                          
-                             {% if filter.label == 'Color' %}
-                                 {% for  colorhadnle in shop.metaobjects.color_swatch_variant.values  %}
-                                    
-                                   
-                                   {% if colorhadnle.color_name == value.label  %}
-                                      {% if colorhadnle.color_image  != blank %}
-                                        <div class="filter-color-image {% if value.active %}ColorActive{% endif %}">
-                                           
-                                          {{ colorhadnle.color_image | image_url: width: 50 | image_tag: loading: 'lazy'}}
-                                        <span aria-hidden="true">{{ value.label | escape }}</span>                                     
-                                    </div>
-                                    {% break %}
-                                    {% else  colorhadnle.color_code != blank %}
-                                      <div class="filter-color-image {% if value.active %}ColorActive{% endif %}">
-                                         <div class="color " style="background-color:{{ colorhadnle.color_code }}";> </div>
-                                      <span aria-hidden="true">{{ value.label | escape }}</span>                            
-                                      </div>
-                                         {% break %}
-                                     {% endif %}
-                                     {% endif %}
-                                    {% endfor %}
-                                    {% endif %}
-                     
-                                {% unless filter.label == 'Color' %}
-                                  <span aria-hidden="true" {%  if filter.label == 'Size (UK)' %} class="size" {% endif %}>{{ value.label | escape }}</span>
-                                {% endunless %}
-                               
+
+                                <span aria-hidden="true">{{ value.label | escape }} ({{ value.count }})</span>
                                 <span class="visually-hidden">
                                   {{- value.label | escape }} (
                                   {%- if value.count == 1 -%}
@@ -255,7 +228,7 @@
                             <li class="list-menu__item facets__item">
                               <label
                                 for="Filter-{{ filter.param_name | escape }}-{{ forloop.index }}-no-js"
-                                class="facet-checkbox test{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}"
+                                class="facet-checkbox{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}"
                               >
                                 <input
                                   type="checkbox"
@@ -296,7 +269,7 @@
                                     stroke-linejoin="round" />
                                 </svg>
 
-                                <span aria-hidden="true" {%  if filter.label == 'Size (UK)' %} class="size" {% endif %}>{{ value.label | escape }} ({{ value.count }})</span>
+                                <span aria-hidden="true">{{ value.label | escape }} ({{ value.count }})</span>
                                 <span class="visually-hidden">
                                   {{- value.label | escape }} (
                                   {%- if value.count == 1 -%}
@@ -329,7 +302,6 @@
                       {%- endif %}
                     </div>
                   </details>
-                  {% endif %}
                 {% when 'price_range' %}
                   {% liquid
                     assign currencies_using_comma_decimals = 'ANG,ARS,BRL,BYN,BYR,CLF,CLP,COP,CRC,CZK,DKK,EUR,HRK,HUF,IDR,ISK,MZN,NOK,PLN,RON,RUB,SEK,TRY,UYU,VES,VND' | split: ','
@@ -342,7 +314,7 @@
                     id="Details-{{ forloop.index }}-{{ section.id }}"
                     class="{% if filter_type == 'horizontal' %}disclosure-has-popup facets__disclosure{% else %} facets__disclosure-vertical{% endif %} js-filter"
                     data-index="{{ forloop.index }}"
-                    {% if filter_type == 'vertical'%}
+                    {% if filter_type == 'vertical' and forloop.index == 1 %}
                       open
                     {% endif %}
                   >
@@ -370,13 +342,12 @@
                         {%- endif -%}
                       </div>
                       <price-range class="facets__price">
-                        
+                        <span class="field-currency">{{ cart.currency.symbol }}</span>
                         <div class="field">
-                <span class="field-currency">{{ cart.currency.symbol }}</span>
                           <input
                             class="field__input"
                             name="{{ filter.min_value.param_name }}"
-                            id="Filter-{{ filter.label | escape }}-GTE"  onchange="minvaluefield()"
+                            id="Filter-{{ filter.label | escape }}-GTE"
                             {%- if filter.min_value.value -%}
                               {%- if uses_comma_decimals -%}
                                 value="{{ filter.min_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
@@ -385,7 +356,7 @@
                               {%- endif %}
                             {%- endif -%}
                             type="number"
-                            placeholder="0" onkeypress="if(this.value.length==5) return false;"
+                            placeholder="0"
                             min="0"
                             {%- if uses_comma_decimals -%}
                               max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
@@ -401,11 +372,10 @@
                           <span class="field-currency">{{ cart.currency.symbol }}</span>
                         {%- endif -%}
                         <div class="field">
-                <span class="field-currency">{{ cart.currency.symbol }}</span>
                           <input
                             class="field__input"
                             name="{{ filter.max_value.param_name }}"
-                            id="Filter-{{ filter.label | escape }}-LTE"  onchange="maxvaluefield()"
+                            id="Filter-{{ filter.label | escape }}-LTE"
                             {%- if filter.max_value.value -%}
                               {%- if uses_comma_decimals -%}
                                 value="{{ filter.max_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
@@ -428,21 +398,7 @@
                           </label>
                         </div>
                       </price-range>
-                        <input id="highprice" value="{{ filter.range_max | money_without_currency | replace: ',', '' | remove:'.00' }}" style="display:none;">     
                     </div>
-                 <!-- ============================PROGRESS BAR=========================== -->
-                      <div class="progress_bar">
-                      <div class="slider">
-                      <div class="progress"> </div>
-                      </div>
-                      <div class="input-range">
-                      <span class="output outputOne">0</span>
-                      <span class="output outputTwo">{{ filter.range_max | money_without_trailing_zeros | replace: ',', ''  }}</span>
-                      <input  type="range"  class="range-min" min="0" {%- if uses_comma_decimals -%}max="{{ filter.range_max | money_with_currency | replace: '.', '' | replace: ',', '.' }}"{%- else -%}max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"{% endif %} value="0">
-                      <input type="range"  class="range-max" min="0" {%- if uses_comma_decimals -%}max="{{ filter.range_max | money_with_currency | replace: '.', '' | replace: ',', '.' }}"{%- else -%}max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"{% endif %} value="{{ filter.range_max | money_without_currency | replace: ',', '' }}">
-              
-                </div>
-                      </div>
                   </details>
               {% endcase %}
             {%- endfor -%}
@@ -624,8 +580,6 @@
     {%- endif -%}
   {%- endif -%}
   {% comment %}  Drawer and mobile filter {% endcomment %}
-  <div class="sticky_filter">
-  
   <menu-drawer
     class="mobile-facets__wrapper{% if filter_type == 'horizontal' or filter_type == 'vertical' %} medium-hide large-up-hide{% endif %}"
     data-breakpoint="mobile"
@@ -634,7 +588,7 @@
       <summary class="mobile-facets__open-wrapper focus-offset">
         <span class="mobile-facets__open{% if filter_type == 'drawer' and enable_filtering == false %} medium-hide large-up-hide{% endif %}">
           {% render 'icon-filter' %}
-          {% comment %}<span class="mobile-facets__open-label button-label medium-hide large-up-hide">
+          <span class="mobile-facets__open-label button-label medium-hide large-up-hide">
             {%- if enable_filtering and enable_sorting -%}
               {{ 'products.facets.filter_and_sort' | t }}
             {%- elsif enable_filtering -%}
@@ -643,15 +597,12 @@
               {{ 'products.facets.sort_button' | t }}
             {%- endif -%}
           </span>
-          {% endcomment %}
-          <span class="mobile-facets__open-label button-label">
+          <span class="mobile-facets__open-label button-label small-hide">
             {%- if enable_filtering -%}
-              Filter
+              {{ 'products.facets.filter_button' | t }}
             {%- endif -%}
           </span>
-
         </span>
-                  <span class="nofilter" id="nofilterapplied">No Filter Applied</span>
         <span tabindex="0" class="mobile-facets__close mobile-facets__close--no-js">{%- render 'icon-close' -%}</span>
       </summary>
       <facet-filters-form>
@@ -659,21 +610,35 @@
           <div class="mobile-facets__inner gradient">
             <div class="mobile-facets__header">
               <div class="mobile-facets__header-inner">
-                
                 <h2 class="mobile-facets__heading medium-hide large-up-hide">
-                  Filters
+                  {%- if enable_filtering and enable_sorting -%}
+                    {{ 'products.facets.filter_and_sort' | t }}
+                  {%- elsif enable_filtering -%}
+                    {{ 'products.facets.filter_button' | t }}
+                  {%- elsif enable_sorting -%}
+                    {{ 'products.facets.sort_button' | t }}
+                  {%- endif -%}
                 </h2>
-                 
-                <facet-remove class="mobile-facets__clear-wrapper">
-                  <a href="{{ results_url }}" class="mobile-facets__clear underlined-link facet-remove" onclick="clearAll()">
-                    Clear All
-                  </a>
-                </facet-remove>
-                
+                <h2 class="mobile-facets__heading small-hide">
+                  {%- if enable_filtering -%}
+                    {{ 'products.facets.filter_button' | t }}
+                  {%- endif -%}
+                </h2>
+                <p class="mobile-facets__count">
+                  {%- if results.results_count -%}
+                    {{ 'templates.search.results_with_count' | t: terms: results.terms, count: results.results_count }}
+                  {%- elsif results.products_count == results.all_products_count -%}
+                    {{ 'products.facets.product_count_simple' | t: count: results.products_count }}
+                  {%- else -%}
+                    {{
+                      'products.facets.product_count'
+                      | t: product_count: results.products_count, count: results.all_products_count
+                    }}
+                  {%- endif -%}
+                </p>
               </div>
             </div>
             <div class="mobile-facets__main has-submenu gradient">
-       {% comment %}
               {%- if enable_filtering -%}
                 {%- for filter in results.filters -%}
                   {% case filter.type %}
@@ -896,209 +861,49 @@
                   {% endcase %}
                 {%- endfor -%}
               {%- endif -%}
-               {% endcomment %}
-                  <div class="customfiltermenu">
-<div class="filterleftside">
-                    {%- if enable_filtering -%}
-                {%- for filter in results.filters -%}
-                  {% case filter.type %}
-                    {% when 'boolean', 'list' %}
-                                     {% if filter.label != 'Gender' %}
-<div id="filterhead_{{ forloop.index }}" class="filterbutton {% if forloop.index == 1 %} active {% endif %}" data-number="{{ forloop.index }}"><span>{{ filter.label | escape }}</span>
- <span  id="filtercount_{{ forloop.index }}" class="filtercount"> </span>                  
-                       
-</div>
-  {% endif %}
-    {% when 'price_range' %}
-                   <div id="filterhead_{{ forloop.index }}" class="filterbutton" data-number="{{ forloop.index }}" > <span>{{ filter.label | escape }}</span>
-                    <span  id="filtercount_{{ forloop.index }}" class="filtercount"> </span> 
-                   </div>
-         
-                    {% endcase %}
-                  {% endfor %}
-                      {% endif %}
-</div>
-  <div class="filerrightside">
-      {%- if enable_filtering -%}
-        
-                {%- for filter in results.filters -%}
-                  {% case filter.type %}
-                    {% when 'boolean', 'list' %}
-                    <div class="mobile-facets__details filtercontent filtercontent_{{ forloop.index }}" data-number="{{ forloop.index }}" {% if forloop.index != 1 %} style="display:none;"{% endif %}>
-                     <ul class="mobile-facets__list list-unstyled" role="list">
-                            {%- for value in filter.values -%}
-                              <li class="mobile-facets__item list-menu__item">
-                                <label
-                                  for="Filter-{{ filter.param_name | escape }}-mobile-{{ forloop.index }}"
-                                  class="mobile-facets__label test{% if value.count == 0 and value.active == false %} mobile-facets__label--disabled{% endif %} {% if filter.label == 'Color' %}colorlabel{% endif %}"
-                                >
-                                  <input
-                                    class="mobile-facets__checkbox"
-                                    type="checkbox"
-                                    name="{{ value.param_name }}"
-                                    value="{{ value.value }}"
-                                    id="Filter-{{ filter.param_name | escape }}-mobile-{{ forloop.index }}"
-                                    {% if value.active %}
-                                      checked
-                                    {% endif %}
-                                    {% if value.count == 0 and value.active == false %}
-                                      disabled
-                                    {% endif %}
-                                  >
 
-                                  <span class="mobile-facets__highlight"></span>
-
-                                  <svg
-                                    width="1.6rem"
-                                    height="1.6rem"
-                                    viewBox="0 0 16 16"
-                                    aria-hidden="true"
-                                    focusable="false"
-                                  >
-                                    <rect width="16" height="16" stroke="currentColor" fill="none" stroke-width="1"></rect>
-                                  </svg>
-
-                                  <svg
-                                    aria-hidden="true"
-                                    class="icon icon-checkmark"
-                                    width="1.1rem"
-                                    height="0.7rem"
-                                    viewBox="0 0 11 7"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path d="M1.5 3.5L2.83333 4.75L4.16667 6L9.5 1" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
-                                  </svg>
-                                 
-                               
-                              
-                                {% if filter.label == 'Color' %}
-                                         {% for  colorhadnle in shop.metaobjects.color_swatch_variant.values  %}
-                                   {% if colorhadnle.color_name == value.label  %}
-                                      {% if colorhadnle.color_image  != blank %}
-                                        <div class="filter-color-image {% if value.active %}ColorActive{% endif %}">
-                                           <img src="{{ colorhadnle.color_image | img_url }}">
-                                        <span aria-hidden="true">{{ value.label | escape }}</span>                                     
-                                    </div>
-                                    {% else  colorhadnle.color_code != blank %}
-                                      <div class="filter-color-image {% if value.active %}ColorActive{% endif %}">
-                                         <div class="color " style="background-color:{{ colorhadnle.color_code }}";> </div>
-                                      <span aria-hidden="true" class="mobilelabel">{{ value.label | escape }}</span>                            
-                                      </div>
-                                     {% endif %}
-                                     {% endif %}
-                                    {% endfor %}
-                                {% endif %}
-                                {% unless filter.label == 'Color' %}
-                                  <span aria-hidden="true" class="mobilelabel">{{ value.label | escape }}</span>
-                                {% endunless %}
-                                  <span class="visually-hidden">
-                                    {{- value.label | escape }} (
-                                    {%- if value.count == '1' -%}
-                                      {{- 'products.facets.product_count_simple.one' | t: count: value.count -}}
-                                    {%- else -%}
-                                      {{- 'products.facets.product_count_simple.other' | t: count: value.count -}}
-                                    {%- endif -%}
-                                    )</span
-                                  >
-                                </label>
-                              </li>
-                            {%- endfor -%}
-                          </ul>
-                          </div>
-                                      {% when 'price_range' %}
-                    {%- assign max_price_amount = filter.range_max | money | strip_html | escape -%}
-                          
- <div class="mobile-facets__details filtercontent" data-number="{{ forloop.index }}" {% if forloop.index != 1 %} style="display:none;"{% endif %}>
-                          <price-range class="facets__price">
-                            
-                            <div class="field">
-                              <span class="field-currency">{{ cart.currency.symbol }}</span>
-                              <input
-                                class="field__input"
-                                name="{{ filter.min_value.param_name }}"
-                                id="Mobile-Filter-{{ filter.label | escape }}-GTE"  onchange="minvaluefield()"
-                                {%- if filter.min_value.value -%}
-                                  {%- if uses_comma_decimals -%}
-                                    value="{{ filter.min_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
-                                  {%- else -%}
-                                    value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"
-                                  {%- endif %}
-                                {%- endif -%}
-                                type="number"
-                                placeholder="0"
-                                min="0"
-                                inputmode="decimal"
-                                {%- if uses_comma_decimals -%}
-                                  max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
-                                {%- else -%}
-                                  max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
-                                {% endif %}
-                              >
-                              <label class="field__label" for="Mobile-Filter-{{ filter.label | escape }}-GTE">
-                                {{- 'products.facets.from' | t -}}
-                              </label>
-                            </div>
-
-                            
-                            <div class="field">
-                              <span class="field-currency">{{ cart.currency.symbol }}</span>
-                              <input
-                                class="field__input"
-                                name="{{ filter.max_value.param_name }}"
-                                id="Mobile-Filter-{{ filter.label | escape }}-LTE"  onchange="maxvaluefield()"
-                                {%- if filter.max_value.value -%}
-                                  {%- if uses_comma_decimals -%}
-                                    value="{{ filter.max_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
-                                  {%- else -%}
-                                    value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"
-                                  {%- endif %}
-                                {%- endif -%}
-                                type="number"
-                                min="0"
-                                inputmode="decimal"
-                                {%- if uses_comma_decimals -%}
-                                  placeholder="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
-                                  max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
-                                {%- else -%}
-                                  placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
-                                  max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
-                                {% endif %}
-                              >
-                              <label class="field__label" for="Mobile-Filter-{{ filter.label | escape }}-LTE">
-                                {{- 'products.facets.to' | t -}}
-                              </label>
-                            </div>
-                                 <input id="highpricemobile" type="checkbox" value="{{ filter.range_max | money_without_currency | replace: ',', '' | remove:'.00' }}" style="display:none;">     
-               
-                          </price-range>
-                    
-     <!-- ============================PROGRESS BAR=========================== -->
-                      <div class="progress_bar mobile">
-                      <div class="slider mobile">
-                      <div class="progress mobile"> </div>
+              {%- if enable_sorting -%}
+                <div
+                  class="mobile-facets__details js-filter{% if filter_type == 'drawer' %} medium-hide large-up-hide{% endif %}"
+                  data-index="mobile-{{ forloop.index }}"
+                >
+                  <div class="mobile-facets__summary">
+                    <div class="mobile-facets__sort">
+                      <label for="SortBy-mobile">{{ 'products.facets.sort_by_label' | t }}</label>
+                      <div class="select">
+                        <select
+                          name="sort_by"
+                          class="select__select"
+                          id="SortBy-mobile"
+                          aria-describedby="a11y-refresh-page-message"
+                        >
+                          {%- for option in results.sort_options -%}
+                            <option
+                              value="{{ option.value | escape }}"
+                              {% if option.value == sort_by %}
+                                selected="selected"
+                              {% endif %}
+                            >
+                              {{ option.name | escape }}
+                            </option>
+                          {%- endfor -%}
+                        </select>
+                        {% render 'icon-caret' %}
                       </div>
-                      <div class="input-range mobile">
-                      <span class="output outputOne mobile">0</span>
-                      <span class="output outputTwo mobile">{{ filter.range_max | money_without_trailing_zeros | replace: ',', ''  }}</span>
-                      <input  type="range"  class="range-min mobile" min="0" {%- if uses_comma_decimals -%}max="{{ filter.range_max | money_with_currency | replace: '.', '' | replace: ',', '.' }}"{%- else -%}max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"{% endif %} value="0">
-                      <input type="range"  class="range-max mobile" min="0" {%- if uses_comma_decimals -%}max="{{ filter.range_max | money_with_currency | replace: '.', '' | replace: ',', '.' }}"{%- else -%}max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"{% endif %} value="{{ filter.range_max | money_without_currency | replace: ',', '' }}">
-                      
                     </div>
-                      </div>
- </div>
-                    {% endcase %}
-                  {% endfor %}
-        {% endif %}
-  </div>
-</div>                  
+                  </div>
+                </div>
+              {%- endif -%}
+
               <div class="mobile-facets__footer">
-               <button class="cancle">
-                Cancel
-               </button>
+                <facet-remove class="mobile-facets__clear-wrapper">
+                  <a href="{{ results_url }}" class="mobile-facets__clear underlined-link">
+                    {{- 'products.facets.clear_all' | t -}}
+                  </a>
+                </facet-remove>
                 <button
                   type="button"
-                  class="no-js-hidden button button--primary apply"
+                  class="no-js-hidden button button--primary"
                   onclick="this.closest('.mobile-facets__wrapper').querySelector('summary').click()"
                 >
                   {{ 'products.facets.apply' | t }}
@@ -1298,272 +1103,3 @@
     </facet-filters-form>
   {%- endif -%}
 </div>
-<script>
-// // ====================PRICE FILTER==================================
-
-
- function priceBaeSlider(){
-   
-let rangeInput = document.querySelectorAll('.input-range input'),
-  progress = document.querySelector('.slider .progress'),
-  progressmobile = document.querySelector('.slider .progress.mobile'),
-  priceInput = document.querySelectorAll('price-range input') ;
-  let priceGap =250;
- let outputOne = document.querySelector('.outputOne');
-  let outputTwo = document.querySelector('.outputTwo');
-    document.getElementById("highpricemobile").checked = true;
-
-priceInput.forEach(input=>{
-  input.addEventListener("input",e=>{
-
-    let minVal = parseInt(priceInput[0].value),
-      maxVal = parseInt(priceInput[1].value);
-     let minValm = parseInt(priceInput[2].value),
-      maxValm = parseInt(priceInput[3].value);
-    
-let maxPricing = document.querySelector('.range-max').getAttribute('max');
-
-    if(maxVal - minVal >= priceGap && maxVal <= maxPricing){
-      if(e.target.className === "input-min"){
-        rangeInput[0].value = minVal;
-        progress.style.left = (minVal / rangeInput[0].max)*100 + "%";
-
-      }else{
-        rangeInput[1].value =  maxVal;
-        progress.style.right = 100-(maxVal / rangeInput[0].max)*100 + "%";
-
-      }
-    }
-    if(maxValm - minValm >= priceGap && maxValm <= maxPricing){
-      if(e.target.className === "input-min"){
-        rangeInput[2].value = minValm;
-        progressmobile.style.left = (minValm / rangeInput[2].max)*100 + "%";
-
-      }else{
-        rangeInput[3].value =  maxValm;
-        progressmobile.style.right = 100-(maxValm / rangeInput[3].max)*100 + "%";
-
-      }
-    }
-
-      });
-});
-
-rangeInput.forEach(input=>{
-  input.addEventListener("input",e=>{
-    let minVal = parseInt(rangeInput[0].value),
-      maxVal = parseInt(rangeInput[1].value);
-    let minValm = parseInt(rangeInput[2].value),
-      maxValm = parseInt(rangeInput[3].value);
-
-    if(maxVal - minVal < priceGap){
-      if(e.target.className==="range-min"){
-        rangeInput[0].value = maxVal - priceGap;
-      }else{
-         rangeInput[1].value = minVal + priceGap;
-      }
-    }else{
-
-        priceInput[0].value = minVal;
-        priceInput[1].value = maxVal;
-        progress.style.left = (minVal / rangeInput[0].max)*100 + "%";
-        progress.style.right = 100-(maxVal / rangeInput[1].max)*100 + "%";
-      priceInput[2].value = minValm;
-        priceInput[3].value = maxValm;
-        progressmobile.style.left = (minValm / rangeInput[2].max)*100 + "%";
-        progressmobile.style.right = 100-(maxValm / rangeInput[3].max)*100 + "%";
-       outputOne.innerHTML = "₹" + minVal;
-       outputTwo.innerHTML ="₹" + maxVal;
-       // outputOne.style.left = (minVal / rangeInput[0].max) * 100 + '%';
-       // outputTwo.style.left =(maxVal / rangeInput[0].max)*100 + "%";
-    }
-
-    if(maxValm - minValm < priceGap){
-      if(e.target.className==="range-min"){
-        rangeInput[2].value = maxValm - priceGap;
-      }else{
-         rangeInput[3].value = minValm + priceGap;
-      }
-    }else{
-
-      priceInput[2].value = minValm;
-      priceInput[3].value = maxValm;
-        progressmobile.style.left = (minValm / rangeInput[2].max)*100 + "%";
-        progressmobile.style.right = 100-(maxValm / rangeInput[3].max)*100 + "%";
-       outputOne.innerHTML = "₹" + minVal;
-       outputTwo.innerHTML ="₹" + maxVal;
-       // outputOne.style.left = (minVal / rangeInput[0].max) * 100 + '%';
-       // outputTwo.style.left =(maxVal / rangeInput[0].max)*100 + "%";
-    }
-    
-       const selectedPrice1 = priceInput[1].value;
-      sessionStorage.setItem('selectedPrice',selectedPrice1)
-      sessionStorage.setItem('lowestSelectedPrice', priceInput[0].value)
-     sessionStorage.setItem('selectedPricem',priceInput[3].value)
-      sessionStorage.setItem('lowestSelectedPricem', priceInput[2].value)
-    
-      });
-});
-  }
-
-function minvaluefield(){
-  console.log('minvaue');
-  let firstprice =  document.getElementById('Filter-Price-GTE').value;
-  let firstpricem =  document.getElementById('Mobile-Filter-Price-GTE').value;
-        sessionStorage.setItem('lowestSelectedPrice', firstprice);
-   sessionStorage.setItem('lowestSelectedPricem', firstpricem);
-  let rangeInput = document.querySelectorAll('.input-range input');
-          progress = document.querySelector('.slider .progress')
-          rangeInput[0].value = firstprice;
-   rangeInput[2].value = firstpricem;
-            progress.style.left = (firstprice / rangeInput[0].max)*100 + "%";
-    let progressmobile = document.querySelector('.slider .progress.mobile');
-progressmobile.style.left = (firstpricem / rangeInput[2].max)*100 + "%";
-  if( firstprice == ''){
-      console.log("blank set o");
-      firstprice = 0;
-      sessionStorage.setItem('lowestSelectedPrice', 0);
-    }
-}
-
-  function maxvaluefield(){
-  let firstprice =  document.getElementById('Filter-Price-GTE').value;
-     let secondprices =  document.getElementById('Filter-Price-LTE').value;
-  sessionStorage.setItem('selectedPrice',secondprices);
-      let secondpricesm =  document.getElementById('Mobile-Filter-Price-LTE').value;
-    let highprice = document.getElementById('highprice').value;
-  sessionStorage.setItem('selectedPricem',secondpricesm);
-  let rangeInput = document.querySelectorAll('.input-range input'),
-          progress = document.querySelector('.slider .progress')
-          rangeInput[0].value = firstprice;
-          rangeInput[1].value = secondprices;
-          progress.style.right = 100-(secondprices / rangeInput[1].max)*100 + "%";
-     let secondpricem =  document.getElementById('Mobile-Filter-Price-LTE').value;
-      let firstpricem =  document.getElementById('Mobile-Filter-Price-GTE').value;
-     rangeInput[2].value = firstpricem;
-          rangeInput[3].value = secondpricesm;
-   let progressmobile = document.querySelector('.slider .progress.mobile');
-progressmobile.style.right = 100-(secondpricem / rangeInput[3].max)*100 + "%";
-     if(secondprices == '' ){sessionStorage.setItem('selectedPrice',highprice);
-                       console.log("blank set high"+highprice);}
-    
-    if(secondprices > highprice ){sessionStorage.setItem('selectedPrice',highprice);
-                       console.log("price is high"+highprice);} 
-  
-           
-}
-
-function priceFilterOnLoad(){
-  
-          let element1 = document.querySelector("#Mobile-Filter-Price-GTE");
-          var event = new Event('input', {
-          bubbles: true,
-          cancelable: true,
-          });
-          element1.dispatchEvent(event);
-
-          let element2 = document.querySelector("#Mobile-Filter-Price-LTE");
-          var event = new Event('input', {
-          bubbles: true,
-          cancelable: true,
-          });
-          element2.dispatchEvent(event);
-   let element3 = document.querySelector("#Filter-Price-GTE");
-          var event = new Event('input', {
-          bubbles: true,
-          cancelable: true,
-          });
-          element3.dispatchEvent(event);
-
-          let element4 = document.querySelector("#Filter-Price-LTE");
-          var event = new Event('input', {
-          bubbles: true,
-          cancelable: true,
-          });
-          element4.dispatchEvent(event);
-}
-
-
-  
-
-  
-priceBaeSlider();
-window.psn();
-window.onload = priceFilterOnLoad();
-// end of price filter range
-
-
-
-        
-</script>
-          <script>
-         
-            
-     let Buttons = document.querySelectorAll(".filterbutton");
-//for (let button of Buttons) {
-       Buttons.forEach(function(el, key){        
-  el.addEventListener('click', (e, key) => {
-    const et = e.target;
-   
-    const active = document.querySelector(".active");
-  
-      //et.classList.toggle('active');
-   Buttons.forEach((tl) => {
-        tl.classList.remove('active');
-      });
-        el.classList.add('active');   
-    let allContent = document.querySelectorAll('.filtercontent');
-    for (let content of allContent) {
-      if(content.getAttribute('data-number') === el.getAttribute('data-number')) {
-         et.classList.add('active');
-        
-        content.style.display = "block";
-       }
-      else {
-        content.style.display = "none";
-       }
-     }
-    
-  }); 
-});
-
-            let filtercount = document.querySelectorAll(".filtercontent");
-            
-            
-  filtercount.forEach(function(el){ 
-             
-  el.addEventListener('click', (e) => {
-    let totalcheckcount = document.querySelectorAll('.filtercontent input[type="checkbox"]:checked').length;
-   document.getElementById('nofilterapplied').innerHTML=totalcheckcount+' Filter Applied';
- let datanumber = el.getAttribute('data-number')
-  let checkcount = document.querySelectorAll('.filtercontent_'+datanumber+' input[type="checkbox"]:checked').length;
-    document.getElementById('filtercount_'+datanumber+'').innerHTML = checkcount;
-
-  });
-  });
-
-       function clearAll(){
-        var isAllCheck = false;
-          document.getElementById('nofilterapplied').innerHTML='No Filter Applied';
-          let highprice = document.getElementById('highprice').value;
-            sessionStorage.setItem('selectedPricem',highprice);
-          let priceInput = document.querySelectorAll('price-range input') ;
-         priceInput[2].value = 0;
-          priceInput[3].value = highprice;
-           let rangeInput = document.querySelectorAll('.input-range input');
-          let progressmobile = document.querySelector('.slider .progress.mobile');
-          rangeInput[2].value = 0;
-          rangeInput[3].value = highprice;
-          progressmobile.style.right = 100-(highprice / rangeInput[3].max)*100 + "%";
-         progressmobile.style.left = 0 +"%";
-        document.querySelectorAll('input[type=checkbox]').forEach(el => el.checked = isAllCheck)
-        document.querySelector('.disclosure-has-popup.menu-opening').removeAttribute("open");
-         document.body.classList.remove('overflow-hidden-mobile');
-          let filtercount = document.querySelectorAll('.filtercount');
-          filtercount.forEach((t) => {          
-        t.innerHTML= " ";
-      });
-            }
-            
-     </script>
-                                    </div>

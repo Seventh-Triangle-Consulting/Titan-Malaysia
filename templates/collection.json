@@ -1,1 +1,35 @@
-{"sections":{"banner":{"type":"main-collection-banner","disabled":true,"settings":{"show_collection_description":true,"show_collection_image":false,"color_scheme":"background-1"}},"5a296c78-e5dc-42b1-b45a-371f8899e73e":{"type":"collection-slideshow","settings":{"margin_bottom_desktop":0,"margin_bottom_mobile":0}},"product-grid":{"type":"main-collection-product-grid","settings":{"products_per_page":12,"columns_desktop":3,"image_ratio":"adapt","image_shape":"default","show_secondary_image":false,"show_vendor":false,"show_rating":true,"enable_quick_add":false,"enable_colorswatch":true,"enable_filtering":true,"filter_type":"vertical","enable_sorting":true,"columns_mobile":"2","padding_top":28,"padding_bottom":44}},"67649b92-376c-429b-bfef-ea6e378f9896":{"type":"plp-faq","settings":{"heading":"FAQs","margin_bottom_desktop":40,"margin_bottom_mobile":48}},"a308c1e5-b253-432c-abf7-675aeeca631b":{"type":"plp-scrollbar","blocks":{"template--16171339186348__a308c1e5-b253-432c-abf7-675aeeca631b-text-1":{"type":"text","settings":{"text":"Lightweight","image":"shopify:\/\/shop_images\/Icon_-01_1.png"}},"f7cd23a2-1ca7-4c50-9631-95c6a873587e":{"type":"text","settings":{"text":"Durable","image":"shopify:\/\/shop_images\/nm-01_1.png"}},"a330b073-33d3-4f98-8b9b-d65a24afe366":{"type":"text","settings":{"text":"Comfortable","image":"shopify:\/\/shop_images\/ml-01_1.png"}},"9296f4e4-160f-4c55-abc0-672487f0dfe2":{"type":"text","settings":{"text":"Washable","image":"shopify:\/\/shop_images\/mlll-01_1.png"}},"9d18f37d-28ec-436e-8d2d-baee9ec75549":{"type":"text","settings":{"text":"Lightweight","image":"shopify:\/\/shop_images\/Icon_-01_1.png"}},"a1deae58-5eb6-453a-8866-3d25b6da7eac":{"type":"text","settings":{"text":"Durable","image":"shopify:\/\/shop_images\/nm-01_1.png"}},"23ea46b2-9e2f-406a-b3ce-c92b2c3e70fa":{"type":"text","settings":{"text":"Comfortable","image":"shopify:\/\/shop_images\/ml-01_1.png"}},"01d654d7-cec5-411d-aa72-1bf1128f2e1b":{"type":"text","settings":{"text":"Lightweight","image":"shopify:\/\/shop_images\/Icon_-01_1.png"}},"359004f7-04e6-41d7-a744-f55fd8d3fecc":{"type":"text","settings":{"text":"Durable","image":"shopify:\/\/shop_images\/nm-01_1.png"}},"4baf0c8b-0fb5-49d0-8c8e-060a6e6a4319":{"type":"text","settings":{"text":"Comfortable","image":"shopify:\/\/shop_images\/ml-01_1.png"}},"058f44e7-579f-44e2-a36f-4eda903a16b9":{"type":"text","settings":{"text":"Washable","image":"shopify:\/\/shop_images\/mlll-01_1.png"}}},"block_order":["template--16171339186348__a308c1e5-b253-432c-abf7-675aeeca631b-text-1","f7cd23a2-1ca7-4c50-9631-95c6a873587e","a330b073-33d3-4f98-8b9b-d65a24afe366","9296f4e4-160f-4c55-abc0-672487f0dfe2","9d18f37d-28ec-436e-8d2d-baee9ec75549","a1deae58-5eb6-453a-8866-3d25b6da7eac","23ea46b2-9e2f-406a-b3ce-c92b2c3e70fa","01d654d7-cec5-411d-aa72-1bf1128f2e1b","359004f7-04e6-41d7-a744-f55fd8d3fecc","4baf0c8b-0fb5-49d0-8c8e-060a6e6a4319","058f44e7-579f-44e2-a36f-4eda903a16b9"],"disabled":true,"settings":{"bgcolor":"#fef7b8","showmobile":true,"margin_bottom_desktop":36,"margin_bottom_mobile":36}},"c6599105-0963-4724-ada0-448e3c29ca6c":{"type":"plp-tab-section","settings":{"plp-heading":"Explore More Styles","desktop_padding_top_plp":5,"desktop_padding_left_plp":4,"mobile_padding_top_plp":3,"mobile_padding_left_plp":1,"image_ratio":"adapt","show_secondary_image":false,"show_vendor":false,"show_rating":false,"enable_quick_add":false,"enable_size_selector":false,"enable_add_to_card":false}},"86a26972-a997-43dc-9002-f5ac5232314e":{"type":"recently-viewed","settings":{"title":"Recently Viewed","heading_size":"h1","description":"","columns_desktop":4,"full_width":false,"swipe_on_mobile":true,"swipe_navigation":true,"swipe_pagination":false,"columns_mobile":"2","padding_top":36,"padding_bottom":36}}},"order":["banner","5a296c78-e5dc-42b1-b45a-371f8899e73e","product-grid","67649b92-376c-429b-bfef-ea6e378f9896","a308c1e5-b253-432c-abf7-675aeeca631b","c6599105-0963-4724-ada0-448e3c29ca6c","86a26972-a997-43dc-9002-f5ac5232314e"]}
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "background-1"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 16,
+        "columns_desktop": 4,
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "enable_filtering": true,
+        "filter_type": "horizontal",
+        "enable_sorting": true,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "product-grid"
+  ]
+}

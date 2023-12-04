@@ -3,6 +3,7 @@
 {%- style -%}
   .section-{{ section.id }}-padding {
     margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+    background-color:{{ section.settings.brand_bg_color }};
   }
 
   @media screen and (max-width: 750px) {
@@ -18,10 +19,11 @@
   <div thumbsSlider="" class="swiper mySwiper3">
     <div class="swiper-hover swiper-wrapper">
       {% for block in section.blocks %}
-        <div class="swiper-slide">
-          {{ block.settings.Brands_testimonial_image | image_url: width: 300 | image_tag: loading: 'lazy', class:'Brands_testimonial_image'}}
-         
-        </div>
+        {% if block.settings.Brands_testimonial_image != blank %}
+            <div class="swiper-slide">
+              {{ block.settings.Brands_testimonial_image | image_url: width: 300 | image_tag: loading: 'lazy', class:'Brands_testimonial_image'}}    
+            </div>
+         {% endif %}
       {% endfor %}
     </div>
   </div>
@@ -29,10 +31,10 @@
     <div class="swiper-wrapper">
       {% for block in section.blocks %}
         <div class="swiper-slide">
-          <p class="center_text">{{ block.settings.Brands_testimonial_content }}</p>
+          {% if block.settings.Brands_testimonial_content != blank %}<p class="center_text">{{ block.settings.Brands_testimonial_content }}</p>{% endif %}
           <div class="bottom_line1">
             <a href="{{ block.settings.Readmore_link }}">
-              <p class="button_style">{{ block.settings.Readmore }}</p>
+              {% if block.settings.Readmore != blank %}<p class="button_style">{{ block.settings.Readmore }}</p>{% endif %}
               <div class="bottom_line2"></div>
             </a>
           </div>
@@ -143,6 +145,12 @@
       "unit": "px",
       "label": "Margin Bottom Mobile",
       "default": 36
+    },
+    {
+      "type": "color",
+      "id": "brand_bg_color",
+      "label": "Background Color",
+      "default": "#fff"
     },
     {
       "type": "text",

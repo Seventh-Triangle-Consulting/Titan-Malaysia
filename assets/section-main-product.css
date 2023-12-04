@@ -1735,10 +1735,10 @@ font-size: 19px;font-weight: 500;line-height: 34px;letter-spacing: 0.38px;paddin
 }
 @media(max-width:749px)
 {.product-form .form{display:flex;flex-direction:row;}
-.plaeto_main_product{padding:0 20px;}
+.titan_main_product{padding:0 20px;}
 }
 
-.plaeto_main_product .percent_discount{color: #DD5041;font-family: "Rubik-Regular";font-size: 22px;font-weight: 400;line-height: 26px;}
+.titan_main_product .percent_discount{color: #DD5041;font-family: "Rubik-Regular";font-size: 22px;font-weight: 400;line-height: 26px;}
 .pdp_color_variant{display:flex;align-items:baseline;gap:10px;margin-bottom:23px;flex-wrap:wrap;}
 .pdp_color_variant a{display: grid;place-items: center;text-decoration: none;color:#000;width:80px;}
 .pdp_color_variant a img{ width:100%;height:auto;margin-bottom:8px;box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.25);}
@@ -1751,7 +1751,7 @@ font-size: 19px;font-weight: 500;line-height: 34px;letter-spacing: 0.38px;paddin
 .offers_for_you_accordian{ margin-top:42px;padding:1.5rem 0;border-bottom: 0.1rem solid rgba(var(--color-foreground),.08);}
 .offers_for_you_accordian h4{ color: #000;font-family: 'Rubik-Medium';font-size: 20px;font-style: normal;font-weight: 500;line-height: normal;letter-spacing:.2px;}
 .swiper.product_usp{position:relative;}
-.plaeto_main_product .accordion{margin-top:0;}
+.titan_main_product .accordion{margin-top:0;}
 .swiper.product_usp .swiper-ctrl.usp-btn-prev {top: 40%;  position: absolute;left: 0;z-index:2;cursor:pointer;}
   .swiper.product_usp .swiper-ctrl.usp-btn-prev  svg{ transform: rotate(180deg);}
 .swiper.product_usp .swiper-ctrl.swiper-button-disabled{display:none;}
@@ -1763,10 +1763,10 @@ font-size: 19px;font-weight: 500;line-height: 34px;letter-spacing: 0.38px;paddin
 {
    .pdp_color_variant a img {width: 83%;}
 .grid__item.product__media-wrapper{display:none;}
-.plaeto_main_product .product__title{display:none;}
-.plaeto_main_product .price__container{display:none;}
-.plaeto_main_product .offers_available_number{display:none;}
-.plaeto_main_product .pdp-line{display:none !important;}
+.titan_main_product .product__title{display:none;}
+.titan_main_product .price__container{display:none;}
+.titan_main_product .offers_available_number{display:none;}
+.titan_main_product .pdp-line{display:none !important;}
 .pdp_colors_heading{margin-top:30px;}
 }
 
@@ -1839,7 +1839,7 @@ border:none;background:transparent;} */
 @media(max-width:749px)
 {
   .card__badge.reviews.desktop{display:none;}
-  .plaeto_main_product .product-form{display:none;}
+  .titan_main_product .product-form{display:none;}
   .productformmobilesticky{ display:block;   width: 100%;
     bottom: 0;    padding: 10px; position: fixed; z-index: 2;    background: rgba(248, 248, 248, 1); box-shadow: 0px -3px 5px 0px rgba(0, 0, 0, 0.25);}
 .positive_impact_heading{text-align:center;}

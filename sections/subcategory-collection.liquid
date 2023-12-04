@@ -1,0 +1,107 @@
+{{ 'sub-category.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-margin {
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+  }
+
+  .sub-category-container .sub-category .collection-image {
+    border-radius:50%;
+  }
+
+  @media screen and (max-width: 750px) {
+    .section-{{ section.id }}-margin {
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+    }
+  }
+{%- endstyle -%}
+
+{% if section.blocks.size > 0 %}
+  <section class="sub-category-container section-{{ section.id }}-margin" id="{{ section.id }}">
+    <div class="sub-category">
+      {% for block in section.blocks %}
+        {% if block.settings.collection_slide_image != blank %}
+          <div class="sub-category-slide">
+            <a href="{{ block.settings['collection_slide_url'] }}">
+              <div class="collection-image-container">
+                {{
+                  block.settings.collection_slide_image
+                  | image_url: width: 520
+                  | image_tag: class: 'collection-image', loading: 'lazy'
+                }}
+              </div>
+              {% if block.settings.collection_slide_text != blank %}
+                <div class="sub-category__slide-text">
+                  <h6 class="heading-text">{{ block.settings.collection_slide_text }}</h6>
+                </div>
+              {% endif %}
+            </a>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Sub Category",
+  "settings": [
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin Bottom Desktop",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin Bottom Mobile",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slideshow",
+      "limit": 6,
+      "name": "Slides",
+      "settings": [
+        {
+          "type": "url",
+          "id": "collection_slide_url",
+          "label": "Collection Slide URL"
+        },
+        {
+          "type": "image_picker",
+          "id": "collection_slide_image",
+          "label": "Collection Slide Image"
+        },
+        {
+          "type": "text",
+          "id": "collection_slide_text",
+          "label": "Collection Slide Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sub Category"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

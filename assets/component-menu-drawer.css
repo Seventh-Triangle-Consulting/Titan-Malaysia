@@ -18,7 +18,7 @@
   z-index: 2;
   transition: opacity 0s, visibility 0s;
 }
-.menu-drawer__inner-submenu  a{    font-family: 'Rubik-Regular';}
+.menu-drawer__inner-submenu  a{    font-family:Roboto-Regular;}
 menu-drawer > details[open] > summary::before {
   visibility: visible;
   opacity: 1;

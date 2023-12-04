@@ -30,7 +30,7 @@
         <div class="drawer__inner-empty">
           <div class="cart-drawer__warnings center{% if settings.cart_drawer_collection != blank %} cart-drawer__warnings--has-collection{% endif %}">
             <div class="cart-drawer__empty-content">
-        <a href="https://plaeto.in/cart">
+        <a href="https://titan.in/cart">
                {%- liquid
           if cart == empty
             render 'icon-cart-empty'
@@ -63,7 +63,7 @@
                {% assign collection = settings.collectionname| split: '##' %}
         {% assign collectionurl = settings.collectionurl | split: ',' %}
               {% for collectioname in collection %}
-<a href="https://plaeto.in/{{ routes.root_url }}/{{ collectionurl[forloop.index0] }}" class="button">
+<a href="https://titan.in/{{ routes.root_url }}/{{ collectionurl[forloop.index0] }}" class="button">
                 {{ collection[forloop.index0] }}
               </a>
               {% endfor %}
@@ -78,7 +78,7 @@
       {%- endif -%}
       <div class="drawer__header">
         <div class="drawercarticon">
-          <a href="https://plaeto.in/cart">
+          <a href="https://titan.in/cart">
  {%- liquid
           if cart == empty
             render 'icon-cart-empty'
