@@ -7,7 +7,6 @@
       "blocks": {
         "a72aa487-20fa-446c-bf36-87e04df00a19": {
           "type": "announcement",
-          "disabled": true,
           "settings": {
             "text": "Easy Returns\/Exchanges",
             "link": ""
@@ -15,7 +14,6 @@
         },
         "275acbc7-dcd9-4f90-98f8-223bd24eda13": {
           "type": "announcement",
-          "disabled": true,
           "settings": {
             "text": "6 Months Warranty",
             "link": ""
