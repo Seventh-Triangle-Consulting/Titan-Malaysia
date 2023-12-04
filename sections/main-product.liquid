@@ -1,6 +1,6 @@
 <section
   id="MainProduct-{{ section.id }}"
-  class="section-{{ section.id }}-padding"
+  class="section-{{ section.id }}-padding main-product"
   data-section="{{ section.id }}"
 >
   {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
@@ -64,13 +64,41 @@
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
 
-  {% render 'size-guide' %}
-  <div
-    class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}"
-    data-productid="{{ product.id }}"
-  >
-    <div class="grid__item product__media-wrapper{% if section.settings.media_position == 'right' %} medium-hide large-up-hide{% endif %}">
-      {% render 'product-media-gallery', variant_images: variant_images %}
+<div class="page-width product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}" data-productid="{{ product.id }}">
+    <div id="{{ section.id }}" class="grid__item product__media-wrapper{% if section.settings.media_position == 'right' %} medium-hide large-up-hide{% endif %}">
+      
+      <div class="custom-desktop-slider-main swiper mySwiper2" style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" >
+         <div class="swiper-wrapper">
+            {%- for media in product.media -%}    
+                  <div class="swiper-slide">
+                       {{
+                          media
+                          | image_url: width: media.width
+                          | image_tag: class: 'product-image'
+                        }}
+                  </div>
+            {%- endfor -%}
+         </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+
+         <div thumbsSlider="" class="custom-desktop-slider-main-thumbs-up swiper mySwiper">
+            <div class="swiper-wrapper">
+             {%- for media in product.media -%}  
+                  <div class="swiper-slide">
+                       {{
+                          media
+                          | image_url: width: media.width
+                          | image_tag: class: 'product-image'
+                        }}
+                  </div>
+               {% endfor %}
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+       </div>
+        {% comment %}{% render 'product-media-gallery', variant_images: variant_images %}{% endcomment %}
     </div>
     <div class="titan_main_product product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
       <product-info
@@ -102,8 +130,8 @@
                 </a>
               </div>
             {%- when 'price' -%}
-              <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
-                {%- render 'price',
+              <div class="no-js-hidden price-main-div" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
+                {%- render 'custom-price',
                   product: product,
                   use_variant: true,
                   show_badges: true,
@@ -228,12 +256,6 @@
                   {%- endif -%}
                 {%- endif -%}
               </p>
-            {%- when 'description' -%}
-              {%- if product.description != blank -%}
-                <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
-                  {{ product.description }}
-                </div>
-              {%- endif -%}
             {%- when 'sku' -%}
               <p
                 class="product__sku no-js-hidden{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}"
@@ -301,6 +323,8 @@
                     >
                   </span>
                 </label>
+              <div class="custom-atc-qty-slector">
+                 <div class="custom-atc-product"></div>
                 <div class="price-per-item__container">
                   <quantity-input class="quantity" data-url="{{ product.url }}" data-section="{{ section.id }}">
                     <button class="quantity__button no-js-hidden" name="minus" type="button">
@@ -415,6 +439,7 @@
                     </price-per-item>
                   {%- endif -%}
                 </div>
+              </div>
                 <div class="quantity__rules caption no-js-hidden">
                   {%- if product.selected_or_first_available_variant.quantity_rule.increment > 1 -%}
                     <span class="divider">
@@ -527,129 +552,28 @@
               >
                 Buy now
               </button>
-             <div class="pdp_pincode_container">
-              <h3 class="pdp_pincode_heading">Enter Pincode for Delivery Estimate</h3>
-
-              <div class="pincode_div">
-                <input class="pincode_input" type="number" inputmode="numeric"  pattern="^[1-9]\d{5}$" placeholder="Enter Pincode" minlength="6" maxlength="6"  oninput="validateInput(event|| window.event)">
-                <button class="pincode_submit" onclick="pinCodeChecker()">Check</button>
-               
-              </div>
-             <p class="pinMsg"></p>
-             </div>
 
               <div class="pdp_shipping_returns">
-                <div class="pdp_shipping">
-               <div class="icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="31" height="15" viewBox="0 0 31 15" fill="none">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M8.04152 0C7.91311 0.000512536 7.79015 0.0520119 7.6997 0.143172C7.60925 0.234331 7.55871 0.357686 7.5592 0.486104V1.77702C7.55895 1.84061 7.57123 1.90362 7.59533 1.96247C7.61944 2.02131 7.6549 2.07483 7.69969 2.11997C7.74447 2.16511 7.79771 2.20098 7.85637 2.22554C7.91502 2.25011 7.97794 2.26288 8.04152 2.26312C8.10543 2.26337 8.16875 2.25097 8.22784 2.22663C8.28693 2.20229 8.34062 2.16649 8.38581 2.1213C8.431 2.07612 8.46679 2.02243 8.49113 1.96334C8.51547 1.90425 8.52788 1.84093 8.52763 1.77702V0.968425H21.8037V11.0735H14.7883C14.5691 9.92445 13.5714 9.04304 12.3739 9.04304C11.1764 9.04304 10.1818 9.92445 9.96324 11.0735H8.04152C7.91376 11.074 7.79137 11.125 7.70102 11.2153C7.61067 11.3057 7.5597 11.4281 7.5592 11.5558C7.55895 11.6194 7.57123 11.6824 7.59534 11.7413C7.61944 11.8001 7.6549 11.8536 7.69969 11.8988C7.74447 11.9439 7.79772 11.9798 7.85637 12.0044C7.91502 12.0289 7.97794 12.0417 8.04152 12.0419H9.96607C10.1914 13.1824 11.1825 14.0544 12.3739 14.0544C13.5653 14.0544 14.5595 13.1824 14.7855 12.0419H22.2898H23.9922C24.2182 13.1824 25.2124 14.0544 26.4038 14.0544C27.5952 14.0544 28.5884 13.1824 28.8144 12.0419H30.5177C30.6461 12.0414 30.769 11.9899 30.8595 11.8988C30.9499 11.8076 31.0005 11.6843 31 11.5558V6.80545C31.0002 6.71604 30.9757 6.62831 30.9291 6.552L28.3122 2.3454C28.2689 2.27555 28.2084 2.21789 28.1366 2.17785C28.0648 2.1378 27.984 2.11671 27.9018 2.11654H22.7722V0.486104C22.7727 0.357686 22.7221 0.234333 22.6317 0.143173C22.5412 0.0520137 22.4183 0.000513456 22.2898 0H8.04152ZM22.7722 3.08496H27.6294L30.0316 6.94542V11.0735H28.8182C28.599 9.92441 27.6013 9.04304 26.4038 9.04304C25.2062 9.04304 24.2086 9.92445 23.9893 11.0735H22.7722V3.08496ZM6.64468 3.52472C6.5811 3.52448 6.51808 3.53675 6.45924 3.56086C6.4004 3.58496 6.34688 3.62042 6.30174 3.66521C6.2566 3.71 6.22072 3.76324 6.19616 3.82189C6.1716 3.88054 6.15883 3.94346 6.15858 4.00705C6.15883 4.07063 6.1716 4.13355 6.19616 4.1922C6.22072 4.25086 6.2566 4.3041 6.30174 4.34888C6.34688 4.39367 6.4004 4.42913 6.45924 4.45323C6.51808 4.47734 6.5811 4.48961 6.64468 4.48937H11.4698C11.5334 4.48961 11.5964 4.47734 11.6552 4.45323C11.7141 4.42913 11.7676 4.39367 11.8127 4.34888C11.8579 4.3041 11.8937 4.25086 11.9183 4.1922C11.9429 4.13355 11.9556 4.07063 11.9559 4.00705C11.9556 3.94346 11.9429 3.88054 11.9183 3.82189C11.8937 3.76324 11.8579 3.71 11.8127 3.66521C11.7676 3.62042 11.7141 3.58496 11.6552 3.56086C11.5964 3.53675 11.5334 3.52448 11.4698 3.52472H6.64468ZM3.56351 6.20492C3.43541 6.20516 3.31264 6.25616 3.22206 6.34674C3.13148 6.43731 3.08049 6.56009 3.08024 6.68818C3.07999 6.75185 3.0923 6.81494 3.11646 6.87384C3.14063 6.93275 3.17617 6.98631 3.22106 7.03146C3.26594 7.07661 3.3193 7.11247 3.37806 7.13697C3.43682 7.16148 3.49984 7.17416 3.56351 7.17428H9.92919C9.9931 7.17453 10.0564 7.16213 10.1155 7.13779C10.1746 7.11345 10.2283 7.07765 10.2735 7.03247C10.3187 6.98728 10.3545 6.93359 10.3788 6.8745C10.4031 6.81541 10.4155 6.75209 10.4153 6.68818C10.4152 6.62451 10.4025 6.5615 10.378 6.50273C10.3535 6.44397 10.3176 6.39062 10.2725 6.34573C10.2273 6.30084 10.1738 6.2653 10.1149 6.24114C10.056 6.21698 9.99286 6.20467 9.92919 6.20492H3.56351ZM0.482328 8.88605C0.418739 8.8863 0.355822 8.89907 0.297169 8.92363C0.238516 8.94819 0.185276 8.98407 0.140488 9.02921C0.0956997 9.07435 0.0602412 9.12787 0.0361369 9.18671C0.0120326 9.24555 -0.000245516 9.30857 3.71967e-06 9.37216C0.000502249 9.49992 0.0514786 9.62231 0.141824 9.71266C0.23217 9.803 0.354561 9.85398 0.482328 9.85447H8.3886C8.45219 9.85472 8.51521 9.84244 8.57405 9.81834C8.63289 9.79424 8.68641 9.75878 8.73155 9.71399C8.77669 9.6692 8.81256 9.61596 8.83713 9.55731C8.86169 9.49866 8.87446 9.43574 8.87471 9.37216C8.87496 9.30825 8.86256 9.24492 8.83822 9.18583C8.81388 9.12674 8.77808 9.07306 8.73289 9.02787C8.6877 8.98268 8.63401 8.94688 8.57492 8.92254C8.51583 8.8982 8.45251 8.8858 8.3886 8.88605H0.482328ZM12.3361 10.0086C12.3489 10.0083 12.3611 10.0086 12.3739 10.0086C13.1959 10.0086 13.8644 10.6879 13.8644 11.5492C13.8644 12.4105 13.1959 13.086 12.3739 13.086C11.5519 13.086 10.8872 12.4105 10.8872 11.5492C10.8872 10.7014 11.5319 10.0294 12.3361 10.0086ZM26.365 10.0086C26.3778 10.0083 26.3909 10.0086 26.4038 10.0086C27.2257 10.0086 27.8942 10.6879 27.8942 11.5492C27.8942 12.4105 27.2257 13.086 26.4038 13.086C25.5818 13.086 24.9133 12.4105 24.9133 11.5492C24.9133 10.7014 25.5607 10.0294 26.365 10.0086Z" fill="black"/>
-                  </svg>
+                    <div class="pdp_shipping">
+                         <div class="icon">          
+                              {{
+                                  section.settings.cod_svg
+                                  | image_url: width: 100
+                                  | image_tag: class: 'cod-image', loading: 'lazy'
+                                }}
+                          </div>
+                          <p>{{ section.settings.cod_text }}</p>
                     </div>
-                  <p>All India free shipping</p>
-                </div>
-                <div class="pdp_returns_policy">
-            <div class="icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="27" height="28" viewBox="0 0 27 28" fill="none">
-                    <path d="M13.4984 0C10.4113 0 7.41814 1.06247 5.02452 2.9943L5.01875 0.336841C5.01842 0.150623 4.8673 0 4.68125 0H4.68059C4.49421 0.000329603 4.34342 0.151776 4.34375 0.338159L4.351 3.71448C4.35133 3.90037 4.50195 4.05099 4.68784 4.05132L8.05131 4.0584H8.05197C8.23802 4.0584 8.38914 3.90778 8.38947 3.72156C8.3898 3.53518 8.23901 3.38373 8.05263 3.3834L5.62204 3.37823C7.86591 1.63108 10.6405 0.675 13.4984 0.675C20.5701 0.675 26.3234 6.42832 26.3234 13.5C26.3234 16.07 25.566 18.5495 24.1333 20.6704C24.029 20.8248 24.0695 21.0346 24.2241 21.1389C24.282 21.178 24.3477 21.1967 24.4126 21.1967C24.5211 21.1967 24.6274 21.1447 24.6926 21.0481C26.2012 18.8153 26.9984 16.2051 26.9984 13.5C26.9984 6.05605 20.9424 0 13.4984 0Z" fill="black"/>
-                    <path d="M2.77432 5.86259C2.61975 5.75811 2.40996 5.79897 2.30581 5.95339C0.797278 8.18619 0 10.7964 0 13.5015C0 20.9454 6.05605 27.0015 13.5 27.0015C16.5854 27.0015 19.562 25.949 21.9536 24.0264L21.9588 26.6646C21.9591 26.8509 22.1102 27.0015 22.2963 27.0015H22.2969C22.4833 27.0012 22.6341 26.8497 22.6338 26.6633L22.6272 23.2799C22.6268 23.0937 22.4759 22.9431 22.2897 22.9431H18.9255C18.7392 22.9431 18.588 23.0942 18.588 23.2806C18.588 23.467 18.7392 23.6181 18.9255 23.6181H21.3781C19.1327 25.3683 16.3665 26.3265 13.5 26.3265C6.42832 26.3265 0.675 20.5732 0.675 13.5015C0.675 10.9315 1.4324 8.45201 2.86512 6.3311C2.96944 6.17668 2.9289 5.9669 2.77432 5.86259Z" fill="black"/>
-                    <path d="M5.14844 17.4037C5.14844 17.5303 5.2193 17.6463 5.33185 17.704L13.3455 21.8135C13.394 21.8384 13.4467 21.8507 13.4996 21.8507C13.5525 21.8507 13.6052 21.8384 13.6537 21.8135L21.6673 17.704C21.7799 17.6463 21.8507 17.5303 21.8507 17.4037V9.39009C21.8507 9.26106 21.7771 9.14323 21.6611 9.08671L13.6474 5.18255C13.5541 5.13707 13.445 5.13707 13.3518 5.18255L5.33812 9.08671C5.31879 9.09612 5.30258 9.10951 5.28575 9.1221C5.27912 9.12704 5.27181 9.13032 5.2655 9.13577C5.23549 9.16181 5.2116 9.193 5.19252 9.22742C5.19069 9.23074 5.18741 9.23261 5.18568 9.23601C5.18269 9.24184 5.18319 9.24823 5.18057 9.25414C5.16755 9.28329 5.15898 9.31381 5.15468 9.34607C5.15338 9.35594 5.15097 9.36531 5.15056 9.37518C5.15033 9.38027 5.14844 9.38496 5.14844 9.39009V17.4037ZM5.82344 9.94245L13.1621 13.7058V20.9608L5.82344 17.1976V9.94245ZM13.8371 20.9608V13.7057L15.9376 12.6272V15.7036C15.9376 15.8215 15.9992 15.931 16.1002 15.9923C16.1538 16.0247 16.2144 16.0411 16.2751 16.0411C16.3286 16.0411 16.3823 16.0284 16.4313 16.0027L18.8182 14.756C18.9296 14.6978 18.9995 14.5826 18.9995 14.4569V11.0549L21.1757 9.93738V17.1976L13.8371 20.9608ZM16.6126 12.2806L18.3245 11.4015V14.2524L16.6126 15.1465V12.2806ZM16.3213 11.6712L14.2479 10.62L15.8204 9.78989L17.9159 10.8524L16.3213 11.6712ZM13.4996 5.86134L20.7534 9.39531L18.6576 10.4715L15.9699 9.10879C15.872 9.05935 15.7563 9.06017 15.6597 9.11143L13.356 10.3276C13.2445 10.3864 13.1751 10.5026 13.1761 10.6289C13.1771 10.7549 13.2484 10.87 13.361 10.9271L15.5797 12.052L13.4994 13.1202L6.24057 9.39782L13.4996 5.86134Z" fill="black"/>
-                  </svg>
+                    <div class="pdp_returns_policy">
+                          <div class="icon">  
+                                {{
+                                    section.settings.return_exchange_img
+                                    | image_url: width: 100
+                                    | image_tag: class: 'payment-image', loading: 'lazy'
+                                  }}
+                            </div>
+                          <p>{{ section.settings.return_exchange_text }}</p>
                     </div>
-                  <p>30 days returns & exchange <a href="https://titan.in/pages/refund-policy">View return policy</a></p>
-                </div>
-              </div>
-
-              <div class="offers_for_you_accordian">
-                <div class="offers_accordian_tab active">
-                  <h4>Offers for you</h4>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="icon icon-caret"
-                    width="16"
-                    height="9"
-                    viewBox="0 0 16 9"
-                    fill="none"
-                  >
-                    <path d="M1 1L8 8L15 1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                  </svg>
-                </div>
-                <div class="offers_accordian_content">
-                  <div class="swiper offers_for_accordian_swiper">
-                    <div class="swiper-wrapper">
-                      <div class="swiper-slide">
-                        {% assign offers1 = section.settings.offers_for_you1 | split: '##' %}
-                        <p class="offers1_p">{{ offers1[0] }}</p>
-                      {% if offers1[1] != blank %}
-                        <div class="offers1-div">
-                          <p class="discount-name copyText1">{{ offers1[1] }}</p>
-                          {% comment %} <div class="centralize copy" onclick="copyText1()">
-                            <button>
-                              <span>COPY</span>
-                              <span>COPIED</span>
-                            </button>
-                          </div> {% endcomment %}
-                          <div class="centralize copy">
-                            <p class="copy_offer_btn" onclick="copyOfferToClipboard('{{ offers1[1] }}',event)">
-                            COPY
-                            </p>
-                          </div> 
-                        </div>
-                      {% endif %}
-                      </div>
-                  {% if section.settings.offers_for_you2 != blank %}
-                      <div class="swiper-slide">
-                        {% assign offers2 = section.settings.offers_for_you2 | split: '##' %}
-                        <p class="offers2_p">{{ offers2[0] }}</p>
-                      {% if offers2[1] != blank %}
-                        <div class="offers2-div">
-                          <p class="discount-name copyText2">{{ offers2[1] }}</p>
-                          {% comment %} <div class="centralize1 copy" onclick="copyText2()">
-                            <button>
-                              <span>COPY</span>
-                              <span>COPIED</span>
-                            </button>
-                          </div> {% endcomment %}
-                          <div class="centralize copy">
-                            <p class="copy_offer_btn" onclick="copyOfferToClipboard('{{ offers2[1] }}',event)">COPY</p>
-                          </div> 
-                        </div>
-                        {% endif %}
-                      </div>
-              {% endif %}
-            {% if section.settings.offers_for_you3 != blank %}
-            <div class="swiper-slide">
-                        {% assign offers3 = section.settings.offers_for_you3 | split: '##' %}
-                        <p class="offers3_p">{{ offers3[0] }}</p>
-                      {% if offers3[1] != blank %}
-                        <div class="offers3-div">
-                          <p class="discount-name copyText3">{{ offers3[1] }}</p>
-                          <div class="centralize copy">
-                            <p class="copy_offer_btn" onclick="copyOfferToClipboard('{{ offers3[1] }}',event)">COPY</p>
-                          </div> 
-                          {% comment %} <button class="copy" onclick="copyText3()">COPY</button> {% endcomment %}
-                        </div>
-                        {% endif %}
-                      </div>
-              {% endif %}
-                    </div>
-                  </div>
-                  <div class=" swiper product_usp ">
-                    {% assign product_usp = product.metafields.custom.product_usp.value %}
-                      <div class="swiper-wrapper">
-                    {% for usp in product_usp  %}
-                      <div class=" swiper-slide usp_icon_title">
-                        {{ usp.icon | image_url: width: '200' | image_tag }}
-                      </div>
-                    {% endfor %}
-                  </div>
-                <div class="usp-nav-btns">
-                       <div class="swiper-ctrl usp-btn-prev">{% render 'color-next-arrow' %}</div>
-                       <div class="swiper-ctrl usp-btn-next">{% render 'color-next-arrow' %}</div>
-    
-              </div>
-                  </div>
-            
-                </div>
               </div>
 
             {%- when 'rating' -%}
@@ -874,12 +798,90 @@
     
     {%- if section.settings.media_position == 'right' -%}
       {% comment %} Duplicate gallery to display after product content on tablet/desktop breakpoint {% endcomment %}
-      <div class="grid__item product__media-wrapper small-hide">
-        {% render 'product-media-gallery', variant_images: variant_images, is_duplicate: true %}
+      <div class="grid__item product__media-wrapper small-hide">      
+       {% render 'product-media-gallery', variant_images: variant_images, is_duplicate: true %}
       </div>
     {%- endif -%}
+
+    <div class="custom-product-description">
+        <div class="row description-row custom-description">
+              <div class="custom-description-title">
+                PRODUCT DESCRIPTION
+                <div class="acc-svg-mobile"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="8" viewBox="0 0 19 10" fill="none" style=" float:right;margin-top: -20px;">
+                        <path d="M1 1L9.5 9L18 1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                </div>
+              </div>
+              {% for block in section.blocks %}
+               {%- case block.type -%}
+               {%- when 'description' -%} 
+                     {%- if product.description != blank -%} 
+                        <div class="desccriptiom-custom-acc column-description product__description rte quick-add-hidden column-description-hide" {{ block.shopify_attributes }}> {{ product.description }} </div> 
+                    {%- endif -%}
+                {% endcase %}
+             {% endfor %}
+         </div>
+      <div class="custom-type">
+        {% if product.type != blank %}
+            <div class="row description-row">
+                <div class="column-heading text-uppercase custom-description-title">
+                  PRODUCT TYPE
+                  <div class="acc-svg-mobile"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="8" viewBox="0 0 19 10" fill="none" style=" float:right;margin-top: -20px;">
+                        <path d="M1 1L9.5 9L18 1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                </div>
+                </div>
+                <div class="desccriptiom-custom-acc column-description column-description-hide ">{{ product.type }}</div>
+             </div>
+        {% endif %}
+        {% if product.metafields.custom.model_stats != blank %}
+            <div class="row description-row">
+              <div class="column-heading text-uppercase custom-description-title">
+                MODEL STATS:
+                <div class="acc-svg-mobile"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="8" viewBox="0 0 19 10" fill="none" style=" float:right;margin-top: -20px;">
+                        <path d="M1 1L9.5 9L18 1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                </div>
+              </div>
+              <div class="desccriptiom-custom-acc column-description column-description-hide ">{{ product.metafields.custom.model_stats }}</div>
+            </div>
+        {% endif %}
+        <div>
+           <div class="column-heading text-uppercase custom-description-title">
+             SOLD BY
+             <div class="acc-svg-mobile"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="8" viewBox="0 0 19 10" fill="none" style=" float:right;margin-top: -20px;">
+                        <path d="M1 1L9.5 9L18 1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                </div>
+           </div>
+                <div class="desccriptiom-custom-acc column-description-hide">
+                {% if section.settings.country_of_origin != blank %}<div class="column-description">{{ section.settings.country_of_origin }}</div>{% endif %}
+                {% if section.settings.manufacturer_name != blank %}<div class="column-description">{{ section.settings.manufacturer_name }}</div>{% endif %}
+                {% if section.settings.manufacturer_address != blank %}<div class="column-description">{{ section.settings.manufacturer_address }}</div>{% endif %}
+                </div>
+        </div>
+      </div>
+    </div>
+
+                          
   </div>
   <div class="productformmobilesticky"></div>
+  <div class="productformdesktopsticky hide-productformdesktopsticky">
+    <div class="productformdesktopsticky-title-image">
+        <div class="product-image">
+          {{
+                              product.media[0]
+                              | image_url: width: product.media.width
+                              | image_tag: class: 'product-image'
+                            }}
+        </div>
+        <div class="productformdesktoptitle"></div>
+       </div>
+        <div class="productformdesktopsticky-variant-atc">
+             {% render 'custom-product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
+        </div>
+      </div>
+ 
   {% render 'product-media-modal', variant_images: variant_images %}
 
   {% assign popups = section.blocks | where: 'type', 'popup' %}
@@ -920,7 +922,78 @@
     <script src="{{ 'product-model.js' | asset_url }}" defer></script>
   {%- endif -%}
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+      var productForm = document.querySelector('.productformdesktopsticky');
+      var mainProduct = document.querySelector('.pdp_shipping_returns');
+      var productFormOffsetTop = mainProduct.offsetTop;
+
+      function toggleProductForm() {
+        if (window.scrollY >= productFormOffsetTop+100) {
+          productForm.classList.remove('hide-productformdesktopsticky');
+        } else {
+          productForm.classList.add('hide-productformdesktopsticky');
+        }
+      }
+
+      // Initial check
+      toggleProductForm();
+
+      // Add scroll event listener
+      window.addEventListener('scroll', toggleProductForm);
+    });
+
+  
+window.addEventListener('DOMContentLoaded',() => {
+
+      var swiper = new Swiper("#{{ section.id }} .mySwiper", {
+          loop: true,
+          spaceBetween: 10,
+          slidesPerView: 4,
+          freeMode: true,
+          watchSlidesProgress: true,
+          navigation: {
+          nextEl: ".custom-desktop-slider-main-thumbs-up .swiper-button-next",
+          prevEl: ".custom-desktop-slider-main-thumbs-up .swiper-button-prev",
+        },
+        });
+            
+      var swiper2 = new Swiper("#{{ section.id }} .custom-desktop-slider-main", {
+        loop: true,
+        spaceBetween: 10,
+        navigation: {
+          nextEl: ".custom-desktop-slider-main .swiper-button-next",
+          prevEl: ".custom-desktop-slider-main .swiper-button-prev",
+        },
+        thumbs: {
+          swiper: swiper,
+        },
+      });
+
+    
+    },
+    { once: true }
+  );
+          
+ document.addEventListener('DOMContentLoaded', function() {
+      // Select all elements with the class custom-description-title
+      var titleElements = document.querySelectorAll('.custom-description-title');
+
+      // Add click event listener to each title element
+      titleElements.forEach(function(titleElement) {
+        titleElement.addEventListener('click', function() {
+          // Toggle the class svg-transform on all elements with the same class
+          var nextSibling = this.nextElementSibling;
+          if (nextSibling) {
+            nextSibling.classList.toggle('column-description-hide');
+          }
+          this.classList.toggle('svg-transform');
+        });
+      });
+    });
+</script>
   <script>
+  
     document.addEventListener('DOMContentLoaded', function () {
       function isIE() {
         const ua = window.navigator.userAgent;
@@ -1004,153 +1077,20 @@
       ]
     }
   </script>
+<script>
 
-  <script>
-
+    let clone2 = document.querySelector('.product__title').cloneNode(true);
+    let clone3 = document.querySelector('.price-main-div').cloneNode(true);
     let clone = document.querySelector('.product-form').cloneNode(true);
     document.querySelector('.productformmobilesticky').appendChild(clone); 
 
-        let accHeading = document.querySelectorAll('.offers_accordian_tab');
-        let accPanel = document.querySelectorAll('.offers_accordian_content');
-        let svg = document.querySelector('.offers_accordian_tab svg');
-
-        document.querySelector('.offers_accordian_content').style.maxHeight = '1000px';
-        for (let i = 0; i < accHeading.length; i++) {
-          // Execute whenever an accordion is clicked
-          accHeading[i].onclick = function () {
-            if (this.nextElementSibling.style.maxHeight) {
-              hidePanels(); // Hide All open Panels
-            } else {
-              showPanel(this); // Show the panel
-            }
-          };
-        }
-
-        // Function to Show a Panel
-        function showPanel(elem) {
-          hidePanels();
-          elem.classList.add('active');
-          elem.nextElementSibling.style.maxHeight = elem.nextElementSibling.scrollHeight + 'px';
-        }
-
-        // Function to Hide all shown Panels
-        function hidePanels() {
-          for (let i = 0; i < accPanel.length; i++) {
-            accPanel[i].style.maxHeight = null;
-            accHeading[i].classList.remove('active');
-          }
-        }
-
-        window.addEventListener(
-          'DOMContentLoaded',
-          () => {
-            var offers_accordian_swiper = new Swiper('.offers_for_accordian_swiper', {
-              slidesPerView: 1.5,
-              spaceBetween: 16,
-              breakpoints: {
-                750: {
-                  slidesPerView: 2,
-                  spaceBetween: 16,
-                },
-              },
-            });
-          },
-          { once: true }
-        );
-         window.addEventListener(
-          'DOMContentLoaded',
-          () => {
-            var offers_accordian_swiper = new Swiper('.product_usp', {
-              slidesPerView: 4,
-              spaceBetween: 10,
-              breakpoints: {
-                750: {
-                  slidesPerView: 4,
-                  spaceBetween: 10,
-                },
-              },
-                navigation: {
-        nextEl: '.usp-btn-next',
-        prevEl: '.usp-btn-prev',
-      },
-            });
-          },
-          { once: true }
-        );
-
-        const size_guide = document.getElementById('size-guide');
-        const sg_open_modal = document.getElementById('sg-open-modal');
-        const sg_close_modal = document.getElementById('sg-close-modal');
-
-        sg_open_modal.addEventListener('click', () => {
-          size_guide.style.display = 'block';
-          setTimeout(() => {
-            size_guide.style.opacity = '1';
-          }, 300);
-        });
-
-        sg_close_modal.addEventListener('click', () => {
-          size_guide.style.opacity = '0';
-          setTimeout(() => {
-            size_guide.style.display = 'none';
-          }, 300);
-        });
-
-        window.addEventListener('click', (event) => {
-          if (event.target === size_guide) {
-            size_guide.style.opacity = '0';
-            setTimeout(() => {
-              size_guide.style.display = 'none';
-            }, 300);
-          }
-        });
-
-      
-
-    {% comment %} google sheet :  https://docs.google.com/spreadsheets/d/1pZpMnqiwWeNchjgICE2R8D7hBiwQJri6wwsRseZaz6Q/edit?pli=1#gid=0 {% endcomment %}
-
-    {% comment %} function copyText1() {
-      let copyText1 = document.querySelector('.copyText1');
-      navigator.clipboard.writeText(copyText1.textContent);
-      console.log( navigator.clipboard.writeText(copyText1.textContent));
-      {% comment %} alert('Copied the text: ' + copyText1.textContent); {% endcomment %}
-    } {% endcomment %}
-
-    {% comment %} function copyText2() {
-      let copyText2 = document.querySelector('.copyText2');
-      navigator.clipboard.writeText(copyText2.textContent);
-    }
-     function copyText3() {
-      let copyText3 = document.querySelector('.copyText3');
-      navigator.clipboard.writeText(copyText3.textContent);
-    } {% endcomment %}
-
-    function copyOfferToClipboard(text,event) {
-      event.target.classList.add("copied")
-      event.target.innerText = "COPIED"
-     const textArea = document.createElement("textarea");
-     textArea.value = text;
-     // Append the text area to the document
-     document.body.appendChild(textArea);
-     // Select the text in the text area
-     textArea.select();
-     try {
-    // Copy the selected text to the clipboard
-    document.execCommand("copy");
-    console.log("Text copied to clipboard: " + text);
-    setTimeout(()=>{
-      event.target.classList.remove("copied")
-      event.target.innerText = "COPY"
-    },3000)
-    } catch (err) {
-    console.error("Unable to copy text to clipboard: " + err);
-    }
-    // Remove the temporary text area
-    document.body.removeChild(textArea);
-    }
-
-
-
+   document.querySelector('.productformdesktoptitle').appendChild(clone2);
+   document.querySelector('.productformdesktoptitle').appendChild(clone3); 
+   document.querySelector('.productformdesktopsticky-variant-atc').appendChild(clone); 
+   let cloneNew = document.querySelector('.product-form').cloneNode(true);
+   document.querySelector('.custom-atc-product').appendChild(cloneNew); 
+  
+  
     const isProductSoldOut = () => {
       try{
       let isSoldOut = false;
@@ -1173,123 +1113,7 @@
             console.error(error);     
       }
     }
-
-
    
- 
-
-
-function validateInput(event) {
-    try{
-    
-      let currInputLength = event.currentTarget.value.length;
-      let inputMaxLength = event.currentTarget.maxLength;
-   
-     if (currInputLength > inputMaxLength) {
-    
-        event.currentTarget.value = event.currentTarget.value.slice(0, inputMaxLength);
-       
-      }
-      else if (currInputLength < inputMaxLength  ) {
-       
-         document.querySelector('.pinMsg').innerHTML = " ";
-      }
-     
-    
-    }catch (error) {
-        console.error(error);     
-    }
-  }
-
-
-
-  
-function validatePinCode(pincode) {
-  try{
-      const pincodePattern = /^[1-9]\d{5}$/;
-
-      if (pincode.match(pincodePattern)) {
-        return true; 
-      } else {
-        return false;
-      }
-  }catch (error) {
-        console.error(error);     
-    }
-  
-}
-    function pinCodeChecker(){
-    try{
-      const pinValue = document.querySelector('.pincode_input').value;
-      const  skuValue = '{{product.selected_or_first_available_variant.sku}}';
-     
-     if(pinValue){
-        document.querySelector('.pincode_submit').innerHTML = 'Checking....';
-        if(validatePinCode(pinValue)){
-         var raw = JSON.stringify({
-           "destination_pincode": pinValue,
-             "selected_sku": skuValue
-           }); 
-
-
-        var myHeaders = new Headers();
-        myHeaders.append("x-api-key", "oxbKcJPuh69tanfjMRunW5Mb0kTkLSZE5cjGAEPx");
-        myHeaders.append("Content-Type", "application/json; charset=utf-8");
-    
-        var requestOptions = {
-          method: 'POST',
-          headers: myHeaders,
-          body: raw,
-          redirect: 'follow'
-        };
-        
-        fetch("https://4rjsft6gfi.execute-api.ap-south-1.amazonaws.com/prod/get-sla", requestOptions)
-          .then(response => response.json())
-          .then(result => {
-            document.querySelector('.pincode_submit').innerHTML = 'Check';
-            document.querySelector('.pinMsg').style.color ="#0a0a0a";
-            if(result.status) document.querySelector('.pinMsg').innerHTML = result.deliverySla;
-            else document.querySelector('.pinMsg').innerHTML = "Delivery not available in this pincode";
-          })
-          .catch(error => console.log('error', error));
-      }
-      else{
-          document.querySelector('.pincode_submit').innerHTML = 'Check';
-          document.querySelector('.pinMsg').style.color ="#ef3133";
-          document.querySelector('.pinMsg').innerHTML = "Invalid PIN code";
-      }
-    }else{ 
-            document.querySelector('.pinMsg').style.color ="#ef3133";
-            document.querySelector('.pinMsg').innerHTML = "Please Enter Valid PIN Code";
-        }
-   }catch(e){
-     document.querySelector('.pincode_submit').innerHTML = 'Check';
-     console.log('error', e)
-   }
-     
-  }
-
-    window.addEventListener('DOMContentLoaded', async () => {
-        try{
-          let soldOut = isProductSoldOut();
-
-          if (soldOut) {
-             document.querySelector('.pincode_div').style.pointerEvents="none"
-             document.querySelector('.pincode_div').style.opacity="0.5";
-          }
-          else{
-             document.querySelector('.pincode_div').style.pointerEvents="unset"
-             document.querySelector('.pincode_div').style.opacity="unset";
-          }
-
-        } catch(error){
-          console.error(error);
-        }
-      });
-
-
-
-    
   </script>
 </section>
 
@@ -2638,22 +2462,41 @@ function validatePinCode(pincode) {
   ],
   "settings": [
     {
-      "type": "text",
-      "id": "offers_for_you1",
-      "default": "Additional 10% off on entire order. Available on your 1st purchase only##GET10",
-      "label": "Offers For You(Separate the Code with ##)"
+      "type": "image_picker",
+      "id": "cod_svg",
+      "label": "COD Image"
     },
     {
       "type": "text",
-      "id": "offers_for_you2",
-      "default": "Additional 10% off on entire order. Available on your 1st purchase only##GET10",
-      "label": "Offers For You(Separate the Code with ##)"
+      "id": "cod_text",
+      "label": "COD Text",
+      "default": "COD available"
     },
-     {
+    {
+      "type": "image_picker",
+      "id": "return_exchange_img",
+      "label": "Return and Exchange Image"
+    },
+    {
       "type": "text",
-      "id": "offers_for_you3",
-      "default": "Additional 10% off on entire order. Available on your 1st purchase only##GET10",
-      "label": "Offers For You(Separate the Code with ##)"
+      "id": "return_exchange_text",
+      "label": "Return and Exchange Text",
+      "default": "7 Days Return and Exchange"
+    },
+    {
+      "type": "text",
+      "id": "country_of_origin",
+      "label": "Country of origin"
+    },
+    {
+      "type": "text",
+      "id": "manufacturer_name",
+      "label": "Manufacturer Name"
+    },
+    {
+      "type": "text",
+      "id": "manufacturer_address",
+      "label": "Manufacture Address"
     },
     {
       "type": "checkbox",
