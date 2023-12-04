@@ -72,11 +72,11 @@
           "type": "image",
           "settings": {
             "desktop_banner_image": "shopify:\/\/shop_images\/Banner.png",
-            "mobile_banner_image": "shopify:\/\/shop_images\/fff_1.png",
+            "mobile_banner_image": "shopify:\/\/shop_images\/1_91dd7044-e7a3-4826-b256-a7b4e6054b0d.png",
             "desktop_banner_text": "",
             "mobile_banner_text": "",
             "button_text1": "SHOP MEN",
-            "button_link1": "https:\/\/titan.in\/collections\/men",
+            "button_link1": "",
             "button_text2": "SHOP WOMEN",
             "button_link2": "https:\/\/titan.in\/collections\/women",
             "buttoncolor": "#ffffff",
@@ -88,6 +88,7 @@
           "type": "image",
           "settings": {
             "desktop_banner_image": "shopify:\/\/shop_images\/6.png",
+            "mobile_banner_image": "shopify:\/\/shop_images\/2_ab686c71-dccb-414d-bbc4-c4d70103db31.png",
             "desktop_banner_text": "",
             "mobile_banner_text": "",
             "button_text1": "SHOP NOW",
