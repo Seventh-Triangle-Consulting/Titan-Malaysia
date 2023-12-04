@@ -67,10 +67,10 @@
 <div class="page-width product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}" data-productid="{{ product.id }}">
     <div id="{{ section.id }}" class="grid__item product__media-wrapper{% if section.settings.media_position == 'right' %} medium-hide large-up-hide{% endif %}">
       
-      <div class="custom-desktop-slider-main swiper mySwiper2" style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" >
+      <div data-id="pdpSwiper" class="custom-desktop-slider-main swiper mySwiper2" style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" >
          <div class="swiper-wrapper">
             {%- for media in product.media -%}    
-                  <div class="swiper-slide">
+                  <div class="swiper-slide {% if variant_images contains media %}true{% endif %}">
                        {{
                           media
                           | image_url: width: media.width
@@ -83,7 +83,7 @@
             <div class="swiper-button-prev"></div>
           </div>
 
-         <div thumbsSlider="" class="custom-desktop-slider-main-thumbs-up swiper mySwiper">
+         <div thumbsSlider="" data-id="pdpSwiperThumb" class="custom-desktop-slider-main-thumbs-up swiper mySwiper">
             <div class="swiper-wrapper">
              {%- for media in product.media -%}  
                   <div class="swiper-slide">
@@ -942,9 +942,15 @@ document.addEventListener('DOMContentLoaded', function() {
       // Add scroll event listener
       window.addEventListener('scroll', toggleProductForm);
     });
+    
+function initSwipersPDP(event, isQuickAdd = false) {
+    let pdpthumbswiper = '[data-id="pdpSwiperThumb"]';
+    let pdpswiper = '[data-id="pdpSwiper"]';
 
-  
-window.addEventListener('DOMContentLoaded',() => {
+    if(isQuickAdd) {
+      pdpthumbswiper = 'quick-add-modal [data-id="pdpSwiperThumb"]';
+      pdpswiper = 'quick-add-modal [data-id="pdpSwiper"]';
+    }
 
       var swiper = new Swiper("#{{ section.id }} .mySwiper", {
           loop: true,
@@ -970,12 +976,8 @@ window.addEventListener('DOMContentLoaded',() => {
         },
       });
 
-    
-    },
-    { once: true }
-  );
           
- document.addEventListener('DOMContentLoaded', function() {
+ 
       // Select all elements with the class custom-description-title
       var titleElements = document.querySelectorAll('.custom-description-title');
 
@@ -990,7 +992,10 @@ window.addEventListener('DOMContentLoaded',() => {
           this.classList.toggle('svg-transform');
         });
       });
-    });
+   
+}
+
+ window.addEventListener('DOMContentLoaded', initSwipersPDP, { once: true });
 </script>
   <script>
   

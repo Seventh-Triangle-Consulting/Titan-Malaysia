@@ -12,7 +12,28 @@
 .card--card .quick-add {
   margin: 0 1.3rem 1rem;
 }
-
+.quick-add-modal h2{
+  font-family: PlayfairDisplay-Bold;
+  font-size: 20px;
+}
+.quick-add-modal .custom-product-description{
+  display: none;
+}
+.quick-add-modal .custom-atc-product{
+  display: none !important;
+}
+.quick-add-modal .custom-atc-qty-slector{
+  justify-content: flex-end !important;
+}
+.quick-add-modal .product-form{
+  display: block;
+}
+.quick-add-modal  .pdp_shipping_returns{
+  display: none;
+}
+.quick-add-modal .product--thumbnail_slider{
+  padding: 0 !important;
+}
 .quick-add-modal {
   box-sizing: border-box;
   opacity: 0;

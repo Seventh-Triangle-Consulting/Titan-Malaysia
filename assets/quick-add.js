@@ -45,6 +45,9 @@ if (!customElements.get('quick-add-modal')) {
             opener.removeAttribute('aria-disabled');
             opener.classList.remove('loading');
             opener.querySelector('.loading-overlay__spinner').classList.add('hidden');
+            if (typeof initSwipersPDP === 'function') {
+              initSwipersPDP(null, true);
+            }
           });
       }
 

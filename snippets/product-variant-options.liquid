@@ -22,7 +22,6 @@
 
   assign product_form_id = 'product-form-' | append: section.id
 -%}
-
 {%- for value in option.values -%}
   {%- liquid
     assign option_disabled = true
@@ -60,8 +59,12 @@
         class="disabled"
       {% endif %}
     >
-    <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
-      {{ value -}}
+    <label class="{% if product.variants[forloop.index0].featured_image != blank %}custom_variant_label{% endif %}" for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
+      {% if product.variants[forloop.index0].featured_image != blank %}
+          <img class="variant-image-custom" src="{{ product.variants[forloop.index0].featured_image.src | img_url: 'medium' }}" alt="{{ variant.title }}" />
+      {% else %}
+         <span>{{ value }}</span>
+      {% endif%}
       <span class="visually-hidden">{{ 'products.product.variant_sold_out_or_unavailable' | t }}</span>
     </label>
   {%- elsif block.settings.picker_type == 'dropdown' -%}
