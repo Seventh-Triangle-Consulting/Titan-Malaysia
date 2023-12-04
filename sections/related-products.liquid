@@ -20,131 +20,39 @@
   }
 {%- endstyle -%}
 
-<div class="color-{{ section.settings.color_scheme }} gradient no-js-hidden related_products" id={{ section.id }}>
-  <h2 class="related-products__heading inline-richtext">
-    {{ section.settings.heading }}
-  </h2>
-  <div class="swiper related_products_swiper">
-    <product-recommendations
-      class="swiper-wrapper"
-      data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ section.settings.products_to_show }}"
-    >
-      {% if recommendations.performed and recommendations.products_count > 0 %}
+<div class="color-{{ section.settings.color_scheme }} gradient no-js-hidden">
+  <product-recommendations
+    class="related-products page-width section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+    data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ section.settings.products_to_show }}"
+  >
+    {% if recommendations.performed and recommendations.products_count > 0 %}
+      <h2 class="related-products__heading inline-richtext {{ section.settings.heading_size }}">
+        {{ section.settings.heading }}
+      </h2>
+      <ul
+        class="grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down"
+        role="list"
+      >
         {% for recommendation in recommendations.products %}
-          <div class="swiper-slide relateditem">
-            {% render 'related-products-card-product',
+          <li class="grid__item">
+            {% render 'card-product',
               card_product: recommendation,
               media_aspect_ratio: section.settings.image_ratio,
               image_shape: section.settings.image_shape,
               show_secondary_image: section.settings.show_secondary_image,
               show_vendor: section.settings.show_vendor,
-               show_color-swatch:section.settings.enable_colorswatch,
               show_rating: section.settings.show_rating
             %}
-          </div>
+          </li>
         {% endfor %}
-      {% endif %}
-    </product-recommendations>
-  </div>
+      </ul>
+    {% endif %}
+  </product-recommendations>
   {% if section.settings.image_shape == 'arch' %}
     {% render 'mask-arch' %}
   {%- endif -%}
 </div>
 
-<script>
-  window.addEventListener(
-    'DOMContentLoaded',
-    () => {
-      var swiper = new Swiper('#{{ section.id }} .related_products_swiper', {
-        slidesPerView: 1.5,
-        spaceBetween: 10,
-        pagination: {
-          el: '#{{ section.id }} .swiper-pagination',
-          clickable: true,
-        },
-        breakpoints: {
-        300: {
-            slidesPerView: 1.5,
-            spaceBetween: 10,
-            centeredSlides: false,
-            loop: true,
-          },
-          500: {
-            slidesPerView: 2,
-            spaceBetween: 10,
-            centeredSlides: false,
-            loop: true,
-          },
-          901: {
-            slidesPerView: 4,
-            spaceBetween: 10,
-            centeredSlides: false,
-            loop: false,
-          },
-        },
-      });
-    },
-    { once: true }
-  );
-</script>
-  <script data-defer="nodefer">   
-   setTimeout(() => {
-     const elementr = document.querySelectorAll(".related_products_swiper .relateditem");
-    console.log(elementr);
-  elementr.forEach((el) =>{ 
-  let sliderint = "";  
-  sliderint = el.querySelector(".card-wrapper");    
-  let pid = sliderint.getAttribute('data-id');
-  
-      let colorslider = "";  
- colorslider = el.querySelector(".productcardcolorswatch");
-console.log(pid);
-         var contentm = document.getElementById('product_image_slide_container_'+pid+'');         
-       var maincolor = document.getElementById('productcardcolor_'+pid+'');
-         let swatchcolorW = maincolor.querySelectorAll(".colorswatch"); 
-         let productid_info = contentm.querySelectorAll(".colorproductimage");
- 
-     swatchcolorW.forEach(function(el, key){
-       
-       el.addEventListener('click', (e, key) => {
-    const et = e.target;   
-      //et.classList.toggle('active');
-   swatchcolorW.forEach(function(ell, els){
-     
-     
-                 if(key !== els) {
-                     ell.classList.remove('active');
-                 }
-             });
-     et.classList.add('active');        
-         let cardheading = document.getElementById('cardheading_'+pid+'');
-         let mainprice = document.getElementById('mainprice_'+pid+'');
-       let compareprice = document.getElementById('compareprice_'+pid+'');
-         let discountprice = document.getElementById('discountprice_'+pid+''); 
-        
-   for (let content of productid_info ) {
-       if(content.getAttribute('data-id') === el.getAttribute('data-id') ) {
-        content.style.display = "block";   
-          cardheading.innerHTML = content.getAttribute('product-title');
-         cardheading.href = content.getAttribute('product-url');
-         mainprice.innerHTML =content.getAttribute('main-price');
-         compareprice.innerHTML =content.getAttribute('compare-price');
-         discountprice.innerHTML =content.getAttribute('discount-price');
-      
-       }
-      else {
-      content.style.display = "none";
-       }
-     }
-     });
-    });
-
-   
-    });
-     }, 8000);
-  
-    
-  </script>
 {% schema %}
 {
   "name": "t:sections.related-products.name",
@@ -276,12 +184,6 @@ console.log(pid);
       "id": "show_secondary_image",
       "default": false,
       "label": "t:sections.related-products.settings.show_secondary_image.label"
-    },
-     {
-      "type": "checkbox",
-      "id": "enable_colorswatch",
-      "default": false,
-      "label": "Show Color Swatch"
     },
     {
       "type": "checkbox",
