@@ -108,7 +108,7 @@
       "settings": {
         "margin_bottom_desktop": 40,
         "margin_bottom_mobile": 20,
-        "autoplay": false
+        "autoplay": true
       }
     },
     "bfe6cd2b-1256-45c9-8448-e96663707a03": {
