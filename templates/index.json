@@ -116,7 +116,6 @@
       "blocks": {
         "c83101a8-0c19-445f-bdbc-6871ca79ac95": {
           "type": "block",
-          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/casual.png",
             "btnurl": "shopify:\/\/collections\/female",
