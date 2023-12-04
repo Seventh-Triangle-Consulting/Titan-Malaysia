@@ -63,7 +63,7 @@
       {% if product.variants[forloop.index0].featured_image != blank %}
           <img class="variant-image-custom" src="{{ product.variants[forloop.index0].featured_image.src | img_url: 'medium' }}" alt="{{ variant.title }}" />
       {% else %}
-         <span>{{ value }}</span>
+         {{ value }}
       {% endif%}
       <span class="visually-hidden">{{ 'products.product.variant_sold_out_or_unavailable' | t }}</span>
     </label>
