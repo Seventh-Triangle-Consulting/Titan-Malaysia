@@ -272,7 +272,10 @@
         "bestsellers_heading": "BestSeller",
         "men_collection": "mens-watch",
         "women_collection": "female",
-        "kids_collection": ""
+        "kids_collection": "children",
+        "men_collection_text": "Men",
+        "women_collection_text": "Women",
+        "kids_collection_text": "Kid"
       }
     },
     "b8288058-a547-4fee-bfe1-0f766e5e082c": {
