@@ -156,7 +156,6 @@
         },
         "aa576bbb-753d-4268-b018-d0d749590f09": {
           "type": "block",
-          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/Workwear.png",
             "btnurl": "",
