@@ -7,6 +7,7 @@
           "type": "slideshow",
           "settings": {
             "collection_slide_url": "shopify:\/\/collections\/watches",
+            "collection_slide_image": "shopify:\/\/shop_images\/automatic.png",
             "collection_slide_text": "Automatic"
           }
         },
