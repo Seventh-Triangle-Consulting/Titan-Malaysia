@@ -1,0 +1,173 @@
+<style>
+ #featured-collections-{{ section.id }}{
+     margin-bottom:{{ section.settings.desktop_margin_bottom }}px;
+  }
+.Upper-section-collec  .bg-color{background-color: #fff7e5 !important;width:100%;}
+.Upper-section-collec  .padding_none{font-family:Rubik-Bold;font-size:2.292vw;color:#231F20;}
+/* .Upper-section-collec {background-color:#FFF7E5;} */
+.Upper-section-collec  .row_ashish{flex-wrap: nowrap!important;}
+.Upper-section-collec  .fabrics-container {overflow-x: scroll;width: 100%!important;}
+.Upper-section-collec  .fabrics-container::-webkit-scrollbar {display: none;}
+.titan-homepahe-featured-collection img{height:auto;width:150px;}
+  .titan-homepahe-featured-collection .collection-item{text-align:center;} 
+.titan-homepahe-featured-collection .collection-list{display:flex;gap:2%;overflow:scroll;justify-content:center;}
+.titan-homepahe-featured-collection .collection-list::-webkit-scrollbar { display: none;}
+.titan-homepahe-featured-collection .collection-card{text-decoration:initial;}
+/* Hide scrollbar for IE, Edge and Firefox */
+.Upper-section-collec  .fabrics-container {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+@media (max-width:991px){
+.Upper-section-collec  .fabrics-container{max-width: 100%;}
+.Upper-section-collec  .fabrics-ul-style{display: -webkit-box;flex-direction: row;flex-wrap: nowrap;max-height: 300px;overflow-x: scroll;}
+.Upper-section-collec  .fabrics-ul-style::-webkit-scrollbar {display: none;}
+.Upper-section-collec  .fabrics-li{width: 100%;max-width: 200px;}
+}
+@media(max-width:600px){
+.Upper-section-collec .fabrics-title{font-size:5.128vw !important;line-height:9.231vw;margin-top:3%;}
+.Upper-section-collec .fabrics-li{max-width:190px;padding:0 !important;width: 40%;margin-left: 2%;}
+}
+@media screen and (max-width:768px){
+  #featured-collections-{{ section.id }}{
+      margin-bottom:{{ section.settings.mobile_margin_bottom }}px;
+  }
+}
+</style>
+
+<section id="featured-collections-{{ section.id }}" class="featured-collections Upper-section-collec titan-homepahe-featured-collection bgcolorfabrics bg-color {{ section.settings.text_align }}">
+    <div class="container-fluid fabrics-container">
+       {% if section.settings.title != blank %}
+            <h2 class="title mb-4 padding_none {{ section.settings.title_size }}">
+                {{ section.settings.title }}
+            </h2>
+        {% endif %}
+        <div class="collection-list list-unstyled row_ashish row mb-0 fabrics-ul-style">
+            {% for block in section.blocks %}
+                {% render 'collection-watches', collection: collections[block.settings.collection] %}
+            {% endfor %}
+        </div>
+        {% unless section.settings.btn_text == blank %}
+            <div class="text-center">
+                <a class="btn mt-8 mb-0 {{ section.settings.btn_color }}" href="{{ routes.collections_url }}">
+                    {{ section.settings.btn_text }} 
+                </a>
+            </div>
+        {% endunless %}
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "HomePage Collection",
+    "settings": [
+        {
+            "type": "header",
+            "content": "General"
+        },
+        { "type": "color",
+          "id": "bg_color",
+         "label": "Background Color" },
+        {
+            "type": "select",
+            "id": "text_align",
+            "label": "Text align",
+            "default": "text-center",
+            "options": [
+                { "value": "text-start", "label": "Left" },
+                { "value": "text-center", "label": "Center" }
+            ]
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Featured Collections"
+        },
+        {
+            "type": "select",
+            "id": "title_size",
+            "label": "Title size",
+            "default": "h2",
+            "options": [
+                { "group": "Heading", "value": "h1", "label": "H1" },
+                { "group": "Heading", "value": "h2", "label": "H2" },
+                { "group": "Heading", "value": "h3", "label": "H3" },
+                { "group": "Heading", "value": "h4", "label": "H4" },
+                { "group": "Heading", "value": "h5", "label": "H5" },
+                { "group": "Heading", "value": "h6", "label": "H6" }
+            ]
+        },
+        {
+            "type": "text",
+            "id": "btn_text",
+            "label": "Button text",
+            "default": "View all collections",
+            "info": "Leave empty to disable"
+        },
+        {
+            "type": "select",
+            "id": "btn_color",
+            "label": "Button color",
+            "default": "btn-primary",
+            "options": [
+                { "group": "Normal", "value": "btn-light", "label": "Light" },
+                { "group": "Normal", "value": "btn-primary", "label": "Primary" },
+                { "group": "Normal", "value": "btn-secondary", "label": "Secondary" },
+                { "group": "Normal", "value": "btn-dark", "label": "Dark" },
+                { "group": "Outline", "value": "btn-outline-primary", "label": "Primary Outline" },
+                { "group": "Outline", "value": "btn-outline-secondary", "label": "Secondary Outline" },
+                { "group": "Outline", "value": "btn-outline-dark", "label": "Dark Outline" }
+            ]
+        },
+        {
+            "type": "header",
+            "content": "Items per row"
+        },
+        {
+            "type": "header",
+            "content": "Spacing"
+        },
+        {
+            "type": "range",
+            "id": "desktop_margin_bottom",
+            "min": 0,
+            "max": 100,
+            "step": 5,
+            "unit": "px",
+            "label": "Desktop Margin Bottom",
+            "default": 20
+      },
+      {
+        "type": "range",
+        "id": "mobile_margin_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Mobile Margin Bottom",
+        "default": 20
+      }
+    ],
+    "blocks": [
+        {
+            "type": "collection",
+            "name": "Collection",
+            "settings": [
+                {
+                    "type": "collection",
+                    "id": "collection",
+                    "label": "Collection"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "homepage-featured-collection",
+            "category": "Collections"
+        }
+    ]
+}
+{% endschema %}

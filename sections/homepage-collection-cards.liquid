@@ -1,0 +1,178 @@
+<style>
+   #{{ section.id }}{
+     margin-bottom:{{ section.settings.desktop_margin_bottom }}px;
+  }
+  .coll_cardss .swiper{ padding-bottom:1%;}
+  .coll_cardss .title-wrapper{padding-bottom: 0%;}
+  .swiper-pagination{display:none;}
+  .collection_text_wrapper p{word-wrap: break-word;}
+  .hidenav .swiper-but-prev,.hidenav .swiper-but-next{display:none;}
+  .{{section.id}}.coll_cardss{position:relative;}
+  .collection_cards h2.title{ padding: 0 0.7rem; font-family:PlayfairDisplay-Bold; font-size: 28px; text-align: center;margin-bottom:0;font-weight:700;margin-top:0;}
+  .collection_cards{ overflow:hidden; width: 100%; margin: auto;}
+  .collection_contents {width: 100%;justify-content: center;text-align: center;padding: 0 0.7rem;position: relative;/*display: flex;*/align-items: end;}
+  a.collection_img_wrapper {width: 100%;overflow:hidden;}
+  .collection_cardsshop{background-color: #9C6365;padding: 4rem 2rem 4rem 2rem;margin: 0; max-width: 100%;width: 100%;}
+  .collection_cardsshop .description{ text-align: center; color: #fff;font-size: 12px;margin-top:0;}
+  .collection_cardsshop h2 {font-family:Rubik-Bold !important;font-size: 48px;color:#fff;margin-bottom:0;}
+  .collection_text_wrapper{padding-top:22px;} 
+  .collection_cardsshop .collection_text_wrapper a{color:#fff;text-decoration:underline;}
+  .collection_text_wrapper h3{display:none;color:#fff;margin:0 0 .5rem;font-family: Roboto-Regular;}
+  .collection_text_wrapper p, .collection_text_wrapper a{color:#000; margin:0 0 1rem; font-family:Roboto-Regular;text-decoration:initial;font-size:14px;}
+  .collection_img_wrapper img{transition: .3s linear;width:100%;height:auto !important; /*background: rgba(51,49,59,1) 0% 0% no-repeat padding-box;filter: brightness(.61);*/ border-radius: 15px;}
+  .collection_img_wrapper img:hover{transform: scale(1.05);}
+@media only screen and (max-width:787px){
+      #{{ section.id }}{
+         margin-bottom:{{ section.settings.mobile_margin_bottom }}px;
+      }
+      .coll_cardss .swiper { padding-bottom: 1% !important;}
+      .collection_cards h2.title{ margin-top: 3% !important;}
+}
+@media only screen and (min-width:1900px){
+      .collection_text_wrapper_rspnsv{ font-size: 22px; }
+  }
+</style>
+<div id="{{section.id}}" class="{{section.id}} coll_cardss collection_cards{{section.settings.id}} page-width {% if section.blocks.size < 5%}hidenav{%endif%}">
+  
+      {%- unless section.settings.heading == blank -%}
+          <div class="title-wrapper">
+            <h2 class="title">{{ section.settings.heading | escape }}</h2>
+            {% if section.settings.description != blank %}
+            <p class="description"> {{section.settings.description}}</p>
+            {% endif %}
+          </div>
+        {%- endunless -%}
+    
+    <div class=" ga-swiper  collection_card_container-{{section.id}} {% if section.blocks.size > 4 %}hides_nav{%endif%}">
+    <div class="ga-swiper-wrapper">
+            {% for block in section.blocks %} 
+                    <div gggg="{{ block.settings.image | size}}">
+                            <div class="collection_contents ">     
+                                     {%- if block.settings.image != blank -%}
+                                              <a href="{{ block.settings.btnurl }}" class="collection_img_wrapper">
+                                                      <img
+                                                        srcset="{%- if block.settings.image.width >= 165 -%}{{ block.settings.image | image_url: width: 165 }} 165w,{%- endif -%}
+                                                          {%- if block.settings.image.width >= 360 -%}{{ block.settings.image | image_url: width: 360 }} 360w,{%- endif -%}
+                                                          {%- if block.settings.image.width >= 535 -%}{{ block.settings.image | image_url: width: 535 }} 535w,{%- endif -%}
+                                                          {%- if block.settings.image.width >= 750 -%}{{ block.settings.image | image_url: width: 750 }} 750w,{%- endif -%}
+                                                          {%- if block.settings.image.width >= 1070 -%}{{ block.settings.image | image_url: width: 1070 }} 1070w,{%- endif -%}
+                                                          {%- if block.settings.image.width >= 1500 -%}{{ block.settings.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                                                          {{ block.settings.image | image_url }} {{ block.settings.image.width }}w"
+                                                        src="{{ block.settings.image | image_url: width: 1500 }}"
+                                                        sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                                                        alt="{{ block.settings.image.alt | escape }}"
+                                                        loading="lazy"
+                                                        width="{{ block.settings.image.width }}"
+                                                        height="{{ block.settings.image.height }}"
+                                                      >       
+                                               </a>
+                                     {%- endif -%}
+                                    <div class="collection_text_wrapper collection_text_wrapper_rspnsv">       
+                                      
+                                                {%- if block.settings.title != blank -%}
+                                                           <h3>{{ block.settings.title }}</h3>
+                                                {%- endif -%}
+                                      
+                                                {%- if block.settings.subtitle != blank -%}
+                                                           <p>{{ block.settings.subtitle }}</p>
+                                                {%- endif -%}
+                                      
+                                                {%- if block.settings.btn != blank -%}
+                                                           <a href="{{ block.settings.btnurl }}">{{ block.settings.btn }}</a>
+                                                {%- endif -%}                      
+                                    </div>   
+                          </div>        
+                    </div>    
+          {%endfor%}
+      </div>
+            <div class="customcards-swiper-pagination "> </div>
+        
+       </div>
+</div>   
+{% schema %}
+    {
+      "name": "HomePage Col Cards",
+      "settings": [
+           { 
+              "id":"heading",
+              "type":"text",
+              "label":"Section Heading"
+           },
+           {
+              "id":"description",
+              "type":"text",
+              "label":"Section Description"
+            },
+            {
+              "id":"id",
+              "type":"text",
+              "label":"Section Id"
+            },
+            {
+                "type": "range",
+                "id": "desktop_margin_bottom",
+                "min": 0,
+                "max": 100,
+                "step": 5,
+                "unit": "px",
+                "label": "Desktop Margin Bottom",
+                "default": 20
+            },
+            {
+              "type": "range",
+              "id": "mobile_margin_bottom",
+              "min": 0,
+              "max": 100,
+              "step": 5,
+              "unit": "px",
+              "label": "Mobile Margin Bottom",
+              "default": 20
+            }
+      ],
+      "blocks":[
+            {
+                "name":"Add Block",
+                "type":"block",
+                "settings":[
+                {
+                "id":"image",
+                "type":"image_picker",
+                "label":"Select Image"
+                },
+                {
+                "id":"btnurl",
+                "type":"url",
+                "label":"Collection Button url"
+                },
+                {
+                "id":"title",
+                "type":"text",
+                "label":"Collection Name"
+                },
+                {
+                "id":"subtitle",
+                "type":"text",
+                "label":"Collection SubText"
+                },
+                {
+                "id":"btn",
+                "type":"text",
+                "label":"Collection Button"
+                }
+             ]
+          }
+  ],
+  "presets": [
+      {
+        "name": "homepage-collection-cards"
+        }
+  ]
+    }
+  {% endschema %}
+  
+  {% stylesheet %}
+  {% endstylesheet %}
+  
+  {% javascript %}
+  {% endjavascript %}
+  

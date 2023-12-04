@@ -1,0 +1,38 @@
+<style>
+.fabric-btn-text{ font-size:14px; line-height:1; font-family:Roboto-Regular; color:#231F20; text-align:center;margin-bottom:0;margin-top:5px !important;}
+.fabrics-style{ border-radius: 50%; max-width: 75%; padding: 0; max-height: 100%; object-fit: cover; }
+.fabrics-li{ margin-top:1%; margin-bottom:1% !important;min-width:fit-content; }
+@media(max-width:500px){
+  .fabrics-style { border-radius: 50% !important; max-width: 80% !important; padding: 0 !important; max-height: 86% !important; object-fit: cover !important; }
+}
+@media screen and (min-device-width: 1100px) and (max-device-width: 2500px) {
+  .fabrics-style { border-radius: 50% !important; max-width: 85% !important; padding: 0 !important; max-height: 91% !important; object-fit: cover !important;}
+}
+@media screen and (min-device-width: 500px) and (max-device-width: 1000px) {
+  .fabrics-style { border-radius: 50% !important; max-width: 80% !important; padding: 0 !important; max-height: 86% !important; object-fit: cover !important; }
+} 
+</style>
+{% liquid
+    assign img_width  = 300
+    assign img_height = 300
+    assign img_thumbnail = 'img-thumbnail'
+    assign image = collection.image | default: collection.products.first.featured_image
+%}
+
+<div class="collection-item p-3 mb-4 fabrics-li {{ slider }}">
+    <a class="collection-card" href="{{ collection.url }}">
+        <img 
+            class="img-fluid mb-3 fabrics-style"
+            src="{{ image | image_url: width: img_width, height: img_height, crop: 'center' }}" 
+            alt="{{ image.alt | escape }}"
+            width="{{ img_width }}"
+            height="{{ img_height }}"
+            loading="lazy">
+      {% if collection.title != blank %}
+        <h3 class="collection-item-title h6 mb-0 fabric-btn-text">
+            {{ collection.title }}
+        </h3>
+      {% endif %}
+      {% if colsubtext != blank %}<p class="fabric-sub-text">{{ colsubtext }}</p>{% endif %}
+    </a>
+</div>

@@ -52,13 +52,6 @@ class FacetFiltersForm extends HTMLElement {
     });
 
     if (updateURLHash) FacetFiltersForm.updateURLHash(searchParams);
-     setTimeout(() => {
-      if (document.querySelector("#product-grid-Pagination"))
-        window.observer1.observe(
-          document.querySelector("#product-grid-Pagination")
-        );
-    }, 2000);
-    
   }
 
   static renderSectionFromFetch(url, event) {
@@ -70,9 +63,6 @@ class FacetFiltersForm extends HTMLElement {
         FacetFiltersForm.renderFilters(html, event);
         FacetFiltersForm.renderProductGridContainer(html);
         FacetFiltersForm.renderProductCount(html);
-         priceBaeSlider();
-         selectedPrice();
-         window.psn();
         if (typeof initializeScrollAnimationTrigger === 'function') initializeScrollAnimationTrigger(html.innerHTML);
       });
   }
@@ -96,19 +86,16 @@ class FacetFiltersForm extends HTMLElement {
       .forEach((element) => {
         element.classList.add('scroll-trigger--cancel');
       });
-     
   }
 
   static renderProductCount(html) {
     const count = new DOMParser().parseFromString(html, 'text/html').getElementById('ProductCount').innerHTML;
     const container = document.getElementById('ProductCount');
     const containerDesktop = document.getElementById('ProductCountDesktop');
-     let newText = count.substr(0, 2);
-    let newTextc = newText.replace(" ","");
-    container.innerHTML = newTextc;
+    container.innerHTML = count;
     container.classList.remove('loading');
     if (containerDesktop) {
-      containerDesktop.innerHTML = '('+newTextc+')';
+      containerDesktop.innerHTML = count;
       containerDesktop.classList.remove('loading');
     }
   }
@@ -294,4 +281,3 @@ class FacetRemove extends HTMLElement {
 }
 
 customElements.define('facet-remove', FacetRemove);
-

@@ -1,0 +1,243 @@
+.homepage-shop-by-concern-section .section_title_shop_by_concern {
+  text-align: center;
+  font-family: PlayfairDisplay-Bold;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 1;
+  margin-bottom: 30px;
+  margin-top: 0px;
+  color: #000000;
+  letter-spacing: 0.02em;
+}
+.both-concern-button .swiper-button-next:after, .both-concern-button .swiper-button-prev:after{display:none;}
+.card_image_wrapper {
+  max-width: 289px;
+  position: relative;
+}
+
+.homepage-shop-by-concern-section  .swiper-slide {
+  width: calc(289 * (100vw / 1600));
+  margin-right: 38px;
+}
+
+.homepage-shop-by-concern-section .card_image_wrapper {
+  animation-duration: .75s;
+  animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  animation-delay: inherit;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+  animation-name: homepage-shop-by-concern-animation;
+}
+
+@keyframes homepage-shop-by-concern-animation {
+  0% {
+    opacity: 0;
+    transform: scale(0.97) translateY(6%);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0px);
+  }
+}
+
+.homepage-shop-by-concern-section .swiper-slide .card_image_wrapper {
+  transform: translateY(20px);
+  transition: transform 0.15s ease-in-out, padding-top 0.15s ease-in-out;
+  padding-top: 17px;
+  line-height: 0;
+}
+
+.homepage-shop-by-concern-section .swiper-slide-prev .card_image_wrapper, 
+.homepage-shop-by-concern-section .swiper-slide-next .card_image_wrapper, 
+.homepage-shop-by-concern-section .swiper-slide-active .card_image_wrapper {
+  padding-top: unset;
+  transform: translateY(0px);
+}
+
+.homepage-shop-by-concern-section .swiper-slide-active {
+  width: 273.4px;
+  transition-duration: 0ms;
+  z-index: 15;
+  transform: translate3d(calc(-2491px + -0.0417469%), calc(0px + 0.00192678%), calc(0px)) rotateX(0deg) rotateY(0deg) rotateZ(-0.00449583deg) scale(1);
+  opacity: 1;
+  transform-origin: center 410%;
+  margin-right: 38px;
+}
+.homepage-shop-by-concern-section .swiper-slide-prev {
+  width: 273.4px;
+  transition-duration: 0ms;
+  z-index: 14;
+  transform: translate3d(calc(-1246px + -64.9165%), calc(0px + 2.99615%), calc(0px)) rotateX(0deg) rotateY(0deg) rotateZ(-6.99101deg) scale(1);
+  opacity: 1;
+  transform-origin: center 410%;
+  margin-right: 38px;
+}
+.homepage-shop-by-concern-section .swiper-slide-next {
+  width: 273.4px;
+    transition-duration: 0ms;
+    z-index: 14;
+    transform: translate3d(calc(-1868px + 64.9165%), calc(0px + 2.99615%), calc(0px)) rotateX(0deg) rotateY(0deg) rotateZ(6.99101deg) scale(1);
+    opacity: 1;
+    transform-origin: center 410%;
+    margin-right: 38px;
+}
+
+/* .homepage-shop-by-concern-section .swiper-slide-next + .swiper-slide .card_image_wrapper{
+  padding-top: 15px;
+} */
+
+ .homepage-shop-by-concern-section .mobile_card_image{
+  display: none;
+}
+
+.card_image_wrapper img {
+  width: 100%;
+  height: auto;
+}
+.homepage-shop-by-concern-section .overlay-text-container {
+  display: none;
+}
+
+.homepage-shop-by-concern-section .overlay-text-container .overlay-text p {
+  font-family: Rubik-Medium;
+  font-weight: 500;
+  font-size: 1.75vw;
+  line-height: 2.188vw;
+  color: #ffffff;
+  margin: 0;
+  text-align: center;
+}
+
+.homepage-shop-by-concern-section .swiper-slide-active .overlay-text-container {
+  position: absolute;
+  display: block;
+  z-index: +99;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+}
+.homepage-shop-by-concern-section .swiper-slide-active img {
+  filter: brightness(0.4);
+}
+.homepage-shop-by-concern-section .card_image_wrapper img {
+  border-radius: 10px;
+}
+.homepage-shop-by-concern-section
+  .slide_shop_by_concern:hover
+  .overlay-text-container {
+  position: absolute;
+  display: block;
+  z-index: +99;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+}
+.homepage-shop-by-concern-section .slide_shop_by_concern:hover img {
+  filter: brightness(0.4);
+}
+
+.shop-by-concern-slider-section {
+  /* padding-bottom: 240px; */
+  padding-bottom: calc(26.66667px + 13.33333vw);
+}
+
+.homepage-shop-by-concern-section .both-concern-button {
+  position: absolute;
+  display: flex;
+  gap: 17px;
+  /* justify-content: space-between; */
+  left: 50%;
+  top: 70%;
+  width: 80px;
+  height: 50px;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+  transform: translateX(-50%);
+}
+.homepage-shop-by-concern-section .both-concern-button .swiper-button-next,
+.swiper-button-prev {
+  left: unset;
+  right: unset;
+}
+
+.homepage-shop-by-concern-section
+  .both-concern-button
+  .swiper-button-next.swiper-custom-btn,
+.homepage-shop-by-concern-section
+  .both-concern-button
+  .swiper-button-prev.swiper-custom-btn {
+  /* margin-left: -50px; */
+  position: static;
+  display: block;
+  width:unset;
+  margin:unset;
+}
+
+.homepage-shop-by-concern-section
+  .both-concern-button
+  .swiper-button-next.swiper-custom-btn
+  svg,
+.homepage-shop-by-concern-section
+  .both-concern-button
+  .swiper-button-prev.swiper-custom-btn
+  svg {
+  width: 34.33px;
+  height: 34.33px;
+}
+
+.homepage-shop-by-concern-section .swiper-button-next:after,
+.swiper-rtl .swiper-button-prev:after {
+  content: "";
+}
+
+@media only screen and (max-width: 767px) {
+  .card_image_wrapper {
+    max-width: 180px;
+  }
+  .homepage-shop-by-concern-section .swiper-slide-next + .swiper-slide .card_image_wrapper{
+    padding-top: 0;
+  }
+  .homepage-shop-by-concern-section .mobile_card_image {
+    display: block;
+  }
+  .homepage-shop-by-concern-section .desktop_card_image {
+    display: none;
+  }
+  .homepage-shop-by-concern-section .section_title_shop_by_concern {
+    letter-spacing: 0.02em;
+  }
+
+  .homepage-shop-by-concern-section .overlay-text-container .overlay-text p {
+    font-size: 23px;
+    line-height: 30px;
+  }
+
+  .homepage-shop-by-concern-section
+    .both-concern-button
+    .swiper-button-next.swiper-custom-btn
+    svg,
+  .homepage-shop-by-concern-section
+    .both-concern-button
+    .swiper-button-prev.swiper-custom-btn
+    svg {
+    width: 27.8px;
+    height: 27.8px;
+  }
+
+  .homepage-shop-by-concern-section .both-concern-button {
+    gap: 14px;
+    top: 75%;
+  }
+
+  .homepage-shop-by-concern-section
+    .swiper-slide-active
+    .overlay-text-container {
+    position: absolute;
+    display: block;
+    z-index: +99;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+  }
+}

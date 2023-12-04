@@ -4,7 +4,11 @@
   margin: 0 0 1rem;
   z-index: 1;
 }
-
+.quick-add__submit{
+  background:black;
+  color:#fff;
+  border-radius:10px;
+}
 .card--card .quick-add {
   margin: 0 1.3rem 1rem;
 }
