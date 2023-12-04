@@ -47,9 +47,9 @@
   </div>
 
   <div class="bestsellers_tab">
-    <button class="bestsellers_tablinks" onclick="openCity(event, 'men')">{{ section.settings.men_collection }}</button>
-    <button class="bestsellers_tablinks" onclick="openCity(event, 'women')">{{ section.settings.women_collection }}</button>
-    <button class="bestsellers_tablinks" onclick="openCity(event, 'kids')">{{ section.settings.kids_collection }}</button>
+    <button class="bestsellers_tablinks" onclick="openCity(event, 'men')">{{ section.settings.men_collection_text }}</button>
+    <button class="bestsellers_tablinks" onclick="openCity(event, 'women')">{{ section.settings.women_collection_text }}</button>
+    <button class="bestsellers_tablinks" onclick="openCity(event, 'kids')">{{ section.settings.kids_collection_text }}</button>
   </div>
 
   <div id="men" class="bestsellers_tabcontent">
@@ -220,6 +220,24 @@
       "type": "collection",
       "id": "kids_collection",
       "label": "Kids Collection"
+    },
+    {
+      "type": "text",
+      "id": "men_collection_text",
+      "label": "Men Collection Text",
+      "default": "Men"
+    },
+    {
+      "type": "text",
+      "id": "women_collection_text",
+      "label": "Women Collection Text",
+      "default": "Women"
+    },
+    {
+      "type": "text",
+      "id": "kids_collection_text",
+      "label": "Kids Collection Text",
+      "default": "Kid"
     }
   ],
   "presets": [

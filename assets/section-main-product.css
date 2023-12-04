@@ -3,6 +3,11 @@
   .pdp_shipping{margin-bottom:2%;}
   .pdp_shipping_returns{flex-direction:center !important;align-items:baseline !important;}
 }
+.variant-image-custom{width: 70px;height: auto;}
+.custom_variant_label{
+  padding: 2px !important;
+  line-height: 0 !important;
+}
 @media screen and (min-width: 750px) and (max-width: 950px){
   .productformdesktopsticky .product__title{padding:0 !important;}
   .productformdesktopsticky .Rubik-400-30px{font-size: 14px !important;}

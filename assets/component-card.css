@@ -1,10 +1,21 @@
+@media screen and (max-width:749px){
+  .card__information .card__heading{
+    height: 45px !important;
+  }
+  .card-information{
+    height: 40px;
+  }
+}
 .card-wrapper {
   color: inherit;
   height: 100%;
   position: relative;
   text-decoration: none;
 }
-
+.card__information .card__heading{
+  height: 38px;
+  overflow: hidden;
+}
 .card {
   text-decoration: none;
   text-align: var(--text-alignment);
