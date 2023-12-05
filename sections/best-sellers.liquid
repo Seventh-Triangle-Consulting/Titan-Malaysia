@@ -47,9 +47,9 @@
   </div>
 
   <div class="bestsellers_tab">
-    <button class="bestsellers_tablinks" onclick="openCity(event, 'men')">{{ section.settings.men_collection_text }}</button>
-    <button class="bestsellers_tablinks" onclick="openCity(event, 'women')">{{ section.settings.women_collection_text }}</button>
-    <button class="bestsellers_tablinks" onclick="openCity(event, 'kids')">{{ section.settings.kids_collection_text }}</button>
+    {% if section.settings.men_collection_text != blank %}<button class="bestsellers_tablinks" onclick="openCity(event, 'men')">{{ section.settings.men_collection_text }}</button>{% endif %}
+    {% if section.settings.women_collection_text != blank %}<button class="bestsellers_tablinks" onclick="openCity(event, 'women')">{{ section.settings.women_collection_text }}</button>{% endif %}
+    {% if section.settings.kids_collection_text != blank %}<button class="bestsellers_tablinks" onclick="openCity(event, 'kids')">{{ section.settings.kids_collection_text }}</button>{% endif %}
   </div>
 
   <div id="men" class="bestsellers_tabcontent">
