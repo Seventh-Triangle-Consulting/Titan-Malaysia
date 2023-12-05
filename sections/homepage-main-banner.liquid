@@ -42,14 +42,16 @@
                       <h3 class="desktop_banner_text2">{{ desktop_banner_text[1] }}</h3>
                   {% endif %}
                     <div class="flex-27">
-                      <a href="{{ block.settings.button_link1 }}">
-                        <h3 class="desktop_button_text1" style="background-color:{{ block.settings.buttoncolor }}; color:{{ block.settings.buttontextcolor }}">{{ block.settings.button_text1 }}</h3>
-                      </a>
+                      {% if block.settings.button_link1 != blank %}
+                          <a href="{{ block.settings.button_link1 }}">
+                            <h3 class="desktop_button_text1" style="background-color:{{ block.settings.buttoncolor }}; color:{{ block.settings.buttontextcolor }}">{{ block.settings.button_text1 }}</h3>
+                          </a>
+                        {% endif %}
                        {% if block.settings.button_text2!= blank %}
-                      <a href="{{ block.settings.button_link2 }}">
-                        <h3 class="desktop_button_text2" style="background-color:{{ block.settings.buttoncolor }}; color:{{ block.settings.buttontextcolor }}">{{ block.settings.button_text2 }}</h3>
-                      </a>
-                         {% endif %}
+                            <a href="{{ block.settings.button_link2 }}">
+                              <h3 class="desktop_button_text2" style="background-color:{{ block.settings.buttoncolor }}; color:{{ block.settings.buttontextcolor }}">{{ block.settings.button_text2 }}</h3>
+                            </a>
+                        {% endif %}
                     </div>
                   </div>
                 {% endif %}
