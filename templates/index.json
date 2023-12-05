@@ -286,8 +286,8 @@
           "settings": {
             "desktop_card_image": "shopify:\/\/shop_images\/1.png",
             "mobile_card_image": "shopify:\/\/shop_images\/1_a8a5750d-cc82-435d-8bcf-141369f59c06.png",
-            "shop_by_concern_title": "Shop By Concern",
-            "shop_by_concern_link": "shopify:\/\/collections"
+            "shop_by_concern_title": "Shop By Concern Title",
+            "shop_by_concern_link": ""
           }
         },
         "4aaf71d1-40cb-458b-9a1a-67d771b7ec60": {
