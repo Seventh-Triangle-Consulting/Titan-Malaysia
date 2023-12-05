@@ -39,7 +39,7 @@
 
 @media screen and (max-width: 768px) {
   .sub-category-container .sub-category:nth-child(1) {
-    padding: 0 0 0 2rem;
+    padding: 0 2rem 0 2rem;
   }
   .sub-category-container .sub-category {
     overflow-x: scroll;
