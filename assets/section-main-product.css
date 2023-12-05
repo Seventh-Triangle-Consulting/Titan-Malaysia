@@ -200,7 +200,7 @@
   }
 
   .product__info-wrapper {
-    padding: 0 0 0 5rem;
+    padding: 0 0 0 2rem;
   }
 
   .product__info-wrapper--extra-padding {
@@ -227,14 +227,14 @@
 @media screen and (min-width: 990px) {
   .product--large:not(.product--no-media) .product__media-wrapper {
     /* max-width: 65%; */
-    max-width:33%;
+    max-width:50%;
     /* max-width: 838px; */
     width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2);
   }
 
   .product--large:not(.product--no-media) .product__info-wrapper {
     padding: 10px 0 0 30px;
-    max-width: 67%;
+    max-width: 50%;
     width: calc(35% - var(--grid-desktop-horizontal-spacing) / 2);
   }
 
@@ -1878,7 +1878,6 @@ font-size: 19px;font-weight: 500;line-height: 34px;letter-spacing: 0.38px;paddin
 
 @media screen and (min-width:750px) and (max-width:900px){
 .Rubik-400-30px{    font-size: 25px;}
-  .product__title { padding-top: 25px;}
   .discount-name{font-size:14px;}
   .product__info-wrapper {
     padding: 0 2rem 0 2rem;

@@ -63,20 +63,21 @@
   {%- endif -%}
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
+  {% assign imggg = product.selected_or_first_available_variant.image | where: 'attached_to_variant?', true | map: 'src' %}
 
 <div class="page-width product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}" data-productid="{{ product.id }}">
     <div id="{{ section.id }}" class="grid__item product__media-wrapper{% if section.settings.media_position == 'right' %} medium-hide large-up-hide{% endif %}">
       
       <div data-id="pdpSwiper" class="custom-desktop-slider-main swiper mySwiper2" style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" >
          <div class="swiper-wrapper">
-            {%- for media in product.media -%}    
-                  <div class="swiper-slide {% if variant_images contains media %}true{% endif %}">
+            {%- for media in product.media -%}       
+                  <div data-media-id="{{ section.id }}-{{ media.id }}" class="swiper-slide {% if variant_images contains media %}product__media-item--variant{% endif %}" id="{% if product.selected_or_first_available_variant.featured_media contains media %}selected-variant-image{% endif %}" data-index="{{ forloop.index}}">
                        {{
                           media
                           | image_url: width: media.width
                           | image_tag: class: 'product-image'
                         }}
-                  </div>
+                  </div>    
             {%- endfor -%}
          </div>
             <div class="swiper-button-next"></div>
@@ -84,9 +85,9 @@
           </div>
 
          <div thumbsSlider="" data-id="pdpSwiperThumb" class="custom-desktop-slider-main-thumbs-up swiper mySwiper">
-            <div class="swiper-wrapper">
-             {%- for media in product.media -%}  
-                  <div class="swiper-slide">
+            <div class="swiper-wrapper">  
+             {%- for media in product.media -%} 
+                  <div data-media-id="{{ section.id }}-{{ featured_media.id }}" class="swiper-slide">
                        {{
                           media
                           | image_url: width: media.width
@@ -976,7 +977,10 @@ function initSwipersPDP(event, isQuickAdd = false) {
         },
       });
 
-          
+       var selectedVariantImage = document.querySelector('#selected-variant-image');  
+       var sliderIndex = selectedVariantImage.getAttribute('data-index'); 
+       swiper.slideTo(sliderIndex);
+       swiper2.slideTo(sliderIndex);
  
       // Select all elements with the class custom-description-title
       var titleElements = document.querySelectorAll('.custom-description-title');
@@ -995,7 +999,8 @@ function initSwipersPDP(event, isQuickAdd = false) {
    
 }
 
- window.addEventListener('DOMContentLoaded', initSwipersPDP, { once: true });
+window.addEventListener('DOMContentLoaded', initSwipersPDP, { once: true }); 
+
 </script>
   <script>
   
@@ -1024,10 +1029,6 @@ function initSwipersPDP(event, isQuickAdd = false) {
       });
     });
 
-    let offers = document.querySelector('.offers_available_number').textContent;
-    document.querySelectorAll('.offers_available_number_mobile').forEach((e) => {
-      e.textContent = offers;
-    });
   </script>
 
   {%- liquid
