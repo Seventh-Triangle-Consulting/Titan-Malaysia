@@ -41,6 +41,7 @@
       assign ratio = 1
     endif
   -%}
+  <span class="smartwishlist" data-product="{{ card_product.id }}" data-variant="{{ card_product.variants.first.id }}"></span>
   <div class="card-wrapper product-card-wrapper" data-id="{{ card_product.id | append:forloop_index}}">
     <div
       class="

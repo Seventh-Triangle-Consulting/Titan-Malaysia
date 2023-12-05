@@ -11,78 +11,84 @@
     }
   }
 {%- endstyle -%}
-
+{% if section.blocks != blank %}
 <section class="homepage-main-banner-container section-{{ section.id }}-margin" id="{{ section.id }}">
   <div class="homepage-main-banner">
     <div class="swiper main-banner-swiper">
       <div class="swiper-wrapper">
         {% for block in section.blocks %}
-          <div class="swiper-slide relative">
-            {% if block.settings.desktop_banner_image != blank %}
-              {% if forloop.index0 == 0 %}
-                {% assign lazy = 'eager' %}
-              {% else %}
-                {% assign lazy = 'lazy' %}
-              {% endif %}
-              {% if block.settings.mobile_banner_image.alt %}
-                {% assign alt = block.settings.desktop_banner_image.alt %}
-              {% else %}
-                {% assign alt = 'Home Page Banner' %}
-              {% endif %}
-              {{
-                block.settings.desktop_banner_image
-                | image_url: width: 1600
-                | image_tag: class: 'desktop-banner-image', loading: lazy
-              }}
-              <div class="desktop_banner_content {{ block.settings.content-position }}">
-                {% assign desktop_banner_text = block.settings.desktop_banner_text | split: '##' %}
-                <h2 class="desktop_banner_text1">{{ desktop_banner_text[0] }}</h2>
-                <h3 class="desktop_banner_text2">{{ desktop_banner_text[1] }}</h3>
-                <div class="flex-27">
-                  <a href="{{ block.settings.button_link1 }}">
-                    <h3 class="desktop_button_text1" style="background-color:{{ block.settings.buttoncolor }}; color:{{ block.settings.buttontextcolor }}">{{ block.settings.button_text1 }}</h3>
-                  </a>
-                   {% if block.settings.button_text2!= blank %}
-                  <a href="{{ block.settings.button_link2 }}">
-                    <h3 class="desktop_button_text2" style="background-color:{{ block.settings.buttoncolor }}; color:{{ block.settings.buttontextcolor }}">{{ block.settings.button_text2 }}</h3>
-                  </a>
-                     {% endif %}
-                </div>
-              </div>
-            {% endif %}
-            {% if block.settings.mobile_banner_image != blank %}
-              {% if forloop.index0 == 0 %}
-                {% assign lazy = 'eager' %}
-              {% else %}
-                {% assign lazy = 'lazy' %}
-              {% endif %}
-              {% if block.settings.mobile_banner_image.alt %}
-                {% assign alt = image.alt %}
-              {% else %}
-                {% assign alt = 'Home Page Banner' %}
-              {% endif %}
-              {{
-                block.settings.mobile_banner_image
-                | image_url: width: 600
-                | image_tag: class: 'mobile-banner-image', loading: lazy, alt: alt
-              }}
-              <div class="mobile_banner_content {{ block.settings.content-position }}">
-                <div class="mobile_banner_content_div">
-                  <h2 class="mobile_banner_text1">{{ block.settings.mobile_banner_text }}</h2>
-                  <div class="flex-11">
-                    <a href="{{ block.settings.button_link1 }}">
-                      <h3 class="mobile_button_text1"  style="background-color:{{ block.settings.buttoncolor }}; color:{{ block.settings.buttontextcolor }}">{{ block.settings.button_text1 }}</h3>
-                    </a>
-              {% if block.settings.button_text2!= blank %}
-                    <a href="{{ block.settings.button_link2 }}">
-                      <h3 class="mobile_button_text2"  style="background-color:{{ block.settings.buttoncolor }}; color:{{ block.settings.buttontextcolor }}">{{ block.settings.button_text2 }}</h3>
-                    </a>
-                {% endif %}
+          {% if block.settings.desktop_banner_image != blank %}
+              <div class="swiper-slide relative">
+                {% if block.settings.desktop_banner_image != blank %}
+                  {% if forloop.index0 == 0 %}
+                    {% assign lazy = 'eager' %}
+                  {% else %}
+                    {% assign lazy = 'lazy' %}
+                  {% endif %}
+                  {% if block.settings.mobile_banner_image.alt %}
+                    {% assign alt = block.settings.desktop_banner_image.alt %}
+                  {% else %}
+                    {% assign alt = 'Home Page Banner' %}
+                  {% endif %}
+                  {{
+                    block.settings.desktop_banner_image
+                    | image_url: width: 1600
+                    | image_tag: class: 'desktop-banner-image', loading: lazy
+                  }}
+                  <div class="desktop_banner_content {{ block.settings.content-position }}">
+                    {% assign desktop_banner_text = block.settings.desktop_banner_text | split: '##' %}
+                   {% if block.settings.desktop_banner_text != blank %}
+                      <h2 class="desktop_banner_text1">{{ desktop_banner_text[0] }}</h2>
+                      <h3 class="desktop_banner_text2">{{ desktop_banner_text[1] }}</h3>
+                  {% endif %}
+                    <div class="flex-27">
+                      {% if block.settings.button_link1 != blank %}
+                          <a href="{{ block.settings.button_link1 }}">
+                            <h3 class="desktop_button_text1" style="background-color:{{ block.settings.buttoncolor }}; color:{{ block.settings.buttontextcolor }}">{{ block.settings.button_text1 }}</h3>
+                          </a>
+                        {% endif %}
+                       {% if block.settings.button_text2!= blank %}
+                            <a href="{{ block.settings.button_link2 }}">
+                              <h3 class="desktop_button_text2" style="background-color:{{ block.settings.buttoncolor }}; color:{{ block.settings.buttontextcolor }}">{{ block.settings.button_text2 }}</h3>
+                            </a>
+                        {% endif %}
+                    </div>
                   </div>
-                </div>
+                {% endif %}
+                {% if block.settings.mobile_banner_image != blank %}
+                  {% if forloop.index0 == 0 %}
+                    {% assign lazy = 'eager' %}
+                  {% else %}
+                    {% assign lazy = 'lazy' %}
+                  {% endif %}
+                  {% if block.settings.mobile_banner_image.alt %}
+                    {% assign alt = image.alt %}
+                  {% else %}
+                    {% assign alt = 'Home Page Banner' %}
+                  {% endif %}
+                  {{
+                    block.settings.mobile_banner_image
+                    | image_url: width: 600
+                    | image_tag: class: 'mobile-banner-image', loading: lazy, alt: alt
+                  }}
+                  <div class="mobile_banner_content {{ block.settings.content-position }}">
+                    <div class="mobile_banner_content_div">
+                      {% if block.settings.mobile_banner_text != blank %}<h2 class="mobile_banner_text1">{{ block.settings.mobile_banner_text }}</h2>{% endif %}
+                      <div class="flex-11">
+                        <a href="{{ block.settings.button_link1 }}">
+                          <h3 class="mobile_button_text1"  style="background-color:{{ block.settings.buttoncolor }}; color:{{ block.settings.buttontextcolor }}">{{ block.settings.button_text1 }}</h3>
+                        </a>
+                  {% if block.settings.button_text2!= blank %}
+                        <a href="{{ block.settings.button_link2 }}">
+                          <h3 class="mobile_button_text2"  style="background-color:{{ block.settings.buttoncolor }}; color:{{ block.settings.buttontextcolor }}">{{ block.settings.button_text2 }}</h3>
+                        </a>
+                    {% endif %}
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
               </div>
             {% endif %}
-          </div>
         {% endfor %}
       </div>
       <div class="swiper-pagination"></div>
@@ -97,7 +103,7 @@
     </div>
   </div>
 </section>
-
+{% endif %}
 <script> 
   window.addEventListener(
     'DOMContentLoaded',

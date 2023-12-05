@@ -3,6 +3,14 @@
   .pdp_shipping{margin-bottom:2%;}
   .pdp_shipping_returns{flex-direction:center !important;align-items:baseline !important;}
 }
+.product__media-wrapper{
+  position:relative;
+}
+.titan_main_product{z-index:1;}
+.custom-wishlist-share{ position: absolute; top: 0%; right: 2%; z-index: 2;}
+#wishlist_icon{font-size:24px;}
+#smartwishlist #bookmarkit{display:flex;align-items:center;}
+.custom-wishlist-share{display:flex;align-items:center;}
 .variant-image-custom{width: 70px;height: auto;}
 .custom_variant_label{
   padding: 2px !important;
@@ -1884,7 +1892,7 @@ font-size: 19px;font-weight: 500;line-height: 34px;letter-spacing: 0.38px;paddin
 }
 }
 
-.titan_main_product .percent_discount{color: #DD5041;font-family:Roboto-Bold;font-size: 16px;line-height:1;}
+.titan_main_product .percent_discount{color: red;font-family:Roboto-Bold;font-size: 16px;line-height:1;}
 .pdp_color_variant{display:flex;align-items:baseline;gap:10px;margin-bottom:23px;flex-wrap:wrap;}
 .pdp_color_variant a{display: grid;place-items: center;text-decoration: none;color:#000;width:80px;}
 .pdp_color_variant a img{ width:100%;height:auto;margin-bottom:8px;box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.25);}

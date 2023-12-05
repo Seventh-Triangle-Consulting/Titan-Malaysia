@@ -4,6 +4,9 @@
   margin: 0 0 1rem;
   z-index: 1;
 }
+.quick-add__submit span{
+  font-family:Roboto-Regular;
+}
 .quick-add__submit{
   background:black;
   color:#fff;
@@ -161,7 +164,8 @@
 }
 
 quick-add-modal .product:not(.featured-product) .product__view-details {
-  display: block;
+  display: flex;
+  align-items:center;
 }
 
 quick-add-modal .quick-add-hidden,

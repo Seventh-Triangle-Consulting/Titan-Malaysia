@@ -47,6 +47,12 @@
           "type": "description",
           "settings": {
           }
+        },
+        "5084a510-7189-437e-bc00-7ae24be755b7": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
         }
       },
       "block_order": [
@@ -57,7 +63,8 @@
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "description"
+        "description",
+        "5084a510-7189-437e-bc00-7ae24be755b7"
       ],
       "settings": {
         "cod_svg": "shopify:\/\/shop_images\/COD.png",
