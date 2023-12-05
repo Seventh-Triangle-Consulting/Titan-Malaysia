@@ -9,6 +9,7 @@
 .titan_main_product{z-index:1;}
 .custom-wishlist-share{ position: absolute; top: 0%; right: 1%; z-index: 2;}
 #wishlist_icon{font-size:24px;}
+#smartwishlist button{display:flex;align-items:center;}
 .variant-image-custom{width: 70px;height: auto;}
 .custom_variant_label{
   padding: 2px !important;
