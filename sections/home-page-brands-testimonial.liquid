@@ -12,40 +12,41 @@
     }
   }
 {%- endstyle -%}
-
-<section class="brands-testimonial  section-{{ section.id }}-padding">
-  <div class="page-width">
-
-  <div thumbsSlider="" class="swiper mySwiper3">
-    <div class="swiper-hover swiper-wrapper">
-      {% for block in section.blocks %}
-        {% if block.settings.Brands_testimonial_image != blank %}
-            <div class="swiper-slide">
-              {{ block.settings.Brands_testimonial_image | image_url: width: 300 | image_tag: loading: 'lazy', class:'Brands_testimonial_image'}}    
+{% if section.blocks != blank %}
+  <section class="brands-testimonial  section-{{ section.id }}-padding">
+    <div class="page-width">
+  
+    <div thumbsSlider="" class="swiper mySwiper3">
+      <div class="swiper-hover swiper-wrapper">
+        {% for block in section.blocks %}
+          {% if block.settings.Brands_testimonial_image != blank %}
+              <div class="swiper-slide">
+                {{ block.settings.Brands_testimonial_image | image_url: width: 300 | image_tag: loading: 'lazy', class:'Brands_testimonial_image'}}    
+              </div>
+           {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    <div class="swiper mySwiper2">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <div class="swiper-slide">
+            {% if block.settings.Brands_testimonial_content != blank %}<p class="center_text">{{ block.settings.Brands_testimonial_content }}</p>{% endif %}
+            <div class="bottom_line1">
+              <a href="{{ block.settings.Readmore_link }}">
+                {% if block.settings.Readmore != blank %}<p class="button_style">{{ block.settings.Readmore }}</p>{% endif %}
+                <div class="bottom_line2"></div>
+              </a>
             </div>
-         {% endif %}
-      {% endfor %}
-    </div>
-  </div>
-  <div class="swiper mySwiper2">
-    <div class="swiper-wrapper">
-      {% for block in section.blocks %}
-        <div class="swiper-slide">
-          {% if block.settings.Brands_testimonial_content != blank %}<p class="center_text">{{ block.settings.Brands_testimonial_content }}</p>{% endif %}
-          <div class="bottom_line1">
-            <a href="{{ block.settings.Readmore_link }}">
-              {% if block.settings.Readmore != blank %}<p class="button_style">{{ block.settings.Readmore }}</p>{% endif %}
-              <div class="bottom_line2"></div>
-            </a>
           </div>
-        </div>
-      {% endfor %}
+        {% endfor %}
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
     </div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-  </div>
-     </div>
-</section>
+       </div>
+  </section>
+{% endif %}
 
 <script>
   window.addEventListener(
