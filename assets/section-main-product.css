@@ -6,7 +6,7 @@
 .product__media-wrapper{
   position:relative;
 }
-#smartwishlist{ position: absolute; top: 2%; right: 3%; z-index: 11;}
+#smartwishlist{ position: absolute; top: 2%; right: 3%; z-index: 2;}
 #wishlist_icon{font-size:24px;}
 .variant-image-custom{width: 70px;height: auto;}
 .custom_variant_label{
