@@ -51,11 +51,13 @@
             </div>
         {% endif %}
 
-        <div class="mostloved_tab">
-                {% for block in section.blocks %}
-                  <button class="mostloved_tablinks" onclick="openCategory(event, '{{ block.settings.coll }}')">{{ block.settings.coll_name }}</button>
-                {% endfor %}   
-        </div>
+       {% if section.blocks != blank %}
+            <div class="mostloved_tab">
+                    {% for block in section.blocks %}
+                      <button class="mostloved_tablinks" onclick="openCategory(event, '{{ block.settings.coll }}')">{{ block.settings.coll_name }}</button>
+                    {% endfor %}   
+            </div>
+        {% endif %}
 
  {% for block in section.blocks %}
              <div id="{{ block.settings.coll }}" class="mostloved_tabcontent">
