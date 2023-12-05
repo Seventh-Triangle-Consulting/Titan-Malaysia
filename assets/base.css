@@ -1441,9 +1441,9 @@ details[open] > .share-button__fallback {
 }
 
 .share-button__button .icon-share {
-  height: 1.2rem;
+  height: 2.2rem;
   margin-right: 1rem;
-  min-width: 1.3rem;
+  min-width: 2.3rem;
 }
 
 .share-button__fallback {
