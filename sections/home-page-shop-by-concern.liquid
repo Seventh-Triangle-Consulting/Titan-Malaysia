@@ -1,5 +1,5 @@
 {{ 'homepage-shop-by-concern-section.css' | asset_url | stylesheet_tag }}
-
+{% if section.blocks != blank %}
 <section class="homepage-shop-by-concern-section section-{{ section.id }}-padding" id="{{ section.id }}">
   {% if section.settings.main_title != blank %}<p class="section_title_shop_by_concern">{{ section.settings.main_title }}</p>{% endif %}
   <!-- Slider main container -->
@@ -91,7 +91,7 @@
     </div>
   </div>
 </section>
-
+{% endif %}
 <script>
   window.addEventListener(
     'DOMContentLoaded',
