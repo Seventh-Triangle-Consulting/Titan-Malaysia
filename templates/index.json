@@ -87,6 +87,7 @@
         "4b5c54f3-7737-4b64-b68f-cd9a7ff1923c": {
           "type": "image",
           "settings": {
+            "desktop_banner_image": "shopify:\/\/shop_images\/6.png",
             "mobile_banner_image": "shopify:\/\/shop_images\/2_ab686c71-dccb-414d-bbc4-c4d70103db31.png",
             "desktop_banner_text": "",
             "mobile_banner_text": "",
