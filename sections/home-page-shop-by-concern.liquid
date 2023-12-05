@@ -62,11 +62,13 @@
                     width="{{ block.settings.mobile_card_image.width }}"
                     height="{{ block.settings.mobile_card_image.height }}"
                   >
+          {% if block.settings.shop_by_concern_title != blank %}
                   <div class="overlay-text-container">
                     <div class="overlay-text">
                       <p>{{ block.settings.shop_by_concern_title }}</p>
                     </div>
                   </div>
+          {% endif %}
                 </div>
               </a>
             </div>
