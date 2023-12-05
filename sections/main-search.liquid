@@ -15,60 +15,6 @@
 <script src="{{ 'main-search.js' | asset_url }}" defer="defer"></script>
 
 <style>
-     .sorting_filters{display:none;}
-
-  .short-new {
-    position: fixed;
-    bottom: 0px;
-    background: #F7F7F7;
-  /*   box-shadow: 0px -2px 6px rgba(0, 0, 0, 0.25); */
-    border-radius: 10px 10px 0px 0px;
-    overflow: auto;
-    transition: 0.5s;
-    transform: translateY(100%);
-  }
-  .short-new.current {
-    transition: 0.5s;
-    transform: translateY(0%);
-    height:35vh;
-  }
-
-
-   .fac-fil-mob, .fac-short-mob {
-      justify-content: flex-start;
-      align-items: center;
-      display: flex;
-      gap: 10px;
-         height: 70px;
-      background: #dd5041;
-      border-top: 1px solid rgba(0, 0, 0, 0.3);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 50%;
-      z-index: 1;
-      line-height:0;
-      padding: 8px 13px;
-      padding-left: 32px;
-  }
-
-
-  @media screen and (max-width: 820px) {
-    .sorting_filters{display:block;}
-    .sorting_filters .fac-icon-txt{
-    color: #fff;
-    font-size: 18px;
-    line-height: 21.33px;
-    font-family: var(--font-family-h2); }
-    .sorting_filters .getName{
-      font-size: 15px;padding-top: 4px;
-      line-height: 15.78px;
-      letter-spacing: 0.01em;
-      color: #fff;
-    }
-     .custom-gradient-color  {background: rgba(0, 0, 0, 0.4); width: 100%; height: 100vh; z-index: 5; position: fixed; top: 0; left: 0; }
-  }
   .template-search__header {
     margin-bottom: 3rem;
   }
@@ -205,13 +151,13 @@
             <div class="facet-filters sorting caption">
               <div class="facet-filters__field">
                 <h2 class="facet-filters__label caption-large text-body">
-                  <label for="SortBySearch">{{ 'products.facets.sort_by_label' | t }}</label>
+                  <label for="SortBy">{{ 'products.facets.sort_by_label' | t }}</label>
                 </h2>
                 <div class="select">
                   {%- assign sort_by = search.sort_by | default: search.default_sort_by -%}
-                  <select name="sort_by" class="facet-filters__sort select__select caption-large" id="SortBySearch" aria-describedby="a11y-refresh-page-message">
+                  <select name="sort_by" class="facet-filters__sort select__select caption-large" id="SortBy" aria-describedby="a11y-refresh-page-message">
                     {%- for option in search.sort_options -%}
-                      <option   class="optionValue" value="{{ option.value | escape }}"{% if option.value == sort_by %} selected="selected"{% endif %}>{{ option.name | escape }}</option>
+                      <option value="{{ option.value | escape }}"{% if option.value == sort_by %} selected="selected"{% endif %}>{{ option.name | escape }}</option>
                     {%- endfor -%}
                   </select>
                   {% render 'icon-caret' %}
@@ -243,18 +189,6 @@
           </form>
         </facet-filters-form>
       {%- endif -%}
-        <div class="sorting_filters  mobilesticky_sorting">
-        <div class="fac-short-mob" onclick="SortBySearch()" data-atr="filter-4">
-          <svg width="16" height="22" viewBox="0 0 16 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M11.3708 20.0518L16 15.4726V16.9118L10.8563 22L5.71232 16.9118V15.4726L10.3419 20.0518V9.32299H11.3708V20.0518ZM4.62924 1.94786L0 6.5274V5.08818L5.14366 0L10.2873 5.08818V6.5274L5.65807 1.94786V12.6766H4.62924V1.94786Z" fill="black"/>
-          </svg>
-          <div class="getname-container">
-            <span class="fac-icon-txt">Sort by</span>
-            <div class="getName"></div>
-          </div>
-        </div>
-        <div class="sort-mob"></div>
-      </div>
       <div{% if section.settings.filter_type == 'vertical' %} class="facets-vertical page-width"{% endif %}>
         {%- if search.filters != empty -%}
           {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
@@ -277,7 +211,7 @@
           {%- else -%}
             <div class="template-search__results collection{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}" id="product-grid" data-id="{{ section.id }}">
               <div class="loading-overlay gradient"></div>
-              <ul id="product-grid" class="grid product-grid  grid--{{ section.settings.columns_mobile }}-col-tablet-down grid--{{ section.settings.columns_desktop }}-col-desktop" role="list">
+              <ul class="grid product-grid  grid--{{ section.settings.columns_mobile }}-col-tablet-down grid--{{ section.settings.columns_desktop }}-col-desktop" role="list">
                 {%- for item in search.results -%}
                   {% assign lazy_load = false %}
                   {%- if forloop.index > 2 -%}
@@ -291,14 +225,13 @@
                     {%- case item.object_type -%}
                       {%- when 'product' -%}
                         {%- capture product_settings -%}{%- if section.settings.product_show_vendor -%}vendor,{%- endif -%}title,price{%- endcapture -%}
-                        {% render 'card-product-search',
+                        {% render 'card-product',
                           card_product: item,
                           media_aspect_ratio: section.settings.image_ratio,
                           image_shape: section.settings.image_shape,
                           show_secondary_image: section.settings.show_secondary_image,
                           show_vendor: section.settings.show_vendor,
                           show_rating: section.settings.show_rating,
-                          show_color-swatch:section.settings.enable_colorswatch,
                           lazy_load: lazy_load
                         %}
                       {%- when 'article' -%}
@@ -307,7 +240,6 @@
                           show_image: true,
                           show_date: section.settings.article_show_date,
                           show_author: section.settings.article_show_author,
-                          
                           show_badge: true,
                           media_aspect_ratio: 1,
                           lazy_load: lazy_load
@@ -346,138 +278,7 @@
 {% if section.settings.image_shape == 'arch' %}
   {% render 'mask-arch' %}
 {%- endif -%}
-   <div class="sort-mob ">
-  {% render 'custom-sort-search' %}
-</div>
-<script>
-    window.psn();   
-</script>
-                           <script>
-                 let highvalue = document.getElementById('Filter-Price-LTE').value;                
-                    sessionStorage.setItem('selectedPrice',highvalue);
-                    sessionStorage.setItem('lowestSelectedPrice', 0);
-                    sessionStorage.setItem('selectedPricem',highvalue);
-                    sessionStorage.setItem('lowestSelectedPricem', 0);
-                 
-                              
-                  function selectedPrice() {
-      try{
-        if (parseInt(sessionStorage.getItem('selectedPrice')) ) {
-          const priceRange = parseInt(sessionStorage.getItem('selectedPrice'))
-          const lowestPriceRange = parseInt(sessionStorage.getItem('lowestSelectedPrice'))
-           const priceRangem = parseInt(sessionStorage.getItem('selectedPricem'))
-          const lowestPriceRangem = parseInt(sessionStorage.getItem('lowestSelectedPricem'))
-          const priceRangeInputs = document.querySelectorAll(".facets__price input");
-          priceRangeInputs[0].value = lowestPriceRange;
-          priceRangeInputs[1].value = priceRange;
-             priceRangeInputs[2].value = lowestPriceRangem;
-          priceRangeInputs[3].value = priceRangem;
-          
 
-          let rangeInput = document.querySelectorAll('.input-range input'),
-          progress = document.querySelector('.slider .progress')
-          rangeInput[0].value = lowestPriceRange;
-          rangeInput[1].value = priceRange;
-           rangeInput[2].value = lowestPriceRangem;
-          rangeInput[3].value = priceRangem;
-          progress.style.right = 100-(priceRange / rangeInput[1].max)*100 + "%";
-           progress.style.left = (lowestPriceRange / rangeInput[0].max)*100 + "%";
-           let progressmobile = document.querySelector('.slider .progress.mobile');
-           progressmobile.style.left = (lowestPriceRangem / rangeInput[2].max)*100 + "%";
-          progressmobile.style.right = 100-(priceRangem / rangeInput[3].max)*100 + "%";
-          const outputTwo = document.querySelector('.outputTwo');
-          outputTwo.innerHTML = "₹" + priceRangeInputs[1].value;
-          const outputOne = document.querySelector('.outputOne');
-          outputOne.innerHTML = "₹" + priceRangeInputs[0].value;
-
-          // outputTwo.style.left = (priceRangeInputs[1].value / priceRangeInputs[0].max) * 100 + "%";
-
-      
-        }
-         let factremoves = document.querySelectorAll("facet-remove");
-  factremoves.forEach(function(els){     
-     let secondprices =  document.getElementById('Filter-Price-LTE').value;
-    let secondpricesm =  document.getElementById('Mobile-Filter-Price-LTE').value;
-   
-  els.addEventListener('click', (e) => {
-    document.getElementById('Mobile-Filter-Price-GTE').value="0";
-    
-   sessionStorage.setItem('selectedPrice',secondprices);
-    sessionStorage.setItem('lowestSelectedPrice', 0);
-    sessionStorage.setItem('selectedPricem',secondpricesm);
-    sessionStorage.setItem('lowestSelectedPricem', 0);
-  
-  });
-  });
-      }catch(error){
-        console.log('error',error)
-      }
-    }
-
-                
-
-                 document.addEventListener('DOMContentLoaded', () => {
-
-  if(typeof  selectedPrice !== "undefined")selectedPrice();
-
-})
-
-      if (window.innerWidth < 960){
-     window.addEventListener('DOMContentLoaded', (event) => {
-    document.querySelector('.getName').innerHTML = document.querySelector('.sorting_list label').innerHTML;
-  });
-
-  function SortBySearch() {   
-    let shortNew = document.querySelector('.short-new');
-    let sortMob = document.querySelector('.sort-mob');
-    let body = document.querySelector('body');
-
-    if (shortNew.classList.contains('current')) {
-      shortNew.classList.remove('current');
-      setTimeout(() => {
-        sortMob.style.display = 'none';
-        sortMob.classList.remove('custom-gradient-color');
-        body.style.overflow = 'unset';
-        body.style.background = 'unset';
-      }, 200);
-    } else {
-      sortMob.style.display = 'block';
-      sortMob.classList.add('custom-gradient-color');
-      shortNew.classList.add('current');
-    }
-  }
-
-  function selectedSort(event) {   
-    let data_value = event.target.value;
-    let optionval = document.querySelector(`.optionValue[value="${data_value}"]`);
-    if (optionval.innerHTML.trim() == '') {
-      document.querySelector('.getName').innerHTML = document.querySelector('.sorting_list label').innerHTML;
-    } else {
-      document.querySelector('.getName').innerHTML = optionval.innerHTML.trim();
-    }
-
-     //console.log('optionval', optionval.innerHTML.trim());
-    optionval.setAttribute('selected', 'selected');
-    document.querySelector('#SortBySearch').value = data_value;
-    document.querySelector('#FacetSortForm').dispatchEvent(new Event('input', { bubbles: true }));
-    document.querySelectorAll('.sorting_list input[type="checkbox"]').forEach((checkbox) => {
-      checkbox.checked = false;
-    });
-    event.target.checked = true;
-    setTimeout(() => {
-      SortBySearch();
-    }, 500);
-  }
-
-  function closeSort() {
-    SortBySearch();
-  }
-         window.psn();   
-      }
-
- 
-               
-     </script>
 {% schema %}
 {
   "name": "t:sections.main-search.name",
@@ -614,12 +415,6 @@
       "id": "enable_sorting",
       "default": true,
       "label": "t:sections.main-collection-product-grid.settings.enable_sorting.label"
-    },
-     {
-      "type": "checkbox",
-      "id": "enable_colorswatch",
-      "default": false,
-      "label": "Show Color Swatch"
     },
     {
       "type": "header",
