@@ -39,7 +39,7 @@
 
 @media screen and (max-width: 768px) {
   .sub-category-container .sub-category:nth-child(1) {
-    padding: 0 2rem 0 2rem;
+    padding: 0;
   }
   .sub-category-container .sub-category {
     overflow-x: scroll;
@@ -47,7 +47,7 @@
     column-gap: 1.5rem;
   }
   .sub-category-container .sub-category .sub-category-slide {
-    min-width: 98px;
+    min-width: 100px;
   }
   .sub-category-container .sub-category .collection-image-container {
     width: 100%;
