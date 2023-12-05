@@ -32,6 +32,7 @@
       .collection_text_wrapper_rspnsv{ font-size: 22px; }
   }
 </style>
+{% if section.blocks %}
 <div id="{{section.id}}" class="{{section.id}} coll_cardss collection_cards{{section.settings.id}} page-width {% if section.blocks.size < 5%}hidenav{%endif%}">
   
       {%- unless section.settings.heading == blank -%}
@@ -88,7 +89,8 @@
             <div class="customcards-swiper-pagination "> </div>
         
        </div>
-</div>   
+</div> 
+{% endif %}
 {% schema %}
     {
       "name": "HomePage Col Cards",
