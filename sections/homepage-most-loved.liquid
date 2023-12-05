@@ -43,44 +43,47 @@
   .mostloved .swiper-scrollbar{ display:none;}
 }
 </style>
-
-<div class="mostloved mostloved-section-{{ section.id }} page-width" id="{{ section.id }}">
-      {% if section.settings.mostloved_heading != blank %}
-            <div class="mostloved_div">
-              <h2 class="mostloved_heading">{{ section.settings.mostloved_heading }}</h2>
-            </div>
-        {% endif %}
-
-       {% if section.blocks != blank %}
-            <div class="mostloved_tab">
-                    {% for block in section.blocks %}
-                      <button class="mostloved_tablinks" onclick="openCategory(event, '{{ block.settings.coll }}')">{{ block.settings.coll_name }}</button>
-                    {% endfor %}   
-            </div>
-        {% endif %}
-
- {% for block in section.blocks %}
-             <div id="{{ block.settings.coll }}" class="mostloved_tabcontent">
-              {% assign collection_men = block.settings.coll %}
-                <div class="swiper collection-swiper-men">
-                    <div class="swiper-wrapper">
-                        {% for product in collection_men.products %}
-                                <div class="swiper-slide" style="animation-delay: {{ forloop.index0 | divided_by: 10.0 | round: 2 }}s">
-                                  
-                                   {% render 'related-products-card-product',
-                                          card_product: product,
-                                          lazy_load: true,
-                                          show_quick_add: section.settings.enable_quick_add,
-                                          section_id: section.id
-                                    %}
-                                </div>
-                          {% endfor %}
-                     </div>
+{% if section.blocks != blank %}
+    <div class="mostloved mostloved-section-{{ section.id }} page-width" id="{{ section.id }}">
+          {% if section.settings.mostloved_heading != blank %}
+                <div class="mostloved_div">
+                  <h2 class="mostloved_heading">{{ section.settings.mostloved_heading }}</h2>
                 </div>
-                <a class="most-loved-view-more-btn" href="{{ collection_men.url }}">View More</a>
-            </div>
-{% endfor %}
-</div>
+            {% endif %}
+    
+           {% if section.blocks != blank %}
+                <div class="mostloved_tab">
+                        {% for block in section.blocks %}
+                          <button class="mostloved_tablinks" onclick="openCategory(event, '{{ block.settings.coll }}')">{{ block.settings.coll_name }}</button>
+                        {% endfor %}   
+                </div>
+            {% endif %}
+    
+     {% for block in section.blocks %}
+              {% if block.settings.coll != blank %}
+                 <div id="{{ block.settings.coll }}" class="mostloved_tabcontent">
+                  {% assign collection_men = block.settings.coll %}
+                    <div class="swiper collection-swiper-men">
+                        <div class="swiper-wrapper">
+                            {% for product in collection_men.products %}
+                                    <div class="swiper-slide" style="animation-delay: {{ forloop.index0 | divided_by: 10.0 | round: 2 }}s">
+                                      
+                                       {% render 'related-products-card-product',
+                                              card_product: product,
+                                              lazy_load: true,
+                                              show_quick_add: section.settings.enable_quick_add,
+                                              section_id: section.id
+                                        %}
+                                    </div>
+                              {% endfor %}
+                         </div>
+                    </div>
+                    <a class="most-loved-view-more-btn" href="{{ collection_men.url }}">View More</a>
+                </div>
+            {% endif %}
+    {% endfor %}
+    </div>
+{% endif %}
 <script>
    document.querySelectorAll('.mostloved_tablinks')[0].click();
   
