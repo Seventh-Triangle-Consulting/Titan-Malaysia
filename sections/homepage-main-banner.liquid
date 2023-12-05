@@ -69,7 +69,7 @@
                   }}
                   <div class="mobile_banner_content {{ block.settings.content-position }}">
                     <div class="mobile_banner_content_div">
-                      <h2 class="mobile_banner_text1">{{ block.settings.mobile_banner_text }}</h2>
+                      {% if block.settings.mobile_banner_text != blank %}<h2 class="mobile_banner_text1">{{ block.settings.mobile_banner_text }}</h2>{% endif %}
                       <div class="flex-11">
                         <a href="{{ block.settings.button_link1 }}">
                           <h3 class="mobile_button_text1"  style="background-color:{{ block.settings.buttoncolor }}; color:{{ block.settings.buttontextcolor }}">{{ block.settings.button_text1 }}</h3>
