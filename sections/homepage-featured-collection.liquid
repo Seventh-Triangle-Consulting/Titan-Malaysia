@@ -35,29 +35,29 @@
   }
 }
 </style>
-
-<section id="featured-collections-{{ section.id }}" class="featured-collections Upper-section-collec titan-homepahe-featured-collection bgcolorfabrics bg-color {{ section.settings.text_align }}">
-    <div class="container-fluid fabrics-container">
-       {% if section.settings.title != blank %}
-            <h2 class="title mb-4 padding_none {{ section.settings.title_size }}">
-                {{ section.settings.title }}
-            </h2>
-        {% endif %}
-        <div class="collection-list list-unstyled row_ashish row mb-0 fabrics-ul-style">
-            {% for block in section.blocks %}
-                {% render 'collection-watches', collection: collections[block.settings.collection] %}
-            {% endfor %}
-        </div>
-        {% unless section.settings.btn_text == blank %}
-            <div class="text-center">
-                <a class="btn mt-8 mb-0 {{ section.settings.btn_color }}" href="{{ routes.collections_url }}">
-                    {{ section.settings.btn_text }} 
-                </a>
-            </div>
-        {% endunless %}
-    </div>
-</section>
-
+{% if section.blocks %}
+  <section id="featured-collections-{{ section.id }}" class="featured-collections Upper-section-collec titan-homepahe-featured-collection bgcolorfabrics bg-color {{ section.settings.text_align }}">
+      <div class="container-fluid fabrics-container">
+         {% if section.settings.title != blank %}
+              <h2 class="title mb-4 padding_none {{ section.settings.title_size }}">
+                  {{ section.settings.title }}
+              </h2>
+          {% endif %}
+          <div class="collection-list list-unstyled row_ashish row mb-0 fabrics-ul-style">
+              {% for block in section.blocks %}
+                  {% render 'collection-watches', collection: collections[block.settings.collection] %}
+              {% endfor %}
+          </div>
+          {% unless section.settings.btn_text == blank %}
+              <div class="text-center">
+                  <a class="btn mt-8 mb-0 {{ section.settings.btn_color }}" href="{{ routes.collections_url }}">
+                      {{ section.settings.btn_text }} 
+                  </a>
+              </div>
+          {% endunless %}
+      </div>
+  </section>
+{% endif %}
 {% schema %}
 {
     "name": "HomePage Collection",
