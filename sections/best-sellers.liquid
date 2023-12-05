@@ -54,49 +54,55 @@
     {% if section.settings.kids_collection_text != blank %}<button class="bestsellers_tablinks" onclick="openCity(event, 'kids')">{{ section.settings.kids_collection_text }}</button>{% endif %}
   </div>
 
-  <div id="men" class="bestsellers_tabcontent">
-    {% assign collection_men = section.settings.men_collection %}
-    <div class="swiper collection-swiper-men">
-      <div class="swiper-wrapper">
-        {% for product in collection_men.products %}
-          <div class="swiper-slide" style="animation-delay: {{ forloop.index0 | divided_by: 10.0 | round: 2 }}s">
-            {% render 'related-products-card-product', card_product: product %}
+  {% if section.settings.men_collection != blank %}
+      <div id="men" class="bestsellers_tabcontent">
+        {% assign collection_men = section.settings.men_collection %}
+        <div class="swiper collection-swiper-men">
+          <div class="swiper-wrapper">
+            {% for product in collection_men.products %}
+              <div class="swiper-slide" style="animation-delay: {{ forloop.index0 | divided_by: 10.0 | round: 2 }}s">
+                {% render 'related-products-card-product', card_product: product %}
+              </div>
+            {% endfor %}
           </div>
-        {% endfor %}
+    
+          <div class="swiper-scrollbar"></div>
+        </div>
       </div>
+  {% endif %}
 
-      <div class="swiper-scrollbar"></div>
-    </div>
-  </div>
-
-  <div id="women" class="bestsellers_tabcontent">
-    {% assign collection_women = section.settings.women_collection %}
-    <div class="swiper collection-swiper-women">
-      <div class="swiper-wrapper">
-        {% for product in collection_women.products %}
-          <div class="swiper-slide" style="animation-delay: {{ forloop.index0 | divided_by: 10.0 | round: 2 }}s">
-            {% render 'related-products-card-product', card_product: product %}
+  {% if section.settings.women_collection != blank %}
+      <div id="women" class="bestsellers_tabcontent">
+        {% assign collection_women = section.settings.women_collection %}
+        <div class="swiper collection-swiper-women">
+          <div class="swiper-wrapper">
+            {% for product in collection_women.products %}
+              <div class="swiper-slide" style="animation-delay: {{ forloop.index0 | divided_by: 10.0 | round: 2 }}s">
+                {% render 'related-products-card-product', card_product: product %}
+              </div>
+            {% endfor %}
           </div>
-        {% endfor %}
+          <div class="swiper-scrollbar"></div>
+        </div>
       </div>
-      <div class="swiper-scrollbar"></div>
-    </div>
-  </div>
+  {% endif %}
 
-  <div id="kids" class="bestsellers_tabcontent">
-    {% assign collection_kids = section.settings.kids_collection %}
-    <div class="swiper collection-swiper-kids">
-      <div class="swiper-wrapper">
-        {% for product in collection_kids.products %}
-          <div class="swiper-slide" style="animation-delay: {{ forloop.index0 | divided_by: 10.0 | round: 2 }}s">
-            {% render 'related-products-card-product', card_product: product %}
+  {% if section.settings.kids_collection != blank %}
+        <div id="kids" class="bestsellers_tabcontent">
+          {% assign collection_kids = section.settings.kids_collection %}
+          <div class="swiper collection-swiper-kids">
+            <div class="swiper-wrapper">
+              {% for product in collection_kids.products %}
+                <div class="swiper-slide" style="animation-delay: {{ forloop.index0 | divided_by: 10.0 | round: 2 }}s">
+                  {% render 'related-products-card-product', card_product: product %}
+                </div>
+              {% endfor %}
+            </div>
+            <div class="swiper-scrollbar"></div>
           </div>
-        {% endfor %}
+        </div>
       </div>
-      <div class="swiper-scrollbar"></div>
-    </div>
-  </div>
-</div>
+  {% endif %}
 
 <script>
   document.querySelectorAll('.bestsellers_tablinks')[0].click();
