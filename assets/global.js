@@ -1005,7 +1005,6 @@ class VariantSelects extends HTMLElement {
   updateMedia() {
     if (!this.currentVariant) return;
     if (!this.currentVariant.featured_media) return;
-    console.log(`${this.dataset.section}-${this.currentVariant.featured_media.id}`)
     var desiredSlideId = `${this.dataset.section}-${this.currentVariant.featured_media.id}`;
     document.querySelectorAll('.swiper-slide').forEach((e)=>{
       if(e.getAttribute('data-media-id')==desiredSlideId){
