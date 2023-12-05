@@ -125,7 +125,7 @@ cart-remove-button svg{width:12px;}
   -o-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);}
-.drawer__close svg path {stroke:#dd5041;}
+.drawer__close svg path {stroke:#000;}
 .drawer__close svg {
   height: 2.4rem;
   width: 2.4rem;
