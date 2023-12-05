@@ -11,7 +11,7 @@
     }
   }
 {%- endstyle -%}
-
+{% if section.blocks != blank %}
 <section class="homepage-main-banner-container section-{{ section.id }}-margin" id="{{ section.id }}">
   <div class="homepage-main-banner">
     <div class="swiper main-banner-swiper">
@@ -97,7 +97,7 @@
     </div>
   </div>
 </section>
-
+{% endif %}
 <script> 
   window.addEventListener(
     'DOMContentLoaded',
