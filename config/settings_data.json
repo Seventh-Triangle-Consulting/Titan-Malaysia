@@ -199,7 +199,7 @@
       },
       "16179990893605260579": {
         "type": "shopify:\/\/apps\/simplify-my-login\/blocks\/sml_account\/d8cea981-d551-4842-a6a1-d02bd1530222",
-        "disabled": false,
+        "disabled": true,
         "settings": {
         }
       }
