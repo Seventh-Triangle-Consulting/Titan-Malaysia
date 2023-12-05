@@ -1005,7 +1005,28 @@ class VariantSelects extends HTMLElement {
   updateMedia() {
     if (!this.currentVariant) return;
     if (!this.currentVariant.featured_media) return;
-
+    var desiredSlideId = `${this.dataset.section}-${this.currentVariant.featured_media.id}`;
+    document.querySelectorAll('.swiper-slide').forEach((e)=>{
+      if(e.getAttribute('data-media-id')==desiredSlideId){
+           var indexNew = e.getAttribute('aria-label').split('/');
+           var index = indexNew[0];
+           var swiper = new Swiper('.custom-desktop-slider-main', {
+                loop: true,
+                spaceBetween: 10,
+                navigation: {
+                  nextEl: ".custom-desktop-slider-main .swiper-button-next",
+                  prevEl: ".custom-desktop-slider-main .swiper-button-prev",
+                },
+                thumbs: {
+                  swiper: swiper,
+                },
+           });
+           
+           swiper.slideTo(index);
+       
+           
+      }
+    });
     const mediaGalleries = document.querySelectorAll(`[id^="MediaGallery-${this.dataset.section}"]`);
     mediaGalleries.forEach((mediaGallery) =>
       mediaGallery.setActiveMedia(`${this.dataset.section}-${this.currentVariant.featured_media.id}`, true)
