@@ -9,6 +9,7 @@
     },
     "165460479522332vv3": {
       "type": "otp-login",
+      "disabled": true,
       "settings": {
       }
     }
