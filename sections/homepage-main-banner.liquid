@@ -37,8 +37,10 @@
                   }}
                   <div class="desktop_banner_content {{ block.settings.content-position }}">
                     {% assign desktop_banner_text = block.settings.desktop_banner_text | split: '##' %}
-                    <h2 class="desktop_banner_text1">{{ desktop_banner_text[0] }}</h2>
-                    <h3 class="desktop_banner_text2">{{ desktop_banner_text[1] }}</h3>
+                   {% if block.settings.desktop_banner_text != blank %}
+                      <h2 class="desktop_banner_text1">{{ desktop_banner_text[0] }}</h2>
+                      <h3 class="desktop_banner_text2">{{ desktop_banner_text[1] }}</h3>
+                  {% endif %}
                     <div class="flex-27">
                       <a href="{{ block.settings.button_link1 }}">
                         <h3 class="desktop_button_text1" style="background-color:{{ block.settings.buttoncolor }}; color:{{ block.settings.buttontextcolor }}">{{ block.settings.button_text1 }}</h3>
