@@ -12,56 +12,60 @@
               <!-- card -->
               <a href="{{ block.settings.shop_by_concern_link }}">
                 <div class="card_image_wrapper">
-                  <img
-                    class="desktop_card_image"
-                    srcset="
-                      {%- if block.settings.desktop_card_image.width >= 550 -%}{{ block.settings.desktop_card_image | image_url: width: 550, format: 'webp' }} 550w,{%- endif -%}
-                      {%- if block.settings.desktop_card_image.width >= 1100 -%}{{ block.settings.desktop_card_image | image_url: width: 1100, format: 'webp' }} 1100w,{%- endif -%}
-                      {%- if block.settings.desktop_card_image.width >= 1445 -%}{{ block.settings.desktop_card_image | image_url: width: 1445, format: 'webp' }} 1445w,{%- endif -%}
-                      {%- if block.settings.desktop_card_image.width >= 1680 -%}{{ block.settings.desktop_card_image | image_url: width: 1680, format: 'webp' }} 1680w,{%- endif -%}
-                      {%- if block.settings.desktop_card_image.width >= 2048 -%}{{ block.settings.desktop_card_image | image_url: width: 2048, format: 'webp' }} 2048w,{%- endif -%}
-                      {%- if block.settings.desktop_card_image.width >= 2200 -%}{{ block.settings.desktop_card_image | image_url: width: 2200, format: 'webp' }} 2200w,{%- endif -%}
-                      {%- if block.settings.desktop_card_image.width >= 2890 -%}{{ block.settings.desktop_card_image | image_url: width: 2890, format: 'webp' }} 2890w,{%- endif -%}
-                      {%- if block.settings.desktop_card_image.width >= 3000 -%}{{ block.settings.desktop_card_image | image_url: width: 3000, format: 'webp' }} 3000w,{%- endif -%}
-                      {%- if block.settings.desktop_card_image.width >= 3840 -%}{{ block.settings.desktop_card_image | image_url: width: 3840, format: 'webp' }} 3840w,{%- endif -%}
-                      {{ block.settings.desktop_card_image | image_url }} {{ block.settings.desktop_card_image.width }}w
-                    "
-                    src="{{ block.settings.desktop_card_image | image_url: width: block.settings.desktop_card_image.width, format: 'webp' }}"
-                    {% if forloop.index0 == 0 %}
-                      loading="eager"
-                    {% else %}
-                      loading="lazy"
-                    {% endif %}
-                    sizes="100vw"
-                    alt="{% if block.settings.desktop_card_image.alt %} {{ block.settings.desktop_card_image.alt | escape }} {% else %}desktop-card-image{% endif %}"
-                    width="{{ block.settings.desktop_card_image.width }}"
-                    height="{{ block.settings.desktop_card_image.height }}"
-                  >
-                  <img
-                    class="mobile_card_image"
-                    srcset="
-                      {%- if block.settings.mobile_card_image.width >= 550 -%}{{ block.settings.mobile_card_image | image_url: width: 550, format: 'webp' }} 550w,{%- endif -%}
-                      {%- if block.settings.mobile_card_image.width >= 1100 -%}{{ block.settings.mobile_card_image | image_url: width: 1100, format: 'webp' }} 1100w,{%- endif -%}
-                      {%- if block.settings.mobile_card_image.width >= 1445 -%}{{ block.settings.mobile_card_image | image_url: width: 1445, format: 'webp' }} 1445w,{%- endif -%}
-                      {%- if block.settings.mobile_card_image.width >= 1680 -%}{{ block.settings.mobile_card_image | image_url: width: 1680, format: 'webp' }} 1680w,{%- endif -%}
-                      {%- if block.settings.mobile_card_image.width >= 2048 -%}{{ block.settings.mobile_card_image | image_url: width: 2048, format: 'webp' }} 2048w,{%- endif -%}
-                      {%- if block.settings.mobile_card_image.width >= 2200 -%}{{ block.settings.mobile_card_image | image_url: width: 2200, format: 'webp' }} 2200w,{%- endif -%}
-                      {%- if block.settings.mobile_card_image.width >= 2890 -%}{{ block.settings.mobile_card_image | image_url: width: 2890, format: 'webp' }} 2890w,{%- endif -%}
-                      {%- if block.settings.mobile_card_image.width >= 3000 -%}{{ block.settings.mobile_card_image | image_url: width: 3000, format: 'webp' }} 3000w,{%- endif -%}
-                      {%- if block.settings.mobile_card_image.width >= 3840 -%}{{ block.settings.mobile_card_image | image_url: width: 3840, format: 'webp' }} 3840w,{%- endif -%}
-                      {{ block.settings.mobile_card_image | image_url }} {{ block.settings.mobile_card_image.width }}w
-                    "
-                    src="{{ block.settings.mobile_card_image | image_url: width: block.settings.mobile_card_image.width, format: 'webp' }}"
-                    {% if forloop.index0 == 0 %}
-                      loading="eager"
-                    {% else %}
-                      loading="lazy"
-                    {% endif %}
-                    sizes="100vw"
-                    alt="{% if block.settings.mobile_card_image.alt %} {{ block.settings.mobile_card_image.alt | escape }} {% else %}mobile-card-image{% endif %}"
-                    width="{{ block.settings.mobile_card_image.width }}"
-                    height="{{ block.settings.mobile_card_image.height }}"
-                  >
+                  {% if block.settings.desktop_card_image != blank %}
+                      <img
+                        class="desktop_card_image"
+                        srcset="
+                          {%- if block.settings.desktop_card_image.width >= 550 -%}{{ block.settings.desktop_card_image | image_url: width: 550, format: 'webp' }} 550w,{%- endif -%}
+                          {%- if block.settings.desktop_card_image.width >= 1100 -%}{{ block.settings.desktop_card_image | image_url: width: 1100, format: 'webp' }} 1100w,{%- endif -%}
+                          {%- if block.settings.desktop_card_image.width >= 1445 -%}{{ block.settings.desktop_card_image | image_url: width: 1445, format: 'webp' }} 1445w,{%- endif -%}
+                          {%- if block.settings.desktop_card_image.width >= 1680 -%}{{ block.settings.desktop_card_image | image_url: width: 1680, format: 'webp' }} 1680w,{%- endif -%}
+                          {%- if block.settings.desktop_card_image.width >= 2048 -%}{{ block.settings.desktop_card_image | image_url: width: 2048, format: 'webp' }} 2048w,{%- endif -%}
+                          {%- if block.settings.desktop_card_image.width >= 2200 -%}{{ block.settings.desktop_card_image | image_url: width: 2200, format: 'webp' }} 2200w,{%- endif -%}
+                          {%- if block.settings.desktop_card_image.width >= 2890 -%}{{ block.settings.desktop_card_image | image_url: width: 2890, format: 'webp' }} 2890w,{%- endif -%}
+                          {%- if block.settings.desktop_card_image.width >= 3000 -%}{{ block.settings.desktop_card_image | image_url: width: 3000, format: 'webp' }} 3000w,{%- endif -%}
+                          {%- if block.settings.desktop_card_image.width >= 3840 -%}{{ block.settings.desktop_card_image | image_url: width: 3840, format: 'webp' }} 3840w,{%- endif -%}
+                          {{ block.settings.desktop_card_image | image_url }} {{ block.settings.desktop_card_image.width }}w
+                        "
+                        src="{{ block.settings.desktop_card_image | image_url: width: block.settings.desktop_card_image.width, format: 'webp' }}"
+                        {% if forloop.index0 == 0 %}
+                          loading="eager"
+                        {% else %}
+                          loading="lazy"
+                        {% endif %}
+                        sizes="100vw"
+                        alt="{% if block.settings.desktop_card_image.alt %} {{ block.settings.desktop_card_image.alt | escape }} {% else %}desktop-card-image{% endif %}"
+                        width="{{ block.settings.desktop_card_image.width }}"
+                        height="{{ block.settings.desktop_card_image.height }}"
+                      >
+                  {% endif %}
+                  {% if block.settings.mobile_card_image != blank %}
+                      <img
+                        class="mobile_card_image"
+                        srcset="
+                          {%- if block.settings.mobile_card_image.width >= 550 -%}{{ block.settings.mobile_card_image | image_url: width: 550, format: 'webp' }} 550w,{%- endif -%}
+                          {%- if block.settings.mobile_card_image.width >= 1100 -%}{{ block.settings.mobile_card_image | image_url: width: 1100, format: 'webp' }} 1100w,{%- endif -%}
+                          {%- if block.settings.mobile_card_image.width >= 1445 -%}{{ block.settings.mobile_card_image | image_url: width: 1445, format: 'webp' }} 1445w,{%- endif -%}
+                          {%- if block.settings.mobile_card_image.width >= 1680 -%}{{ block.settings.mobile_card_image | image_url: width: 1680, format: 'webp' }} 1680w,{%- endif -%}
+                          {%- if block.settings.mobile_card_image.width >= 2048 -%}{{ block.settings.mobile_card_image | image_url: width: 2048, format: 'webp' }} 2048w,{%- endif -%}
+                          {%- if block.settings.mobile_card_image.width >= 2200 -%}{{ block.settings.mobile_card_image | image_url: width: 2200, format: 'webp' }} 2200w,{%- endif -%}
+                          {%- if block.settings.mobile_card_image.width >= 2890 -%}{{ block.settings.mobile_card_image | image_url: width: 2890, format: 'webp' }} 2890w,{%- endif -%}
+                          {%- if block.settings.mobile_card_image.width >= 3000 -%}{{ block.settings.mobile_card_image | image_url: width: 3000, format: 'webp' }} 3000w,{%- endif -%}
+                          {%- if block.settings.mobile_card_image.width >= 3840 -%}{{ block.settings.mobile_card_image | image_url: width: 3840, format: 'webp' }} 3840w,{%- endif -%}
+                          {{ block.settings.mobile_card_image | image_url }} {{ block.settings.mobile_card_image.width }}w
+                        "
+                        src="{{ block.settings.mobile_card_image | image_url: width: block.settings.mobile_card_image.width, format: 'webp' }}"
+                        {% if forloop.index0 == 0 %}
+                          loading="eager"
+                        {% else %}
+                          loading="lazy"
+                        {% endif %}
+                        sizes="100vw"
+                        alt="{% if block.settings.mobile_card_image.alt %} {{ block.settings.mobile_card_image.alt | escape }} {% else %}mobile-card-image{% endif %}"
+                        width="{{ block.settings.mobile_card_image.width }}"
+                        height="{{ block.settings.mobile_card_image.height }}"
+                      >
+                  {% endif %}
           {% if block.settings.shop_by_concern_title != blank %}
                   <div class="overlay-text-container">
                     <div class="overlay-text">
