@@ -45,9 +45,11 @@
 </style>
 
 <div class="mostloved mostloved-section-{{ section.id }} page-width" id="{{ section.id }}">
-        <div class="mostloved_div">
-          <h2 class="mostloved_heading">{{ section.settings.mostloved_heading }}</h2>
-        </div>
+      {% if section.settings.mostloved_heading != blank %}
+            <div class="mostloved_div">
+              <h2 class="mostloved_heading">{{ section.settings.mostloved_heading }}</h2>
+            </div>
+        {% endif %}
 
         <div class="mostloved_tab">
                 {% for block in section.blocks %}
