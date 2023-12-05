@@ -209,11 +209,19 @@
             "coll": "female",
             "coll_name": "Women"
           }
+        },
+        "0a380539-fe26-42ee-947a-ad66c49b2320": {
+          "type": "cp",
+          "settings": {
+            "coll": "children",
+            "coll_name": "kid"
+          }
         }
       },
       "block_order": [
         "3deb7a32-dfa7-4043-9e39-fa7a5dfee106",
-        "af37dc5d-8950-4db2-abe5-dcf87b68cc6a"
+        "af37dc5d-8950-4db2-abe5-dcf87b68cc6a",
+        "0a380539-fe26-42ee-947a-ad66c49b2320"
       ],
       "settings": {
         "margin_bottom_desktop": 36,
