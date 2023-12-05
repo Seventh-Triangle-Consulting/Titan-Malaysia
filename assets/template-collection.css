@@ -10,7 +10,13 @@
     margin-bottom: 1.5rem;
   }
 }
-
+.grid__item{
+  position:relative;
+}
+.smartwishlist{
+  position: absolute; right: 4%; top: 2%; z-index: 2 !important;
+}
+.smartwishlist span{font-size:24px;}
 .collection .loading-overlay {
   top: 0;
   right: 0;
