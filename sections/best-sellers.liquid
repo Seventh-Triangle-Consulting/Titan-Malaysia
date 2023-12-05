@@ -42,9 +42,11 @@
 </style>
 
 <div class="bestsellers bestsellers-section-{{ section.id }} page-width" id="{{ section.id }}">
-  <div class="bestsellers_div">
-    <h2 class="bestsellers_heading">{{ section.settings.bestsellers_heading }}</h2>
-  </div>
+  {% if section.settings.bestsellers_heading != blank %}
+      <div class="bestsellers_div">
+        <h2 class="bestsellers_heading">{{ section.settings.bestsellers_heading }}</h2>
+      </div>
+  {% endif %}
 
   <div class="bestsellers_tab">
     {% if section.settings.men_collection_text != blank %}<button class="bestsellers_tablinks" onclick="openCity(event, 'men')">{{ section.settings.men_collection_text }}</button>{% endif %}
