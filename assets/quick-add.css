@@ -4,6 +4,9 @@
   margin: 0 0 1rem;
   z-index: 1;
 }
+.quick-add__submit span{
+  font-family:Roboto-Regular;
+}
 .quick-add__submit{
   background:black;
   color:#fff;
