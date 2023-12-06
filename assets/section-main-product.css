@@ -1882,7 +1882,7 @@ font-family:"Rubik-Regular";font-size:15px;padding:12px 10px 11px 3px;border-top
   display: none;
 }
 .pdp_shipping{display:flex;gap:9px;align-items:center;}
-.pdp_shipping p,.pdp_returns_policy p{color: #000;font-family:Roboto-Regular;font-size: 16px;font-style: normal;font-weight: 400;line-height: normal;}
+.pdp_shipping p,.pdp_returns_policy p{color: #000;font-family:Roboto-Regular;font-size: 18px;font-style: normal;font-weight: 400;line-height: normal;color:#000;}
 .pdp_returns_policy{display: flex;gap:9px;align-items:center;}
 .pdp_returns_policy p a{text-decoration:none;color: #EF3133;font-family: "Rubik-Regular";font-size: 16px;font-style: normal;font-weight: 400;line-height: normal;}
 
