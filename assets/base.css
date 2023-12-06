@@ -706,7 +706,7 @@ summary::-webkit-details-marker {
   }
 
   .facets .disclosure-has-popup[open] > summary + * {
-    z-index: 2;
+    z-index: 3;
   }
 }
 
