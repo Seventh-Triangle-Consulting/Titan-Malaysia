@@ -23,7 +23,7 @@
   .productformdesktopsticky .price__badge-sale{display: none !important;}
   .productformdesktopsticky select{padding: 0 4rem 0 5px;}
   .productformdesktopsticky .pdp_ATC span{font-size: 14px;min-width:max-content;}
-  .custom-atc-qty-slector .pdp_ATC{width:22vw;}
+  .custom-atc-qty-slector .pdp_ATC{width:22vw !important;}
 }
 .custom-atc-qty-slector .restock-alerts-notify-button{position: relative;left: -25%;}
 .custom-atc-qty-slector .restock-alerts-branding-text{display: none;}
