@@ -364,7 +364,8 @@ variant-selects {
 }
 
 fieldset.product-form__input .form__label {
-  margin-bottom: 6px;color: #000;font-family:Roboto-Regular;font-size: 16px;line-height:1;letter-spacing: 0.2px;}
+  margin-bottom: 6px;color: #000;font-family:Roboto-Medium;font-size: 20px;line-height:1;letter-spacing: 0.2px;margin-top:1.5rem;
+}
 
 .product-form__input input[type="radio"] {
   clip: rect(0, 0, 0, 0);
