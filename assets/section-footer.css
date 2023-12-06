@@ -376,7 +376,7 @@ footer{border:1px solid #dadada !important;}
 }
 @media screen and (max-width: 320px){
 .newsletter-form__field-wrapper .field__label {
-    font-size: 14px !important;
+    font-size: 10px !important;
 }
 }
 @keyframes animateLocalization {
