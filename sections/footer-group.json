@@ -33,7 +33,7 @@
         "9703b38a-2a84-4d4e-8b05-4823f968c470"
       ],
       "settings": {
-        "mobile_footer": "",
+        "mobile_footer": "<p><a href=\"tel:18002660123\" target=\"_blank\" title=\"tel:18002660123\">18002660123<\/a><\/p>",
         "emailid_footer": "<p><a href=\"mailto:customercare@titan.co.in\" target=\"_blank\" title=\"mailto:customercare@titan.co.in\">customercare@titan.co.in<\/a><\/p>",
         "color_scheme": "",
         "newsletter_enable": true,
