@@ -3,7 +3,6 @@
   .pdp_shipping{margin-bottom:2%;}
   .pdp_shipping_returns{flex-direction:center !important;align-items:baseline !important;}
 }
-.product--thumbnail_slider{margin:auto;}
 .product__media-wrapper{
   position:relative;
 }
@@ -146,7 +145,7 @@
   .productformdesktopsticky{display:none;}
 }
 .product-image{height:100px;width:100px;}
-.product{ margin: 0;}
+.product{ margin: auto;}
 .custom-product-description{margin-top:5%;}
 .custom-type .row{margin-bottom:5%;}
 .custom-product-description p,.custom-product-description .column-description{font-size:14px;font-family: Roboto-Regular;}
