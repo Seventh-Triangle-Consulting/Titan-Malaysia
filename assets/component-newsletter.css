@@ -1,10 +1,11 @@
 .newsletter-form {display: flex;flex-direction: column;justify-content: center;align-items: flex-start;width: 100%;position: relative;}
 .custom-social-share .div_1 span:first-child{margin-bottom:3%;}
+.newsletter-form__field-wrapper input{color: black; font-size: 14px; padding: 0; padding-left: 2%;}
 .newsletter-form__field-wrapper .field{ width: 200px; height: 40px;}
 .newsletter-form__field-wrapper label{color:#ccc !important;font-size:9px !important;}
 .newsletter-form__button{height: 40px !important;}
 .newsletter-form__field-wrapper{width: 100%;}
-.newsletter-form__field-wrapper .field__input {padding-right: 5rem;background-color: transparent;color: #fff;font-family: 'Rubik-Regular';}
+.newsletter-form__field-wrapper .field__input {padding-right: 5rem;background-color: transparent;font-family: 'Roboto-Regular';}
 .newsletter-form__field-wrapper .field{border:#000 2px solid}
 .newsletter-form__field-wrapper .field__input:hover{box-shadow:none;}
 .newsletter-form__field-wrapper .field__input:focus{box-shadow:none;}
