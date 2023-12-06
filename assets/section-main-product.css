@@ -6,6 +6,7 @@
 .product__media-wrapper{
   position:relative;
 }
+.price__sale .price-item--sale{font-size:20px;}
 .titan_main_product{z-index:1;}
 .custom-wishlist-share{ position: absolute; top: 0%; right: 2%; z-index: 2;}
 #wishlist_icon{font-size:24px;}
