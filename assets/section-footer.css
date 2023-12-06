@@ -3,8 +3,8 @@
 .custom-social-share p{line-height:1;}
 .custom_newsletter-form__button{float: inline-start;background: black;color: white;border: none;font-size:14px;}
 footer{border:1px solid #dadada !important;}
-.custom-social-share .div_1 {display:flex;flex-direction:column;width:15vw;}
-.custom-social-share .div_1 span{display:inline-flex;align-items:flex-end;gap:3%;}
+.custom-social-share .div_1 {display:flex;flex-direction:column;}
+.custom-social-share .div_1 span{display:inline-flex;align-items:flex-end;gap:1%;}
 .footer-block__details-content .list-menu__item--link{font-family:Roboto-Regular;font-size:14px !important;}
 .footer-block_para{font-size:16px;font-family:Roboto-Regular;text-align:left;margin-bottom:8%;}
 .footer:not(.color-background-1) {border-top: none;}
