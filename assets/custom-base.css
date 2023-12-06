@@ -79,14 +79,19 @@ h5 > a,
 .h2 > a,
 .h3 > a,
 .h4 > a,
-.h5 > a,
-span {
+.h5 > a
+{
   letter-spacing: inherit;
   line-height: inherit;
   font-family: inherit;
   color: inherit;
 }
-
+span{
+  letter-spacing: inherit;
+  line-height: 1;
+  font-family: inherit;
+  color: inherit;
+}
 .page-width {
   padding-left: var(--desktop-padding);
   padding-right: var(--desktop-padding);
