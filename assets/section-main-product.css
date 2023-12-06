@@ -150,7 +150,7 @@
 .custom-product-description{margin-top:5%;}
 .custom-type .row{margin-bottom:5%;}
 .custom-product-description p,.custom-product-description .column-description{font-size:14px;font-family: Roboto-Regular;}
-.custom-description-title, .custom-type .column-heading{ font-size: 16px; font-family: Roboto-Bold; margin-bottom: 5px; color: #000;}
+.custom-description-title, .custom-type .column-heading{ font-size: 22px; font-family: Roboto-Bold; margin-bottom: 5px; color: #000;}
 .custom-product-description{display:flex;}
 .custom-description, .custom-type{width:50%;}
 .custom-description{padding-right:4rem;border-right:1px solid black;}
