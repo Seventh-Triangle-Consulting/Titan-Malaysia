@@ -6,7 +6,7 @@
   text-align: center;
   width:90%;
 }
-.customer a, .customer p{color:#000;font-family:Roboto-Regular;}
+.customer a, .customer p{color:#000;font-family:Roboto-Regular;line-height:25px;}
 .customer button,.customer input{font-family:Roboto-Regular !important;}
 #phoneNumberInput{font-family:Roboto-Regular;color:#000;}
 #phoneNumberInput::placeholder{font-family:Roboto-Regular;color:#000;}
