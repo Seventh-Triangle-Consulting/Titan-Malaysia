@@ -21,9 +21,11 @@
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient no-js-hidden related_products" id={{ section.id }}>
-  <h2 class="related-products__heading inline-richtext">
-    {{ section.settings.heading }}
-  </h2>
+  {% if section.settings.heading != blank and recommendations.products != blank %}
+      <h2 class="related-products__heading inline-richtext">
+        {{ section.settings.heading }}
+      </h2>
+  {% endif %}
   <div class="swiper related_products_swiper">
     <product-recommendations
       class="swiper-wrapper"
