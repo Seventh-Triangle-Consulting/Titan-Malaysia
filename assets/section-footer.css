@@ -12,7 +12,7 @@ footer{border:1px solid #dadada !important;}
 .custom-titan-footer{display:flex;justify-content:flex-start;flex-wrap:wrap;gap:5%;}
 .footer__content-top {padding-bottom: 3rem;display: block;}
 .footersocialicons .list-social__item .icon {height: 4.2rem;width: 4.2rem;}
-.footersocialicons .list-social__link {padding: 4px;}
+.footersocialicons .list-social__link {padding: 4px 4px 4px 0;}
 .footer__content-bottom-wrapper.socialicons{border-bottom: 1px solid #dadada;padding-bottom: 2rem;}
 .footer__content-bottom {padding-top: 1rem;}
 .footer__content-bottom:only-child {border-top: 0;}

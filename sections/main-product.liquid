@@ -875,7 +875,7 @@
 
                           
   </div>
-  <div class="productformmobilesticky"></div>
+  <div class="productformmobilesticky hide-productformmobilesticky"></div>
   <div class="productformdesktopsticky hide-productformdesktopsticky">
     <div class="productformdesktopsticky-title-image">
         <div class="product-image">
@@ -935,14 +935,17 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
       var productForm = document.querySelector('.productformdesktopsticky');
+      var productForm1 = document.querySelector('.productformmobilesticky');
       var mainProduct = document.querySelector('.pdp_shipping_returns');
       var productFormOffsetTop = mainProduct.offsetTop;
 
       function toggleProductForm() {
         if (window.scrollY >= productFormOffsetTop+100) {
           productForm.classList.remove('hide-productformdesktopsticky');
+          productForm1.classList.remove('hide-productformmobilesticky');
         } else {
           productForm.classList.add('hide-productformdesktopsticky');
+          productForm1.classList.add('hide-productformmobilesticky');
         }
       }
 
