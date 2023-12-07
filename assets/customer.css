@@ -5,6 +5,7 @@
   padding-right: 1.5rem;
   text-align: center;
 }
+#getOTPButton{font-family:Roboto-Regular;}
 #WebPixelsManagerSandboxContainer{display:none;}
 .customer{margin-top:40px !important;margin-bottom:40px !important;}
 @media screen and (min-width: 750px) {
