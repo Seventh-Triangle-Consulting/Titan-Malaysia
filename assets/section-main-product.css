@@ -6,6 +6,10 @@
 .product__media-wrapper{
   position:relative;
 }
+.input_sizes{
+  display: flex;
+  align-items: center;
+}
 .hide-productformmobilesticky{display: none !important;}
 .swiper-button-next:after, .swiper-rtl .swiper-button-prev:after{float: inline-end;}
 .titan_main_product .price__sale .price-item--sale{font-size:clamp(18px, calc(20 * (100vw / 1440)), 22px) !important;}
@@ -14,7 +18,7 @@
 #wishlist_icon{font-size:24px;}
 #smartwishlist #bookmarkit{display:flex;align-items:center;}
 .custom-wishlist-share{display:flex;align-items:center;}
-.variant-image-custom{width: 70px;height: auto;}
+.variant-image-custom{width: 40px;height: auto;}
 .custom_variant_label{
   padding: 2px !important;
   line-height: 0 !important;
@@ -56,7 +60,7 @@
   display:block;
 }
 .custom-atc-qty-slector .pdp_ATC{
-  width:30vw;
+  width:29vw;
   height: 50px;
 }
 .productformmobilesticky .product-form{
@@ -67,7 +71,7 @@
   font-family: Roboto-Medium;
 }
 .pdp_ATC span{
-  font-size:1.3vw;
+  font-size:14px;
   line-height:1;
   color: #000;
 }
@@ -166,20 +170,12 @@
   .desccriptiom-custom-acc{padding-bottom:1%;box-shadow:inset 0 -1px #00000020;}
   .productformdesktopsticky{display:none;}
 }
-#pdpSwiper::after{
-  bottom: calc(var(--border-width) * -1);
-  left: calc(var(--border-width) * -1);
-  right: calc(var(--border-width) * -1);
-  top: calc(var(--border-width) * -1);
-  content: "";
-  position: absolute;
-  z-index: 1;
-}
+.custom-placeholder{height: 400px;width: 100%;display: flex; align-items: center; justify-content: center; font-size: 25px; border: 1px solid grey; border-radius: 6px;}
 .product-image{height:100px;width:100px;}
 .product{ margin: auto;}
 .custom-product-description{margin-top:5%;}
 .custom-type .row{margin-bottom:5%;}
-.custom-product-description p,.custom-product-description .column-description{font-size:clamp(14px, calc(16 * (100vw / 1440)), 18px);font-family: Roboto-Regular;color: #000;}
+.custom-product-description p,.custom-product-description .column-description{font-size:clamp(14px, calc(16 * (100vw / 1440)), 18px);font-family: Roboto-Regular;color: #000;line-height: 25px;}
 .custom-description-title, .custom-type .column-heading{ font-size: clamp(16px, calc(18 * (100vw / 1440)), 20px); font-family: Roboto-Bold; margin-bottom: 5px; color: #000;}
 .custom-product-description{display:flex;}
 .custom-description, .custom-type{width:50%;}
@@ -557,6 +553,7 @@ fieldset.product-form__input .form__label {
 
 .product__text {
   margin-bottom: 0;
+  margin-top: 14px;
 }
 
 a.product__text {
@@ -1715,7 +1712,7 @@ a.product__text {
     display: flex;
     align-self: stretch;
   }
-  .custom-atc-qty-slector .pdp_ATC{width:50vw !important;}
+  .custom-atc-qty-slector .pdp_ATC{width:48vw !important;}
   .custom-atc-qty-slector .pdp_ATC span{font-size:14px;}
 
   .product-media-container.media-fit-cover .media {
