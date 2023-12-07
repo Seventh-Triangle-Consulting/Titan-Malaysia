@@ -6,6 +6,7 @@
   text-align: center;
   width:90%;
 }
+.customer a{color:#000;}
 #phoneNumberInput{font-family:Roboto-Regular;color:#000;}
 #phoneNumberInput::placeholder{font-family:Roboto-Regular;color:#000;}
 #getOTPButton, #loginSuccess, #phoneNumberDiv{font-family:Roboto-Regular;}
