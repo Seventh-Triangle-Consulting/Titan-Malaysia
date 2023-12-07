@@ -1929,7 +1929,6 @@ font-size: 19px;font-weight: 500;line-height: 34px;letter-spacing: 0.38px;paddin
 @media(max-width:749px)
 {
    .pdp_color_variant a img {width: 83%;}
-.titan_main_product .price__container{display:none;}
 .titan_main_product .offers_available_number{display:none;}
 .titan_main_product .pdp-line{display:none !important;}
 .pdp_colors_heading{margin-top:30px;}
