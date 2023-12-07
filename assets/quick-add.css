@@ -6,11 +6,13 @@
 }
 .quick-add__submit span{
   font-family:Roboto-Regular;
+  color: #fff;
 }
 .quick-add__submit{
   background:black;
   color:#fff;
   border-radius:10px;
+  font-family: Roboto-Regular;
 }
 .card--card .quick-add {
   margin: 0 1.3rem 1rem;
