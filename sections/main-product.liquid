@@ -65,7 +65,7 @@
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   {% assign imggg = product.selected_or_first_available_variant.image | where: 'attached_to_variant?', true | map: 'src' %}
 
-<div class="page-width product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}" data-productid="{{ product.id }}">
+<div class="page-width product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% endif %}" data-productid="{{ product.id }}">
     <div id="{{ section.id }}" class="grid__item product__media-wrapper{% if section.settings.media_position == 'right' %} medium-hide large-up-hide{% endif %}">
       <div class="custom-wishlist-share">
           <div>
@@ -79,7 +79,12 @@
           </div>
           <div id="smartwishlist" data-product="{{ product.id }}" data-variant="{{ product.variants.first.id }}"></div>
       </div>
-      
+
+    {% if product.media == blank %}
+       <div class="custom-placeholder">No Image Available</div>
+    {% endif %}
+
+    {% if product.media != blank %}
       <div data-id="pdpSwiper" class="custom-desktop-slider-main swiper mySwiper2" style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" >
          <div class="swiper-wrapper">
             {%- for media in product.media -%}       
@@ -111,6 +116,7 @@
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
        </div>
+      {% endif %}
         {% comment %}{% render 'product-media-gallery', variant_images: variant_images %}{% endcomment %}
     </div>
     <div class="titan_main_product product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
@@ -563,7 +569,9 @@
                 Buy now
               </button>
 
+            {% if section.settings.cod_svg != blank or section.settings.return_exchange_img != blank %}
               <div class="pdp_shipping_returns">
+                {% if section.settings.cod_svg != blank %}
                     <div class="pdp_shipping">
                          <div class="icon">          
                               {{
@@ -572,8 +580,10 @@
                                   | image_tag: class: 'cod-image', loading: 'lazy'
                                 }}
                           </div>
-                          <p>{{ section.settings.cod_text }}</p>
+                         {% if section.settings.cod_text != blank %} <p>{{ section.settings.cod_text }}</p>{% endif %}
                     </div>
+                  {% endif %}
+                  {% if section.settings.return_exchange_img != blank %}
                     <div class="pdp_returns_policy">
                           <div class="icon">  
                                 {{
@@ -582,9 +592,11 @@
                                     | image_tag: class: 'payment-image', loading: 'lazy'
                                   }}
                             </div>
-                          <p>{{ section.settings.return_exchange_text }}</p>
+                          {% if section.settings.return_exchange_text != blank %}<p>{{ section.settings.return_exchange_text }}</p>{% endif %}
                     </div>
+                  {% endif %}
               </div>
+            {% endif %}
 
             {%- when 'rating' -%}
               {%- if product.metafields.reviews.rating.value != blank -%}
@@ -875,9 +887,10 @@
 
                           
   </div>
-  <div class="productformmobilesticky"></div>
+  <div class="productformmobilesticky hide-productformmobilesticky"></div>
   <div class="productformdesktopsticky hide-productformdesktopsticky">
     <div class="productformdesktopsticky-title-image">
+        {% if  product.media[0] != blank %}
         <div class="product-image">
           {{
                               product.media[0]
@@ -885,6 +898,7 @@
                               | image_tag: class: 'product-image'
                             }}
         </div>
+        {% endif%}
         <div class="productformdesktoptitle"></div>
        </div>
         <div class="productformdesktopsticky-variant-atc">
@@ -935,14 +949,17 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
       var productForm = document.querySelector('.productformdesktopsticky');
+      var productForm1 = document.querySelector('.productformmobilesticky');
       var mainProduct = document.querySelector('.pdp_shipping_returns');
       var productFormOffsetTop = mainProduct.offsetTop;
 
       function toggleProductForm() {
         if (window.scrollY >= productFormOffsetTop+100) {
           productForm.classList.remove('hide-productformdesktopsticky');
+          productForm1.classList.remove('hide-productformmobilesticky');
         } else {
           productForm.classList.add('hide-productformdesktopsticky');
+          productForm1.classList.add('hide-productformmobilesticky');
         }
       }
 

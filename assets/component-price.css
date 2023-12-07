@@ -92,7 +92,7 @@
 
 .price--on-sale .price-item--regular {
   text-decoration: line-through;
-  color: rgba(var(--color-foreground), 0.75);
+  color: #000;
   font-size: 12px;
 }
 .price-item--sale, #discount .percent_discount {
