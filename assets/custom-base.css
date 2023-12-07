@@ -89,8 +89,8 @@ h5 > a,
 span{
   letter-spacing: inherit;
   line-height: 1;
-  font-family: inherit;
-  color: inherit;
+  font-family: Roboto-Regular;
+  color: #000;
 }
 .page-width {
   padding-left: var(--desktop-padding);
@@ -156,9 +156,10 @@ color:#000;}
   }
 
   p,.shopify-policy__container li {
-    font-size: var(--mobile-font-size-p);
+    font-size: 15px;
+    color:#000;
     letter-spacing: var(--mobile-letter-spacing-p);
-    line-height: var(--mobile-line-height-p);
+    line-height:1;
   }
  
   a {
