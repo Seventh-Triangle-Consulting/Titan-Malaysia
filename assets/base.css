@@ -244,7 +244,6 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 .overflow-hidden {
   overflow: hidden;
 }
-
 .skip-to-content-link:focus {
   z-index: 9999;
   position: inherit;
@@ -706,7 +705,7 @@ summary::-webkit-details-marker {
   }
 
   .facets .disclosure-has-popup[open] > summary + * {
-    z-index: 2;
+    z-index: 3;
   }
 }
 
@@ -1705,7 +1704,7 @@ details[open] > .share-button__fallback {
   height: 0.6rem;
   pointer-events: none;
   position: absolute;
-  top: calc(50% - 0.2rem);
+  top: calc(50% - 0.6rem);
   right: calc(var(--inputs-border-width) + 1.5rem);
 }
 
@@ -2425,7 +2424,7 @@ product-info .loading-overlay:not(.hidden) ~ *,
   .header--middle-left {
     grid-template-areas: 'heading navigation icons';
     grid-template-columns: auto auto 1fr;
-    column-gap: 2rem;
+    column-gap: 4rem;
   }
 
   .header--middle-center:not(.drawer-menu) {
@@ -2546,7 +2545,7 @@ product-info .loading-overlay:not(.hidden) ~ *,
   display: flex;
   grid-area: icons;
   justify-self: end;
-  padding-right: 0.8rem;
+  padding-right: 0;
     gap: 0.4rem;
 
 }

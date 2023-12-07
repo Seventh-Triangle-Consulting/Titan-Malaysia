@@ -1,12 +1,13 @@
 .footersocialicons{margin-top:2%;}
-.div_1 a{text-decoration:initial;font-size:14px;}
+.div_1 a{text-decoration:initial;font-size:12px;}
 .custom-social-share p{line-height:1;}
-.custom_newsletter-form__button{float: inline-start;background: black;color: white;border: none;font-size:14px;}
+.custom_newsletter-form__button{float: inline-start;background: black;color: white;border: none;font-size:14px;font-family:Roboto-Regular;}
 footer{border:1px solid #dadada !important;}
 .custom-social-share .div_1 {display:flex;flex-direction:column;}
-.custom-social-share .div_1 span{display:inline-flex;align-items:flex-end;gap:1%;}
-.footer-block__details-content .list-menu__item--link{font-family:Roboto-Regular;font-size:14px !important;}
-.footer-block_para{font-size:16px;font-family:Roboto-Regular;text-align:left;margin-bottom:8%;}
+.custom-social-share .div_1 span{display:inline-flex;align-items:center;gap:4%;}
+.div_1 svg{width:30px;}
+.footer-block__details-content .list-menu__item--link{font-family:Roboto-Regular;font-size:12px !important;text-transform:uppercase;}
+.footer-block_para{font-size:12px;font-family:Roboto-Regular;text-align:left;margin-bottom:8%;}
 .footer:not(.color-background-1) {border-top: none;}
 .custom-titan-footer{display:flex;justify-content:flex-start;flex-wrap:wrap;gap:5%;}
 .footer__content-top {padding-bottom: 3rem;display: block;}
@@ -21,7 +22,7 @@ footer{border:1px solid #dadada !important;}
 .footer__column--info {display: flex;flex-direction: column;justify-content: center;align-items: center;padding-left: 2rem;padding-right: 2rem;}
 .footer-block:empty {display: none;}
 .footer-block--newsletter:only-child {margin-top: 0;}
-.footer-block__heading {margin-bottom: 3%;margin-top: 0; font-family:PlayfairDisplay-Bold;font-size:16px;}
+.footer-block__heading {margin-bottom: 3%;margin-top: 0; font-family:PlayfairDisplay-Bold;font-size:14px;text-transform:uppercase;}
 .footer__content-top  .footer-block__heading {font-weight:600;color: rgba(0, 0, 0, 1);    margin-bottom: 0;}
 .footer__list-social:empty,
 .footer-block--newsletter:empty {display: none;}
@@ -375,7 +376,7 @@ footer{border:1px solid #dadada !important;}
 }
 @media screen and (max-width: 320px){
 .newsletter-form__field-wrapper .field__label {
-    font-size: 14px !important;
+    font-size: 10px !important;
 }
 }
 @keyframes animateLocalization {

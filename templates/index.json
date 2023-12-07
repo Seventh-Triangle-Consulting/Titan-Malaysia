@@ -219,10 +219,7 @@
         "margin_bottom_desktop": 36,
         "margin_bottom_mobile": 36,
         "mostloved_heading": "Most Loved",
-        "men_collection": "",
-        "women_collection": "",
-        "kids_collection": "",
-        "enable_quick_add": true
+        "enable_quick_add": false
       }
     },
     "72f4052f-35ea-45a7-8fe9-645447733226": {
@@ -272,10 +269,10 @@
         "bestsellers_heading": "BestSeller",
         "men_collection": "mens-watch",
         "women_collection": "female",
-        "kids_collection": "children",
+        "kids_collection": "",
         "men_collection_text": "Men",
         "women_collection_text": "Women",
-        "kids_collection_text": "Kid"
+        "kids_collection_text": ""
       }
     },
     "b8288058-a547-4fee-bfe1-0f766e5e082c": {
@@ -295,7 +292,7 @@
           "settings": {
             "desktop_card_image": "shopify:\/\/shop_images\/2.png",
             "mobile_card_image": "shopify:\/\/shop_images\/2_bf64ec63-9e57-4552-9a34-c359f04323df.png",
-            "shop_by_concern_title": "Shop By Concern Title",
+            "shop_by_concern_title": "SHOP BY CONCERN",
             "shop_by_concern_link": ""
           }
         },
@@ -304,7 +301,7 @@
           "settings": {
             "desktop_card_image": "shopify:\/\/shop_images\/3.png",
             "mobile_card_image": "shopify:\/\/shop_images\/3_b0addee5-c29f-4748-b789-0c65640a621a.png",
-            "shop_by_concern_title": "Shop By Concern Title",
+            "shop_by_concern_title": "SHOP BY CONCERN",
             "shop_by_concern_link": ""
           }
         },
@@ -313,7 +310,7 @@
           "settings": {
             "desktop_card_image": "shopify:\/\/shop_images\/4.png",
             "mobile_card_image": "shopify:\/\/shop_images\/4_3bdaa591-fa3b-44f0-84fe-624b61d7b538.png",
-            "shop_by_concern_title": "Shop By Concern Title",
+            "shop_by_concern_title": "SHOP BY CONCERN",
             "shop_by_concern_link": ""
           }
         },
@@ -322,7 +319,7 @@
           "settings": {
             "desktop_card_image": "shopify:\/\/shop_images\/5.png",
             "mobile_card_image": "shopify:\/\/shop_images\/5_85b79bd5-6f53-4a97-a565-424dce558cbf.png",
-            "shop_by_concern_title": "Shop By Concern Title",
+            "shop_by_concern_title": "SHOP BY CONCERN",
             "shop_by_concern_link": ""
           }
         }
@@ -337,7 +334,7 @@
       "settings": {
         "margin_bottom_desktop": 36,
         "margin_bottom_mobile": 36,
-        "main_title": "Shop by Concerns"
+        "main_title": "SHOP BY CONCERN"
       }
     },
     "84601aa3-45ff-4f93-a11f-81666de3da23": {

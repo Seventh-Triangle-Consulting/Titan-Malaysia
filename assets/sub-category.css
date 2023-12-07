@@ -7,7 +7,7 @@
   overflow-x: auto;
   justify-content: center;
   column-gap: 2.5rem;
-  margin-top: 36px;
+  margin-top: 20px;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
@@ -39,7 +39,9 @@
 
 @media screen and (max-width: 768px) {
   .sub-category-container .sub-category:nth-child(1) {
-    padding: 0 0 0 2rem;
+    margin-left:2%;
+    margin-right:2%;
+    overflow-x:scroll;
   }
   .sub-category-container .sub-category {
     overflow-x: scroll;

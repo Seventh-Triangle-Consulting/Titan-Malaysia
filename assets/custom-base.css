@@ -63,7 +63,7 @@ a {
   font-family: var(--font-family-a) ,sans-serif;
   color: inherit;
 }
-.announcement-bar__message ,.announcement-bar__message  span{font-size: clamp(calc(17 * .9px),calc(17 * (100vw / var(--viewportDesktop))),calc(17 * 1.1px));font-family:Roboto-Bold;
+.announcement-bar__message ,.announcement-bar__message  span{font-size: clamp(calc(17 * .9px),calc(17 * (100vw / var(--viewportDesktop))),calc(17 * 1.1px));font-family:Roboto-Regular;
                            line-height: clamp(24px, calc(26 * (100vw / var(--viewportDesktop))), 27px);letter-spacing:.16px;}
 .no-underline {
   text-decoration: none !important;
@@ -79,14 +79,19 @@ h5 > a,
 .h2 > a,
 .h3 > a,
 .h4 > a,
-.h5 > a,
-span {
+.h5 > a
+{
   letter-spacing: inherit;
   line-height: inherit;
   font-family: inherit;
   color: inherit;
 }
-
+span{
+  letter-spacing: inherit;
+  line-height: 1;
+  font-family: inherit;
+  color: inherit;
+}
 .page-width {
   padding-left: var(--desktop-padding);
   padding-right: var(--desktop-padding);

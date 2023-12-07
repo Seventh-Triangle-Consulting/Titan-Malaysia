@@ -1023,7 +1023,6 @@ class VariantSelects extends HTMLElement {
            });
            
            swiper.slideTo(index);
-       
            
       }
     });

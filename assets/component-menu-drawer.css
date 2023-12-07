@@ -32,7 +32,7 @@ menu-drawer > details[open] > summary::before {
   visibility: hidden;
   z-index: 3;
   left: 0;
-  top: -72%;
+  top: -75%;
   width: 75%;
   padding: 0;
   background-color: rgb(var(--color-background));
@@ -153,7 +153,7 @@ details[open].menu-opening > .menu-drawer__submenu {
   padding-right: 5.2rem; 
 
 }
-.menu-drawer__menu-item,.menu-drawer__close-button{text-transform: uppercase;  font-size: clamp(calc(17 * .8px),calc(17 * (100vw / 428)),calc(17 * 1.1px));lline-height:20.15px;    letter-spacing: .32px;   font-family: var(--font-family-h2);border-bottom: 1px solid rgba(0, 0, 0, 0.2);}
+.menu-drawer__menu-item,.menu-drawer__close-button{text-transform: uppercase;  font-size:14px;line-height:1;    letter-spacing: .32px;   font-family: var(--font-family-h2);border-bottom: 1px solid rgba(0, 0, 0, 0.2);}
 .menu-drawer__inner-submenu  .menu-drawer__menu-item, .menu-drawer__navigation details .menu-drawer__menu-item{border-bottom:none;}
 .menu-drawer__navigation details {border-bottom: 1px solid rgba(0, 0, 0, 0.2);}
 .menu-drawer__navigation details  summary a{padding:0;}
@@ -277,7 +277,8 @@ details[open].menu-opening > .menu-drawer__submenu {
 
 .menu-drawer .list-social {
   justify-content: flex-start;
-  margin-left: -1.25rem
+  margin-left: -1.25rem;
+  gap:2%;
 }
 
 .menu-drawer .list-social:empty {

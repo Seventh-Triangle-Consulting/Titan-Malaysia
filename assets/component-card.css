@@ -20,7 +20,7 @@
   text-decoration: none;
 }
 .card__information .card__heading{
-  height: 38px;
+  height: 48px;
   overflow: hidden;
 }
 .card {
@@ -384,6 +384,7 @@
 
 .card-information {
   width: 100%;
+  height:40px;
 }
 
 .card-information > * {
