@@ -51,7 +51,7 @@
         "5084a510-7189-437e-bc00-7ae24be755b7": {
           "type": "share",
           "settings": {
-            "share_label": "Share"
+            "share_label": ""
           }
         }
       },
@@ -75,7 +75,7 @@
         "manufacturer_name": "Name Of Manufacturer\/ Packer\/ Importer: Titan",
         "manufacturer_address": "Address Of Manufacturer\/ Packer\/ Importer: Titan Address",
         "enable_sticky_info": true,
-        "media_size": "large",
+        "media_size": "medium",
         "constrain_to_viewport": true,
         "media_fit": "contain",
         "gallery_layout": "thumbnail_slider",
