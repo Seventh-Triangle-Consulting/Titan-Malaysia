@@ -4,6 +4,7 @@
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   text-align: center;
+  width:90%;
 }
 #getOTPButton, #loginSuccess, #phoneNumberDiv{font-family:Roboto-Regular;}
 #smlEmailOTPDivResendOTPButton, #resendEmailOTPButton, #resendOTPButton{color:#000;font-family:Roboto-Regular;}
