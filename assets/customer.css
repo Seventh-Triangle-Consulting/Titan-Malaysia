@@ -7,7 +7,7 @@
   width:90%;
 }
 .customer a, .customer p{color:#000;font-family:Roboto-Regular;}
-.customer button{font-family:Roboto-Regular;}
+.customer button{font-family:Roboto-Regular !important;}
 #phoneNumberInput{font-family:Roboto-Regular;color:#000;}
 #phoneNumberInput::placeholder{font-family:Roboto-Regular;color:#000;}
 #getOTPButton, #loginSuccess, #phoneNumberDiv{font-family:Roboto-Regular;}
