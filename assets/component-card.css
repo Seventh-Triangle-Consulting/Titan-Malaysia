@@ -330,7 +330,7 @@
 .card--standard > .card__content .card__caption {
   display: none;
 }
-.card__information{display:block !important;}
+.card__information .card__heading{display:block !important;}
 .card--standard:not(.card--horizontal) .placeholder-svg {
   height: auto;
   width: 100%;
