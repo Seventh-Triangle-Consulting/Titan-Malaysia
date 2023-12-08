@@ -78,15 +78,7 @@
       {%- endif -%}
       <div class="drawer__header">
         <div class="drawercarticon">
-          <a href="https://titan.in/cart">
- {%- liquid
-          if cart == empty
-            render 'icon-cart-empty'
-          else
-            render 'icon-cart'
-          endif
-        -%}
-          </a>
+         <p class="custom-your-cart">Your Cart</p>
         <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
         {%- if cart != empty -%}
           <div class="cart-count-bubble">
