@@ -33,7 +33,7 @@ variant-selects .select .icon-caret, .customer select+svg{
   .productformdesktopsticky .product__title{padding:0 !important;}
   .productformdesktopsticky .Rubik-400-30px{font-size: 14px !important;}
   .productformdesktopsticky .price__badge-sale{display: none !important;}
-  .productformdesktopsticky select{padding: 0 4rem 0 5px !important;}
+  .productformdesktopsticky select{padding: 0 4rem 0 1rem !important;}
   .productformdesktopsticky .pdp_ATC span{font-size: 14px;min-width:max-content;}
   .custom-atc-qty-slector .pdp_ATC{width:22vw !important;}
 }
