@@ -7,7 +7,7 @@
           "type": "slideshow",
           "settings": {
             "collection_slide_url": "shopify:\/\/collections\/watches",
-            "collection_slide_image": "shopify:\/\/shop_images\/automatic.png",
+            "collection_slide_image": "shopify:\/\/shop_images\/Automatic_4.png",
             "collection_slide_text": "Automatic"
           }
         },
@@ -15,7 +15,7 @@
           "type": "slideshow",
           "settings": {
             "collection_slide_url": "shopify:\/\/collections\/mens-watch",
-            "collection_slide_image": "shopify:\/\/shop_images\/Best_Sellers.png",
+            "collection_slide_image": "shopify:\/\/shop_images\/Best_seller_9e9d1e35-08e2-4d54-a510-8493a924d2f5.png",
             "collection_slide_text": "Best Sellers"
           }
         },
@@ -23,7 +23,7 @@
           "type": "slideshow",
           "settings": {
             "collection_slide_url": "shopify:\/\/collections\/mens-watch",
-            "collection_slide_image": "shopify:\/\/shop_images\/Edge.png",
+            "collection_slide_image": "shopify:\/\/shop_images\/Edge_7.png",
             "collection_slide_text": "Edge"
           }
         },
@@ -31,7 +31,7 @@
           "type": "slideshow",
           "settings": {
             "collection_slide_url": "shopify:\/\/collections\/mens-watch",
-            "collection_slide_image": "shopify:\/\/shop_images\/mechanical.png",
+            "collection_slide_image": "shopify:\/\/shop_images\/mechanical_46fec915-15c8-4e14-a0f0-292ff486ebaf.png",
             "collection_slide_text": "Mechanical"
           }
         },
@@ -39,7 +39,7 @@
           "type": "slideshow",
           "settings": {
             "collection_slide_url": "shopify:\/\/collections\/mens-watch",
-            "collection_slide_image": "shopify:\/\/shop_images\/Smart.png",
+            "collection_slide_image": "shopify:\/\/shop_images\/Smart_0fb9d77e-fb71-43f8-aaa0-b9ebe96379b8.png",
             "collection_slide_text": "Smart"
           }
         },
@@ -47,7 +47,7 @@
           "type": "slideshow",
           "settings": {
             "collection_slide_url": "shopify:\/\/collections\/mens-watch",
-            "collection_slide_image": "shopify:\/\/shop_images\/Trending.png",
+            "collection_slide_image": "shopify:\/\/shop_images\/Trending_a034eb71-de2c-4059-b1d0-7440ff002cef.png",
             "collection_slide_text": "Trending"
           }
         }
@@ -128,7 +128,7 @@
         "acaacd30-4128-4d18-816f-7e5b0e0c8593": {
           "type": "block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Fitness.png",
+            "image": "shopify:\/\/shop_images\/fitness_85d3e4ea-82e4-4691-950d-c9ed9cffd513.png",
             "btnurl": "shopify:\/\/collections\/female",
             "title": "",
             "subtitle": "",
@@ -138,7 +138,7 @@
         "429b3224-1911-4ff4-9ad0-96b36e0dfa1a": {
           "type": "block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Partywear.png",
+            "image": "shopify:\/\/shop_images\/partywear_a0405686-3266-4d07-a12f-ed16e9d76b01.png",
             "btnurl": "shopify:\/\/collections\/mens-watch",
             "title": "",
             "subtitle": "",
@@ -148,7 +148,7 @@
         "a690d5c1-c20e-45e5-92a3-ecca92a8ce2c": {
           "type": "block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Casual_2.png",
+            "image": "shopify:\/\/shop_images\/casual_e0d5e499-30e3-4dfc-b383-a27406e5f8fc.png",
             "btnurl": "shopify:\/\/collections\/mens-watch",
             "title": "",
             "subtitle": "",
@@ -169,7 +169,7 @@
         "ac49a18a-0ee7-474c-8d82-47fba1f74803": {
           "type": "block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Workwear_2.png",
+            "image": "shopify:\/\/shop_images\/workwear_4231343d-ca31-4fb2-b2af-ff0db239db03.png",
             "btnurl": "",
             "title": "",
             "subtitle": "",
@@ -228,7 +228,7 @@
         "f7831ae6-921b-4c61-85fd-5f940d263ad1": {
           "type": "image",
           "settings": {
-            "home_category_image": "shopify:\/\/shop_images\/Men.png",
+            "home_category_image": "shopify:\/\/shop_images\/Men_c80951ec-95b3-4f47-b0cb-b64463d82464.png",
             "home_category_block_url": "shopify:\/\/collections\/mens-watch",
             "home-category-text": ""
           }
@@ -236,7 +236,7 @@
         "ceba0b13-d2b7-4c0f-99b1-3d0b87d2cc5a": {
           "type": "image",
           "settings": {
-            "home_category_image": "shopify:\/\/shop_images\/Smart_3c212d5d-3741-4388-9d03-db9e1a439b84.png",
+            "home_category_image": "shopify:\/\/shop_images\/smart_36778d2e-a934-4321-9ed3-8babf0977a70.png",
             "home_category_block_url": "shopify:\/\/collections\/mens-watch",
             "home-category-text": ""
           }
@@ -244,7 +244,7 @@
         "fa8f82cb-165c-4b34-ac01-ebf9e4f8873e": {
           "type": "image",
           "settings": {
-            "home_category_image": "shopify:\/\/shop_images\/Women_6a011b8f-6f63-4e9d-9bfb-e478082e2054.png",
+            "home_category_image": "shopify:\/\/shop_images\/Women_e35fdd60-cf19-44c3-b1fa-1e4858e1aa90.png",
             "home_category_block_url": "shopify:\/\/collections\/mens-watch",
             "home-category-text": ""
           }
