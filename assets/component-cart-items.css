@@ -212,7 +212,7 @@ cart-remove-button .icon-remove {
     font-size: clamp(calc(12 * .8px),calc(12 * (100vw / var(--viewportDesktop))),calc(12* 1.1px));
 }
 .cart-item__name{font-size:14px;color:#000;}
- .cart-drawer .price{font-size: clamp(calc(14 * .8px),calc(14 * (100vw / var(--viewportDesktop))),calc(14* 1.1px));}
+ .cart-drawer .price{font-size:12px;}
 .cart-items thead th {
   text-transform: uppercase;
 }
