@@ -2073,8 +2073,8 @@ border:none;background:transparent;} */
   .custom-atc-qty-slector .pdp_ATC{width:45vw !important}
   .custom-atc-qty-slector .pdp_ATC span{font-size:15px;}
 }
-@media screen and (min-width:320px)
+@media screen and (min-width:330px)
 {
   .pincode_div{width:100%;}
-  .custom-atc-qty-slector .pdp_ATC span{font-size:14px;}
+  .custom-atc-qty-slector .pdp_ATC span{font-size:14px !important;}
 }
