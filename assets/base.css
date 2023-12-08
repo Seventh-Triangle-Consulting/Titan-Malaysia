@@ -3574,3 +3574,7 @@ details-disclosure > details {
    .header__search svg{width:22px;height:22px;}
   .header__icon, .header__icon--cart .icon{width:2.8rem;}
 }
+
+*{
+  -webkit-tap-highlight-color: transparent;
+}
