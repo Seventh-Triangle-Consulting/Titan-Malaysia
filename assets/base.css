@@ -1936,7 +1936,7 @@ input[type='checkbox'] {
 }
 
 .quantity__input {
-  color: currentColor;
+  color: #000;
   font-size: 1.6rem;
   font-weight: 500;
   opacity: 0.85;
