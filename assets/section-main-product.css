@@ -3,6 +3,7 @@
   .pdp_shipping{margin-bottom:2%;}
   .pdp_shipping_returns{flex-direction:center !important;align-items:baseline !important;}
 }
+.pdp_ATC:hover{color:#fff;background-color:#000;}
 .custom-atc-qty-slector .pdp_ATC span{font-family:Roboto-Medium;}
 .custom-quantity-number, .custom-quantity-number span{font-size:clamp(14px, calc(16 * (100vw / 1440)), 18px)}
 .product__media-wrapper{
