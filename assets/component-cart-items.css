@@ -209,7 +209,7 @@ cart-remove-button .icon-remove {
 .product-option * {
   display: inline;
   margin: 0;color:#000;
-    font-size: clamp(calc(12 * .8px),calc(12 * (100vw / var(--viewportDesktop))),calc(12* 1.1px));
+    font-size:12px;
 }
 .cart-item__name{font-size:14px;color:#000;}
  .cart-drawer .price{font-size:12px;}
