@@ -5,6 +5,7 @@
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
+facet-filters-form option, facet-filters-form select{font-family:Roboto-Regular;}
 .mobile-facets__open>*+*, .mobile-facets__open svg,.facets__heading{
   font-family:Roboto-Medium;
   color:#000;
