@@ -42,6 +42,7 @@ variant-selects .select .icon-caret, .customer select+svg{
 }
 .pdp_shipping_returns{
   margin-top:40px;
+  margin-bottom:40px;
 }
 .quantity__button{
   background-color:#000 !important;
