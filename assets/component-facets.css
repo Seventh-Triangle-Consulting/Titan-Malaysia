@@ -5,7 +5,7 @@
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-.mobile-facets__open>*+*, .mobile-facets__open svg{
+.mobile-facets__open>*+*, .mobile-facets__open svg,.facets__heading{
   font-family:Roboto-Medium;
   color:#000;
 }
