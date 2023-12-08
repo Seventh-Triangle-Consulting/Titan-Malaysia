@@ -902,6 +902,8 @@
         <div class="productformdesktoptitle"></div>
        </div>
         <div class="productformdesktopsticky-variant-atc">
+             {{ variant.size }}
+             {{ product.options_with_values.size }}
              {% if product.options_with_values.size > 1 %}
                   {% render 'custom-product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
               {% endif %}
