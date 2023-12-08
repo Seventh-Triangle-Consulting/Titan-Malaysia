@@ -2070,6 +2070,7 @@ border:none;background:transparent;} */
 
 @media screen and (max-width:390px){
   .custom_product_info .card__badge.reviews{width:35%;}
+  .custom-atc-qty-slector .pdp_ATC{width:45vw !important}
 }
 @media screen and (min-width:320px)
 {
