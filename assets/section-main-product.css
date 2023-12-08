@@ -7,6 +7,9 @@
 .product__media-wrapper{
   position:relative;
 }
+variant-selects .select .icon-caret, .customer select+svg{
+  top:calc(50% - .2rem);
+}
 .input_sizes{
   display: flex;
   align-items: center;
