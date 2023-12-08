@@ -204,10 +204,12 @@
 .card:not(.card--horizontal) > .card__content > .card__badge {
   margin: 1.3rem;
 }
-
+.card__media .media a{
+  background:#E4E4E4;
+}
 .card__media .media img {
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center center;
   width: 100%;
 }
