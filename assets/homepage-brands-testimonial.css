@@ -115,7 +115,7 @@
   }
 .brands-testimonial {padding-bottom:10px;}
 .button_style {
-         text-decoration-color: rgba(65, 64, 66, 1);color:rgba(65, 64, 66, 1);
+         text-decoration-color: rgba(65, 64, 66, 1);color:#000;
         text-underline-offset: 1rem;  text-decoration:underline;
 }
 
