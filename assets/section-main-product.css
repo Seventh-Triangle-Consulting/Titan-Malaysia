@@ -392,7 +392,7 @@ variant-selects {
 }
 
 fieldset.product-form__input .form__label {
-  margin-bottom: 1.5rem;color: #000;font-family:Roboto-Regular;font-size: clamp(18px, calc(20 * (100vw / 1440)), 22px);line-height:1;letter-spacing: 0.2px;margin-top:1.5rem;
+  margin-bottom: 1.5rem;color: #000;font-family:Roboto-Regular;font-size: clamp(16px, calc(18 * (100vw / 1440)), 20px);line-height:1;letter-spacing: 0.2px;margin-top:1.5rem;
 }
 
 .product-form__input input[type="radio"] {
