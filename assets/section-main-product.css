@@ -2076,5 +2076,6 @@ border:none;background:transparent;} */
 @media screen and (min-width:330px)
 {
   .pincode_div{width:100%;}
+  .custom-atc-qty-slector .pdp_ATC{width:35vw !important}
   .custom-atc-qty-slector .pdp_ATC span{font-size:14px !important;}
 }
