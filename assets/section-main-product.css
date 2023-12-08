@@ -1717,7 +1717,7 @@ a.product__text {
     align-self: stretch;
   }
   .custom-atc-qty-slector .pdp_ATC{width:48vw !important;}
-  .custom-atc-qty-slector .pdp_ATC span{font-size:14px;}
+  .custom-atc-qty-slector .pdp_ATC span{font-size:18px;}
 
   .product-media-container.media-fit-cover .media {
     /* allow media img element to scale relative to modal-opener/product-media-container */
