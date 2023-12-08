@@ -2070,10 +2070,10 @@ border:none;background:transparent;} */
 
 @media screen and (max-width:390px){
   .custom_product_info .card__badge.reviews{width:35%;}
-  .custom-atc-qty-slector .pdp_ATC{width:45vw ;}
+  .custom-atc-qty-slector .pdp_ATC{width:45vw !important;}
   .custom-atc-qty-slector .pdp_ATC span{font-size:15px;}
 }
-@media screen and (min-width:330px)
+@media screen and (max-width:330px)
 {
   .pincode_div{width:100%;}
   .custom-atc-qty-slector .pdp_ATC{width:35vw !important}
