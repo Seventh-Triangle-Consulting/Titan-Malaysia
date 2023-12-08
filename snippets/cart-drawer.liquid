@@ -63,7 +63,7 @@
                {% assign collection = settings.collectionname| split: '##' %}
         {% assign collectionurl = settings.collectionurl | split: ',' %}
               {% for collectioname in collection %}
-<a href="https://titan.in/{{ routes.root_url }}/{{ collectionurl[forloop.index0] }}" class="button">
+<a href="{{ collectionurl[forloop.index0] }}" class="button">
                 {{ collection[forloop.index0] }}
               </a>
               {% endfor %}
