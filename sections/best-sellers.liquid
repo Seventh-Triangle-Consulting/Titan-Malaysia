@@ -85,7 +85,7 @@
             {% for product in collection_women.products %}
               <div class="swiper-slide" style="animation-delay: {{ forloop.index0 | divided_by: 10.0 | round: 2 }}s">
                 {% render 'related-products-card-product', card_product: product %}
-                 <a class="most-loved-view-more-collection-btn" href="{{ product.url }}">View Collection</a>
+                 <a class="most-loved-view-more-btn" href="{{ product.url }}">View More</a>
               </div>
             {% endfor %}
           </div>
@@ -103,7 +103,7 @@
               {% for product in collection_kids.products %}
                 <div class="swiper-slide" style="animation-delay: {{ forloop.index0 | divided_by: 10.0 | round: 2 }}s">
                   {% render 'related-products-card-product', card_product: product %}
-                   <a class="most-loved-view-more-collection-btn" href="{{ product.url }}">View Collection</a>
+                    <a class="most-loved-view-more-btn" href="{{ product.url }}">View More</a>
                 </div>
               {% endfor %}
             </div>
