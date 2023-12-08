@@ -25,7 +25,7 @@
 .newsletter-form__message--success {margin-top: 2rem;color:#000;}
 .newsletter-form__button {width: 5.4rem;margin: 0;right: var(--inputs-border-width);top: .5px;height: 96%;z-index: 2;}
 .newsletter-form__button:focus-visible {outline:none !important;box-shadow:none !important;background-color: rgb(var(--color-background));}
-.newsletter-form__button:focus {box-shadow: 0 0 0 0.3rem rgb(var(--color-background)), 0 0 0 0.4rem rgba(var(--color-foreground));background-color: rgb(var(--color-background));}
+.newsletter-form__button:focus {box-shadow: unset;background-color: rgb(var(--color-background));}
 .newsletter-form__button:not(:focus-visible):not(.focused) {border-radius: 0 3px 3px 0;}
 .newsletter-form__button .icon {width: 1.5rem;}
 @media screen and (max-width:768px){
