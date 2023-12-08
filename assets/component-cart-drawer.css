@@ -10,7 +10,10 @@
   background-color: rgba(var(--color-foreground), 0.5);
   transition: visibility var(--duration-default) ease;
 }
-input:focus-visible{
+quantity-popover input{
+  pointer-events: none;
+}
+quantity-popover input:focus-visible{
   box-shadow:none;
   outline:none;
 }
