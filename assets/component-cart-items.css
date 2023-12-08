@@ -366,7 +366,6 @@ cart-remove-button .icon-remove {
   .cart-item__name{font-size: 12px;line-height:15px;}
   .cart-items .cart-item__media{width:85px;}
   .product-option * {font-size:10px;}
-  .cart-drawer .price {font-size: 10px;margin-top:5px;}
-  .cart-item__quantity-wrapper{justify-content:center;}
+  .cart-drawer .price {font-size: 10px;margin-top:10px;}
   .drawer__close{  min-width: 3.4rem; min-height: 3.4rem;}
 }
