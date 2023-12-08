@@ -163,7 +163,6 @@ variant-selects .select .icon-caret, .customer select+svg{
     padding-bottom: 1%;
 }
 @media screen and (max-width:749px){
-  .variant-image-custom{width:50px;height:auto;}
   .custom-product-description{flex-direction:column;}
   .custom-description, .custom-type{padding:0 !important;border:none !important;width:100% !important;}
   .custom-product-description .row{margin-bottom:2% !important;}
