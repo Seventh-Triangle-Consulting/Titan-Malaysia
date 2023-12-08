@@ -29,6 +29,7 @@ variant-selects .select .icon-caret, .customer select+svg{
   line-height: 0 !important;
 }
 @media screen and (min-width: 750px) and (max-width: 950px){
+  .pdp_ATC span{font-size:16px;}
   .productformdesktopsticky .product__title{padding:0 !important;}
   .productformdesktopsticky .Rubik-400-30px{font-size: 14px !important;}
   .productformdesktopsticky .price__badge-sale{display: none !important;}
