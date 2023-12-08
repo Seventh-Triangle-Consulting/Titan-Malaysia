@@ -34,7 +34,7 @@
   .header__search{display:none !important;}
   .header__menu-item a{text-decoration:none;}
   .header-wishlist{ display: flex !important; align-items: center; justify-content: center; position: relative;margin-right:5px;}
-  .header-wishlist span{position: absolute; right: 2%; bottom:18%; height: 1.7rem; width: 1.7rem; display: flex; align-items: center; justify-content: center;font-weight:300 !important;font-size:9px;}
+  .header-wishlist span{position: absolute; right: 2%; bottom:20%; height: 1.7rem; width: 1.7rem; display: flex; align-items: center; justify-content: center;font-weight:300 !important;font-size:9px;}
   predictive-search:not([loading]) .predictive-search__loading-state,
   predictive-search:not([loading]) .predictive-search-status__loading {  display: none; opacity: 0;}
   .headerdesktopsearch  .field:after,.headerdesktopsearch .field:hover.field:after{box-shadow:none;border:none;}
@@ -49,6 +49,7 @@
    header-drawer { justify-self: start; margin-left: -2rem; }
 @media screen and (min-width:900px) and (max-width:1230px){
     .headermobilesearch{display:block;}
+    .header-wishlist span{bottom:18%;}
     .headerdesktopsearch{display:none;}
   }
   {%- if section.settings.sticky_header_type == 'reduce-logo-size' -%}
@@ -107,11 +108,11 @@
         grid-template-columns: 0px auto auto !important;}
   }
   @media screen and (max-width:767px){
-  .header {
-        grid-template-columns: 0px auto auto !important;}
-    .headerdesktopsearch{display:none;}
+  .header { grid-template-columns: 0px auto auto !important;}
+  .headerdesktopsearch{display:none;}
   .header__heading, .header__heading-link{    margin-left: -2vw;}
- 
+  .header-wishlist span{bottom:20%;}
+  .headermobilesearch .header__search{display:block !important;}
   }
    @media screen and (max-width:369px){
    .header__heading, .header__heading-link{    margin-left: -1vw;}

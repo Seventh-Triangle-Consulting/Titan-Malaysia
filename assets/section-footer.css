@@ -1,8 +1,8 @@
 .footersocialicons{margin-top:2%;}
 .div_1 a{text-decoration:initial;font-size:12px;}
 .custom-social-share p{line-height:1;}
-.custom_newsletter-form__button{float: inline-start;background: black;color: white;border: none;font-size:14px;font-family:Roboto-Regular;}
-footer{border:1px solid #dadada !important;}
+.custom_newsletter-form__button{float: inline-start;background: black !important;color: white;border: none;font-size:14px;font-family:Roboto-Regular;}
+footer{border-top:1px solid #dadada !important;border-bottom:1px solid #dadada !important;}
 .custom-social-share .div_1 {display:flex;flex-direction:column;}
 .custom-social-share .div_1 span{display:inline-flex;align-items:center;gap:4%;}
 .div_1 svg{width:30px;}

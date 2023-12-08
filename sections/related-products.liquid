@@ -42,6 +42,7 @@
               show_vendor: section.settings.show_vendor,
                show_color-swatch:section.settings.enable_colorswatch,
               show_rating: section.settings.show_rating
+              show_quick_add: section.settings.enable_quick_add
             %}
           </div>
         {% endfor %}
@@ -297,6 +298,12 @@ console.log(pid);
       "default": false,
       "label": "t:sections.related-products.settings.show_rating.label",
       "info": "t:sections.related-products.settings.show_rating.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_quick_add",
+      "default": true,
+      "label": "Show Quick Add"
     },
     {
       "type": "header",

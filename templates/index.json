@@ -264,8 +264,8 @@
     "96a7a223-41c4-4f2c-bfe1-91cd7d09a867": {
       "type": "best-sellers",
       "settings": {
-        "margin_bottom_desktop": 56,
-        "margin_bottom_mobile": 10,
+        "margin_bottom_desktop": 72,
+        "margin_bottom_mobile": 50,
         "bestsellers_heading": "BestSeller",
         "men_collection": "mens-watch",
         "women_collection": "female",

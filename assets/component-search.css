@@ -1,7 +1,7 @@
 .search__input.field__input {
   padding-right: 9.8rem;
 }
-
+.search-modal__form input{font-family:Roboto-Regular;}
 .search__button {
   right: var(--inputs-border-width);
   top: var(--inputs-border-width);
