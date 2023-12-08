@@ -214,7 +214,7 @@
           "type": "cp",
           "settings": {
             "coll": "children",
-            "coll_name": ""
+            "coll_name": "kids"
           }
         }
       },
