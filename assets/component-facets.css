@@ -298,6 +298,7 @@
   font-size: 1.4rem;
   display: flex;
   word-break: break-word;
+  align-items:center;
 }
 
 .facet-checkbox input[type='checkbox'] {
