@@ -72,9 +72,10 @@
   font-family: Roboto-Medium;
 }
 .pdp_ATC span{
-  font-size:14px;
+  font-size:18px;
   line-height:1;
   color: #000;
+  font-family: Roboto-Medium;
 }
 .productformdesktopsticky .pdp_ATC span{
   font-size: 20px;
