@@ -190,7 +190,7 @@ cart-remove-button .icon-remove {
   line-height: calc(1 + 0.2 / var(--font-body-scale));
   order: 1;
   font-family:Roboto-Regular;
-  color:#000;
+  color:red;
 }
 
 .cart-item__error-text+svg {
