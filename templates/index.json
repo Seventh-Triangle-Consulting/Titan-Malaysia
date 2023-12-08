@@ -209,27 +209,11 @@
             "coll": "female",
             "coll_name": "Women"
           }
-        },
-        "570b876b-fd2b-45b9-9afe-b0995f9d5cc2": {
-          "type": "cp",
-          "settings": {
-            "coll": "children",
-            "coll_name": "kids"
-          }
-        },
-        "f4501abd-f4f6-4303-9612-46d6e3eb5d98": {
-          "type": "cp",
-          "settings": {
-            "coll": "female",
-            "coll_name": "best"
-          }
         }
       },
       "block_order": [
         "3deb7a32-dfa7-4043-9e39-fa7a5dfee106",
-        "af37dc5d-8950-4db2-abe5-dcf87b68cc6a",
-        "570b876b-fd2b-45b9-9afe-b0995f9d5cc2",
-        "f4501abd-f4f6-4303-9612-46d6e3eb5d98"
+        "af37dc5d-8950-4db2-abe5-dcf87b68cc6a"
       ],
       "settings": {
         "margin_bottom_desktop": 36,
