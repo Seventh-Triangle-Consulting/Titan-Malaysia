@@ -2,7 +2,9 @@
   display: flex;
   flex-direction: column;
 }
-
+.collection-hero__title{
+  font-family:PlayfairDisplay-Bold !important;
+}
 .collection-hero--with-image .collection-hero__inner {
   margin-bottom: 0;
   padding-bottom: 2rem;
