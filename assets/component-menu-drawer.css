@@ -290,7 +290,7 @@ details[open].menu-opening > .menu-drawer__submenu {
 }
 
 @media screen and (max-width:375px){
-  .menu-drawer {top: -100%;width: 80%;}
+  .menu-drawer {width: 80%;}
   .menu-drawer .list-social__link {padding: 0.4rem;}
   .header__icon .icon.icon-close{top:-25px;right: 27%;}
   .menu-drawer__utility-links .list-social__item .icon {
