@@ -915,7 +915,7 @@ input.mobile-facets__checkbox {
 .mobile-facets__sort .select .icon-caret {
   right: -11px;
 }
-
+.mobile-facets__sort .select{margin-right:5%;}
 .mobile-facets__sort .select__select {
   background-color: transparent;
   border-radius: 0;
