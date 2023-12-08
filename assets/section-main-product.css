@@ -18,7 +18,7 @@
 #wishlist_icon{font-size:24px;}
 #smartwishlist #bookmarkit{display:flex;align-items:center;}
 .custom-wishlist-share{display:flex;align-items:center;}
-.variant-image-custom{width: 40px;height: auto;}
+.variant-image-custom{width: 70px;height: auto;}
 .custom_variant_label{
   padding: 2px !important;
   line-height: 0 !important;
@@ -158,6 +158,7 @@
     padding-bottom: 1%;
 }
 @media screen and (max-width:749px){
+  .variant-image-custom{width:30px;height:auto;}
   .custom-product-description{flex-direction:column;}
   .custom-description, .custom-type{padding:0 !important;border:none !important;width:100% !important;}
   .custom-product-description .row{margin-bottom:2% !important;}
