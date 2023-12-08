@@ -365,7 +365,6 @@ cart-remove-button .icon-remove {
 @media screen and (max-width:600px){
   .cart-item__name{font-size: 12px;line-height:15px;}
   .cart-items .cart-item__media{width:85px;}
-  .cart-item__name{font-size:16px;}
   .product-option * {font-size:12px;}
   .cart-drawer .price {font-size: 14px;}
   .drawer__close{    min-width: 3.4rem;
