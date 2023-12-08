@@ -217,7 +217,7 @@
       ],
       "settings": {
         "margin_bottom_desktop": 66,
-        "margin_bottom_mobile": 40,
+        "margin_bottom_mobile": 56,
         "mostloved_heading": "Most Loved",
         "enable_quick_add": false
       }
@@ -257,8 +257,8 @@
       ],
       "settings": {
         "category_heading": "",
-        "margin_bottom_desktop": 52,
-        "margin_bottom_mobile": 24
+        "margin_bottom_desktop": 68,
+        "margin_bottom_mobile": 36
       }
     },
     "96a7a223-41c4-4f2c-bfe1-91cd7d09a867": {
