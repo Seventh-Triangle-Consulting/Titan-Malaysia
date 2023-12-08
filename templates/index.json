@@ -265,7 +265,7 @@
       "type": "best-sellers",
       "settings": {
         "margin_bottom_desktop": 72,
-        "margin_bottom_mobile": 10,
+        "margin_bottom_mobile": 50,
         "bestsellers_heading": "BestSeller",
         "men_collection": "mens-watch",
         "women_collection": "female",
