@@ -1043,6 +1043,7 @@ a.product__text {
 }
 
 @media screen and (max-width: 749px) {
+  .product__text{margin-top:20px !important;}
   .product--thumbnail
     .is-active
     .product__modal-opener:not(.product__modal-opener--image),
