@@ -5,7 +5,9 @@
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-
+.mobile-facets__open>*+*{
+  font-family:Roboto-Medium;
+}
 .active-facets-mobile {
   margin-bottom: 0.5rem;
 }
