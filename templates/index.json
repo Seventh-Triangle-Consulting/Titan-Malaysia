@@ -423,6 +423,7 @@
         "c6f35a42-b822-4cd6-8468-1a0722c7ef8e",
         "cdc55fbe-90bf-4881-abd0-6cdd284c151d"
       ],
+      "disabled": true,
       "settings": {
         "margin_bottom_desktop": 12,
         "margin_bottom_mobile": 12,
