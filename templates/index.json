@@ -111,7 +111,7 @@
             "button_link1": "",
             "button_text2": "",
             "button_link2": "",
-            "buttoncolor": "",
+            "buttoncolor": "#fff",
             "buttontextcolor": "#000000",
             "content-position": "bottom-center"
           }
