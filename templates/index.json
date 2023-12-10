@@ -75,12 +75,12 @@
             "mobile_banner_image": "shopify:\/\/shop_images\/1_bc576f54-fa65-430e-9090-c3020e76f2ce.png",
             "desktop_banner_text": "",
             "mobile_banner_text": "",
-            "button_text1": "SHOP MEN",
+            "button_text1": "SHOP NOW",
             "button_link1": "",
-            "button_text2": "SHOP NOW",
+            "button_text2": "",
             "button_link2": "https:\/\/titan.in\/collections\/women",
-            "buttoncolor": "#ffffff",
-            "buttontextcolor": "#000000",
+            "buttoncolor": "rgba(0,0,0,0)",
+            "buttontextcolor": "#ffffff",
             "content-position": "bottom-center"
           }
         },
