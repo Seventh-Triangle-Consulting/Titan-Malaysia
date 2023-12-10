@@ -71,13 +71,13 @@
         "cd7ce330-2bb0-43b5-878c-b0553b6a33b4": {
           "type": "image",
           "settings": {
-            "desktop_banner_image": "shopify:\/\/shop_images\/Banner.png",
-            "mobile_banner_image": "shopify:\/\/shop_images\/1_91dd7044-e7a3-4826-b256-a7b4e6054b0d.png",
+            "desktop_banner_image": "shopify:\/\/shop_images\/Banner_1.png",
+            "mobile_banner_image": "shopify:\/\/shop_images\/1_bc576f54-fa65-430e-9090-c3020e76f2ce.png",
             "desktop_banner_text": "",
             "mobile_banner_text": "",
             "button_text1": "SHOP MEN",
             "button_link1": "",
-            "button_text2": "SHOP WOMEN",
+            "button_text2": "SHOP NOW",
             "button_link2": "https:\/\/titan.in\/collections\/women",
             "buttoncolor": "#ffffff",
             "buttontextcolor": "#000000",
@@ -87,8 +87,8 @@
         "4b5c54f3-7737-4b64-b68f-cd9a7ff1923c": {
           "type": "image",
           "settings": {
-            "desktop_banner_image": "shopify:\/\/shop_images\/6.png",
-            "mobile_banner_image": "shopify:\/\/shop_images\/2_ab686c71-dccb-414d-bbc4-c4d70103db31.png",
+            "desktop_banner_image": "shopify:\/\/shop_images\/Banner_2_7c1a7d2c-69a1-4122-8ef7-1f6b4005f6af.png",
+            "mobile_banner_image": "shopify:\/\/shop_images\/2_308e4fed-3117-4019-9fc2-4230c8106f85.png",
             "desktop_banner_text": "",
             "mobile_banner_text": "",
             "button_text1": "SHOP NOW",
@@ -99,11 +99,28 @@
             "buttontextcolor": "#dd5041",
             "content-position": "bottom-center"
           }
+        },
+        "e20a4714-88a6-4891-9ff1-da687a6caa14": {
+          "type": "image",
+          "settings": {
+            "desktop_banner_image": "shopify:\/\/shop_images\/raga_3_5d41163b-aaae-41d8-b89a-88866fd12063.png",
+            "mobile_banner_image": "shopify:\/\/shop_images\/5_28d65f2c-4608-41e5-b414-48527b7dbbe3.png",
+            "desktop_banner_text": "",
+            "mobile_banner_text": "",
+            "button_text1": "SHOP NOW",
+            "button_link1": "",
+            "button_text2": "",
+            "button_link2": "",
+            "buttoncolor": "",
+            "buttontextcolor": "#000000",
+            "content-position": "bottom-center"
+          }
         }
       },
       "block_order": [
         "cd7ce330-2bb0-43b5-878c-b0553b6a33b4",
-        "4b5c54f3-7737-4b64-b68f-cd9a7ff1923c"
+        "4b5c54f3-7737-4b64-b68f-cd9a7ff1923c",
+        "e20a4714-88a6-4891-9ff1-da687a6caa14"
       ],
       "settings": {
         "margin_bottom_desktop": 40,
