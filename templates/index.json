@@ -76,11 +76,11 @@
             "desktop_banner_text": "",
             "mobile_banner_text": "",
             "button_text1": "SHOP NOW",
-            "button_link1": "",
-            "button_text2": "",
+            "button_link1": "https:\/\/titan.in\/collections\/women",
+            "button_text2": "SHOP NOW",
             "button_link2": "https:\/\/titan.in\/collections\/women",
-            "buttoncolor": "rgba(0,0,0,0)",
-            "buttontextcolor": "#ffffff",
+            "buttoncolor": "#ffffff",
+            "buttontextcolor": "#000000",
             "content-position": "bottom-center"
           }
         },
@@ -206,7 +206,7 @@
         "heading": "What Are You Looking For ?",
         "description": "",
         "id": "",
-        "desktop_margin_bottom": 40,
+        "desktop_margin_bottom": 50,
         "mobile_margin_bottom": 20
       }
     },
