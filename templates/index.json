@@ -23,7 +23,7 @@
           "type": "slideshow",
           "settings": {
             "collection_slide_url": "shopify:\/\/collections\/mens-watch",
-            "collection_slide_image": "shopify:\/\/shop_images\/Edge_7.png",
+            "collection_slide_image": "shopify:\/\/shop_images\/Edge_3.png",
             "collection_slide_text": "Edge"
           }
         },
@@ -111,7 +111,7 @@
             "button_link1": "shopify:\/\/collections\/female",
             "button_text2": "",
             "button_link2": "",
-            "buttoncolor": "#fff",
+            "buttoncolor": "#ffffff",
             "buttontextcolor": "#000000",
             "content-position": "bottom-center"
           }
