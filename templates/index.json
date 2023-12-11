@@ -278,20 +278,6 @@
         "margin_bottom_mobile": 36
       }
     },
-    "96a7a223-41c4-4f2c-bfe1-91cd7d09a867": {
-      "type": "best-sellers",
-      "settings": {
-        "margin_bottom_desktop": 72,
-        "margin_bottom_mobile": 50,
-        "bestsellers_heading": "BestSeller",
-        "men_collection": "mens-watch",
-        "women_collection": "female",
-        "kids_collection": "",
-        "men_collection_text": "Men",
-        "women_collection_text": "Women",
-        "kids_collection_text": ""
-      }
-    },
     "1697087009aadaaacf": {
       "type": "apps",
       "blocks": {
@@ -337,10 +323,24 @@
         "0e5d92cc-a74b-4a0c-91fb-d417bb1aff7a"
       ],
       "custom_css": [
-        ".SwipeUp-reels-feed{margin-bottom:50px;}"
+        ".SwipeUp-reels-feed {margin-bottom: 50px;}"
       ],
       "settings": {
         "include_margins": true
+      }
+    },
+    "96a7a223-41c4-4f2c-bfe1-91cd7d09a867": {
+      "type": "best-sellers",
+      "settings": {
+        "margin_bottom_desktop": 72,
+        "margin_bottom_mobile": 50,
+        "bestsellers_heading": "BestSeller",
+        "men_collection": "mens-watch",
+        "women_collection": "female",
+        "kids_collection": "",
+        "men_collection_text": "Men",
+        "women_collection_text": "Women",
+        "kids_collection_text": ""
       }
     },
     "b8288058-a547-4fee-bfe1-0f766e5e082c": {
@@ -506,8 +506,8 @@
     "bfe6cd2b-1256-45c9-8448-e96663707a03",
     "ea859a94-e175-434c-9150-808b79a056e5",
     "72f4052f-35ea-45a7-8fe9-645447733226",
-    "96a7a223-41c4-4f2c-bfe1-91cd7d09a867",
     "1697087009aadaaacf",
+    "96a7a223-41c4-4f2c-bfe1-91cd7d09a867",
     "b8288058-a547-4fee-bfe1-0f766e5e082c",
     "84601aa3-45ff-4f93-a11f-81666de3da23"
   ]
