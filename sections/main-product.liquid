@@ -826,7 +826,7 @@
 
     <div class="custom-product-description">
        ramannnddd
-      {%- unless product.description -%}
+      {%- if product.description -%}
         <div class="row description-row custom-description">
               <div class="custom-description-title ">
                 PRODUCT DESCRIPTION
@@ -838,13 +838,13 @@
               {% for block in section.blocks %}
                {%- case block.type -%}
                {%- when 'description' -%} 
-                     {%- unless product.description -%} 
+                     {%- if product.description -%} 
                         <div class="raman desccriptiom-custom-acc column-description product__description rte quick-add-hidden column-description-hide" {{ block.shopify_attributes }}> {{ product.description }} </div> 
-                    {%- endunless -%}
+                    {%- endif -%}
                 {% endcase %}
              {% endfor %}
          </div>
-      {% endunless %}
+      {% endif %}
       <div class="custom-type">
         {% if product.type != blank %}
             <div class="row description-row">
