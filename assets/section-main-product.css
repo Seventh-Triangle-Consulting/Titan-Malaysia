@@ -237,10 +237,10 @@ variant-selects .select .icon-caret, .customer select+svg{
   .custom-desktop-slider-main img, .custom-desktop-slider-main-thumbs-up img{height:auto;width:100%;}
   .product__column-sticky {
     display: block;
-    position: sticky;
-    top: 3rem;
     z-index: 2;
   }
+  .titan_main_product.product__info-wrapper.grid__item{    position: sticky;
+    top: 4rem;}
 
   .product--thumbnail .thumbnail-list {
     padding-right: var(--media-shadow-horizontal-offset);
