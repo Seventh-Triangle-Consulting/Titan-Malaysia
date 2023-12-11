@@ -3593,6 +3593,9 @@ a.btn.btn-info.sharebutton {
   outline-offset: unset;
   outline: unset;
 }
+h1.titletext {
+    font-family: PlayfairDisplay-Bold!important;
+}
 .container.wishlistbodycontainer {
     overflow-x: hidden;
 }
