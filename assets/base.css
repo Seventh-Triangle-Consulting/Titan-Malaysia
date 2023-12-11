@@ -3617,3 +3617,6 @@ img.img-responsive.image1 {
     display: flex !important;
     gap: 16px;
 }
+.wishlistpage .product .image {
+    border-radius: 10px !important;
+}
