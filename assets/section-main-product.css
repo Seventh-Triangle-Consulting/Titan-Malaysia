@@ -2094,3 +2094,7 @@ button.restock-alerts-notify-button {
 .formTitleStyle, .inputStyle, .notifyButtonStyle, .fieldLabelTextStyle{
   font-family: Roboto-Medium !important;
 }
+@media screen and (max-width:415px){
+  .product .price .badge{    width: 107px;
+}
+}
