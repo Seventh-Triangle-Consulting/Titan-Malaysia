@@ -2100,7 +2100,7 @@ border:none;background:transparent;} */
     height: auto;
 }
 .product .product__info-wrapper .product__info-container .usp_div .usp_content .usp-img .usp_icons .usp_text p {
-    font-size: 1.025vw;
+    font-size: 16px;
     font-weight: 500;
     text-align: left;
     font-family: 'Roboto-Regular';
@@ -2110,6 +2110,7 @@ border:none;background:transparent;} */
     letter-spacing: 0px;
     opacity: .7;
     white-space: nowrap;
+  font-style:italic;
 }
 .product .product__info-wrapper .product__info-container .usp_div .usp_content .usp-img .usp_icons 
 {    display: flex;
