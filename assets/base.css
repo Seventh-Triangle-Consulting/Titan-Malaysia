@@ -3583,9 +3583,11 @@ details-disclosure > details {
 /* css for wishlist */
 a.btn.btn-warning.removebutton.singleremovebutton {
     outline-offset: unset;
+  outline: unset;
 }
 a.btn.btn-primary.addbutton.addsingleproduct {
     outline-offset: unset;
+  outline: unset;
 }
 .container.wishlistbodycontainer {
     overflow-x: hidden;
