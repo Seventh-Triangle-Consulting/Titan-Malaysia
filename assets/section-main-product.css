@@ -2117,3 +2117,10 @@ border:none;background:transparent;} */
     flex-direction: column;
     justify-content: center;
     align-items: center;}
+
+@media only screen and (max-width: 787px){
+  .product .product__info-wrapper .product__info-container .usp_div .usp_content .usp-img .usp_icons .usp_text p {
+    font-size: 3.271vw!important;
+}
+}
+
