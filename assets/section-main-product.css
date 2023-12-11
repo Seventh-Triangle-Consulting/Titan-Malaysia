@@ -367,6 +367,8 @@ variant-selects .select .icon-caret, .customer select+svg{
   align-items: flex-start;
   font-size: 1.2rem;
   margin-bottom: 10px;
+  justify-content: center;
+
 }
 
 .product-form__error-message-wrapper svg {
