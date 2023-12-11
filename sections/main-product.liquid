@@ -833,11 +833,11 @@
                         </svg>
                 </div>
               </div>
+                        <div class="raman desccriptiom-custom-acc column-description product__description rte quick-add-hidden column-description-hide" {{ block.shopify_attributes }}> {{ product.description }} </div> 
               {% for block in section.blocks %}
                {%- case block.type -%}
                {%- when 'description' -%} 
                      {%- if product.description != blank -%} 
-                        <div class="raman desccriptiom-custom-acc column-description product__description rte quick-add-hidden column-description-hide" {{ block.shopify_attributes }}> {{ product.description }} </div> 
                     {%- endif -%}
                 {% endcase %}
              {% endfor %}
