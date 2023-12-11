@@ -838,7 +838,7 @@
                {%- case block.type -%}
                {%- when 'description' -%} 
                      {%- if product.description != blank -%} 
-                        <div class="raman desccriptiom-custom-acc column-description product__description rte quick-add-hidden column-description-hide" {{ block.shopify_attributes }}> {{ product.description }} </div> 
+                        <div class=" desccriptiom-custom-acc column-description product__description rte quick-add-hidden column-description-hide" {{ block.shopify_attributes }}> {{ product.description }} </div> 
                     {%- endif -%}
                 {% endcase %}
              {% endfor %}
@@ -1024,7 +1024,6 @@ function initSwipersPDP(event, isQuickAdd = false) {
         titleElement.addEventListener('click', function() {
           // Toggle the class svg-transform on all elements with the same class
           var nextSibling = this.nextElementSibling;
-        console.log(titleElement, nextSibling, "raman")
           if (nextSibling) {
             nextSibling.classList.toggle('column-description-hide');
           }
