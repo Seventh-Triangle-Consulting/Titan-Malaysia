@@ -3607,7 +3607,7 @@ img.img-responsive.image1 {
     height: 100% !important;
 }
 .container.wishlistbodycontainer {
-    width: auto;
+    width: auto !important;
     max-width: 192rem !important;
     margin: 0 auto !important;
     padding-left: var(--desktop-padding) !important;
