@@ -3578,3 +3578,9 @@ details-disclosure > details {
 *{
   -webkit-tap-highlight-color: transparent;
 }
+
+
+/* css for wishlist */
+a.btn.btn-warning.removebutton.singleremovebutton {
+    outline-offset: unset;
+}
