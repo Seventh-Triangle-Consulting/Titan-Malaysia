@@ -2111,3 +2111,8 @@ border:none;background:transparent;} */
     opacity: .7;
     white-space: nowrap;
 }
+.product .product__info-wrapper .product__info-container .usp_div .usp_content .usp-img .usp_icons 
+{    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;}
