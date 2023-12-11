@@ -2073,6 +2073,8 @@ border:none;background:transparent;} */
 }
 
 @media screen and (max-width:390px){
+  .modalBoxStyle{    width: 310px !important;}
+ 
   .custom_product_info .card__badge.reviews{width:35%;}
   .custom-atc-qty-slector .pdp_ATC{width:45vw !important;}
   .custom-atc-qty-slector .pdp_ATC span{font-size:15px;}
