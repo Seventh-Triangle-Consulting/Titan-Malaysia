@@ -228,6 +228,19 @@
           "card_padding_mobile": "0",
           "custom_swatch_code": "<script><\/script>"
         }
+      },
+      "2687124262639893493": {
+        "type": "shopify:\/\/apps\/swipeup-video-shopping\/blocks\/reel-bubble\/7b6d7967-af4c-461a-9edb-73155220c3a4",
+        "disabled": false,
+        "settings": {
+          "bottom_offset": 46,
+          "right_offset": 12,
+          "bubble_position": "right",
+          "bubble_touch_size": "regular",
+          "shop_button_text": "Shop",
+          "mute_text": "Mute",
+          "unmute_text": "Unmute"
+        }
       }
     },
     "color_schemes": {
