@@ -2089,3 +2089,6 @@ button.restock-alerts-notify-button {
       left: 0 !important;
   border-radius: 5px;
 }
+.formTitleStyle{
+  font-family: Roboto-Medium !important;
+}
