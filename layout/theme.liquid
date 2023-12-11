@@ -190,7 +190,7 @@ function  changeCss () {
 window.onscroll = function() {changeCss()};
 
 function  changeCss () {
-{% if template.name == 'collection' %}var navElement = document.querySelector("#FacetFiltersFormMobile");{% endif %}
+<!-- {% if template.name == 'collection' %}var navElement = document.querySelector("#FacetFiltersFormMobile");{% endif %}
    var menudrawer = document.querySelector("#menu-drawer");
    var navcloseicon = document.querySelector(".header__icon .icon.icon-close"); 
   if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
@@ -201,7 +201,7 @@ function  changeCss () {
     {% if template.name == 'collection' %} navElement.style.top = "114px"; {% endif %}
        menudrawer.style.top = "-72%";
      navcloseicon.style.top = "-10px";
-  }
+  } -->
 }
     </script>
 
