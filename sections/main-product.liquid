@@ -1009,7 +1009,10 @@ function initSwipersPDP(event, isQuickAdd = false) {
        swiper.slideTo(sliderIndex);
        swiper2.slideTo(sliderIndex);
  
-      // Select all elements with the class custom-description-title
+     
+   
+}
+ // Select all elements with the class custom-description-title
       var titleElements = document.querySelectorAll('.custom-description-title');
 
       // Add click event listener to each title element
@@ -1024,8 +1027,6 @@ function initSwipersPDP(event, isQuickAdd = false) {
           this.classList.toggle('svg-transform');
         });
       });
-   
-}
 
 window.addEventListener('DOMContentLoaded', initSwipersPDP, { once: true }); 
 
