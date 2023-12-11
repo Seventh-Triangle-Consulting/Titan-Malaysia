@@ -12,13 +12,13 @@
 
   @media screen and (max-width: 750px) {
   .home-category-section-{{ section.id }} {margin-bottom: {{ section.settings.margin_bottom_mobile }}px;}
-  .home_category_swiper{padding: 0 0 0 20px;}
+  .custom-category-home{padding: 0 20px 0 20px;}
     .home-category .swiper-slide{width:68%;}
   .home_category_text{font-size:22px;}
   }
 </style>
 
-<div class="home-category home-category-section-{{ section.id }}" id="{{ section.id }}">
+<div class="home-category custom-category-home home-category-section-{{ section.id }}" id="{{ section.id }}">
   <div class="swiper home_category_swiper">
     <div class="swiper-wrapper">
       {% for block in section.blocks %}
