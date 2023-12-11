@@ -3587,3 +3587,6 @@ a.btn.btn-warning.removebutton.singleremovebutton {
 a.btn.btn-primary.addbutton.addsingleproduct {
     outline-offset: unset;
 }
+.container.wishlistbodycontainer {
+    overflow-x: hidden;
+}
