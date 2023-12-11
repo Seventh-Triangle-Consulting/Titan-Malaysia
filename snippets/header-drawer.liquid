@@ -318,24 +318,3 @@
     </div>
   </details>
 </header-drawer>
-<script>
-  
-  {% comment %} function hideStickyATC(event) {
-    let summaryElement = event.currentTarget;
-    let detailsElement = summaryElement.parentNode;
-
-    // Assuming your cart drawer has a class to indicate its open/close state
-    const isCartDrawerOpen = document.querySelector('.cart-drawer-container').classList.contains('cart-drawer-open');
-
-    // Check the display state based on the cart drawer state
-    if (window.innerWidth <= 600) {
-        const stickyATC = document.querySelector('.productformmobilesticky');
-        if (stickyATC && isCartDrawerOpen) {
-            stickyATC.style.display = "none";
-        } else {
-            if (stickyATC) stickyATC.style.display = "block";
-        }
-    }
-} {% endcomment %}
-
-</script>
