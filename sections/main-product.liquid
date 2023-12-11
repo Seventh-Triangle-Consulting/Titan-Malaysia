@@ -1017,6 +1017,7 @@ function initSwipersPDP(event, isQuickAdd = false) {
         titleElement.addEventListener('click', function() {
           // Toggle the class svg-transform on all elements with the same class
           var nextSibling = this.nextElementSibling;
+        console.log(titleElement, nextSibling, "raman")
           if (nextSibling) {
             nextSibling.classList.toggle('column-description-hide');
           }
