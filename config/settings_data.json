@@ -202,6 +202,32 @@
         "disabled": true,
         "settings": {
         }
+      },
+      "11905432258600982856": {
+        "type": "shopify:\/\/apps\/quinn-shoppable-videos\/blocks\/app-embed\/150d2781-732b-4020-a9fb-1368e974e6bb",
+        "disabled": false,
+        "settings": {
+          "custom_swatch_code": "<script><\/script>"
+        }
+      },
+      "12540575881001861153": {
+        "type": "shopify:\/\/apps\/quinn-shoppable-videos\/blocks\/app-embed-legacy\/150d2781-732b-4020-a9fb-1368e974e6bb",
+        "disabled": false,
+        "settings": {
+          "story_spacing_desktop": 20,
+          "story_spacing_mobile": 10,
+          "story_margins_mobile": "0",
+          "story_margins_desktop": "0",
+          "story_padding_mobile": "0",
+          "story_padding_desktop": "0",
+          "card_spacing_desktop": 20,
+          "card_spacing_mobile": 10,
+          "card_margins_desktop": "0",
+          "card_margins_mobile": "0",
+          "card_padding_desktop": "0",
+          "card_padding_mobile": "0",
+          "custom_swatch_code": "<script><\/script>"
+        }
       }
     },
     "color_schemes": {

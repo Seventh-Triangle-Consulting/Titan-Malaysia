@@ -450,7 +450,23 @@
     },
     "1697087009aadaaacf": {
       "type": "apps",
-      "disabled": true,
+      "blocks": {
+        "2e479f45-2b85-4815-aa2f-fe6d1de3eb2b": {
+          "type": "shopify:\/\/apps\/quinn-shoppable-videos\/blocks\/app-stories-block\/150d2781-732b-4020-a9fb-1368e974e6bb",
+          "settings": {
+            "story_spacing_desktop": 20,
+            "story_spacing_mobile": 10,
+            "story_margins_mobile": "0",
+            "story_margins_desktop": "0",
+            "story_padding_mobile": "0 10px",
+            "story_padding_desktop": "0 5px",
+            "layer_number": "1"
+          }
+        }
+      },
+      "block_order": [
+        "2e479f45-2b85-4815-aa2f-fe6d1de3eb2b"
+      ],
       "settings": {
         "include_margins": true
       }
