@@ -2088,11 +2088,11 @@ border:none;background:transparent;} */
     align-items: flex-end;
 }
 .product .product__info-wrapper .product__info-container .usp_div{
-      width: 100%;
+         width: 100%;
     border-top: 1px solid rgba(0,0,0,.1);
-    padding-top: 10%;
+    padding: 5% 0;
     border-bottom: 1px solid rgba(0,0,0,.1);
-    padding-bottom: 10%;
+    margin: 2rem 0;
 }
 .product .product__info-wrapper .product__info-container .usp_div .usp_content .usp-img .usp_icons .usp_images{ width:25%;}
 .product .product__info-wrapper .product__info-container .usp_div .usp_content .usp-img .usp_icons .usp_images img {
