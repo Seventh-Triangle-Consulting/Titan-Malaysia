@@ -27,7 +27,7 @@ menu-drawer > details[open] > summary::before {
 
 .menu-drawer {
   position: absolute;
-  box-shadow: 2px 0px 5px 0px rgba(0, 0, 0, 0.25);
+  /* box-shadow: 2px 0px 5px 0px rgba(0, 0, 0, 0.25); */
   transform: translateX(-100%);
   visibility: hidden;
   z-index: 3;
