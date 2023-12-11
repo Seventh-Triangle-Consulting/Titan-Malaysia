@@ -3613,3 +3613,7 @@ img.img-responsive.image1 {
     padding-left: var(--desktop-padding) !important;
     padding-right: var(--desktop-padding) !important;
 }
+.container.wishlistbodycontainer .row {
+    display: flex !important;
+    gap: 16px;
+}
