@@ -240,7 +240,7 @@ variant-selects .select .icon-caret, .customer select+svg{
     z-index: 2;
   }
   .titan_main_product.product__info-wrapper.grid__item{    position: sticky;
-    top: 4rem;}
+    top: 6rem;}
 
   .product--thumbnail .thumbnail-list {
     padding-right: var(--media-shadow-horizontal-offset);
