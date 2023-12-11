@@ -3589,6 +3589,10 @@ a.btn.btn-primary.addbutton.addsingleproduct {
     outline-offset: unset;
   outline: unset;
 }
+a.btn.btn-info.sharebutton {
+  outline-offset: unset;
+  outline: unset;
+}
 .container.wishlistbodycontainer {
     overflow-x: hidden;
 }
