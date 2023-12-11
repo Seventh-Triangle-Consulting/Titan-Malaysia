@@ -3606,7 +3606,6 @@ img.img-responsive.image1 {
     width: 100%;
     height: 100% !important;
 }
-@media screen and (min-width: 976px){
   .container.wishlistbodycontainer {
     width: auto !important;
     max-width: 192rem !important;
@@ -3617,7 +3616,6 @@ img.img-responsive.image1 {
 .container.wishlistbodycontainer .row {
     display: flex !important;
     gap: 16px;
-}
 }
 
 .wishlistpage .product .image {
