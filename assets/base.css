@@ -3608,8 +3608,8 @@ img.img-responsive.image1 {
 }
 .container.wishlistbodycontainer {
     width: auto;
-    max-width: 192rem;
-    margin: 0 auto;
-    padding-left: var(--desktop-padding);
-    padding-right: var(--desktop-padding);
+    max-width: 192rem !important;
+    margin: 0 auto !important;
+    padding-left: var(--desktop-padding) !important;
+    padding-right: var(--desktop-padding) !important;
 }
