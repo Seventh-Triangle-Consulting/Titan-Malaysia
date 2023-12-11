@@ -2084,3 +2084,6 @@ border:none;background:transparent;} */
   .custom-atc-qty-slector .pdp_ATC span{font-size:14px !important;}
 }
 .custom-quantity-inpu{pointer-events:none;}
+button.restock-alerts-notify-button {
+  font-family: Roboto-Medium;
+}
