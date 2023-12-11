@@ -3620,3 +3620,6 @@ img.img-responsive.image1 {
 .wishlistpage .product .image {
     border-radius: 10px !important;
 }
+.product .text {
+    padding: 17px 0 !important;
+}
