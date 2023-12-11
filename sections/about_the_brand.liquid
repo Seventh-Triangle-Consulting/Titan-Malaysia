@@ -111,7 +111,7 @@
   }
 .about-brand-container .about-brand-wrapper .about-brand-link
   {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     cursor: pointer;
   }
   .about-brand-container .about-brand-media video
@@ -133,13 +133,18 @@
       </div>
       {% endif %}
     </div>
+       {% if section.settings.brand_description  != blank %}
       <div class="about-brand-desc">
         {{ section.settings.brand_description | truncate: 280 ,'' }}
       </div>
+         {% endif %}
+     {% if section.settings.know_button_link != blank %}
       <div class="about-brand-link">
         <a href="{{section.settings.know_button_link }}">Know More</a>
       </div>
+       {% endif %}
     </div>
+    {% if section.settings.desk_image_with_text_image != blank or section.settings.desk_image_with_text_image != blank %}
     <div class="about-brand-media">
            {% if section.settings.desk_image_with_text_image != blank %}
                
@@ -173,6 +178,7 @@
                         height="{{ section.settings.mobile_image_with_text_image.height }}">
               {% endif %}
     </div>
+      {% endif %}
   </div>
 </div>
 
