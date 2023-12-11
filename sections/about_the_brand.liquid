@@ -10,9 +10,15 @@
       grid-template-columns: unset !important;
       padding: 7.009vw 8.645vw !important;
     }
+    
+    
+    .about-brand-container .about-brand-wrapper .about-brand-detail .about-brand-heading{
+      margin-bottom:2rem;
+    }
     /* .about-brand-container .about-brand-wrapper .about-brand-detail .about-brand-heading h3
     {
       font-size: 5.607vw !important;
+    
     } */
     .about-brand-container .about-brand-detail .about-brand-img
     {
@@ -135,8 +141,8 @@
 
     <div class="about-brand-detail">
       {% if  section.settings.about_head1 !=blank %}
-        <div class="about-brand-heading Rubik-400-30px">
-        <h3  class="Rubik-400-30px">>{{ section.settings.about_head1 }}</h3>
+        <div class="about-brand-heading">
+        <h3  class="Rubik-400-30px">{{ section.settings.about_head1 }}</h3>
       </div>
       {% endif %}
     </div>
