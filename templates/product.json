@@ -36,7 +36,7 @@
           "settings": {
           }
         },
-        "1d481f19-70e1-46ca-a610-4dc6ba7bbf0b": {
+        "6f357501-efe5-4a62-8b55-2936766130a5": {
           "type": "USP",
           "settings": {
             "urllink": "https:\/\/cdn.shopify.com\/s\/files\/1\/0692\/8321\/7683\/files\/Group_13554_2x_89f9a917-1bb7-49c8-944d-7033b5df65fa.png?v=1677495191,https:\/\/cdn.shopify.com\/s\/files\/1\/0692\/8321\/7683\/files\/Group_13552_2x_66b757fd-577d-43f2-bd06-7f6247622b51.png?v=1677495208,https:\/\/cdn.shopify.com\/s\/files\/1\/0692\/8321\/7683\/files\/Path_6411_2x_956554d0-b950-4c2c-b85f-308da6728be4.png?v=1677495208",
@@ -69,7 +69,7 @@
         "price",
         "variant_picker",
         "quantity_selector",
-        "1d481f19-70e1-46ca-a610-4dc6ba7bbf0b",
+        "6f357501-efe5-4a62-8b55-2936766130a5",
         "buy_buttons",
         "description",
         "5084a510-7189-437e-bc00-7ae24be755b7"
@@ -96,6 +96,17 @@
         "padding_bottom": 12
       }
     },
+    "74932d3a-78c7-4b22-9880-9fc42033a56c": {
+      "type": "about_the_brand",
+      "settings": {
+        "about_head1": "About the Brand",
+        "about_subhead1": "Movado Group’s founder",
+        "brand_description": "<p><strong>Lorem Ipsum<\/strong>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<\/p>",
+        "desk_image_with_text_image": "shopify:\/\/shop_images\/Titan-Logo-PNG.png",
+        "mobile_image_with_text_image": "shopify:\/\/shop_images\/Titan-Logo-PNG.png",
+        "know_button_link": ""
+      }
+    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -115,22 +126,11 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
-    },
-    "49342f4f-4faa-49ac-958b-9dbfcfdba22c": {
-      "type": "about_the_brand",
-      "settings": {
-        "about_head1": "About the Brand",
-        "about_subhead1": "Movado Group’s founder",
-        "brand_description": "<p><strong>Lorem Ipsum<\/strong>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<\/p>",
-        "desk_image_with_text_image": "shopify:\/\/shop_images\/Titan-Logo-PNG.png",
-        "mobile_image_with_text_image": "shopify:\/\/shop_images\/6_d75bf825-21e5-44f2-975c-59428525850e.png",
-        "know_button_link": "#"
-      }
     }
   },
   "order": [
     "main",
-    "related-products",
-    "49342f4f-4faa-49ac-958b-9dbfcfdba22c"
+    "74932d3a-78c7-4b22-9880-9fc42033a56c",
+    "related-products"
   ]
 }
