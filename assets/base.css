@@ -3584,3 +3584,6 @@ details-disclosure > details {
 a.btn.btn-warning.removebutton.singleremovebutton {
     outline-offset: unset;
 }
+a.btn.btn-primary.addbutton.addsingleproduct {
+    outline-offset: unset;
+}
