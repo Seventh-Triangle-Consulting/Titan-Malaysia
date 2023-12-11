@@ -3602,3 +3602,7 @@ h1.titletext {
 .container.wishlistbodycontainer {
     overflow-x: hidden;
 }
+img.img-responsive.image1 {
+    width: 100%;
+    height: 100%;
+}
