@@ -869,6 +869,7 @@
               <div class="desccriptiom-custom-acc column-description column-description-hide ">{{ product.metafields.custom.model_stats }}</div>
             </div>
         {% endif %}
+        {% if section.settings.country_of_origin != blank or section.settings.manufacturer_name != blank or section.settings.manufacturer_address != blank %}
         <div>
            <div class="column-heading text-uppercase custom-description-title">
              SOLD BY
@@ -883,6 +884,7 @@
                 {% if section.settings.manufacturer_address != blank %}<div class="column-description">{{ section.settings.manufacturer_address }}</div>{% endif %}
                 </div>
         </div>
+          {% endif %}
       </div>
     </div>
 
