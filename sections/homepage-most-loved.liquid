@@ -35,14 +35,16 @@
     }
   }
 @media screen and (min-width:2500px){
-  .mostloved-section-{{ section.id }}{max-width:2560px;margin-left: 25rem;}
+  .mostloved-section-{{ section.id }}{margin:auto;}
 }
 @media(max-width:749px){
   .mostloved_tab,.mostloved_div{padding-right:0;}
   .mostloved-section-{{ section.id }} {margin-bottom: {{ section.settings.margin_bottom_mobile }}px;padding-left:20px;}
   .mostloved_tab{gap:17px;flex-wrap:wrap;}
   .mostloved .swiper-scrollbar{ display:none;}
+ 
 }
+
 </style>
 {% if section.blocks != blank %}
     <div class="mostloved mostloved-section-{{ section.id }} page-width" id="{{ section.id }}">

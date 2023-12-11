@@ -4,7 +4,7 @@
   .pdp_shipping_returns{flex-direction:center !important;align-items:baseline !important;}
 }
 .pdp_ATC:hover{color:#fff !important;background-color:#000;}
-.pdp_ATC:hover span{color:#fff !important;background-color:#000;}
+.pdp_ATC:hover span{color:#fff !important;}
 .custom-atc-qty-slector .pdp_ATC span{font-family:Roboto-Medium;}
 .custom-quantity-number, .custom-quantity-number span{font-size:clamp(14px, calc(16 * (100vw / 1440)), 18px)}
 .product__media-wrapper{
@@ -152,7 +152,7 @@ variant-selects .select .icon-caret, .customer select+svg{
     text-transform: uppercase;
     border: 10px!important;
     border-radius: 8px!important;
-    padding: 0 75px;
+    padding: 0 52px;
     flex-basis: 50%;
     box-shadow: none;
     width: 25vw;
@@ -179,6 +179,7 @@ variant-selects .select .icon-caret, .customer select+svg{
   .custom-description-title{box-shadow:inset 0 -1px #00000020;}
   .desccriptiom-custom-acc{padding-bottom:1%;box-shadow:inset 0 -1px #00000020;}
   .productformdesktopsticky{display:none;}
+  .custom-desktop-slider-main .swiper-button-next{ right:10px!important;}
 }
 .custom-placeholder{height: 400px;width: 100%;display: flex; align-items: center; justify-content: center; font-size: 25px; border: 1px solid grey; border-radius: 6px;}
 .product-image{height:100px;width:100px;}
@@ -237,7 +238,7 @@ variant-selects .select .icon-caret, .customer select+svg{
   .product__column-sticky {
     display: block;
     position: sticky;
-    top: 3rem;
+    top: 7rem;
     z-index: 2;
   }
 
@@ -367,6 +368,7 @@ variant-selects .select .icon-caret, .customer select+svg{
   align-items: flex-start;
   font-size: 1.2rem;
   margin-bottom: 10px;
+  padding-top: 10px;
 }
 
 .product-form__error-message-wrapper svg {
@@ -2027,7 +2029,7 @@ border:none;background:transparent;} */
 
 
 .offers_for_accordian_swiper .swiper-slide{ width:calc(100% / 2);margin-right:16px;}
-.atc_Error_Message{ font-size:17px;color:red; }
+.atc_Error_Message{ font-size:14px;color:red; }
 .flex-sb{display:flex;justify-content:space-between;}
 
 @media(min-width:1400px)
@@ -2041,7 +2043,7 @@ border:none;background:transparent;} */
 @media(max-width:749px)
 {
   .card__badge.reviews.desktop{display:none;}
-  .productformmobilesticky{ display:block;   width: 100%; z-index: 111 !important;
+  .productformmobilesticky{ display:block;   width: 100%; z-index: 2 !important;
     bottom: 0;    padding: 10px; position: fixed; z-index: 2;    background: rgba(248, 248, 248, 1); box-shadow: 0px -3px 5px 0px rgba(0, 0, 0, 0.25);}
 .positive_impact_heading{text-align:center;}
 .positive_impact_image_text_div{display:grid;place-items:center;}
@@ -2071,6 +2073,9 @@ border:none;background:transparent;} */
 }
 
 @media screen and (max-width:390px){
+  .pdp_ATC.product-form__submit{    padding: 0 2rem !important;}
+  .modalBoxStyle{    width: 310px !important;}
+ 
   .custom_product_info .card__badge.reviews{width:35%;}
   .custom-atc-qty-slector .pdp_ATC{width:45vw !important;}
   .custom-atc-qty-slector .pdp_ATC span{font-size:15px;}
@@ -2080,4 +2085,17 @@ border:none;background:transparent;} */
   .pincode_div{width:100%;}
   .custom-atc-qty-slector .pdp_ATC{width:35vw !important}
   .custom-atc-qty-slector .pdp_ATC span{font-size:14px !important;}
+}
+.custom-quantity-inpu{pointer-events:none;}
+button.restock-alerts-notify-button {
+  font-family: Roboto-Medium;
+      left: 0 !important;
+  border-radius: 5px;
+}
+.formTitleStyle, .inputStyle, .notifyButtonStyle, .fieldLabelTextStyle{
+  font-family: Roboto-Medium !important;
+}
+@media screen and (max-width:415px){
+  .product .price .badge{    width: 107px;
+}
 }
