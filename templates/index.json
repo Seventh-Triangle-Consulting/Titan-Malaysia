@@ -336,6 +336,9 @@
         "c86a8670-813e-4202-be02-1968108ef01d",
         "0e5d92cc-a74b-4a0c-91fb-d417bb1aff7a"
       ],
+      "custom_css": [
+        ".SwipeUp-reels-feed{margin-bottom:50px;}"
+      ],
       "settings": {
         "include_margins": true
       }
