@@ -826,7 +826,7 @@
 
     <div class="custom-product-description">
       {{ product.description }} raman
-      {%- if product.description  -%}
+      {%- unless product.description == blank -%}
         <div class="row description-row custom-description">
               <div class="custom-description-title ">
                 PRODUCT DESCRIPTION
@@ -844,7 +844,7 @@
                 {% endcase %}
              {% endfor %}
          </div>
-      {% endif %}
+      {% endunless %}
       <div class="custom-type">
         {% if product.type != blank %}
             <div class="row description-row">
