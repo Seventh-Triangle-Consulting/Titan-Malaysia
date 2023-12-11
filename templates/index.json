@@ -292,6 +292,54 @@
         "kids_collection_text": ""
       }
     },
+    "1697087009aadaaacf": {
+      "type": "apps",
+      "blocks": {
+        "2e479f45-2b85-4815-aa2f-fe6d1de3eb2b": {
+          "type": "shopify:\/\/apps\/quinn-shoppable-videos\/blocks\/app-stories-block\/150d2781-732b-4020-a9fb-1368e974e6bb",
+          "disabled": true,
+          "settings": {
+            "story_spacing_desktop": 20,
+            "story_spacing_mobile": 10,
+            "story_margins_mobile": "0",
+            "story_margins_desktop": "0",
+            "story_padding_mobile": "0 10px",
+            "story_padding_desktop": "0 5px",
+            "layer_number": "1"
+          }
+        },
+        "c86a8670-813e-4202-be02-1968108ef01d": {
+          "type": "shopify:\/\/apps\/quinn-shoppable-videos\/blocks\/app-imax_video-block\/150d2781-732b-4020-a9fb-1368e974e6bb",
+          "disabled": true,
+          "settings": {
+            "imaxvideo_spacing_desktop": 20,
+            "imaxvideo_spacing_mobile": 10,
+            "imaxvideo_margins_mobile": "0",
+            "imaxvideo_margins_desktop": "0",
+            "imaxvideo_padding_mobile": "0 10px",
+            "imaxvideo_padding_desktop": "0 5px",
+            "layer_number": "1"
+          }
+        },
+        "0e5d92cc-a74b-4a0c-91fb-d417bb1aff7a": {
+          "type": "shopify:\/\/apps\/swipeup-video-shopping\/blocks\/reels-feed\/7b6d7967-af4c-461a-9edb-73155220c3a4",
+          "settings": {
+            "shop_button_text": "Shop",
+            "mute_text": "Mute",
+            "unmute_text": "Unmute",
+            "background_color": "rgba(0,0,0,0)"
+          }
+        }
+      },
+      "block_order": [
+        "2e479f45-2b85-4815-aa2f-fe6d1de3eb2b",
+        "c86a8670-813e-4202-be02-1968108ef01d",
+        "0e5d92cc-a74b-4a0c-91fb-d417bb1aff7a"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
     "b8288058-a547-4fee-bfe1-0f766e5e082c": {
       "type": "home-page-shop-by-concern",
       "blocks": {
@@ -447,54 +495,6 @@
         "brand_bg_color": "#ffffff",
         "main_title": "Enter Title"
       }
-    },
-    "1697087009aadaaacf": {
-      "type": "apps",
-      "blocks": {
-        "2e479f45-2b85-4815-aa2f-fe6d1de3eb2b": {
-          "type": "shopify:\/\/apps\/quinn-shoppable-videos\/blocks\/app-stories-block\/150d2781-732b-4020-a9fb-1368e974e6bb",
-          "disabled": true,
-          "settings": {
-            "story_spacing_desktop": 20,
-            "story_spacing_mobile": 10,
-            "story_margins_mobile": "0",
-            "story_margins_desktop": "0",
-            "story_padding_mobile": "0 10px",
-            "story_padding_desktop": "0 5px",
-            "layer_number": "1"
-          }
-        },
-        "c86a8670-813e-4202-be02-1968108ef01d": {
-          "type": "shopify:\/\/apps\/quinn-shoppable-videos\/blocks\/app-imax_video-block\/150d2781-732b-4020-a9fb-1368e974e6bb",
-          "disabled": true,
-          "settings": {
-            "imaxvideo_spacing_desktop": 20,
-            "imaxvideo_spacing_mobile": 10,
-            "imaxvideo_margins_mobile": "0",
-            "imaxvideo_margins_desktop": "0",
-            "imaxvideo_padding_mobile": "0 10px",
-            "imaxvideo_padding_desktop": "0 5px",
-            "layer_number": "1"
-          }
-        },
-        "0e5d92cc-a74b-4a0c-91fb-d417bb1aff7a": {
-          "type": "shopify:\/\/apps\/swipeup-video-shopping\/blocks\/reels-feed\/7b6d7967-af4c-461a-9edb-73155220c3a4",
-          "settings": {
-            "shop_button_text": "Shop",
-            "mute_text": "Mute",
-            "unmute_text": "Unmute",
-            "background_color": "transparent"
-          }
-        }
-      },
-      "block_order": [
-        "2e479f45-2b85-4815-aa2f-fe6d1de3eb2b",
-        "c86a8670-813e-4202-be02-1968108ef01d",
-        "0e5d92cc-a74b-4a0c-91fb-d417bb1aff7a"
-      ],
-      "settings": {
-        "include_margins": true
-      }
     }
   },
   "order": [
@@ -504,8 +504,8 @@
     "ea859a94-e175-434c-9150-808b79a056e5",
     "72f4052f-35ea-45a7-8fe9-645447733226",
     "96a7a223-41c4-4f2c-bfe1-91cd7d09a867",
+    "1697087009aadaaacf",
     "b8288058-a547-4fee-bfe1-0f766e5e082c",
-    "84601aa3-45ff-4f93-a11f-81666de3da23",
-    "1697087009aadaaacf"
+    "84601aa3-45ff-4f93-a11f-81666de3da23"
   ]
 }
