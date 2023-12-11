@@ -3606,12 +3606,18 @@ img.img-responsive.image1 {
     width: 100%;
     height: 100% !important;
 }
+@media screen and (min-width: 976px){
+.container.wishlistbodycontainer {
+   padding-left: var(--desktop-padding) !important;
+    padding-right: var(--desktop-padding) !important;
+  
+}
+}
   .container.wishlistbodycontainer {
     width: auto !important;
     max-width: 192rem !important;
     margin: 0 auto !important;
-    padding-left: var(--desktop-padding) !important;
-    padding-right: var(--desktop-padding) !important;
+   
 }
 .container.wishlistbodycontainer .row {
     display: flex !important;
