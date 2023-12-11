@@ -368,6 +368,7 @@ variant-selects .select .icon-caret, .customer select+svg{
   align-items: flex-start;
   font-size: 1.2rem;
   margin-bottom: 10px;
+  padding-top: 10px;
 }
 
 .product-form__error-message-wrapper svg {
@@ -2028,7 +2029,7 @@ border:none;background:transparent;} */
 
 
 .offers_for_accordian_swiper .swiper-slide{ width:calc(100% / 2);margin-right:16px;}
-.atc_Error_Message{ font-size:17px;color:red; }
+.atc_Error_Message{ font-size:14px;color:red; }
 .flex-sb{display:flex;justify-content:space-between;}
 
 @media(min-width:1400px)
