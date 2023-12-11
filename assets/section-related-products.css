@@ -14,6 +14,6 @@
 @media(max-width:749px)
 {   
   .related_products_swiper .card-information .productcardcolorswatch{gap:1px;}
-.related_products{padding:0 0 0 20px;}
+.related_products{padding:0 20px 0 20px;}
 }
 .plaeto_main_product div:empty{display:block} 
