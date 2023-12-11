@@ -825,8 +825,8 @@
     {%- endif -%}
 
     <div class="custom-product-description">
-       ramannnddd
-      {%- if product.description -%}
+      {%- if product.description == blank -%}
+        {% else %}
         <div class="row description-row custom-description">
               <div class="custom-description-title ">
                 PRODUCT DESCRIPTION
