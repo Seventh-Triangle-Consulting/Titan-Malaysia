@@ -379,7 +379,7 @@
                       {% render 'icon-minus' %}
                     </button>
                     <input
-                      class="quantity__input"
+                      class="quantity__input custom-quantity-inpu" readonly
                       type="number"
                       name="quantity"
                       id="Quantity-{{ section.id }}"
@@ -852,8 +852,9 @@
     {%- endif -%}
 
     <div class="custom-product-description">
-        <div class="row description-row custom-description">
-              <div class="custom-description-title">
+            {%- if product.description != blank -%}
+        <div class="row description-row custom-description ">
+              <div class="custom-description-title ">
                 PRODUCT DESCRIPTION
                 <div class="acc-svg-mobile"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="8" viewBox="0 0 19 10" fill="none" style=" float:right;margin-top: -20px;">
                         <path d="M1 1L9.5 9L18 1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -864,11 +865,12 @@
                {%- case block.type -%}
                {%- when 'description' -%} 
                      {%- if product.description != blank -%} 
-                        <div class="desccriptiom-custom-acc column-description product__description rte quick-add-hidden column-description-hide" {{ block.shopify_attributes }}> {{ product.description }} </div> 
+                        <div class=" desccriptiom-custom-acc column-description product__description rte quick-add-hidden column-description-hide" {{ block.shopify_attributes }}> {{ product.description }} </div> 
                     {%- endif -%}
                 {% endcase %}
              {% endfor %}
          </div>
+      {% endif %}
       <div class="custom-type">
         {% if product.type != blank %}
             <div class="row description-row">
@@ -894,6 +896,7 @@
               <div class="desccriptiom-custom-acc column-description column-description-hide ">{{ product.metafields.custom.model_stats }}</div>
             </div>
         {% endif %}
+        {% if section.settings.country_of_origin != blank or section.settings.manufacturer_name != blank or section.settings.manufacturer_address != blank %}
         <div>
            <div class="column-heading text-uppercase custom-description-title">
              SOLD BY
@@ -908,6 +911,7 @@
                 {% if section.settings.manufacturer_address != blank %}<div class="column-description">{{ section.settings.manufacturer_address }}</div>{% endif %}
                 </div>
         </div>
+          {% endif %}
       </div>
     </div>
 
@@ -1036,7 +1040,10 @@ function initSwipersPDP(event, isQuickAdd = false) {
        swiper.slideTo(sliderIndex);
        swiper2.slideTo(sliderIndex);
  
-      // Select all elements with the class custom-description-title
+     
+   
+}
+ // Select all elements with the class custom-description-title
       var titleElements = document.querySelectorAll('.custom-description-title');
 
       // Add click event listener to each title element
@@ -1050,8 +1057,6 @@ function initSwipersPDP(event, isQuickAdd = false) {
           this.classList.toggle('svg-transform');
         });
       });
-   
-}
 
 window.addEventListener('DOMContentLoaded', initSwipersPDP, { once: true }); 
 
