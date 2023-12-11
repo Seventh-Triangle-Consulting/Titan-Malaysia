@@ -2073,7 +2073,7 @@ border:none;background:transparent;} */
 }
 
 @media screen and (max-width:390px){
-  .pdp_ATC.product-form__submit{    padding: 0 2rem !important;}
+  .pdp_ATC.product-form__submit{    padding: 0 1rem !important;}
   .modalBoxStyle{    width: 310px !important;}
  
   .custom_product_info .card__badge.reviews{width:35%;}
