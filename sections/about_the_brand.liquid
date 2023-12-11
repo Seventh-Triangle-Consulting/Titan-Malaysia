@@ -1,0 +1,244 @@
+<style>
+  @media only screen and (max-width:787px)
+  {
+    .top-brand-pdp 
+    {
+      width: 100% !important;
+      padding:unset;
+    }
+    .about-brand-container 
+    {
+      grid-template-columns: unset !important;
+      padding: 7.009vw 6vw !important;
+    }
+    
+    .about-brand-container .about-brand-detail .about-brand-img
+    {
+      width: 32.944vw !important;
+    }
+    .about-brand-container .about-brand-detail .about-brand-img .desk-brand-pdp
+    {
+      display:none !important;
+    }
+    .about-brand-container .about-brand-detail .about-brand-img .mob-brand-pdp
+    {
+       display: block !important;
+    }
+   
+    .about-brand-container .about-brand-media
+    {
+       width: 82.71vw !important;
+    }
+    .about-brand-container .about-brand-media .desk-brand-pdp 
+    {
+      display:none !important;
+    }
+      
+    .about-brand-container .about-brand-media .mob-brand-pdp 
+    {
+     display: block !important;
+     width: 100%;
+     height: auto;
+    }
+}
+  .top-brand-pdp
+  {
+       margin: 0 auto;
+    margin-bottom: 5.124vw;
+        padding: 0 120px;
+    max-width: 1920px;
+ 
+  }
+  .about-brand-container
+  {
+    background: #F5F5F5;
+    border-radius: 5px;
+    padding: 4.026vw 3.514vw;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5%;
+  }
+  .about-brand-container .about-brand-detail .about-brand-img
+  {
+    width: 12.884vw;
+  }
+  .about-brand-container .about-brand-detail .about-brand-img img
+  {
+    width: 100%;
+    height:auto;
+  }
+  .about-brand-container .about-brand-detail .about-brand-img .mob-brand-pdp
+  {
+    display:none;
+  }
+  .about-brand-container .about-brand-media .mob-brand-pdp
+  {
+    display:none;
+  }
+  .about-brand-container .about-brand-media
+  {
+    width: 34.846vw;
+    margin: auto;
+    object-fit: cover;
+  }
+  .about-brand-container .about-brand-media .desk-brand-pdp
+  {
+    width:100%;
+    height:auto;
+  }
+
+  .about-brand-container .about-brand-wrapper .about-brand-detail .about-brand-heading{
+      margin-bottom:2rem;
+     font-size: 2.196vw;
+    }
+  
+  .about-brand-container .about-brand-wrapper .about-brand-desc p,h2
+  {
+    font-size: clamp(14px, calc(16 * (100vw / 1440)), 18px);
+    font-family: Roboto-Regular;
+    color: #000;
+    line-height: 25px;
+  }
+  .about-brand-container .about-brand-wrapper .about-brand-link a
+  {
+    
+    cursor: pointer;
+    text-transform: capitalize;
+    opacity: 1;
+    font-size: clamp(14px, calc(16 * (100vw / 1440)), 18px);
+    font-family: Roboto-Regular;
+    color: #000;
+    line-height: 25px;
+  }
+.about-brand-container .about-brand-wrapper .about-brand-link
+  {
+    margin-top: 1.5rem;
+    cursor: pointer;
+  }
+  .about-brand-container .about-brand-media video
+  {
+    width:100%;
+    height:auto;
+  }
+</style>
+
+
+<div class="top-brand-pdp">
+  <div class="about-brand-container">
+   <div class="about-brand-wrapper">
+
+    <div class="about-brand-detail">
+      {% if  section.settings.about_head1 !=blank %}
+        <div class="about-brand-heading">
+        <h3  class="Rubik-400-30px">{{ section.settings.about_head1 }}</h3>
+      </div>
+      {% endif %}
+    </div>
+       {% if section.settings.brand_description  != blank %}
+      <div class="about-brand-desc">
+        {{ section.settings.brand_description | truncate: 280 ,'' }}
+      </div>
+         {% endif %}
+     {% if section.settings.know_button_link != blank %}
+      <div class="about-brand-link">
+        <a href="{{section.settings.know_button_link }}">Know More</a>
+      </div>
+       {% endif %}
+    </div>
+    {% if section.settings.desk_image_with_text_image != blank or section.settings.desk_image_with_text_image != blank %}
+    <div class="about-brand-media">
+           {% if section.settings.desk_image_with_text_image != blank %}
+               
+                      <img  class="desk-brand-pdp"  srcset="{%- if section.settings.desk_image_with_text_image.width >= 165 -%}{{ section.settings.desk_image_with_text_image | img_url: '165x' }} 165w,{%- endif -%}
+                        {%- if section.settings.desk_image_with_text_image.width >= 360 -%}{{ section.settings.desk_image_with_text_image | img_url:'360x' }} 360w,{%- endif -%}
+                        {%- if section.settings.desk_image_with_text_image.width >= 535 -%}{{ section.settings.desk_image_with_text_image | img_url: '535x' }} 535w,{%- endif -%}
+                        {%- if section.settings.desk_image_with_text_image.width >= 750 -%}{{ section.settings.desk_image_with_text_image | img_url:'750x' }} 600w,{%- endif -%}
+                        {%- if section.settings.desk_image_with_text_image.width >= 1000 -%}{{ section.settings.desk_image_with_text_image | img_url:'1200x' }} 1000w,{%- endif -%}
+                        {%- if section.settings.desk_image_with_text_image.width >= 1500 -%}{{ section.settings.desk_image_with_text_image | img_url: '1500x' }} 1500w,{%- endif -%}
+                         {{ section.settings.desk_image_with_text_image | img_url:'' }} {{ section.settings.desk_image_with_text_image.width }}w"
+                        src="{{ section.settings.desk_image_with_text_image | img_url:'1500x' }}"
+                        sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width:750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                        alt="{{ section.settings.desk_image_with_text_image.alt | escape }}"
+                        loading="lazy"
+                        width="{{ section.settings.desk_image_with_text_image.width }}"
+                        height="{{ section.settings.desk_image_with_text_image.height }}">
+          {% endif %}
+           {%  if section.settings.desk_image_with_text_image != blank %}
+            <img  class="mob-brand-pdp"  srcset="{%- if section.settings.mobile_image_with_text_image.width >= 165 -%}{{ section.settings.mobile_image_with_text_image | img_url: '165x' }} 165w,{%- endif -%}
+                        {%- if section.settings.mobile_image_with_text_image.width >= 360 -%}{{ section.settings.mobile_image_with_text_image | img_url:'360x' }} 360w,{%- endif -%}
+                        {%- if section.settings.mobile_image_with_text_image.width >= 535 -%}{{ section.settings.mobile_image_with_text_image | img_url: '535x' }} 535w,{%- endif -%}
+                        {%- if section.settings.mobile_image_with_text_image.width >= 750 -%}{{ section.settings.mobile_image_with_text_image | img_url:'750x' }} 600w,{%- endif -%}
+                        {%- if section.settings.mobile_image_with_text_image.width >= 1000 -%}{{ section.settings.mobile_image_with_text_image | img_url:'1200x' }} 1000w,{%- endif -%}
+                        {%- if section.settings.mobile_image_with_text_image.width >= 1500 -%}{{ section.settings.mobile_image_with_text_image | img_url: '1500x' }} 1500w,{%- endif -%}
+                         {{ section.settings.mobile_image_with_text_image | img_url:'' }} {{ section.settings.mobile_image_with_text_image.width }}w"
+                        src="{{ section.settings.mobile_image_with_text_image | img_url:'1500x' }}"
+                        sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width:750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                        alt="{{ section.settings.mobile_image_with_text_image.alt | escape }}"
+                        loading="lazy"
+                        width="{{ section.settings.mobile_image_with_text_image.width }}"
+                        height="{{ section.settings.mobile_image_with_text_image.height }}">
+              {% endif %}
+    </div>
+      {% endif %}
+  </div>
+</div>
+
+
+
+
+{% schema %}
+{
+  "name": "About The Brand",
+  "settings": [{
+  "type": "text",
+  "id": "about_head1",
+  "label": "About Sub Heading",
+  "default": "About the Brand"
+},
+    {
+  "type": "text",
+  "id": "about_subhead1",
+  "label": "About Heading",
+  "default": "Movado Group’s founder"
+},
+    {
+  "type": "richtext",
+  "id": "brand_description",
+  "label": "Description"
+}
+,
+    {
+  "type": "image_picker",
+  "id": "desk_image_with_text_image",
+  "label": "Desktop Image"
+}
+,
+    {
+  "type": "image_picker",
+  "id": "mobile_image_with_text_image",
+  "label": "Mobile Image"
+},
+    {
+  "type": "url",
+  "id": "know_button_link",
+  "label": "Button link"
+}
+
+    
+
+    
+],
+     "presets": [
+    {
+      "name": "About the Brand"
+    }]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

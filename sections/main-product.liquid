@@ -285,6 +285,33 @@
                 <span class="visually-hidden">{{ 'products.product.sku' | t }}:</span>
                 {{- product.selected_or_first_available_variant.sku -}}
               </p>
+
+             <!--     ==================USP BLOCK======================= -->
+      {%- when 'USP' -%}
+        {% unless product.type == 'Gift Card'%}
+          <div class="usp_div">
+              {%- if block.settings.urllink  != blank -%}
+                <div class="usp_content">
+                  <div class="usp-img">
+                    {%assign iconurls = block.settings.urllink | split:',' %}
+                    {%assign icontexts = block.settings.icontext | split:'##' %}
+                    {%assign sizes= iconurls.size | minus:1  %}
+                    {%for i in (0..sizes) %}
+                      <div class="usp_icons">
+                      <div class="usp_images">
+                        <img src="{{iconurls[i]}}" />
+                      </div>
+                      <div class="usp_text">
+                        <p>{{icontexts[i]}}</p>
+                      </div>
+                      </div>
+                    {%endfor%}
+                </div>
+              </div>
+            {%endif%}
+          </div>
+      {% endunless %}
+            
             {%- when 'custom_liquid' -%}
               {{ block.settings.custom_liquid }}
             {%- when 'collapsible_tab' -%}
@@ -1373,6 +1400,24 @@ window.addEventListener('DOMContentLoaded', initSwipersPDP, { once: true });
           "id": "custom_liquid",
           "label": "t:sections.custom-liquid.settings.custom_liquid.label",
           "info": "t:sections.custom-liquid.settings.custom_liquid.info"
+        }
+      ]
+    },
+     {
+      "type": "USP",
+      "name": "USP",
+      "settings": [
+        {
+          "id": "urllink",
+          "type": "text",
+          "label": "USP Image-Urls",
+          "info":"Each url separated by ' , ' "
+        },
+        {
+          "id": "icontext",
+          "type": "text",
+          "label": "USP Titles",
+           "info":"Each Titles separated by ' ## ' "
         }
       ]
     },
