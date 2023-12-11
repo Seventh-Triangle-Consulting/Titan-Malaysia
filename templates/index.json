@@ -462,10 +462,23 @@
             "story_padding_desktop": "0 5px",
             "layer_number": "1"
           }
+        },
+        "c86a8670-813e-4202-be02-1968108ef01d": {
+          "type": "shopify:\/\/apps\/quinn-shoppable-videos\/blocks\/app-imax_video-block\/150d2781-732b-4020-a9fb-1368e974e6bb",
+          "settings": {
+            "imaxvideo_spacing_desktop": 20,
+            "imaxvideo_spacing_mobile": 10,
+            "imaxvideo_margins_mobile": "0",
+            "imaxvideo_margins_desktop": "0",
+            "imaxvideo_padding_mobile": "0 10px",
+            "imaxvideo_padding_desktop": "0 5px",
+            "layer_number": "1"
+          }
         }
       },
       "block_order": [
-        "2e479f45-2b85-4815-aa2f-fe6d1de3eb2b"
+        "2e479f45-2b85-4815-aa2f-fe6d1de3eb2b",
+        "c86a8670-813e-4202-be02-1968108ef01d"
       ],
       "settings": {
         "include_margins": true
