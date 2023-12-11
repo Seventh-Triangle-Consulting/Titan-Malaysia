@@ -2090,7 +2090,7 @@ border:none;background:transparent;} */
 .product .product__info-wrapper .product__info-container .usp_div{
          width: 100%;
     border-top: 1px solid rgba(0,0,0,.1);
-    padding: 5% 0;
+    padding:3%;
     border-bottom: 1px solid rgba(0,0,0,.1);
     margin: 2rem 0;
 }
