@@ -2086,4 +2086,5 @@ border:none;background:transparent;} */
 .custom-quantity-inpu{pointer-events:none;}
 button.restock-alerts-notify-button {
   font-family: Roboto-Medium;
+      left: 0 !immportant;
 }
