@@ -183,7 +183,7 @@ class CartItems extends HTMLElement {
     const lineItemError =
       document.getElementById(`Line-item-error-${line}`) || document.getElementById(`CartDrawer-LineItemError-${line}`);
     if (lineItemError) lineItemError.querySelector('.cart-item__error-text').innerHTML = message;
-
+console.log(lineItemError, raman)
     this.lineItemStatusElement.setAttribute('aria-hidden', true);
 
     const cartStatus =
