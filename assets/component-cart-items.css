@@ -3,6 +3,7 @@
   padding: 0;
   border: none;
 }
+.product-option{font-family:Roboto-Regular;}
 a.cart-item__name:hover {
     text-decoration: none;
 }
