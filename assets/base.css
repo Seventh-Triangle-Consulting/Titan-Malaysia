@@ -3619,8 +3619,10 @@ img.img-responsive.image1 {
     flex-wrap: wrap;
     justify-content: space-between;
 }
-.container.wishlistbodycontainer .row .col-md-4{
-  width:22%;
+@media and (min-width: 992px){
+    .container.wishlistbodycontainer .row .col-md-4{
+      width:22% !important;
+    }
 }
 .wishlistpage .product .image {
     border-radius: 10px !important;
