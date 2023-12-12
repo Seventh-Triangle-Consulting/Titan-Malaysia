@@ -72,11 +72,11 @@ function trapFocus(container, elementToFocus = container) {
   elementToFocus?.focus();
 
   if (
-    elementToFocus.tagName === 'INPUT' &&
+    elementToFocus?.tagName === 'INPUT' &&
     ['search', 'text', 'email', 'url'].includes(elementToFocus.type) &&
-    elementToFocus.value
+    elementToFocus?.value
   ) {
-    elementToFocus.setSelectionRange(0, elementToFocus.value.length);
+    elementToFocus?.setSelectionRange(0, elementToFocus.value.length);
   }
 }
 
