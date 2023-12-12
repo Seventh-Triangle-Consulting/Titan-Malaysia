@@ -6,6 +6,9 @@
   right: var(--inputs-border-width);
   top: var(--inputs-border-width);
 }
+.template-search__header h1{
+  font-family:PlayfairDisplay-Bold;
+}
 .reset__button, .search__button{
   padding-top:2.2rem;
 }
