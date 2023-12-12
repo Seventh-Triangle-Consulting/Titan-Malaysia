@@ -3,6 +3,7 @@
   .pdp_shipping{margin-bottom:2%;}
   .pdp_shipping_returns{flex-direction:center !important;align-items:baseline !important;}
 }
+.desccriptiom-custom-acc li{list-style: disc;}
 .productformdesktopsticky-variant-atc{position:relative;}
 .productformdesktopsticky-variant-atc .product-form__error-message-wrapper{position:absolute;left:0;bottom:-5px;}
 .pdp_ATC:hover{color:#fff !important;background-color:#000;}
