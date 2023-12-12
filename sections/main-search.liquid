@@ -234,6 +234,7 @@
                           show_rating: section.settings.show_rating,
                           lazy_load: lazy_load
                         %}
+                        <a class="search-view-more-btn" href="{{ item.url }}">View More</a>
                       {%- when 'article' -%}
                         {% render 'article-card',
                           article: item,
