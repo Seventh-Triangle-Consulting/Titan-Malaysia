@@ -46,7 +46,7 @@ footer{border-top:1px solid #dadada !important;border-bottom:1px solid #dadada !
   .newsletter-form__field-wrapper{display: flex;gap: 2%;}
   .footersocialicons{margin-top:10%;}
    .footer-block--newsletter{width:33%;}
-  .footer__content-top{width:50%;}
+  .footer__content-top{width:55%;}
 }
 @media screen and (max-width: 767px) {
   .footer .grid {display: block;}
