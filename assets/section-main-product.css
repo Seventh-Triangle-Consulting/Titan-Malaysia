@@ -7,6 +7,7 @@
 .productformdesktopsticky-variant-atc .product-form__error-message-wrapper{position:absolute;left:0;bottom:-5px;}
 .pdp_ATC:hover{color:#fff !important;background-color:#000;}
 .pdp_ATC:hover span{color:#fff !important;background-color:#000;}
+.productformdesktopsticky .pdp_ATC:hover span{background-color:inherit;}
 .custom-atc-qty-slector .pdp_ATC span{font-family:Roboto-Medium;}
 .custom-quantity-number, .custom-quantity-number span{font-size:clamp(14px, calc(16 * (100vw / 1440)), 18px)}
 .product__media-wrapper{
