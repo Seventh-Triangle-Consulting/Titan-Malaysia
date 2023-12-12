@@ -1,6 +1,20 @@
 .related-products {
   display: block;
 }
+.related-view-more-btn{
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black;
+    color: white;
+    text-transform: uppercase;
+    text-decoration: initial;
+    padding: 10px 5%;
+    border-radius: 10px;
+    font-family: Roboto-Medium;
+    margin: auto;
+    width: 100%;
+}
 .related-products__heading strong,.related-products__heading{
   font-family:PlayfairDisplay-Bold;
   font-size:clamp(22px, calc(24 * (100vw / 1440)), 26px);
