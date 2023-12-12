@@ -3638,8 +3638,8 @@ img.img-responsive.image1 {
   font-family:Roboto-Regular;
   color:#000;
 }
-.wishlistbodycontainer .btn-default{
-  border:black;
+.wishlistpage .btn, .modal .btn{
+  border-color:black;
 }
 .wishlistbodycontainer .product .text h3{
   height:auto !important;
