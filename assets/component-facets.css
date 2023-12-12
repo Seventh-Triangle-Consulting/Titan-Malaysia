@@ -1114,4 +1114,5 @@ input.mobile-facets__checkbox {
   .facets-vertical .active-facets__button-remove {
     padding: 0 1rem 1rem;
   }
+  .product-count{display:none;}
 }
