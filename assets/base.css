@@ -3629,6 +3629,7 @@ img.img-responsive.image1 {
 .wishlistbodycontainer .product .text h3{
   height:auto !important;
 }
+.wishlistpage .product{margin-bottom:0 !important;}
   .container.wishlistbodycontainer {
     width: auto !important;
     max-width: 192rem !important;
