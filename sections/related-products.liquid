@@ -5,7 +5,6 @@
 {% if section.settings.image_shape == 'blob' %}
   {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
 {%- endif -%}
-
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -148,7 +147,7 @@ console.log(pid);
   
     
   </script>
-  <script src="{{ 'global.js' | asset_url }}"></script>
+<script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
 {% schema %}
 {
   "name": "t:sections.related-products.name",
