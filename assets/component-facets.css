@@ -99,6 +99,7 @@
   min-width: auto;
   min-height: auto;
   transition: none;
+  box-shadow:none;
 }
 
 .facet-filters button {
