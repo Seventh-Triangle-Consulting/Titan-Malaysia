@@ -216,7 +216,7 @@ cart-remove-button .icon-remove {
     font-size:12px;
   font-family:Roboto-Regular;
 }
-.cart-item__name{font-size:14px;color:#000;line-height:18px;}
+.cart-item__name{font-size:14px;color:#000;line-height:1.5;}
  .cart-drawer .price{font-size:12px;}
 .cart-items thead th {
   text-transform: uppercase;
