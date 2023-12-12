@@ -182,8 +182,7 @@ class CartItems extends HTMLElement {
   updateLiveRegions(line, message) {
     const lineItemError =
       document.getElementById(`Line-item-error-${line}`) || document.getElementById(`CartDrawer-LineItemError-${line}`);
-console.log(lineItemError, "raman")
-    if (lineItemError) lineItemError.querySelector('.cart-item__error-text').innerHTML = message +"raman" ;
+    if (lineItemError) lineItemError.querySelector('.cart-item__error-text').innerHTML = message  ;
     this.lineItemStatusElement.setAttribute('aria-hidden', true);
 
     const cartStatus =
