@@ -3617,13 +3617,6 @@ img.img-responsive.image1 {
       width:22% !important;
     }
 }
-#remove_modal_label{
-  font-size:14px;
-}
-#remove_modal_title, #variant_selection_modal_text{
-  font-family:Roboto-Regular;
-  color:#000;
-}
 @media screen and (max-width: 977px){
   .container.wishlistbodycontainer .row {
     display: flex !important;
@@ -3637,6 +3630,16 @@ img.img-responsive.image1 {
 }
 .wishlistpage .btn:focus,.wishlistpage .btn:active:focus,.wishlistpage .btn.active:focus,.wishlistpage .btn.focus,.wishlistpage .btn:active.focus,.wishlistpage .btn.active.focus{
   outline:none !important;
+}
+#remove_modal_label{
+  font-size:14px;
+}
+#remove_modal_title, #variant_selection_modal_text{
+  font-family:Roboto-Regular;
+  color:#000;
+}
+.wishlistbodycontainer .btn-default{
+  border:black;
 }
 .wishlistbodycontainer .product .text h3{
   height:auto !important;
