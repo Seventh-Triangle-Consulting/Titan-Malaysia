@@ -3628,6 +3628,9 @@ img.img-responsive.image1 {
       width:40% !important;
    }
 }
+.wishlistpage .btn:focus,.wishlistpage .btn:active:focus,.wishlistpage .btn.active:focus,.wishlistpage .btn.focus,.wishlistpage .btn:active.focus,.wishlistpage .btn.active.focus{
+  outline:none !important;
+}
 .wishlistbodycontainer .product .text h3{
   height:auto !important;
 }
