@@ -29,7 +29,7 @@ footer{border-top:1px solid #dadada !important;border-bottom:1px solid #dadada !
 .footer__follow-on-shop {display: flex; text-align: center;}
 .footer__list-social.list-social:only-child {justify-content: flex-start;}
 .footer-block__newsletter .footer-block__heading {color:#000;text-align:left;font-size:16px;}
-.footer-block__newsletter {text-align: center;flex-grow: 1; padding: 4rem 2rem 4rem 0;margin-bottom: 0rem;}
+.footer-block__newsletter {text-align: center;flex-grow: 1; padding: 0rem 2rem 4rem 0;margin-bottom: 0rem;}
 .newsletter-form__field-wrapper {max-width: 36rem;}
 @media screen and (min-width: 950px) {
   .footer-block.grid__item.footer-block--menu{width:18%;}
