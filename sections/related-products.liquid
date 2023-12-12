@@ -147,7 +147,14 @@ console.log(pid);
   
     
   </script>
-<script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
+<script>
+  setTimeout(function() {
+    var script = document.createElement('script');
+    script.src = "{{ 'global.js' | asset_url }}";
+    script.defer = true;
+    document.head.appendChild(script);
+  }, 5000); // Set the timeout to 5000 milliseconds (5 seconds), adjust as needed
+</script>
 {% schema %}
 {
   "name": "t:sections.related-products.name",
