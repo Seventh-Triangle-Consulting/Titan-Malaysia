@@ -590,7 +590,16 @@ class ModalOpener extends HTMLElement {
     if (!button) return;
     button.addEventListener('click', () => {
       const modal = document.querySelector(this.getAttribute('data-modal'));
-      if (modal) modal.show(button);
+      console.log("modal"+modal)
+      console.log("button"+button)
+      // if (modal) modal.show(button);
+          this.openedBy = button;
+          const popup = this.querySelector('.template-popup');
+          document.body.classList.add('overflow-hidden');
+          this.setAttribute('open', '');
+          if (popup) popup.loadContent();
+          trapFocus(this, this.querySelector('[role="dialog"]'));
+          window.pauseAllMedia();
     });
   }
 }
