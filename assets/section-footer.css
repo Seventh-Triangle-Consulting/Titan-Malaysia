@@ -40,7 +40,7 @@ footer{border-top:1px solid #dadada !important;border-bottom:1px solid #dadada !
   .footer__content-top{padding-right:5rem;padding-left:5rem;}
 }
 @media screen and (min-width:769px){
-  .custom-social-share{display: flex; flex-direction: column; justify-content: center;}
+  .custom-social-share{display: flex; flex-direction: column;}
   .newsletter-form__button{margin-top:0 !important;}
   .newsletter-form__field-wrapper{display: flex;gap: 2%;}
   .footersocialicons{margin-top:10%;}
