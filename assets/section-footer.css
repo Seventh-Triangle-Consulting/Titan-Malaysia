@@ -37,7 +37,7 @@ footer{border-top:1px solid #dadada !important;border-bottom:1px solid #dadada !
 }
 @media screen and (min-width:1225px){
   .custom-titan-footer{justify-content:space-between !important;flex-wrap:nowrap !important;gap:0 !important;}
-  .footer__content-top{padding-right:5rem;padding-left:5rem;}
+  .footer__content-top{padding-right:0rem;padding-left:0rem;}
 }
 @media screen and (min-width:769px){
   .custom-social-share{display: flex; flex-direction: column;}
