@@ -3620,7 +3620,7 @@ img.img-responsive.image1 {
 #remove_modal_label{
   font-size:14px;
 }
-#remove_modal_title{
+#remove_modal_title, #variant_selection_modal_text{
   font-family:Roboto-Regular;
   color:#000;
 }
