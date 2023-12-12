@@ -3617,6 +3617,9 @@ img.img-responsive.image1 {
       width:22% !important;
     }
 }
+#remove_modal_label{
+  font-size:14px;
+}
 #remove_modal_title{
   font-family:Roboto-Regular;
   color:#000;
