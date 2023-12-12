@@ -3627,7 +3627,7 @@ img.img-responsive.image1 {
       width:40% !important;
 }
 .wishlistbodycontainer .product .text h3{
-  overflow:hidden;
+  height:auto !important;
 }
   .container.wishlistbodycontainer {
     width: auto !important;
