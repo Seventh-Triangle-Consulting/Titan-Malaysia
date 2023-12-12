@@ -7,7 +7,7 @@
   }
 }
 .smartwishlist{
-  position: absolute; top: 2%; right: 4%; z-index: 1 !important;
+  position: absolute; top: 2%; right: 4%; z-index: 2 !important;
 }
 .swiper-slide{position:relative;}
 .smartwishlist span{
