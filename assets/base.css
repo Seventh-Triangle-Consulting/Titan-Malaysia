@@ -3616,7 +3616,8 @@ img.img-responsive.image1 {
 }
 .container.wishlistbodycontainer .row {
     display: flex !important;
-    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .wishlistpage .product .image {
