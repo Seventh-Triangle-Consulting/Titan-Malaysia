@@ -9,7 +9,7 @@
 .template-search__header h1{
   font-family:PlayfairDisplay-Bold;
 }
-.reset__button, .search__button{
+.template-search .reset__button,.template-search .search__button{
   padding-top:2.2rem;
 }
 .reset__button {
