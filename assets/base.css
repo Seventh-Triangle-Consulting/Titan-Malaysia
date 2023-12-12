@@ -3617,6 +3617,17 @@ img.img-responsive.image1 {
       width:22% !important;
     }
 }
+@media screen and (max-width: 977px){
+  .container.wishlistbodycontainer .row {
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap:16px;
+   }
+   .container.wishlistbodycontainer .row .col-md-4{
+      width:40% !important;
+   }
+}
 .wishlistbodycontainer .product .text h3{
   height:auto !important;
 }
