@@ -3,7 +3,8 @@
   padding: 0;
   border: none;
 }
-.product-option, .tax-note{font-family:Roboto-Regular;color:#000;}
+cart-items .product-option, .tax-note{font-family:Roboto-Regular;color:#000;}
+cart-items .product-option{margin-top:10px;}
 a.cart-item__name:hover {
     text-decoration: none;
 }
