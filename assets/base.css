@@ -3620,7 +3620,7 @@ img.img-responsive.image1 {
     justify-content: space-between;
 }
 @media and (min-width: 992px){
-    .container.wishlistbodycontainer .row .col-md-4{
+   .container.wishlistbodycontainer .row .col-md-4{
       width:22% !important;
     }
 }
