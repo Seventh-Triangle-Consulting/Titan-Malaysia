@@ -41,7 +41,7 @@ variant-selects .select .icon-caret, .customer select+svg{
   .productformdesktopsticky .pdp_ATC span{font-size: 14px;min-width:max-content;}
   .custom-atc-qty-slector .pdp_ATC{width:22vw !important;}
 }
-.custom-atc-qty-slector .restock-alerts-notify-button{position: relative;left: -25%;}
+.custom-atc-qty-slector .restock-alerts-notify-button{border-radius:5px;}
 .custom-atc-qty-slector .restock-alerts-branding-text{display: none;}
 .productformdesktopsticky .field:after,.productformdesktopsticky .select:after,.productformdesktopsticky .field:hover.field:after,.productformdesktopsticky .select:hover.select:after,.productformdesktopsticky .select__select:hover.select__select:after{
   box-shadow:none;
