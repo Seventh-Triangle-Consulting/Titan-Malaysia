@@ -18,7 +18,7 @@
 .predictive-search.predictive-search--header .predictive-search__item-heading{font-family: var(--font-family-p);font-size: clamp(calc(14 * .9px),calc(14 * (100vw / var(--viewportDesktop))),calc(14 * 1.1px));}
 .predictive-search.predictive-search--header .predictive-search__item {font-size: clamp(calc(15 * .9px),calc(15 * (100vw / var(--viewportDesktop))),calc(15 * 1.1px));}
 .predictive-search--search-template {
-  z-index: 2;
+  z-index: 3;
   width: calc(100% + 0.2rem);
 }
 
