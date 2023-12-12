@@ -3,6 +3,8 @@
   padding: 0;
   border: none;
 }
+cart-items .product-option, .tax-note{font-family:Roboto-Regular;color:#000;}
+cart-items .product-option{margin-top:5px;}
 a.cart-item__name:hover {
     text-decoration: none;
 }
@@ -214,7 +216,8 @@ cart-remove-button .icon-remove {
     font-size:12px;
   font-family:Roboto-Regular;
 }
-.cart-item__name{font-size:14px;color:#000;}
+.cart-item__name{font-size:14px;color:#000;line-height:1.5;}
+.cart__ctas button{color:#fff !important;}
  .cart-drawer .price{font-size:12px;}
 .cart-items thead th {
   text-transform: uppercase;

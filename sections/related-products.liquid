@@ -5,7 +5,6 @@
 {% if section.settings.image_shape == 'blob' %}
   {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
 {%- endif -%}
-
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -42,8 +41,8 @@
               show_vendor: section.settings.show_vendor,
                show_color-swatch:section.settings.enable_colorswatch,
               show_rating: section.settings.show_rating
-              show_quick_add: section.settings.enable_quick_add
             %}
+            <a class="related-view-more-btn" href="{{ product.url }}">View More</a>
           </div>
         {% endfor %}
       {% endif %}
@@ -102,12 +101,12 @@
       let colorslider = "";  
  colorslider = el.querySelector(".productcardcolorswatch");
 console.log(pid);
-         var contentm = document.getElementById('product_image_slide_container_'+pid+'');         
+         var contentm = document.getElementById('product_image_slide_container_'+pid+'');
        var maincolor = document.getElementById('productcardcolor_'+pid+'');
-         let swatchcolorW = maincolor.querySelectorAll(".colorswatch"); 
-         let productid_info = contentm.querySelectorAll(".colorproductimage");
+         let swatchcolorW = maincolor?.querySelectorAll(".colorswatch"); 
+         let productid_info = contentm?.querySelectorAll(".colorproductimage");
  
-     swatchcolorW.forEach(function(el, key){
+     swatchcolorW?.forEach(function(el, key){
        
        el.addEventListener('click', (e, key) => {
     const et = e.target;   
@@ -144,10 +143,11 @@ console.log(pid);
 
    
     });
-     }, 8000);
+     }, 10000);
   
     
   </script>
+
 {% schema %}
 {
   "name": "t:sections.related-products.name",
@@ -298,12 +298,6 @@ console.log(pid);
       "default": false,
       "label": "t:sections.related-products.settings.show_rating.label",
       "info": "t:sections.related-products.settings.show_rating.info"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_quick_add",
-      "default": true,
-      "label": "Show Quick Add"
     },
     {
       "type": "header",
