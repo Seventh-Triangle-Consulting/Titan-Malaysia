@@ -69,7 +69,7 @@ function trapFocus(container, elementToFocus = container) {
   document.addEventListener('focusout', trapFocusHandlers.focusout);
   document.addEventListener('focusin', trapFocusHandlers.focusin);
 
-  elementToFocus.focus();
+  elementToFocus?.focus();
 
   if (
     elementToFocus.tagName === 'INPUT' &&
