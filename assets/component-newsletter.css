@@ -6,6 +6,7 @@
 .newsletter-form__field-wrapper input:-webkit-autofill:active{
   transition: background-color 5000s ease-in-out 0s;
 }
+.footer-block__newsletter, .footer-block__newsletter h5{width:fit-content;}
 .footer-block__newsletter .footer-block_para{color:#000;}
 .newsletter-form__field-wrapper input{color: black; font-size: 14px; padding:0 0 0 2% !important;}
 .newsletter-form__field-wrapper .field{ width: 200px; height: 40px;}
