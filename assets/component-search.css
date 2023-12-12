@@ -6,7 +6,9 @@
   right: var(--inputs-border-width);
   top: var(--inputs-border-width);
 }
-
+.reset__button, .search__button{
+  margin-top:2.2rem;
+}
 .reset__button {
   right: calc(var(--inputs-border-width) + 4.4rem);
   top: var(--inputs-border-width);
