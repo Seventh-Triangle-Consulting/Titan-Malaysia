@@ -307,7 +307,7 @@ cart-remove-button .icon-remove {
   }
 
   .cart-item>td+td {
-    padding-left: 4rem;
+    padding-left: 2rem;
   }
 
   .cart-item__details {

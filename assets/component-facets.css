@@ -5,8 +5,10 @@
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
+
 price-range label{padding-top:0 !important ;}
-.facets__disclosure[open] svg{
+
+.facets__disclosure[open] .icon-caret{
   transform:rotate(180deg);
 }
 .facet-filters__field .select__select, .mobile-facets__sort .select__select, .sorting,.facet-filters__label label{font-family:Roboto-Regular !important;color:#000;}
