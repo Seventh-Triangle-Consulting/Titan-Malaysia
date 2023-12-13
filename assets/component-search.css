@@ -13,7 +13,7 @@
 .template-search__header h1{
   font-family:PlayfairDisplay-Bold;
 }
-.template-search input::placeholder,.template-search .reset__button,.template-search .search__button{
+.template-search .field__label,.template-search .reset__button,.template-search .search__button{
   padding-top:2.2rem;
 }
 .reset__button {
