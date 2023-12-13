@@ -1,7 +1,7 @@
 .footersocialicons{margin-top:10px;}
 .svg-rotate svg{transform: rotate(180deg);}
 .show-discription{display: block !important;}
-.custom-social-share{padding-bottom:0;}
+.custom-social-share{padding-bottom:0 !important;}
 .custom-social-share .footer-block__heading{font-size: 14px !important;}
 .footer-block__heading, .custom-social-share, .footersocialicons{width:fit-content;}
 .div_1 a{text-decoration:initial;font-size:12px;}
