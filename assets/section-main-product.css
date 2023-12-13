@@ -3,6 +3,7 @@
   .pdp_shipping{margin-bottom:2%;}
   .pdp_shipping_returns{flex-direction:center !important;align-items:baseline !important;}
 }
+.restock-alerts-form div,.restock-alerts-form label{color: #000;font-family: Roboto-Medium;}
 .desccriptiom-custom-acc li{list-style: disc;}
 .productformdesktopsticky-variant-atc{position:relative;}
 .productformdesktopsticky-variant-atc .product-form__error-message-wrapper{position:absolute;left:0;bottom:-5px;}
@@ -45,7 +46,7 @@ variant-selects .select .icon-caret, .customer select+svg{
   .productformdesktopsticky .pdp_ATC span{font-size: 14px;min-width:max-content;}
   .custom-atc-qty-slector .pdp_ATC{width:22vw !important;}
 }
-.custom-atc-qty-slector .restock-alerts-notify-button{border-radius:5px;}
+.custom-atc-qty-slector .restock-alerts-notify-button{border-radius:5px;font-family: Roboto-Regular;}
 .custom-atc-qty-slector .restock-alerts-branding-text{display: none;}
 .productformdesktopsticky .field:after,.productformdesktopsticky .select:after,.productformdesktopsticky .field:hover.field:after,.productformdesktopsticky .select:hover.select:after,.productformdesktopsticky .select__select:hover.select__select:after{
   box-shadow:none;
@@ -614,6 +615,7 @@ a.product__text {
   word-break: keep-all;
   background: #000;
   font-family: Roboto-Regular;
+  white-space: nowrap;
 }
 
 .product .price__container {
@@ -1729,7 +1731,7 @@ a.product__text {
     display: flex;
     align-self: stretch;
   }
-  .custom-atc-qty-slector .pdp_ATC{width:48vw !important;}
+  .custom-atc-qty-slector .pdp_ATC{width:-webkit-fill-available !important;}
   .custom-atc-qty-slector .pdp_ATC span{font-size:18px;}
 
   .product-media-container.media-fit-cover .media {
@@ -2083,13 +2085,6 @@ border:none;background:transparent;} */
   .custom-atc-qty-slector .pdp_ATC{width:45vw !important;}
   .custom-atc-qty-slector .pdp_ATC span{font-size:15px;}
 }
-@media screen and (max-width:330px)
-{
-  .pincode_div{width:100%;}
-  .custom-atc-qty-slector .pdp_ATC{width:35vw !important}
-  .custom-atc-qty-slector .pdp_ATC span{font-size:14px !important;}
-}
-
 .usp_content .usp-img{
   display: flex;
     justify-content: space-between;
@@ -2135,6 +2130,11 @@ border:none;background:transparent;} */
     font-size: 3.271vw!important;
 }
   .atc_Error_Message{font-size:10px;}
+  .custom-atc-qty-slector{flex-direction: column-reverse;}
+  .pincode_div{width:100%;}
+  .custom-atc-qty-slector .pdp_ATC{width:87vw !important}
+  .custom-atc-qty-slector .pdp_ATC span{font-size:14px !important;}
+  .restock-alerts-modal-box{width: 90%;margin: auto;}
 }
 
 
