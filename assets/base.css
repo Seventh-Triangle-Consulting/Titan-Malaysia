@@ -910,7 +910,9 @@ summary::-webkit-details-marker {
     row-gap: var(--grid-desktop-vertical-spacing);
   }
 }
-
+#smlEmailOTPDivError, #loginError{
+  font-family: Roboto-Regular;
+}
 .grid:last-child {
   margin-bottom: 0;
 }

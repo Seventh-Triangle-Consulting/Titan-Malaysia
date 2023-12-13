@@ -1118,4 +1118,6 @@ input.mobile-facets__checkbox {
     padding: 0 1rem 1rem;
   }
   .product-count{display:none;}
+  .facets__form{display: flex;flex-direction: column;}
+  .sorting{align-self:flex-end;}
 }
