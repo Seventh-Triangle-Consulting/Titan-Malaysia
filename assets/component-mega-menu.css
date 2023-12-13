@@ -1,7 +1,7 @@
 .mega-menu {
   position: static;
 }
- .rightmenuimages .megamenulinkshop img{width:250px;height:250px;}
+ .rightmenuimages .megamenulinkshop img{width:250px;height:auto;}
 .mega-menu__content {
      max-width: 100%;
  background: rgba(252, 249, 249, 1);
