@@ -13,8 +13,11 @@
 .template-search__header h1{
   font-family:PlayfairDisplay-Bold;
 }
-.template-search .field__label,.template-search .reset__button,.template-search .search__button{
+.template-search .reset__button,.template-search .search__button{
   padding-top:2.2rem;
+}
+.template-search .field__label{
+  padding-top:1rem;
 }
 .reset__button {
   right: calc(var(--inputs-border-width) + 4.4rem);
