@@ -11,7 +11,7 @@
 .facet-filters__field .select__select, .mobile-facets__sort .select__select, .sorting,.facet-filters__label label{font-family:Roboto-Regular !important;color:#000;}
 .mobile-facets__open>*+*, .mobile-facets__open svg,.facets__heading{
   font-family:Roboto-Medium;
-  color:#000;
+  color:#000 !important;
 }
 .active-facets-mobile {
   margin-bottom: 0.5rem;
