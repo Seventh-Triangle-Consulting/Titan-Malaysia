@@ -255,7 +255,8 @@
     {%- endunless -%}
   {%- endif -%}
 
-     <div class="custom-social-share">
+     <div class="custom-social-share footer-block__newsletter">
+         <div class="footer-block__heading">{{ section.settings.contact_us_heading }}</div>
           <div class="div_1 d-flex">
             {% if section.settings.mobile_footer != blank %}
                 <span>  
@@ -540,6 +541,12 @@
       "type": "richtext",
       "id": "emailid_footer",
       "label": "Email ID"
+    },
+    {
+      "type": "text",
+      "id": "contact_us_heading",
+      "label": "Contact Us Heading",
+      "default":"Contact Us"
     },
     {
       "type": "color_scheme",
