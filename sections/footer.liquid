@@ -167,7 +167,7 @@
                 {% endif %}
               >
                 {%- if block.settings.heading != blank -%}
-                  <h6 class="footer-block__heading inline-richtext" onclick="footermobilemenu({{forloop.index}})" >{{- block.settings.heading -}} </h6>
+                  <h6 class="footer-block__heading inline-richtext" id="{{forloop.index}}" onclick="footermobilemenu(this)" >{{- block.settings.heading -}} {% render 'icon-caret' %}</h6>
                 {%- endif -%}
 
                 {%- case block.type -%}
@@ -407,20 +407,19 @@
   </div>
 </footer>
 <script>
-  function footermobilemenu(index) {
+  function footermobilemenu(element) {
+    let index = element.id;
+    document.querySelectorAll('.footer-block__details-content').forEach((e)=>{
+        e.style.display="none";
+        e.previousElementSibling.remove('svg-rotate');
+    })
+    element.classList.toggle('svg-rotate')
     let x = document.getElementById('mobiledescp_'+index+'');
-    let xm = document.getElementById('iconminus_'+index+'');
-    let xy = document.getElementById('iconplus_'+index+'');
     if (x.style.display === "none") {
       x.style.display = "block";
-      xm.style.display = "block";
-      xy.style.display = "none";
-      
     } else {
       x.style.display = "none";
-       xm.style.display = "none";
-       xy.style.display = "block";
-    }
+   }
  }
 
 </script>

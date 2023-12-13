@@ -1,4 +1,5 @@
 .footersocialicons{margin-top:2%;}
+.svg-rotate svg{transform: rotate(180deg);}
 .footer-block__heading, .custom-social-share, .footersocialicons{width:fit-content;}
 .div_1 a{text-decoration:initial;font-size:12px;}
 .custom-social-share p{line-height:1;}
@@ -278,6 +279,7 @@ footer{border-top:1px solid #dadada !important;border-bottom:1px solid #dadada !
 }
 
 @media screen and (max-width: 749px) {
+  .footer__content-top .footer-block__heading{display: flex; width: 100%; justify-content: space-between; align-items: center;}
   .footer-block-image,
   .footer-block-image.left,
   .footer-block-image.center,

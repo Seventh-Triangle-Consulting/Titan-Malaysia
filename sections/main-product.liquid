@@ -1050,6 +1050,15 @@ function initSwipersPDP(event, isQuickAdd = false) {
       titleElements.forEach(function(titleElement) {
         titleElement.addEventListener('click', function() {
           // Toggle the class svg-transform on all elements with the same class
+         
+          titleElements.forEach((e)=>{
+            if(e!=this){
+              e.nextElementSibling.classList.add('column-description-hide');
+              e.classList.remove('svg-transform');
+            }
+          })
+
+
           var nextSibling = this.nextElementSibling;
           if (nextSibling) {
             nextSibling.classList.toggle('column-description-hide');
