@@ -6,6 +6,7 @@
   text-align: center;
   width:90%;
 }
+label{font-family: Roboto-Regular;}
 #address_default_address_8427448762527{accent-color: black;}
 .customer a, .customer p{color:#000;font-family:Roboto-Regular;line-height:25px;}
 .customer button,.customer input{font-family:Roboto-Regular !important;}

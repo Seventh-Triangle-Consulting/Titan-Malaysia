@@ -1,5 +1,7 @@
 .footersocialicons{margin-top:2%;}
 .svg-rotate svg{transform: rotate(180deg);}
+.show-discription{display: block !important;}
+.custom-social-share .footer-block__heading{font-size: 14px !important;}
 .footer-block__heading, .custom-social-share, .footersocialicons{width:fit-content;}
 .div_1 a{text-decoration:initial;font-size:12px;}
 .custom-social-share p{line-height:1;}
@@ -61,6 +63,7 @@ footer{border-top:1px solid #dadada !important;border-bottom:1px solid #dadada !
 }
 @media screen and (min-width: 768px) {
   .footer__content-top .grid {row-gap: 6rem;margin-bottom: 0;}
+  .footer-block--menu svg{display: none;}
   .footer__column--info {padding-left: 0;padding-right: 0;align-items: flex-end;}
   .footer-block:only-child:last-child {text-align: center;max-width: 76rem;margin: 0 auto;}
   .footer-block {display: block;margin-top: 0;}
@@ -336,12 +339,12 @@ footer{border-top:1px solid #dadada !important;border-bottom:1px solid #dadada !
 
 .copyright__content {
       color: #000;
-  font-size: clamp(calc(16 * .9px),calc(16 * (100vw / var(--viewportDesktop))),calc(16 * 1.4px));
+  font-size: 16px;
 }
 
 .copyright__content a {
-  color: #000; font-family: var(--font-family-p) ,sans-serif;
-  text-decoration: none;font-size: clamp(calc(16 * .9px),calc(16 * (100vw / var(--viewportDesktop))),calc(16 * 1.4px));
+  color: #000; font-family: Roboto-Regular;
+  text-decoration: none;font-size: 16px;
 }
 
 .policies {
