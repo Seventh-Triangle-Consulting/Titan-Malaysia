@@ -46,7 +46,7 @@ variant-selects .select .icon-caret, .customer select+svg{
   .productformdesktopsticky .price__badge-sale{display: none !important;}
   .productformdesktopsticky select{padding: 0 4rem 0 1rem !important;}
   .productformdesktopsticky .pdp_ATC span{font-size: 14px;min-width:max-content;}
-  .custom-atc-qty-slector .pdp_ATC{width:40vw !important;}
+  .custom-atc-qty-slector .pdp_ATC{width:-webkit-fill-available !important;}
   .productformdesktoptitle .Rubik-400-30px{margin-bottom: 0 !important;line-height: 1.2;}
   .productformdesktoptitle .product__title{margin-bottom: 0 !important;}
 }
