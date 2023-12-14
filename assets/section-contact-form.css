@@ -32,7 +32,10 @@ input[type=number]::-webkit-outer-spin-button {
 .contact .field {
   margin-bottom: 1.5rem;
 }
-
+.get-in-touch-image-text p a{
+  font-family:Roboto-Medium;
+  color:#000;
+}
 @media screen and (min-width: 750px) {
   .contact .field {
     margin-bottom: 2rem;padding-top: 1rem;
