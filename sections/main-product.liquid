@@ -289,6 +289,7 @@
              <!--     ==================USP BLOCK======================= -->
       {%- when 'USP' -%}
         {% unless product.type == 'Gift Card'%}
+        {%- if block.settings.urllink  != blank -%}
           <div class="usp_div">
               {%- if block.settings.urllink  != blank -%}
                 <div class="usp_content">
@@ -310,6 +311,7 @@
               </div>
             {%endif%}
           </div>
+        {% endif %}
       {% endunless %}
             
             {%- when 'custom_liquid' -%}

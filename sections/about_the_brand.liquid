@@ -1,11 +1,6 @@
 <style>
   @media only screen and (max-width:787px)
   {
-    .top-brand-pdp 
-    {
-      width: 100% !important;
-      padding:unset !important;
-    }
     .about-brand-container 
     {
       grid-template-columns: unset !important;
@@ -28,7 +23,6 @@
    
     .about-brand-container .about-brand-media
     {
-       width: 82.71vw !important;
       padding-top:1.5rem;
     }
     .about-brand-container .about-brand-media .desk-brand-pdp 
@@ -43,13 +37,6 @@
      height: auto;
     }
 }
-  .top-brand-pdp
-  {
-      margin: 2.5rem auto;
-        padding: 0 120px;
-    max-width: 1920px;
- 
-  }
   .about-brand-container
   {
     background: #F5F5F5;
@@ -80,7 +67,6 @@
   }
   .about-brand-container .about-brand-media
   {
-    width: 34.846vw;
     margin: auto;
     object-fit: cover;
   }
@@ -126,7 +112,7 @@
 </style>
 
 
-<div class="top-brand-pdp">
+<div class="page-width">
   <div class="about-brand-container">
    <div class="about-brand-wrapper">
 
@@ -144,14 +130,11 @@
          {% endif %}
      {% if section.settings.know_button_link != blank %}
       <div class="about-brand-link">
-        <a href="{{section.settings.know_button_link }}">Know More</a>
+        <a href="{{section.settings.know_button_link }}">{{ section.settings.know_more_btn_text }}</a>
       </div>
        {% endif %}
     </div>
-    {% if section.settings.desk_image_with_text_image != blank or section.settings.desk_image_with_text_image != blank %}
     <div class="about-brand-media">
-           {% if section.settings.desk_image_with_text_image != blank %}
-               
                       <img  class="desk-brand-pdp"  srcset="{%- if section.settings.desk_image_with_text_image.width >= 165 -%}{{ section.settings.desk_image_with_text_image | img_url: '165x' }} 165w,{%- endif -%}
                         {%- if section.settings.desk_image_with_text_image.width >= 360 -%}{{ section.settings.desk_image_with_text_image | img_url:'360x' }} 360w,{%- endif -%}
                         {%- if section.settings.desk_image_with_text_image.width >= 535 -%}{{ section.settings.desk_image_with_text_image | img_url: '535x' }} 535w,{%- endif -%}
@@ -165,8 +148,6 @@
                         loading="lazy"
                         width="{{ section.settings.desk_image_with_text_image.width }}"
                         height="{{ section.settings.desk_image_with_text_image.height }}">
-          {% endif %}
-           {%  if section.settings.desk_image_with_text_image != blank %}
             <img  class="mob-brand-pdp"  srcset="{%- if section.settings.mobile_image_with_text_image.width >= 165 -%}{{ section.settings.mobile_image_with_text_image | img_url: '165x' }} 165w,{%- endif -%}
                         {%- if section.settings.mobile_image_with_text_image.width >= 360 -%}{{ section.settings.mobile_image_with_text_image | img_url:'360x' }} 360w,{%- endif -%}
                         {%- if section.settings.mobile_image_with_text_image.width >= 535 -%}{{ section.settings.mobile_image_with_text_image | img_url: '535x' }} 535w,{%- endif -%}
@@ -180,9 +161,7 @@
                         loading="lazy"
                         width="{{ section.settings.mobile_image_with_text_image.width }}"
                         height="{{ section.settings.mobile_image_with_text_image.height }}">
-              {% endif %}
     </div>
-      {% endif %}
   </div>
 </div>
 
@@ -198,13 +177,7 @@
   "label": "About Sub Heading",
   "default": "About the Brand"
 },
-    {
-  "type": "text",
-  "id": "about_subhead1",
-  "label": "About Heading",
-  "default": "Movado Group’s founder"
-},
-    {
+{
   "type": "richtext",
   "id": "brand_description",
   "label": "Description"
@@ -221,7 +194,13 @@
   "id": "mobile_image_with_text_image",
   "label": "Mobile Image"
 },
-    {
+{
+  "type": "text",
+  "id": "know_more_btn_text",
+  "label": "Button Text",
+  "default":"Know More"
+},
+{
   "type": "url",
   "id": "know_button_link",
   "label": "Button link"

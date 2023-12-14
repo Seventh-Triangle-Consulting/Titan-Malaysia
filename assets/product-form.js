@@ -108,6 +108,12 @@ if (!customElements.get('product-form')) {
         if (errorMessage) {
           this.errorMessage.textContent = errorMessage;
         }
+
+        
+          setTimeout(() => {
+            this.errorMessageWrapper.toggleAttribute('hidden', !errorMessage);
+          }, 5000);
+        
       }
     }
   );
