@@ -22,7 +22,7 @@
       </h2>
     <p class="subheading">   {{ section.settings.subheading }}</p>
     {%- else -%}
-      <h2 class="">{{ 'templates.contact.form.title' | t }}</h2>
+      <h2 class="contact-heading">{{ 'templates.contact.form.title' | t }}</h2>
     {%- endif -%}
     {%- liquid
       assign contact_form_class = 'isolate'
