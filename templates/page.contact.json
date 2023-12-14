@@ -14,8 +14,6 @@
         "template--16171332599980__05e1dbad-6191-4c06-9582-a3a6836dd9ce-slide-1": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/ContactUsBanner.webp",
-            "imagem": "shopify:\/\/shop_images\/Group_381.webp",
             "heading": "CONTACT US",
             "subheading": "",
             "link": ""
@@ -54,106 +52,12 @@
         "button": "",
         "buttonurl": ""
       }
-    },
-    "44c01a40-a64d-4a34-b2a0-28cf45800f1b": {
-      "type": "icon-with-caption",
-      "blocks": {
-        "template--16171332599980__44c01a40-a64d-4a34-b2a0-28cf45800f1b-text-1": {
-          "type": "text",
-          "settings": {
-            "text": "Free Shipping",
-            "image": "shopify:\/\/shop_images\/Free_shipping_034b3e82-b48a-4fb0-8826-5dfbfb4b826c.svg"
-          }
-        },
-        "55dbde6a-2c0c-4b4e-bb26-3b77682581a9": {
-          "type": "text",
-          "settings": {
-            "text": "30-day Return",
-            "image": "shopify:\/\/shop_images\/Icon_Returns.svg"
-          }
-        },
-        "9a1c1c0e-9dc5-4c61-978e-4cbd69000e2c": {
-          "type": "text",
-          "settings": {
-            "text": "Easily washable",
-            "image": "shopify:\/\/shop_images\/Easily_washable_fb21044e-7183-4c79-93c6-37ea612796ce.svg"
-          }
-        },
-        "0ae38de7-3ec0-45de-8a05-6159de005676": {
-          "type": "text",
-          "settings": {
-            "text": "Earth-friendly",
-            "image": "shopify:\/\/shop_images\/Earth-friendly_303179c9-0056-42a0-81fe-4828fa9376b8.svg"
-          }
-        }
-      },
-      "block_order": [
-        "template--16171332599980__44c01a40-a64d-4a34-b2a0-28cf45800f1b-text-1",
-        "55dbde6a-2c0c-4b4e-bb26-3b77682581a9",
-        "9a1c1c0e-9dc5-4c61-978e-4cbd69000e2c",
-        "0ae38de7-3ec0-45de-8a05-6159de005676"
-      ],
-      "settings": {
-        "bgcolor": "",
-        "showmobile": true,
-        "heading": "",
-        "margin_bottom_desktop": 8,
-        "margin_bottom_mobile": 8
-      }
-    },
-    "ab4f828c-6d3b-4763-ba1d-b1799956a1ce": {
-      "type": "find-us-online",
-      "blocks": {
-        "template--16171332599980__ab4f828c-6d3b-4763-ba1d-b1799956a1ce-text-1": {
-          "type": "text",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Group_238452_0185d53c-32dd-4a5f-9d24-5b441438c1de.png",
-            "links": "https:\/\/www.amazon.in\/stores\/page\/CFE05C3D-8D1F-4296-98BC-6A79ACFACD01?ingress=3"
-          }
-        },
-        "69113b06-5bfa-4640-8dc0-0b061ac1c7ee": {
-          "type": "text",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Group_238451_3d6b543c-ebba-4682-a03c-8fd388e1381b.png",
-            "links": "https:\/\/flipkart.com\/search?q=titan+shoes&otracker=search&otracker1=search&marketplace=FLIPKART&as-show=on&as=off&p%5B%5D=facets.brand%255B%255D%3Dtitan"
-          }
-        },
-        "b2055bd0-c5a7-42b4-bb1f-266d4d64fa52": {
-          "type": "text",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Myntra_logo_1_2214875f-49e2-485b-80e4-f4ac0e22d6bb.png",
-            "links": "https:\/\/www.myntra.com\/titan"
-          }
-        },
-        "86066847-e2c7-4e3f-94d6-5b9b0021466b": {
-          "type": "text",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/image_73.png",
-            "links": "https:\/\/www.ajio.com\/b\/titan?query=:relevance"
-          }
-        }
-      },
-      "block_order": [
-        "template--16171332599980__ab4f828c-6d3b-4763-ba1d-b1799956a1ce-text-1",
-        "69113b06-5bfa-4640-8dc0-0b061ac1c7ee",
-        "b2055bd0-c5a7-42b4-bb1f-266d4d64fa52",
-        "86066847-e2c7-4e3f-94d6-5b9b0021466b"
-      ],
-      "settings": {
-        "bgcolor": "#faf7c7",
-        "heading": "Find Us Online",
-        "showmobile": true,
-        "margin_bottom_desktop": 36,
-        "margin_bottom_mobile": 36
-      }
     }
   },
   "order": [
     "main",
     "05e1dbad-6191-4c06-9582-a3a6836dd9ce",
     "form",
-    "dec2a407-d0ad-4cfd-8e78-113c020cbda9",
-    "44c01a40-a64d-4a34-b2a0-28cf45800f1b",
-    "ab4f828c-6d3b-4763-ba1d-b1799956a1ce"
+    "dec2a407-d0ad-4cfd-8e78-113c020cbda9"
   ]
 }
