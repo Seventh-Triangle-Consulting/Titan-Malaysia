@@ -234,7 +234,7 @@
       ],
       "settings": {
         "margin_bottom_desktop": 20,
-        "margin_bottom_mobile": 24,
+        "margin_bottom_mobile": 20,
         "mostloved_heading": "Most Loved",
         "enable_quick_add": false
       }
@@ -332,8 +332,8 @@
     "96a7a223-41c4-4f2c-bfe1-91cd7d09a867": {
       "type": "best-sellers",
       "settings": {
-        "margin_bottom_desktop": 72,
-        "margin_bottom_mobile": 50,
+        "margin_bottom_desktop": 20,
+        "margin_bottom_mobile": 20,
         "bestsellers_heading": "BestSeller",
         "men_collection": "mens-watch",
         "women_collection": "female",
