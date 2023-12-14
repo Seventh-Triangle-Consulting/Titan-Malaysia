@@ -108,6 +108,9 @@ if (!customElements.get('product-form')) {
         if (errorMessage) {
           console.log(errorMessage)
           this.errorMessage.textContent = errorMessage;
+          document.querySelectorAll('.product-form__error-message-wrapper').forEach((e)=>{
+            e.errorMessage.textContent = errorMessage;
+          })
         }
 
         
