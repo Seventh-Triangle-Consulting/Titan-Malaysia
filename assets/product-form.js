@@ -108,8 +108,6 @@ if (!customElements.get('product-form')) {
         if (errorMessage) {
           console.log(errorMessage)
           this.errorMessage.textContent = errorMessage;
-          // console.log(document.querySelector('.atc_Error_Message'));
-          // document.querySelector('.atc_Error_Message').innerHTML=errorMessage;
         }
 
         
