@@ -34,7 +34,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .get-in-touch-image-text p a{
   font-family:Roboto-Medium;
-  color:#000;
+  color:#000 !important;
 }
 @media screen and (min-width: 750px) {
   .contact .field {
