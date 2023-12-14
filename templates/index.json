@@ -123,7 +123,7 @@
         "e20a4714-88a6-4891-9ff1-da687a6caa14"
       ],
       "settings": {
-        "margin_bottom_desktop": 16,
+        "margin_bottom_desktop": 20,
         "margin_bottom_mobile": 20,
         "autoplay": true
       }
@@ -206,7 +206,7 @@
         "heading": "What Are You Looking For ?",
         "description": "",
         "id": "",
-        "desktop_margin_bottom": 50,
+        "desktop_margin_bottom": 20,
         "mobile_margin_bottom": 20
       }
     },
@@ -233,8 +233,8 @@
         "af37dc5d-8950-4db2-abe5-dcf87b68cc6a"
       ],
       "settings": {
-        "margin_bottom_desktop": 66,
-        "margin_bottom_mobile": 56,
+        "margin_bottom_desktop": 20,
+        "margin_bottom_mobile": 24,
         "mostloved_heading": "Most Loved",
         "enable_quick_add": false
       }
