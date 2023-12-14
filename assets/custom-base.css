@@ -103,6 +103,7 @@ span{
 .shopify-policy__container .pt-4,.shopify-policy__container h2{ margin:15px 0;}
 .shopify-policy__container strong{ font-size: clamp(calc(var(--desktop-font-size-p) * 0.9px),calc(var(--desktop-font-size-p) * (100vw / var(--viewportDesktop))),calc(var(--desktop-font-size-p) * 1.1px));
 color:#000;}
+.field__label{font-family:Roboto-Regular;}
 .cart-count-bubble span{color:#fff;}
 .shopify-policy__container li{line-height: clamp(26px,calc(27.26 * (100vw / var(--viewportDesktop))),28px);    list-style: disc;}
 #shopify-section-template--16171332698284__1697087009aadaaacf{height:40rem;}
