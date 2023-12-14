@@ -106,6 +106,7 @@ if (!customElements.get('product-form')) {
         this.errorMessageWrapper.toggleAttribute('hidden', !errorMessage);
 
         if (errorMessage) {
+          console.log(errorMessage)
           this.errorMessage.textContent = errorMessage;
         }
 
