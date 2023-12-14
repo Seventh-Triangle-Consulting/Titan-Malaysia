@@ -456,7 +456,9 @@ table:not([class]) th {
   }
 
 }
-
+.SwipeUp-reels-feed{
+  margin-bottom:30px!important;
+}
 @media screen and (min-width: 750px) and (max-width: 989px) {
   .medium-hide {
     display: none !important;
