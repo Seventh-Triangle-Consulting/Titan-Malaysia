@@ -14,7 +14,7 @@
 .productformdesktopsticky .pdp_ATC:hover span{background-color:inherit;}
 .product-form__input{position:relative;}
 .product-form__error-message-wrapper{position: absolute;left: 0;}
-.custom-atc-qty-slector .pdp_ATC span{font-family:Roboto-Medium;}
+.custom-atc-qty-slector .pdp_ATC span{font-family:Roboto-Medium;white-space: nowrap;}
 .custom-quantity-number, .custom-quantity-number span{font-size:clamp(14px, calc(16 * (100vw / 1440)), 18px)}
 .product__media-wrapper{
   position:relative;
