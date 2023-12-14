@@ -110,9 +110,9 @@ if (!customElements.get('product-form')) {
         }
 
         
-          // setTimeout(() => {
-          //   this.errorMessageWrapper.toggleAttribute('hidden', !errorMessage);
-          // }, 5000);
+          setTimeout(() => {
+            this.errorMessageWrapper.toggleAttribute('hidden', !errorMessage);
+          }, 5000);
         
       }
     }
