@@ -26,7 +26,7 @@ input[type=number]::-webkit-outer-spin-button {
 #ContactForm .field:after{content:'';box-shadow:none}
 .contact__fields .field input,#ContactForm input,#ContactForm textarea{border:1px solid #000;    border-radius: 3px;    padding-top: 8px;}
 .contact__button {text-align:center;}
-.contact__button .button{background-color: rgba(239, 49, 51, 1);padding:8px 66px;border-radius:4px;
+.contact__button .button{background-color:#000;padding:8px 66px;border-radius:4px;
                         font-size: clamp(calc(18 * .8px),calc(18 * (100vw / var(--viewportDesktop))),calc(18 * 1.6px));font-family: var(--font-family-h2);
     line-height: clamp(22px, calc(22.52 * (100vw /  var(--viewportDesktop))), 24px);}
 .contact .field {
