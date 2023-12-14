@@ -2132,7 +2132,7 @@ border:none;background:transparent;} */
   .atc_Error_Message{font-size:10px;}
   .custom-atc-qty-slector{flex-direction: column-reverse;}
   .pincode_div{width:100%;}
-  .custom-atc-qty-slector .pdp_ATC{width:87vw !important}
+  .custom-atc-qty-slector .pdp_ATC{width:-webkit-fill-available !important}
   .custom-atc-qty-slector .pdp_ATC span{font-size:14px !important;}
   .restock-alerts-modal-box{width: 90%;margin: auto;}
 }
