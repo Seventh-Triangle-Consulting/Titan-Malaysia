@@ -459,6 +459,12 @@ table:not([class]) th {
 .SwipeUp-reels-feed{
   margin-bottom:30px!important;
 }
+input:-webkit-autofill, 
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+  transition: background-color 5000s ease-in-out 0s;
+}
 @media screen and (min-width: 750px) and (max-width: 989px) {
   .medium-hide {
     display: none !important;
