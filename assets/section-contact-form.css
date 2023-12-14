@@ -4,6 +4,7 @@
 .contact-heading{
   font-size: clamp(21px,calc(24 * (100vw / var(--viewportDesktop))),28px);
   font-family:PlayfairDisplay-Bold;
+  margin-bottom:20px;
 }
 .contact .form__message {
   align-items: flex-start;
