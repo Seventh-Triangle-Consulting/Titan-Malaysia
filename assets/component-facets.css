@@ -1122,5 +1122,5 @@ input.mobile-facets__checkbox {
   }
   .product-count{display:none;}
   .facets__form{display: flex;flex-direction: column;}
-  .sorting{align-self:flex-end;}
+  .sorting{align-self:flex-end;margin-bottom: 10px;}
 }

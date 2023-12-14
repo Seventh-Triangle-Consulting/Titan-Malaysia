@@ -3,10 +3,12 @@
   .pdp_shipping{margin-bottom:2%;}
   .pdp_shipping_returns{flex-direction:center !important;align-items:baseline !important;}
 }
+.productformmobilesticky .product-form__error-message-wrapper{left: 10px !important;}
+.productformdesktoptitle{width: 50%;}
 .restock-alerts-form div,.restock-alerts-form label{color: #000;font-family: Roboto-Medium;}
 .desccriptiom-custom-acc li{list-style: disc;}
 .productformdesktopsticky-variant-atc{position:relative;}
-.productformdesktopsticky-variant-atc .product-form__error-message-wrapper{position:absolute;left:0;bottom:-5px;}
+.productformdesktopsticky-variant-atc .product-form__error-message-wrapper{position:absolute;left:0;bottom:0;}
 .pdp_ATC:hover{color:#fff !important;background-color:#000;}
 .pdp_ATC:hover span{color:#fff !important;background-color:#000;}
 .productformdesktopsticky .pdp_ATC:hover span{background-color:inherit;}
@@ -45,6 +47,8 @@ variant-selects .select .icon-caret, .customer select+svg{
   .productformdesktopsticky select{padding: 0 4rem 0 1rem !important;}
   .productformdesktopsticky .pdp_ATC span{font-size: 14px;min-width:max-content;}
   .custom-atc-qty-slector .pdp_ATC{width:22vw !important;}
+  .productformdesktoptitle .Rubik-400-30px{margin-bottom: 0 !important;line-height: 1.2;}
+  .productformdesktoptitle .product__title{margin-bottom: 0 !important;}
 }
 .custom-atc-qty-slector .restock-alerts-notify-button{border-radius:5px;font-family: Roboto-Regular;}
 .custom-atc-qty-slector .restock-alerts-branding-text{display: none;}
@@ -63,8 +67,9 @@ variant-selects .select .icon-caret, .customer select+svg{
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
-   gap:20px;
-   align-items: flex-start;
+    gap:20px;
+    align-items: flex-start;
+    margin-bottom: 50px;
 }
 .quantity:after{
   box-shadow:none;
@@ -125,6 +130,7 @@ variant-selects .select .icon-caret, .customer select+svg{
     z-index: 11;
     display: flex;
     justify-content: space-between;
+    padding-bottom: 50px;
 }
 .productformdesktopsticky .price__badge-sale{
   display: none !important;
@@ -188,7 +194,7 @@ variant-selects .select .icon-caret, .customer select+svg{
   .productformdesktopsticky{display:none;}
 }
 .custom-placeholder{height: 400px;width: 100%;display: flex; align-items: center; justify-content: center; font-size: 25px; border: 1px solid grey; border-radius: 6px;}
-.product-image{height:100px;width:100px;}
+.product-image{height:auto;width:100px;}
 .product{ margin: auto;}
 .custom-product-description{margin-top:5%;}
 .custom-type .row{margin-bottom:5%;}
@@ -2052,7 +2058,7 @@ border:none;background:transparent;} */
 {
   .card__badge.reviews.desktop{display:none;}
   .productformmobilesticky{ display:block;   width: 100%; z-index: 111 !important;
-    bottom: 0;    padding: 10px; position: fixed; z-index: 2;    background: rgba(248, 248, 248, 1); box-shadow: 0px -3px 5px 0px rgba(0, 0, 0, 0.25);}
+    bottom: 0;    padding: 10px 10px 40px 10px; position: fixed; z-index: 2;    background: rgba(248, 248, 248, 1); box-shadow: 0px -3px 5px 0px rgba(0, 0, 0, 0.25);}
 .positive_impact_heading{text-align:center;}
 .positive_impact_image_text_div{display:grid;place-items:center;}
 .positive_impact_image_div {display: flex;place-items: center;gap: 14px;margin-bottom: 15px;width: 85%;}
@@ -2089,6 +2095,8 @@ border:none;background:transparent;} */
   display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    flex-wrap: wrap;
+    row-gap: 15px;
 }
 .product .product__info-wrapper .product__info-container .usp_div{
          width: 100%;
@@ -2099,7 +2107,7 @@ border:none;background:transparent;} */
 }
 .product .product__info-wrapper .product__info-container .usp_div .usp_content .usp-img .usp_icons .usp_images{ width:25%;}
 .product .product__info-wrapper .product__info-container .usp_div .usp_content .usp-img .usp_icons .usp_images img {
-    width: 100%;
+    width: 40px;
     height: auto;
 }
 .product .product__info-wrapper .product__info-container .usp_div .usp_content .usp-img .usp_icons .usp_text p {
@@ -2113,7 +2121,6 @@ border:none;background:transparent;} */
     letter-spacing: 0px;
     /* opacity: .7; */
     white-space: nowrap;
-    font-style: italic;
 }
 .product .product__info-wrapper .product__info-container .usp_div .usp_content .usp-img .usp_icons 
 {    display: flex;
