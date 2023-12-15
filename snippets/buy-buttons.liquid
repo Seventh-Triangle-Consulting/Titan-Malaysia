@@ -235,6 +235,7 @@
         // Check if the cart was successfully cleared
         if (data.item_count === 0) {
           customBuyButtonFunctionality(atc_value)
+          console.log("cartttt")
           // You can any additional actions you want to perform after clearing the cart here.
         } else {
           console.error('Error clearing cart:', data);
