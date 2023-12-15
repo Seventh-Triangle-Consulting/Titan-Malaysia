@@ -99,8 +99,8 @@ if (!customElements.get('product-form')) {
                 const html = new DOMParser().parseFromString(responseText, 'text/html');
               
                   console.log('html---', html)
-                  document.querySelector('#CartDrawer-CartItems').innerHTML =
-              html.documentElement.querySelector('#CartDrawer-CartItems').innerHTML;
+                  document.querySelector('#CartDrawer').innerHTML =
+              html.documentElement.querySelector('#CartDrawer').innerHTML;
                 
               })
               .catch((e) => {
