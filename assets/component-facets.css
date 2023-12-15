@@ -284,7 +284,7 @@ price-range label{padding-top:0 !important ;}
   top: 0;
   background-color: rgb(var(--color-background));
   z-index: 1;
-  align-items:center;
+  align-items:baseline;
 }
 
 .facets__list {
