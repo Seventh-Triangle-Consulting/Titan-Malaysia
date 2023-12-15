@@ -52,7 +52,7 @@ if (!customElements.get('product-form')) {
                 message: response.message,
               });
 
-              console.log('esponse.description====', response.description)
+              console.log('esponse.description====', response.description, response.errors )
               this.handleErrorMessage(response.description);
 
               const soldOutMessage = this.submitButton.querySelector('.sold-out-message');
