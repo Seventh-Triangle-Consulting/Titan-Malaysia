@@ -97,7 +97,7 @@ if (!customElements.get('product-form')) {
               .then((response) => response.text())
               .then((responseText) => {
                 const html = new DOMParser().parseFromString(responseText, 'text/html');
-              
+                console.log('html', html)
                  document.querySelector('#CartDrawer').innerHTML =
               html.documentElement.querySelector('#CartDrawer').innerHTML;
                 
