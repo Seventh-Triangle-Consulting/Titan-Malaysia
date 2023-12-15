@@ -6,6 +6,9 @@
     height: 40px;
   }
 }
+.card__media{
+  background-color:#E4E4E4;
+}
 .smartwishlist{
   position: absolute; top: 2%; right: 4%; z-index: 2 !important;
 }
