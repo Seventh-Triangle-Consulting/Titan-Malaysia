@@ -1956,6 +1956,7 @@ font-size: 19px;font-weight: 500;line-height: 34px;letter-spacing: 0.38px;paddin
 
 @media screen and (min-width:750px) and (max-width:900px){
 .Rubik-400-30px{    font-size: 25px;}
+.atc_Error_Message{font-size:7px !important;}
   .discount-name{font-size:14px;}
   .product__info-wrapper {
     padding: 0 2rem 0 2rem;
