@@ -97,11 +97,13 @@ if (!customElements.get('product-form')) {
               .then((response) => response.text())
               .then((responseText) => {
                 const html = new DOMParser().parseFromString(responseText, 'text/html');
-          
-                document.querySelector('.cart-count-bubble span').innerHTML =
-              html.documentElement.querySelector('.cart-count-bubble span').innerHTML;
+              
                  document.querySelector('#CartDrawer').innerHTML =
               html.documentElement.querySelector('#CartDrawer').innerHTML;
+
+                
+                document.querySelector('.cart-count-bubble span').innerHTML =
+              html.documentElement.querySelector('.cart-count-bubble span').innerHTML;
                 
               })
               .catch((e) => {
