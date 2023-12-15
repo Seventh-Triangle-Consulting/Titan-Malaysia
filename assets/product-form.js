@@ -101,9 +101,16 @@ if (!customElements.get('product-form')) {
                  document.querySelector('#CartDrawer').innerHTML =
               html.documentElement.querySelector('#CartDrawer').innerHTML;
 
-                
-                document.querySelector('.header__icon--cart .cart-count-bubble span').innerHTML =
+                if(document.querySelector('.header__icon--cart .cart-count-bubble span')){
+                   document.querySelector('.header__icon--cart .cart-count-bubble span').innerHTML =
               html.documentElement.querySelector('.cart-count-bubble span').innerHTML;
+                }
+                else{
+                  document.querySelector('.header__icon--cart').innerHTML += `<div class="cart-count-bubble" bis_skin_checked="1"><span aria-hidden="true"></span>  </div>`
+                     document.querySelector('.header__icon--cart .cart-count-bubble span').innerHTML =
+              html.documentElement.querySelector('.cart-count-bubble span').innerHTML;
+                }
+               
                 
               })
               .catch((e) => {
