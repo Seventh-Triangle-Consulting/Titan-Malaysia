@@ -109,6 +109,7 @@ if (!customElements.get('product-form')) {
           // document.querySelector('.atc_Error_Message').innerHTML=errorMessage;
           console.log(errorMessage)
           this.errorMessage.textContent = errorMessage;
+          this.onCartUpdate();
         }
         
       }
