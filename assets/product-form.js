@@ -92,7 +92,7 @@ if (!customElements.get('product-form')) {
             if (this.cart && this.cart.classList.contains('is-empty')) this.cart.classList.remove('is-empty');
             if (!this.error) this.submitButton.removeAttribute('aria-disabled');
             this.querySelector('.loading-overlay__spinner').classList.add('hidden');
-            console.log('hello')
+          
                fetch(`${routes.cart_url}?section_id=cart-drawer`)
               .then((response) => response.text())
               .then((responseText) => {
