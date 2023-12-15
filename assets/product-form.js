@@ -106,9 +106,9 @@ if (!customElements.get('product-form')) {
         this.errorMessageWrapper.toggleAttribute('hidden', !errorMessage);
 
         if (errorMessage) {
-          // document.querySelector('.atc_Error_Message').innerHTML=errorMessage;
+          document.querySelector('.atc_Error_Message').innerHTML=errorMessage;
           console.log(errorMessage)
-          this.errorMessage.textContent = errorMessage;
+          // this.errorMessage.textContent = errorMessage;
         }
         
       }
