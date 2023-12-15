@@ -204,10 +204,8 @@
       let atc_value = document.querySelector('.product-variant-id')?.value;
       if(!atc_value){
       document.querySelector('.shopify-payment-button__button').setAttribute('disabled',true);
-      console.log('disabled');
       }
       else{
-        console.log('Abled');
         document.querySelector('.shopify-payment-button__button').setAttribute('disabled',false);
         const custom_checkout  = await clearShopifyCart(atc_value);
       }
@@ -217,7 +215,6 @@
 
 
     async function clearShopifyCart(atc_value) {
-      console.log("hello");
       try {
         const response = await fetch('/cart/clear.js', {
           method: 'POST',
@@ -234,7 +231,6 @@
         // Check if the cart was successfully cleared
         if (data.item_count === 0) {
           customBuyButtonFunctionality(atc_value)
-          console.log("cartttt")
           // You can any additional actions you want to perform after clearing the cart here.
         } else {
           console.error('Error clearing cart:', data);
@@ -273,7 +269,6 @@
       // Handle the response data
       const data = await response.json();
       // Return the response data if needed
-      console.log("items add")
       return data;
     } catch (error) {
       console.error('Error adding product to cart:', error);
