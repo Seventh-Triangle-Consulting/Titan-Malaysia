@@ -78,37 +78,7 @@ class CartItems extends HTMLElement {
     }
   }
 
-   onCartUpdate() {
-    if (this.tagName === 'CART-DRAWER-ITEMS') {
-      fetch(`${routes.cart_url}?section_id=cart-drawer`)
-        .then((response) => response.text())
-        .then((responseText) => {
-          const html = new DOMParser().parseFromString(responseText, 'text/html');
-          const selectors = ['cart-drawer-items', '.cart-drawer__footer'];
-          for (const selector of selectors) {
-            const targetElement = document.querySelector(selector);
-            const sourceElement = html.querySelector(selector);
-            if (targetElement && sourceElement) {
-              targetElement.replaceWith(sourceElement);
-            }
-          }
-        })
-        .catch((e) => {
-          console.error(e);
-        });
-    } else {
-      fetch(`${routes.cart_url}?section_id=main-cart-items`)
-        .then((response) => response.text())
-        .then((responseText) => {
-          const html = new DOMParser().parseFromString(responseText, 'text/html');
-          const sourceQty = html.querySelector('cart-items');
-          this.innerHTML = sourceQty.innerHTML;
-        })
-        .catch((e) => {
-          console.error(e);
-        });
-    }
-  }
+   
   
   getSectionsToRender() {
     return [
