@@ -106,13 +106,9 @@ if (!customElements.get('product-form')) {
         this.errorMessageWrapper.toggleAttribute('hidden', !errorMessage);
 
         if (errorMessage) {
-          this.errorMessage.textContent = errorMessage;
+          document.querySelector('.atc_Error_Message').innerHTML=errorMessage
+          // this.errorMessage.textContent = errorMessage;
         }
-
-        
-          setTimeout(() => {
-            this.errorMessageWrapper.toggleAttribute('hidden', !errorMessage);
-          }, 5000);
         
       }
     }
