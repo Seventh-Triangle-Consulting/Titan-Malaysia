@@ -92,7 +92,6 @@ class QuickOrderList extends HTMLElement {
       }
       // If its another section that made the update
       this.onCartUpdate();
-      console.log("cart update call 2")
     });
     this.sectionId = this.dataset.id;
   }
