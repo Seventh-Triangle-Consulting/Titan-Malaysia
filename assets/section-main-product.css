@@ -19,6 +19,9 @@
 .product__media-wrapper{
   position:relative;
 }
+.quantity__rules-cart{
+  display:none;
+}
 variant-selects .select .icon-caret, .customer select+svg{
   top:calc(50% - .2rem);
 }
