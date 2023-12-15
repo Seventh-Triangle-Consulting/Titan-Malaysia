@@ -101,6 +101,8 @@ if (!customElements.get('product-form')) {
                 for (const selector of selectors) {
                   const targetElement = document.querySelector(selector);
                   const sourceElement = html.querySelector(selector);
+                  console.log('sourceElement---', sourceElement)
+                   console.log('targetElementtargetElement---', targetElement)
                   console.log("cartupdateee")
                   if (targetElement && sourceElement) {
                     targetElement.replaceWith(sourceElement);
