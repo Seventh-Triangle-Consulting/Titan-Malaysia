@@ -102,7 +102,7 @@ if (!customElements.get('product-form')) {
               html.documentElement.querySelector('#CartDrawer').innerHTML;
 
                 
-                document.querySelector('.cart-count-bubble span').innerHTML =
+                document.querySelector('.header__icon--cart .cart-count-bubble span').innerHTML =
               html.documentElement.querySelector('.cart-count-bubble span').innerHTML;
                 
               })
