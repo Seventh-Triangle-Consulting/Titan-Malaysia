@@ -102,11 +102,8 @@ if (!customElements.get('product-form')) {
                   const targetElement = document.querySelector(selector);
                   const sourceElement = html.querySelector(selector);
                   console.log('sourceElement---', sourceElement)
-                   console.log('targetElementtargetElement---', targetElement)
-                  console.log("cartupdateee")
-                  if (targetElement && sourceElement) {
-                    targetElement.replaceWith(sourceElement);
-                  }
+                  document.querySelector('#CartDrawer-CartItems').innerHTML =
+              html.documentElement.querySelector('#CartDrawer-CartItems').innerHTML;
                 }
               })
               .catch((e) => {
