@@ -107,7 +107,8 @@ if (!customElements.get('product-form')) {
 
         if (errorMessage) {
           document.querySelector('.atc_Error_Message').innerHTML=errorMessage;
-          console.log(errorMessage)
+          console.log(errorMessage);
+          onCartUpdate();
           // this.errorMessage.textContent = errorMessage;
         }
         
