@@ -388,6 +388,8 @@
                       data-cart-quantity="{{ cart_qty }}"
                       data-min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
                       min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                      data-max="{{ product.first_available_variant.inventory_quantity }}"
+                      max="{{ product.first_available_variant.inventory_quantity }}"
                       {% if product.selected_or_first_available_variant.quantity_rule.max != null %}
                         data-max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
                         max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
