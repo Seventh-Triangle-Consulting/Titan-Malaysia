@@ -56,6 +56,7 @@ class CartItems extends HTMLElement {
           for (const selector of selectors) {
             const targetElement = document.querySelector(selector);
             const sourceElement = html.querySelector(selector);
+            console.log("cartupdateee")
             if (targetElement && sourceElement) {
               targetElement.replaceWith(sourceElement);
             }
