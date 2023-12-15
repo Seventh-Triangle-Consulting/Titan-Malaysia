@@ -1,7 +1,7 @@
 .search__input.field__input {
   padding-right: 9.8rem;
 }
-predictive-search .field__input:focus~.field__label, .field__input:not(:placeholder-shown)~.field__label,predictive-search .field__input:focus~.field__label{
+header predictive-search .field__input:focus~.field__label,.header predictive-search .field__input:not(:placeholder-shown)~.field__label,.header predictive-search .field__input:focus~.field__label{
    display:none;
 }
 .search-view-more-btn{
