@@ -8,7 +8,7 @@
 .restock-alerts-form div,.restock-alerts-form label{color: #000;font-family: Roboto-Medium;}
 .desccriptiom-custom-acc li{list-style: disc;}
 .productformdesktopsticky-variant-atc{position:relative;}
-.productformdesktopsticky-variant-atc .product-form__error-message-wrapper{position:absolute;left:0;}
+.productformdesktopsticky-variant-atc .product-form__error-message-wrapper{position:absolute;left:14px;}
 .pdp_ATC:hover{color:#fff !important;background-color:#000;}
 .pdp_ATC:hover span{color:#fff !important;background-color:#000;}
 .productformdesktopsticky .pdp_ATC:hover span{background-color:inherit;}
@@ -18,6 +18,9 @@
 .custom-quantity-number, .custom-quantity-number span{font-size:clamp(14px, calc(16 * (100vw / 1440)), 18px)}
 .product__media-wrapper{
   position:relative;
+}
+.quantity__rules-cart{
+  display:none;
 }
 variant-selects .select .icon-caret, .customer select+svg{
   top:calc(50% - .2rem);
@@ -130,7 +133,7 @@ variant-selects .select .icon-caret, .customer select+svg{
     z-index: 11;
     display: flex;
     justify-content: space-between;
-    padding-bottom: 50px;
+    overflow:hidden;
 }
 .productformdesktopsticky .price__badge-sale{
   display: none !important;
@@ -1952,11 +1955,10 @@ font-size: 19px;font-weight: 500;line-height: 34px;letter-spacing: 0.38px;paddin
 .pdp_ATC{border-radius:5px;background-color:#fff;color:#000;font-family:Roboto-Medium;border:1.5px solid black;font-size: 14px;line-height: 34px;letter-spacing: 0.38px;text-transform: uppercase;} 
 
 @media screen and (min-width:750px) and (max-width:900px){
-.Rubik-400-30px{    font-size: 25px;}
-  .discount-name{font-size:14px;}
-  .product__info-wrapper {
-    padding: 0 2rem 0 2rem;
-}
+      .Rubik-400-30px{    font-size: 25px;}
+      .atc_Error_Message{font-size:7px !important;}
+      .discount-name{font-size:14px;}
+      .product__info-wrapper { padding: 0 2rem 0 2rem;}
 }
 
 .titan_main_product .percent_discount{color: red;font-family:Roboto-Bold;font-size: 16px;line-height:1;}

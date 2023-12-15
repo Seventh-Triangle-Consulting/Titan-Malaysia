@@ -78,6 +78,8 @@ class CartItems extends HTMLElement {
     }
   }
 
+   
+  
   getSectionsToRender() {
     return [
       {

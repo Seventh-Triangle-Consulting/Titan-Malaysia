@@ -139,7 +139,7 @@
         </button>
       {%- endform -%}
        <div class="product-form__error-message-wrapper" role="alert" hidden>
-              <span class="atc_Error_Message">You can't add more {{ product.title }} to the cart.</span>      
+               <span class="product-form__error-message atc_Error_Message"></span>
       </div>
     </product-form>
   {%- else -%}
@@ -191,7 +191,7 @@
 </div>
 <script>
     async function checkoutFunctionality(event) {
-      console.log("buy now");
+   
       event.preventDefault();
 
       let size_input = document.querySelector('input[type="radio"][data-size="size"]:checked');
@@ -204,10 +204,8 @@
       let atc_value = document.querySelector('.product-variant-id')?.value;
       if(!atc_value){
       document.querySelector('.shopify-payment-button__button').setAttribute('disabled',true);
-      console.log('disabled');
       }
       else{
-        console.log('Abled');
         document.querySelector('.shopify-payment-button__button').setAttribute('disabled',false);
         const custom_checkout  = await clearShopifyCart(atc_value);
       }
@@ -217,7 +215,6 @@
 
 
     async function clearShopifyCart(atc_value) {
-      console.log("hello");
       try {
         const response = await fetch('/cart/clear.js', {
           method: 'POST',

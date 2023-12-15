@@ -1,6 +1,9 @@
 .search__input.field__input {
   padding-right: 9.8rem;
 }
+header predictive-search .field__input:focus~.field__label,.header predictive-search .field__input:not(:placeholder-shown)~.field__label,.header predictive-search .field__input:focus~.field__label{
+   display:none;
+}
 .search-view-more-btn{
   display: flex; align-items: center; justify-content: center;
   background: black; color: white; text-transform: uppercase; text-decoration: initial; padding: 10px 5%; border-radius: 10px; font-family: Roboto-Medium;

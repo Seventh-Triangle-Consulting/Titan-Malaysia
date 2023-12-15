@@ -51,6 +51,7 @@ if (!customElements.get('product-form')) {
                 errors: response.errors || response.description,
                 message: response.message,
               });
+
               this.handleErrorMessage(response.description);
 
               const soldOutMessage = this.submitButton.querySelector('.sold-out-message');
@@ -92,6 +93,30 @@ if (!customElements.get('product-form')) {
             if (this.cart && this.cart.classList.contains('is-empty')) this.cart.classList.remove('is-empty');
             if (!this.error) this.submitButton.removeAttribute('aria-disabled');
             this.querySelector('.loading-overlay__spinner').classList.add('hidden');
+          
+               fetch(`${routes.cart_url}?section_id=cart-drawer`)
+              .then((response) => response.text())
+              .then((responseText) => {
+                const html = new DOMParser().parseFromString(responseText, 'text/html');
+              
+                 document.querySelector('#CartDrawer').innerHTML =
+              html.documentElement.querySelector('#CartDrawer').innerHTML;
+
+                if(document.querySelector('.header__icon--cart .cart-count-bubble span')){
+                   document.querySelector('.header__icon--cart .cart-count-bubble span').innerHTML =
+              html.documentElement.querySelector('.cart-count-bubble span').innerHTML;
+                }
+                else{
+                  document.querySelector('.header__icon--cart').innerHTML += `<div class="cart-count-bubble" bis_skin_checked="1"><span aria-hidden="true"></span>  </div>`
+                     document.querySelector('.header__icon--cart .cart-count-bubble span').innerHTML =
+              html.documentElement.querySelector('.cart-count-bubble span').innerHTML;
+                }
+               
+                
+              })
+              .catch((e) => {
+                console.error(e);
+              });
           });
       }
 
@@ -108,11 +133,6 @@ if (!customElements.get('product-form')) {
         if (errorMessage) {
           this.errorMessage.textContent = errorMessage;
         }
-
-        
-          setTimeout(() => {
-            this.errorMessageWrapper.toggleAttribute('hidden', !errorMessage);
-          }, 5000);
         
       }
     }
