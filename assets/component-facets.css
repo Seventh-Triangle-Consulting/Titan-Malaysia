@@ -286,7 +286,9 @@ price-range label{padding-top:0 !important ;}
   z-index: 1;
   align-items:baseline;
 }
-
+.facet-filters__sort{
+  padding-left:1rem !important;
+}
 .facets__list {
   padding: 0.5rem 2rem;
 }
