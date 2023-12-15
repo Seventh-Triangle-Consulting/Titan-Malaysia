@@ -33,6 +33,7 @@ class CartItems extends HTMLElement {
         return;
       }
       this.onCartUpdate();
+      console.log("update function call");
     });
   }
 
