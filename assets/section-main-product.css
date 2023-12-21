@@ -2145,5 +2145,13 @@ border:none;background:transparent;} */
   .custom-atc-qty-slector .pdp_ATC span{font-size:14px !important;}
   .restock-alerts-modal-box{width: 90%;margin: auto;}
 }
-
+button.know-more-button {
+    width: 294px;
+    padding: 13px 0;
+    color: #fff;
+    background-color: #00b1ae!important;
+    border-top-color: #00b1ae!important;
+    border-width: 0px!important;
+    border-left-color: #00b1ae!important;
+}
 
