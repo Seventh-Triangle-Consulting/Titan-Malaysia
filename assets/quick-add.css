@@ -4,6 +4,8 @@
   margin: 0 0 1rem;
   z-index: 1;
 }
+quick-add-modal h2{width: 85%;}
+quick-add-modal .price,quick-add-modal .product-form__input,quick-add-modal product-form {display: none !important;}
 .quick-add__submit span{
   font-family:Roboto-Regular;
   color: #fff;

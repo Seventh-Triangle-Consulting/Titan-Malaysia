@@ -29,6 +29,7 @@ variant-selects .select .icon-caret, .customer select+svg{
   display: flex;
   align-items: center;
 }
+#smartwishlist{display: none;}
 .hide-productformmobilesticky{display: none !important;}
 .swiper-button-next:after, .swiper-rtl .swiper-button-prev:after{float: inline-end;}
 .titan_main_product .price__sale .price-item--sale{font-size:clamp(18px, calc(20 * (100vw / 1440)), 22px) !important;}

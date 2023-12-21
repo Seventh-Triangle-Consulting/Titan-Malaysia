@@ -6,6 +6,7 @@
     height: 40px;
   }
 }
+.card__badge, .card-information{display: none;}
 .card__media{
   background-color:#E4E4E4;
 }
@@ -13,6 +14,7 @@
   position: absolute; top: 2%; right: 4%; z-index: 2 !important;
 }
 .swiper-slide{position:relative;}
+.smartwishlist{display: none;}
 .smartwishlist span{
   font-size:20px;
 }
