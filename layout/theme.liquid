@@ -305,6 +305,9 @@ function  changeCss () {
           () => {
            window.psn();
              });
+      document.addEventListener("DOMContentLoaded", (event) => {
+  openPopup();
+});
     </script>
 	<!-- --------------- BEGIN 1CHECKOUT JS --------------- -->
 {{ '1checkout.js' | asset_url | script_tag }}
