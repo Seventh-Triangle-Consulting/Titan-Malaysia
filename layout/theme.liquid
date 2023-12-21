@@ -308,8 +308,8 @@ function  changeCss () {
       {% if template.name == "index" %}
         sessionStorage.setItem("showPopUp", "true")
       document.addEventListener("DOMContentLoaded", (event) => {
-        console.log(sessionStorage.getItem("showPopup"), typeof(sessionStorage.getItem("showPopup")), "raman")
-       if (sessionStorage.getItem("showPopup") === "true" ){ document.querySelector(".contact-popup").style.display = "flex"}
+        console.log(sessionStorage.getItem("showPopUp"), typeof(sessionStorage.getItem("showPopup")), "raman")
+       if (sessionStorage.getItem("showPopUp") === "true" ){ document.querySelector(".contact-popup").style.display = "flex"}
 });
       {% endif %}
     </script>
