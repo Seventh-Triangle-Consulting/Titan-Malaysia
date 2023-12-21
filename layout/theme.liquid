@@ -306,10 +306,9 @@ function  changeCss () {
            window.psn();
              });
       {% if template.name == "index" %}
-        console.log(sessionStorage.getItem("showPopUp"), "ramannn")
       document.addEventListener("DOMContentLoaded", (event) => {
         console.log(sessionStorage.getItem("showPopUp"), typeof(sessionStorage.getItem("showPopup")), "raman")
-       if (sessionStorage.getItem("showPopUp") === "true" ){ document.querySelector(".contact-popup").style.display = "flex"}
+       if (sessionStorage.getItem("showPopUp") === "null" ){ document.querySelector(".contact-popup").style.display = "flex"}
 });
       {% endif %}
     </script>
