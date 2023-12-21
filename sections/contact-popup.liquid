@@ -147,7 +147,7 @@ height="{{ section.settings.popup-bg-img-mob.height }}"
       <p>{{ section.settings.contact-popup-text }}</p>
        {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
       {%- if form.posted_successfully? -%}
-       
+       <script>sessionStorage.setItem("showPopUp", "false")</script>
       {%- elsif form.errors -%}
         <div class="form__message">
           <h2 class="form-status caption-large text-body" role="alert" tabindex="-1" autofocus>
