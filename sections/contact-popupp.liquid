@@ -1,0 +1,579 @@
+{{ 'section-contact-form.css' | asset_url | stylesheet_tag }}
+<style>
+  .detail-div-popup {
+    position: absolute;
+        top: 75px;
+    left: 5%;
+}
+.contant-popup option{    font-size: clamp(calc(15 * .8px),calc(15 * (100vw / var(--viewportDesktop))),calc(15 * 1.6px)) !important;}
+  .form-contact-popup .button{    padding: 8px 33px !important;}
+  .form-contact-popup .contact__button {
+    margin-top: 2rem !important;
+}
+  .country-div.custom-field {
+    height: 37px;
+}
+  /* .form-contact-popup div{padding-top:15px} */
+  .inner-contact-popup {
+    position: relative;
+}
+  .form-contact-popup input {
+    border: none !important;
+    border-bottom: 1px solid #000 !important;
+    padding: 0px 0px !important;
+    background: none !important;
+        outline: unset;
+    outline-offset: unset;
+    box-shadow: unset !important;width: 42%; border-radius:unset !important; height:max-content !important;
+}
+  .contant-popup{outline: unset;
+    outline-offset: unset;
+    box-shadow: unset;
+    border: navajowhite;
+    background: none;
+                    width: 178px;
+                }
+.custom-field {
+    grid-column: 1/3 !important;
+    display: flex !important;
+    align-items: flex-end;    width: 79% !important;padding: 5px 0;
+
+
+}
+  .contact-popup {
+    position: fixed;
+    z-index: 9;
+    display: none;
+    justify-content: center;
+    width: 100%;
+}
+  .cross-icon-popup {
+    width: max-content;
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    cursor:pointer;
+}
+  .inner-contact-popup img{width: 100%;
+    height: auto;}
+  button.submit-popup {
+    background-color: #874340;
+    color: white;
+    border-radius: 7px;
+    position: absolute;
+    right: 97px;
+    padding: 6px 36px !important;
+    margin-top: 13px;
+}
+  .contact-popup-img-mob{display:none;}
+  @media only screen and (min-width: 768px){
+    .inner-contact-popup{    width: 650px;}
+  }
+   @media only screen and (max-width: 767px){
+   .contact-popup-img{display:none;}
+   .contact-popup-img-mob{display:block;}
+     .contact-popup{top:47px;}
+     
+     .contact-popup{    padding: 0 20px;}
+     .contact-popup p {
+    width: 93%;
+}
+     .form-contact-popup div {
+    padding-top: 8px;
+}
+     .inner-contact-popup{    width:353px;}
+   }
+  @media only screen and (min-width: 1550px){
+    .inner-contact-popup {
+    width: 697px;
+}
+  }
+  @media only screen and (min-width: 1900px){
+  .detail-div-popup p {
+    width: 93%;
+}
+  }
+  .popup-error, .popup-error-pinCode{display:none; font-size:8px; color:red}
+  .custom-field label{
+   font-size: clamp(calc(15 * .8px),calc(15 * (100vw / var(--viewportDesktop))),calc(15 * 1.6px)) !important;   width: 30%;
+  } 
+</style>
+
+
+<div class="contact-popup">
+  <div class="inner-contact-popup">
+    <img
+                  srcset="
+                    {%- if section.settings.popup-bg-img.width >= 165 -%}{{ section.settings.popup-bg-img | image_url: width: 165 }} 165w,{%- endif -%}
+                    {%- if section.settings.popup-bg-img.width >= 360 -%}{{ section.settings.popup-bg-img | image_url: width: 360 }} 360w,{%- endif -%}
+                    {%- if section.settings.popup-bg-img.width >= 533 -%}{{ section.settings.popup-bg-img | image_url: width: 533 }} 533w,{%- endif -%}
+                    {%- if section.settings.popup-bg-img.width >= 720 -%}{{ section.settings.popup-bg-img | image_url: width: 720 }} 720w,{%- endif -%}
+                    {%- if section.settings.popup-bg-img.width >= 940 -%}{{ section.settings.popup-bg-img | image_url: width: 940 }} 940w,{%- endif -%}
+                    {%- if section.settings.popup-bg-img.width >= 1066 -%}{{ section.settings.popup-bg-img | image_url: width: 1066 }} 1066w,{%- endif -%}
+                    {{ section.settings.popup-bg-img | image_url }} {{ section.settings.popup-bg-img.width }}w
+                  "
+                  src="{{ section.settings.popup-bg-img | image_url: width: 533 }}"
+                  sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                  alt="{{ section.settings.popup-bg-img.alt | escape }}"
+                  class="contact-popup-img"
+                   loading="lazy"
+                  width="{{ section.settings.popup-bg-img.width }}"
+                  height="{{ section.settings.popup-bg-img.height }}"
+              >
+    <img
+srcset="
+  {%- if section.settings.popup-bg-img-mob.width >= 165 -%}{{ section.settings.popup-bg-img-mob | image_url: width: 165 }} 165w,{%- endif -%}
+  {%- if section.settings.popup-bg-img-mob.width >= 360 -%}{{ section.settings.popup-bg-img-mob | image_url: width: 360 }} 360w,{%- endif -%}
+  {%- if section.settings.popup-bg-img-mob.width >= 533 -%}{{ section.settings.popup-bg-img-mob | image_url: width: 533 }} 533w,{%- endif -%}
+  {%- if section.settings.popup-bg-img-mob.width >= 720 -%}{{ section.settings.popup-bg-img-mob | image_url: width: 720 }} 720w,{%- endif -%}
+  {%- if section.settings.popup-bg-img-mob.width >= 940 -%}{{ section.settings.popup-bg-img-mob | image_url: width: 940 }} 940w,{%- endif -%}
+  {%- if section.settings.popup-bg-img-mob.width >= 1066 -%}{{ section.settings.popup-bg-img-mob | image_url: width: 1066 }} 1066w,{%- endif -%}
+  {{ section.settings.popup-bg-img-mob | image_url }} {{ section.settings.popup-bg-img-mob.width }}w
+"
+src="{{ section.settings.popup-bg-img-mob | image_url: width: 533 }}"
+sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+alt="{{ section.settings.popup-bg-img-mob.alt | escape }}"
+class="contact-popup-img-mob"
+ loading="lazy"
+width="{{ section.settings.popup-bg-img-mob.width }}"
+height="{{ section.settings.popup-bg-img-mob.height }}"
+>
+    <div  class="cross-icon-popup" onclick="closePopup()">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" height="20px" width="20px" version="1.1" id="Capa_1" viewBox="0 0 490 490" xml:space="preserve">
+<polygon points="456.851,0 245,212.564 33.149,0 0.708,32.337 212.669,245.004 0.708,457.678 33.149,490 245,277.443 456.851,490   489.292,457.678 277.331,245.004 489.292,32.337 "/>
+</svg>
+    </div>
+    <div class="detail-div-popup form-contact-popup">
+      <p>{{ section.settings.contact-popup-text }}</p>
+       {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
+      {%- if form.posted_successfully? -%}
+       
+      {%- elsif form.errors -%}
+        <div class="form__message">
+          <h2 class="form-status caption-large text-body" role="alert" tabindex="-1" autofocus>
+            {% render 'icon-error' %}
+            {{ 'templates.contact.form.error_heading' | t }}
+          </h2>
+        </div>
+        <ul class="form-status-list caption-large" role="list">
+          <li>
+            <a href="#ContactForm-email" class="link">
+              {{ form.errors.translated_fields.email | capitalize }}
+              {{ form.errors.messages.email }}
+            </a>
+          </li>
+        </ul>
+      {%- endif -%}
+      <div class="contact__fields">
+        
+        <div class="field fullname custom-field">
+           <label class="field__label" for="ContactForm-name"><span aria-hidden="true">*</span> {{ 'templates.contact.form.name' | t }}  </label>
+          <input
+            class="field__input"
+            autocomplete="name"
+            type="text"
+            id="ContactForm-name" onkeydown="return /[a-z]/i.test(event.key)"
+            name="contact[{{ 'templates.contact.form.name' | t }}]"
+            value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+            placeholder="{{ 'templates.contact.form.name' | t }}" required
+          >
+         
+        </div>
+         <div class="field custom-field">
+      <label class="field__label" for="ContactForm-phone"><span aria-hidden="true">*</span> {{ 'templates.contact.form.phone' | t }}</label>
+        <input
+          type="number"
+          id="ContactForm "
+           onkeyup="validatePhoneNumber()"
+          class="field__input phoneNumber"  pattern="/^-?\d+\.?\d*$/"
+          autocomplete="tel" onkeypress="if(this.value.length==10) return false;"
+          name="contact[{{ 'templates.contact.form.phone' | t }}]" required
+          value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+          placeholder="{{ 'templates.contact.form.phone' | t }}"
+        >
+      </div>
+        <p class="popup-error">please Enter Valid Contact Number</p>
+        <div class="field field--with-error custom-field">
+           <label class="field__label" for="ContactForm-email">
+        <span aria-hidden="true">*</span>
+            {{- 'templates.contact.form.email' | t }}
+           </label
+          >
+          <input
+            autocomplete="email"
+            type="email"
+            id="ContactForm-email"
+            class="field__input"
+            name="contact[email]"
+            spellcheck="false"
+            autocapitalize="off"
+            value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+            aria-required="true"
+            {% if form.errors contains 'email' %}
+              aria-invalid="true"
+              aria-describedby="ContactForm-email-error"
+            {% endif %}
+            placeholder="{{ 'templates.contact.form.email' | t }}" required
+          >
+         
+          {%- if form.errors contains 'email' -%}
+            <small class="contact__field-error" id="ContactForm-email-error">
+              <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
+              <span class="form__message">
+                {%- render 'icon-error' -%}
+                {{- form.errors.translated_fields.email | capitalize }}
+                {{ form.errors.messages.email -}}
+              </span>
+            </small>
+          {%- endif -%}
+        </div>
+           <div class="country-div custom-field">
+      <label for="contact" class=" field__label">*Country: </label>
+      <select class="contant-popup">
+    <option disabled="disabled" selected="true">Select Country</option>
+    <option value="Afghanistan">Afghanistan</option>
+<option value="Albania">Albania</option>
+<option value="Algeria">Algeria</option>
+<option value="American Samoa">American Samoa</option>
+<option value="Andorra">Andorra</option>
+<option value="Angola">Angola</option>
+<option value="Anguilla">Anguilla</option>
+<option value="Antartica">Antarctica</option>
+<option value="Antigua and Barbuda">Antigua and Barbuda</option>
+<option value="Argentina">Argentina</option>
+<option value="Armenia">Armenia</option>
+<option value="Aruba">Aruba</option>
+<option value="Australia">Australia</option>
+<option value="Austria">Austria</option>
+<option value="Azerbaijan">Azerbaijan</option>
+<option value="Bahamas">Bahamas</option>
+<option value="Bahrain">Bahrain</option>
+<option value="Bangladesh">Bangladesh</option>
+<option value="Barbados">Barbados</option>
+<option value="Belarus">Belarus</option>
+<option value="Belgium">Belgium</option>
+<option value="Belize">Belize</option>
+<option value="Benin">Benin</option>
+<option value="Bermuda">Bermuda</option>
+<option value="Bhutan">Bhutan</option>
+<option value="Bolivia">Bolivia</option>
+<option value="Bosnia and Herzegowina">Bosnia and Herzegowina</option>
+<option value="Botswana">Botswana</option>
+<option value="Bouvet Island">Bouvet Island</option>
+<option value="Brazil">Brazil</option>
+<option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+<option value="Brunei Darussalam">Brunei Darussalam</option>
+<option value="Bulgaria">Bulgaria</option>
+<option value="Burkina Faso">Burkina Faso</option>
+<option value="Burundi">Burundi</option>
+<option value="Cambodia">Cambodia</option>
+<option value="Cameroon">Cameroon</option>
+<option value="Canada">Canada</option>
+<option value="Cape Verde">Cape Verde</option>
+<option value="Cayman Islands">Cayman Islands</option>
+<option value="Central African Republic">Central African Republic</option>
+<option value="Chad">Chad</option>
+<option value="Chile">Chile</option>
+<option value="China">China</option>
+<option value="Christmas Island">Christmas Island</option>
+<option value="Cocos Islands">Cocos (Keeling) Islands</option>
+<option value="Colombia">Colombia</option>
+<option value="Comoros">Comoros</option>
+<option value="Congo">Congo</option>
+<option value="Congo">Congo, the Democratic Republic of the</option>
+<option value="Cook Islands">Cook Islands</option>
+<option value="Costa Rica">Costa Rica</option>
+<option value="Cota D'Ivoire">Cote d'Ivoire</option>
+<option value="Croatia">Croatia (Hrvatska)</option>
+<option value="Cuba">Cuba</option>
+<option value="Cyprus">Cyprus</option>
+<option value="Czech Republic">Czech Republic</option>
+<option value="Denmark">Denmark</option>
+<option value="Djibouti">Djibouti</option>
+<option value="Dominica">Dominica</option>
+<option value="Dominican Republic">Dominican Republic</option>
+<option value="East Timor">East Timor</option>
+<option value="Ecuador">Ecuador</option>
+<option value="Egypt">Egypt</option>
+<option value="El Salvador">El Salvador</option>
+<option value="Equatorial Guinea">Equatorial Guinea</option>
+<option value="Eritrea">Eritrea</option>
+<option value="Estonia">Estonia</option>
+<option value="Ethiopia">Ethiopia</option>
+<option value="Falkland Islands">Falkland Islands (Malvinas)</option>
+<option value="Faroe Islands">Faroe Islands</option>
+<option value="Fiji">Fiji</option>
+<option value="Finland">Finland</option>
+<option value="France">France</option>
+<option value="France Metropolitan">France, Metropolitan</option>
+<option value="French Guiana">French Guiana</option>
+<option value="French Polynesia">French Polynesia</option>
+<option value="French Southern Territories">French Southern Territories</option>
+<option value="Gabon">Gabon</option>
+<option value="Gambia">Gambia</option>
+<option value="Georgia">Georgia</option>
+<option value="Germany">Germany</option>
+<option value="Ghana">Ghana</option>
+<option value="Gibraltar">Gibraltar</option>
+<option value="Greece">Greece</option>
+<option value="Greenland">Greenland</option>
+<option value="Grenada">Grenada</option>
+<option value="Guadeloupe">Guadeloupe</option>
+<option value="Guam">Guam</option>
+<option value="Guatemala">Guatemala</option>
+<option value="Guinea">Guinea</option>
+<option value="Guinea-Bissau">Guinea-Bissau</option>
+<option value="Guyana">Guyana</option>
+<option value="Haiti">Haiti</option>
+<option value="Heard and McDonald Islands">Heard and Mc Donald Islands</option>
+<option value="Holy See">Holy See (Vatican City State)</option>
+<option value="Honduras">Honduras</option>
+<option value="Hong Kong">Hong Kong</option>
+<option value="Hungary">Hungary</option>
+<option value="Iceland">Iceland</option>
+<option value="India">India</option>
+<option value="Indonesia">Indonesia</option>
+<option value="Iran">Iran (Islamic Republic of)</option>
+<option value="Iraq">Iraq</option>
+<option value="Ireland">Ireland</option>
+<option value="Israel">Israel</option>
+<option value="Italy">Italy</option>
+<option value="Jamaica">Jamaica</option>
+<option value="Japan">Japan</option>
+<option value="Jordan">Jordan</option>
+<option value="Kazakhstan">Kazakhstan</option>
+<option value="Kenya">Kenya</option>
+<option value="Kiribati">Kiribati</option>
+<option value="Democratic People's Republic of Korea">Korea, Democratic People's Republic of</option>
+<option value="Korea">Korea, Republic of</option>
+<option value="Kuwait">Kuwait</option>
+<option value="Kyrgyzstan">Kyrgyzstan</option>
+<option value="Lao">Lao People's Democratic Republic</option>
+<option value="Latvia">Latvia</option>
+<option value="Lebanon">Lebanon</option>
+<option value="Lesotho">Lesotho</option>
+<option value="Liberia">Liberia</option>
+<option value="Libyan Arab Jamahiriya">Libyan Arab Jamahiriya</option>
+<option value="Liechtenstein">Liechtenstein</option>
+<option value="Lithuania">Lithuania</option>
+<option value="Luxembourg">Luxembourg</option>
+<option value="Macau">Macau</option>
+<option value="Macedonia">Macedonia, The Former Yugoslav Republic of</option>
+<option value="Madagascar">Madagascar</option>
+<option value="Malawi">Malawi</option>
+<option value="Malaysia">Malaysia</option>
+<option value="Maldives">Maldives</option>
+<option value="Mali">Mali</option>
+<option value="Malta">Malta</option>
+<option value="Marshall Islands">Marshall Islands</option>
+<option value="Martinique">Martinique</option>
+<option value="Mauritania">Mauritania</option>
+<option value="Mauritius">Mauritius</option>
+<option value="Mayotte">Mayotte</option>
+<option value="Mexico">Mexico</option>
+<option value="Micronesia">Micronesia, Federated States of</option>
+<option value="Moldova">Moldova, Republic of</option>
+<option value="Monaco">Monaco</option>
+<option value="Mongolia">Mongolia</option>
+<option value="Montserrat">Montserrat</option>
+<option value="Morocco">Morocco</option>
+<option value="Mozambique">Mozambique</option>
+<option value="Myanmar">Myanmar</option>
+<option value="Namibia">Namibia</option>
+<option value="Nauru">Nauru</option>
+<option value="Nepal">Nepal</option>
+<option value="Netherlands">Netherlands</option>
+<option value="Netherlands Antilles">Netherlands Antilles</option>
+<option value="New Caledonia">New Caledonia</option>
+<option value="New Zealand">New Zealand</option>
+<option value="Nicaragua">Nicaragua</option>
+<option value="Niger">Niger</option>
+<option value="Nigeria">Nigeria</option>
+<option value="Niue">Niue</option>
+<option value="Norfolk Island">Norfolk Island</option>
+<option value="Northern Mariana Islands">Northern Mariana Islands</option>
+<option value="Norway">Norway</option>
+<option value="Oman">Oman</option>
+<option value="Pakistan">Pakistan</option>
+<option value="Palau">Palau</option>
+<option value="Panama">Panama</option>
+<option value="Papua New Guinea">Papua New Guinea</option>
+<option value="Paraguay">Paraguay</option>
+<option value="Peru">Peru</option>
+<option value="Philippines">Philippines</option>
+<option value="Pitcairn">Pitcairn</option>
+<option value="Poland">Poland</option>
+<option value="Portugal">Portugal</option>
+<option value="Puerto Rico">Puerto Rico</option>
+<option value="Qatar">Qatar</option>
+<option value="Reunion">Reunion</option>
+<option value="Romania">Romania</option>
+<option value="Russia">Russian Federation</option>
+<option value="Rwanda">Rwanda</option>
+<option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option> 
+<option value="Saint LUCIA">Saint LUCIA</option>
+<option value="Saint Vincent">Saint Vincent and the Grenadines</option>
+<option value="Samoa">Samoa</option>
+<option value="San Marino">San Marino</option>
+<option value="Sao Tome and Principe">Sao Tome and Principe</option> 
+<option value="Saudi Arabia">Saudi Arabia</option>
+<option value="Senegal">Senegal</option>
+<option value="Seychelles">Seychelles</option>
+<option value="Sierra">Sierra Leone</option>
+<option value="Singapore">Singapore</option>
+<option value="Slovakia">Slovakia (Slovak Republic)</option>
+<option value="Slovenia">Slovenia</option>
+<option value="Solomon Islands">Solomon Islands</option>
+<option value="Somalia">Somalia</option>
+<option value="South Africa">South Africa</option>
+<option value="South Georgia">South Georgia and the South Sandwich Islands</option>
+<option value="Span">Spain</option>
+<option value="SriLanka">Sri Lanka</option>
+<option value="St. Helena">St. Helena</option>
+<option value="St. Pierre and Miguelon">St. Pierre and Miquelon</option>
+<option value="Sudan">Sudan</option>
+<option value="Suriname">Suriname</option>
+<option value="Svalbard">Svalbard and Jan Mayen Islands</option>
+<option value="Swaziland">Swaziland</option>
+<option value="Sweden">Sweden</option>
+<option value="Switzerland">Switzerland</option>
+<option value="Syria">Syrian Arab Republic</option>
+<option value="Taiwan">Taiwan, Province of China</option>
+<option value="Tajikistan">Tajikistan</option>
+<option value="Tanzania">Tanzania, United Republic of</option>
+<option value="Thailand">Thailand</option>
+<option value="Togo">Togo</option>
+<option value="Tokelau">Tokelau</option>
+<option value="Tonga">Tonga</option>
+<option value="Trinidad and Tobago">Trinidad and Tobago</option>
+<option value="Tunisia">Tunisia</option>
+<option value="Turkey">Turkey</option>
+<option value="Turkmenistan">Turkmenistan</option>
+<option value="Turks and Caicos">Turks and Caicos Islands</option>
+<option value="Tuvalu">Tuvalu</option>
+<option value="Uganda">Uganda</option>
+<option value="Ukraine">Ukraine</option>
+<option value="United Arab Emirates">United Arab Emirates</option>
+<option value="United Kingdom">United Kingdom</option>
+<option value="United States">United States</option>
+<option value="United States Minor Outlying Islands">United States Minor Outlying Islands</option>
+<option value="Uruguay">Uruguay</option>
+<option value="Uzbekistan">Uzbekistan</option>
+<option value="Vanuatu">Vanuatu</option>
+<option value="Venezuela">Venezuela</option>
+<option value="Vietnam">Viet Nam</option>
+<option value="Virgin Islands (British)">Virgin Islands (British)</option>
+<option value="Virgin Islands (U.S)">Virgin Islands (U.S.)</option>
+<option value="Wallis and Futana Islands">Wallis and Futuna Islands</option>
+<option value="Western Sahara">Western Sahara</option>
+<option value="Yemen">Yemen</option>
+<option value="Serbia">Serbia</option>
+<option value="Zambia">Zambia</option>
+<option value="Zimbabwe">Zimbabwe</option>
+</select><br>
+      </div>
+        <div class="field custom-field">
+           <label class="field__label" for="ContactForm-name"> <span aria-hidden="true">*</span> Pin Code   </label>
+          <input
+            class="field__input postalCode"
+            onkeyup="validatePostalCode()"
+            autocomplete="name"
+            type="number"
+            id="ContactForm-name" 
+            name="contact['Pin code']"
+            value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+            placeholder="School Name" required
+          > 
+         
+        </div>
+      </div>
+       <p class="popup-error-pinCode">please Enter Valid Pin Code</p>
+      <div class="contact__button">
+        <button type="submit" class="button">
+         SUBMIT
+        </button>
+      </div>
+    {%- endform -%}
+    </div>
+  </div>
+</div>
+  <script>
+    
+    function closePopup(){
+       document.querySelector(".contact-popup").style.display = "none"
+    }
+  function validatePhoneNumber() {
+    const phoneNumberInput = document.querySelector('.phoneNumber');
+    const phoneNumber = phoneNumberInput.value.trim();
+    const uaePhoneNumberPattern =/^(?:\+971|971|0)?(?:2|3|4|6|7|9|50|52|54|55|56|58|59|6[0-9]|7[0-4]|7[6-9]|80|81|82|84|86|87|89)\d{7}$/;
+    if (uaePhoneNumberPattern.test(phoneNumber)) {
+      // phoneNumberInput.style.border = '2px solid green';
+      document.querySelector('.popup-error').style.display = "none"
+    } else {
+      // phoneNumberInput.style.border = '2px solid red';
+      document.querySelector('.popup-error').style.display = "block"
+    }
+  }
+    function validatePostalCode() {
+  const postalCodeInput = document.querySelector('.postalCode');
+  const postalCode = postalCodeInput.value.trim();
+
+  const uaePostalCodePattern = /^\d{5}$/;
+
+  if (uaePostalCodePattern.test(postalCode)) {
+   document.querySelector('.popup-error-pinCode').style.display = "none";
+  } else {
+    document.querySelector('.popup-error-pinCode').style.display = "block";
+  }
+}
+</script>
+{% schema %}
+  {
+    "name": "Section name",
+    "settings": [
+       {
+        "type": "image_picker",
+        "id": "popup-bg-img",
+        "label": "Contact popup background image"
+      },
+       {
+        "type": "image_picker",
+        "id": "popup-bg-img-mob",
+        "label": "Contact popup background image mobile"
+      },
+      {
+        "type": "richtext",
+        "id": "contact-popup-text",
+        "label": "Enter Content"
+      },
+      {
+        "type": "text",
+        "id": "contact-name",
+        "label": "Name"
+      },
+      {
+        "type": "text",
+        "id": "contact-number",
+        "label": "number"
+      },
+      {
+        "type": "text",
+        "id": "contact-email",
+        "label": "email"
+      },
+      {
+        "type": "text",
+        "id": "contact-country",
+        "label": "country"
+      },
+      {
+        "type": "text",
+        "id": "contact-pincode",
+        "label": "Pin code"
+      }
+    ],
+  "presets": [{
+    "name": "conntact popup"
+  }]
+  }
+{% endschema %}
