@@ -2154,4 +2154,7 @@ button.know-more-button {
     border-width: 0px!important;
     border-left-color: #00b1ae!important;
 }
+button.know-more-button p {
+    color: white;
+}
 
