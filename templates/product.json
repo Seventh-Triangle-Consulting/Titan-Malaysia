@@ -10,11 +10,6 @@
             "text_style": "uppercase"
           }
         },
-        "description": {
-          "type": "description",
-          "settings": {
-          }
-        },
         "title": {
           "type": "title",
           "settings": {
@@ -27,6 +22,11 @@
         },
         "price": {
           "type": "price",
+          "settings": {
+          }
+        },
+        "description": {
+          "type": "description",
           "settings": {
           }
         },
@@ -64,10 +64,10 @@
       },
       "block_order": [
         "vendor",
-        "description",
         "title",
         "b607d1c0-5375-49f3-859b-52d3887260ae",
         "price",
+        "description",
         "variant_picker",
         "quantity_selector",
         "6f357501-efe5-4a62-8b55-2936766130a5",
