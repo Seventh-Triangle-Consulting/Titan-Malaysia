@@ -149,7 +149,7 @@
                 </a>
               </div>
            {%- when 'description' -%}
-              <p class="only-quick-add-des">{{ product.description }}</p>
+              <div class="only-quick-add-des">{{ product.description }}</div>
             {%- when 'price' -%}
               <div class="no-js-hidden price-main-div" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                 {%- render 'custom-price',
