@@ -4,7 +4,7 @@
   margin: 0 0 1rem;
   z-index: 1;
 }
-.only-quick-add-des ul,.only-quick-add-des li,.only-quick-add-des p{font-family:Roboto-Regular;color:#000;}
+.only-quick-add-des ul,.only-quick-add-des li,.only-quick-add-des p{font-family:Roboto-Regular;color:#000;font-size: 15px; line-height:1.1}
 quick-add-modal .only-quick-add-des{display:block;}
 quick-add-modal h2{width: 85%;}
 quick-add-modal .price,quick-add-modal .product-form__input,quick-add-modal product-form {display: none !important;}
