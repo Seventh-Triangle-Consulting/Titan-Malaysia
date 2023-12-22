@@ -2559,7 +2559,7 @@ product-info .loading-overlay:not(.hidden) ~ *,
   grid-area: icons;
   justify-self: end;
   padding-right: 0;
-    gap: 0.4rem;
+    gap: 0;
 
 }
 
