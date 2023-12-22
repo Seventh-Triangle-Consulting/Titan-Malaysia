@@ -348,7 +348,7 @@
                 {% # theme-check-disable %}
                 {%- assign cart_qty = cart | item_count_for_variant: product.selected_or_first_available_variant.id -%}
                 {% # theme-check-enable %}
-                <label class="quantity__label form__label" for="Quantity-{{ section.id }}">
+                {% comment %} <label class="quantity__label form__label" for="Quantity-{{ section.id }}">
                   {{ 'products.product.quantity.label' | t }}
                   <span class="quantity__rules-cart no-js-hidden{% if cart_qty == 0 %} hidden{% endif %}">
                     <span class="loading-overlay hidden">
@@ -369,8 +369,8 @@
                       )</span
                     >
                   </span>
-                </label>
-              <div class="custom-atc-qty-slector">
+                </label> 
+            <div class="custom-atc-qty-slector">
                  <div class="custom-atc-product"></div>
                 <div class="price-per-item__container">
                   <quantity-input class="quantity" data-url="{{ product.url }}" data-section="{{ section.id }}">
@@ -486,7 +486,12 @@
                     </price-per-item>
                   {%- endif -%}
                 </div>
-              </div>
+              </div> {% endcomment %}
+            <div class="know-share">
+            <button class="know-more-button"> <p onclick="openPopup()">KNOW MORE</p></button>
+                       </div>
+
+</div>
                 <div class="quantity__rules caption no-js-hidden">
                   {%- if product.selected_or_first_available_variant.quantity_rule.increment > 1 -%}
                     <span class="divider">
@@ -1192,6 +1197,12 @@ window.addEventListener('DOMContentLoaded', initSwipersPDP, { once: true });
     }
    
   </script>
+<script>
+   function openPopup(){
+       document.querySelector(".contact-popup").style.display = "flex"
+    }
+</script>
+              
 </section>
 
 {% schema %}
