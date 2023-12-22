@@ -148,6 +148,8 @@
                   </h2>
                 </a>
               </div>
+           {%- when 'description' -%}
+              <div class="only-quick-add-des">{{ product.description }}</div>
             {%- when 'price' -%}
               <div class="no-js-hidden price-main-div" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                 {%- render 'custom-price',
@@ -1014,7 +1016,6 @@ function initSwipersPDP(event, isQuickAdd = false) {
     }
 
       var swiper = new Swiper("#{{ section.id }} .mySwiper", {
-          loop: true,
           spaceBetween: 10,
           slidesPerView: 4,
           freeMode: true,
@@ -1026,7 +1027,6 @@ function initSwipersPDP(event, isQuickAdd = false) {
         });
             
       var swiper2 = new Swiper("#{{ section.id }} .custom-desktop-slider-main", {
-        loop: true,
         spaceBetween: 10,
         navigation: {
           nextEl: ".custom-desktop-slider-main .swiper-button-next",

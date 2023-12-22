@@ -2559,7 +2559,7 @@ product-info .loading-overlay:not(.hidden) ~ *,
   grid-area: icons;
   justify-self: end;
   padding-right: 0;
-    gap: 0.4rem;
+    gap: 0;
 
 }
 
@@ -2739,7 +2739,7 @@ details[open] .modal-overlay::after {
   }
 
   .search-modal__content {
-    padding: 0 1rem;
+    padding: 0 ;
   }
 }
 @media screen and (min-width: 1800px){

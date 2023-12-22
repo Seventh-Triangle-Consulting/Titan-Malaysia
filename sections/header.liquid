@@ -27,13 +27,14 @@
 <noscript>{{ 'component-cart-items.css' | asset_url | stylesheet_tag }}</noscript>
 
 <style>
+  .header-wishlist, .header__icon--cart, .header__icon--account{display:none !important;}
   .reset__button:not(:focus):after{border:none !important;}
   .search-modal__form { max-width: 28.2rem;}
   .predictive-search__loading-state{display:none;}
   .headerdesktopsearch .search__button {left: 0;}
   .header__search{display:none !important;}
   .header__menu-item a{text-decoration:none;}
-  .header-wishlist{ display: flex !important; align-items: center; justify-content: center; position: relative;margin-right:5px;}
+  .header-wishlist{ display: flex; align-items: center; justify-content: center; position: relative;margin-right:5px;}
   .header-wishlist span{position: absolute; right: 2%; bottom:20%; height: 1.7rem; width: 1.7rem; display: flex; align-items: center; justify-content: center;font-weight:300 !important;font-size:9px; padding-right: 7px!important;
     padding-top: 4px!important;}
   predictive-search:not([loading]) .predictive-search__loading-state,
@@ -47,11 +48,10 @@
   .headerdesktopsearch .reset__button{    right: calc(var(--inputs-border-width) + 0.2rem);}
   .headerdesktopsearch .reset__button .icon.icon-close {height: 1rem;width: 1rem;}
   .headerdesktopsearch .reset__button svg path{stroke:#000;}
-   header-drawer { justify-self: start; margin-left: -2rem; }
+   header-drawer { justify-self: start; }
 @media screen and (min-width:900px) and (max-width:1230px){
     .headermobilesearch{display:block;}
     .header-wishlist span{bottom:18%;}
-    .headerdesktopsearch{display:none;}
   }
   {%- if section.settings.sticky_header_type == 'reduce-logo-size' -%}
     .scrolled-past-header .header__heading-logo-wrapper {
@@ -109,7 +109,6 @@
         grid-template-columns: 0px auto auto !important;}
   }
   @media screen and (max-width:767px){
-  .header { grid-template-columns: 0px auto auto !important;}
   .headerdesktopsearch{display:none;}
   .header__heading, .header__heading-link{    margin-left: 1vw;}
   .header-wishlist span{bottom:20%; padding-top:2px!important;}
@@ -122,9 +121,7 @@
 </style>
 
 {%- style -%}
-  .header {
-    padding: {{ section.settings.padding_top | times: 0.2 | round: 0 }}px 3rem {{ section.settings.padding_bottom | times: 0.2 | round: 0 }}px 3rem;
-  }
+
 
   .section-header {
     top:-1px;
