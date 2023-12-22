@@ -10,6 +10,11 @@
             "text_style": "uppercase"
           }
         },
+        "description": {
+          "type": "description",
+          "settings": {
+          }
+        },
         "title": {
           "type": "title",
           "settings": {
@@ -50,11 +55,6 @@
             "show_gift_card_recipient": true
           }
         },
-        "description": {
-          "type": "description",
-          "settings": {
-          }
-        },
         "5084a510-7189-437e-bc00-7ae24be755b7": {
           "type": "share",
           "settings": {
@@ -64,6 +64,7 @@
       },
       "block_order": [
         "vendor",
+        "description",
         "title",
         "b607d1c0-5375-49f3-859b-52d3887260ae",
         "price",
@@ -71,7 +72,6 @@
         "quantity_selector",
         "6f357501-efe5-4a62-8b55-2936766130a5",
         "buy_buttons",
-        "description",
         "5084a510-7189-437e-bc00-7ae24be755b7"
       ],
       "settings": {
