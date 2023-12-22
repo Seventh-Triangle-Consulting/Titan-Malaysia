@@ -1016,7 +1016,6 @@ function initSwipersPDP(event, isQuickAdd = false) {
     }
 
       var swiper = new Swiper("#{{ section.id }} .mySwiper", {
-          loop: true,
           spaceBetween: 10,
           slidesPerView: 4,
           freeMode: true,
@@ -1028,7 +1027,6 @@ function initSwipersPDP(event, isQuickAdd = false) {
         });
             
       var swiper2 = new Swiper("#{{ section.id }} .custom-desktop-slider-main", {
-        loop: true,
         spaceBetween: 10,
         navigation: {
           nextEl: ".custom-desktop-slider-main .swiper-button-next",
