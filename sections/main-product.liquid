@@ -555,6 +555,8 @@
                   </volume-pricing>
                 {%- endif -%}
               </div> {% endcomment %}
+            <div class="know-share">
+            <button class="know-more-button"> <p onclick="openPopup()">KNOW MORE</p></button> </div>
             {%- when 'popup' -%}
               <modal-opener
                 class="product-popup-modal__opener no-js-hidden quick-add-hidden"
@@ -1190,7 +1192,9 @@ window.addEventListener('DOMContentLoaded', initSwipersPDP, { once: true });
             console.error(error);     
       }
     }
-   
+    function openPopup(){
+       document.querySelector(".contact-popup").style.display = "flex"
+    }
   </script>
 </section>
 
