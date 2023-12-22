@@ -148,6 +148,8 @@
                   </h2>
                 </a>
               </div>
+           {%- when 'description' -%}
+              <p>{{ product.description }}</p>
             {%- when 'price' -%}
               <div class="no-js-hidden price-main-div" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                 {%- render 'custom-price',
