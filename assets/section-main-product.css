@@ -3,6 +3,7 @@
   .pdp_shipping{margin-bottom:2%;}
   .pdp_shipping_returns{flex-direction:center !important;align-items:baseline !important;}
 }
+.only-quick-add-des{display:none;}
 .productformmobilesticky .product-form__error-message-wrapper{left: 10px !important;}
 .productformdesktoptitle{width: 50%;}
 .restock-alerts-form div,.restock-alerts-form label{color: #000;font-family: Roboto-Medium;}
