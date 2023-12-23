@@ -133,7 +133,7 @@ variant-selects .select .icon-caret, .customer select+svg{
     z-index: 11;
     display: flex;
     justify-content: space-between;
-    overflow:hidden;
+    overflow:hidden;display:none;
 }
 .productformdesktopsticky .price__badge-sale{
   display: none !important;
