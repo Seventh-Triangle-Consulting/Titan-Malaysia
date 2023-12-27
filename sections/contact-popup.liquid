@@ -560,7 +560,6 @@ height="{{ section.settings.popup-bg-img-mob.height }}"
     function countryName(){
         var dropdown = document.querySelector(".contant-popup");
   var selectedValue = dropdown.options[dropdown.selectedIndex].value;
- console.log("Selected value:", selectedValue);
        document.querySelector('.popup-error-country').style.display = "none"
       document.querySelector(".custom-country").value = selectedValue;
     }
