@@ -8,6 +8,7 @@
   visibility:hidden;
   position:absolute;
 }
+.main-page h2{font-size:28px;}
 .main-page strong{font-family:Roboto-Bold;font-size:18px;}
 .main-page-title {
   margin-bottom: 3rem;text-align:left;
