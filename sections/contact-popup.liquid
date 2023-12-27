@@ -242,7 +242,7 @@ height="{{ section.settings.popup-bg-img-mob.height }}"
            <div class="field custom-field">
            <label class="field__label" for="ContactForm-country"> <span aria-hidden="true">*</span> Country   </label>
           <input
-            class="field__input postalCode"
+            class="field__input "
             autocomplete="name"
             type="text"
             id="ContactForm-name" 
@@ -507,7 +507,7 @@ height="{{ section.settings.popup-bg-img-mob.height }}"
             id="ContactForm-name" 
             name="contact['Pin code']"
             value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
-            placeholder="Pinn Code" required
+            placeholder="Pin Code" required
           > 
          
         </div>
