@@ -2157,4 +2157,6 @@ button.know-more-button {
 button.know-more-button p {
     color: white;
 }
-
+h4.custom-sku {
+        font-size: clamp(13.5px, calc(15 * (100vw / 1440)), 15.5px);
+}
