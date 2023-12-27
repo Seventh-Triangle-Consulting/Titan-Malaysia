@@ -247,7 +247,7 @@ height="{{ section.settings.popup-bg-img-mob.height }}"
             autocomplete="name"
             type="text"
             id="ContactForm-name" 
-            name="contact['country']"
+            name="contact[Country]"
             value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
             placeholder="Country" required
           > 
@@ -506,7 +506,7 @@ height="{{ section.settings.popup-bg-img-mob.height }}"
             autocomplete="name"
             type="number"
             id="ContactForm-name" 
-            name="contact['Pin code']"
+            name="contact[Pin code]"
             value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
             placeholder="Pin Code" required
           > 
