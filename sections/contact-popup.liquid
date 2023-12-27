@@ -140,26 +140,7 @@
                   height="{{ section.settings.popup-bg-img.height }}"
               >
     {% else %}
-      {% assign popUp-image = "//cdn.shopify.com/s/files/1/0628/7690/9727/files/popupbg_1.jpg?v=1703155594" %}
-     <!-- <img
-srcset="
-  {%- if  popUp-image.width >= 165 -%}{{  popUp-image | image_url: width: 165 }} 165w,{%- endif -%}
-  {%- if  popUp-image.width >= 360 -%}{{  popUp-image | image_url: width: 360 }} 360w,{%- endif -%}
-  {%- if  popUp-image.width >= 533 -%}{{  popUp-image | image_url: width: 533 }} 533w,{%- endif -%}
-  {%- if  popUp-image.width >= 720 -%}{{  popUp-image | image_url: width: 720 }} 720w,{%- endif -%}
-  {%- if  popUp-image.width >= 940 -%}{{  popUp-image | image_url: width: 940 }} 940w,{%- endif -%}
-  {%- if  popUp-image.width >= 1066 -%}{{  popUp-image | image_url: width: 1066 }} 1066w,{%- endif -%}
-  {{  popUp-image | image_url }} {{  popUp-image.width }}w
-"
-src="{{  popUp-image | image_url: width: 533 }}"
-sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
-alt="{{  popUp-image.alt | escape }}"
-class="contact-popup-img"
- loading="lazy"
-width="{{  popUp-image.width }}"
-height="{{  popUp-image.height }}"
-> -->
-    <img src="//cdn.shopify.com/s/files/1/0628/7690/9727/files/popupbg_1.jpg?v=1703155594" alt="Girl in a jacket" width="500" height="600">
+    <img src="https://cdn.shopify.com/s/files/1/0628/7690/9727/files/popupbg_1.jpg?v=1703155594" width="500" height="600">
 
       
     {% endif %}
@@ -183,6 +164,8 @@ class="contact-popup-img-mob"
 width="{{ section.settings.popup-bg-img-mob.width }}"
 height="{{ section.settings.popup-bg-img-mob.height }}"
 >
+    {% else %}
+    <img src="https://cdn.shopify.com/s/files/1/0628/7690/9727/files/popup-mobile.jpg?v=1703155610" width="500" height="600">
     {% endif %}
     <div  class="cross-icon-popup" onclick="closePopup()">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" height="20px" width="20px" version="1.1" id="Capa_1" viewBox="0 0 490 490" xml:space="preserve">
