@@ -173,7 +173,9 @@ height="{{ section.settings.popup-bg-img-mob.height }}"
 </svg>
     </div>
     <div class="detail-div-popup form-contact-popup">
+      {% if  section.settings.contact-popup-text %}
       <p>{{ section.settings.contact-popup-text }}</p>
+      {% endif %}
        {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
       {%- if form.posted_successfully? -%}
        <script>sessionStorage.setItem("showPopUp", "false")</script>
