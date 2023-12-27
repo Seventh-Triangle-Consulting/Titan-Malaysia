@@ -5,6 +5,8 @@
   font-size: clamp(21px,calc(24 * (100vw / var(--viewportDesktop))),28px);
   font-family:PlayfairDisplay-Bold;
   margin-bottom:20px;
+  visibility:hidden;
+  position:absolute;
 }
 .main-page-title {
   margin-bottom: 3rem;text-align:left;
