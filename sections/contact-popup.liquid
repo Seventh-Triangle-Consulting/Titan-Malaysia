@@ -141,7 +141,7 @@
               >
     {% else %}
       {% assign popUp-image = "//cdn.shopify.com/s/files/1/0628/7690/9727/files/popupbg_1.jpg?v=1703155594" %}
-     <img
+     <!-- <img
 srcset="
   {%- if  popUp-image.width >= 165 -%}{{  popUp-image | image_url: width: 165 }} 165w,{%- endif -%}
   {%- if  popUp-image.width >= 360 -%}{{  popUp-image | image_url: width: 360 }} 360w,{%- endif -%}
@@ -158,7 +158,9 @@ class="contact-popup-img"
  loading="lazy"
 width="{{  popUp-image.width }}"
 height="{{  popUp-image.height }}"
->
+> -->
+    <img src="{{ popUp-image | image_url }}" alt="Girl in a jacket" width="500" height="600">
+
       
     {% endif %}
     
