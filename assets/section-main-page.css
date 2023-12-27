@@ -8,7 +8,7 @@
   visibility:hidden;
   position:absolute;
 }
-.main-page strong{font-family:Roboto-Bold;}
+.main-page strong{font-family:Roboto-Bold;font-size:18px;}
 .main-page-title {
   margin-bottom: 3rem;text-align:left;
 }
