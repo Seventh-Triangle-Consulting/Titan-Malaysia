@@ -146,6 +146,7 @@
                   <h2 class="h1">
                     {{ product.title | escape }}
                   </h2>
+            <h4 class="custom-sku">{{ product.selected_or_first_available_variant.sku }}</h4>
                 </a>
               </div>
             {%- when 'price' -%}
