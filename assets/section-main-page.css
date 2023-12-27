@@ -11,7 +11,7 @@
 .main-page td{font-family:Roboto-Regular;font-size:18px;}
 .main-page h3{font-size:20px;}
 .main-page h2{font-size:28px;}
-.main-page strong{font-family:Roboto-Bold;font-size:18px;}
+.main-page strong{font-family:Roboto-Bold;font-size:18px !important;}
 .main-page-title {
   margin-bottom: 3rem;text-align:left;
 }
