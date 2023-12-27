@@ -149,6 +149,7 @@
                 </a>
               </div>
             {%- when 'price' -%}
+            {% comment %}
               <div class="no-js-hidden price-main-div" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                 {%- render 'custom-price',
                   product: product,
@@ -157,6 +158,7 @@
                   price_class: 'price--large'
                 -%}
               </div>
+              {% endcomment %}
               {% if product.metafields.reviews.rating.value != blank %}
                 {% liquid
                   assign rating_decimal = product.metafields.reviews.rating.value | split: '.'
