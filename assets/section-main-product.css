@@ -2159,4 +2159,5 @@ button.know-more-button p {
 }
 h4.custom-sku {
         font-size: clamp(13.5px, calc(15 * (100vw / 1440)), 15.5px);
+  padding-top: 7px;
 }
