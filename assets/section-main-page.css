@@ -10,9 +10,9 @@
   margin-bottom: 3rem;text-align:left;
 }
 .main-page li, .main-page a, .main-page p {
-    color: #414042;
+    color: #000;
 }
-.main-page a{    color: #dd5041;    text-decoration: underline;font-size: clamp(calc(var(--desktop-font-size-p) * .9px),calc(var(--desktop-font-size-p) * (100vw / var(--viewportDesktop))),calc(var(--desktop-font-size-p) * 1.1px));
+.main-page a{    color: #000;    text-decoration: underline;font-size: clamp(calc(var(--desktop-font-size-p) * .9px),calc(var(--desktop-font-size-p) * (100vw / var(--viewportDesktop))),calc(var(--desktop-font-size-p) * 1.1px));
     letter-spacing: var(--desktop-letter-spacing-p);
     line-height: var(--desktop-line-height-p);}
 .main-page  strong{ font-size: clamp(calc(var(--desktop-font-size-p) * 0.9px),calc(var(--desktop-font-size-p) * (100vw / var(--viewportDesktop))),calc(var(--desktop-font-size-p) * 1.1px));
@@ -24,7 +24,7 @@ color:#000;}
 }
 
 .main-page a {
-    color: #dd5041;
+    color: #000;
     text-decoration: underline;
 }
 .main-page li {  font-size: clamp(calc(var(--desktop-font-size-p) * 0.9px),calc(var(--desktop-font-size-p) * (100vw / var(--viewportDesktop))),calc(var(--desktop-font-size-p) * 1.1px));
