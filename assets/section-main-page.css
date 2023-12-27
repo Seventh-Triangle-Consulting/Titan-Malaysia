@@ -14,6 +14,7 @@
 }
 .main-page li, .main-page a, .main-page p {
     color: #000;
+    font-size:18px;
 }
 .main-page a{    color: #000;    text-decoration: underline;font-size: clamp(calc(var(--desktop-font-size-p) * .9px),calc(var(--desktop-font-size-p) * (100vw / var(--viewportDesktop))),calc(var(--desktop-font-size-p) * 1.1px));
     letter-spacing: var(--desktop-letter-spacing-p);
