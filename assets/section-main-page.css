@@ -8,6 +8,7 @@
   visibility:hidden;
   position:absolute;
 }
+.main-page strong{font-family:Roboto-Bold;}
 .main-page-title {
   margin-bottom: 3rem;text-align:left;
 }
