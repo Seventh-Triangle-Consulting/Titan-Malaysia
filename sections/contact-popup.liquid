@@ -242,7 +242,7 @@ height="{{ section.settings.popup-bg-img-mob.height }}"
            <div class="field custom-field">
            <label class="field__label" for="ContactForm-country"> <span aria-hidden="true">*</span> Country   </label>
           <input
-            class="field__input "
+            class="field__input custom-country"
             autocomplete="name"
             type="text"
             id="ContactForm-name" 
@@ -557,6 +557,7 @@ height="{{ section.settings.popup-bg-img-mob.height }}"
         var dropdown = document.querySelector(".contant-popup");
   var selectedValue = dropdown.options[dropdown.selectedIndex].value;
  console.log("Selected value:", selectedValue);
+      document.querySelector(".custom-country").value = selectedValue;
     }
 </script>
 {% schema %}
