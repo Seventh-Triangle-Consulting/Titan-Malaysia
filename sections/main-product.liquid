@@ -147,6 +147,7 @@
                     {{ product.title | escape }}
                   </h2>
                 </a>
+             <h4 class="custom-sku">{{ product.selected_or_first_available_variant.sku }}</h4>
               </div>
            {%- when 'description' -%}
               <div class="only-quick-add-des">{{ product.description }}</div>
