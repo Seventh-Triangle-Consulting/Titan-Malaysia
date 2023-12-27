@@ -109,14 +109,8 @@
     "f456190d-63ef-4fd2-ac86-77fddce8bcf6": {
       "type": "contact-popup",
       "settings": {
-        "popup-bg-img": "shopify:\/\/shop_images\/popupbg_1.jpg",
         "popup-bg-img-mob": "shopify:\/\/shop_images\/popup-mobile.jpg",
-        "contact-popup-text": "<p>Thank you fly stopping by! <\/p><p>We will be glad to assist you further. Please provide <\/p><p>the following information so we can contact you.<\/p>",
-        "contact-name": "",
-        "contact-number": "",
-        "contact-email": "",
-        "contact-country": "",
-        "contact-pincode": ""
+        "contact-popup-text": "<p>Thank you fly stopping by! <\/p><p>We will be glad to assist you further. Please provide <\/p><p>the following information so we can contact you.<\/p>"
       }
     }
   },
