@@ -239,6 +239,19 @@ height="{{ section.settings.popup-bg-img-mob.height }}"
             </small>
           {%- endif -%}
         </div>
+           <div class="field custom-field">
+           <label class="field__label" for="ContactForm-country"> <span aria-hidden="true">*</span> Country   </label>
+          <input
+            class="field__input postalCode"
+            autocomplete="name"
+            type="text"
+            id="ContactForm-name" 
+            name="contact['country']"
+            value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+            placeholder="Country" required
+          > 
+         
+        </div>
            <div class="country-div custom-field">
       <label for="ContactForm-contact" class=" field__label">*Country: </label>
       <select class="contant-popup">
@@ -494,7 +507,7 @@ height="{{ section.settings.popup-bg-img-mob.height }}"
             id="ContactForm-name" 
             name="contact['Pin code']"
             value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
-            placeholder="School Name" required
+            placeholder="Pinn Code" required
           > 
          
         </div>
