@@ -136,7 +136,7 @@ variant-selects .select .icon-caret, .customer select+svg{
     z-index: 11;
     display: flex;
     justify-content: space-between;
-    overflow:hidden;
+    overflow:hidden;display:none;
 }
 .productformdesktopsticky .price__badge-sale{
   display: none !important;
@@ -631,7 +631,7 @@ a.product__text {
 }
 
 .product .price__container {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .product .price dl {
@@ -2062,7 +2062,7 @@ border:none;background:transparent;} */
 @media(max-width:749px)
 {
   .card__badge.reviews.desktop{display:none;}
-  .productformmobilesticky{ display:block;   width: 100%; z-index: 111 !important;
+  .productformmobilesticky{ display:none;   width: 100%; z-index: 111 !important;
     bottom: 0;    padding: 10px 10px 40px 10px; position: fixed; z-index: 2;    background: rgba(248, 248, 248, 1); box-shadow: 0px -3px 5px 0px rgba(0, 0, 0, 0.25);}
 .positive_impact_heading{text-align:center;}
 .positive_impact_image_text_div{display:grid;place-items:center;}
@@ -2148,5 +2148,16 @@ border:none;background:transparent;} */
   .custom-atc-qty-slector .pdp_ATC span{font-size:14px !important;}
   .restock-alerts-modal-box{width: 90%;margin: auto;}
 }
-
+button.know-more-button {
+    width: 294px;
+    padding: 13px 0;
+    color: #fff;
+    background-color: black !important;
+    border-top-color: black !important;
+    border-width: 0px!important;
+    border-left-color: black !important;
+}
+button.know-more-button p {
+    color: white;
+}
 

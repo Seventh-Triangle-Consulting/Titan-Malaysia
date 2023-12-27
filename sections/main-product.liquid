@@ -341,7 +341,7 @@
                 </details>
               </div>
             {%- when 'quantity_selector' -%}
-              <div
+              {% comment %} <div
                 id="Quantity-Form-{{ section.id }}"
                 class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}"
                 {{ block.shopify_attributes }}
@@ -556,7 +556,9 @@
                     {%- endif -%}
                   </volume-pricing>
                 {%- endif -%}
-              </div>
+              </div> {% endcomment %}
+            <div class="know-share">
+            <button class="know-more-button"> <p onclick="openPopup()">KNOW MORE</p></button> </div>
             {%- when 'popup' -%}
               <modal-opener
                 class="product-popup-modal__opener no-js-hidden quick-add-hidden"
@@ -1190,7 +1192,9 @@ window.addEventListener('DOMContentLoaded', initSwipersPDP, { once: true });
             console.error(error);     
       }
     }
-   
+    function openPopup(){
+       document.querySelector(".contact-popup").style.display = "flex"
+    }
   </script>
 </section>
 

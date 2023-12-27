@@ -305,6 +305,11 @@ function  changeCss () {
           () => {
            window.psn();
              });
+      {% if template.name == "index" %}
+      document.addEventListener("DOMContentLoaded", (event) => {
+       if (sessionStorage.getItem("showPopUp") === null ){ document.querySelector(".contact-popup").style.display = "flex"}
+});
+      {% endif %}
     </script>
 	<!-- --------------- BEGIN 1CHECKOUT JS --------------- -->
 {{ '1checkout.js' | asset_url | script_tag }}
