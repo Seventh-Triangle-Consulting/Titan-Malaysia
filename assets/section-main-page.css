@@ -8,6 +8,7 @@
   visibility:hidden;
   position:absolute;
 }
+.main-page table{width:100%;}
 .main-page td{font-family:Roboto-Regular;font-size:18px;}
 .main-page h3{font-size:20px;}
 .main-page h2{font-size:28px;}
