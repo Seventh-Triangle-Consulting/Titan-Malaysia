@@ -569,6 +569,9 @@ class ModalDialog extends HTMLElement {
     if (popup) popup.loadContent();
     trapFocus(this, this.querySelector('[role="dialog"]'));
     window.pauseAllMedia();
+    document.querySelectorAll('.quick-add__submit')?.forEach((modal)=>{
+      if(modal.style.pointerEvents=="none") modal.style.pointerEvents="unset"
+    })
   }
 
   hide() {
@@ -590,6 +593,9 @@ class ModalOpener extends HTMLElement {
     if (!button) return;
     button.addEventListener('click', () => {
       const modal = document.querySelector(this.getAttribute('data-modal'));
+      document.querySelectorAll('.quick-add__submit')?.forEach((modal)=>{
+          modal.style.pointerEvents="none"
+      })
       if (modal) modal.show(button);
     });
   }
