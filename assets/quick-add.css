@@ -4,6 +4,7 @@
   margin: 0 0 1rem;
   z-index: 1;
 }
+quick-add-modal .product__title .product__title{display: block;}
 .only-quick-add-des{font-family: Roboto-Regular; color: #000; font-size: 15px; line-height: 1.5;}
 quick-add-modal .product__media-wrapper{align-self: center;}
 quick-add-modal .product__view-details{margin-top: 15px;font-size: 18px;font-family: Roboto-Medium;}
@@ -237,13 +238,6 @@ quick-add-modal .product__title > h1 {
 quick-add-modal .product__title > a {
   display: block;
   text-decoration: none;
-}
-
-quick-add-modal .product__title > a:hover {
-  color: rgb(var(--color-foreground));
-  text-decoration: underline;
-  text-underline-offset: 0.2rem;
-  text-decoration-thickness: 0.3rem;
 }
 
 quick-add-modal .product-form__buttons {

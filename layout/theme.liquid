@@ -307,7 +307,10 @@ function  changeCss () {
              });
       {% if template.name == "index" %}
       document.addEventListener("DOMContentLoaded", (event) => {
-       if (sessionStorage.getItem("showPopUp") === null ){ document.querySelector(".contact-popup").style.display = "flex"}
+       if (sessionStorage.getItem("showPopUp") === null ){ 
+        document.querySelector(".contact-popup").style.display = "flex";
+        document.querySelector('body').classList.add('overflow-hidden');
+      }
 });
       {% endif %}
     </script>

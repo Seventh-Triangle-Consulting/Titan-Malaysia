@@ -142,11 +142,9 @@
             {%- when 'title' -%}
               <div class="product__title" {{ block.shopify_attributes }}>
                 <h1 class="Rubik-400-30px">{{ product.title | escape }}</h1>
-                <a href="{{ product.url }}" class="product__title">
-                  <h2 class="h1">
+                  <h2 class="h1 product__title">
                     {{ product.title | escape }}
                   </h2>
-                </a>
              <h4 class="custom-sku">{{ product.selected_or_first_available_variant.sku }}</h4>
               </div>
            {%- when 'description' -%}
@@ -1197,7 +1195,8 @@ window.addEventListener('DOMContentLoaded', initSwipersPDP, { once: true });
       }
     }
     function openPopup(){
-       document.querySelector(".contact-popup").style.display = "flex"
+       document.querySelector(".contact-popup").style.display = "flex";
+       document.querySelector('body').classList.add('overflow-hidden');
     }
   </script>
 </section>

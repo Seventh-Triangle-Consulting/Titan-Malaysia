@@ -5,6 +5,16 @@
         top: 75px;
     left: 5%;
 }
+.contact-popup{
+  position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(128, 128, 128, 0.95);
+    z-index: 11;
+    align-items: center;
+}
 .contant-popup option{    font-size: clamp(calc(15 * .8px),calc(15 * (100vw / var(--viewportDesktop))),calc(15 * 1.6px)) !important;}
   .form-contact-popup .button{    padding: 8px 33px !important;}
   .form-contact-popup .contact__button {
@@ -116,7 +126,6 @@
     
     {% endif %}
 </style>
-
 
 <div class="contact-popup">
   <div class="inner-contact-popup">
@@ -546,8 +555,27 @@ height="{{ section.settings.popup-bg-img-mob.height }}"
     
     function closePopup(){
        document.querySelector(".contact-popup").style.display = "none"
+       document.querySelector('body').classList.remove('overflow-hidden');
       sessionStorage.setItem("showPopUp", "false")
     }
+  
+   document.addEventListener('DOMContentLoaded', function () {
+    var contactPopup = document.querySelector('.contactPopup');
+
+    // Add click event listener to the outer div
+    contactPopup.addEventListener('click', function (event) {
+      var innerContactPopup = document.querySelector('.inner-contact-popup');
+
+      // Check if the clicked element is not the inner div
+      if (!innerContactPopup.contains(event.target)) {
+        // Your desired action here
+        closePopup();
+        console.log("hello")
+      }
+    });
+  });
+
+
   function validatePhoneNumber() {
     const phoneNumberInput = document.querySelector('.phoneNumber');
     const phoneNumber = phoneNumberInput.value.trim();
