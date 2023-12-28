@@ -5,6 +5,7 @@
         top: 75px;
     left: 5%;
 }
+.submit_success_div{background: white;padding: 2% 5%;display:none;}
 .contact-popup{
   position: fixed;
     top: 0;
@@ -550,30 +551,35 @@ height="{{ section.settings.popup-bg-img-mob.height }}"
     {%- endform -%}
     </div>
   </div>
+
+  <div class="submit_success_div">
+    FORM SUBMITTED SUCCESSFULLY
+  </div>
+
 </div>
   <script>
+  document.addEventListener('DOMContentLoaded', function () {
+     // Check if window.location.href contains "contact_posted=true"
+  if (window.location.href.includes('contact_posted=true')) {
+    // Your desired action when the parameter is present
+      document.querySelector(".inner-contact-popup").style.display = "none";
+      document.querySelector(".contact-popup").style.display = "flex";
+      document.querySelector('body').classList.add('overflow-hidden');
+      document.querySelector(".submit_success_div").style.display = "block";
+
+      setTimeout(function () {
+        document.querySelector(".contact-popup").style.display = "none"
+        document.querySelector('body').classList.remove('overflow-hidden');
+      }, 3000);
+    }
+  });
+
     
     function closePopup(){
        document.querySelector(".contact-popup").style.display = "none"
        document.querySelector('body').classList.remove('overflow-hidden');
       sessionStorage.setItem("showPopUp", "false")
     }
-  
-   document.addEventListener('DOMContentLoaded', function () {
-    var contactPopup = document.querySelector('.contactPopup');
-
-    // Add click event listener to the outer div
-    contactPopup.addEventListener('click', function (event) {
-      var innerContactPopup = document.querySelector('.inner-contact-popup');
-
-      // Check if the clicked element is not the inner div
-      if (!innerContactPopup.contains(event.target)) {
-        // Your desired action here
-        closePopup();
-        console.log("hello")
-      }
-    });
-  });
 
 
   function validatePhoneNumber() {
