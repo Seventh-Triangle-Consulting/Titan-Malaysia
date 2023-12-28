@@ -47,21 +47,7 @@
             "link": ""
           }
         },
-        "9d461041-b023-4ebd-afe8-d465c6ff5118": {
-          "type": "announcement",
-          "settings": {
-            "text": "Free Shipping",
-            "link": ""
-          }
-        },
-        "496f971b-c5b4-4ac1-8983-85b60f5bd558": {
-          "type": "announcement",
-          "settings": {
-            "text": "Diwali Sale Live!!!",
-            "link": "shopify:\/\/collections\/men"
-          }
-        },
-        "9ec7de4f-14b4-4f58-a269-36dbf9f1b40d": {
+        "b675a4de-6d5a-426b-8033-a4cb2fb21266": {
           "type": "announcement",
           "settings": {
             "text": "Easy Returns\/Exchanges",
@@ -75,18 +61,32 @@
             "link": ""
           }
         },
-        "4596cd2e-5985-4b89-8fd6-a05c4ab0c287": {
+        "9d461041-b023-4ebd-afe8-d465c6ff5118": {
           "type": "announcement",
           "settings": {
             "text": "Free Shipping",
             "link": ""
           }
         },
-        "b8f57373-fa23-462f-a1d8-88f09d33a95b": {
+        "9ec7de4f-14b4-4f58-a269-36dbf9f1b40d": {
           "type": "announcement",
           "settings": {
-            "text": "Diwali Sale Live..!!!",
-            "link": "shopify:\/\/collections\/men"
+            "text": "Easy Returns\/Exchanges",
+            "link": ""
+          }
+        },
+        "8eeac1f6-45ab-4708-a2ab-3b0a9dcdc3d0": {
+          "type": "announcement",
+          "settings": {
+            "text": "6 Months Warranty",
+            "link": ""
+          }
+        },
+        "05858300-8aea-4555-85e4-7ba6f6b3967d": {
+          "type": "announcement",
+          "settings": {
+            "text": "Free Shipping",
+            "link": ""
           }
         }
       },
@@ -97,12 +97,12 @@
         "ccc6f0ad-effe-4510-9e5a-2318d7e8d608",
         "275acbc7-dcd9-4f90-98f8-223bd24eda13",
         "36f09eda-9967-4a1d-b630-6bbbdfe275a9",
-        "9d461041-b023-4ebd-afe8-d465c6ff5118",
-        "496f971b-c5b4-4ac1-8983-85b60f5bd558",
-        "9ec7de4f-14b4-4f58-a269-36dbf9f1b40d",
+        "b675a4de-6d5a-426b-8033-a4cb2fb21266",
         "79901408-f221-4c04-8a9a-fb5420ba21f9",
-        "4596cd2e-5985-4b89-8fd6-a05c4ab0c287",
-        "b8f57373-fa23-462f-a1d8-88f09d33a95b"
+        "9d461041-b023-4ebd-afe8-d465c6ff5118",
+        "9ec7de4f-14b4-4f58-a269-36dbf9f1b40d",
+        "8eeac1f6-45ab-4708-a2ab-3b0a9dcdc3d0",
+        "05858300-8aea-4555-85e4-7ba6f6b3967d"
       ],
       "settings": {
         "color_scheme": "scheme-b52cae98-4605-45a7-9d47-dfdfef21c315",
