@@ -77,7 +77,7 @@
        {%- if section.settings.announcement_bar_layout == 'marquee' -%}
      
               <div class="announcemnt-swiper" id="shopify-section-announcement">
-  <div class="swiper-wrapper">
+  <div class="swiper-wrapper" style=" transition-timing-function: linear;">
 {%- for block in section.blocks -%}
   {%- case block.type -%}
     {%- when 'announcement' -%}
