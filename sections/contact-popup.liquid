@@ -5,6 +5,17 @@
         top: 75px;
     left: 5%;
 }
+.submit_success_div{background: white;padding: 2% 5%;display:none;}
+.contact-popup{
+  position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(128, 128, 128, 0.95);
+    z-index: 11;
+    align-items: center;
+}
 .contant-popup option{    font-size: clamp(calc(15 * .8px),calc(15 * (100vw / var(--viewportDesktop))),calc(15 * 1.6px)) !important;}
   .form-contact-popup .button{    padding: 8px 33px !important;}
   .form-contact-popup .contact__button {
@@ -116,7 +127,6 @@
     
     {% endif %}
 </style>
-
 
 <div class="contact-popup">
   <div class="inner-contact-popup">
@@ -541,13 +551,38 @@ height="{{ section.settings.popup-bg-img-mob.height }}"
     {%- endform -%}
     </div>
   </div>
+
+  <div class="submit_success_div">
+    FORM SUBMITTED SUCCESSFULLY
+  </div>
+
 </div>
   <script>
+  document.addEventListener('DOMContentLoaded', function () {
+     // Check if window.location.href contains "contact_posted=true"
+  if (window.location.href.includes('contact_posted=true')) {
+    // Your desired action when the parameter is present
+     setTimeout(function () {
+      document.querySelector(".inner-contact-popup").style.display = "none";
+      document.querySelector(".contact-popup").style.display = "flex";
+      document.querySelector('body').classList.add('overflow-hidden');
+      document.querySelector(".submit_success_div").style.display = "block";
+      }, 3000);
+      setTimeout(function () {
+        document.querySelector(".contact-popup").style.display = "none"
+        document.querySelector('body').classList.remove('overflow-hidden');
+      }, 6000);
+    }
+  });
+
     
     function closePopup(){
        document.querySelector(".contact-popup").style.display = "none"
+       document.querySelector('body').classList.remove('overflow-hidden');
       sessionStorage.setItem("showPopUp", "false")
     }
+
+
   function validatePhoneNumber() {
     const phoneNumberInput = document.querySelector('.phoneNumber');
     const phoneNumber = phoneNumberInput.value.trim();

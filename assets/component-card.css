@@ -6,6 +6,7 @@
     height: 40px;
   }
 }
+.card__information .card__heading a:hover{text-decoration: inherit;}
 .card__badge, .card-information{display: none;}
 .card__media{
   background-color:#E4E4E4;
@@ -322,11 +323,6 @@
     opacity: 1;
     transition: transform var(--duration-long) ease;
     transform: scale(1.03);
-  }
-
-  .underline-links-hover:hover a {
-    text-decoration: underline;
-    text-underline-offset: 0.3rem;
   }
 }
 
