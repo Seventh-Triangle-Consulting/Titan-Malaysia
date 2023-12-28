@@ -12,7 +12,7 @@
             "link": ""
           }
         },
-        "275acbc7-dcd9-4f90-98f8-223bd24eda13": {
+        "b3fe4de1-4c53-46ab-af5e-c3eee8fa952c": {
           "type": "announcement",
           "settings": {
             "text": "6 Months Warranty",
@@ -20,6 +20,27 @@
           }
         },
         "54f96b0b-4dfb-42bb-8d32-4503b93bae2d": {
+          "type": "announcement",
+          "settings": {
+            "text": "Free Shipping",
+            "link": ""
+          }
+        },
+        "ccc6f0ad-effe-4510-9e5a-2318d7e8d608": {
+          "type": "announcement",
+          "settings": {
+            "text": "Easy Returns\/Exchanges",
+            "link": ""
+          }
+        },
+        "275acbc7-dcd9-4f90-98f8-223bd24eda13": {
+          "type": "announcement",
+          "settings": {
+            "text": "6 Months Warranty",
+            "link": ""
+          }
+        },
+        "36f09eda-9967-4a1d-b630-6bbbdfe275a9": {
           "type": "announcement",
           "settings": {
             "text": "Free Shipping",
@@ -69,8 +90,11 @@
       },
       "block_order": [
         "a72aa487-20fa-446c-bf36-87e04df00a19",
-        "275acbc7-dcd9-4f90-98f8-223bd24eda13",
+        "b3fe4de1-4c53-46ab-af5e-c3eee8fa952c",
         "54f96b0b-4dfb-42bb-8d32-4503b93bae2d",
+        "ccc6f0ad-effe-4510-9e5a-2318d7e8d608",
+        "275acbc7-dcd9-4f90-98f8-223bd24eda13",
+        "36f09eda-9967-4a1d-b630-6bbbdfe275a9",
         "496f971b-c5b4-4ac1-8983-85b60f5bd558",
         "9ec7de4f-14b4-4f58-a269-36dbf9f1b40d",
         "79901408-f221-4c04-8a9a-fb5420ba21f9",
