@@ -12,7 +12,18 @@
     margin-left: -4rem;
 }
   p.announcement-bar__message.announcement-bar-custom.h5.Diwali.Sale{margin-left: -8rem;}
- 
+   /* .announcemnt-swiper .swiper-wrapper{animation: marquee 8s linear infinite;transition-timing-function: linear;scroll-behavior:smooth;}
+  @keyframes marquee {
+  from { transform: translateX(0%); }
+  to { transform: translateX(-20%); }
+}
+  @media screen and (max-width:768px){
+  .announcemnt-swiper .swiper-wrapper{animation: marquee 12s linear infinite;}
+     @keyframes marquee {
+  from { transform: translateX(0%); }
+  to { transform: translateX(-100%); }
+}
+  } */
 </style>
 
 {%- liquid
@@ -178,6 +189,11 @@
       var partnerscrollbar = new Swiper('.announcemnt-swiper', {
          slidesPerView: 5,
         loop: true,
+        speed: 10000,
+        autoplay: {
+               delay: 0,
+               reverseDirection: false,
+            },
         breakpoints: {
            300: {
             enteredSlides: true,
