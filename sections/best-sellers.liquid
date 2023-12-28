@@ -17,9 +17,9 @@
     .bestsellers_tab button.active {background-color: #000 !important;color: #FFF;font-family:'Roboto-Medium';font-size: 15px;font-style: normal;font-weight: 500;line-height: 34px;letter-spacing: 0.23px;}
     .bestsellers_tab button{border-radius:8px;padding: 0 20px;border:2px solid black;min-width: 120px;height: 40px;}
     .bestsellers_tabcontent {display: none;border-top: none;margin-top:25px;}
-    .bestsellers .collection-swiper-men .swiper-slide,
+  /*    .bestsellers .collection-swiper-men .swiper-slide,
     .bestsellers .collection-swiper-women .swiper-slide,
-    /* .bestsellers .collection-swiper-kids .swiper-slide{opacity: 0;transform: scale(0.97) translateY(3%);transform-origin: center;animation-delay: inherit;} */
+   .bestsellers .collection-swiper-kids .swiper-slide{opacity: 0;transform: scale(0.97) translateY(3%);transform-origin: center;animation-delay: inherit;} */
     .bestsellers .collection-swiper-men .swiper-slide,
     .bestsellers .collection-swiper-women .swiper-slide,
     /* .bestsellers .collection-swiper-kids .swiper-slide{ animation-duration: 0.65s;animation-timing-function: cubic-bezier(0, 0, 0.3, 1);animation-delay: inherit;animation-direction: normal;animation-fill-mode: forwards;animation-name: product_card_animation;}
@@ -136,6 +136,7 @@
       var collection_swiper_men = new Swiper('#{{- section.id }} .collection-swiper-men', {
         slidesPerView: 1.5,
         spaceBetween: 10,
+        initialSlide: 1,
         grabCursor: true,
         lazy: true,
         loop: true,
@@ -158,6 +159,7 @@
       var collection_swiper_women = new Swiper('#{{- section.id }} .collection-swiper-women', {
         slidesPerView: 1.5,
         spaceBetween: 10,
+        initialSlide: 1,
         grabCursor: true,
         lazy: true,
         loop: true,
@@ -177,6 +179,7 @@
       var collection_swiper_kids = new Swiper('#{{- section.id }} .collection-swiper-kids', {
         slidesPerView: 1.5,
         grabCursor: true,
+        initialSlide: 1,
         lazy: true,
         loop: true,
         spaceBetween: 10,
