@@ -562,15 +562,16 @@ height="{{ section.settings.popup-bg-img-mob.height }}"
      // Check if window.location.href contains "contact_posted=true"
   if (window.location.href.includes('contact_posted=true')) {
     // Your desired action when the parameter is present
+     setTimeout(function () {
       document.querySelector(".inner-contact-popup").style.display = "none";
       document.querySelector(".contact-popup").style.display = "flex";
       document.querySelector('body').classList.add('overflow-hidden');
       document.querySelector(".submit_success_div").style.display = "block";
-
+      }, 3000);
       setTimeout(function () {
         document.querySelector(".contact-popup").style.display = "none"
         document.querySelector('body').classList.remove('overflow-hidden');
-      }, 3000);
+      }, 6000);
     }
   });
 
