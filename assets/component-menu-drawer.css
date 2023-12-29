@@ -300,4 +300,4 @@ details[open].menu-opening > .menu-drawer__submenu {
   
 }
 .menu-drawer__menu  li{ border-bottom: 1px solid rgba(0,0,0,.2);}
-.menu-drawer__inner-submenu details : last-of-type{ border-bottom:none;}
+.menu-drawer__menu li:last-of-type{ border-bottom:none;}
