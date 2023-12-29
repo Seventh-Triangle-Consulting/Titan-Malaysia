@@ -196,6 +196,7 @@ details[open].menu-opening > .menu-drawer__submenu {
   z-index: 1;
   transform: translateX(100%);
   visibility: hidden;
+  padding:0 2rem;
 }
 
 .js .menu-drawer__submenu .menu-drawer__submenu {
