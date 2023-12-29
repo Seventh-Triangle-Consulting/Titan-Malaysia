@@ -413,13 +413,13 @@
    function footermobilemenu(element) {
      document.querySelectorAll('.footer-block--menu h6').forEach((e)=>{
      console.log('eeee', e, element.target.closest('h6'))
-       if(e!=element.target){
+       if(e!=element.target.closest('h6')){
            e.firstElementChild.classList.remove('svg-rotate')
           if(e.nextElementSibling.classList.contain('show-discription')) e.nextElementSibling.classList.remove('show-discription');
        }
      })
-     element.target.classList.toggle('svg-rotate')
-     var nextSibling = element.target.nextElementSibling;
+     element.target.closest('h6').classList.toggle('svg-rotate')
+     var nextSibling = element.target.closest('h6').nextElementSibling;
      if (nextSibling) {
          nextSibling.classList.toggle('show-discription');
      }
