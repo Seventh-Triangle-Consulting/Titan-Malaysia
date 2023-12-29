@@ -412,7 +412,7 @@
 <script>
    function footermobilemenu(element) {
      document.querySelectorAll('.footer-block--menu h6').forEach((e)=>{
-     console.log('eeee', e, element.target.closest('h6'))
+     console.log('eeee', e.nextElementSibling, element.target.closest('h6'))
        if(e!=element.target.closest('h6')){
            e.firstElementChild.classList.remove('svg-rotate')
           if(e.nextElementSibling.classList.contain('show-discription')) e.nextElementSibling.classList.remove('show-discription');
