@@ -677,7 +677,7 @@ summary {
 summary .icon-caret {
   position: absolute;
   height: 0.6rem;
-  right: 1.5rem;
+  right: 1rem;
   top: calc(50% - 0.2rem);
 }
 
@@ -2849,10 +2849,12 @@ details[open] > .header__submenu {
 
 .header__menu-item span {
   transition: text-decoration var(--duration-short) ease;
-  font-family: Roboto-Regular;font-weight:500;color:rgba(0, 0, 0, 1);
-  text-transform: uppercase;line-height: var(--desktop-line-height-a);
-  font-size:14px ;
-   
+  font-family: Roboto-Regular;
+  font-weight:500;color:rgba(0, 0, 0, 1);
+  text-transform: uppercase;
+  /* line-height: var(--desktop-line-height-a); */
+  font-size:14px;
+   line-height:1;
 
 
 }
@@ -3685,4 +3687,13 @@ img.img-responsive.image1 {
 }
 .product .text {
     padding: 17px 0 !important;
+}
+
+
+@media(min-width:1400px){
+  .header__menu-item span {
+
+  line-height: 1.7;
+
+}
 }
