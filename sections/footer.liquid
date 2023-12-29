@@ -413,14 +413,16 @@
    function footermobilemenu(element) {
      document.querySelectorAll('.footer-block--menu h6').forEach((e)=>{
      console.log('eeee', e.nextElementSibling, element.target.closest('h6'))
-       if(e!=element.target.closest('h6')){
-           e.firstElementChild.classList.remove('svg-rotate')
-          if(e.nextElementSibling.classList.contains('show-discription')) e.nextElementSibling.classList.remove('show-discription');
+       if(e!=element.target.closest('h6') && e.nextElementSibling.classList.contains('show-discription')){
+           e.firstElementChild.classList.remove('svg-rotate');
+           e.nextElementSibling.classList.remove('show-discription');
+         
        }
      })
-     element.target.closest('h6').classList.toggle('svg-rotate')
+     
      var nextSibling = element.target.closest('h6').nextElementSibling;
      if (nextSibling) {
+       element.target.closest('h6').classList.toggle('svg-rotate')
          nextSibling.classList.toggle('show-discription');
      }
   }
