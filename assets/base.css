@@ -3690,7 +3690,7 @@ img.img-responsive.image1 {
 }
 
 
-@media(max-width:1400px){
+@media(min-width:1400px){
   .header__menu-item span {
 
   line-height: 1.7;
