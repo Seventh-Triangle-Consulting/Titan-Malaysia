@@ -3688,3 +3688,12 @@ img.img-responsive.image1 {
 .product .text {
     padding: 17px 0 !important;
 }
+
+
+@media(max-width:1400px){
+  .header__menu-item span {
+
+  line-height: 1.7;
+
+}
+}
