@@ -414,7 +414,7 @@
      document.querySelectorAll('.footer-block--menu h6').forEach((e)=>{
      console.log('eeee', e.nextElementSibling, element.target.closest('h6'))
        if(e!=element.target.closest('h6') && e.nextElementSibling.classList.contains('show-discription')){
-           e.firstElementChild.classList.remove('svg-rotate');
+           e.classList.remove('svg-rotate');
            e.nextElementSibling.classList.remove('show-discription');
          
        }
