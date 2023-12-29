@@ -259,7 +259,7 @@ footer{border-top:1px solid #dadada !important;border-bottom:1px solid #dadada !
       .footer__content-top .footer-block__heading{margin-bottom: 1rem;}
   .footer-block__heading  .footersvgicon {
     display: none !important;}
-  .footer-block__details-content{display:block !important;}
+  .footer-block__details-content{display: flex!important;   flex-direction: column;  align-items: flex-start;}
 
   .footer-block__details-content > :first-child .list-menu__item--link {
     padding-top: 0;
