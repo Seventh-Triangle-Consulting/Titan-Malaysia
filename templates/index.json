@@ -187,7 +187,7 @@
           "type": "block",
           "settings": {
             "image": "shopify:\/\/shop_images\/workwear_4231343d-ca31-4fb2-b2af-ff0db239db03.png",
-            "btnurl": "",
+            "btnurl": "shopify:\/\/collections\/workwear",
             "title": "",
             "subtitle": "",
             "btn": "Workwear"
