@@ -411,18 +411,23 @@
 </footer>
 <script>
    function footermobilemenu(element) {
-     document.querySelectorAll('.footer-block--menu h6').forEach((e)=>{
-      if(e!=element.target.closest('h6') && e.nextElementSibling.classList.contains('show-discription')){
-           e.classList.remove('svg-rotate');
-           e.nextElementSibling.classList.remove('show-discription');
+       try{
+         document.querySelectorAll('.footer-block--menu h6').forEach((e)=>{
+          if(e!=element.target.closest('h6') && e.nextElementSibling.classList.contains('show-discription')){
+               e.classList.remove('svg-rotate');
+               e.nextElementSibling.classList.remove('show-discription');
+             
+           }
+         })
          
-       }
-     })
-     
-     var nextSibling = element.target.closest('h6').nextElementSibling;
-     if (nextSibling) {
-         element.target.closest('h6').classList.toggle('svg-rotate')
-         nextSibling.classList.toggle('show-discription');
+         var nextSibling = element.target.closest('h6').nextElementSibling;
+         if (nextSibling) {
+             element.target.closest('h6').classList.toggle('svg-rotate')
+             nextSibling.classList.toggle('show-discription');
+         }
+     }
+     catch(e){
+       console.log(e)
      }
   }
 </script>
