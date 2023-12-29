@@ -412,13 +412,13 @@
 <script>
    function footermobilemenu(element) {
      document.querySelectorAll('.footer-block--menu h6').forEach((e)=>{
-     console.log('eeee', e, element)
-       if(e!=element){
-           e.classList.remove('svg-rotate')
+     console.log('eeee', e, element.target)
+       if(e!=element.target){
+           e.firstElementChild.classList.remove('svg-rotate')
           if(e.nextElementSibling.classList.contain('show-discription')) e.nextElementSibling.classList.remove('show-discription');
        }
      })
-     element.classList.toggle('svg-rotate')
+     element.target.classList.toggle('svg-rotate')
      var nextSibling = element.nextElementSibling;
      if (nextSibling) {
          nextSibling.classList.toggle('show-discription');
