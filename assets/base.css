@@ -2852,9 +2852,9 @@ details[open] > .header__submenu {
   font-family: Roboto-Regular;
   font-weight:500;color:rgba(0, 0, 0, 1);
   text-transform: uppercase;
-  line-height: var(--desktop-line-height-a);
-  font-size:14px ;
-   
+  /* line-height: var(--desktop-line-height-a); */
+  font-size:14px;
+   line-height:1;
 
 
 }
