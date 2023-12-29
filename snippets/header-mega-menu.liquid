@@ -107,6 +107,7 @@
           </header-menu>
         {%- else -%}
            <header-menu>
+              <details  class="mega-menu" >
           <a
             id="HeaderMenu-{{ link.handle }}"
             href="{{ link.url }}"
@@ -122,7 +123,7 @@
             >
               {{- link.title | escape -}}
             </span>
-          </a>
+          </a></details>
              </header-menu>
         {%- endif -%}
       </li>
