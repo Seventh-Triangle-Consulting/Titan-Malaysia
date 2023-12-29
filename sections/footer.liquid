@@ -415,7 +415,7 @@
      console.log('eeee', e.nextElementSibling, element.target.closest('h6'))
        if(e!=element.target.closest('h6')){
            e.firstElementChild.classList.remove('svg-rotate')
-          if(e.nextElementSibling.classList.contain('show-discription')) e.nextElementSibling.classList.remove('show-discription');
+          if(e.nextElementSibling.classList.contains('show-discription')) e.nextElementSibling.classList.remove('show-discription');
        }
      })
      element.target.closest('h6').classList.toggle('svg-rotate')
