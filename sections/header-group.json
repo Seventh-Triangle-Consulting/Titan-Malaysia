@@ -138,7 +138,7 @@
       "settings": {
         "popup-bg-img": "shopify:\/\/shop_images\/popupbg_1.jpg",
         "popup-bg-img-mob": "shopify:\/\/shop_images\/popup-mobile.jpg",
-        "contact-popup-text": "<p>Thank you fly stopping by! <\/p><p>We will be glad to assist you further. Please provide <\/p><p>the following information so we can contact you.<\/p>"
+        "contact-popup-text": "<p><strong>Welcome to the Titan Family! <\/strong><\/p><p>Enjoy exciting Discounts, exclusive offers and much more!<\/p><p>Sign up to receive updates!<\/p>"
       }
     }
   },
