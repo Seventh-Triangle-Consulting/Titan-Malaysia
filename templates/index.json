@@ -115,12 +115,29 @@
             "buttontextcolor": "#000000",
             "content-position": "bottom-center"
           }
+        },
+        "ceacbe85-9051-46b0-b723-d4de92328c20": {
+          "type": "image",
+          "settings": {
+            "desktop_banner_image": "shopify:\/\/shop_images\/KV.jpg",
+            "mobile_banner_image": "shopify:\/\/shop_images\/KV.jpg",
+            "desktop_banner_text": "",
+            "mobile_banner_text": "",
+            "button_text1": "",
+            "button_link1": "",
+            "button_text2": "",
+            "button_link2": "",
+            "buttoncolor": "",
+            "buttontextcolor": "",
+            "content-position": "bottom-center"
+          }
         }
       },
       "block_order": [
         "cd7ce330-2bb0-43b5-878c-b0553b6a33b4",
         "4b5c54f3-7737-4b64-b68f-cd9a7ff1923c",
-        "e20a4714-88a6-4891-9ff1-da687a6caa14"
+        "e20a4714-88a6-4891-9ff1-da687a6caa14",
+        "ceacbe85-9051-46b0-b723-d4de92328c20"
       ],
       "settings": {
         "margin_bottom_desktop": 20,
