@@ -344,7 +344,7 @@
         ".SwipeUp-reels-feed {margin-bottom: 50px;}"
       ],
       "settings": {
-        "include_margins": false
+        "include_margins": true
       }
     },
     "96a7a223-41c4-4f2c-bfe1-91cd7d09a867": {
