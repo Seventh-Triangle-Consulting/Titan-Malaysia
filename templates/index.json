@@ -520,6 +520,7 @@
     },
     "7bb9a82c-4600-4abd-9fbb-3b6139540d6a": {
       "type": "image-banner",
+      "disabled": true,
       "settings": {
         "image": "shopify:\/\/shop_images\/2500_x_750.png",
         "image_overlay_opacity": 0,
