@@ -331,7 +331,7 @@
             "mute_text": "Mute",
             "unmute_text": "Unmute",
             "background_color": "rgba(0,0,0,0)",
-            "show_playbutton": true
+            "show_playbutton": false
           }
         }
       },
