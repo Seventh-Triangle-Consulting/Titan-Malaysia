@@ -104,6 +104,7 @@
         "8eeac1f6-45ab-4708-a2ab-3b0a9dcdc3d0",
         "05858300-8aea-4555-85e4-7ba6f6b3967d"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "scheme-b52cae98-4605-45a7-9d47-dfdfef21c315",
         "show_line_separator": true,
