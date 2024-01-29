@@ -102,12 +102,6 @@ details[open].menu-opening > .menu-drawer__submenu {
 .menu-drawer__navigation {
       padding: 7rem 2rem 4rem 2rem;
 }
-.header__icon  .icon.icon-close{
-    z-index: 5;    width: 13px; height: 13px;
-    position: absolute;
-    top: 70px !important;
-    right: 34%;
-}
 .menu-drawer__inner-submenu {
   height: 100%;
   overflow-x: hidden;
