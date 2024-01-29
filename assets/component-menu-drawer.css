@@ -287,7 +287,6 @@ details[open].menu-opening > .menu-drawer__submenu {
 @media screen and (max-width:375px){
   .menu-drawer {width: 80%;}
   .menu-drawer .list-social__link {padding: 0.4rem;}
-  .header__icon .icon.icon-close{top:-25px;right: 27%;}
   .menu-drawer__utility-links .list-social__item .icon {
     height: 3.4rem;
     width: 3.4rem;
