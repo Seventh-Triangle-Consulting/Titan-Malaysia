@@ -1,6 +1,27 @@
 .page-title {
   margin-top: 0;
 }
+.col-md-offset-4.col-md-4.col-xs-12.text-center.business > * {
+  flex: 1;
+  margin: 0;
+}
+.rte {
+  max-width: 550px;
+  margin: auto;
+}
+.heading-bussiness {
+  font-size: clamp(25px, 2vw, 30px);
+}
+h1.heading-bussiness {
+  margin-bottom: 4rem;
+}
+.main-page h3 {
+  font-size: clamp(17px, 2vw, 20px);
+}
+.main-page p {
+  line-height: normal;
+  font-size: clamp(14px, 2vw, 16px);
+}
 .main-page-title {
   font-size: clamp(21px, calc(24 * (100vw / var(--viewportDesktop))), 28px);
   font-family: PlayfairDisplay-Bold;
