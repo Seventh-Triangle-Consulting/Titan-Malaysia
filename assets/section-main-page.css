@@ -1,6 +1,7 @@
 .page-title {
   margin-top: 0;
 }
+/* 
 .col-md-offset-4.col-md-4.col-xs-12.text-center.business > * {
   flex: 1;
   margin: 0;
@@ -44,7 +45,7 @@ h1.main-page-title.page-title {
 .update {
   font-size: clamp(16px, 2vw, 18px);
   font-weight: bold;
-}
+} */
 .main-page-title {
   font-size: clamp(21px, calc(24 * (100vw / var(--viewportDesktop))), 28px);
   font-family: PlayfairDisplay-Bold;
