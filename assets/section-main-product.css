@@ -20,6 +20,7 @@
 .custom-atc-qty-slector .pdp_ATC span{font-family:Roboto-Medium;white-space: nowrap;}
 .custom-quantity-number, .custom-quantity-number span{font-size:clamp(14px, calc(16 * (100vw / 1440)), 18px)}
 .custom-desktop-slider-main-thumbs-up .swiper-slide{cursor:pointer;}
+.custom-desktop-slider-main-thumbs-up .swiper-slide-thumb-active{border:1px solid black;}
 .product__media-wrapper{
   position:relative;
 }
