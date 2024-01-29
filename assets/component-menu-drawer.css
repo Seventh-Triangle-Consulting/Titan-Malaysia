@@ -71,20 +71,9 @@ details[open].menu-opening > .menu-drawer__submenu {
     border-style: solid;
     border-color: rgba(var(--color-foreground), var(--drawer-border-opacity));
   }
-.header__icon .icon.icon-close{left:45%;}
   .no-js .menu-drawer {
     height: auto;
   }
-}
-@media screen and (min-width: 820px){
-.header__icon .icon.icon-close {
-    left: 42%;
-}
-}
-@media screen and (min-width: 880px){
-.header__icon .icon.icon-close {
-    left: 37%;
-}
 }
 .menu-drawer__inner-container {
   position: relative;
