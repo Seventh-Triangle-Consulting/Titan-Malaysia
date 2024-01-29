@@ -1,50 +1,103 @@
 .page-title {
   margin-top: 0;
 }
-.main-page-title{
-  font-size: clamp(21px,calc(24 * (100vw / var(--viewportDesktop))),28px);
-  font-family:PlayfairDisplay-Bold;
-  margin-bottom:20px;
-  visibility:hidden;
-  position:absolute;
-}
-.main-page td{font-family:Roboto-Regular;font-size:18px;}
-.main-page h3{font-size:20px;}
-.main-page h2{font-size:28px;}
-.main-page strong{font-family:Roboto-Bold;font-size:18px !important;}
 .main-page-title {
-  margin-bottom: 3rem;text-align:left;
+  font-size: clamp(21px, calc(24 * (100vw / var(--viewportDesktop))), 28px);
+  font-family: PlayfairDisplay-Bold;
+  margin-bottom: 20px;
+  /* visibility:hidden;*/
+  position: absolute;
 }
-.main-page li, .main-page a, .main-page p ,.main-page strong{
-    color: #000;
-    font-size:18px;
+.main-page td {
+  font-family: Roboto-Regular;
+  font-size: 18px;
 }
-.main-page a{    color: #000;    text-decoration: underline;font-size: clamp(calc(var(--desktop-font-size-p) * .9px),calc(var(--desktop-font-size-p) * (100vw / var(--viewportDesktop))),calc(var(--desktop-font-size-p) * 1.1px));
-    letter-spacing: var(--desktop-letter-spacing-p);
-    line-height: var(--desktop-line-height-p);}
-.main-page  strong{ font-size: clamp(calc(var(--desktop-font-size-p) * 0.9px),calc(var(--desktop-font-size-p) * (100vw / var(--viewportDesktop))),calc(var(--desktop-font-size-p) * 1.1px));
-color:#000;}
-.main-page  li{line-height: clamp(26px,calc(27.26 * (100vw / var(--viewportDesktop))),28px);    list-style: disc;}
-.main-page  p{color: rgba(65, 64, 66, 1);}
-.main-page p, .main-page fieldset,.main-page table {
-    margin-bottom: 1em;
+.main-page h3 {
+  font-size: 20px;
+}
+.main-page h2 {
+  font-size: 28px;
+}
+.main-page strong {
+  font-family: Roboto-Bold;
+  font-size: 18px !important;
+}
+.main-page-title {
+  margin-bottom: 3rem;
+  text-align: left;
+}
+.main-page li,
+.main-page a,
+.main-page p,
+.main-page strong {
+  color: #000;
+  font-size: 18px;
+}
+.main-page a {
+  color: #000;
+  text-decoration: underline;
+  font-size: clamp(
+    calc(var(--desktop-font-size-p) * 0.9px),
+    calc(var(--desktop-font-size-p) * (100vw / var(--viewportDesktop))),
+    calc(var(--desktop-font-size-p) * 1.1px)
+  );
+  letter-spacing: var(--desktop-letter-spacing-p);
+  line-height: var(--desktop-line-height-p);
+}
+.main-page strong {
+  font-size: clamp(
+    calc(var(--desktop-font-size-p) * 0.9px),
+    calc(var(--desktop-font-size-p) * (100vw / var(--viewportDesktop))),
+    calc(var(--desktop-font-size-p) * 1.1px)
+  );
+  color: #000;
+}
+.main-page li {
+  line-height: clamp(
+    26px,
+    calc(27.26 * (100vw / var(--viewportDesktop))),
+    28px
+  );
+  list-style: disc;
+}
+.main-page p {
+  color: rgba(65, 64, 66, 1);
+}
+.main-page p,
+.main-page fieldset,
+.main-page table {
+  margin-bottom: 1em;
 }
 
 .main-page a {
-    color: #000;
-    text-decoration: underline;
+  color: #000;
+  text-decoration: underline;
 }
-.main-page li {  font-size: clamp(calc(var(--desktop-font-size-p) * 0.9px),calc(var(--desktop-font-size-p) * (100vw / var(--viewportDesktop))),calc(var(--desktop-font-size-p) * 1.1px));
-    line-height: clamp(26px,calc(27.26 * (100vw / var(--viewportDesktop))),28px);
-    list-style: disc;
+.main-page li {
+  font-size: clamp(
+    calc(var(--desktop-font-size-p) * 0.9px),
+    calc(var(--desktop-font-size-p) * (100vw / var(--viewportDesktop))),
+    calc(var(--desktop-font-size-p) * 1.1px)
+  );
+  line-height: clamp(
+    26px,
+    calc(27.26 * (100vw / var(--viewportDesktop))),
+    28px
+  );
+  list-style: disc;
 }
-.main-page .pt-4, .main-page h2 {
-    margin: 15px 0;
+.main-page .pt-4,
+.main-page h2 {
+  margin: 15px 0;
 }
 
-
-.page-width--narrow.main-page {max-width: 115ch !important;    text-align: left;}
-.main-page h2{margin:20px 0}
+.page-width--narrow.main-page {
+  max-width: 115ch !important;
+  text-align: left;
+}
+.main-page h2 {
+  margin: 20px 0;
+}
 
 .page-placeholder-wrapper {
   display: flex;
@@ -55,15 +108,16 @@ color:#000;}
   width: 52.5rem;
   height: 52.5rem;
 }
-@media screen and (max-width:768px){
+@media screen and (max-width: 768px) {
   .container a {
     font-size: var(--mobile-font-size-p);
     letter-spacing: var(--mobile-letter-spacing-p);
     line-height: var(--mobile-line-height-p);
   }
-  .main-page p, .main-page li {
+  .main-page p,
+  .main-page li {
     font-size: var(--mobile-font-size-p);
     letter-spacing: var(--mobile-letter-spacing-p);
     line-height: var(--mobile-line-height-p);
-}
+  }
 }
