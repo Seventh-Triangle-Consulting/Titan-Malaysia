@@ -2,10 +2,10 @@
   --alpha-button-background: 1;
   --alpha-button-border: 1;
   --alpha-link: 0.85;
-  --alpha-badge-border: 0.1;
+  --alpha-badge-border: 0.1;.media>*:not(.zoom):not(.deferred-media__poster-button), .media model-viewer
 }
 
-.product-card-wrapper .card,
+.product-card-wrapper .card,.media>*:not(.zoom):not(.deferred-media__poster-button), .media model-viewer
 .contains-card--product {
   --border-radius: var(--product-card-corner-radius);
   --border-width: var(--product-card-border-width);
@@ -1154,7 +1154,7 @@ summary::-webkit-details-marker {
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
+  height: auto;
   width: 100%;
 }
 .alert.alert-info.sw-login-notification{
