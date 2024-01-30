@@ -77,7 +77,7 @@ summary.header__menu-item.list-menu__item.link.focus-inset:after {
 }
 
 .mega-menu__link--level-2 {
-  font-weight: bold;
+  font-family: 'Roboto-Bold';
 }
 
 .header--top-center .mega-menu__list {
