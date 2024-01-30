@@ -1,5 +1,7 @@
 .search__input.field__input {
   padding-right: 9.8rem;
+  height:3.5rem;
+      padding: 1rem 1.5rem 0rem 2rem;
 }
 header predictive-search .field__input:focus~.field__label,.header predictive-search .field__input:not(:placeholder-shown)~.field__label,.header predictive-search .field__input:focus~.field__label{
    display:none;
@@ -16,12 +18,12 @@ header predictive-search .field__input:focus~.field__label,.header predictive-se
 .template-search__header h1{
   font-family:PlayfairDisplay-Bold;
 }
-.template-search .reset__button,.template-search .search__button{
+/* .template-search .reset__button,.template-search .search__button{
   padding-top:2.2rem;
-}
-.template-search .field__label{
+} */
+/* .template-search .field__label{
   padding-top:1rem;
-}
+} */
 .reset__button {
   right: calc(var(--inputs-border-width) + 4.4rem);
   top: var(--inputs-border-width);

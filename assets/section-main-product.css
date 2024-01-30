@@ -2159,6 +2159,7 @@ button.know-more-button {
     border-top-color: black !important;
     border-width: 0px!important;
     border-left-color: black !important;
+  border-radius: 10px;
 }
 button.know-more-button p {
     color: white;
