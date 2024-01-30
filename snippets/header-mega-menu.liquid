@@ -62,7 +62,15 @@
                       {%- if childlink.links != blank -%}
                       
                         <ul class="list-unstyled" role="list">
+                          {% assign group_size = 10 %}
+          
                           {%- for grandchildlink in childlink.links -%}
+                            {% assign remain = forloop.index0 | modulo: group_size %}
+                            {% assign remain1 = forloop.index0 | modulo: group_size %}
+                            {% assign newsize = group_size | minus: 1 %}
+                            {% if forloop.index0 == 0 or remain == 0 %}
+                              <div class="custom-header-div" role="list">
+                            {% endif %}
                             <li>
                               <a
                                 id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
@@ -76,6 +84,10 @@
                               </a>
                             </li>
                           {%- endfor -%}
+                       {% if forloop.last or remain1 == newsize %}
+                  </div>
+                {% endif %}
+                        
                         </ul>
                       {%- endif -%}
                     </li>
