@@ -85,3 +85,7 @@ header predictive-search .field__input:focus~.field__label,.header predictive-se
 input::-webkit-search-decoration {
   -webkit-appearance: none;
 }
+@media(max-width:769px)
+{
+  .search__input.field__input{ padding-bottom:1.5rem;}
+}
