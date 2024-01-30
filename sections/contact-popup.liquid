@@ -611,8 +611,8 @@
     function validatePhoneNumber() {
       const phoneNumberInput = document.querySelector('.phoneNumber');
       const phoneNumber = phoneNumberInput.value.trim();
-      const uaePhoneNumberPattern =/^(?:\+971|971|0)?(?:2|3|4|6|7|9|50|52|54|55|56|58|59|6[0-9]|7[0-4]|7[6-9]|80|81|82|84|86|87|89)\d{7}$/;
-      if (uaePhoneNumberPattern.test(phoneNumber)) {
+      // const uaePhoneNumberPattern =/^(?:\+971|971|0)?(?:2|3|4|6|7|9|50|52|54|55|56|58|59|6[0-9]|7[0-4]|7[6-9]|80|81|82|84|86|87|89)\d{7}$/;
+      if (phoneNumber) {
         // phoneNumberInput.style.border = '2px solid green';
         document.querySelector('.popup-error').style.display = "none"
       } else {
@@ -624,9 +624,9 @@
     const postalCodeInput = document.querySelector('.postalCode');
     const postalCode = postalCodeInput.value.trim();
 
-    const uaePostalCodePattern = /^\d{5}$/;
+    // const uaePostalCodePattern = /^\d{5}$/;
 
-    if (uaePostalCodePattern.test(postalCode)) {
+    if (postalCode) {
      document.querySelector('.popup-error-pinCode').style.display = "none";
     } else {
       document.querySelector('.popup-error-pinCode').style.display = "block";
