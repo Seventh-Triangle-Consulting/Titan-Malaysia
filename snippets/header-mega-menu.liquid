@@ -84,7 +84,7 @@
                               </a>
                             </li>
                           {%- endfor -%}
-                       {% if forloop.last or remain1 == newsize %}
+                       {% if remain == newsize or forloop.last %}
                   </div>
                 {% endif %}
                         
