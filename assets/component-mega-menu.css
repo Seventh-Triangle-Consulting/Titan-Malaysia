@@ -112,3 +112,8 @@ summary.header__menu-item.list-menu__item.link.focus-inset:after {
 @media screen and (max-width:2200px){
   .mega-menu__content .megamenusubdiv{padding-left:0;padding-right:0;}
 }
+@media screen and (max-width:769px){
+  .mega-menu__list {
+   text-transform:capitalize;
+}
+}
