@@ -19,6 +19,7 @@
 }
 .mega-menu__content .megamenusubdiv, .custom-ul-elements{display: flex;
     justify-content: space-between;}
+.megamenusubdiv  .custom-ul-elements{gap:2rem;}
 .header__menu-item a,.header__menu-item .header__active-menu-item,.mega-menu__list  a,.mega-menu__list  a:hover{text-decoration:none;}
 .mega-menu__content .rightmenuimages a,.mega-menu__content .rightmenuimages a:hover{text-decoration:none;}
 .mega-menu__content .rightmenuimages{display:flex;gap:3rem;}
