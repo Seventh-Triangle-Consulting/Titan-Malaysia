@@ -51,8 +51,7 @@ h1.main-page-title.page-title {
   font-size: clamp(21px, calc(24 * (100vw / var(--viewportDesktop))), 28px);
   font-family: PlayfairDisplay-Bold;
   margin-bottom: 20px;
-  /* visibility: hidden; */
-  /* position: absolute; */
+ 
 }
 .main-page td {
   font-family: Roboto-Regular;
@@ -63,7 +62,7 @@ h1.main-page-title.page-title {
   margin-bottom:1rem;
 }
 .main-page h2 {
-  font-size: 28px;
+      font-size: clamp(20px , 2vw, 26px);
 }
 .main-page strong {
   font-family: Roboto-Bold;
