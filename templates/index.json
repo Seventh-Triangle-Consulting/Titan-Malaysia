@@ -102,6 +102,7 @@
         },
         "ceacbe85-9051-46b0-b723-d4de92328c20": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "desktop_banner_image": "shopify:\/\/shop_images\/KV.jpg",
             "mobile_banner_image": "shopify:\/\/shop_images\/mobile-version-banner.jpg",
