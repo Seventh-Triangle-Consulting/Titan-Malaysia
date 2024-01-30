@@ -16,9 +16,9 @@ header predictive-search .field__input:focus~.field__label,.header predictive-se
 .template-search__header h1{
   font-family:PlayfairDisplay-Bold;
 }
-.template-search .reset__button,.template-search .search__button{
+/* .template-search .reset__button,.template-search .search__button{
   padding-top:2.2rem;
-}
+} */
 .template-search .field__label{
   padding-top:1rem;
 }
