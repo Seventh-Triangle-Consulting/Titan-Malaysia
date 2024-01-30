@@ -25,9 +25,9 @@
         "091f35ca-987d-4c4b-9f08-b88020953c23"
       ],
       "settings": {
-        "mobile_footer": "<p><a href=\"tel:18002660123\" target=\"_blank\" title=\"tel:18002660123\">18002660123<\/a><\/p>",
-        "emailid_footer": "<p><a href=\"mailto:customercare@titan.co.in\" target=\"_blank\" title=\"mailto:customercare@titan.co.in\">customercare@titan.co.in<\/a><\/p>",
-        "contact_us_heading": "Contact Us",
+        "mobile_footer": "",
+        "emailid_footer": "",
+        "contact_us_heading": "Follow Us",
         "color_scheme": "",
         "newsletter_enable": true,
         "newsletter_heading": "Join Our Newsletter",
