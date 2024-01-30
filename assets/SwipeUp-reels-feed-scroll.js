@@ -1,4 +1,4 @@
-      if( screen.width > 786 ){
+if( screen.width > 786 && document.querySelectorAll('.SwipeUp-slider').length>0 ){
      const slider = document.querySelectorAll('.SwipeUp-slider');
       let isDown = false;
       let startX;
