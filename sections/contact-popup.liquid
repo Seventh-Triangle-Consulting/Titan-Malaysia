@@ -249,11 +249,11 @@
             <input
               type="number"
               id="ContactForm "
-              <!-- onkeyup="validatePhoneNumber()" -->
+       
               class="field__input phoneNumber"
-              <!-- pattern="/^-?\d+\.?\d*$/" -->
+         
               autocomplete="tel"
-              <!-- onkeypress="if(this.value.length==10) return false;" -->
+ 
               name="contact[{{ 'templates.contact.form.phone' | t }}]"
               required
               value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
@@ -558,7 +558,6 @@
             <label class="field__label" for="ContactForm-name"> <span aria-hidden="true">*</span> Pin Code </label>
             <input
               class="field__input postalCode"
-              <!-- onkeyup="validatePostalCode()" -->
               autocomplete="name"
               type="text"
               id="ContactForm-name"
