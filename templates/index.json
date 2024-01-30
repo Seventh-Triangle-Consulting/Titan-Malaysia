@@ -84,22 +84,6 @@
             "content-position": "bottom-center"
           }
         },
-        "4b5c54f3-7737-4b64-b68f-cd9a7ff1923c": {
-          "type": "image",
-          "settings": {
-            "desktop_banner_image": "shopify:\/\/shop_images\/Banner_2_7c1a7d2c-69a1-4122-8ef7-1f6b4005f6af.png",
-            "mobile_banner_image": "shopify:\/\/shop_images\/2_308e4fed-3117-4019-9fc2-4230c8106f85.png",
-            "desktop_banner_text": "",
-            "mobile_banner_text": "",
-            "button_text1": "SHOP NOW",
-            "button_link1": "shopify:\/\/collections\/skinn",
-            "button_text2": "",
-            "button_link2": "",
-            "buttoncolor": "#ffffff",
-            "buttontextcolor": "#dd5041",
-            "content-position": "bottom-center"
-          }
-        },
         "e20a4714-88a6-4891-9ff1-da687a6caa14": {
           "type": "image",
           "settings": {
@@ -135,7 +119,6 @@
       },
       "block_order": [
         "cd7ce330-2bb0-43b5-878c-b0553b6a33b4",
-        "4b5c54f3-7737-4b64-b68f-cd9a7ff1923c",
         "e20a4714-88a6-4891-9ff1-da687a6caa14",
         "ceacbe85-9051-46b0-b723-d4de92328c20"
       ],
