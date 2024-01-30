@@ -83,11 +83,11 @@
                                 {{ grandchildlink.title  }}
                               </a>
                             </li>
-                          {%- endfor -%}
+                        
                        {% if remain == newsize or forloop.last %}
                   </div>
                 {% endif %}
-                        
+                      {%- endfor -%}    
                         </ul>
                       {%- endif -%}
                     </li>
