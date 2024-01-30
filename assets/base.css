@@ -3728,6 +3728,6 @@ border: 1px solid #000 !important;
   color: #000;
   font-family: 'Roboto-Regular';
 }
-.simple-store-locator-powered-by{
+.simple-store-locator-powered-by, .SwipeUp-slide-product-price{
   display:none!important;
 }
