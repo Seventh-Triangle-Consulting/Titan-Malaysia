@@ -62,6 +62,7 @@ summary.header__menu-item.list-menu__item.link.focus-inset:after {
   /* grid-template-columns: repeat(6, minmax(0, 1fr)); */
    grid-template-columns: repeat(6, auto);
   list-style: none;
+  text-transform:uppercase;
 }
 
 .mega-menu__link {
