@@ -157,20 +157,20 @@
           "type": "block",
           "settings": {
             "image": "shopify:\/\/shop_images\/partywear_a0405686-3266-4d07-a12f-ed16e9d76b01.png",
-            "btnurl": "shopify:\/\/collections\/raga-flora",
-            "title": "",
-            "subtitle": "",
-            "btn": "Partywear"
+            "btnurl": "shopify:\/\/collections\/raga",
+            "title": "Raga",
+            "subtitle": "Raga",
+            "btn": ""
           }
         },
         "a690d5c1-c20e-45e5-92a3-ecca92a8ce2c": {
           "type": "block",
           "settings": {
             "image": "shopify:\/\/shop_images\/casual_e0d5e499-30e3-4dfc-b383-a27406e5f8fc.png",
-            "btnurl": "shopify:\/\/collections\/analog-with-date",
+            "btnurl": "shopify:\/\/collections\/analog",
             "title": "",
-            "subtitle": "",
-            "btn": "Casual"
+            "subtitle": "Analog",
+            "btn": ""
           }
         },
         "aa576bbb-753d-4268-b018-d0d749590f09": {
