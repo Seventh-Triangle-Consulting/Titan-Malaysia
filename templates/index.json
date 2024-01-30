@@ -107,12 +107,12 @@
             "mobile_banner_image": "shopify:\/\/shop_images\/mobile-version-banner.jpg",
             "desktop_banner_text": "",
             "mobile_banner_text": "",
-            "button_text1": "",
+            "button_text1": "SHOP NOW",
             "button_link1": "shopify:\/\/collections\/titan-smart",
             "button_text2": "",
             "button_link2": "",
-            "buttoncolor": "",
-            "buttontextcolor": "",
+            "buttoncolor": "#ffffff",
+            "buttontextcolor": "#000000",
             "content-position": "bottom-center"
           }
         }
