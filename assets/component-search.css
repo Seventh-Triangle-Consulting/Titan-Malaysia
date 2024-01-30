@@ -1,7 +1,7 @@
 .search__input.field__input {
   padding-right: 9.8rem;
   height:3.5rem;
-      padding: 1rem 1.5rem 1rem 2rem;
+      padding: 1rem 1.5rem 0rem 2rem;
 }
 header predictive-search .field__input:focus~.field__label,.header predictive-search .field__input:not(:placeholder-shown)~.field__label,.header predictive-search .field__input:focus~.field__label{
    display:none;
