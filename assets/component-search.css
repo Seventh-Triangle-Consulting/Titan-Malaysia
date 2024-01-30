@@ -87,5 +87,6 @@ input::-webkit-search-decoration {
 }
 @media(max-width:769px)
 {
-  .search__input.field__input{ padding-bottom:1.5rem;}
+  .search__input.field__input{ padding-bottom:1.3rem;}
+  .predictive-search.predictive-search--header .predictive-search__item{ padding:1rem;}
 }
