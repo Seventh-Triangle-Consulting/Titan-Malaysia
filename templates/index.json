@@ -156,7 +156,7 @@
           "type": "block",
           "settings": {
             "image": "shopify:\/\/shop_images\/partywear_a0405686-3266-4d07-a12f-ed16e9d76b01.png",
-            "btnurl": "shopify:\/\/collections\/sparkle",
+            "btnurl": "shopify:\/\/collections\/raga-flora",
             "title": "",
             "subtitle": "",
             "btn": "Partywear"
@@ -166,7 +166,7 @@
           "type": "block",
           "settings": {
             "image": "shopify:\/\/shop_images\/casual_e0d5e499-30e3-4dfc-b383-a27406e5f8fc.png",
-            "btnurl": "shopify:\/\/collections\/trendsetters",
+            "btnurl": "shopify:\/\/collections\/analog-with-date",
             "title": "",
             "subtitle": "",
             "btn": "Casual"
