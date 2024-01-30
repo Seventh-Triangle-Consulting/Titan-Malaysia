@@ -8,6 +8,7 @@
 }
 .heading-bussiness {
   font-size: clamp(25px, 2vw, 30px);
+  font-family: PlayfairDisplay-Bold;
 }
 h1.heading-bussiness {
   margin-bottom: 4rem;
