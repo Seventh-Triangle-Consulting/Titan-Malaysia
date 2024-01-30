@@ -1,6 +1,6 @@
-.page-title {
+/* .page-title {
   margin-top: 0;
-}
+} */
 .main-page{ overflow-x:hidden;}
 /* 
 .col-md-offset-4.col-md-4.col-xs-12.text-center.business > * {
@@ -52,7 +52,7 @@ h1.main-page-title.page-title {
   font-family: PlayfairDisplay-Bold;
   margin-bottom: 20px;
   /* visibility: hidden; */
-  position: absolute;
+  /* position: absolute; */
 }
 .main-page td {
   font-family: Roboto-Regular;
