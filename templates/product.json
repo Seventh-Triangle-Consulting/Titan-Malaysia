@@ -43,6 +43,7 @@
         },
         "6f357501-efe5-4a62-8b55-2936766130a5": {
           "type": "USP",
+          "disabled": true,
           "settings": {
             "urllink": "https:\/\/cdn.shopify.com\/s\/files\/1\/0692\/8321\/7683\/files\/Group_13554_2x_89f9a917-1bb7-49c8-944d-7033b5df65fa.png?v=1677495191,https:\/\/cdn.shopify.com\/s\/files\/1\/0692\/8321\/7683\/files\/Group_13552_2x_66b757fd-577d-43f2-bd06-7f6247622b51.png?v=1677495208,https:\/\/cdn.shopify.com\/s\/files\/1\/0692\/8321\/7683\/files\/Path_6411_2x_956554d0-b950-4c2c-b85f-308da6728be4.png?v=1677495208",
             "icontext": "Servicing Available##COD Available##Secure Payment"
@@ -75,10 +76,8 @@
         "5084a510-7189-437e-bc00-7ae24be755b7"
       ],
       "settings": {
-        "cod_svg": "shopify:\/\/shop_images\/COD.png",
-        "cod_text": "COD available",
-        "return_exchange_img": "shopify:\/\/shop_images\/Return_95f1be31-d435-4e48-a377-64f0927143bc.png",
-        "return_exchange_text": "7 Days Return and Exchange",
+        "cod_text": "",
+        "return_exchange_text": "",
         "country_of_origin": "Country Of Origin: India",
         "manufacturer_name": "Name Of Manufacturer\/ Packer\/ Importer: Titan",
         "manufacturer_address": "Address Of Manufacturer\/ Packer\/ Importer: Titan Address",
