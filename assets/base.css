@@ -3697,3 +3697,46 @@ img.img-responsive.image1 {
 
 }
 }
+
+
+
+/* store locator page css */
+#SimpleStoreLocator button{
+   border-radius: 10px;
+   height: 51px;
+   padding: 19px 35px;
+}
+#SimpleStoreLocator  .simple-store-locator-search {
+  border-radius: 6px!important;
+border: 1px solid #9C814C !important;
+  height:51px;
+  max-width:100%;
+  padding: 19px 0 18px 26px!important;
+   font-family: 'Roboto-Regular';
+ 
+font-size: clamp(
+    calc(16 * 0.9px),
+    calc(16 * (100vw / var(--viewportDesktop))),
+    calc(16 * 1.1px)
+  );
+  
+}
+#SimpleStoreLocator  .simple-store-locator-search::placeholder{
+  color: #000;
+  font-family: 'Roboto-Regular';
+  font-size: clamp(
+    calc(16 * 0.9px),
+    calc(16 * (100vw / var(--viewportDesktop))),
+    calc(16 * 1.1px)
+  );
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; 
+}
+#SimpleStoreLocator div[style*="flex-basis: 33%"] div, .simple-store-locator-tab, #SimpleStoreLocator div{
+  color: #000;
+  font-family: 'Roboto-Regular';
+}
+.simple-store-locator-powered-by{
+  display:none!important;
+}
