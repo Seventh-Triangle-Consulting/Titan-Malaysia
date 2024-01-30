@@ -23,7 +23,9 @@ h1.heading-bussiness {
   display: flex;
   justify-content: space-evenly;
   border-bottom: 1px solid lightgrey;
+  align-items: center;
 }
+.col-md-offset-4.col-md-4.col-xs-12.text-center.business p {margin-bottom:unset;}
 .for-business.main-page p {
   font-size: 14px;
 }
@@ -32,7 +34,8 @@ h1.heading-bussiness {
 }
 .col-md-offset-4.col-md-4.col-xs-12.text-center.business {
   margin-bottom: 5px;
-  padding-bottom: 22px;
+    padding-bottom: 10px;
+    padding-top: 6px;
 }
 h1.main-page-title.page-title {
   text-align: center;
