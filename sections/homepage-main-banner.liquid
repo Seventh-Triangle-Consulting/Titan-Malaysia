@@ -117,7 +117,7 @@
         nextEl: '#{{ section.id }} .swiper-button-next',
         prevEl: '#{{ section.id }} .swiper-button-prev',
     },
-    {% if section.settings.autoplay == true %}
+    {% if section.settings.autoplay == false %}
       autoplay: {
         delay: 3000,
         disableOnInteraction: false,
