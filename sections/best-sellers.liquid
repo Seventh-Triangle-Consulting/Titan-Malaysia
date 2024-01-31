@@ -118,7 +118,7 @@
   document.querySelectorAll('.bestsellers_tablinks')[0].click();
 
   function openCity(evt, category) {
-    evt.currentTarget.className.add('active');
+    evt.currentTarget.classList.add('active');
     var i, tabcontent, tablinks;
     bestsllers_tabcontent = document.getElementsByClassName('bestsellers_tabcontent');
     for (i = 0; i < bestsllers_tabcontent.length; i++) {
@@ -126,10 +126,10 @@
     }
     bestsellers_tablinks = document.getElementsByClassName('bestsellers_tablinks');
     for (i = 0; i < bestsellers_tablinks.length; i++) {
-      bestsellers_tablinks[i].className.remove('active')
+      bestsellers_tablinks[i].classList.remove('active')
     }
     document.getElementById(category).style.display = 'block';
-      evt.currentTarget.className.add('active');
+      evt.currentTarget.classList.add('active');
   }
 
   window.addEventListener(
