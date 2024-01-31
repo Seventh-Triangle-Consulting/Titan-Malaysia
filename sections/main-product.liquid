@@ -1159,10 +1159,10 @@ window.addEventListener('DOMContentLoaded', initSwipersPDP, { once: true });
   </script>
 <script>
 
-    let clone2 = document.querySelector('.product__title').cloneNode(true);
-    let clone3 = document.querySelector('.price-main-div').cloneNode(true);
-    let clone = document.querySelector('.product-form').cloneNode(true);
-    let clone1 = document.querySelector('.product-form').cloneNode(true);
+    let clone2 = document.querySelector('.product__title')?.cloneNode(true);
+    let clone3 = document.querySelector('.price-main-div')?.cloneNode(true);
+    let clone = document.querySelector('.product-form')?.cloneNode(true);
+    let clone1 = document.querySelector('.product-form')?.cloneNode(true);
     document.querySelector('.productformmobilesticky').appendChild(clone1); 
 
    document.querySelector('.productformdesktoptitle').appendChild(clone2);
