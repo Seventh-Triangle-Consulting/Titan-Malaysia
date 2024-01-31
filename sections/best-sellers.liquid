@@ -54,13 +54,13 @@
   {% endif %}
 
   <div class="bestsellers_tab">
-    {% if section.settings.men_collection_text != blank %}<button class="bestsellers_tablinks active" onclick="openCity(event, 'men')">{{ section.settings.men_collection_text }}</button>{% endif %}
-    {% if section.settings.women_collection_text != blank %}<button class="bestsellers_tablinks" onclick="openCity(event, 'women')">{{ section.settings.women_collection_text }}</button>{% endif %}
-    {% if section.settings.kids_collection_text != blank %}<button class="bestsellers_tablinks" onclick="openCity(event, 'kids')">{{ section.settings.kids_collection_text }}</button>{% endif %}
+    {% if section.settings.men_collection_text != blank %}<button class="bestsellers_tablinks active" data-tag-one-launched="{{ section.settings.men_collection_text | downcase }}">{{ section.settings.men_collection_text }}</button>{% endif %}
+    {% if section.settings.women_collection_text != blank %}<button class="bestsellers_tablinks"   data-tag-one-launched="{{ section.settings.women_collection_text | downcase }}">{{ section.settings.women_collection_text }}</button>{% endif %}
+    {% if section.settings.kids_collection_text != blank %}<button class="bestsellers_tablinks" data-tag-one-launched="{{ section.settings.kids_collection_text | downcase }}">{{ section.settings.kids_collection_text }}</button>{% endif %}
   </div>
 
   {% if section.settings.men_collection != blank %}
-      <div id="men" class="bestsellers_tabcontent">
+      <div id="men" class="bestsellers_tabcontent"   data-tag-two-launched="{{ section.settings.men_collection_text | downcase }}">
         {% assign collection_men = section.settings.men_collection %}
         <div class="swiper collection-swiper-men">
           <div class="swiper-wrapper">
@@ -79,7 +79,7 @@
   {% endif %}
 
   {% if section.settings.women_collection != blank %}
-      <div id="women" class="bestsellers_tabcontent">
+      <div id="women" class="bestsellers_tabcontent"   data-tag-two-launched="{{ section.settings.women_collection_text | downcase }}">
         {% assign collection_women = section.settings.women_collection %}
         <div class="swiper collection-swiper-women">
           <div class="swiper-wrapper">
@@ -97,7 +97,7 @@
   {% endif %}
 
   {% if section.settings.kids_collection != blank %}
-        <div id="kids" class="bestsellers_tabcontent">
+        <div id="kids" class="bestsellers_tabcontent"   data-tag-two-launched="{{ section.settings.kids_collection_text | downcase }}">
           {% assign collection_kids = section.settings.kids_collection %}
           <div class="swiper collection-swiper-kids">
             <div class="swiper-wrapper">
@@ -115,26 +115,30 @@
   {% endif %}
 </div>
 <script>
-  document.querySelectorAll('.bestsellers_tablinks')[0].click();
+const filterTab = document.querySelectorAll('.bestsellers_tablinks');
+    filterTab.forEach((item) => {
+      item.addEventListener('click', (e) => {
+        const tabName = item.getAttribute('data-tag-one-launched');
 
-  function openCity(evt, category) {
-    // evt.currentTarget.classList.add('active');
-     var i, tabcontent, tablinks;
-     let bestsllers_tabcontent = document.getElementsByClassName('bestsellers_tabcontent');
-     let bestsellers_tablinks = document.getElementsByClassName('bestsellers_tablinks');
-     for (i = 0; i < bestsellers_tablinks.length; i++) {
-      bestsellers_tablinks[i].classList.remove('active')
+        filterTab.forEach((item) => {
+          item?.classList.remove('active');
+        });
+
+        displayCategory(tabName);
+        item?.classList.add('active');
+      });
+    });
+
+    function displayCategory(tabName) {
+      const allColorSwipers = document.querySelectorAll('.homepage_new_launched');
+      allColorSwipers.forEach((content) => {
+        if (content.getAttribute('data-tag-two-launched') === tabName) {
+          content.style.display="block"
+        } else {
+          content.style.display="none"
+        }
+      });
     }
-     evt.currentTarget.classList.add('active');
-  
-    for (i = 0; i < bestsllers_tabcontent.length; i++) {
-      bestsllers_tabcontent[i].style.display = 'none';
-    }
-   
-    
-    document.getElementById(category).style.display = 'block';
-     
-  }
 
   window.addEventListener(
     'DOMContentLoaded',
