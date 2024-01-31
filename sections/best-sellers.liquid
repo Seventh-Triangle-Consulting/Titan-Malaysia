@@ -54,7 +54,7 @@
   {% endif %}
 
   <div class="bestsellers_tab">
-    {% if section.settings.men_collection_text != blank %}<button class="bestsellers_tablinks" onclick="openCity(event, 'men')">{{ section.settings.men_collection_text }}</button>{% endif %}
+    {% if section.settings.men_collection_text != blank %}<button class="bestsellers_tablinks active" onclick="openCity(event, 'men')">{{ section.settings.men_collection_text }}</button>{% endif %}
     {% if section.settings.women_collection_text != blank %}<button class="bestsellers_tablinks" onclick="openCity(event, 'women')">{{ section.settings.women_collection_text }}</button>{% endif %}
     {% if section.settings.kids_collection_text != blank %}<button class="bestsellers_tablinks" onclick="openCity(event, 'kids')">{{ section.settings.kids_collection_text }}</button>{% endif %}
   </div>
@@ -118,18 +118,20 @@
   document.querySelectorAll('.bestsellers_tablinks')[0].click();
 
   function openCity(evt, category) {
-    evt.currentTarget.classList.add('active');
+    // evt.currentTarget.classList.add('active');
     var i, tabcontent, tablinks;
+     for (i = 0; i < bestsellers_tablinks.length; i++) {
+      bestsellers_tablinks[i].classList.remove('active')
+    }
+     evt.currentTarget.classList.add('active');
     bestsllers_tabcontent = document.getElementsByClassName('bestsellers_tabcontent');
     for (i = 0; i < bestsllers_tabcontent.length; i++) {
       bestsllers_tabcontent[i].style.display = 'none';
     }
     bestsellers_tablinks = document.getElementsByClassName('bestsellers_tablinks');
-    for (i = 0; i < bestsellers_tablinks.length; i++) {
-      bestsellers_tablinks[i].classList.remove('active')
-    }
+    
     document.getElementById(category).style.display = 'block';
-      evt.currentTarget.classList.add('active');
+     
   }
 
   window.addEventListener(
