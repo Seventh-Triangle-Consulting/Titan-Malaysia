@@ -991,7 +991,7 @@ document.addEventListener('DOMContentLoaded', function() {
       var productForm = document.querySelector('.productformdesktopsticky');
       var productForm1 = document.querySelector('.productformmobilesticky');
       var mainProduct = document.querySelector('.pdp_shipping_returns');
-      var productFormOffsetTop = mainProduct.offsetTop;
+      var productFormOffsetTop = mainProduct?.offsetTop;
 
       function toggleProductForm() {
         if (window.scrollY >= productFormOffsetTop+100) {
