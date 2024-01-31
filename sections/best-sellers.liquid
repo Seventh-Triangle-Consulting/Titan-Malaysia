@@ -115,31 +115,7 @@
   {% endif %}
 </div>
 <script>
-const filterTab = document.querySelectorAll('.bestsellers_tablinks');
-    filterTab.forEach((item) => {
-      item.addEventListener('click', (e) => {
-        const tabName = item.getAttribute('data-tag-one-launched');
 
-        filterTab.forEach((item) => {
-          item?.classList.remove('active');
-        });
-        
-         item?.classList.add('active');
-        displayCategory(tabName);
-       
-      });
-    });
-
-    function displayCategory(tabName) {
-      const allColorSwipers = document.querySelectorAll('.bestsellers_tabcontent');
-      allColorSwipers.forEach((content) => {
-        if (content.getAttribute('data-tag-two-launched') === tabName) {
-          content.style.display="block"
-        } else {
-          content.style.display="none"
-        }
-      });
-    }
 
   window.addEventListener(
     'DOMContentLoaded',
@@ -206,6 +182,35 @@ const filterTab = document.querySelectorAll('.bestsellers_tablinks');
         },
       });
     },
+
+
+
+    const filterTab = document.querySelectorAll('.bestsellers_tablinks');
+    filterTab.forEach((item) => {
+      item.addEventListener('click', (e) => {
+        const tabName = item.getAttribute('data-tag-one-launched');
+
+        filterTab.forEach((item) => {
+          item?.classList.remove('active');
+        });
+        
+         item?.classList.add('active');
+        displayCategory(tabName);
+       
+      });
+    });
+
+    function displayCategory(tabName) {
+      const allColorSwipers = document.querySelectorAll('.bestsellers_tabcontent');
+      allColorSwipers.forEach((content) => {
+        if (content.getAttribute('data-tag-two-launched') === tabName) {
+          content.style.display="block"
+        } else {
+          content.style.display="none"
+        }
+      });
+    }
+  
     { once: true }
   );
 </script>
