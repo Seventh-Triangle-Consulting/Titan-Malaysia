@@ -130,7 +130,7 @@ const filterTab = document.querySelectorAll('.bestsellers_tablinks');
     });
 
     function displayCategory(tabName) {
-      const allColorSwipers = document.querySelectorAll('.homepage_new_launched');
+      const allColorSwipers = document.querySelectorAll('.bestsellers_tabcontent');
       allColorSwipers.forEach((content) => {
         if (content.getAttribute('data-tag-two-launched') === tabName) {
           content.style.display="block"
