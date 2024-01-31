@@ -120,11 +120,12 @@
   function openCity(evt, category) {
     // evt.currentTarget.classList.add('active');
     var i, tabcontent, tablinks;
+      bestsllers_tabcontent = document.getElementsByClassName('bestsellers_tabcontent');
      for (i = 0; i < bestsellers_tablinks.length; i++) {
       bestsellers_tablinks[i].classList.remove('active')
     }
      evt.currentTarget.classList.add('active');
-    bestsllers_tabcontent = document.getElementsByClassName('bestsellers_tabcontent');
+  
     for (i = 0; i < bestsllers_tabcontent.length; i++) {
       bestsllers_tabcontent[i].style.display = 'none';
     }
