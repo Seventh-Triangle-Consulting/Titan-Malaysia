@@ -60,7 +60,7 @@
   </div>
 
   {% if section.settings.men_collection != blank %}
-      <div id="men" class="bestsellers_tabcontent"   data-tag-two-launched="{{ section.settings.men_collection_text | downcase }}">
+      <div id="men" class="bestsellers_tabcontent"   data-tag-two-launched="{{ section.settings.men_collection_text | downcase }}" style="display:block;">
         {% assign collection_men = section.settings.men_collection %}
         <div class="swiper collection-swiper-men">
           <div class="swiper-wrapper">
