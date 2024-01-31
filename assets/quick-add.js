@@ -60,8 +60,8 @@ if (!customElements.get('quick-add-modal')) {
           Array.from(oldScriptTag.attributes).forEach((attribute) => {
             newScriptTag.setAttribute(attribute.name, attribute.value);
           });
-          newScriptTag.appendChild(document.createTextNode(oldScriptTag.innerHTML));
-          oldScriptTag.parentNode.replaceChild(newScriptTag, oldScriptTag);
+          newScriptTag?.appendChild(document.createTextNode(oldScriptTag.innerHTML));
+          oldScriptTag>.parentNode?.replaceChild(newScriptTag, oldScriptTag);
         });
       }
 
