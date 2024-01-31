@@ -61,7 +61,7 @@ if (!customElements.get('quick-add-modal')) {
             newScriptTag.setAttribute(attribute.name, attribute.value);
           });
           newScriptTag?.appendChild(document.createTextNode(oldScriptTag.innerHTML));
-          oldScriptTag>.parentNode?.replaceChild(newScriptTag, oldScriptTag);
+          oldScriptTag.parentNode?.replaceChild(newScriptTag, oldScriptTag);
         });
       }
 
