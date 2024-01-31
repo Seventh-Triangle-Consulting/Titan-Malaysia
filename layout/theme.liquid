@@ -198,113 +198,8 @@ function  changeCss () {
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    <!-- <script data-defer="nodefer">
-          window.psn = function productsliderfun(){
-           const element = document.querySelectorAll("#product-grid li.grid__item");
-        element.forEach((el) =>{
-        let sliderint = "";
-        sliderint = el.querySelector(".card-wrapper");
-        let pid = sliderint.getAttribute('data-id');
+ <script data-defer="nodefer">
 
-            let colorslider = "";
-       colorslider = el.querySelector(".productcardcolorswatch");
-      console.log(pid);
-               var contentm = document.getElementById('product_image_slide_container_'+pid+'');
-             var maincolor = document.getElementById('productcardcolor_'+pid+'');
-               let swatchcolorW = maincolor.querySelectorAll(".colorswatch");
-               let productid_info = contentm.querySelectorAll(".colorproductimage");
-
-           swatchcolorW.forEach(function(el, key){
-
-             el.addEventListener('click', (e, key) => {
-          const et = e.target;
-            //et.classList.toggle('active');
-         swatchcolorW.forEach(function(ell, els){
-
-
-                       if(key !== els) {
-                           ell.classList.remove('active');
-                       }
-                   });
-           et.classList.add('active');
-               let cardheading = document.getElementById('cardheading_'+pid+'');
-               let mainprice = document.getElementById('mainprice_'+pid+'');
-             let compareprice = document.getElementById('compareprice_'+pid+'');
-               let discountprice = document.getElementById('discountprice_'+pid+'');
-
-         for (let content of productid_info ) {
-             if(content.getAttribute('data-id') === el.getAttribute('data-id') ) {
-              content.style.display = "block";
-                cardheading.innerHTML = content.getAttribute('product-title');
-               cardheading.href = content.getAttribute('product-url');
-               mainprice.innerHTML =content.getAttribute('main-price');
-               compareprice.innerHTML =content.getAttribute('compare-price');
-               discountprice.innerHTML =content.getAttribute('discount-price');
-
-             }
-            else {
-            content.style.display = "none";
-             }
-           }
-           });
-          });
-
-
-            let colorswatchid = new Swiper(colorslider, {
-              slidesPerView: 1,
-              spaceBetween: 3,
-              loop: false,
-              noSwiping: true,
-               noSwipingClass: 'swiper-slide',
-              breakpoints: {
-                 300: {
-                  slidesPerView: 4,
-                  spaceBetween: 8,
-                  centeredSlides: false,
-                },
-                400: {
-                  slidesPerView: 4,
-                  spaceBetween: 8,
-                  centeredSlides: false,
-                },
-                500: {
-                  slidesPerView: 7,
-                  spaceBetween: 10,
-                  centeredSlides: false,
-                },
-                901: {
-                  slidesPerView: 7,
-                  spaceBetween: 10,
-                  centeredSlides: false,
-                },
-              },
-              navigation: {
-          nextEl: '.color-btn-next',
-          prevEl: '.color-btn-prev',
-        },
-            });
-
-         el.querySelector(".productcardcolorswatch").style.visibility="visible";
-
-           let catslider = new Swiper('.catslidercollection', {
-              slidesPerView: 3.5,
-              spaceBetween: 5,
-              loop: false,
-              noSwiping: true,
-               noSwipingClass: 'swiper-slide',
-              navigation: {
-          nextEl: '.cat-btn-next',
-          prevEl: '.cat-btn-prev',
-        },
-            });
-          });
-
-          }
-           window.addEventListener(
-          'DOMContentLoaded',
-          () => {
-           window.psn();
-             });
       {% if template.name == "index" %}
       document.addEventListener("DOMContentLoaded", (event) => {
        if (sessionStorage.getItem("showPopUp") === null ){ 
@@ -313,7 +208,7 @@ function  changeCss () {
       }
 });
       {% endif %}
-    </script> -->
+    </script> 
 	<!-- --------------- BEGIN 1CHECKOUT JS --------------- -->
 {% comment %}{{ '1checkout.js' | asset_url | script_tag }}{% endcomment %}
 <!-- --------------- END 1CHECKOUT JS --------------- -->
