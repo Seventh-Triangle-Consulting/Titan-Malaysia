@@ -119,8 +119,9 @@
 
   function openCity(evt, category) {
     // evt.currentTarget.classList.add('active');
-    var i, tabcontent, tablinks;
-      bestsllers_tabcontent = document.getElementsByClassName('bestsellers_tabcontent');
+     var i, tabcontent, tablinks;
+     let bestsllers_tabcontent = document.getElementsByClassName('bestsellers_tabcontent');
+     let bestsellers_tablinks = document.getElementsByClassName('bestsellers_tablinks');
      for (i = 0; i < bestsellers_tablinks.length; i++) {
       bestsellers_tablinks[i].classList.remove('active')
     }
@@ -129,7 +130,7 @@
     for (i = 0; i < bestsllers_tabcontent.length; i++) {
       bestsllers_tabcontent[i].style.display = 'none';
     }
-    bestsellers_tablinks = document.getElementsByClassName('bestsellers_tablinks');
+   
     
     document.getElementById(category).style.display = 'block';
      
