@@ -1165,9 +1165,9 @@ window.addEventListener('DOMContentLoaded', initSwipersPDP, { once: true });
     let clone1 = document.querySelector('.product-form')?.cloneNode(true);
     document.querySelector('.productformmobilesticky').appendChild(clone1); 
 
-   document.querySelector('.productformdesktoptitle').appendChild(clone2);
-   document.querySelector('.productformdesktoptitle').appendChild(clone3); 
-   document.querySelector('.productformdesktopsticky-variant-atc').appendChild(clone); 
+   if(clone2) document.querySelector('.productformdesktoptitle').appendChild(clone2);
+   if(clone3) document.querySelector('.productformdesktoptitle').appendChild(clone3); 
+   if(clone2) document.querySelector('.productformdesktopsticky-variant-atc').appendChild(clone); 
    let cloneNew = document.querySelector('.product-form').cloneNode(true);
    document.querySelector('.custom-atc-product').appendChild(cloneNew); 
   
