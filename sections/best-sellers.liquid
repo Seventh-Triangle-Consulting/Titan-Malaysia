@@ -123,9 +123,10 @@ const filterTab = document.querySelectorAll('.bestsellers_tablinks');
         filterTab.forEach((item) => {
           item?.classList.remove('active');
         });
-
+        
+         item?.classList.add('active');
         displayCategory(tabName);
-        item?.classList.add('active');
+       
       });
     });
 
