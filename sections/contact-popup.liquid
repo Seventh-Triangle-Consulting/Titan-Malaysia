@@ -572,6 +572,14 @@
           </div>
         </div>
         <p class="popup-error-pinCode">please Enter Valid Pin Code</p>
+        {% if template.name == 'product' %} <input
+              class="field__input product"
+              type="hidden"
+              id="ContactForm-name"
+              name="contact[Product]"
+              value="{{ product.title }}"
+             >
+          {% endif %}
         <div class="contact__button">
           <button type="submit" class="button custom-button-popup">SUBMIT</button>
         </div>
