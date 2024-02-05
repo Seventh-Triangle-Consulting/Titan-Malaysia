@@ -1,5 +1,8 @@
 {{ 'section-contact-form.css' | asset_url | stylesheet_tag }}
 <style>
+  .dummy__contact__button {
+    text-align: center;
+  }
     .detail-div-popup {
       position: absolute;
           top: 75px;
@@ -208,10 +211,10 @@
         <p>{{ section.settings['contact-popup-text'] }}</p>
       {% endif %}
       {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
-        {%- if form.posted_successfully? -%}
-          <script>
+      {%- if form.posted_successfully? -%}
+            <script>
             sessionStorage.setItem("showPopUp", "false")
-          </script>
+          </script>  
         {%- elsif form.errors -%}
           <div class="form__message">
             <h2 class="form-status caption-large text-body" role="alert" tabindex="-1" autofocus>
@@ -227,7 +230,7 @@
               </a>
             </li>
           </ul>
-        {%- endif -%}
+        {%- endif -%} 
         <div class="contact__fields">
           <div class="field fullname custom-field">
             <label class="field__label" for="ContactForm-name"
@@ -251,7 +254,7 @@
             </label>
             <input
               type="number"
-              id="ContactForm "
+              id="ContactForm-phone"
        
               class="field__input phoneNumber"
          
@@ -304,7 +307,7 @@
               class="field__input custom-country"
               autocomplete="name"
               type="text"
-              id="ContactForm-name"
+              id="ContactForm-country"
               name="contact[Country]"
               value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
               placeholder="Country"
@@ -558,12 +561,12 @@
           </div>
           <p class="popup-error-country">please Select a Country</p>
           <div class="field custom-field">
-            <label class="field__label" for="ContactForm-name"> <span aria-hidden="true">*</span> Pin Code </label>
+            <label class="field__label" for="ContactForm-pincode"> <span aria-hidden="true">*</span> Pin Code </label>
             <input
               class="field__input postalCode"
               autocomplete="name"
               type="text"
-              id="ContactForm-name"
+              id="ContactForm-pincode"
               name="contact[Pin code]"
               value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
               placeholder="Pin Code"
@@ -575,15 +578,18 @@
         {% if template.name == 'product' %} <input
               class="field__input product"
               type="hidden"
-              id="ContactForm-name"
+              id="ContactForm-product"
               name="contact[Product]"
               value="{{ product.title }}"
              >
           {% endif %}
-        <div class="contact__button">
+        <div class="contact__button hidden mainFormBtn">
           <button type="submit" class="button custom-button-popup">SUBMIT</button>
         </div>
       {%- endform -%}
+      <div class="contact__button dummy__contact__button">
+        <button type="button" class="button custom-button-popup">SUBMIT</button>
+      </div>
     </div>
   </div>
 
@@ -631,6 +637,65 @@
       }
     })
 </script>
+
+<script>
+let form = document.querySelector('.dummy__contact__button button');
+form.addEventListener('click', function(e) {
+  let name = document.getElementById('ContactForm-name').value;
+  let phone = document.getElementById('ContactForm-phone').value;
+  let email = document.getElementById('ContactForm-email').value;
+  let country = document.getElementById('ContactForm-country').value;
+  let pinCode = document.getElementById('ContactForm-pincode').value;
+  let product = document.getElementById('ContactForm-product')?.value || '';
+
+  console.log(name)
+  console.log(phone)
+  console.log(email)
+  console.log(country)
+  console.log(pinCode)  
+  console.log(product)  
+
+  let raw = JSON.stringify({
+  "field1" : name,
+  "field2" : phone,
+  "field3" : email,
+  "field4" : country,
+  "field5" : pinCode,
+  "field6" : product
+  });
+
+  console.log(raw)
+
+  if(name && name.trim() != '' && phone && phone.trim() != '' && email && email.trim() != '' && country && country.trim() != '' && pinCode && pinCode.trim() != '' ) {
+    var requestOptions = {
+      method: 'POST',
+      body: raw,
+      redirect: 'follow',
+      };
+  
+      fetch('https://script.google.com/macros/s/AKfycbx84Fw0pz_BhHboEixPAl_8JQIwdTC48JN69cQkY_cQPWvI_HlDmzwAxVHGzjvzIpKwbg/exec?action=updateSheet', requestOptions)
+            .then(response => {
+            console.log('responseee', response)
+            return response.text()
+            })
+            .then(result => {
+              console.log(result)
+              let formBtn = document.querySelector('.mainFormBtn button');
+              console.log(formBtn,'formBtn')
+              formBtn.click();
+            })
+            .catch(error => console.log('error', error)); 
+
+  }
+   else {
+    let formBtn = document.querySelector('.mainFormBtn button');
+    formBtn.click();
+  }
+
+ 
+})
+
+</script>
 {% schema %}
 {
   "name": "Section name",
@@ -656,3 +721,4 @@
 }]
 }
 {% endschema %}
+ 
