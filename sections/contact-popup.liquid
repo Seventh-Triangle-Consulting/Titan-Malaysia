@@ -111,8 +111,10 @@
        .form-contact-popup div {
       padding-top: 8px;
   }
-       .inner-contact-popup{    width:353px;}
+       .inner-contact-popup{    width:353px;HEIGHT: 50%;BACKGROUND: WHEAT;}
      }
+     .inner-contact-popup .contact-popup-img-mob {
+    display:none;}
     @media only screen and (min-width: 1550px){
       .inner-contact-popup {
       width: 697px;
@@ -210,27 +212,7 @@
       {% if section.settings['contact-popup-text'] %}
         <p>{{ section.settings['contact-popup-text'] }}</p>
       {% endif %}
-      {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
-      {%- if form.posted_successfully? -%}
-            <script>
-            sessionStorage.setItem("showPopUp", "false")
-          </script>  
-        {%- elsif form.errors -%}
-          <div class="form__message">
-            <h2 class="form-status caption-large text-body" role="alert" tabindex="-1" autofocus>
-              {% render 'icon-error' %}
-              {{ 'templates.contact.form.error_heading' | t }}
-            </h2>
-          </div>
-          <ul class="form-status-list caption-large" role="list">
-            <li>
-              <a href="#ContactForm-email" class="link">
-                {{ form.errors.translated_fields.email | capitalize }}
-                {{ form.errors.messages.email }}
-              </a>
-            </li>
-          </ul>
-        {%- endif -%} 
+      <form id="ContactForm" class="contact_form_class">
         <div class="contact__fields">
           <div class="field fullname custom-field">
             <label class="field__label" for="ContactForm-name"
@@ -586,7 +568,7 @@
         <div class="contact__button hidden mainFormBtn">
           <button type="submit" class="button custom-button-popup">SUBMIT</button>
         </div>
-      {%- endform -%}
+      </form>
       <div class="contact__button dummy__contact__button">
         <button type="button" class="button custom-button-popup">SUBMIT</button>
       </div>
@@ -648,13 +630,6 @@ form.addEventListener('click', function(e) {
   let pinCode = document.getElementById('ContactForm-pincode').value;
   let product = document.getElementById('ContactForm-product')?.value || '';
 
-  console.log(name)
-  console.log(phone)
-  console.log(email)
-  console.log(country)
-  console.log(pinCode)  
-  console.log(product)  
-
   let raw = JSON.stringify({
   "field1" : name,
   "field2" : phone,
@@ -664,7 +639,6 @@ form.addEventListener('click', function(e) {
   "field6" : product
   });
 
-  console.log(raw)
 
   if(name && name.trim() != '' && phone && phone.trim() != '' && email && email.trim() != '' && country && country.trim() != '' && pinCode && pinCode.trim() != '' ) {
     var requestOptions = {
@@ -675,14 +649,12 @@ form.addEventListener('click', function(e) {
   
       fetch('https://script.google.com/macros/s/AKfycbx84Fw0pz_BhHboEixPAl_8JQIwdTC48JN69cQkY_cQPWvI_HlDmzwAxVHGzjvzIpKwbg/exec?action=updateSheet', requestOptions)
             .then(response => {
-            console.log('responseee', response)
             return response.text()
             })
             .then(result => {
-              console.log(result)
               let formBtn = document.querySelector('.mainFormBtn button');
-              console.log(formBtn,'formBtn')
               formBtn.click();
+              sessionStorage.setItem("showPopUp", "false");
             })
             .catch(error => console.log('error', error)); 
 
@@ -691,9 +663,8 @@ form.addEventListener('click', function(e) {
     let formBtn = document.querySelector('.mainFormBtn button');
     formBtn.click();
   }
-
  
-})
+});
 
 </script>
 {% schema %}
