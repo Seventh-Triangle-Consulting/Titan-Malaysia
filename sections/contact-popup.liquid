@@ -1,8 +1,6 @@
 {{ 'section-contact-form.css' | asset_url | stylesheet_tag }}
 <style>
-  .dummy__contact__button {
-    text-align: center;
-  }
+  .form-contact-popup p{line-height:1.5;color:#000;}
   .submit_success_div{background: white;padding: 2% 5%;display:none;}
   .contact-popup{
     position: fixed;
@@ -14,7 +12,6 @@
       z-index: 11;
       align-items: center;
   }
-  .contact-popup p, .contant-popup .custom-field{ font-weight:900;}
   .contant-popup option{    font-size: clamp(calc(15 * .8px),calc(15 * (100vw / var(--viewportDesktop))),calc(15 * 1.6px)) !important;}
     .form-contact-popup .button{    padding: 8px 33px !important;}
     .form-contact-popup .contact__button {
@@ -47,8 +44,7 @@
       grid-column: 1/3 !important;
       display: flex !important;
       align-items: flex-end;    width: 79% !important;padding: 5px 0;
- font-family: 'Roboto-Regular';
-    font-weight:900;
+
 
   }
     .contact-popup {
@@ -83,21 +79,20 @@
   }
        .form-contact-popup .contact__button {
       margin-top: 1rem !important;
-         text-align:center;
   }
        .form-contact-popup div {
       padding-top: 2px !important;
   }
      }
     @media only screen and (min-width: 768px){
-      .inner-contact-popup{    width: 650px;display: flex;}
-      .detail-div-popup.form-contact-popup {position: absolute;top: 85px;left: 35px;}
+      .inner-contact-popup{display: flex;width: 650px;}
+      .detail-div-popup.form-contact-popup{position: absolute;top: 85px; left: 35px;}
+      
     }
      @media only screen and (max-width: 767px){
      .country-div .contant-popup{    width: 66% !important;}
      .contact-popup-img{display:none;}
      .contact-popup-img-mob{display:block;}
-       .contact-popup{top:40px;}
 
        .contact-popup{    padding: 0 20px;}
        .contact-popup p {
@@ -106,10 +101,12 @@
        .form-contact-popup div {
       padding-top: 8px;
   }
-       .inner-contact-popup{    width:353px;HEIGHT:fit-content;padding: 20px;BACKGROUND: WHEAT;}
+       .inner-contact-popup{    width:353px;height: fit-content;padding: 20px;background: wheat;}
+       .inner-contact-popup img {display: none;}
+       .form-contact-popup .contact__button {
+      margin-top: 1rem !important;
+  }
      }
-     .inner-contact-popup .contact-popup-img-mob {
-    display:none;}
     @media only screen and (min-width: 1550px){
       .inner-contact-popup {
       width: 697px;
@@ -122,13 +119,22 @@
     }
     .popup-error, .popup-error-pinCode{display:none; font-size:8px; color:red}
     .custom-field label{
-     font-size: clamp(calc(15 * .8px),calc(15 * (100vw / var(--viewportDesktop))),calc(15 * 1.1px)) !important;   width: 43%;
+     font-size:15px !important;   width: 43%;
     }
     .custom-country-div{position:absolute; visibility:hidden;}
-    .popup-error-country{display:none; font-size:8px; color:red}
-    {% if  section.settings.popup-bg-img == blank %}
-
-      {% endif %}
+    .popup-error-country{display:none; font-size:8px; color:red;}
+    .contact-popup input[type="text"].name-form:selected {
+      background-color: transparent;
+    }
+  .detail-div-popup.form-contact-popup p{font-weight: 700;color: #000000BF;font-size: 15px;}
+  .contact-popup label {
+    font-weight: 700;
+    color: #000000BF;
+    font-size: 15px; 
+  }
+  .contact__button.dummy__contact__button {text-align: center;}
+  .btn-disabled {pointer-events: none; opacity: .5;}
+  .popup-error, .popup-error-pinCode  {font-size: 9px !important;}
 </style>
 
 <div class="contact-popup">
@@ -210,39 +216,40 @@
       <form id="ContactForm" class="contact_form_class">
         <div class="contact__fields">
           <div class="field fullname custom-field">
-            <label class="field__label" for="ContactForm-name"
-              ><span aria-hidden="true">*</span> {{ 'templates.contact.form.name' | t }}
-            </label>
-            <input
-              class="field__input"
-              autocomplete="name"
-              type="text"
-              id="ContactForm-name"
-              onkeydown="return /[a-z]/i.test(event.key)"
-              name="contact[{{ 'templates.contact.form.name' | t }}]"
-              value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
-              placeholder="{{ 'templates.contact.form.name' | t }}"
-              required
-            >
-          </div>
-          <div class="field custom-field">
-            <label class="field__label" for="ContactForm-phone"
-              ><span aria-hidden="true">*</span> {{ 'templates.contact.form.phone' | t -}}
-            </label>
-            <input
-              type="number"
-              id="ContactForm-phone"
-       
-              class="field__input phoneNumber"
-         
-              autocomplete="tel"
- 
-              name="contact[{{ 'templates.contact.form.phone' | t }}]"
-              required
-              value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
-              placeholder="{{ 'templates.contact.form.phone' | t }}"
-            >
-          </div>
+    <label class="field__label" for="ContactForm-name">
+        <span aria-hidden="true">*</span> {{ 'templates.contact.form.name' | t }}
+    </label>
+    <input
+        class="field__input"
+        autocomplete="off"
+        type="text"
+        id="ContactForm-name"
+        class="name-form"
+        onkeydown="return /[a-z ]/i.test(event.key)"
+        name="contact[{{ 'templates.contact.form.name' | t }}]"
+        value="{% if customer %}{{ customer.name }}{% endif %}"
+        placeholder="{{ 'templates.contact.form.name' | t }}"
+        required
+    >
+</div>
+
+         <div class="field custom-field">
+  <label class="field__label" for="ContactForm-phone">
+    <span aria-hidden="true">*</span> {{ 'templates.contact.form.phone' | t }}
+  </label>
+  <input
+    type="number"
+    id="ContactForm-phone"
+    onkeyup="validatePhoneNumber()"
+    class="field__input phoneNumber"
+    inputmode="numeric"  autocomplete="tel"
+    maxlength="16"    name="contact[{{ 'templates.contact.form.phone' | t }}]"
+    required
+    value="{% if customer %}{{ customer.phone }}{% endif %}"
+    placeholder="{{ 'templates.contact.form.phone' | t }}"
+  >
+</div>
+
           <p class="popup-error">please Enter Valid Contact Number</p>
           <div class="field field--with-error custom-field">
             <label class="field__label" for="ContactForm-email">
@@ -250,49 +257,34 @@
               {{- 'templates.contact.form.email' | t }}
             </label>
             <input
-              autocomplete="email"
+              autocomplete="off"
               type="email"
               id="ContactForm-email"
               class="field__input"
               name="contact[email]"
               spellcheck="false"
               autocapitalize="off"
-              value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+              value="{% if customer %}{{ customer.email }}{% endif %}"
               aria-required="true"
-              {% if form.errors contains 'email' %}
-                aria-invalid="true"
-                aria-describedby="ContactForm-email-error"
-              {% endif %}
               placeholder="{{ 'templates.contact.form.email' | t }}"
               required
             >
-
-            {%- if form.errors contains 'email' -%}
-              <small class="contact__field-error" id="ContactForm-email-error">
-                <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
-                <span class="form__message">
-                  {%- render 'icon-error' -%}
-                  {{- form.errors.translated_fields.email | capitalize }}
-                  {{ form.errors.messages.email -}}
-                </span>
-              </small>
-            {%- endif -%}
           </div>
           <div class="field custom-field custom-country-div">
-            <label class="field__label" for="ContactForm-country"> <span aria-hidden="true">*</span> Country </label>
+            <label class="field__label" for="ContactForm-country"> <span aria-hidden="true">* </span> Country </label>
             <input
               class="field__input custom-country"
               autocomplete="name"
               type="text"
               id="ContactForm-country"
               name="contact[Country]"
-              value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+              value="{% if customer %}{{ customer.name }}{% endif %}"
               placeholder="Country"
               required
             >
           </div>
           <div class="country-div custom-field">
-            <label for="ContactForm-contact" class=" field__label">* Country: </label>
+            <label for="ContactForm-contact" class=" field__label"> <span>* </span>Country: </label>
             <select class="contant-popup" onchange="countryName()" required>
               <option disabled="disabled" selected="true">Select Country</option>
               <option value="Afghanistan" name="contact[Afghanistan]">Afghanistan</option>
@@ -538,28 +530,32 @@
           </div>
           <p class="popup-error-country">please Select a Country</p>
           <div class="field custom-field">
-            <label class="field__label" for="ContactForm-pincode"> <span aria-hidden="true">*</span> Pin Code </label>
-            <input
-              class="field__input postalCode"
-              autocomplete="name"
-              type="text"
-              id="ContactForm-pincode"
-              name="contact[Pin code]"
-              value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
-              placeholder="Pin Code"
-              required
-            >
-          </div>
+  <label class="field__label" for="ContactForm-pincode">
+    <span aria-hidden="true">*</span> Pin Code
+  </label>
+  <input
+    class="field__input postalCode"
+    onkeyup="validatePostalCode()"
+    autocomplete="off"  type="number"
+    inputmode="numeric"  id="ContactForm-pincode"
+    name="contact[Pin code]"
+    maxlength="6"
+    placeholder="Pin Code"
+    required
+  >
+</div>
+
         </div>
         <p class="popup-error-pinCode">please Enter Valid Pin Code</p>
-        {% if template.name == 'product' %} <input
-              class="field__input product"
-              type="hidden"
-              id="ContactForm-product"
-              name="contact[Product]"
-              value="{{ product.title }}"
-             >
-          {% endif %}
+        {% if template.name == 'product' %}
+          <input
+            class="field__input product"
+            type="hidden"
+            id="ContactForm-product"
+            name="contact[Product]"
+            value="{{ product.title }}"
+          >
+        {% endif %}
         <div class="contact__button hidden mainFormBtn">
           <button type="submit" class="button custom-button-popup">SUBMIT</button>
         </div>
@@ -570,108 +566,162 @@
     </div>
   </div>
 
-  <div class="submit_success_div">FORM SUBMITTED SUCCESSFULLY !</div>
+  <div class="submit_success_div">FORM SUBMITTED SUCCESSFULLY</div>
 </div>
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-       // Check if window.location.href contains "contact_posted=true"
+  document.addEventListener('DOMContentLoaded', function () {
+    // Check if window.location.href contains "contact_posted=true"
     if (window.location.href.includes('contact_posted=true')) {
       // Your desired action when the parameter is present
-       setTimeout(function () {
-        document.querySelector(".inner-contact-popup").style.display = "none";
-        document.querySelector(".contact-popup").style.display = "flex";
+      setTimeout(function () {
+        document.querySelector('.inner-contact-popup').style.display = 'none';
+        document.querySelector('.contact-popup').style.display = 'flex';
         document.querySelector('body').classList.add('overflow-hidden');
-        document.querySelector(".submit_success_div").style.display = "block";
-        }, 3000);
-        setTimeout(function () {
-          document.querySelector(".contact-popup").style.display = "none"
-          document.querySelector('body').classList.remove('overflow-hidden');
-          let currentUrl = window.location.href;
-          let cleanUrl = currentUrl.split('?')[0].split('#')[0];
-          window.history.replaceState({}, document.title, cleanUrl);
-        }, 6000);
+        document.querySelector('.submit_success_div').style.display = 'block';
+      }, 3000);
+      setTimeout(function () {
+        document.querySelector('.contact-popup').style.display = 'none';
+        document.querySelector('body').classList.remove('overflow-hidden');
+        let currentUrl = window.location.href;
+        let cleanUrl = currentUrl.split('?')[0].split('#')[0];
+        window.history.replaceState({}, document.title, cleanUrl);
+      }, 6000);
+    }
+  });
+  function closePopup() {
+    document.querySelector('.contact-popup').style.display = 'none';
+    document.querySelector('body').classList.remove('overflow-hidden');
+    sessionStorage.setItem('showPopUp', 'false');
+  }
+
+ function validatePhoneNumber() {
+  const phoneNumberInput = document.querySelector('.phoneNumber');
+  const phoneNumber = phoneNumberInput.value.trim();
+
+  // Clear old error messages:
+  document.querySelector('.popup-error').textContent = "";
+
+  // Regular expression for 8-16 digits:
+  const phoneNumberPattern = /^\d{8,16}$/;
+
+  if (phoneNumberPattern.test(phoneNumber)) {
+    document.querySelector('.popup-error').style.display = 'none';
+  } else {
+    // Display error message with dynamic length information:
+    const errorMessage = "Please enter a valid phone number.";
+    document.querySelector('.popup-error').textContent = errorMessage;
+    document.querySelector('.popup-error').style.display = 'block';
+  }
+}
+
+  function validatePostalCode() {
+  const postalCodeInput = document.querySelector('.postalCode');
+  const postalCode = postalCodeInput.value.trim();
+
+  // Regular expression for 6 digits:
+  const postalCodePattern = /^\d{6}$/;
+
+  if (postalCodePattern.test(postalCode)) {
+    document.querySelector('.popup-error-pinCode').style.display = 'none';
+  } else {
+    // Clear old error messages:
+    document.querySelector('.popup-error-pinCode').textContent = "";
+
+    // Display new error message with dynamic length information:
+    const errorMessage = "Please enter a valid pin code. It must be 6 digits long.";
+    document.querySelector('.popup-error-pinCode').textContent = errorMessage;
+    document.querySelector('.popup-error-pinCode').style.display = 'block';
+  }
+}
+
+const postalCodeInput = document.querySelector('.postalCode');
+
+postalCodeInput.addEventListener('input', (event) => {
+  // Limit the value to 6 characters
+  postalCodeInput.value = postalCodeInput.value.slice(0, 6);
+});
+
+
+
+  function countryName() {
+    var dropdown = document.querySelector('.contant-popup');
+    var selectedValue = dropdown.options[dropdown.selectedIndex].value;
+    document.querySelector('.popup-error-country').style.display = 'none';
+    document.querySelector('.custom-country').value = selectedValue;
+  }
+  document.querySelector('.custom-button-popup').addEventListener('click', function () {
+    if (document.querySelector('.custom-country').value === '') {
+      document.querySelector('.popup-error-country').style.display = 'block';
+    }
+  });
+</script>
+<script>
+    let dummySubmitBtn = document.querySelector('.dummy__contact__button button');
+    dummySubmitBtn.addEventListener('click', function(e) {
+      let name = document.getElementById('ContactForm-name').value;
+      let phone = document.getElementById('ContactForm-phone').value;
+      let email = document.getElementById('ContactForm-email').value;
+      let country = document.getElementById('ContactForm-country').value;
+      let pinCode = document.getElementById('ContactForm-pincode').value;
+      let product = document.getElementById('ContactForm-product')?.value || '';
+
+      let raw = JSON.stringify({
+      "field1" : name,
+      "field2" : phone,
+      "field3" : email,
+      "field4" : country,
+      "field5" : pinCode,
+      "field6" : product
+      });
+
+      console.log(raw)
+
+
+      if(name && name.trim() != '' && phone && phone.trim() != '' && email && email.trim() != '' && country && country.trim() != '' && pinCode && pinCode.trim() != '' ) {
+        var requestOptions = {
+          method: 'POST',
+          body: raw,
+          redirect: 'follow',
+          };
+          let dummyFormBtn = document.querySelectorAll('button.button.custom-button-popup');
+          dummyFormBtn.forEach((btn)=> {
+            btn.classList.add('btn-disabled');
+          })
+          console.log(dummyFormBtn.classList,'dummy btn');
+        
+        fetch('https://script.google.com/macros/s/AKfycbx84Fw0pz_BhHboEixPAl_8JQIwdTC48JN69cQkY_cQPWvI_HlDmzwAxVHGzjvzIpKwbg/exec?action=updateSheet', requestOptions)
+          .then(response => {
+          return response.text()
+          })
+          .then(result => {
+          let formBtn = document.querySelector('.mainFormBtn button');
+          formBtn.click();
+          })
+          .catch(error => console.log('error', error));
+      }
+       else {
+        let formBtn = document.querySelector('.mainFormBtn button');
+        formBtn.click();
       }
     });
 
-
-      function closePopup(){
-         document.querySelector(".contact-popup").style.display = "none"
-         document.querySelector('body').classList.remove('overflow-hidden');
-        sessionStorage.setItem("showPopUp", "false")
-      }
-
-
-
-      function countryName(){
-          var dropdown = document.querySelector(".contant-popup");
-    var selectedValue = dropdown.options[dropdown.selectedIndex].value;
-         document.querySelector('.popup-error-country').style.display = "none"
-        document.querySelector(".custom-country").value = selectedValue;
-      }
-    document.querySelector(".custom-button-popup").addEventListener("click", function(){
-      if(document.querySelector(".custom-country").value === ""){
-        document.querySelector('.popup-error-country').style.display = "block"
-      }
-    })
-</script>
-
-<script>
-let form = document.querySelector('.dummy__contact__button button');
-form.addEventListener('click', function(e) {
-  let name = document.getElementById('ContactForm-name').value;
-  let phone = document.getElementById('ContactForm-phone').value;
-  let email = document.getElementById('ContactForm-email').value;
-  let country = document.getElementById('ContactForm-country').value;
-  let pinCode = document.getElementById('ContactForm-pincode').value;
-  let product = document.getElementById('ContactForm-product')?.value || '';
-
-  let raw = JSON.stringify({
-  "field1" : name,
-  "field2" : phone,
-  "field3" : email,
-  "field4" : country,
-  "field5" : pinCode,
-  "field6" : product
-  });
-
-
-  if(name && name.trim() != '' && phone && phone.trim() != '' && email && email.trim() != '' && country && country.trim() != '' && pinCode && pinCode.trim() != '' ) {
-    var requestOptions = {
-      method: 'POST',
-      body: raw,
-      redirect: 'follow',
-      };
-  
-      fetch('https://script.google.com/macros/s/AKfycbx84Fw0pz_BhHboEixPAl_8JQIwdTC48JN69cQkY_cQPWvI_HlDmzwAxVHGzjvzIpKwbg/exec?action=updateSheet', requestOptions)
-            .then(response => {
-            return response.text()
-            })
-            .then(result => {
-              let formBtn = document.querySelector('.mainFormBtn button');
-              formBtn.click();
-              sessionStorage.setItem("showPopUp", "false");
-            })
-            .catch(error => console.log('error', error)); 
-
-  }
-   else {
-    let formBtn = document.querySelector('.mainFormBtn button');
-    formBtn.click();
-  }
- 
+ const form = document.querySelector('#ContactForm');
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  window.location.href = window.location.href + "?contact_posted=true";
 });
 
-</script>
+    </script>
 {% schema %}
 {
   "name": "Section name",
   "settings": [
-     {
+    {
       "type": "image_picker",
       "id": "popup-bg-img",
       "label": "Contact popup background image"
     },
-     {
+    {
       "type": "image_picker",
       "id": "popup-bg-img-mob",
       "label": "Contact popup background image mobile"
@@ -682,9 +732,10 @@ form.addEventListener('click', function(e) {
       "label": "Enter Content"
     }
   ],
-"presets": [{
-  "name": "conntact popup"
-}]
+  "presets": [
+    {
+      "name": "conntact popup"
+    }
+  ]
 }
-{% endschema %}
- 
+{% endschema %} 
