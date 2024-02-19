@@ -702,16 +702,29 @@ postalCodeInput.addEventListener('input', (event) => {
             btn.classList.add('btn-disabled');
           })
           console.log(dummyFormBtn.classList,'dummy btn');
-        
-        fetch('https://script.google.com/macros/s/AKfycbx84Fw0pz_BhHboEixPAl_8JQIwdTC48JN69cQkY_cQPWvI_HlDmzwAxVHGzjvzIpKwbg/exec?action=updateSheet', requestOptions)
-          .then(response => {
-          return response.text()
+      fetch('https://script.google.com/macros/s/AKfycbwR4MNzrSh9QehAWNxJwOrEx6Qq1tdZWqHdz0ccxjG8ZOv1-RgYeA3jAqDmrTlRmDcCxA/exec?action=sendResponse', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ /* your data object */ })
           })
-          .then(result => {
-          let formBtn = document.querySelector('.mainFormBtn button');
-          formBtn.click();
+          .then(response => response.json())
+          .then(data => {
+            console.log(data); // handle response data
           })
-          .catch(error => console.log('error', error));
+          .catch(error => {
+            console.error('Error:', error);
+          });  
+        // fetch('https://script.google.com/macros/s/AKfycbx84Fw0pz_BhHboEixPAl_8JQIwdTC48JN69cQkY_cQPWvI_HlDmzwAxVHGzjvzIpKwbg/exec?action=updateSheet', requestOptions)
+          // .then(response => {
+          // return response.text()
+          // })
+          // .then(result => {
+          // let formBtn = document.querySelector('.mainFormBtn button');
+          // formBtn.click();
+          // })
+          // .catch(error => console.log('error', error));
       }
        else {
         let formBtn = document.querySelector('.mainFormBtn button');
