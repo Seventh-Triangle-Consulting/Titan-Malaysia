@@ -670,32 +670,6 @@ postalCodeInput.addEventListener('input', (event) => {
   });
 </script>
 <script>
-var day = currentDate.getDate();
-var month = currentDate.getMonth() + 1; // Note: January is 0
-var year = currentDate.getFullYear();
-
-// Get the current time
-var hours = currentDate.getHours();
-var minutes = currentDate.getMinutes();
-var seconds = currentDate.getSeconds();
-
-// Formatting to ensure two digits for day, month, hour, minute, and second
-day = (day < 10 ? '0' : '') + day;
-month = (month < 10 ? '0' : '') + month;
-hours = (hours < 10 ? '0' : '') + hours;
-minutes = (minutes < 10 ? '0' : '') + minutes;
-seconds = (seconds < 10 ? '0' : '') + seconds;
-
-// Construct the formatted date and time strings
-var formattedDate = year + '-' + month + '-' + day;
-var formattedTime = hours + ':' + minutes + ':' + seconds;
-
-// Output the current date and time
-console.log("Current Date: " + formattedDate);
-console.log("Current Time: " + formattedTime);
-
-  
-  
     let dummySubmitBtn = document.querySelector('.dummy__contact__button button');
     dummySubmitBtn.addEventListener('click', async function(e) {
       e.preventDefault();
@@ -706,17 +680,14 @@ console.log("Current Time: " + formattedTime);
       let country = document.getElementById('ContactForm-country').value;
       let pinCode = document.getElementById('ContactForm-pincode').value;
       let product = document.getElementById('ContactForm-product')?.value || '';
-      let date = ;
-      let time = ;
+
       let raw = {
         "field1": name,
         "field2": phone,
         "field3": email,
         "field4": country,
         "field5": pinCode,
-        "field6": product,
-        "field7": formattedTime ,
-        "field8": formattedDate
+        "field6": product
       };
 
       if (name.trim() !== '' && phone.trim() !== '' && email.trim() !== '' && country.trim() !== '' && pinCode.trim() !== '') {
@@ -732,7 +703,7 @@ console.log("Current Time: " + formattedTime);
         });
 
         try {
-          const response = await fetch("https://script.google.com/macros/s/AKfycby5JjCT7eqNkXSbqz6c3UWW2cHhjXq9wqs2nNSdTEanQne5OjRXbSZ_DaL39THsK8jgQg/exec?action=sendResponse", requestOptions);
+          const response = await fetch("https://script.google.com/macros/s/AKfycbzCcZ1Z4TF0zRe2R042v4MGv5DrXIUbNVjIR3GYSPJ9mUrxwDxL5zz6iBuS5tAlwdAsXA/exec?action=sendResponse", requestOptions);
           const result = await response.json();
           console.log('result', result);
         } catch (error) {
