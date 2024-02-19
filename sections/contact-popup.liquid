@@ -670,16 +670,31 @@ postalCodeInput.addEventListener('input', (event) => {
   });
 </script>
 <script>
-  let currentDate = new Date();
+var day = currentDate.getDate();
+var month = currentDate.getMonth() + 1; // Note: January is 0
+var year = currentDate.getFullYear();
 
-// If Utilities is not available, include it
-if (typeof Utilities === 'undefined') {
-  var Utilities = {
-    formatDate: function(date, timeZone, format) {
-      // Implement your own formatDate function here if Utilities is not available
-    }
-  };
-}
+// Get the current time
+var hours = currentDate.getHours();
+var minutes = currentDate.getMinutes();
+var seconds = currentDate.getSeconds();
+
+// Formatting to ensure two digits for day, month, hour, minute, and second
+day = (day < 10 ? '0' : '') + day;
+month = (month < 10 ? '0' : '') + month;
+hours = (hours < 10 ? '0' : '') + hours;
+minutes = (minutes < 10 ? '0' : '') + minutes;
+seconds = (seconds < 10 ? '0' : '') + seconds;
+
+// Construct the formatted date and time strings
+var formattedDate = year + '-' + month + '-' + day;
+var formattedTime = hours + ':' + minutes + ':' + seconds;
+
+// Output the current date and time
+console.log("Current Date: " + formattedDate);
+console.log("Current Time: " + formattedTime);
+
+  
   
     let dummySubmitBtn = document.querySelector('.dummy__contact__button button');
     dummySubmitBtn.addEventListener('click', async function(e) {
@@ -691,7 +706,8 @@ if (typeof Utilities === 'undefined') {
       let country = document.getElementById('ContactForm-country').value;
       let pinCode = document.getElementById('ContactForm-pincode').value;
       let product = document.getElementById('ContactForm-product')?.value || '';
-
+      let date = ;
+      let time = ;
       let raw = {
         "field1": name,
         "field2": phone,
@@ -699,8 +715,8 @@ if (typeof Utilities === 'undefined') {
         "field4": country,
         "field5": pinCode,
         "field6": product,
-        "field7": Utilities.formatDate(currentDate, Session.getScriptTimeZone(), "HH:mm:ss"),
-        "field8": Utilities.formatDate(currentDate, Session.getScriptTimeZone(), "yyyy-MM-dd"),
+        "field7": formattedTime ,
+        "field8": formattedDate
       };
 
       if (name.trim() !== '' && phone.trim() !== '' && email.trim() !== '' && country.trim() !== '' && pinCode.trim() !== '') {
