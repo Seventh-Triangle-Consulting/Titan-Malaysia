@@ -701,9 +701,7 @@ postalCodeInput.addEventListener('input', (event) => {
           dummyFormBtn.forEach((btn)=> {
             btn.classList.add('btn-disabled');
           })
-          // console.log(dummyFormBtn.classList,'dummy btn');
-
-
+          console.log(dummyFormBtn.classList,'dummy btn');
            
     try {
         const response = await fetch("https://script.google.com/macros/s/AKfycbyVQLJdHzTpL4mSHBkFKQC5a-Ov8b_pki8RTwnoczPPrrQ2hp7ibkV1Vo83Pg-4N3FBNQ/exec?action=sendResponse", {
