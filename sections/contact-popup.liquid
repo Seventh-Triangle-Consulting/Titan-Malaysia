@@ -583,6 +583,9 @@
       document.querySelectorAll('.contant-popup option').forEach((e)=>{
          if(e.value == result.detected_values.country.name){
            console.log(e);
+           e.setAttribute('selected', 'selected');
+         }else{
+            e.removeAttribute('selected');
          }
       })
       if(result.detected_values.country.handle == 'IN'){
