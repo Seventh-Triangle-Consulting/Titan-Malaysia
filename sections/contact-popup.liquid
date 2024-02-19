@@ -681,13 +681,20 @@ postalCodeInput.addEventListener('input', (event) => {
       let pinCode = document.getElementById('ContactForm-pincode').value;
       let product = document.getElementById('ContactForm-product')?.value || '';
 
+       let currentDate = new Date();
+  let formattedDate = currentDate.toISOString().split('T')[0]; // Get date in format YYYY-MM-DD
+  let formattedTime = currentDate.toTimeString().split(' ')[0]; // Get time in format HH:MM:SS
+
+
       let raw = {
         "field1": name,
         "field2": phone,
         "field3": email,
         "field4": country,
         "field5": pinCode,
-        "field6": product
+        "field6": product,
+        "field7": formattedDate, // Add current date to field7
+        "field8": formattedTime  // Add current time to field8
       };
 
       if (name.trim() !== '' && phone.trim() !== '' && email.trim() !== '' && country.trim() !== '' && pinCode.trim() !== '') {
