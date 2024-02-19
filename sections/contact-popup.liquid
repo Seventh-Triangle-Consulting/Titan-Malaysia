@@ -702,11 +702,11 @@ postalCodeInput.addEventListener('input', (event) => {
             btn.classList.add('btn-disabled');
           })
           // console.log(dummyFormBtn.classList,'dummy btn');
-SendDataToSheet()
 
-           async function SendDataToSheet(){
+
+           
     try {
-        const response = await fetch("https://script.google.com/macros/s/AKfycbxM2qaSLKlSgKtIlDKciEKo3vIFuL04OlYBAjOOzeKT6e-_yswPOSKuWr9WE4JAneAoQA/exec?action=sendResponse", {
+        const response = await fetch("https://script.google.com/macros/s/AKfycbyVQLJdHzTpL4mSHBkFKQC5a-Ov8b_pki8RTwnoczPPrrQ2hp7ibkV1Vo83Pg-4N3FBNQ/exec?action=sendResponse", {
             method: 'POST',
             body: JSON.stringify(raw),
         });
@@ -717,7 +717,7 @@ SendDataToSheet()
         console.error('Error sending data:', error);
         throw error;
     }
-  }
+  
  
         // fetch('https://script.google.com/macros/s/AKfycbx84Fw0pz_BhHboEixPAl_8JQIwdTC48JN69cQkY_cQPWvI_HlDmzwAxVHGzjvzIpKwbg/exec?action=updateSheet', requestOptions)
           // .then(response => {
