@@ -580,6 +580,7 @@
       console.log("Shop Country", Shopify.country); 
       if(result.detected_values.country.handle == 'IN'){
         console.log("indiaindia")
+        document.querySelector('.onlyIndiaStore').style.display="block";
       }
     })
     .catch((error) => console.log("error", error));
