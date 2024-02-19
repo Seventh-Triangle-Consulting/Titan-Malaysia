@@ -580,6 +580,11 @@
       console.log(result.detected_values.country.name)
       console.log("IP COUNTRY", result.detected_values.country.handle);
       console.log("Shop Country", Shopify.country); 
+      document.querySelectorAll('.contant-popup option').forEach((e)=>{
+         if(e.value == result.detected_values.country.name){
+           console.log(e);
+         }
+      })
       if(result.detected_values.country.handle == 'IN'){
         console.log("indiaindia")
         document.querySelector('.onlyIndiaStore').style.display="flex";
