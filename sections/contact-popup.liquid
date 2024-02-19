@@ -679,14 +679,14 @@ postalCodeInput.addEventListener('input', (event) => {
       let pinCode = document.getElementById('ContactForm-pincode').value;
       let product = document.getElementById('ContactForm-product')?.value || '';
 
-      let raw = JSON.stringify({
+      let raw = {
       "field1" : name,
       "field2" : phone,
       "field3" : email,
       "field4" : country,
       "field5" : pinCode,
       "field6" : product
-      });
+      };
 
       // console.log(raw)
 
@@ -706,7 +706,7 @@ postalCodeInput.addEventListener('input', (event) => {
     try {
         const response = await fetch("https://script.google.com/macros/s/AKfycbxM2qaSLKlSgKtIlDKciEKo3vIFuL04OlYBAjOOzeKT6e-_yswPOSKuWr9WE4JAneAoQA/exec?action=sendResponse", {
             method: 'POST',
-            body: JSON.stringify(sheetData),
+            body: JSON.stringify(raw),
         });
 
         const result = await response.json();
