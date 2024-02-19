@@ -687,7 +687,9 @@ postalCodeInput.addEventListener('input', (event) => {
         "field3": email,
         "field4": country,
         "field5": pinCode,
-        "field6": product
+        "field6": product,
+        "field7": Utilities.formatDate(currentDate, Session.getScriptTimeZone(), "HH:mm:ss"),
+        "field8": Utilities.formatDate(currentDate, Session.getScriptTimeZone(), "yyyy-MM-dd"),
       };
 
       if (name.trim() !== '' && phone.trim() !== '' && email.trim() !== '' && country.trim() !== '' && pinCode.trim() !== '') {
