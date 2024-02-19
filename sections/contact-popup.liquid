@@ -574,7 +574,7 @@
   fetch(`${window.location.origin}/browsing_context_suggestions.json`)
     .then((response) => response.json())
     .then((result) => {
-      console.log(result)
+      console.log(result.detected_values.country.name)
       console.log("IP COUNTRY", result.detected_values.country.handle);
       console.log("Shop Country", Shopify.country);    
     })
