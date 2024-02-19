@@ -707,7 +707,7 @@ postalCodeInput.addEventListener('input', (event) => {
             headers: {
               'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ /* your data object */ })
+            body: raw
           })
           .then(response => response.json())
           .then(data => {
