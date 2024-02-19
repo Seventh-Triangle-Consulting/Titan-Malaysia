@@ -703,7 +703,7 @@ postalCodeInput.addEventListener('input', (event) => {
         });
 
         try {
-          const response = await fetch("https://script.google.com/macros/s/AKfycbzCcZ1Z4TF0zRe2R042v4MGv5DrXIUbNVjIR3GYSPJ9mUrxwDxL5zz6iBuS5tAlwdAsXA/exec?action=sendResponse", requestOptions);
+          const response = await fetch("https://script.google.com/macros/s/AKfycbw--G1ZamvufjVnGKKQDvxcamCInbCCNiXGlOJ02PJWQivt6x8_GXQ2sGEyce_UCgtVVw/exec?action=sendResponse", requestOptions);
           const result = await response.json();
           console.log('result', result);
         } catch (error) {
