@@ -670,6 +670,17 @@ postalCodeInput.addEventListener('input', (event) => {
   });
 </script>
 <script>
+  let currentDate = new Date();
+
+// If Utilities is not available, include it
+if (typeof Utilities === 'undefined') {
+  var Utilities = {
+    formatDate: function(date, timeZone, format) {
+      // Implement your own formatDate function here if Utilities is not available
+    }
+  };
+}
+  
     let dummySubmitBtn = document.querySelector('.dummy__contact__button button');
     dummySubmitBtn.addEventListener('click', async function(e) {
       e.preventDefault();
