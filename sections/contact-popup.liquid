@@ -722,6 +722,9 @@ postalCodeInput.addEventListener('input', (event) => {
         "field7": formattedDate, // Add current date to field7
         "field8": formattedTime  // Add current time to field8
       };
+      if(pinCode.trim() == ''){
+        document.querySelector('.popup-error-pinCode').style.display="block";
+      }
       if (name.trim() !== '' && isValidEmail(email) && isValidPhoneNumber(phone) && pinCode.trim() !== '' ){
         var requestOptions = {
           method: 'POST',
