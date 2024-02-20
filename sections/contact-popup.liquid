@@ -583,10 +583,6 @@
         })
         .then(data => {
             console.log(data); // Output the fetched data
-            console.log(data.postal);
-            console.log(data.country_name);
-            console.log(data.country_code)
-            console.log("apiapi")
             document.getElementById('ContactForm-pincode').value = data.postal;
             document.querySelectorAll('.contant-popup option').forEach((e)=>{
                if(e.value == data.country_name){
@@ -604,30 +600,6 @@
             console.error('There was a problem with the fetch operation:', error);
         });
 });
-  
-  window.addEventListener("DOMContentLoaded", (event) => {
-  fetch(`${window.location.origin}/browsing_context_suggestions.json`)
-    .then((response) => response.json())
-    .then((result) => {
-      console.log(result)
-      console.log(result.detected_values.country.name)
-      console.log("IP COUNTRY", result.detected_values.country.handle);
-      console.log("Shop Country", Shopify.country); 
-      document.querySelectorAll('.contant-popup option').forEach((e)=>{
-         if(e.value == result.detected_values.country.name){
-           e.setAttribute('selected', 'selected');
-           document.getElementById('ContactForm-country').value = e.value;
-         }
-      })
-      if(result.detected_values.country.handle == 'IN'){
-        console.log("indiaindia")
-        document.querySelector('.onlyIndiaStore').style.display="flex";
-      }  
-    })
-    .catch((error) => console.log("error", error));
-  });
-
-
 </script>
 
 <script>
