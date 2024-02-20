@@ -761,7 +761,7 @@
               } 
               var codeCount = data.country_code;
             if(postCodeRegexes[codeCount] != null ){
-              postCodeRegexes[countryCode] = new RegExp(`^${postCodeRegexes[countryCode]}$`)
+              postCodeRegexes[codeCount] = new RegExp(`^${postCodeRegexes[codeCount]}$`)
               postalCodePattern = postCodeRegexes[codeCount];
             }
               
