@@ -735,7 +735,7 @@ postalCodeInput.addEventListener('input', (event) => {
         "field8": formattedTime  // Add current time to field8
       };
 
-      if (name.trim() !== '' && phone.trim() !== '' && email.trim() !== '' && country.trim() !== '' && pinCode.trim() !== '') {
+      if (name.trim() !== '' && phone.trim() !== '' && email.trim() !== '' && country.trim() !== '' && pinCode.trim() !== '' && validateEmail(field3) ) {
         var requestOptions = {
           method: 'POST',
           body: JSON.stringify(raw),
