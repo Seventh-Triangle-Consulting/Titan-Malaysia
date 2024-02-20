@@ -690,6 +690,12 @@ postalCodeInput.addEventListener('input', (event) => {
   });
 </script>
 <script>
+   function isValidEmail(email) {
+                // Regular expression for email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+  }
+  
     let dummySubmitBtn = document.querySelector('.dummy__contact__button button');
     dummySubmitBtn.addEventListener('click', async function(e) {
       e.preventDefault();
@@ -700,7 +706,10 @@ postalCodeInput.addEventListener('input', (event) => {
       let country = document.getElementById('ContactForm-country').value;
       let pinCode = document.getElementById('ContactForm-pincode').value;
       let product = document.getElementById('ContactForm-product')?.value || '';
-
+       if (!isValidEmail(email)) {
+            return;
+      }
+      
        let currentDate = new Date();
   let formattedDate = currentDate.toISOString().split('T')[0]; // Get date in format YYYY-MM-DD
   let formattedTime = currentDate.toTimeString().split(' ')[0]; // Get time in format HH:MM:SS
