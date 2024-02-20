@@ -649,7 +649,12 @@
     document.querySelector('.popup-error').style.display = 'block';
   }
 }
-
+  function validateEmail(){
+    const mailId = document.getElementById('ContactForm-email').value
+     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          
+  }
+  
   function validatePostalCode() {
   const postalCodeInput = document.querySelector('.postalCode');
   const postalCode = postalCodeInput.value.trim();
@@ -692,12 +697,6 @@ postalCodeInput.addEventListener('input', (event) => {
   });
 </script>
 <script>
-   function isValidEmail(email) {
-                // Regular expression for email validation
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                return emailRegex.test(email);
-  }
-  
     let dummySubmitBtn = document.querySelector('.dummy__contact__button button');
     dummySubmitBtn.addEventListener('click', async function(e) {
       e.preventDefault();
@@ -708,10 +707,6 @@ postalCodeInput.addEventListener('input', (event) => {
       let country = document.getElementById('ContactForm-country').value;
       let pinCode = document.getElementById('ContactForm-pincode').value;
       let product = document.getElementById('ContactForm-product')?.value || '';
-       if (!isValidEmail(email)) {
-            document.querySelector('.popup-error-email').style.display="block;"
-            return;
-      }
       
        let currentDate = new Date();
   let formattedDate = currentDate.toISOString().split('T')[0]; // Get date in format YYYY-MM-DD
