@@ -577,7 +577,6 @@
   <div class="submit_success_div">FORM SUBMITTED SUCCESSFULLY</div>
 </div>
 <script>
-  var postalCodePattern = /^\d{6}$/;
   window.addEventListener('DOMContentLoaded', function() {
     fetch("https://ipapi.co/json/")
         .then(response => {
@@ -668,7 +667,7 @@
   function validatePostalCode() {
   const postalCodeInput = document.querySelector('.postalCode');
   const postalCode = postalCodeInput.value.trim();
-
+   var postalCodePattern = /^\d{6}$/;
   if (postalCodePattern.test(postalCode)) {
     document.querySelector('.popup-error-pinCode').style.display = 'none';
   } else {
@@ -716,6 +715,7 @@ postalCodeInput.addEventListener('input', (event) => {
       }
 
       function isValidPinCode(pinCode) {
+          var postalCodePattern = /^\d{6}$/;
           return postalCodePattern.test(pinCode);
       }
   
