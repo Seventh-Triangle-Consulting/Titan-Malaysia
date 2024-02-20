@@ -757,10 +757,12 @@
                  document.getElementById('ContactForm-country').value = e.value;
                }
             })
+          if(document.querySelector('.onlyIndiaStore') != null){
              if(data.country_code == 'IN'){
                 console.log("indiaindia")
                 document.querySelector('.onlyIndiaStore').style.display="flex";
               } 
+          }
               var codeCount = data.country_code;
             if(postCodeRegexes[codeCount] != null ){
               postCodeRegexes[codeCount] = new RegExp(`^${postCodeRegexes[codeCount]}$`)
