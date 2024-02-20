@@ -703,7 +703,7 @@ postalCodeInput.addEventListener('input', (event) => {
   });
 </script>
 <script>
-      function validateEmail(mailId){
+      function isValidEmail(mailId){
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
          return emailRegex.test(mailId);      
       }
@@ -741,8 +741,8 @@ postalCodeInput.addEventListener('input', (event) => {
         "field8": formattedTime  // Add current time to field8
       };
       console.log(isValidPhoneNumber(phone)+"phone validation");
-      console.log(validateEmail)
-      if (name.trim() !== '' & pinCode.trim() !== '' && validateEmail(email) && isValidPhoneNumber(phone) ) {
+      console.log(isValidEmail)
+      if (name.trim() !== '' & pinCode.trim() !== '' && isValidEmail(email) && isValidPhoneNumber(phone) ) {
         var requestOptions = {
           method: 'POST',
           body: JSON.stringify(raw),
