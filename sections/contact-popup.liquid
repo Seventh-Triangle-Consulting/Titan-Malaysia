@@ -742,7 +742,7 @@ postalCodeInput.addEventListener('input', (event) => {
       };
       console.log(isValidPhoneNumber(phone)+"phone validation");
       console.log(isValidEmail(email))
-      if (name.trim() !== '' && pinCode.trim() !== '' && isValidEmail(email) && isValidPhoneNumber(phone) ) {
+      if (name.trim() !== '' && pinCode.trim() !== '' && isValidEmail(email) && isValidPhoneNumber(phone) ){
         var requestOptions = {
           method: 'POST',
           body: JSON.stringify(raw),
