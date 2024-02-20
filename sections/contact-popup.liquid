@@ -593,19 +593,11 @@
       }
        var countryCode = result.detected_values.country.handle;
        const username = 'demo'; // Replace with your GeoNames username
-        const url = `http://api.geonames.org/postalCodeSearchJSON?country=${countryCode}&username=${username}`;
-    
-        try {
-            const response = await fetch(url);
-            const data = await response.json();
-            console.log(data);
-            console.log(data.postalCodes);
-        } catch (error) {
-            console.error('Error fetching postal code data:', error);
-            return [];
-        }
-
-      
+        fetch(`http://api.geonames.org/postalCodeSearchJSON?country=${countryCode}&username=${username}`)
+             .then((response) => response.json())
+             .then((result) => {
+               console.log(resule+"dataaaaaa")
+             })      
     })
     .catch((error) => console.log("error", error));
   });
