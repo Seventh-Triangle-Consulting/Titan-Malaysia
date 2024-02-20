@@ -573,6 +573,22 @@
   <div class="submit_success_div">FORM SUBMITTED SUCCESSFULLY</div>
 </div>
 <script>
+  window.addEventListener('DOMContentLoaded', function() {
+    fetch("https://ipapi.co/json/")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data); // Output the fetched data
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+});
+  
   window.addEventListener("DOMContentLoaded", (event) => {
   fetch(`${window.location.origin}/browsing_context_suggestions.json`)
     .then((response) => response.json())
