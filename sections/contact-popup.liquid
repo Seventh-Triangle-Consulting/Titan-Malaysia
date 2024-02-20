@@ -710,7 +710,7 @@ postalCodeInput.addEventListener('input', (event) => {
 
       function isValidPhoneNumber(phoneNumber) {
           // Regular expression for phone number validation
-          const phoneRegex = /^[0-9]{10}$/;
+          const phoneRegex = /^\d{8,16}$/;
           return phoneRegex.test(phoneNumber);
       }
   
