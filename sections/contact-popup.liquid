@@ -679,12 +679,12 @@ postalCodeInput.addEventListener('input', (event) => {
     document.querySelector('.popup-error-country').style.display = 'none';
     console.log(selectedValue)
     document.querySelector('.custom-country').value = selectedValue;
-    // if(selectedValue != India ){
-    //   document.querSelector('.onlyIndiaStore').style.display="none;"
-    // }
-    // if(selectedValue == India ){
-    //   document.querSelector('.onlyIndiaStore').style.display="block;"
-    // }
+    if(selectedValue != 'India' ){
+      document.querSelector('.onlyIndiaStore').style.display="none;"
+    }
+    if(selectedValue == 'India' ){
+      document.querSelector('.onlyIndiaStore').style.display="block;"
+    }
   }
   document.querySelector('.custom-button-popup').addEventListener('click', function () {
     if (document.querySelector('.custom-country').value === '') {
