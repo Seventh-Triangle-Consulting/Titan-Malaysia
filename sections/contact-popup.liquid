@@ -681,12 +681,10 @@ postalCodeInput.addEventListener('input', (event) => {
     console.log(selectedValue)
     document.querySelector('.custom-country').value = selectedValue;
     if(selectedValue != 'India' ){
-      document.querySelector('.onlyIndiaStore').classList.remove('displayLocationBtn')
-      console.log('notindia')
+      document.querySelector('.onlyIndiaStore').classList.remove('displayLocationBtn');
     }
     if(selectedValue == 'India' ){
-      document.querySelector('.onlyIndiaStore').classList.add('displayLocationBtn')
-      console.log('india')
+      document.querySelector('.onlyIndiaStore').classList.add('displayLocationBtn');
     }
   }
   document.querySelector('.custom-button-popup').addEventListener('click', function () {
