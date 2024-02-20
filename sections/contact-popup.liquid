@@ -652,7 +652,7 @@
   function validateEmail(){
     const mailId = document.getElementById('ContactForm-email').value
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-     if (emailRegex.test(postalCode)) {
+     if (emailRegex.test(mailId)) {
         document.querySelector('.popup-error-email').style.display = 'none';
       } else {
         // Clear old error messages:
