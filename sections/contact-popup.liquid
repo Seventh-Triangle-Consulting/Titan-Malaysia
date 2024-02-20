@@ -590,7 +590,16 @@
       if(result.detected_values.country.handle == 'IN'){
         console.log("indiaindia")
         document.querySelector('.onlyIndiaStore').style.display="flex";
-      }   
+      }  
+
+      var countryCode = result.detected_values.country.handle;
+      fetch(`https://restcountries.com/v3.1/alpha/${countryCode}`)
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result+"resultttt pincode")
+      })
+
+      
     })
     .catch((error) => console.log("error", error));
   });
