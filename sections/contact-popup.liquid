@@ -708,6 +708,7 @@ postalCodeInput.addEventListener('input', (event) => {
       let pinCode = document.getElementById('ContactForm-pincode').value;
       let product = document.getElementById('ContactForm-product')?.value || '';
        if (!isValidEmail(email)) {
+            document.querySelector('.popup-error-email').style.display="block;"
             return;
       }
       
