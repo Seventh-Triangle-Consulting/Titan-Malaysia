@@ -587,6 +587,18 @@
             console.log(data.country_name);
             console.log(data.country_code)
             console.log("apiapi")
+            document.getElementById('ContactForm-pincode').value = data.postal;
+            document.querySelectorAll('.contant-popup option').forEach((e)=>{
+               if(e.value == data.country_name){
+                 e.setAttribute('selected', 'selected');
+                 document.getElementById('ContactForm-country').value = e.value;
+               }
+            })
+             if(data.country_code == 'IN'){
+                console.log("indiaindia")
+                document.querySelector('.onlyIndiaStore').style.display="flex";
+              }  
+          
         })
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
