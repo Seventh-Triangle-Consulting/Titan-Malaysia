@@ -759,7 +759,7 @@
                 document.querySelector('.onlyIndiaStore').style.display="flex";
               } 
               var codeCount = data.country_code;
-              console.log(postCodeRegexes.codeCount)
+              console.log(postCodeRegexes[codeCount])
         })
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
