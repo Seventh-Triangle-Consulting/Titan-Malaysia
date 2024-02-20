@@ -678,6 +678,12 @@ postalCodeInput.addEventListener('input', (event) => {
     var selectedValue = dropdown.options[dropdown.selectedIndex].value;
     document.querySelector('.popup-error-country').style.display = 'none';
     document.querySelector('.custom-country').value = selectedValue;
+    if(selectedValue != India ){
+      document.querSelector('.onlyIndiaStore').style.display="none;"
+    }
+    if(selectedValue == India ){
+      document.querSelector('.onlyIndiaStore').style.display="block;"
+    }
   }
   document.querySelector('.custom-button-popup').addEventListener('click', function () {
     if (document.querySelector('.custom-country').value === '') {
