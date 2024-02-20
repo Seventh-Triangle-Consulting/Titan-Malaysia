@@ -740,7 +740,7 @@ postalCodeInput.addEventListener('input', (event) => {
         "field7": formattedDate, // Add current date to field7
         "field8": formattedTime  // Add current time to field8
       };
-      console.log(isValidPhoneNumber(phone));
+      console.log(isValidPhoneNumber(phone)+"phone validation");
       if (name.trim() !== '' && phone.trim() !== '' && email.trim() !== '' && country.trim() !== '' && pinCode.trim() !== '' && validateEmail(email) && isValidPhoneNumber(phone) ) {
         var requestOptions = {
           method: 'POST',
