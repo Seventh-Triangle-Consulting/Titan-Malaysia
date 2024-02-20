@@ -703,6 +703,11 @@ postalCodeInput.addEventListener('input', (event) => {
   });
 </script>
 <script>
+      function validateEmail(mailId){
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+         return emailRegex.test(mailId);      
+      }
+  
     let dummySubmitBtn = document.querySelector('.dummy__contact__button button');
     dummySubmitBtn.addEventListener('click', async function(e) {
       e.preventDefault();
