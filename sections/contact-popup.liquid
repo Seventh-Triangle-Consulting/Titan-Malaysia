@@ -681,11 +681,11 @@ postalCodeInput.addEventListener('input', (event) => {
     console.log(selectedValue)
     document.querySelector('.custom-country').value = selectedValue;
     if(selectedValue != 'India' ){
-      document.querySelector('.onlyIndiaStore').style.display="none;"
+      document.querySelector('.onlyIndiaStore').classList.remove('displayLocationBtn')
       console.log('notindia')
     }
     if(selectedValue == 'India' ){
-      document.querySelector('.onlyIndiaStore').style.display="flex;"
+      document.querySelector('.onlyIndiaStore').classList.add('displayLocationBtn')
       console.log('india')
     }
   }
