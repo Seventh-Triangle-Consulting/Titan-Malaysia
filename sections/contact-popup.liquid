@@ -707,6 +707,12 @@ postalCodeInput.addEventListener('input', (event) => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
          return emailRegex.test(mailId);      
       }
+
+      function isValidPhoneNumber(phoneNumber) {
+          // Regular expression for phone number validation
+          const phoneRegex = /^[0-9]{10}$/;
+          return phoneRegex.test(phoneNumber);
+      }
   
     let dummySubmitBtn = document.querySelector('.dummy__contact__button button');
     dummySubmitBtn.addEventListener('click', async function(e) {
@@ -735,7 +741,7 @@ postalCodeInput.addEventListener('input', (event) => {
         "field8": formattedTime  // Add current time to field8
       };
 
-      if (name.trim() !== '' && phone.trim() !== '' && email.trim() !== '' && country.trim() !== '' && pinCode.trim() !== '' && validateEmail(email) ) {
+      if (name.trim() !== '' && phone.trim() !== '' && email.trim() !== '' && country.trim() !== '' && pinCode.trim() !== '' && validateEmail(email) && isValidPhoneNumber(phone) ) {
         var requestOptions = {
           method: 'POST',
           body: JSON.stringify(raw),
