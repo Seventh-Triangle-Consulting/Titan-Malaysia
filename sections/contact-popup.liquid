@@ -596,24 +596,6 @@
   });
 
 
-  fetch(`${window.location.origin}/postal_codes.json`)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        // Process the fetched JSON data
-        console.log(data);
-        // Example: Accessing the postal code pattern for a specific country (e.g., US)
-        const countryCode = 'US';
-        const pattern = data[countryCode].pattern;
-        console.log('Postal code pattern for', countryCode, ':', pattern);
-    })
-    .catch(error => {
-        console.error('Error fetching data:', error);
-    });
 </script>
 
 <script>
