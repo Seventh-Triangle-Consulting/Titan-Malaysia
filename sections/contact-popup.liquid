@@ -759,6 +759,12 @@
                 document.querySelector('.onlyIndiaStore').style.display="flex";
               } 
               var codeCount = data.country_code;
+            if(postCodeRegexes[codeCount] != null ){
+              var postalCodePattern = postCodeRegexes[codeCount];
+            }else{
+              var postalCodePattern = /^\d{6}$/;
+            }
+              
               console.log(postCodeRegexes[codeCount])
         })
         .catch(error => {
@@ -827,9 +833,6 @@
   function validatePostalCode() {
   const postalCodeInput = document.querySelector('.postalCode');
   const postalCode = postalCodeInput.value.trim();
-
-  // Regular expression for 6 digits:
-  const postalCodePattern = /^\d{6}$/;
 
   if (postalCodePattern.test(postalCode)) {
     document.querySelector('.popup-error-pinCode').style.display = 'none';
