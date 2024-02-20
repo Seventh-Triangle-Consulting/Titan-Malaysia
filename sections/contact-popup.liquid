@@ -761,10 +761,11 @@
               } 
               var codeCount = data.country_code;
             if(postCodeRegexes[codeCount] != null ){
+              postCodeRegexes[countryCode] = new RegExp(`^${postCodeRegexes[countryCode]}$`)
               postalCodePattern = postCodeRegexes[codeCount];
             }
               
-              console.log(postCodeRegexes[codeCount])
+              console.log(postalCodePattern)
         })
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
