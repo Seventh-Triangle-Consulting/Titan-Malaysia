@@ -651,7 +651,13 @@
 }
   function validateEmail(){
     const mailId = document.getElementById('ContactForm-email').value
-     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+     if (postalCodePattern.test(postalCode)) {
+        document.querySelector('.popup-error-email').style.display = 'none';
+      } else {
+        // Clear old error messages:
+        document.querySelector('.popup-error-email').style.display = 'block';
+      }
           
   }
   
