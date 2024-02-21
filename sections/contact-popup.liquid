@@ -700,8 +700,10 @@ postalCodeInput.addEventListener('input', (event) => {
                 e.classList.add('displayLocationBtn');
                 console.log(countryName+" countryNamematched")
                 console.log(buttonData+" buttonDatamatched")
-              }
-             })
+              }else {
+                e.classList.remove('displayLocationBtn');
+            }
+        })
   }
   
   document.querySelector('.custom-button-popup').addEventListener('click', function () {
