@@ -691,13 +691,19 @@ postalCodeInput.addEventListener('input', (event) => {
     var selectedValue = dropdown.options[dropdown.selectedIndex].value;
     document.querySelector('.popup-error-country').style.display = 'none';
     document.querySelector('.custom-country').value = selectedValue;
-    if(selectedValue != 'India' ){
-      document.querySelector('.onlyIndiaStore').classList.remove('displayLocationBtn');
-    }
-    if(selectedValue == 'India' ){
-      document.querySelector('.onlyIndiaStore').classList.add('displayLocationBtn');
-    }
+    const selectedCountryValue = selectedValue.toLowerCase();
+        document.querySelectorAll('.otherCountryStoreURL').forEach((e)=>{
+            const buttonData = e.getAttribute('data').toLowerCase();
+            console.log(selectedCountryValue+" selectedCountryValue")
+            console.log(buttonData+" buttonDatabuttonData")
+            if (buttonData === selectedCountryValue) {
+                e.classList.add('displayLocationBtn');
+                console.log(countryName+" countryNamematched")
+                console.log(buttonData+" buttonDatamatched")
+              }
+             })
   }
+  
   document.querySelector('.custom-button-popup').addEventListener('click', function () {
     if (document.querySelector('.custom-country').value === '') {
       document.querySelector('.popup-error-country').style.display = 'block';
