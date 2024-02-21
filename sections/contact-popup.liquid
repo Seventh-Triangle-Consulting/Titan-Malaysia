@@ -569,7 +569,7 @@
         {% assign urlArray = settings.store_url | split:"##" %}
         {% for url in urlArray %}
           {% assign seperateCountry = url | split:"=" %}
-         <a class="otherCountryStoreURL" href="{{ seperateCountry[1] }}" target="_blank" data="{{ seperateCountry[0] }}">{{ settings.store_btn_text }} {{ seperateCountry[0] }}</a>
+         <a class="otherCountryStoreURL" href="{{ seperateCountry[1] }}" target="_blank" data="{{ seperateCountry[0] }}">{{ settings.store_btn_text }} {{ seperateCountry[1] }}</a>
         {% endfor %}
        {% endif %}
       <div class="contact__button dummy__contact__button">
