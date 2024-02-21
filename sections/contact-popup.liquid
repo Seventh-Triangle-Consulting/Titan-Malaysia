@@ -3,7 +3,7 @@
   .displayLocationBtn{display:flex !important;}
   .form-contact-popup p{line-height:1.5;color:#000;}
   .dummy__contact__button{display: flex; justify-content: center; gap: 40px;}
-  .onlyIndiaStore{display:none;background: #874340; align-items: center; justify-content: center; padding: 0 10px; color: white; border-radius: 7px; text-decoration: initial; text-transform: uppercase;}
+  .otherCountryStoreURL{display:none;}
   .submit_success_div{background: white;padding: 2% 5%;display:none;}
   .contact-popup{
     position: fixed;
@@ -565,10 +565,10 @@
           <button type="submit" class="button custom-button-popup">SUBMIT</button>
         </div>
       </form>
-      <div class="contact__button dummy__contact__button">
-        {% if settings.india_store_url != blank %}
-         <a class="onlyIndiaStore" href="{{ settings.india_store_url }}" target="_blank">{{ settings.india_store_btn_text }}</a>
+      {% if settings.india_store_url != blank %}
+         <a class="otherCountryStoreURL" href="{{ settings.india_store_url }}" target="_blank">{{ settings.india_store_btn_text }}</a>
        {% endif %}
+      <div class="contact__button dummy__contact__button">
         <button type="button" class="button custom-button-popup">SUBMIT</button>
       </div>
     </div>
