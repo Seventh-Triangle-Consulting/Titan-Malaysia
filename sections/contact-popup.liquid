@@ -600,6 +600,14 @@
                }
             })
           if(document.querySelector('.otherCountryStoreURL') != null){
+             document.querySelectorAll('.otherCountryStoreURL').forEach((e)=>{
+                   var buttonData = e.getAttribute('data').toLowerCase();
+                  var countryName = data.country_name.toLowerCase();
+                  if (buttonData === countryName) {
+                     
+                  }
+             })
+            
              if(data.country_code == 'IN'){
                 console.log("indiaindia")
                 document.querySelector('.otherCountryStoreURL').classList.add('displayLocationBtn')
