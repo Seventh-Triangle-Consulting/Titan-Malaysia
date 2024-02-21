@@ -565,8 +565,8 @@
           <button type="submit" class="button custom-button-popup">SUBMIT</button>
         </div>
       </form>
-      {% if settings.india_store_url != blank %}
-         <a class="otherCountryStoreURL" href="{{ settings.india_store_url }}" target="_blank">{{ settings.india_store_btn_text }}</a>
+      {% if settings.store_url != blank %}
+         <a class="otherCountryStoreURL" href="{{ settings.store_url }}" target="_blank">{{ settings.store_btn_text }} {{ settings.store_url }}</a>
        {% endif %}
       <div class="contact__button dummy__contact__button">
         <button type="button" class="button custom-button-popup">SUBMIT</button>
