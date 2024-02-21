@@ -694,8 +694,6 @@ postalCodeInput.addEventListener('input', (event) => {
     const selectedCountryValue = selectedValue.toLowerCase();
         document.querySelectorAll('.otherCountryStoreURL').forEach((e)=>{
             const buttonData = e.getAttribute('data').toLowerCase();
-            console.log(selectedCountryValue+" selectedCountryValue")
-            console.log(buttonData+" buttonDatabuttonData")
             if (buttonData === selectedCountryValue) {
                 e.classList.add('displayLocationBtn');
                 console.log(countryName+" countryNamematched")
