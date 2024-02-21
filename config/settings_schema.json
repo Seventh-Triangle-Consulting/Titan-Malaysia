@@ -15,6 +15,12 @@
         "id": "store_url",
         "label": "Store URL",
         "info": "CountryName=CountryStoreURL##CountryName=CountryStoreURL"
+      },
+      {
+        "type": "text",
+        "id": "store_btn_text",
+        "label": "Store Btn Text",
+        "default": "Visit Titan.Co.In"
       }
     ]
   },
