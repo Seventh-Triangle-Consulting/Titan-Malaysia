@@ -1,6 +1,6 @@
 {
   "current": {
-    "india_store_btn_text": "Visit Titan.Co.In",
+    "store_url": "India=https:\/\/www.titan.co.in\/##Veitnam=https:\/\/www.titan.co.in\/",
     "logo": "shopify:\/\/shop_images\/Titan_Logo.jpg",
     "logo_width": 110,
     "favicon": "shopify:\/\/shop_images\/Titan_Website_Logo.png",
@@ -159,6 +159,7 @@
     "show_vendor": false,
     "show_cart_note": false,
     "cart_drawer_collection": "men",
+    "india_store_btn_text": "Visit Titan.Co.In",
     "checkout_logo_image": "shopify:\/\/shop_images\/titan_logo_with_trademark_1.png",
     "checkout_logo_size": "large",
     "collectioname": "Shop Men's##Shop Women's## Shop Kid's",
