@@ -696,7 +696,7 @@ postalCodeInput.addEventListener('input', (event) => {
             const buttonData = e.getAttribute('data').toLowerCase();
             if (buttonData === selectedCountryValue) {
                 e.classList.add('displayLocationBtn');
-                console.log(countryName+" countryNamematched")
+                console.log(selectedCountryValue+" countryNamematched")
                 console.log(buttonData+" buttonDatamatched")
               }else {
                 e.classList.remove('displayLocationBtn');
