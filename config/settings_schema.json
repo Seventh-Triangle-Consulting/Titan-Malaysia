@@ -18,8 +18,8 @@
       },
       {
         "type": "text",
-        "id": "india_store_btn_text",
-        "label": "India Store Btn Text",
+        "id": "store_btn_text",
+        "label": "Store Btn Text",
         "default": "Visit Titan.Co.In"
       }
     ]
