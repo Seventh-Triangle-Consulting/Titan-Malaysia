@@ -688,7 +688,6 @@ postalCodeInput.addEventListener('input', (event) => {
     var dropdown = document.querySelector('.contant-popup');
     var selectedValue = dropdown.options[dropdown.selectedIndex].value;
     document.querySelector('.popup-error-country').style.display = 'none';
-    console.log(selectedValue)
     document.querySelector('.custom-country').value = selectedValue;
     if(selectedValue != 'India' ){
       document.querySelector('.onlyIndiaStore').classList.remove('displayLocationBtn');
