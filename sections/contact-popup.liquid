@@ -565,14 +565,14 @@
           <button type="submit" class="button custom-button-popup">SUBMIT</button>
         </div>
       </form>
-      {% if settings.store_url != blank %}
+      <div class="contact__button dummy__contact__button">
+         {% if settings.store_url != blank %}
         {% assign urlArray = settings.store_url | split:"##" %}
         {% for url in urlArray %}
           {% assign seperateCountry = url | split:"=" %}
          <a class="otherCountryStoreURL" href="{{ seperateCountry[1] }}" target="_blank" data="{{ seperateCountry[0] }}">{{ settings.store_btn_text }} {{ seperateCountry[1] }}</a>
         {% endfor %}
        {% endif %}
-      <div class="contact__button dummy__contact__button">
         <button type="button" class="button custom-button-popup">SUBMIT</button>
       </div>
     </div>
