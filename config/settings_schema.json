@@ -12,9 +12,9 @@
     "settings": [
       {
         "type": "text",
-        "id": "india_store_url",
-        "label": "India Store URL",
-        "default": "https:\/\/www.titan.co.in\/"
+        "id": "store_url",
+        "label": "Store URL",
+        "info": "CountryName=CountryStoreURL##CountryName=CountryStoreURL"
       },
       {
         "type": "text",
