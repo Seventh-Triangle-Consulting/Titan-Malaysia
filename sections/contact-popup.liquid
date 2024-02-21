@@ -601,8 +601,10 @@
             })
           if(document.querySelector('.otherCountryStoreURL') != null){
              document.querySelectorAll('.otherCountryStoreURL').forEach((e)=>{
-                  var buttonData = e.getAttribute('data').toLowerCase();
-                  var countryName = data.country_name.toLowerCase();
+                  const buttonData = e.getAttribute('data').toLowerCase();
+                  const countryName = data.country_name.toLowerCase();
+                  console.log(countryName+" countryNamecountryName")
+                  console.log(buttonData+" buttonDatabuttonData")
                   if (buttonData === countryName) {
                      e.classList.add('displayLocationBtn')
                   }
