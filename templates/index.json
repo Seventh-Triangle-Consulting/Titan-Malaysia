@@ -19,8 +19,8 @@
             "choose_option": "image",
             "image_link": "shopify:\/\/products\/titan-edge-ceramic-green-dial-analog-ceramic-strap-watch-for-men-1696qc06",
             "video_link": "",
-            "Desktop-Banner-Image": "shopify:\/\/shop_images\/Group_1171276067.png",
-            "Mobile-Banner-Image": "shopify:\/\/shop_images\/Group_1171276068.png"
+            "Desktop-Banner-Image": "shopify:\/\/shop_images\/Group_1171276082_200d7108-c60d-4dea-b7c1-8b659f9da910.jpg",
+            "Mobile-Banner-Image": "shopify:\/\/shop_images\/Group_1171276083_a86dad3d-d4ed-446b-be17-af96ec39dbf1.jpg"
           }
         },
         "925c6f64-6b86-4ad0-a451-a1f3126a2116": {
@@ -144,8 +144,6 @@
         "top_first_title": "<p>This Week’s Pick<\/p>",
         "button_title": "View All Watches",
         "button_link": "shopify:\/\/collections\/edge",
-        "our_story_image_desktop": "shopify:\/\/shop_images\/Group_1000003104.webp",
-        "our_story_image_mobile": "shopify:\/\/shop_images\/Group_1171276053.webp",
         "desktop_imagebutton_link": "shopify:\/\/collections\/edge",
         "mobile_imagebutton_link": "shopify:\/\/collections\/mens-watch"
       }
@@ -157,9 +155,7 @@
         "margin_top_desktop": 0,
         "padding_top": 0,
         "padding_bottom": 0,
-        "image_single_des": "shopify:\/\/shop_images\/Group_1171276086.webp",
-        "margin_top_mobile": 0,
-        "image_single_mob": "shopify:\/\/shop_images\/Group_1171276087.webp"
+        "margin_top_mobile": 0
       }
     },
     "a1d2b2f3-7b31-4096-8707-74090a0361eb": {
@@ -168,21 +164,18 @@
         "0d001069-6462-44fe-a8bb-754825780596": {
           "type": "image",
           "settings": {
-            "collection_image": "shopify:\/\/shop_images\/Group_1171276073.webp",
             "image_link": "shopify:\/\/collections\/wander"
           }
         },
         "af2f37f9-344f-4dee-86b4-74e9b6175705": {
           "type": "image",
           "settings": {
-            "collection_image": "shopify:\/\/shop_images\/Group_1171276070.webp",
             "image_link": "shopify:\/\/collections\/wander"
           }
         },
         "3a915d21-daa6-4c50-8ad9-194c8c90d5bd": {
           "type": "image",
           "settings": {
-            "collection_image": "shopify:\/\/shop_images\/Group_1171276072.webp",
             "image_link": "shopify:\/\/collections\/wander"
           }
         }
@@ -206,9 +199,7 @@
         "margin_top_desktop": 0,
         "padding_top": 0,
         "padding_bottom": 0,
-        "image_single_des": "shopify:\/\/shop_images\/Untitled_9.png",
-        "margin_top_mobile": 0,
-        "image_single_mob": "shopify:\/\/shop_images\/Untitled-3.png"
+        "margin_top_mobile": 0
       }
     },
     "5e3171e1-a653-4acd-bfb7-857c0127b083": {
@@ -217,35 +208,30 @@
         "066d4cc3-5da8-431b-a04d-f67308e58c7a": {
           "type": "image",
           "settings": {
-            "product_image": "shopify:\/\/shop_images\/1843QM02_f8f6f839-75ce-47a4-90a3-0bb41f095b7d.jpg",
             "product_link": "shopify:\/\/products\/titan-edge-baseline-blue-dial-analog-stainless-steel-strap-watch-for-men-1843qm02"
           }
         },
         "91a31db7-b2ca-478b-a0c7-3766eac8cd95": {
           "type": "image",
           "settings": {
-            "product_image": "shopify:\/\/shop_images\/10008NL01_c203eeca-140d-4d43-8b88-875838328b03.jpg",
             "product_link": "shopify:\/\/products\/titan-stellar-automatic-blue-dial-leather-strap-watch-for-men-10008nl01"
           }
         },
         "1b115826-9bf2-4e1f-aeb3-57854a330663": {
           "type": "image",
           "settings": {
-            "product_image": "shopify:\/\/shop_images\/1696KC01_28e4d68b-5c41-4f17-8b6d-9a33b28e6899.jpg",
             "product_link": "shopify:\/\/products\/titan-quartz-analog-black-dial-ceramic-strap-watch-for-men-1696kc01"
           }
         },
         "ae1346f5-73c4-40d3-9180-29a4369681b9": {
           "type": "image",
           "settings": {
-            "product_image": "shopify:\/\/shop_images\/1696QC02_117cf47e-c472-408c-86dd-77a40f57aa94.jpg",
             "product_link": "shopify:\/\/products\/titan-edge-ceramic-silver-dial-analog-ceramic-strap-watch-for-men-1696qc02"
           }
         },
         "29e44447-24a0-49f4-b00c-376fc468b7c0": {
           "type": "image",
           "settings": {
-            "product_image": "shopify:\/\/shop_images\/1878KD03_1_e57b343f-c64e-46d9-918c-0d03955682d5.jpg",
             "product_link": "shopify:\/\/products\/titan-edge-fusion-quartz-analog-black-dial-black-steel-ceramic-strap-watch-for-men-1878kd03"
           }
         }
@@ -273,9 +259,7 @@
         "desktop_margin_top": 0,
         "desktop_padding_top": 0,
         "desktop_padding_bottom": 0,
-        "home_image_desktop": "shopify:\/\/shop_images\/Group_1000003137.png",
-        "mobile_margin_top": 0,
-        "home_image_mobile": "shopify:\/\/shop_images\/31_1_1.png"
+        "mobile_margin_top": 0
       }
     },
     "2edd6193-b1bf-4fba-bfc0-ea2dfc9a7fc9": {
