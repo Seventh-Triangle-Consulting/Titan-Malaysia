@@ -1,0 +1,358 @@
+{{ 'homepage-week-pick.css' | asset_url | stylesheet_tag: media: 'screen' }}
+
+<style>
+  .section-{{ section.id }}-margin {
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+  }
+
+  .homepage-week-pick-container {
+    background-color: {{ section.settings.background_color }};
+  }
+
+  @media screen and (max-width: 750px) {
+    .section-{{ section.id }}-margin {
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+      padding-right: 0;
+    }
+  }
+</style>
+
+{% if section.blocks.size > 0 %}
+  <section class="homepage-week-pick-container section-{{ section.id }}-margin" id="{{ section.id }}">
+    <div class="page-width week-pick-both-container">
+      <div class="homepage-week-pick">
+        {% if section.settings.top_first_title != blank %}
+          <h2 class="homepage-week-pick-title">{{ section.settings.top_first_title }}</h2>
+        {% endif %}
+        <div class="link-button-container">
+          <div class="link-container">
+            <a class="no-underline" href="{{ section.settings.button_link }}">
+              <p>{{ section.settings.button_title }}</p>
+            </a>
+          </div>
+        </div>
+        <div class="homepage_week_pick swiper-container">
+          <div class="swiper-wrapper">
+            {% for block in section.blocks %}
+              <div class="swiper-slide">
+                <div class="homepage-week-pick-image-container">
+                  <a href="{{ block.settings.top_product.url }}">
+                    {% render 'homepage-custom-card-product', card_product: block.settings.top_product %}
+                  </a>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <div class="week_pick_media">
+        {% if section.settings.our_story_image_desktop != blank and section.settings.our_story_video_desktop != blank %}
+          <div class="video_desktop">
+            <video
+              id="homevideo"
+              class="our_story_video"
+              width="{{ section.settings.our_story_video_desktop.sources[0].width }}"
+              height="{{ section.settings.our_story_video_desktop.sources[0].height }}"
+              autoplay="autoplay"
+              controlsList="nodownload"
+              muted="muted"
+              loop="loop"
+              playsinline="playsinline"
+              preload="metadata"
+              poster="{{ section.settings.our_story_video_desktop.preview_image.src | image_url: width: section.settings.our_story_video_desktop.preview_image.width, format: 'webp' }}"
+            >
+              {% for source in section.settings.our_story_video_desktop.sources %}
+                {% case source.format %}
+                  {% when 'mp4' %}
+                    <source data-src="{{ source.url }}" type="{{ source.mime_type }}">
+                {% endcase %}
+              {% endfor %}
+            </video>
+            <div id="play-button-{{ forloop.index0 }}" class="play-button">
+              {% render 'play_btn_weeek_pick' %}
+            </div>
+          </div>
+
+        {% elsif section.settings.our_story_image_desktop != blank %}
+          <div class="img_desktop">
+            {{ section.settings.our_story_image_desktop | image_url: width: 1400 | image_tag: loading: 'lazy' }}
+          </div>
+
+        {% elsif section.settings.our_story_video_desktop != blank %}
+          <div class="video_desktop">
+            <video
+              id="homevideo"
+              class="our_story_video"
+              width="{{ section.settings.our_story_video_desktop.sources[0].width }}"
+              height="{{ section.settings.our_story_video_desktop.sources[0].height }}"
+              autoplay="autoplay"
+              controlsList="nodownload"
+              muted="muted"
+              loop="loop"
+              playsinline="playsinline"
+              preload="metadata"
+              poster="{{ section.settings.our_story_video_desktop.preview_image.src | image_url: width: section.settings.our_story_video_desktop.preview_image.width, format: 'webp' }}"
+            >
+              {% for source in section.settings.our_story_video_desktop.sources %}
+                {% case source.format %}
+                  {% when 'mp4' %}
+                    <source data-src="{{ source.url }}" type="{{ source.mime_type }}">
+                {% endcase %}
+              {% endfor %}
+            </video>
+          </div>
+        {% endif %}
+
+        {% if section.settings.our_story_video_mobile != blank and section.settings.our_story_image_mobile != blank %}
+          <div class="video_mobile">
+            <video
+              id="homevideo"
+              class="our_story_video"
+              width="{{ section.settings.our_story_video_mobile.sources[0].width }}"
+              height="{{ section.settings.our_story_video_mobile.sources[0].height }}"
+              autoplay="autoplay"
+              controlsList="nodownload"
+              muted="muted"
+              loop="loop"
+              playsinline="playsinline"
+              preload="metadata"
+              poster="{{ section.settings.our_story_video_mobile.preview_image.src | image_url: width: section.settings.our_story_video_mobile.preview_image.width, format: 'webp' }}"
+            >
+              {% for source in section.settings.our_story_video_mobile.sources %}
+                {% case source.format %}
+                  {% when 'mp4' %}
+                    <source data-src="{{ source.url }}" type="{{ source.mime_type }}">
+                {% endcase %}
+              {% endfor %}
+            </video>
+            <div id="play-button-{{ forloop.index0 }}" class="play-button">
+              {% render 'play_btn_weeek_pick' %}
+            </div>
+          </div>
+        {% elsif section.settings.our_story_image_mobile != blank %}
+          <div class="img_mobile">
+            {{ section.settings.our_story_image_mobile | image_url: width: 600 | image_tag: loading: 'lazy' }}
+          </div>
+        {% elsif section.settings.our_story_video_mobile != blank %}
+          <div class="video_mobile">
+            <video
+              id="homevideo"
+              class="our_story_video"
+              width="{{ section.settings.our_story_video_mobile.sources[0].width }}"
+              height="{{ section.settings.our_story_video_mobile.sources[0].height }}"
+              autoplay="autoplay"
+              controlsList="nodownload"
+              muted="muted"
+              loop="loop"
+              playsinline="playsinline"
+              preload="metadata"
+              poster="{{ section.settings.our_story_video_mobile.preview_image.src | image_url: width: section.settings.our_story_video_mobile.preview_image.width, format: 'webp' }}"
+            >
+              {% for source in section.settings.our_story_video_mobile.sources %}
+                {% case source.format %}
+                  {% when 'mp4' %}
+                    <source data-src="{{ source.url }}" type="{{ source.mime_type }}">
+                {% endcase %}
+              {% endfor %}
+            </video>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    {% if section.settings.bottom_image_desktop != blank %}
+      <div class="bottom-container">
+        <a class="no-underline" style="line-height:0" href="{{ section.settings.desktop_imagebutton_link }}">
+          <div class="bottom_img_desktop">
+            {{ section.settings.bottom_image_desktop | image_url: width: 1600 | image_tag: loading: 'lazy' }}
+          </div>
+        </a>
+        <a class="no-underline" style="line-height:0" href="{{ section.settings.mobile_imagebutton_link }}">
+          <div class="bottom_img_mobile">
+            {{ section.settings.bottom_image_mobile | image_url: width: 600 | image_tag: loading: 'lazy' }}
+          </div>
+        </a>
+      </div>
+    {% endif %}
+  </section>
+{% endif %}
+
+<script>
+    window.addEventListener(
+      'DOMContentLoaded',
+      () => {
+      const weekPick{{- section.id | remove: "--" | remove: "__" | remove: "-" }} = new Swiper(`#{{ section.id }} .homepage_week_pick`, {
+        watchSlidesProgress: true,
+        breakpoints: {
+        0: {
+          slidesPerView: 1.6,
+          spaceBetween: 16,
+        },
+          500: {
+          slidesPerView: 2,
+          spaceBetween:22,
+        },
+        785: {
+          slidesPerView: 1.6,
+          spaceBetween:15,
+        },
+        
+        786: {
+          slidesPerView: 2,
+          spaceBetween: 22,
+        },
+        1280: {
+          slidesPerView: 2,
+          spaceBetween: 50,
+        },
+      },
+    });
+  },{ once: true }
+  );
+</script>
+
+<script>
+  // Lazy Load Video
+  document.addEventListener("DOMContentLoaded", function() {
+    var lazyVideos{{- section.id | remove: "--" | remove: "__" | remove: "-" }} = [].slice.call(document.querySelectorAll(".homepage-week-pick-container video.our_story_video"));
+
+    if ("IntersectionObserver" in window) {
+      var lazyVideoObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(video) {
+          if (video.isIntersecting) {
+            for (var source in video.target.children) {
+              var videoSource = video.target.children[source];
+              if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
+                videoSource.src = videoSource.dataset.src;
+              }
+            }
+
+            video.target.load();
+            video.target.classList.remove("lazy");
+            lazyVideoObserver.unobserve(video.target);
+          }
+        });
+      });
+
+      lazyVideos{{- section.id | remove: "--" | remove: "__" | remove: "-" }}.forEach(function(lazyVideo) {
+        lazyVideoObserver.observe(lazyVideo);
+      });
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Week's Pick",
+  "settings": [
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin Bottom Desktop",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin Bottom Mobile",
+      "default": 36
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "richtext",
+      "id": "top_first_title",
+      "label": "Top First Title"
+    },
+    {
+      "type": "text",
+      "id": "button_title",
+      "label": "Button Title",
+      "placeholder": "View All Watches",
+      "default": "View All Watches"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "our_story_image_desktop",
+      "label": "Desktop Image",
+      "info": "Recommended size is: 550px x 728px"
+    },
+    {
+      "type": "video",
+      "id": "our_story_video_desktop",
+      "label": "Desktop Video",
+      "info": "Recommended size is: 550px x 728px"
+    },
+    {
+      "type": "image_picker",
+      "id": "our_story_image_mobile",
+      "label": "Mobile Image",
+      "info": "Recommended size is: 315px x 410px"
+    },
+    {
+      "type": "video",
+      "id": "our_story_video_mobile",
+      "label": "Mobile Video",
+      "info": "Recommended size is: 315px x 410px"
+    },
+    {
+      "type": "image_picker",
+      "id": "bottom_image_desktop",
+      "label": "Bottom Desktop Image",
+      "info": "Recommended size is: 1440px x 728px"
+    },
+    {
+      "type": "url",
+      "id": "desktop_imagebutton_link",
+      "label": "Desktop Image Button Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "bottom_image_mobile",
+      "label": "Bottom Mobile Image",
+      "info": "Recommended size is: 375px x 728px"
+    },
+    {
+      "type": "url",
+      "id": "mobile_imagebutton_link",
+      "label": "Mobile Image Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Product Slide",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "product",
+          "id": "top_product",
+          "label": "Top Product"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Week's Pick"
+    }
+  ]
+}
+{% endschema %}
