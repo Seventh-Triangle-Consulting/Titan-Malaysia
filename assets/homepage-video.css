@@ -1,0 +1,33 @@
+.home_section .video_desktop, .home_section .video_mobile{
+  line-height:0; 
+}
+.home_section .img_mobile,
+.home_section .video_mobile {
+    display: none
+}
+
+.home_section img,
+.home_section video {
+    width: 100%;
+    height: auto;
+    
+}
+
+
+
+
+
+@media only screen and (max-width:600px) {
+
+    .home_section .img_mobile,
+    .home_section .video_mobile {
+        display: block
+    }
+
+    .home_section .img_desktop,
+    .home_section .video_desktop {
+        display: none
+    }
+
+   
+}
