@@ -1,0 +1,262 @@
+{{ 'homepage-store-locator.css' | asset_url | stylesheet_tag: media: 'screen' }}
+
+{%- style -%}
+  .section-{{ section.id }}-margin {
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+  }
+
+  @media screen and (max-width: 750px) {
+    .section-{{ section.id }}-margin {
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+      
+    }
+  }
+{%- endstyle -%}
+
+{% if section.blocks.size > 0 %}
+  <section class="homepage-store-locator-container section-{{ section.id }}-margin" id="{{ section.id }}">
+    <div class="page-width">
+      <div class="store-locator-collection-title-Btn">
+        <div class="homepage-store-locator-top-sub">
+          {% if section.settings['store-locator_sub_title'] != blank %}
+            <h3 class="homepage-store-locator-top-first-title">{{ section.settings['store-locator_sub_title'] }}</h3>
+          {% endif %}
+          {% if section.settings['store-locator_title'] != blank %}
+            <h2 class="homepage-store-locator-top-second-title mobile-store-locator-div">{{ section.settings['store-locator_title'] }}</h2>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="homepage-store-locator">
+        <div class="store-locator-left">
+          {% if section.settings['store-locator_title'] != blank %}
+            <h2 class="homepage-store-locator-top-second-title desktop-store-locator-div">{{ section.settings['store-locator_title'] }}</h2>
+          {% endif %}
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'Text' %}
+                <div class="store-locator-details">
+                  {% if block.settings['store-locator-name'] != blank %}
+                    <h2 class="homepage-store-locator-name">{{ block.settings['store-locator-name'] }}</h2>
+                  {% endif %}
+                  {% if block.settings['store-locator-address'] != blank %}
+                    <div class="homepage-store-locator-address">{{ block.settings['store-locator-address'] }}</div>
+                  {% endif %}
+                  {% if block.settings['store-locator_time'] != blank %}
+                    <h3 class="homepage-store-locator-time">{{ block.settings['store-locator_time'] }}</h3>
+                  {% endif %}
+
+                  {% if block.settings['store-locator-mobile'] != blank
+                    or block.settings['store-locator-email'] != blank
+                    or block.settings['store-locator-map'] != blank
+                  %}
+                    <div class="store-locator-contact">
+                      {% if block.settings['store-locator-mobile'] != blank %}
+                        <a href="tel:{{ block.settings.store-locator-mobile }}">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="29"
+                            height="29"
+                            viewBox="0 0 29 29"
+                            fill="none"
+                          >
+                            <path d="M12.2786 9.24149C12.0592 8.69309 11.5281 8.3335 10.9375 8.3335H8.95045C8.19469 8.3335 7.58203 8.94619 7.58203 9.70195C7.58203 16.1259 12.7898 21.3335 19.2138 21.3335C19.9695 21.3335 20.582 20.7209 20.582 19.9651L20.582 17.9781C20.582 17.3874 20.2223 16.8564 19.6739 16.637L17.7705 15.8756C17.2779 15.6785 16.7171 15.7674 16.3095 16.107L15.8176 16.5168C15.2437 16.9951 14.3998 16.9568 13.8715 16.4286L12.4869 15.044C11.9586 14.5158 11.9206 13.6718 12.3988 13.0979L12.8086 12.6062C13.1483 12.1986 13.237 11.6376 13.04 11.145L12.2786 9.24149Z" stroke="url(#paint0_linear_995_2163)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <defs>
+                            <linearGradient id="paint0_linear_995_2163" x1="7.58203" y1="14.7512" x2="20.6243" y2="14.9284" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#1D1C21"/>
+                            <stop offset="1" stop-color="#7E6A6A"/>
+                            </linearGradient>
+                            </defs>
+                          </svg>
+                        </a>
+                      {% endif %}
+                      {% if block.settings['store-locator-email'] != blank %}
+                        <a href="mailto:{{ block.settings.store-locator-email}}">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="19"
+                            height="19"
+                            viewBox="0 0 19 19"
+                            fill="none"
+                          >
+                            <path d="M3.26172 5.34375L9.16797 9.14063L15.4961 5.34375M4.10547 14.4783C3.17349 14.4783 2.41797 13.7227 2.41797 12.7908V6.1875C2.41797 5.25552 3.17349 4.5 4.10547 4.5H14.2305C15.1624 4.5 15.918 5.25552 15.918 6.1875V12.7908C15.918 13.7227 15.1624 14.4783 14.2305 14.4783H4.10547Z" stroke="url(#paint0_linear_995_2169)" stroke-width="1.17" stroke-linecap="round" stroke-linejoin="round"/>
+                            <defs>
+                            <linearGradient id="paint0_linear_995_2169" x1="2.41797" y1="9.42598" x2="15.9598" y2="9.67493" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#1D1C21"/>
+                            <stop offset="1" stop-color="#7E6A6A"/>
+                            </linearGradient>
+                            </defs>
+                          </svg>
+                        </a>
+                      {% endif %}
+                      {% if block.settings['store-locator-map'] != blank %}
+                        <a href="{{ block.settings.store-locator-map }}">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="29"
+                            height="29"
+                            viewBox="0 0 29 29"
+                            fill="none"
+                          >
+                            <path d="M8.78066 13.7936L17.6501 9.57069C18.9432 8.95459 20.2927 10.3047 19.6773 11.5985L15.454 20.4665C14.8767 21.6781 13.1271 21.6036 12.6555 20.3463L11.8751 18.263C11.7988 18.0597 11.6799 17.8752 11.5264 17.7217C11.3729 17.5682 11.1883 17.4493 10.9851 17.373L8.90085 16.5919C7.64422 16.1203 7.56891 14.3709 8.78066 13.7936Z" stroke="url(#paint0_linear_995_2171)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <defs>
+                            <linearGradient id="paint0_linear_995_2171" x1="7.91406" y1="15.2999" x2="19.8695" y2="15.4624" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#1D1C21"/>
+                            <stop offset="1" stop-color="#7E6A6A"/>
+                            </linearGradient>
+                            </defs>
+                          </svg>
+                        </a>
+                      {% endif %}
+                    </div>
+                  {% endif %}
+                </div>
+            {% endcase %}
+          {% endfor %}
+          {% if section.settings.store_locator_link != blank and section.settings['store-locator-btn-text'] != blank %}
+            <a href="{{ section.settings.store_locator_link }}" class="homepage-store-locator-link">
+              {{- section.settings['store-locator-btn-text'] -}}
+            </a>
+          {%- endif %}
+        </div>
+
+        <div class="store-locator-right">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when '@app' %}
+                 {% render block %}
+            {% endcase %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+<script>
+
+window.addEventListener(
+    'DOMContentLoaded',
+    () => {
+function recursiveFunction(iteration = 0) {
+    if ( document.querySelectorAll('.simple-store-locator-tab').length>0) {
+        document.querySelectorAll('.simple-store-locator-tab')[1].click();
+        return;
+    }
+
+    if (iteration >= 10) {
+         return;
+    }
+    setTimeout(() => {
+        recursiveFunction(iteration + 1);
+    }, 1000); 
+}
+
+  recursiveFunction();
+
+    });
+
+</script>                          
+
+{% schema %}
+{
+  "name": "Store Locator",
+  "settings": [
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom Desktop",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom Mobile",
+      "default": 36
+    },
+    {
+      "type": "richtext",
+      "id": "store-locator_sub_title",
+      "label": "Sub Title"
+    },
+    {
+      "type": "richtext",
+      "id": "store-locator_title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "store-locator-btn-text",
+      "label": "Button Text",
+      "default": "See all locations"
+    },
+    {
+      "type": "url",
+      "id": "store_locator_link",
+      "label": "Button Link"
+    }
+
+  ],
+  "blocks": [
+    {
+      "type": "Text",
+      "name": "Details",
+      "limit": 2,
+      "settings": [
+          {
+          "type": "richtext",
+          "id": "store-locator-name",
+          "label": "Store Name"
+         },
+            {
+            "type": "richtext",
+            "id": "store-locator-address",
+            "label": "Address"
+          },  {
+            "type": "richtext",
+            "id": "store-locator_time",
+            "label": "Store Timing"
+          },
+          {
+          "type": "text",
+          "id": "store-locator-mobile",
+          "label": "Mobile Number"
+          },
+          {
+          "type": "text",
+          "id": "store-locator-email",
+          "label": "Email"
+          },
+          {
+          "type": "text",
+          "id": "store-locator-map",
+          "label": "Google Map Link"
+          }
+
+      ]
+    },
+     {
+      "type": "@app"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Store Locator"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
