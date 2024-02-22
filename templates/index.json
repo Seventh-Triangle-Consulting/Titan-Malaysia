@@ -285,7 +285,7 @@
           "type": "image",
           "settings": {
             "top_title": "Men",
-            "collection_list": "mens-collection",
+            "collection_list": "mens-watch",
             "button_title": "View All Watches",
             "button_link": "shopify:\/\/collections\/men-watches"
           }
@@ -294,7 +294,7 @@
           "type": "image",
           "settings": {
             "top_title": "Women",
-            "collection_list": "women-collection",
+            "collection_list": "female",
             "button_title": "View All Watches",
             "button_link": "shopify:\/\/collections\/women-watches"
           }
