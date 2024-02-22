@@ -1,0 +1,31 @@
+.single-img-mob {
+  display: none;
+  width: 100%;
+  height: auto;
+ 
+}
+
+
+.single-img-des {
+  display: block;
+  width: 100%;
+  height: auto;
+ 
+}
+.single-mobile-banner{margin:auto; display:none;}
+.single-desk-banner{display:block;}
+@media screen and (max-width: 750px) {
+  .single-mobile-banner{display:block;}
+  .single-desk-banner{display:none;}
+  .single-img-mob {
+    display: block;
+    width: 100%;
+    height: auto;
+   
+  }
+
+ .single-img-des {
+    display: none;
+  }
+
+}
