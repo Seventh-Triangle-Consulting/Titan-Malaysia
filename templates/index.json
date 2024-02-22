@@ -173,12 +173,14 @@
         "af2f37f9-344f-4dee-86b4-74e9b6175705": {
           "type": "image",
           "settings": {
+            "collection_image": "shopify:\/\/shop_images\/Group_1171276070.webp",
             "image_link": "shopify:\/\/collections\/wander"
           }
         },
         "3a915d21-daa6-4c50-8ad9-194c8c90d5bd": {
           "type": "image",
           "settings": {
+            "collection_image": "shopify:\/\/shop_images\/Group_1171276072.webp",
             "image_link": "shopify:\/\/collections\/wander"
           }
         }
