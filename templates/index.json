@@ -144,6 +144,8 @@
         "top_first_title": "<p>This Week’s Pick<\/p>",
         "button_title": "View All Watches",
         "button_link": "shopify:\/\/collections\/edge",
+        "our_story_image_desktop": "shopify:\/\/shop_images\/Group_1000003104.webp",
+        "our_story_image_mobile": "shopify:\/\/shop_images\/Group_1171276053.webp",
         "desktop_imagebutton_link": "shopify:\/\/collections\/edge",
         "mobile_imagebutton_link": "shopify:\/\/collections\/mens-watch"
       }
