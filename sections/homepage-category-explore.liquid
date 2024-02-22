@@ -1,0 +1,308 @@
+{{ 'homepage-category.css' | asset_url | stylesheet_tag: media: 'screen' }}
+
+<style>
+  .section-{{ section.id }}-margin {
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+  }
+
+  .homepage-category-container{
+    background-color: {{ section.settings.background_color }};
+  }
+
+  @media screen and (max-width: 750px) {
+    .section-{{ section.id }}-margin {
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+      padding-right: 0;
+    }
+  }
+</style>
+
+{% if section.blocks.size > 0 %}
+  <section class="homepage-category-container section-{{ section.id }}-margin" id="{{ section.id }}">
+    <div class="page-width">
+      <div class="homepage-category-top-sub">
+        {% if section.settings.top_first_title != blank %}
+          <h2 class="homepage-category-top-first-title">{{ section.settings.top_first_title }}</h2>
+        {% endif %}
+      </div>
+    </div>
+      <div class="homepage-category">
+        <div class="page-width">
+        <div class="main-title-tabs">
+          <div>
+            {% if section.settings.top_second_title != blank %}
+              <h2 class="homepage-category-top-second-title">{{ section.settings.top_second_title }}</h2>
+            {% endif %}
+          </div>
+          <div class="main-title-tabs-sub">
+         {% if section.blocks.size > 1 %}
+            {% for block in section.blocks %}
+              {% if block.settings.top_title != blank %}
+                <h4
+                  class="all-tabs-exp {% if forloop.index == 1 %}color_active_tab{% endif %}"
+                  data-tag-one-exp="{{ block.settings.top_title | downcase }}"
+                >
+                  {{ block.settings.top_title }}
+                </h4>
+              {% endif %}
+            {% endfor %}
+           {% endif %}
+          </div>
+        </div>
+        </div>
+        {% for block in section.blocks %}
+          {% if block.settings.collection_list != blank %}
+            <div
+              class="homepage_explore-container  homepage_explore shopCategory{{ forloop.index }} {% if forloop.index == 1 %}color_active_swiper{% endif %}"
+              data-tag-two-exp="{{ block.settings.top_title | downcase }}"
+            >
+              <div class="homepage_explore-wrapper desktop page-width">
+                {% for collectionSelected in block.settings.collection_list %}
+                   {% if collectionSelected != blank and collectionSelected.metafields.custom.homepage_category_section_collection_image.value != blank %}
+                <div
+                    class="slide {% if forloop.index0 == 1 %} activeHover{% endif %}"
+                    style="animation-delay: {{ forloop.index0 | divided_by: 10.0 | round: 2 }}s"
+                    
+                  >
+                    <a class="no-underline" href="{{ collectionSelected.url }}">
+                     
+                        <div class="main-image-text">
+                          <div class="collection-image-container image-container">
+                            {% if forloop.index0 == 0 %}
+                              {% assign lazy = 'eager' %}
+                            {% else %}
+                              {% assign lazy = 'lazy' %}
+                            {% endif %}
+                            {{
+                               collectionSelected.metafields.custom.homepage_category_section_collection_image.value
+                              | image_url: width: 1600
+                              | image_tag: class: 'collection-image', loading: lazy
+                            }}
+                            
+                          </div>
+                        </div>
+                      
+                      <div class="title-container">
+                        <h3 class="title-category">
+                          {{ collectionSelected.title | truncate:6, ''}}
+                        </h3>
+                      </div>
+                    </a>
+                  </div> 
+                                      
+                    
+                     {% endif %}
+                {% endfor %}
+              </div>
+
+              {% comment %}
+                 __  __       _     _ _
+                |  \/  | ___ | |__ (_) | ___
+                | |\/| |/ _ \| '_ \| | |/ _ \
+                | |  | | (_) | |_) | | |  __/
+                |_|  |_|\___/|_.__/|_|_|\___|
+              {% endcomment %}
+              <div class="homepage_explore-wrapper mobile page-width">
+                <div class="swiper mySwiper homepage_explore ">
+                  <div class="swiper-wrapper">
+                    {% for collectionSelected in block.settings.collection_list %}
+                          {% if collectionSelected != blank and collectionSelected.metafields.custom.homepage_category_section_collection_image_for_mobile.value  != blank %}
+                      <div
+                        class="swiper-slide"
+                        style="animation-delay: {{ forloop.index0 | divided_by: 10.0 | round: 2 }}s"
+                      >
+                        <a class="no-underline" href="{{ collectionSelected.url }}">
+                      
+                            <div class="main-image-text">
+                              <div class="collection-image-container">
+                                {% if forloop.index0 == 0 %}
+                                  {% assign lazy = 'eager' %}
+                                {% else %}
+                                  {% assign lazy = 'lazy' %}
+                                {% endif %}
+                                {{
+                                  collectionSelected.metafields.custom.homepage_category_section_collection_image_for_mobile.value 
+                                  | image_url: width: 600
+                                  | image_tag: class: 'collection-image', loading: lazy
+                                }}
+                                
+                              </div>
+                            </div>
+                       
+                          <div class="title-container" >
+                            <h3 class="title-category">
+                              {{ collectionSelected.title  | truncate:6, ''}}
+                            </h3>
+                          </div>
+                        </a>
+                      </div>
+                               {% endif %}
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      
+    </div>
+  </section>
+{% endif %}
+
+<script>
+  window.addEventListener(
+    'DOMContentLoaded',
+    () => {
+    const categoryExplore{{- section.id | remove: "--" | remove: "__" | remove: "-" }}  = new Swiper(`#{{ section.id }} .homepage_explore`, {
+      slidesPerView: "3",
+      centeredSlides: false,
+      spaceBetween: 14,
+      loop: true,
+      a11y: false,
+    });
+  },{ once: true }
+);
+
+  document.addEventListener('DOMContentLoaded', function () {
+    // Add the 'loaded' class to the title-container to trigger the opacity change
+    document.querySelectorAll('.mobile .title-container .title-category').forEach((x)=>{x.classList.add('loaded')});
+});
+</script>
+
+<script>
+  document.querySelectorAll('.homepage_explore-wrapper .slide').forEach((slide) => {
+    slide.addEventListener('mouseenter', (event) => {
+      document.querySelectorAll('.color_active_swiper .homepage_explore-wrapper .slide').forEach((slide) => { slide.classList.remove('activeHover');});
+       document.querySelectorAll('.color_active_swiper .homepage_explore-wrapper .slide').forEach((slide) => {
+        if (slide === event.target) {
+          slide.classList.add('activeHover');
+        }
+        // else {
+        //   slide.classList.remove('activeHover');
+        // }
+      }); 
+    });
+  }); 
+// const panels = document.querySelectorAll(".panel");
+
+// panels.forEach((panel) => {
+//     panel.addEventListener("mouseenter", () => {
+//         removeActiveClasses();
+//         panel.classList.add("active");
+//     });
+// });
+
+// function removeActiveClasses() {
+//     panels.forEach((panel) => {
+//         panel.classList.remove("active");
+//     })
+// }
+
+  const filterTabExp = document.querySelectorAll('.all-tabs-exp');
+  filterTabExp.forEach((item) => {
+    item.addEventListener('click', (e) => {
+      const tabNameExplore = item.getAttribute('data-tag-one-exp');
+
+      filterTabExp.forEach((item) => {
+        item?.classList.remove('color_active_tab');
+      });
+
+      displayCategoryExplore(tabNameExplore);
+      item?.classList.add('color_active_tab');
+    });
+  });
+
+  function displayCategoryExplore(tabNameExplore) {
+    const allColorSwipers = document.querySelectorAll('.homepage_explore');
+    allColorSwipers.forEach((content) => {
+      if (content.getAttribute('data-tag-two-exp') === tabNameExplore) {
+        content?.classList.add('color_active_swiper');
+      } else {
+        content?.classList.remove('color_active_swiper');
+      }
+    });
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Categories Explore",
+  "settings": [
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin Bottom Desktop",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin Bottom Mobile",
+      "default": 36
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "richtext",
+      "id": "top_first_title",
+      "label": "Top First Title"
+    },
+    {
+      "type": "richtext",
+      "id": "top_second_title",
+      "label": "Top Second Title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Collection Slide",
+      "limit": 5,
+      "settings": [
+        {
+          "type": "text",
+          "id": "top_title",
+          "label": "Top Title",
+          "placeholder": "Shop By Category",
+          "default": "Shop By Category"
+        },
+        {
+          "type": "collection_list",
+          "id": "collection_list",
+          "label": "Collections",
+          "limit": 4
+        },
+        {
+          "type": "text",
+          "id": "button_title",
+          "label": "Button Title",
+          "placeholder": "View All Watches",
+          "default": "View All Watches"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Categories Explore"
+    }
+  ]
+}
+{% endschema %}
