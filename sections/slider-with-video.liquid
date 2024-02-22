@@ -1,0 +1,277 @@
+{{ 'slider-with-video.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+
+  @media screen and (max-width: 768px) {
+
+   .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+  }
+{%- endstyle -%}
+{% if section.blocks.size > 0 %}
+  <section class="main_banner_withvideo section-{{ section.id }}-padding" id="{{ section.id }}">
+    <!-- main div starts -->
+    <div class="main_banner_withvideo main_banner_withvideo-top-banner">
+      <!-- Swiper -->
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            {% if block.settings.video_url != blank
+              or block.settings.mobile_video_url != blank
+              or block.settings['Desktop-Banner-Image'] != blank
+              or block.settings['Mobile-Banner-Image'] != blank
+            %}
+              <div class="swiper-slide">
+                <div class="video-image-container">
+                  {% if block.settings.choose_option == 'video' %}
+                    {% if block.settings.video_url != blank and block.settings.mobile_video_url != blank %}
+                      <a
+                        href="{% if block.settings.video_link == blank %}#{% else %}{{ block.settings.video_link }}{% endif %}"
+                        aria-label="Video Banner"
+                      >
+                        {% for source in block.settings.video_url.sources %}
+                          {% case source.format %}
+                            {% when 'mp4' %}
+                              <div class="video_div">
+                                <video
+                                  class="Desktop_video slider_banner_video_slide"
+                                  src="{{ source.url }}"
+                                  width="100%"
+                                  controlsList="nodownload"
+                                  autoplay="autoplay"
+                                  muted="muted"
+                                  loop="loop"
+                                  playsinline="playsinline"
+                                  preload="metadata"
+                                  data-aos="fade-up"
+                                  allowfullscreen
+                                  poster="{{ block.settings.video_url | image_url }}"
+                                ></video>
+                              </div>
+                          {% endcase %}
+                        {% endfor %}
+                        {% for source in block.settings.mobile_video_url.sources %}
+                          {% case source.format %}
+                            {% when 'mp4' %}
+                              <div class="video_div">
+                                <video
+                                  class="mobile_video slider_banner_video_slide"
+                                  id="homevideo"
+                                  src="{{ source.url }}"
+                                  width="100%"
+                                  controlsList="nodownload"
+                                  autoplay="autoplay"
+                                  muted="muted"
+                                  loop="loop"
+                                  playsinline="playsinline"
+                                  preload="metadata"
+                                  data-aos="fade-up"
+                                  allowfullscreen
+                                  poster="{{ block.settings.mobile_video_url | image_url }}"
+                                ></video>
+                              </div>
+                          {% endcase %}
+                        {% endfor %}
+                      </a>
+                    {% endif %}
+                  {% else %}
+                    {% if block.settings['Desktop-Banner-Image'] != blank
+                      and block.settings['Mobile-Banner-Image'] != blank
+                    %}
+                      <a
+                        href="{% if block.settings.image_link == blank %}#{% else %}{{ block.settings.image_link }}{% endif %}"
+                        aria-label="{% if block.settings.Desktop-Banner-Image.alt == blank %}Image Banner{% else %}{{ block.settings.Desktop-Banner-Image.alt }}{% endif %}"
+                      >
+                        {% if forloop.index0 == 0 %}
+                          {% assign lazy = 'eager' %}
+                        {% else %}
+                          {% assign lazy = 'lazy' %}
+                        {% endif %}
+                        {{
+                          block.settings['Desktop-Banner-Image']
+                          | image_url: width: 1800
+                          | image_tag: class: 'Desktop-Banner-Image', loading: lazy
+                        }}
+                        {{
+                          block.settings['Mobile-Banner-Image']
+                          | image_url: width: 600
+                          | image_tag: class: 'Mobile-Banner-Image', loading: lazy
+                        }}
+                      </a>
+                    {% endif %}
+                  {% endif %}
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+        {% if section.blocks.size > 1 %}<div class="swiper-pagination"></div>{% endif %}
+      </div>
+    </div>
+  </section>
+{% endif %}
+<script>
+  window.addEventListener(
+    'DOMContentLoaded',
+    () => {
+      let sliderWithVideo = new Swiper(`#{{section.id}} .swiper`, {
+        autoHeight:true,
+        loop:true,
+         pagination: {
+          el: `#{{section.id}} .swiper-pagination`,
+          clickable: true,
+        },
+         {% if section.settings.autoplay == true %}
+          autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+          },
+        {% endif %}
+      });
+    },
+    { once: true }
+  );
+</script>
+
+{% schema %}
+{
+  "name": "Slider",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Desktop Devices"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 36
+    },
+    {
+      "type": "header",
+      "content": "Mobile Devices"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 36
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Autoplay Enable/Disable"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Banner Slide",
+      "settings": [
+        {
+          "type": "radio",
+          "id": "choose_option",
+          "label": "Choose Image/Video",
+          "options": [
+            {
+              "value": "image",
+              "label": "Image"
+            },
+            {
+              "value": "video",
+              "label": "Video"
+            }
+          ],
+          "default": "video"
+        },
+        {
+          "type": "url",
+          "id": "image_link",
+          "label": "Banner Image link"
+        },
+        {
+          "type": "url",
+          "id": "video_link",
+          "label": "Banner Video link"
+        },
+        {
+          "type": "header",
+          "content": "Desktop Devices"
+        },
+        {
+          "type": "image_picker",
+          "id": "Desktop-Banner-Image",
+          "label": "Image"
+        },
+
+        {
+          "type": "video",
+          "id": "video_url",
+          "label": "Video"
+        },
+        {
+          "type": "header",
+          "content": "Mobile Devices"
+        },
+        {
+          "type": "image_picker",
+          "id": "Mobile-Banner-Image",
+          "label": "Image"
+        },
+
+        {
+          "type": "video",
+          "id": "mobile_video_url",
+          "label": "Mobile Video"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Slider"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
