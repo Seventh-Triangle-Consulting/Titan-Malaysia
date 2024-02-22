@@ -1388,7 +1388,15 @@ button.shopify-payment-button__button--unbranded {
   color: transparent;
   position: relative;
 }
-
+.swiper-prev .icon-arrow, .swiper-next .icon-arrow{
+    width: 74px;
+    height: 74px;
+    background: #d6cfcb;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 @media screen and (forced-colors: active) {
   .button.loading {
     color: rgb(var(--color-foreground));
