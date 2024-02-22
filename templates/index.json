@@ -55,10 +55,10 @@
           "settings": {
             "top_title": "Watches",
             "collection_list": [
-              "mens",
-              "women",
-              "couple",
-              "best-buy"
+              "analog",
+              "analog-digital",
+              "bandhan",
+              "analog-moonphase"
             ],
             "button_title": "View All Watches",
             "button_link": ""
