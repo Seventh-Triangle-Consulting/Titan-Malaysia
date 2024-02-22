@@ -1,535 +1,386 @@
 {
   "sections": {
-    "e5c9ba37-6a8f-4aab-b88d-d74cf1cabeea": {
-      "type": "subcategory-collection",
+    "59b603e6-16c5-4739-9b9a-8d28b558c64b": {
+      "type": "slider-with-video",
       "blocks": {
-        "358e1d4a-afbf-4b56-92df-72326a087314": {
-          "type": "slideshow",
+        "a07b13e7-1ea6-48e2-abe5-121a1be23f63": {
+          "type": "text",
           "settings": {
-            "collection_slide_url": "shopify:\/\/collections\/automatic",
-            "collection_slide_image": "shopify:\/\/shop_images\/Automatic_4.png",
-            "collection_slide_text": "Automatic"
+            "choose_option": "image",
+            "image_link": "shopify:\/\/products\/titan-stellar-quartz-multifunction-green-dial-stainless-steel-strap-watch-for-men-10012qm01",
+            "video_link": "",
+            "Desktop-Banner-Image": "shopify:\/\/shop_images\/Group_1171276080_bc4346a8-3206-472c-8e97-7fc624d138d3.png",
+            "Mobile-Banner-Image": "shopify:\/\/shop_images\/Group_1171276081.png"
           }
         },
-        "e3091330-71fb-4a99-b821-d78a16ba2e80": {
-          "type": "slideshow",
+        "d21d6b0a-5ae3-44c8-b5ba-38ece235c12d": {
+          "type": "text",
           "settings": {
-            "collection_slide_url": "shopify:\/\/collections\/best-sellers-1",
-            "collection_slide_image": "shopify:\/\/shop_images\/Best_seller_9e9d1e35-08e2-4d54-a510-8493a924d2f5.png",
-            "collection_slide_text": "Best Sellers"
+            "choose_option": "image",
+            "image_link": "shopify:\/\/products\/titan-edge-ceramic-green-dial-analog-ceramic-strap-watch-for-men-1696qc06",
+            "video_link": "",
+            "Desktop-Banner-Image": "shopify:\/\/shop_images\/Group_1171276067.png",
+            "Mobile-Banner-Image": "shopify:\/\/shop_images\/Group_1171276068.png"
           }
         },
-        "e6316d43-6878-485d-92ab-9ee4421ea22b": {
-          "type": "slideshow",
+        "925c6f64-6b86-4ad0-a451-a1f3126a2116": {
+          "type": "text",
           "settings": {
-            "collection_slide_url": "shopify:\/\/collections\/edge",
-            "collection_slide_image": "shopify:\/\/shop_images\/Edge_3.png",
-            "collection_slide_text": "Edge"
-          }
-        },
-        "a2f19bab-dc1a-4586-9295-f5904a7ab380": {
-          "type": "slideshow",
-          "settings": {
-            "collection_slide_url": "shopify:\/\/collections\/mechanical-1",
-            "collection_slide_image": "shopify:\/\/shop_images\/mechanical_46fec915-15c8-4e14-a0f0-292ff486ebaf.png",
-            "collection_slide_text": "Mechanical"
-          }
-        },
-        "8dada3ef-b2cc-4b22-8bd3-22f5f32d9518": {
-          "type": "slideshow",
-          "settings": {
-            "collection_slide_url": "shopify:\/\/collections\/smart-1",
-            "collection_slide_image": "shopify:\/\/shop_images\/Smart_0fb9d77e-fb71-43f8-aaa0-b9ebe96379b8.png",
-            "collection_slide_text": "Smart"
-          }
-        },
-        "bc934d4c-5839-4f67-84b9-f5fc22e41623": {
-          "type": "slideshow",
-          "settings": {
-            "collection_slide_url": "shopify:\/\/collections\/raga",
-            "collection_slide_image": "shopify:\/\/shop_images\/Trending_a034eb71-de2c-4059-b1d0-7440ff002cef.png",
-            "collection_slide_text": "Trending"
+            "choose_option": "image",
+            "image_link": "shopify:\/\/products\/titan-raga-delight-rose-gold-dial-women-watch-with-stainless-steel-strap-95204wm01",
+            "video_link": "",
+            "Desktop-Banner-Image": "shopify:\/\/shop_images\/Group_1171276082.jpg",
+            "Mobile-Banner-Image": "shopify:\/\/shop_images\/Group_1171276083.jpg"
           }
         }
       },
       "block_order": [
-        "358e1d4a-afbf-4b56-92df-72326a087314",
-        "e3091330-71fb-4a99-b821-d78a16ba2e80",
-        "e6316d43-6878-485d-92ab-9ee4421ea22b",
-        "a2f19bab-dc1a-4586-9295-f5904a7ab380",
-        "8dada3ef-b2cc-4b22-8bd3-22f5f32d9518",
-        "bc934d4c-5839-4f67-84b9-f5fc22e41623"
+        "a07b13e7-1ea6-48e2-abe5-121a1be23f63",
+        "d21d6b0a-5ae3-44c8-b5ba-38ece235c12d",
+        "925c6f64-6b86-4ad0-a451-a1f3126a2116"
       ],
       "settings": {
-        "margin_bottom_desktop": 20,
-        "margin_bottom_mobile": 20
-      }
-    },
-    "451768ba-558a-46f8-8f07-3fb30eb32deb": {
-      "type": "homepage-main-banner",
-      "blocks": {
-        "cd7ce330-2bb0-43b5-878c-b0553b6a33b4": {
-          "type": "image",
-          "settings": {
-            "desktop_banner_image": "shopify:\/\/shop_images\/Banner_1.png",
-            "mobile_banner_image": "shopify:\/\/shop_images\/1_bc576f54-fa65-430e-9090-c3020e76f2ce.png",
-            "desktop_banner_text": "",
-            "mobile_banner_text": "",
-            "button_text1": "SHOP NOW",
-            "button_link1": "shopify:\/\/collections\/edge",
-            "button_text2": "",
-            "button_link2": "https:\/\/titan.in\/collections\/women",
-            "buttoncolor": "#ffffff",
-            "buttontextcolor": "#000000",
-            "content-position": "bottom-center"
-          }
-        },
-        "e20a4714-88a6-4891-9ff1-da687a6caa14": {
-          "type": "image",
-          "settings": {
-            "desktop_banner_image": "shopify:\/\/shop_images\/raga_3_5d41163b-aaae-41d8-b89a-88866fd12063.png",
-            "mobile_banner_image": "shopify:\/\/shop_images\/5_28d65f2c-4608-41e5-b414-48527b7dbbe3.png",
-            "desktop_banner_text": "",
-            "mobile_banner_text": "",
-            "button_text1": "SHOP NOW",
-            "button_link1": "shopify:\/\/collections\/raga-aurora",
-            "button_text2": "",
-            "button_link2": "",
-            "buttoncolor": "#ffffff",
-            "buttontextcolor": "#000000",
-            "content-position": "bottom-center"
-          }
-        },
-        "ceacbe85-9051-46b0-b723-d4de92328c20": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "desktop_banner_image": "shopify:\/\/shop_images\/KV.jpg",
-            "mobile_banner_image": "shopify:\/\/shop_images\/mobile-version-banner.jpg",
-            "desktop_banner_text": "",
-            "mobile_banner_text": "",
-            "button_text1": "SHOP NOW",
-            "button_link1": "shopify:\/\/collections\/titan-smart",
-            "button_text2": "",
-            "button_link2": "",
-            "buttoncolor": "#ffffff",
-            "buttontextcolor": "#000000",
-            "content-position": "bottom-center"
-          }
-        }
-      },
-      "block_order": [
-        "cd7ce330-2bb0-43b5-878c-b0553b6a33b4",
-        "e20a4714-88a6-4891-9ff1-da687a6caa14",
-        "ceacbe85-9051-46b0-b723-d4de92328c20"
-      ],
-      "settings": {
-        "margin_bottom_desktop": 20,
-        "margin_bottom_mobile": 20,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
         "autoplay": true
       }
     },
-    "bfe6cd2b-1256-45c9-8448-e96663707a03": {
-      "type": "homepage-collection-cards",
+    "405663cd-18f1-4191-91e9-80448e49cfd2": {
+      "type": "homepage-category-explore",
       "blocks": {
-        "c83101a8-0c19-445f-bdbc-6871ca79ac95": {
-          "type": "block",
-          "disabled": true,
-          "settings": {
-            "image": "shopify:\/\/shop_images\/casual.png",
-            "btnurl": "shopify:\/\/collections\/female",
-            "title": "",
-            "subtitle": "",
-            "btn": "Casual"
-          }
-        },
-        "acaacd30-4128-4d18-816f-7e5b0e0c8593": {
-          "type": "block",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/fitness_85d3e4ea-82e4-4691-950d-c9ed9cffd513.png",
-            "btnurl": "shopify:\/\/collections\/titan-smart",
-            "title": "",
-            "subtitle": "",
-            "btn": "Fitness"
-          }
-        },
-        "429b3224-1911-4ff4-9ad0-96b36e0dfa1a": {
-          "type": "block",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/partywear_a0405686-3266-4d07-a12f-ed16e9d76b01.png",
-            "btnurl": "shopify:\/\/collections\/raga",
-            "title": "Raga",
-            "subtitle": "Raga",
-            "btn": ""
-          }
-        },
-        "a690d5c1-c20e-45e5-92a3-ecca92a8ce2c": {
-          "type": "block",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/casual_e0d5e499-30e3-4dfc-b383-a27406e5f8fc.png",
-            "btnurl": "shopify:\/\/collections\/analog",
-            "title": "",
-            "subtitle": "Analog",
-            "btn": ""
-          }
-        },
-        "aa576bbb-753d-4268-b018-d0d749590f09": {
-          "type": "block",
-          "disabled": true,
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Workwear.png",
-            "btnurl": "",
-            "title": "",
-            "subtitle": "",
-            "btn": "Workwear"
-          }
-        },
-        "ac49a18a-0ee7-474c-8d82-47fba1f74803": {
-          "type": "block",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/workwear_4231343d-ca31-4fb2-b2af-ff0db239db03.png",
-            "btnurl": "shopify:\/\/collections\/workwear",
-            "title": "",
-            "subtitle": "",
-            "btn": "Workwear"
-          }
-        }
-      },
-      "block_order": [
-        "c83101a8-0c19-445f-bdbc-6871ca79ac95",
-        "acaacd30-4128-4d18-816f-7e5b0e0c8593",
-        "429b3224-1911-4ff4-9ad0-96b36e0dfa1a",
-        "a690d5c1-c20e-45e5-92a3-ecca92a8ce2c",
-        "aa576bbb-753d-4268-b018-d0d749590f09",
-        "ac49a18a-0ee7-474c-8d82-47fba1f74803"
-      ],
-      "settings": {
-        "heading": "What Are You Looking For ?",
-        "description": "",
-        "id": "",
-        "desktop_margin_bottom": 5,
-        "mobile_margin_bottom": 15
-      }
-    },
-    "ea859a94-e175-434c-9150-808b79a056e5": {
-      "type": "homepage-most-loved",
-      "blocks": {
-        "3deb7a32-dfa7-4043-9e39-fa7a5dfee106": {
-          "type": "cp",
-          "settings": {
-            "coll": "mens-watch",
-            "coll_name": "Men"
-          }
-        },
-        "af37dc5d-8950-4db2-abe5-dcf87b68cc6a": {
-          "type": "cp",
-          "settings": {
-            "coll": "female",
-            "coll_name": "Women"
-          }
-        }
-      },
-      "block_order": [
-        "3deb7a32-dfa7-4043-9e39-fa7a5dfee106",
-        "af37dc5d-8950-4db2-abe5-dcf87b68cc6a"
-      ],
-      "settings": {
-        "margin_bottom_desktop": 40,
-        "margin_bottom_mobile": 40,
-        "mostloved_heading": "Most Loved",
-        "enable_quick_add": false
-      }
-    },
-    "72f4052f-35ea-45a7-8fe9-645447733226": {
-      "type": "home-category-section",
-      "blocks": {
-        "f7831ae6-921b-4c61-85fd-5f940d263ad1": {
+        "1453f049-2bcc-4897-b0ba-fdbd0af9df68": {
           "type": "image",
           "settings": {
-            "home_category_image": "shopify:\/\/shop_images\/Men_c80951ec-95b3-4f47-b0cb-b64463d82464.png",
-            "home_category_block_url": "shopify:\/\/collections\/mens-watch",
-            "home-category-text": ""
-          }
-        },
-        "ceba0b13-d2b7-4c0f-99b1-3d0b87d2cc5a": {
-          "type": "image",
-          "settings": {
-            "home_category_image": "shopify:\/\/shop_images\/smart_36778d2e-a934-4321-9ed3-8babf0977a70.png",
-            "home_category_block_url": "shopify:\/\/collections\/smart-1",
-            "home-category-text": ""
-          }
-        },
-        "fa8f82cb-165c-4b34-ac01-ebf9e4f8873e": {
-          "type": "image",
-          "settings": {
-            "home_category_image": "shopify:\/\/shop_images\/Women_e35fdd60-cf19-44c3-b1fa-1e4858e1aa90.png",
-            "home_category_block_url": "shopify:\/\/collections\/female",
-            "home-category-text": ""
+            "top_title": "Watches",
+            "collection_list": [
+              "mens",
+              "women",
+              "couple",
+              "best-buy"
+            ],
+            "button_title": "View All Watches",
+            "button_link": ""
           }
         }
       },
       "block_order": [
-        "f7831ae6-921b-4c61-85fd-5f940d263ad1",
-        "ceba0b13-d2b7-4c0f-99b1-3d0b87d2cc5a",
-        "fa8f82cb-165c-4b34-ac01-ebf9e4f8873e"
+        "1453f049-2bcc-4897-b0ba-fdbd0af9df68"
       ],
-      "settings": {
-        "category_heading": "",
-        "margin_bottom_desktop": 52,
-        "margin_bottom_mobile": 36
-      }
-    },
-    "1697087009aadaaacf": {
-      "type": "apps",
-      "blocks": {
-        "2e479f45-2b85-4815-aa2f-fe6d1de3eb2b": {
-          "type": "shopify:\/\/apps\/quinn-shoppable-videos\/blocks\/app-stories-block\/150d2781-732b-4020-a9fb-1368e974e6bb",
-          "disabled": true,
-          "settings": {
-            "story_spacing_desktop": 20,
-            "story_spacing_mobile": 10,
-            "story_margins_mobile": "0",
-            "story_margins_desktop": "0",
-            "story_padding_mobile": "0 10px",
-            "story_padding_desktop": "0 5px",
-            "layer_number": "1"
-          }
-        },
-        "c86a8670-813e-4202-be02-1968108ef01d": {
-          "type": "shopify:\/\/apps\/quinn-shoppable-videos\/blocks\/app-imax_video-block\/150d2781-732b-4020-a9fb-1368e974e6bb",
-          "disabled": true,
-          "settings": {
-            "imaxvideo_spacing_desktop": 20,
-            "imaxvideo_spacing_mobile": 10,
-            "imaxvideo_margins_mobile": "0",
-            "imaxvideo_margins_desktop": "0",
-            "imaxvideo_padding_mobile": "0 10px",
-            "imaxvideo_padding_desktop": "0 5px",
-            "layer_number": "1"
-          }
-        },
-        "0e5d92cc-a74b-4a0c-91fb-d417bb1aff7a": {
-          "type": "shopify:\/\/apps\/swipeup-video-shopping\/blocks\/reels-feed\/7b6d7967-af4c-461a-9edb-73155220c3a4",
-          "settings": {
-            "shop_button_text": "Shop",
-            "mute_text": "Mute",
-            "unmute_text": "Unmute",
-            "background_color": "rgba(0,0,0,0)",
-            "show_playbutton": false
-          }
-        }
-      },
-      "block_order": [
-        "2e479f45-2b85-4815-aa2f-fe6d1de3eb2b",
-        "c86a8670-813e-4202-be02-1968108ef01d",
-        "0e5d92cc-a74b-4a0c-91fb-d417bb1aff7a"
-      ],
-      "custom_css": [
-        ".SwipeUp-reels-feed {margin-bottom: 50px;}"
-      ],
-      "settings": {
-        "include_margins": true
-      }
-    },
-    "96a7a223-41c4-4f2c-bfe1-91cd7d09a867": {
-      "type": "best-sellers",
-      "settings": {
-        "margin_bottom_desktop": 40,
-        "margin_bottom_mobile": 40,
-        "bestsellers_heading": "BestSeller",
-        "men_collection": "mens-watch",
-        "women_collection": "female",
-        "kids_collection": "",
-        "men_collection_text": "Men",
-        "women_collection_text": "Women",
-        "kids_collection_text": ""
-      }
-    },
-    "b8288058-a547-4fee-bfe1-0f766e5e082c": {
-      "type": "home-page-shop-by-concern",
-      "blocks": {
-        "22b9574d-c809-419a-bdb1-e5be4cf41b3a": {
-          "type": "slide",
-          "settings": {
-            "desktop_card_image": "shopify:\/\/shop_images\/1.png",
-            "mobile_card_image": "shopify:\/\/shop_images\/1_a8a5750d-cc82-435d-8bcf-141369f59c06.png",
-            "shop_by_concern_title": "Economy Packs",
-            "shop_by_concern_link": "shopify:\/\/products\/skinn-nude-fragrance-for-women-fw12pd1"
-          }
-        },
-        "4aaf71d1-40cb-458b-9a1a-67d771b7ec60": {
-          "type": "slide",
-          "settings": {
-            "desktop_card_image": "shopify:\/\/shop_images\/2.png",
-            "mobile_card_image": "shopify:\/\/shop_images\/2_bf64ec63-9e57-4552-9a34-c359f04323df.png",
-            "shop_by_concern_title": "SKINN SHEER",
-            "shop_by_concern_link": "shopify:\/\/products\/skinn-raw-fragrance-for-men-fm01pgl"
-          }
-        },
-        "93497895-3693-47e1-8c8e-85c8edc97fc5": {
-          "type": "slide",
-          "settings": {
-            "desktop_card_image": "shopify:\/\/shop_images\/3.png",
-            "mobile_card_image": "shopify:\/\/shop_images\/3_b0addee5-c29f-4748-b789-0c65640a621a.png",
-            "shop_by_concern_title": "SKINN VERGE",
-            "shop_by_concern_link": "shopify:\/\/products\/skinn-verge-fragrance-for-men-fm04pgc"
-          }
-        },
-        "d3188d40-1dc8-487f-a04c-08fd70fa1c6d": {
-          "type": "slide",
-          "settings": {
-            "desktop_card_image": "shopify:\/\/shop_images\/4.png",
-            "mobile_card_image": "shopify:\/\/shop_images\/4_3bdaa591-fa3b-44f0-84fe-624b61d7b538.png",
-            "shop_by_concern_title": "SKINN STEELE",
-            "shop_by_concern_link": "shopify:\/\/products\/skinn-nude-fragrance-for-women-fw12pd1"
-          }
-        },
-        "6f778bfb-6540-4450-988a-a0234bbf14a7": {
-          "type": "slide",
-          "settings": {
-            "desktop_card_image": "shopify:\/\/shop_images\/5.png",
-            "mobile_card_image": "shopify:\/\/shop_images\/5_85b79bd5-6f53-4a97-a565-424dce558cbf.png",
-            "shop_by_concern_title": "SKINN CELESTE",
-            "shop_by_concern_link": "shopify:\/\/products\/skinn-nude-fragrance-for-women-fw12pd1"
-          }
-        }
-      },
-      "block_order": [
-        "22b9574d-c809-419a-bdb1-e5be4cf41b3a",
-        "4aaf71d1-40cb-458b-9a1a-67d771b7ec60",
-        "93497895-3693-47e1-8c8e-85c8edc97fc5",
-        "d3188d40-1dc8-487f-a04c-08fd70fa1c6d",
-        "6f778bfb-6540-4450-988a-a0234bbf14a7"
-      ],
-      "disabled": true,
       "settings": {
         "margin_bottom_desktop": 0,
-        "margin_bottom_mobile": 20,
-        "main_title": "SKINN PERFUME"
+        "margin_bottom_mobile": 0,
+        "background_color": "#947564",
+        "top_first_title": "<p>Dive into distinctive elegance: <\/p><p>Categories to explore, tailored for every gender<br\/><\/p>",
+        "top_second_title": "<p>Categories To Explore<\/p>"
       }
     },
-    "84601aa3-45ff-4f93-a11f-81666de3da23": {
-      "type": "home-page-brands-testimonial",
+    "d4b38109-ec44-476b-8fa2-c46258724acd": {
+      "type": "homepage-new-launched",
       "blocks": {
-        "0e1bd032-dfba-4012-8f4f-9fce042f0e76": {
-          "type": "Select",
+        "2395958e-16e0-4c34-9b5f-05f2365f1011": {
+          "type": "image",
           "settings": {
-            "Brands_testimonial_image": "shopify:\/\/shop_images\/Titan-Logo-PNG.png",
-            "Brands_testimonial_content": "Footwear brand titan raises funds from Florintree, others",
-            "Readmore": "Read More",
-            "Readmore_link": "shopify:\/\/collections\/children"
+            "top_title": "Men",
+            "collection_list": "newly-launched",
+            "button_title": "View All Watches",
+            "button_link": ""
           }
         },
-        "c70c505b-ac2e-4a64-abc9-559f4b0d3800": {
-          "type": "Select",
+        "f9197863-f12c-4c4d-b9a7-227d6fbfe681": {
+          "type": "image",
           "settings": {
-            "Brands_testimonial_image": "shopify:\/\/shop_images\/Titan-Logo-PNG.png",
-            "Brands_testimonial_content": "These former Nike, Adidas executives are building a startup for ‘growing feet’",
-            "Readmore": "Read More",
-            "Readmore_link": "shopify:\/\/pages\/contact"
-          }
-        },
-        "9a42c1d3-c5b9-4a3f-b8f4-45609c5e761d": {
-          "type": "Select",
-          "settings": {
-            "Brands_testimonial_image": "shopify:\/\/shop_images\/Titan-Logo-PNG.png",
-            "Brands_testimonial_content": "30 Startups To Watch: The Startups That Caught Our Eye In January 2022",
-            "Readmore": "Read More",
-            "Readmore_link": "shopify:\/\/collections\/children"
-          }
-        },
-        "13363174-2de1-47cc-89c9-181e1b541cc4": {
-          "type": "Select",
-          "settings": {
-            "Brands_testimonial_image": "shopify:\/\/shop_images\/Titan-Logo-PNG.png",
-            "Brands_testimonial_content": "WHAT NATIONAL STARTUP DAY MEANS FOR STARTUPS",
-            "Readmore": "Read More",
-            "Readmore_link": "shopify:\/\/collections\/female"
-          }
-        },
-        "eaca338f-f711-4d4a-b9b5-9bb7d9078f16": {
-          "type": "Select",
-          "settings": {
-            "Brands_testimonial_image": "shopify:\/\/shop_images\/Titan-Logo-PNG.png",
-            "Brands_testimonial_content": "These former Nike, Adidas executives are building a startup for ‘growing feet’",
-            "Readmore": "Read More",
-            "Readmore_link": "shopify:\/\/collections\/frontpage"
-          }
-        },
-        "1bf0d109-f009-4829-afba-a379a03ba7e1": {
-          "type": "Select",
-          "settings": {
-            "Brands_testimonial_image": "shopify:\/\/shop_images\/Titan-Logo-PNG.png",
-            "Brands_testimonial_content": "30 Startups To Watch: The Startups That Caught Our Eye In January 2022",
-            "Readmore": "Read More",
-            "Readmore_link": "https:\/\/inc42.com\/features\/30-startups-to-watch-the-startups-that-caught-our-eye-in-january-2022\/"
-          }
-        },
-        "c6f35a42-b822-4cd6-8468-1a0722c7ef8e": {
-          "type": "Select",
-          "settings": {
-            "Brands_testimonial_image": "shopify:\/\/shop_images\/Titan-Logo-PNG.png",
-            "Brands_testimonial_content": "Footwear brand titan raises funds from Florintree, others",
-            "Readmore": "Read More",
-            "Readmore_link": "shopify:\/\/products\/rado-stainless-steel-white-analog-unisex-adult-watch-r30554762"
-          }
-        },
-        "cdc55fbe-90bf-4881-abd0-6cdd284c151d": {
-          "type": "Select",
-          "settings": {
-            "Brands_testimonial_image": "shopify:\/\/shop_images\/Titan-Logo-PNG.png",
-            "Brands_testimonial_content": "WHAT NATIONAL STARTUP DAY MEANS FOR STARTUPS",
-            "Readmore": "Read More",
-            "Readmore_link": "shopify:\/\/collections\/watches"
+            "top_title": "Women",
+            "collection_list": "newly-launched-women",
+            "button_title": "View All Watches",
+            "button_link": ""
           }
         }
       },
       "block_order": [
-        "0e1bd032-dfba-4012-8f4f-9fce042f0e76",
-        "c70c505b-ac2e-4a64-abc9-559f4b0d3800",
-        "9a42c1d3-c5b9-4a3f-b8f4-45609c5e761d",
-        "13363174-2de1-47cc-89c9-181e1b541cc4",
-        "eaca338f-f711-4d4a-b9b5-9bb7d9078f16",
-        "1bf0d109-f009-4829-afba-a379a03ba7e1",
-        "c6f35a42-b822-4cd6-8468-1a0722c7ef8e",
-        "cdc55fbe-90bf-4881-abd0-6cdd284c151d"
+        "2395958e-16e0-4c34-9b5f-05f2365f1011",
+        "f9197863-f12c-4c4d-b9a7-227d6fbfe681"
       ],
-      "disabled": true,
       "settings": {
-        "margin_bottom_desktop": 12,
-        "margin_bottom_mobile": 12,
-        "brand_bg_color": "#ffffff",
-        "main_title": "Enter Title"
+        "margin_bottom_desktop": 0,
+        "margin_bottom_mobile": 0,
+        "background_color": "#f6f6f6",
+        "top_first_title": "<p>Dive into distinctive elegance: <\/p><p>Categories to explore, tailored for every gender<\/p>",
+        "top_second_title": "<p>Newly Launched<\/p>"
       }
     },
-    "7bb9a82c-4600-4abd-9fbb-3b6139540d6a": {
-      "type": "image-banner",
-      "disabled": true,
+    "94eb339b-7152-49d5-865b-34001e8b9a8e": {
+      "type": "homepage-week-pick",
+      "blocks": {
+        "f8fc17e7-846a-441e-a116-b131b5cc59bb": {
+          "type": "image",
+          "settings": {
+            "top_product": "titan-edge-anthracite-dial-quartz-stainless-steel-strap-watch-for-men-1595wm01"
+          }
+        },
+        "9822fe63-441b-431b-9114-1aa08739c109": {
+          "type": "image",
+          "settings": {
+            "top_product": "titan-edge-baseline-blue-dial-analog-stainless-steel-strap-watch-for-men-1843qm02"
+          }
+        },
+        "4e18ec9a-0b85-46c2-9985-6b2b4169848d": {
+          "type": "image",
+          "settings": {
+            "top_product": "titan-edge-baseline-grey-dial-analog-leather-strap-watch-for-men-1843sl01"
+          }
+        }
+      },
+      "block_order": [
+        "f8fc17e7-846a-441e-a116-b131b5cc59bb",
+        "9822fe63-441b-431b-9114-1aa08739c109",
+        "4e18ec9a-0b85-46c2-9985-6b2b4169848d"
+      ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/2500_x_750.png",
-        "image_overlay_opacity": 0,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-center",
-        "show_text_box": true,
-        "desktop_content_alignment": "center",
-        "color_scheme": "",
-        "image_behavior": "none",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
-        "show_text_below": true
+        "margin_bottom_desktop": 0,
+        "margin_bottom_mobile": 0,
+        "background_color": "#3e3028",
+        "top_first_title": "<p>This Week’s Pick<\/p>",
+        "button_title": "View All Watches",
+        "button_link": "shopify:\/\/collections\/edge",
+        "our_story_image_desktop": "shopify:\/\/shop_images\/Group_1000003104.webp",
+        "our_story_image_mobile": "shopify:\/\/shop_images\/Group_1171276053.webp",
+        "desktop_imagebutton_link": "shopify:\/\/collections\/edge",
+        "mobile_imagebutton_link": "shopify:\/\/collections\/mens-watch"
+      }
+    },
+    "homepage_banner_cPt8K9": {
+      "type": "homepage-banner",
+      "settings": {
+        "button_link": "shopify:\/\/collections\/edge-ceramic",
+        "margin_top_desktop": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "image_single_des": "shopify:\/\/shop_images\/Group_1171276086.webp",
+        "margin_top_mobile": 0,
+        "image_single_mob": "shopify:\/\/shop_images\/Group_1171276087.webp"
+      }
+    },
+    "a1d2b2f3-7b31-4096-8707-74090a0361eb": {
+      "type": "homepage-wander-collection",
+      "blocks": {
+        "0d001069-6462-44fe-a8bb-754825780596": {
+          "type": "image",
+          "settings": {
+            "collection_image": "shopify:\/\/shop_images\/Group_1171276073.webp",
+            "image_link": "shopify:\/\/collections\/wander"
+          }
+        },
+        "af2f37f9-344f-4dee-86b4-74e9b6175705": {
+          "type": "image",
+          "settings": {
+            "collection_image": "shopify:\/\/shop_images\/Group_1171276070.webp",
+            "image_link": "shopify:\/\/collections\/wander"
+          }
+        },
+        "3a915d21-daa6-4c50-8ad9-194c8c90d5bd": {
+          "type": "image",
+          "settings": {
+            "collection_image": "shopify:\/\/shop_images\/Group_1171276072.webp",
+            "image_link": "shopify:\/\/collections\/wander"
+          }
+        }
+      },
+      "block_order": [
+        "0d001069-6462-44fe-a8bb-754825780596",
+        "af2f37f9-344f-4dee-86b4-74e9b6175705",
+        "3a915d21-daa6-4c50-8ad9-194c8c90d5bd"
+      ],
+      "settings": {
+        "margin_bottom_desktop": 0,
+        "margin_bottom_mobile": 0,
+        "wander_sub_title": "<p>Sophisticated craftsmanship, unmatched elegance: Redefine luxury with every ticking moment<\/p>",
+        "wander_title": "<p>Wander Collections<\/p>"
+      }
+    },
+    "5d521b04-e291-462a-bd8c-b96a656617f0": {
+      "type": "homepage-banner",
+      "settings": {
+        "button_link": "shopify:\/\/products\/titan-quartz-analog-black-dial-stainless-steel-strap-watch-for-men-1713bm02",
+        "margin_top_desktop": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "image_single_des": "shopify:\/\/shop_images\/Untitled_9.png",
+        "margin_top_mobile": 0,
+        "image_single_mob": "shopify:\/\/shop_images\/Untitled-3.png"
+      }
+    },
+    "5e3171e1-a653-4acd-bfb7-857c0127b083": {
+      "type": "homepage-try-new-watch-faces",
+      "blocks": {
+        "066d4cc3-5da8-431b-a04d-f67308e58c7a": {
+          "type": "image",
+          "settings": {
+            "product_image": "shopify:\/\/shop_images\/1843QM02_f8f6f839-75ce-47a4-90a3-0bb41f095b7d.jpg",
+            "product_link": "shopify:\/\/products\/titan-edge-baseline-blue-dial-analog-stainless-steel-strap-watch-for-men-1843qm02"
+          }
+        },
+        "91a31db7-b2ca-478b-a0c7-3766eac8cd95": {
+          "type": "image",
+          "settings": {
+            "product_image": "shopify:\/\/shop_images\/10008NL01_c203eeca-140d-4d43-8b88-875838328b03.jpg",
+            "product_link": "shopify:\/\/products\/titan-stellar-automatic-blue-dial-leather-strap-watch-for-men-10008nl01"
+          }
+        },
+        "1b115826-9bf2-4e1f-aeb3-57854a330663": {
+          "type": "image",
+          "settings": {
+            "product_image": "shopify:\/\/shop_images\/1696KC01_28e4d68b-5c41-4f17-8b6d-9a33b28e6899.jpg",
+            "product_link": "shopify:\/\/products\/titan-quartz-analog-black-dial-ceramic-strap-watch-for-men-1696kc01"
+          }
+        },
+        "ae1346f5-73c4-40d3-9180-29a4369681b9": {
+          "type": "image",
+          "settings": {
+            "product_image": "shopify:\/\/shop_images\/1696QC02_117cf47e-c472-408c-86dd-77a40f57aa94.jpg",
+            "product_link": "shopify:\/\/products\/titan-edge-ceramic-silver-dial-analog-ceramic-strap-watch-for-men-1696qc02"
+          }
+        },
+        "29e44447-24a0-49f4-b00c-376fc468b7c0": {
+          "type": "image",
+          "settings": {
+            "product_image": "shopify:\/\/shop_images\/1878KD03_1_e57b343f-c64e-46d9-918c-0d03955682d5.jpg",
+            "product_link": "shopify:\/\/products\/titan-edge-fusion-quartz-analog-black-dial-black-steel-ceramic-strap-watch-for-men-1878kd03"
+          }
+        }
+      },
+      "block_order": [
+        "066d4cc3-5da8-431b-a04d-f67308e58c7a",
+        "91a31db7-b2ca-478b-a0c7-3766eac8cd95",
+        "1b115826-9bf2-4e1f-aeb3-57854a330663",
+        "ae1346f5-73c4-40d3-9180-29a4369681b9",
+        "29e44447-24a0-49f4-b00c-376fc468b7c0"
+      ],
+      "settings": {
+        "margin_bottom_desktop": 0,
+        "margin_bottom_mobile": 0,
+        "watch_faces_sub_title": "<p>Elevate Every Moment with Exquisite Craftsmanship and Unparalleled Style<\/p>",
+        "watch_faces_title": "<p>Try Premium Watches<\/p>",
+        "watch_faces_bg_color": "#f6f6f6",
+        "view_all_btn_text": "View Collection",
+        "view_all_btn_link": "shopify:\/\/collections\/newly-launched"
+      }
+    },
+    "e2abbc3e-63f6-4f9c-9b49-1ff18fb08c18": {
+      "type": "homepage-video",
+      "settings": {
+        "desktop_margin_top": 0,
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 0,
+        "home_image_desktop": "shopify:\/\/shop_images\/Group_1000003137.png",
+        "mobile_margin_top": 0,
+        "home_image_mobile": "shopify:\/\/shop_images\/31_1_1.png"
+      }
+    },
+    "2edd6193-b1bf-4fba-bfc0-ea2dfc9a7fc9": {
+      "type": "homepage-elegance",
+      "blocks": {
+        "d6965abb-b1ef-402f-b965-9bc7691c060c": {
+          "type": "image",
+          "settings": {
+            "top_title": "Men",
+            "collection_list": "mens-collection",
+            "button_title": "View All Watches",
+            "button_link": "shopify:\/\/collections\/men-watches"
+          }
+        },
+        "9d76c97d-ac74-4471-946c-bcd385903001": {
+          "type": "image",
+          "settings": {
+            "top_title": "Women",
+            "collection_list": "women-collection",
+            "button_title": "View All Watches",
+            "button_link": "shopify:\/\/collections\/women-watches"
+          }
+        },
+        "6db99957-6353-48d4-90cc-3b88242e16ac": {
+          "type": "image",
+          "settings": {
+            "top_title": "Couple",
+            "collection_list": "couple",
+            "button_title": "View All Watches",
+            "button_link": "shopify:\/\/collections\/couple-watches"
+          }
+        }
+      },
+      "block_order": [
+        "d6965abb-b1ef-402f-b965-9bc7691c060c",
+        "9d76c97d-ac74-4471-946c-bcd385903001",
+        "6db99957-6353-48d4-90cc-3b88242e16ac"
+      ],
+      "settings": {
+        "margin_bottom_desktop": 0,
+        "margin_bottom_mobile": 0,
+        "background_color": "#f6f6f6",
+        "top_first_title": "<p>Elevate your surroundings with the <br\/>timeless allure of Titan Clocks<\/p>",
+        "top_second_title": "<p>Tailor Your Style<\/p>"
+      }
+    },
+    "e219c6e3-d14b-4265-9073-eba4f13c82bf": {
+      "type": "homepage-store-locator",
+      "blocks": {
+        "514d8d59-e5bb-410a-9dcb-cca4a9b0aadb": {
+          "type": "Text",
+          "settings": {
+            "store-locator-name": "<p>World Of Titan<\/p>",
+            "store-locator-address": "<p>P.O. Box 3625 <br\/>Sheikh Khalifa Bin Saeed Street, Dubai, UAE<\/p>",
+            "store-locator_time": "<p>Open now - closes at 12 AM<\/p>",
+            "store-locator-mobile": "8695898685",
+            "store-locator-email": "test@gmail.com",
+            "store-locator-map": "jhvbjfsdvb"
+          }
+        },
+        "176bbeb4-f815-45a1-b32a-2339f21546b8": {
+          "type": "Text",
+          "settings": {
+            "store-locator-name": "<p>World Of Titan2<\/p>",
+            "store-locator-address": "<p>P.O. Box 3625 <br\/>Sheikh Khalifa Bin Saeed Street, Dubai, UAE<\/p>",
+            "store-locator_time": "<p>Open now - closes at 12 AM<\/p>",
+            "store-locator-mobile": "",
+            "store-locator-email": "",
+            "store-locator-map": ""
+          }
+        },
+        "simple_store_locator_store_locator_xrnX8D": {
+          "type": "shopify:\/\/apps\/simple-store-locator\/blocks\/store_locator\/271d5575-daa7-4857-a8af-4ecfc578a160",
+          "settings": {
+            "paddingTop": 0,
+            "paddingBottom": 0
+          }
+        }
+      },
+      "block_order": [
+        "514d8d59-e5bb-410a-9dcb-cca4a9b0aadb",
+        "176bbeb4-f815-45a1-b32a-2339f21546b8",
+        "simple_store_locator_store_locator_xrnX8D"
+      ],
+      "settings": {
+        "margin_bottom_desktop": 58,
+        "margin_bottom_mobile": 82,
+        "store-locator_sub_title": "<p>Find Your Nearest Oasis: <br\/>Discover Our Stores Near You<\/p>",
+        "store-locator_title": "<p>Store Locator<\/p>",
+        "store-locator-btn-text": "See all location",
+        "store_locator_link": "shopify:\/\/pages\/store-locator"
       }
     }
   },
   "order": [
-    "e5c9ba37-6a8f-4aab-b88d-d74cf1cabeea",
-    "451768ba-558a-46f8-8f07-3fb30eb32deb",
-    "bfe6cd2b-1256-45c9-8448-e96663707a03",
-    "ea859a94-e175-434c-9150-808b79a056e5",
-    "72f4052f-35ea-45a7-8fe9-645447733226",
-    "1697087009aadaaacf",
-    "96a7a223-41c4-4f2c-bfe1-91cd7d09a867",
-    "b8288058-a547-4fee-bfe1-0f766e5e082c",
-    "84601aa3-45ff-4f93-a11f-81666de3da23",
-    "7bb9a82c-4600-4abd-9fbb-3b6139540d6a"
+    "59b603e6-16c5-4739-9b9a-8d28b558c64b",
+    "405663cd-18f1-4191-91e9-80448e49cfd2",
+    "d4b38109-ec44-476b-8fa2-c46258724acd",
+    "94eb339b-7152-49d5-865b-34001e8b9a8e",
+    "homepage_banner_cPt8K9",
+    "a1d2b2f3-7b31-4096-8707-74090a0361eb",
+    "5d521b04-e291-462a-bd8c-b96a656617f0",
+    "5e3171e1-a653-4acd-bfb7-857c0127b083",
+    "e2abbc3e-63f6-4f9c-9b49-1ff18fb08c18",
+    "2edd6193-b1bf-4fba-bfc0-ea2dfc9a7fc9",
+    "e219c6e3-d14b-4265-9073-eba4f13c82bf"
   ]
 }
