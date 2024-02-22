@@ -1,6 +1,252 @@
-{% schema %}
-  {
-    "name": "Section name",
-    "settings": []
+{{ 'homepage-elegance.css' | asset_url | stylesheet_tag: media: 'screen' }}
+
+{%- style -%}
+  .section-{{ section.id }}-margin {
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
   }
+
+  .homepage-elegance-container{
+    background: {{ section.settings.background_color }};
+  }
+
+  @media screen and (max-width: 750px) {
+    .section-{{ section.id }}-margin {
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+      padding-right: 0;
+    }
+  }
+{%- endstyle -%}
+
+{% if section.blocks.size > 0 %}
+  <section class="homepage-elegance-container section-{{ section.id }}-margin" id="{{ section.id }}">
+    <div class="page-width">
+      <div class="homepage-elegance-top-sub">
+        {% if section.settings.top_first_title != blank %}
+          <h2 class="homepage-elegance-top-first-title">{{ section.settings.top_first_title }}</h2>
+        {% endif %}
+        {% if section.settings.top_second_title != blank %}
+          <h2 class="homepage-elegance-top-second-title">{{ section.settings.top_second_title }}</h2>
+        {% endif %}
+      </div>
+
+      <div class="homepage-elegance">
+        <div class="main-title-tabs">
+          <div class="main-title-tabs-sub">
+            {% for block in section.blocks %}
+              {% if block.settings.top_title != blank %}
+                <h4
+                  class="all-tabs {% if forloop.index == 1 %}color_active_tab{% endif %}"
+                  data-tag-one="{{ block.settings.top_title | downcase }}"
+                >
+                  {{ block.settings.top_title }}
+                </h4>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        {% for block in section.blocks %}
+          {% if block.settings.collection_list != blank %}
+            <div
+              class="swiper mySwiper homepage_elegance shopCategory{{ forloop.index }} {% if forloop.index == 1 %}color_active_swiper{% endif %}"
+              data-tag-two="{{ block.settings.top_title | downcase }}"
+            >
+              <div class="swiper-wrapper">
+                {% for product in collections[block.settings.collection_list].products limit:6 %}
+                  <div
+                    class="swiper-slide"
+                    style="animation-delay: {{ forloop.index0 | divided_by: 10.0 | round: 2 }}s"
+                  >
+                    <div class="collection-image-container">
+                      {% render 'homepage-custom-card-product', card_product: product %}
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+
+              <div class="link-button-container">
+                <div class="link-container">
+                 {% if block.settings.button_link %} <a href="{{ block.settings.button_link }}">
+                    <p>{{ block.settings.button_title }}</p>
+                  </a>{% endif %}
+                </div>
+                <div class="button-container">
+                  <div class="swiper-prev">
+                    <div class="icon-arrow">
+                      {% render 'arrow-icon-prev' %}
+                    </div>
+                  </div>
+                  <div class="swiper-next">
+                    <div class="icon-arrow">
+                      {% render 'arrow-icon-next' %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+<script>
+  window.addEventListener(
+    'DOMContentLoaded',
+    () => {
+    const shopByCollection{{- section.id | remove: "--" | remove: "__" | remove: "-" }} = new Swiper(`#{{ section.id }} .homepage_elegance`, {
+    navigation: {
+      nextEl: '#{{ section.id }} .swiper-next',
+      prevEl: '#{{ section.id }} .swiper-prev',
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 1.3,
+        spaceBetween: 19.29,
+      },
+      749: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 22,
+      },
+      1280: {
+        slidesPerView: 4,
+        spaceBetween: 22,
+      },
+    },
+  });
+  const filterTab = document.querySelectorAll('.all-tabs');
+    filterTab.forEach((item) => {
+      item.addEventListener('click', (e) => {
+        const tabName = item.getAttribute('data-tag-one');
+
+        filterTab.forEach((item) => {
+          item?.classList.remove('color_active_tab');
+        });
+
+        displayCategory(tabName);
+        item?.classList.add('color_active_tab');
+
+        if (!isFullyVisible(item)) {
+                item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+            
+      });
+    });
+
+    function displayCategory(tabName) {
+      const allColorSwipers = document.querySelectorAll('.homepage_elegance');
+      allColorSwipers.forEach((content) => {
+        if (content.getAttribute('data-tag-two') === tabName) {
+          content?.classList.add('color_active_swiper');
+        } else {
+          content?.classList.remove('color_active_swiper');
+        }
+      });
+    }
+
+  function isFullyVisible(element) {
+        var rect = element.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+    
+},
+{ once: true }
+);
+</script>
+
+{% schema %}
+{
+  "name": "Clocks With Elegance",
+  "settings": [
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin Bottom Desktop",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin Bottom Mobile",
+      "default": 36
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "richtext",
+      "id": "top_first_title",
+      "label": "Top First Title"
+    },
+    {
+      "type": "richtext",
+      "id": "top_second_title",
+      "label": "Top Second Title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Collection Slide",
+      "limit": 5,
+      "settings": [
+        {
+          "type": "text",
+          "id": "top_title",
+          "label": "Top Title",
+          "placeholder": "Shop By Category",
+          "default": "Shop By Category"
+        },
+        {
+          "type": "collection",
+          "id": "collection_list",
+          "label": "Collections"
+        },
+        {
+          "type": "text",
+          "id": "button_title",
+          "label": "Button Title",
+          "placeholder": "View All Watches",
+          "default": "View All Watches"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Clocks With Elegance"
+    }
+  ]
+}
 {% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
