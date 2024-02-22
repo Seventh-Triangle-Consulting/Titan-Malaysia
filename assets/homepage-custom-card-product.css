@@ -1,0 +1,229 @@
+.homepage-custom-card-product.card-wrapper {
+  border-radius: 20px;
+  /* border: 1px solid #fff; */
+  background: #fff;
+  /* padding: 20px 21px; */
+  padding-bottom: 15px;
+  margin-top: 7.5px;
+  display: flex;
+  margin-right: 8px;
+}
+.homepage-custom-card-product .price__container .taxes_text, .homepage-custom-card-product .price__container .discount_percentage{ display:none;}
+.homepage-custom-card-product.card-wrapper .card__content{
+  padding: 0 15px;
+}
+.homepage-custom-card-product.card-wrapper .card__media .media, .homepage-custom-card-product.card-wrapper .card__content, .homepage-custom-card-product.card-wrapper  .card__inner {
+      border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+
+}
+.homepage-custom-card-product.card-wrapper .card__badge {
+  display: none;
+}
+.homepage-custom-card-product .card__information .card__heading{
+  height:unset!important;
+}
+.homepage-custom-card-product .card__heading,
+.homepage-custom-card-product .card__heading .short-description-homepage {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #000;
+  font-family: "Poppins-Bold";
+  font-size: clamp(calc(18 * 0.9px), calc(18 * (100vw / var(--viewportDesktop))), calc(18 * 1.1px));
+  font-weight: 600;
+  line-height: 22.5px;
+  letter-spacing: -0.45px;
+  text-decoration: none;
+}
+
+.homepage-custom-card-product .card__heading .short-description-homepage {
+  font-family: "Poppins-Regular";
+  font-size: clamp(calc(14 * 0.9px), calc(14 * (100vw / var(--viewportDesktop))), calc(14 * 1.1px));
+  font-weight: 400;
+  line-height: 22.5px;
+  letter-spacing: -0.35px;
+}
+.homepage-custom-card-product .price__regular .price-item--regular { display:none}
+.homepage-custom-card-product .price__sale {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: baseline;
+  gap: 10px;
+  justify-content: start;
+}
+.homepage-custom-card-product .price__sale .price-item.price-item--last {
+  color: #786566;
+  font-family: 'Poppins-Bold';
+  font-size: clamp(calc(16 * 0.9px), calc(16 * (100vw / var(--viewportDesktop))), calc(16 * 1.1px));
+  font-weight: 700;
+  line-height: 22.5px;
+  letter-spacing: -0.4px;
+}
+.homepage-custom-card-product .price__sale .price-item.price-item--regular {
+  color: #786566;
+  font-family: "Poppins-Regular";
+  font-size: clamp(calc(14 * 0.9px), calc(14 * (100vw / var(--viewportDesktop))), calc(14 * 1.1px));
+  font-weight: 400;
+  line-height: 22.5px;
+  letter-spacing: -0.35px;
+}
+.homepage-custom-card-product .price .percentage-calculations .percent_discount {
+  color: #000;
+  font-family: "Poppins-Medium";
+  font-size: clamp(calc(14 * 0.9px), calc(14 * (100vw / var(--viewportDesktop))), calc(14 * 1.1px));
+  font-weight: 500;
+  line-height: 22.5px;
+  letter-spacing: -0.35px;
+}
+
+.homepage-custom-card-product .product-link {
+  bottom: -10px;
+  position: absolute;
+  border-radius: 0px 0px 26.499px 0px;
+  background: linear-gradient(91deg, #1d1c21 0.66%, #7e6a6a 99.66%);
+  width: 66.6px;
+  height: 32.152px;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  right: -7px;
+}
+.homepage-custom-card-product .card__product-tag-name{
+   color: #000;
+   font-family: 'Poppins-Medium';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22.5px; /* 160.714% */
+    letter-spacing: -0.35px;
+    text-transform: uppercase;
+  display: inline-flex;
+    padding: 4px 17px;
+    justify-content: center;
+    align-items: center; 
+    gap: 10px; 
+    border-radius: 20px;
+    background: rgba(203, 173, 116, 0.27);
+    margin-bottom: 10px;
+}
+
+.homepage-custom-card-product .card__content .card__information{
+  min-height:155px;
+}
+ .homepage-custom-card-product .card-information .price{
+    margin-top:17px;
+       display: flex;
+    flex-direction: column;
+  }
+.homepage-custom-card-product .card__information .short-description-homepage {
+    font-size:14px!important;
+   line-height: 22.5px;
+letter-spacing: -0.35px;
+      display: -webkit-box!important;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+ .homepage-custom-card-product.card-wrapper  .price__container{ margin-top:1.5rem;}
+@media only screen and (min-width: 1791px) and (max-width: 2500px) {
+  .homepage-custom-card-product.card-wrapper  .price.price--on-sale{
+    display: flex;
+    flex-direction: column;
+  }
+  .homepage-custom-card-product.card-wrapper  .price__container{
+    display: flex;
+  }
+
+}
+@media only screen and (min-width: 1530px) {
+  .homepage-custom-card-product.card-wrapper{ min-height: 470px;}
+}
+
+@media only screen and (max-width: 767px) {
+  .homepage-custom-card-product.card-wrapper {
+    /* padding: 20px 16px; */
+    padding-bottom: 0px;
+    margin-top: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .homepage-custom-card-product .product-link {
+    width: 59.107px;
+   height: 28.534px;
+    
+    
+}
+   .homepage-custom-card-product .product-link svg{
+     width: 15px;
+     height: 15px;
+     padding-top:0.2rem;
+   }
+  .homepage-custom-card-product .card-information .price{
+    margin-top:14.8px;
+  }
+  .homepage-custom-card-product .price .percentage-calculations .percent_discount{ 
+    font-size:12px; 
+    line-height: 19.969px;
+    letter-spacing: -0.3px;
+  }
+  .homepage-custom-card-product.card-wrapper .card__badge {
+    display: none;
+  }
+  .homepage-custom-card-product .card__heading  {
+    font-size: clamp(calc(16 * 0.9px), calc(16 * (100vw / 375)), calc(16 * 1.1px));
+    line-height: 22.5px;
+    letter-spacing: -0.45px;
+  }
+  .homepage-custom-card-product .card__information .short-description-homepage {
+    font-size:14px!important;
+   line-height: 22.5px;
+letter-spacing: -0.35px;
+  }
+  .homepage-custom-card-product .price__sale {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 8.87px;
+  }
+  .homepage-custom-card-product .price__sale .price-item.price-item--last {
+    font-size: 14px;
+    line-height: 19.969px;
+    letter-spacing: -0.3px;
+  }
+  .homepage-custom-card-product .price__sale .price-item.price-item--regular {
+    font-size: 12px;
+    line-height: 19.969px;
+    letter-spacing: -0.3px;
+  }
+   .homepage-custom-card-product  .card__product-tag-name{
+    font-size: 12px;
+   line-height: 19.969px;
+   border-radius: 17.75px;
+   background: rgba(203, 173, 116, 0.27);
+    margin-bottom: 8.87px;
+}
+  .homepage-custom-card-product.card-wrapper .card__media .media, .homepage-custom-card-product.card-wrapper .card__content, .homepage-custom-card-product.card-wrapper  .card__inner {
+      border-top-left-radius: 17.75px;
+    border-top-right-radius: 17.75px;
+
+}
+}
+@media only screen and (min-width: 300px) and (max-width: 400px) {
+  
+  .homepage-custom-card-product .price__sale{
+    gap: 8.87px !important;
+  }
+  .homepage-custom-card-product .price__sale .price-item.price-item--regular{
+    font-size: 12px !important;
+  }
+  .homepage-custom-card-product .price__sale .price-item.price-item--last{
+    font-size: 14px !important;
+  }
+}
