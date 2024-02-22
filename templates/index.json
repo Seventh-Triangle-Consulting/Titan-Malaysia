@@ -83,7 +83,7 @@
           "type": "image",
           "settings": {
             "top_title": "Men",
-            "collection_list": "newly-launched",
+            "collection_list": "mens-watch",
             "button_title": "View All Watches",
             "button_link": ""
           }
@@ -92,7 +92,7 @@
           "type": "image",
           "settings": {
             "top_title": "Women",
-            "collection_list": "newly-launched-women",
+            "collection_list": "female",
             "button_title": "View All Watches",
             "button_link": ""
           }
