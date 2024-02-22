@@ -1,0 +1,255 @@
+{{ 'homepage-try-new-watch-faces.css' | asset_url | stylesheet_tag: media: 'screen' }}
+
+{%- style -%}
+  .section-{{ section.id }}-margin {
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+  }
+
+  @media screen and (max-width: 750px) {
+    .section-{{ section.id }}-margin {
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+      padding-right: 0;
+    }
+  }
+{%- endstyle -%}
+
+{% if section.blocks.size > 0 %}
+  <section class="homepage-watch_faces-container section-{{ section.id }}-margin" id="{{ section.id }}" style="background:{{ section.settings.watch_faces_bg_color }};">
+    <div class="page-width">
+      <div class="watch_faces-collection-title-Btn">
+        <div class="homepage-watch_faces-top-sub">
+          {% if section.settings.watch_faces_sub_title != blank %}
+            <h3 class="homepage-watch_faces-top-first-title">{{ section.settings.watch_faces_sub_title }}</h3>
+          {% endif %}
+          {% if section.settings.watch_faces_title != blank %}
+            <h2 class="homepage-watch_faces-top-second-title">{{ section.settings.watch_faces_title }}</h2>
+          {% endif %}
+        </div>
+        {% if section.blocks.size > 3 %}
+          <div class="watch_faces-button-container">
+            <div class="swiper-prev">
+              <div class="icon-arrow">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="14" viewBox="0 0 18 14" fill="none">
+                  <path d="M6.22353 2.91699L2.33464 7.00033M2.33464 7.00033L6.22353 11.0837M2.33464 7.00033H16.918" stroke="#584536" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+
+            <div class="swiper-next">
+              <div class="icon-arrow">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="14" viewBox="0 0 18 14" fill="none">
+                  <path d="M11.7765 2.91675L15.6654 7.00008M15.6654 7.00008L11.7765 11.0834M15.6654 7.00008H1.08203" stroke="#584536" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="homepage-watch_faces">
+        <div
+          class="swiper mySwiper homepagewatch_faces22"
+        >
+          <div class="swiper-wrapper">
+            {% for block in section.blocks %}
+              {% if block.settings.product_image != blank and block.settings.product_link != blank %}
+                
+                   <div
+                  class="swiper-slide"
+                >
+                      <a href="{{ block.settings.product_link }}" aria-label="Explore the latest Titan Watch">
+                  <div class="image-link-container">
+                    {{
+                      block.settings.product_image
+                      | image_url: width: 600
+                      | image_tag: class: 'collectionImage', loading: 'lazy'
+                    }}
+                  </div>
+                
+                    <div class="try-watch-link">
+                      <svg width="67" height="33" viewBox="0 0 67 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0 0H66.6C66.6 5.25214 66.6 7.87821 66.2289 10.0722C64.3485 21.19 55.6383 29.9002 44.5205 31.7806C42.3265 32.1517 39.7004 32.1517 34.4483 32.1517H0V0Z" fill="url(#paint{{ forloop.index0 }}_linear_995_1727)"/>
+                      <path d="M37.6395 10.7686L42.1051 15.4574M42.1051 15.4574L37.6395 20.1462M42.1051 15.4574H25.3594" stroke="white" stroke-width="2.29655" stroke-linecap="round" stroke-linejoin="round"/>
+                      <defs>
+                      <linearGradient id="paint{{ forloop.index0 }}_linear_995_1727" x1="1.1234e-07" y1="15.8724" x2="66.7762" y2="17.7519" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#1D1C21"/>
+                      <stop offset="1" stop-color="#7E6A6A"/>
+                      </linearGradient>
+                      </defs>
+                      </svg>
+
+                    </div>
+                      </a>
+                </div>
+                         
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+       {% if section.settings.view_all_btn_link != blank %}
+          <div class="try-new-faces-view-all-button">
+            <a href="{{ section.settings.view_all_btn_link }}">{{ section.settings.view_all_btn_text }}</a>
+          </div>
+        {% endif %}
+    </div>
+  </section>
+{% endif %}
+
+<script>
+  window.addEventListener(
+    'DOMContentLoaded',
+    () => {
+      let watch_facesCollection11 = new Swiper(`#{{section.id}} .homepagewatch_faces22`, {
+    
+          navigation: {
+          nextEl: '#{{ section.id }} .swiper-next',
+          prevEl: '#{{ section.id }} .swiper-prev',
+        },
+        breakpoints: {
+          0: {
+            slidesPerView: 1.2734,
+            spaceBetween: 21,
+          },
+         650: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+          1024: {
+            slidesPerView: 5,
+            spaceBetween: 14.65,
+          },
+           1535: {
+            slidesPerView: 5,
+            spaceBetween: 30,
+          },
+          
+        },
+     
+         on: {
+        slideChangeTransitionEnd: function () {
+      
+          document.querySelectorAll('.homepage-watch_faces-container  .swiper-slide').forEach(function (slide) {
+            slide.style.transform = 'scale(1)';
+          });
+         
+          watch_facesCollection11.update(); 
+    
+        },
+       },
+       
+    
+      
+      });
+      
+      if(window.screen.width > 767){
+          document.querySelectorAll('.homepage-watch_faces-container  .swiper-slide').forEach(function (slide, index) {
+                slide.addEventListener('mouseover', function () {
+                  
+                  slide.style.transform = 'scale(1.1)';
+                   slide.style.borderRadius = '19.473pxpx';
+                  watch_facesCollection11.update(); 
+             });
+      
+            slide.addEventListener('mouseout', function () {
+             
+              document.querySelectorAll('.homepage-watch_faces-container  .swiper-slide').forEach(function (resetSlide) {
+                resetSlide.style.transform = 'scale(1)';
+              });
+           
+              watch_facesCollection11.update(); 
+            });
+          });
+      }
+  
+    },
+    { once: true }
+  );
+</script>
+
+{% schema %}
+{
+  "name": "Try New Watch Faces",
+  "settings": [
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin Bottom Desktop",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin Bottom Mobile",
+      "default": 36
+    },
+    {
+      "type": "richtext",
+      "id": "watch_faces_sub_title",
+      "label": "Sub Title"
+    },
+    {
+      "type": "richtext",
+      "id": "watch_faces_title",
+      "label": "Title"
+    },
+    {
+      "type": "color",
+      "id": "watch_faces_bg_color",
+      "label": "Background Color",
+      "default": "#F6F6F6"
+    },
+    {
+      "type": "text",
+      "id": "view_all_btn_text",
+      "label": "View All Btn Text"
+    },
+    {
+      "type": "url",
+      "id": "view_all_btn_link",
+      "label": "View All Button link"
+    }
+
+
+
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image Slide",
+      "settings": [
+         {
+          "type": "image_picker",
+          "id": "product_image",
+          "label": "Image"
+        },
+       {
+          "type": "url",
+          "id": "product_link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Try New Watch Faces"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
