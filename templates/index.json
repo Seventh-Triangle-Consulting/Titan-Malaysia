@@ -204,7 +204,9 @@
         "margin_top_desktop": 0,
         "padding_top": 0,
         "padding_bottom": 0,
-        "margin_top_mobile": 0
+        "image_single_des": "shopify:\/\/shop_images\/Untitled_9.png",
+        "margin_top_mobile": 0,
+        "image_single_mob": "shopify:\/\/shop_images\/Untitled-3.png"
       }
     },
     "5e3171e1-a653-4acd-bfb7-857c0127b083": {
