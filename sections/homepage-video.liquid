@@ -1,0 +1,247 @@
+{{ 'homepage-video.css' | asset_url | stylesheet_tag }}
+<style>
+
+  .home_section#{{ section.id }} {
+    margin-top: {{ section.settings.desktop_margin_top }}px;
+    padding-top: {{ section.settings.desktop_padding_top }}px;
+    padding-bottom: {{ section.settings.desktop_padding_bottom }}px;
+  }
+
+  @media only screen and (max-width: 660px){
+    .home_section#{{ section.id }} {
+      margin-top: {{ section.settings.mobile_margin_top }}px;
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+   
+  }
+</style>
+
+<section class="home_section padding_top" id={{ section.id }}>
+  <div class="start_div">
+    
+    <div class="home_media">
+      {% if section.settings.home_image_desktop != blank and section.settings.home_video_desktop != blank %}
+        <div class="video_desktop" >
+          <video
+            id="homevideo"
+            class="home_video"
+            width="{{ section.settings.home_video_desktop.sources[0].width }}"
+            height="{{ section.settings.home_video_desktop.sources[0].height }}"
+            autoplay="autoplay"
+            controlsList="nodownload"
+            muted="muted"
+            loop="loop"
+            playsinline="playsinline"
+            preload="metadata"
+            poster="{{ section.settings.home_video_desktop.preview_image.src | image_url: width: section.settings.home_video_desktop.preview_image.width, format: 'webp' }}"
+          >
+            {% for source in section.settings.home_video_desktop.sources %}
+              {% case source.format %}
+                {% when 'mp4' %}
+                  <source data-src="{{ source.url }}" type="{{ source.mime_type }}">
+              {% endcase %}
+            {% endfor %}
+          </video>
+        </div>
+
+        {% elsif section.settings.home_image_desktop != blank %}
+          <div class="img_desktop">
+            {{ section.settings.home_image_desktop | image_url: width: 1600 | image_tag: loading: 'lazy' }}
+          </div>
+
+          {% elsif section.settings.home_video_desktop != blank %}
+            <div class="video_desktop">
+              <video
+                id="homevideo"
+                class="home_video"
+                width="{{ section.settings.home_video_desktop.sources[0].width }}"
+                height="{{ section.settings.home_video_desktop.sources[0].height }}"
+                autoplay="autoplay"
+                controlsList="nodownload"
+                muted="muted"
+                loop="loop"
+                playsinline="playsinline"
+                preload="metadata"
+                poster="{{ section.settings.home_video_desktop.preview_image.src | image_url: width: section.settings.home_video_desktop.preview_image.width, format: 'webp' }}"
+              >
+                {% for source in section.settings.home_video_desktop.sources %}
+                  {% case source.format %}
+                    {% when 'mp4' %}
+                      <source data-src="{{ source.url }}" type="{{ source.mime_type }}">
+                  {% endcase %}
+                {% endfor %}
+              </video>
+            </div>
+      {% endif %}
+
+      {% if section.settings.home_video_mobile != blank and section.settings.home_image_mobile != blank %}
+        <div class="video_mobile">
+          <video
+            id="homevideo"
+            class="home_video"
+            width="{{ section.settings.home_video_mobile.sources[0].width }}"
+            height="{{ section.settings.home_video_mobile.sources[0].height }}"
+            autoplay="autoplay"
+            controlsList="nodownload"
+            muted="muted"
+            loop="loop"
+            playsinline="playsinline"
+            preload="metadata"
+            poster="{{ section.settings.home_video_mobile.preview_image.src | image_url: width: section.settings.home_video_mobile.preview_image.width, format: 'webp' }}"
+          >
+            {% for source in section.settings.home_video_mobile.sources %}
+              {% case source.format %}
+                {% when 'mp4' %}
+                  <source data-src="{{ source.url }}" type="{{ source.mime_type }}">
+              {% endcase %}
+            {% endfor %}
+          </video>
+        </div>
+        {% elsif section.settings.home_image_mobile != blank %}
+          <div class="img_mobile">
+            {{ section.settings.home_image_mobile | image_url: width: 600 | image_tag: loading: 'lazy' }}
+          </div>
+          {% elsif section.settings.home_video_mobile != blank %}
+            <div class="video_mobile">
+              <video
+                id="homevideo"
+                class="home_video"
+                width="{{ section.settings.home_video_mobile.sources[0].width }}"
+                height="{{ section.settings.home_video_mobile.sources[0].height }}"
+                autoplay="autoplay"
+                controlsList="nodownload"
+                muted="muted"
+                loop="loop"
+                playsinline="playsinline"
+                preload="metadata"
+                poster="{{ section.settings.home_video_mobile.preview_image.src | image_url: width: section.settings.home_video_mobile.preview_image.width, format: 'webp' }}"
+              >
+                {% for source in section.settings.home_video_mobile.sources %}
+                  {% case source.format %}
+                    {% when 'mp4' %}
+                      <source data-src="{{ source.url }}" type="{{ source.mime_type }}">
+                  {% endcase %}
+                {% endfor %}
+              </video>
+
+            </div>
+      {% endif %}
+    </div>
+
+   
+  </div>
+</section>
+
+<script>
+
+  
+  document.addEventListener("DOMContentLoaded", function() {
+    var lazyVideos{{- section.id | remove: "--" | remove: "__" | remove: "-" }} = [].slice.call(document.querySelectorAll(".home_section video.home_video"));
+
+    if ("IntersectionObserver" in window) {
+      var lazyVideoObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(video) {
+          if (video.isIntersecting) {
+            for (var source in video.target.children) {
+              var videoSource = video.target.children[source];
+              if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
+                videoSource.src = videoSource.dataset.src;
+              }
+            }
+
+            video.target.load();
+            video.target.classList.remove("lazy");
+            lazyVideoObserver.unobserve(video.target);
+          }
+        });
+      });
+
+      lazyVideos{{- section.id | remove: "--" | remove: "__" | remove: "-" }}.forEach(function(lazyVideo) {
+        lazyVideoObserver.observe(lazyVideo);
+      });
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Video",
+  "settings": [
+    
+    {
+      "type": "header",
+      "content": "Desktop Devices"
+    },
+    {
+      "type": "range",
+      "id": "desktop_margin_top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Section Spacing",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_top",
+      "min": 0,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "label": "Inner Spacing Top",
+      "default": 5
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_bottom",
+      "min": 0,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "label": "Inner Spacing Bottom",
+      "default": 5
+    },
+    {
+      "type": "image_picker",
+      "id": "home_image_desktop",
+      "label": "Image"
+    },
+    {
+      "type": "video",
+      "id": "home_video_desktop",
+      "label": "Video"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Devices"
+    },
+    {
+      "type": "range",
+      "id": "mobile_margin_top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Section Spacing",
+      "default": 0
+    },
+    {
+      "type": "image_picker",
+      "id": "home_image_mobile",
+      "label": "Image"
+    },
+    {
+      "type": "video",
+      "id": "home_video_mobile",
+      "label": "Video"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video Section"
+    }
+  ]
+}
+{% endschema %}
