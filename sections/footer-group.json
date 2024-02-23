@@ -5,42 +5,66 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "7170ad59-aa1d-430b-953b-2c3cf166419e": {
-          "type": "link_list",
+        "65cfdea9-eb0f-4871-85f9-f83e6deb2edd": {
+          "type": "image",
           "settings": {
-            "heading": "Info",
-            "menu": "footer"
+            "image": "shopify:\/\/shop_images\/Vector_2.png",
+            "image_width": 220,
+            "alignment": "center"
           }
         },
-        "091f35ca-987d-4c4b-9f08-b88020953c23": {
+        "link_list_wkDGVR": {
           "type": "link_list",
           "settings": {
-            "heading": "POLICIES",
-            "menu": "policies"
+            "heading": "About Us",
+            "menu": "about-us"
+          }
+        },
+        "link_list_HLcAUy": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Contact Us",
+            "menu": "contact-us"
+          }
+        },
+        "link_list_LMUAbx": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Policies",
+            "menu": "frequently-asked-questions"
           }
         }
       },
       "block_order": [
-        "7170ad59-aa1d-430b-953b-2c3cf166419e",
-        "091f35ca-987d-4c4b-9f08-b88020953c23"
+        "65cfdea9-eb0f-4871-85f9-f83e6deb2edd",
+        "link_list_wkDGVR",
+        "link_list_HLcAUy",
+        "link_list_LMUAbx"
       ],
       "settings": {
-        "mobile_footer": "",
-        "emailid_footer": "",
-        "contact_us_heading": "Follow Us",
-        "color_scheme": "",
-        "newsletter_enable": true,
+        "need_help_footer": "<p>Need Help? <a href=\"mailto:hello@dragonflyapac.vn\" target=\"_blank\">Click Here<\/a> <\/p>",
+        "whatapp_phone_number_url": "https:\/\/wa.me\/+840708881010",
+        "chat_with_text_footer": "",
+        "color_scheme": "accent-2",
+        "newsletter_enable": false,
         "newsletter_heading": "Join Our Newsletter",
         "newsletter_subheading": "Get the latest news of our new releases, sales, and promo!",
-        "enable_follow_on_shop": false,
+        "enable_follow_on_shop": true,
         "show_social": true,
         "enable_country_selector": false,
         "enable_language_selector": false,
         "payment_enable": false,
+        "menu_search": "",
         "show_policy": false,
+        "footer_bottom_privacy_policy_link": "shopify:\/\/pages\/privacy-policy",
+        "footer_bottom_privacy_policy_text": "",
+        "footer_bottom_terms_cond_link": "shopify:\/\/pages\/terms-conditions",
+        "footer_bottom_terms_cond_text": "",
+        "footer_bottom_wear_privacy_policy_link": "shopify:\/\/pages\/cookie-policy",
+        "footer_bottom_wear_privacy_policy_text": "",
         "margin_top": 0,
-        "padding_top": 16,
-        "padding_bottom": 48
+        "padding_top": 72,
+        "padding_bottom": 36
       }
     }
   },
