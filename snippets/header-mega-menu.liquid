@@ -4,7 +4,6 @@
   Usage:
   {% render 'header-mega-menu' %}
 {% endcomment %}
-
 <nav class="header__inline-menu">
   <ul class="list-menu list-menu--inline" role="list">
     {%- for link in section.settings.menu.links -%}
@@ -28,97 +27,187 @@
               </summary>
               <div
                 id="MegaMenu-Content-{{ forloop.index }}"
-                class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup page-width"
+                class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
                 tabindex="-1"
               >
-                <div class="megamenusubdiv page-width">
-                <div class="leftmegamenu">
-                <ul
-                  class="mega-menu__list page-width{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"
-                  role="list"
-                >
-                   {% comment %} <span
-                  {%- if link.child_active %}
-                    class="header__active-menu-item"
-                  {% endif %}
-                >
-                  {{- link.title | escape -}}
-                </span> {% endcomment %}
-                  {%- for childlink in link.links -%}
-                              {% if childlink.title contains 'img'%}
-                                  {%else%}
-                    <li>
-                      <a
-                        id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
-                        href="{{ childlink.url }}"
-                        class="mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %}"
-                        {% if childlink.current %}
-                          aria-current="page"
-                        {% endif %}
-                      >
-                        {{ childlink.title  }}
-                      </a>
-                     
-                      {%- if childlink.links != blank -%}
-                      
-                        <ul class="list-unstyled custom-ul-elements" role="list">
-                          {% assign group_size = 10 %}
+                <div class="megamenusubdiv">
+                <div class="leftmegamenu {% for block in section.blocks %}{% if block.settings.menu_to_append_to == link.title %} right-menu-present {% endif %}{% endfor %}">
+                          <ul
+                            class="mega-menu__list {% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"
+                            role="list"
+                          >
+                            {%- for childlink in link.links -%}
+                                {% if childlink.title contains 'img'%}
+                                    {% for block in section.blocks %}
+                                      {% if block.settings.menu_to_append_to == link.title %}
+                                        <li class="menu_image">
+                                          <a id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}" href=""
+                                          class="mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %}"
+                                          {% if childlink.current %} aria-current="page" {% endif %}>
+                                            {% if block.settings.menu_image != blank %}
+                                              {{
+                                                  block.settings.menu_image
+                                                  | image_url: width: 500
+                                                  | image_tag: class: 'menu-collection-image', loading: 'lazy'
+                                              }}
+                                            {% endif %}
+                                            {% if block.settings.menu_image_title != blank %}<p class="menu_image_title">{{ block.settings.menu_image_title }}</p>{% endif %}
+                                             {% if block.settings.menu_image_description != blank %}<p class="menu_image_description">{{ block.settings.menu_image_description }}</p>{% endif %}
+                                              <span class="menu-arrow">
+                                                  <svg xmlns="http://www.w3.org/2000/svg" width="21" height="17" viewBox="0 0 21 17" fill="none">
+                                                    <path d="M13.6395 1.76855L18.1051 6.45735M18.1051 6.45735L13.6395 11.1461M18.1051 6.45735H1.35938" stroke="white" stroke-width="2.29655" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                  </svg>
+                                                </span>
+                                          </a>
+                                        </li>
+                                      {% endif %}
+                                    {% endfor %}
+                                {%else%}
+                                    <li>
+                                      <a
+                                        id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+                                        href="{{ childlink.url }}"
+                                        class="mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %}"
+                                        {% if childlink.current %}
+                                          aria-current="page"
+                                        {% endif %}
+                                      >
+                                        {{ childlink.title  }}
+                                      </a>
+                              
+                                {%- if childlink.links != blank -%}
+                                
+                                        <ul class="list-unstyled custom-ul-list" role="list">
+                                         {% assign group_size = 20 %}
           
-                          {%- for grandchildlink in childlink.links -%}
-                            {% assign remain = forloop.index0 | modulo: group_size %}
-                            {% assign remain1 = forloop.index0 | modulo: group_size %}
-                            {% assign newsize = group_size | minus: 1 %}
-                            {% if forloop.index0 == 0 or remain == 0 %}
-                              <div class="custom-header-div" role="list">
+                                        {%- for grandchildlink in childlink.links -%}
+                                          {% assign remain = forloop.index0 | modulo: group_size %}
+                                          {% assign remain1 = forloop.index0 | modulo: group_size %}
+                                          {% assign newsize = group_size | minus: 1 %}
+                                          {% if forloop.index0 == 0 or remain == 0 %}
+                                            <div class="custom-header-div" role="list">
+                                          {% endif %}
+                                            <li>
+                                              <a
+                                                id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+                                                href="{{ grandchildlink.url }}"
+                                                class="mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %}"
+                                                {% if grandchildlink.current %}
+                                                  aria-current="page"
+                                                {% endif %}
+                                              >
+                                                {{ grandchildlink.title  }}
+                                              </a>
+                                            </li>
+                                             
+                                         {% if remain == newsize or forloop.last %}
+                                            </div>
+                                          {% endif %}
+                                          {%- endfor -%}
+                                        </ul>
+                                {%- endif -%}
+                              </li>
                             {% endif %}
-                            <li>
-                              <a
-                                id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
-                                href="{{ grandchildlink.url }}"
-                                class="mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %}"
-                                {% if grandchildlink.current %}
-                                  aria-current="page"
-                                {% endif %}
-                              >
-                                {{ grandchildlink.title  }}
+                            {%- endfor -%}
+                          </ul>
+
+
+               {% for block in section.blocks %}
+                    {% if block.settings.menu_to_append_to == link.title %}
+                      {% if block.settings.left_side_bottom_image != blank %}
+                      <div class="left-side-bottom-image">
+                              <a href="{{ block.settings.left_side_bottom_image_link }}">
+                                  {{
+                                      block.settings.left_side_bottom_image
+                                      | image_url: width: 500
+                                      | image_tag: class: 'product-image', loading: 'lazy'
+                                  }}
                               </a>
-                            </li>
-                        
-                       {% if remain == newsize or forloop.last %}
-                  </div>
+                      </div>
+                      {% endif %}
                 {% endif %}
-                      {%- endfor -%}    
-                        </ul>
-                      {%- endif -%}
-                    </li>
-                   {% endif %}
-                  {%- endfor -%}
-                </ul>
+              {% endfor %}
                 </div>
-                <div class="rightmenuimages">
-          {%- for childlink in link.links -%}
-                                      {% if childlink.title contains 'img'%}
-                                         <li>
-                      <a
-                        id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
-                        href="{{ childlink.url }}"
-                        class="mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %}"
-                        {% if childlink.current %}
-                          aria-current="page"
+               
+                <div class="rightmenuimages {% for block in section.blocks %}{% if block.settings.menu_to_append_to == link.title %} right-menu-present-div {% endif %}{% endfor %}">
+                    <div class="rightmenuimages-main">
+                       {% for block in section.blocks %}
+                          {% if block.settings.menu_to_append_to == link.title %}
+                            <div>
+                              {% if block.settings.right_side_title != blank %}
+                                  <p class=""> {{ block.settings.right_side_title }}</p>
+                              {% endif %}
+                            <div class="right_side_images_div">
+                              {% if block.settings.image_right_side_1 != blank %}
+                                <div>
+                                    <a href="{{ block.settings.image_right_side_1_link }}">
+                                      {{
+                                          block.settings.image_right_side_1
+                                          | image_url: width: 500
+                                          | image_tag: class: 'product-image', loading: 'lazy'
+                                        }}
+                                    </a>
+                                </div>
+                              {% endif %}
+                              {% if block.settings.image_right_side_2 != blank %}
+                                  <div>
+                                      <a href="{{ block.settings.image_right_side_2_link }}">
+                                        {{
+                                            block.settings.image_right_side_2
+                                            | image_url: width: 500
+                                            | image_tag: class: 'product-image', loading: 'lazy'
+                                          }}
+                                      </a>
+                                  </div>
+                               {% endif %}
+                               {% if block.settings.image_right_side_3 != blank %}
+                                  <div>
+                                      <a href="{{ block.settings.image_right_side_3_link }}">
+                                        {{
+                                            block.settings.image_right_side_3
+                                            | image_url: width: 500
+                                            | image_tag: class: 'product-image', loading: 'lazy'
+                                          }}
+                                      </a>
+                                  </div>
+                                {% endif %}
+                            </div>
+                          </div>
+
+                        {% if block.settings.right_side_collection_title != blank %}
+                          <div class="righimage-bottom-div">
+                               <p class="right_side_collection_heading">{{ block.settings.right_side_collection_title }}</p>
+
+                            {% if section.blocks != blank %}
+                             <div class="swiper collection-slider-header">
+                                <div class="swiper-wrapper">
+                                    {% for collection in block.settings.featured_collection_list %}
+                                        {% if collection.metafields.custom.megamenu_featured_collection_image.value != blank %}
+                                        <div class="swiper-slide">
+                                          <a href="{{ collection.url }}">
+                                          {{
+                                            collection.metafields.custom.megamenu_featured_collection_image.value
+                                            | image_url: width: 500
+                                            | image_tag: class: 'product-image', loading: 'lazy'
+                                          }}
+                                            </a>
+                                        </div>
+                                      {% endif %}
+                                    {% endfor %}
+                                </div>
+                             </div>
                         {% endif %}
-                      >
-                        {{ childlink.title  }}
-                      </a>
-                                         </li>
-{% endif %}
-            {% endfor %}
+                            </div>
+                          {% endif %}
+                          {% endif %}
+                       {% endfor %}
+                    </div>
                 </div>
                 </div>
               </div>
             </details>
           </header-menu>
         {%- else -%}
-          
           <a
             id="HeaderMenu-{{ link.handle }}"
             href="{{ link.url }}"
@@ -135,7 +224,6 @@
               {{- link.title | escape -}}
             </span>
           </a>
-            
         {%- endif -%}
       </li>
     {%- endfor -%}
@@ -143,11 +231,20 @@
 </nav>
 
 <script>
-       function bigImg(x) {
-  x.setAttribute("open","");
-}
-function normalImg(x) {
- x.removeAttribute("open","");
-}
-  
+    function bigImg(x) {
+      x.setAttribute("open","");
+    }
+    function normalImg(x) {
+      x.removeAttribute("open","");
+    }
+    window.addEventListener('DOMContentLoaded',() => {
+      var collection_swiper_men = new Swiper('.collection-slider-header', {
+        slidesPerView: 3,
+        spaceBetween: 10,
+        lazy: true,
+        loop: true,
+      });
+    },
+    { once: true }
+  );
 </script>

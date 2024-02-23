@@ -1,30 +1,68 @@
 {% comment %}
   Renders a header drawer menu for mobile and desktop.
-
-  Usage:
+Usage:
   {% render 'header-drawer' %}
 {% endcomment %}
-
+<style>
+  .custom-overflow-hidden{overflow:hidden!important;}
+</style>
+{% for block in section.blocks %}
+  {% if block.settings.menu_mobile != blank %}
+    {% assign mobileMenu = block.settings.menu_mobile %}
+  {% endif %}
+{% endfor %}
 <header-drawer data-breakpoint="{% if section.settings.menu_type_desktop == 'drawer' %}desktop{% else %}tablet{% endif %}">
-  <details id="Details-menu-drawer-container" class="menu-drawer-container">
+  <details id="Details-menu-drawer-container" class="menu-drawer-container " >
     <summary
       class="header__icon header__icon--menu header__icon--summary link focus-inset"
-      aria-label="{{ 'sections.header.menu' | t }}" 
-     
+      aria-label="{{ 'sections.header.menu' | t }}"
     >
-      <span>
+      <span onclick="hideheaderIcon()">
         {% render 'icon-hamburger' %}
-       {% render 'icon-close' %}
+        {% render 'icon-close' %}
       </span>
     </summary>
     <div id="menu-drawer" class="gradient menu-drawer motion-reduce color-{{ section.settings.menu_color_scheme }}">
       <div class="menu-drawer__inner-container">
         <div class="menu-drawer__navigation-container">
-           
-          <nav class="menu-drawer__navigation">
-            
+
+        {% if section.settings.new_arrival_collection_slider_url != blank %}
+          <div class="new-arrival-drawer">
+            {% if section.settings.new_arrival_collection_slider_heading != blank %}
+               <p>{{ section.settings.new_arrival_collection_slider_heading }}</p>
+            {% endif %}
+              {% if section.settings.new_arrival_collection_slider_url != blank %}
+               <div class="swiper new_arrival_collection_slider">
+                  {% assign sliderImageURL = section.settings.new_arrival_collection_slider_images | split: ',' %}
+                  {% assign sliderURL = section.settings.new_arrival_collection_slider_url | split: ',' %}
+                  {% assign length = sliderURL.size | minus:1 %}
+                      <div class="swiper-wrapper">
+                          {% for i in (0..length) %}
+                            <div class="swiper-slide">
+                                 <a href="{{ sliderURL[i] }}">
+                                    <div class="collection-card">
+                                       {% assign imageName = sliderImageURL[forloop.index0] | split: '/' | last %}
+                                          {% assign meta_image = imageName | split: '?' | first %}
+                                          {% assign imgObject = images[meta_image] %}
+                                              {{
+                                                  imgObject
+                                                  | image_url: width: 768
+                                                  | image_tag: class: 'img-fluid portrait-slider-img', loading: 'lazy'}}
+                                      </div>
+                                  </a>
+                            </div>
+                          {% endfor %}
+                      </div>
+                       <div class="swiper-pagination"></div>
+                  </div>
+                {% endif %}
+          </div>
+        {% endif %}
+
+
+          <nav class="menu-drawer__navigation ">
             <ul class="menu-drawer__menu has-submenu list-menu" role="list">
-              {%- for link in section.settings.menu.links -%}
+              {%- for link in mobileMenu.links -%}
                 <li>
                   {%- if link.links != blank -%}
                     <details id="Details-menu-drawer-menu-item-{{ forloop.index }}">
@@ -32,21 +70,22 @@
                         id="HeaderDrawer-{{ link.handle }}"
                         class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.child_active %} menu-drawer__menu-item--active{% endif %}"
                       >
-                        <a href="{{ link.url }}" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">{{ link.title | escape }}</a>
-                       
-                       <div class="arrowIcon"> {% render 'icon-caret' %}</div>
+                        {{ link.title | split: "##" | last }}
+                        
+                        {% render 'icon-arrow' %}
                       </summary>
                       <div
                         id="link-{{ link.handle | escape }}"
-                        class=""
+                        class="menu-drawer__submenu has-submenu gradient motion-reduce"
                         tabindex="-1"
                       >
-                        <div class="menu-drawer__inner-submenu ">
-                         
+                        <div class="menu-drawer__inner-submenu">
+                          <button class="menu-drawer__close-button link link--text focus-inset" aria-expanded="true">
+                            {% render 'icon-arrow' %}
+                            {{ link.title  | split: "##" | first }}
+                          </button>
                           <ul class="menu-drawer__menu list-menu" role="list" tabindex="-1">
                             {%- for childlink in link.links -%}
-                              {% if childlink.title contains 'img'%}
-                                  {%else%}
                               <li>
                                 {%- if childlink.links == blank -%}
                                   <a
@@ -57,7 +96,7 @@
                                       aria-current="page"
                                     {% endif %}
                                   >
-                                    {{ childlink.title | escape }}
+                                    {{ childlink.title | split: "##" | last }}
                                   </a>
                                 {%- else -%}
                                   <details id="Details-menu-drawer-{{ link.handle }}-{{ childlink.handle }}">
@@ -65,11 +104,9 @@
                                       id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}"
                                       class="menu-drawer__menu-item link link--text list-menu__item focus-inset"
                                     >
-                                      {{ childlink.title  }}
-                                      
-                                      <svg viewBox="0 0 14 10" fill="none" aria-hidden="true" focusable="false" class="icon icon-arrow" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z" fill="currentColor">
-                                      </path></svg>
+                                      {{ childlink.title | split: "##" | last }}
+                                      {% render 'icon-arrow' %}
+                                      {% render 'icon-caret' %}
                                     </summary>
                                     <div
                                       id="childlink-{{ childlink.handle | escape }}"
@@ -80,10 +117,10 @@
                                         aria-expanded="true"
                                       >
                                         {% render 'icon-arrow' %}
-                                        {{ childlink.title | escape }}
+                                        {{ childlink.title | split: "##" | first }}
                                       </button>
                                       <ul
-                                        class="menu-drawer__menu list-menu"
+                                        class="menu-drawer__menu list-menu grandchild-submenu grandchild-collection-submenu "
                                         role="list"
                                         tabindex="-1"
                                       >
@@ -97,18 +134,200 @@
                                                 aria-current="page"
                                               {% endif %}
                                             >
-                                              {{ grandchildlink.title | escape }}
+                                              {{ grandchildlink.title | split: "##" | last  }}
                                             </a>
+
+                                          
+                                
+                                       
+                                            {% for block in section.blocks %}
+                                                {% if childlink.title contains block.settings.menu_featured_add_to %}
+                                                    {% assign menuLink = link.title | split: "##" | first %}
+                                                    {% assign menuchildLink = childlink.title | split: "##" | first %}
+                                                    {% assign titleLink = block.settings.mobile_menu_to_append_to %}
+                                                    {% assign titleChildLink = block.settings.menu_featured_add_to %} 
+                                                    {% assign grandChildTitle =  grandchildlink.title | split: " " | first %}
+                                                {% if menuLink contains titleLink %}
+                                                      {% if menuchildLink contains titleChildLink %}
+                                                          <style>
+                                                             .grandchild-collection-submenu{grid-template-columns:1fr;}
+                                                          </style>
+                                                          {% if block.settings.featured_collection_list_mobile != blank %}
+                                                             <ul class="featured-collection-mobile-header">
+                                                                  {% if grandchildlink.title contains 'Top' or grandchildlink.title contains 'TOP' or grandchildlink.title contains 'đầu' %}
+                                                                    {% for collection in block.settings.featured_collection_list_mobile %}
+                                                                        <li class="featured-collection top">
+                                                                          <a href="{{ collection.url }}">
+                                                                            {% if collection.metafields.custom.mobile_top_collection_image.value != blank %}
+                                                                                {{
+                                                                                  collection.metafields.custom.mobile_top_collection_image.value
+                                                                                  | image_url: width: 1000
+                                                                                  | image_tag: class: 'product-image', loading: 'lazy'
+                                                                                }}
+                                                                            {% endif %}
+                                                                            </a>
+                                                                        </li>
+                                                                    {% endfor %}
+                                                                  {% else %}
+                                                                       {% for collection in block.settings.explore_our_collection_list_mobile %}
+                                                                        <li class="featured-collectio">
+                                                                          <a href="{{ collection.url }}">
+                                                                            {% if collection.metafields.custom.mobile_our_collection_images.value != blank %}
+                                                                                {{
+                                                                                  collection.metafields.custom.mobile_our_collection_images.value
+                                                                                  | image_url: width: 1000
+                                                                                  | image_tag: class: 'product-image', loading: 'lazy'
+                                                                                }}
+                                                                            {% endif %}
+                                                                            </a>
+                                                                        </li>
+                                                                     {% endfor %}
+                                                                  {% endif %}
+                                                            </ul>
+                                                          {% endif %}
+                                                      {% endif %}
+                                                {% endif %}
+                                                   {% endif %}
+                                              {% endfor %}
+                                       
                                           </li>
                                         {%- endfor -%}
                                       </ul>
+                                      {% for block in section.blocks %}
+                                      {% assign menuLink = link.title | split: "##" | first %}
+                                      {% assign menuchildLink = childlink.title | split: "##" | first %}
+                                      {% assign titleLink = block.settings.mobile_menu_to_append_to %}
+                                      {% assign titleChildLink = block.settings.menu_featured_add_to %}
+                              {% if menuLink contains titleLink %}
+                                       {% if menuchildLink contains titleChildLink %}
+                                       <div class="featured_collection_drawer">
+                                         {% if block.settings.featured_collection_slider_text != blank %}
+                                            <p>{{ block.settings.featured_collection_slider_text }}</p> 
+                                          {% endif %}
+                                           {% if block.settings.featured_collection_slider_url != blank %}
+                                                <div class="swiper featured_collection_slider">
+                                                    {% assign sliderImageURL = block.settings.featured_collection_slider_images | split: ',' %}
+                                                    {% assign sliderURL = block.settings.featured_collection_slider_url | split: ',' %}
+                                                    {% assign length = sliderURL.size | minus:1 %}
+                                                        <div class="swiper-wrapper">
+                                                            {% for i in (0..length) %}
+                                                              <div class="swiper-slide">
+                                                                  <a href="{{ sliderURL[i] }}">
+                                                                      <div class="collection-card">
+                                                                        {% assign imageName = sliderImageURL[forloop.index0] | split: '/' | last %}
+                                                                            {% assign meta_image = imageName | split: '?' | first %}
+                                                                            {% assign imgObject = images[meta_image] %}
+                                                                                {{
+                                                                                    imgObject
+                                                                                    | image_url: width: 768
+                                                                                    | image_tag: class: 'img-fluid portrait-slider-img', loading: 'lazy'}}
+                                                                        </div>
+                                                                    </a>
+                                                              </div>
+                                                            {% endfor %}
+                                                        </div>
+                                                        <div class="swiper-pagination"></div>
+                                                    </div>
+                                              {% endif %}
+                                       </div>
+                                       {% endif %}
+                              {% endif %}
+                                      {% endfor %}
+                                 
+                                   <div class="menu-drawer__utility-links">
+          {% if section.settings.store_locator_link != blank %}
+            <a class="menu-drawer__account" href="{{ section.settings.store_locator_link }}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32" fill="none">
+                <path d="M8 2.66669L4 8.00002V26.6667C4 27.3739 4.28095 28.0522 4.78105 28.5523C5.28115 29.0524 5.95942 29.3334 6.66667 29.3334H25.3333C26.0406 29.3334 26.7189 29.0524 27.219 28.5523C27.719 28.0522 28 27.3739 28 26.6667V8.00002L24 2.66669H8Z" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M4 8H28" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M21.3346 13.3333C21.3346 14.7478 20.7727 16.1044 19.7725 17.1045C18.7723 18.1047 17.4158 18.6666 16.0013 18.6666C14.5868 18.6666 13.2303 18.1047 12.2301 17.1045C11.2299 16.1044 10.668 14.7478 10.668 13.3333" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                {{ section.settings.store_locator_text }}
+            </a>
+          {% endif %}
+
+            {%- if shop.customer_accounts_enabled -%}
+              <a
+                href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
+                class="menu-drawer__account link focus-inset h5 large-up-hide"
+              >
+                {% render 'icon-account' %}
+                {%- liquid
+                  if customer
+                    echo 'customer.account_fallback' | t
+                  else
+                    echo 'customer.log_in' | t
+                  endif
+                -%}
+              </a>
+            {%- endif -%}
+          
+          
+          </div>
+
+
                                     </div>
                                   </details>
                                 {%- endif -%}
                               </li>
-                                {% endif %}
                             {%- endfor -%}
                           </ul>
+                            <div class="submenu_our_brands">
+                              {% if section.settings.our_brand_collection_slider_heading != blank %}
+                                 <p>{{ section.settings.our_brand_collection_slider_heading }}</p>
+                              {% endif %}
+                               {% if section.settings.our_brand_collection_slider_url != blank %}
+                                  <div class="swiper our_brand_collection_slider">
+                                      {% assign sliderImageURL = section.settings.our_brand_collection_slider_images | split: ',' %}
+                                      {% assign sliderURL = section.settings.our_brand_collection_slider_url | split: ',' %}
+                                      {% assign length = sliderURL.size | minus:1 %}
+                                          <div class="swiper-wrapper">
+                                              {% for i in (0..length) %}
+                                                <div class="swiper-slide">
+                                                    <a href="{{ sliderURL[i] }}">
+                                                        <div class="collection-card">
+                                                          {% assign imageName = sliderImageURL[forloop.index0] | split: '/' | last %}
+                                                              {% assign meta_image = imageName | split: '?' | first %}
+                                                              {% assign imgObject = images[meta_image] %}
+                                                                  {{
+                                                                      imgObject
+                                                                      | image_url: width: 768
+                                                                      | image_tag: class: 'img-fluid portrait-slider-img', loading: 'lazy'}}
+                                                          </div>
+                                                      </a>
+                                                </div>
+                                              {% endfor %}
+                                          </div>
+                                      </div>
+                                 {% endif %}
+                            </div>
+
+                             <div class="menu-drawer__utility-links">
+                                <a class="menu-drawer__account" href="{{ section.settings.store_locator_link }}">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                    <path d="M8 2.66669L4 8.00002V26.6667C4 27.3739 4.28095 28.0522 4.78105 28.5523C5.28115 29.0524 5.95942 29.3334 6.66667 29.3334H25.3333C26.0406 29.3334 26.7189 29.0524 27.219 28.5523C27.719 28.0522 28 27.3739 28 26.6667V8.00002L24 2.66669H8Z" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M4 8H28" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M21.3346 13.3333C21.3346 14.7478 20.7727 16.1044 19.7725 17.1045C18.7723 18.1047 17.4158 18.6666 16.0013 18.6666C14.5868 18.6666 13.2303 18.1047 12.2301 17.1045C11.2299 16.1044 10.668 14.7478 10.668 13.3333" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    {{ section.settings.store_locator_text }}
+                                </a>
+
+                              {%- if shop.customer_accounts_enabled -%}
+                                <a
+                                  href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
+                                  class="menu-drawer__account link focus-inset h5 large-up-hide"
+                                >
+                                  {% render 'icon-account' %}
+                                  {%- liquid
+                                    if customer
+                                      echo 'customer.account_fallback' | t
+                                    else
+                                      echo 'customer.log_in' | t
+                                    endif
+                                  -%}
+                                </a>
+                              {%- endif -%}
+                            </div>
                         </div>
                       </div>
                     </details>
@@ -121,20 +340,47 @@
                         aria-current="page"
                       {% endif %}
                     >
-                      {{ link.title | escape }}
+                      {{ link.title | split: "##" | last }}
                     </a>
                   {%- endif -%}
                 </li>
               {%- endfor -%}
             </ul>
           </nav>
-   
+
+       {% if section.settings.skinn_frenance_url != blank %}
+         <div class="skin-fregnance">
+            {% if section.settings.skinn_fregnance_mobile_title != blank %}
+              <p class="skin_fregnance_heading">{{ section.settings.skinn_fregnance_mobile_title }}</p>
+            {% endif %}
+            {% if section.settings.skinn_fregnance_mobile_image != blank %}
+              <a href="{{ section.settings.skinn_frenance_url }}">
+                <div>
+                  {{
+                      section.settings.skinn_fregnance_mobile_image
+                        | image_url: width:900
+                        | image_tag: class: 'menu-collection-image', loading: 'lazy'
+                  }}
+                </div>
+              </a>
+            {% endif %}
+         </div>
+        {% endif %}
+
           <div class="menu-drawer__utility-links">
-            {% comment %}
+            <a class="menu-drawer__account" href="{{ section.settings.store_locator_link }}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path d="M8 2.66669L4 8.00002V26.6667C4 27.3739 4.28095 28.0522 4.78105 28.5523C5.28115 29.0524 5.95942 29.3334 6.66667 29.3334H25.3333C26.0406 29.3334 26.7189 29.0524 27.219 28.5523C27.719 28.0522 28 27.3739 28 26.6667V8.00002L24 2.66669H8Z" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M4 8H28" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M21.3346 13.3333C21.3346 14.7478 20.7727 16.1044 19.7725 17.1045C18.7723 18.1047 17.4158 18.6666 16.0013 18.6666C14.5868 18.6666 13.2303 18.1047 12.2301 17.1045C11.2299 16.1044 10.668 14.7478 10.668 13.3333" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                {{ section.settings.store_locator_text }}
+            </a>
+
             {%- if shop.customer_accounts_enabled -%}
               <a
                 href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
-                class="menu-drawer__account link focus-inset h5 medium-hide large-up-hide"
+                class="menu-drawer__account link focus-inset h5 large-up-hide"
               >
                 {% render 'icon-account' %}
                 {%- liquid
@@ -146,177 +392,79 @@
                 -%}
               </a>
             {%- endif -%}
-           
-            {%- if localization.available_countries or localization.available_languages -%}
-              <div class="menu-drawer__localization header-localization">
-                {%- if localization.available_countries and localization.available_countries.size > 1 -%}
-                  <noscript>
-                    {%- form 'localization', id: 'HeaderCountryMobileFormNoScriptDrawer', class: 'localization-form' -%}
-                      <div class="localization-form__select">
-                        <h2 class="visually-hidden" id="HeaderCountryMobileLabelNoScriptDrawer">
-                          {{ 'localization.country_label' | t }}
-                        </h2>
-                        <select
-                          class="localization-selector link"
-                          name="country_code"
-                          aria-labelledby="HeaderCountryMobileLabelNoScriptDrawer"
-                        >
-                          {%- for country in localization.available_countries -%}
-                            <option
-                              value="{{ country.iso_code }}"
-                              {%- if country.iso_code == localization.country.iso_code %}
-                                selected
-                              {% endif %}
-                            >
-                              {{ country.name }} ({{ country.currency.iso_code }}
-                              {{ country.currency.symbol }})
-                            </option>
-                          {%- endfor -%}
-                        </select>
-                        {% render 'icon-caret' %}
-                      </div>
-                      <button class="button button--tertiary">{{ 'localization.update_country' | t }}</button>
-                    {%- endform -%}
-                  </noscript>
-
-                  <localization-form class="no-js-hidden">
-                    {%- form 'localization', id: 'HeaderCountryMobileForm', class: 'localization-form' -%}
-                      <div>
-                        <h2 class="visually-hidden" id="HeaderCountryMobileLabel">
-                          {{ 'localization.country_label' | t }}
-                        </h2>
-                        {%- render 'country-localization', localPosition: 'HeaderCountryMobile' -%}
-                      </div>
-                    {%- endform -%}
-                  </localization-form>
-                {% endif %}
-
-                {%- if localization.available_languages and localization.available_languages.size > 1 -%}
-                  <noscript>
-                    {%- form 'localization',
-                      id: 'HeaderLanguageMobileFormNoScriptDrawer',
-                      class: 'localization-form'
-                    -%}
-                      <div class="localization-form__select">
-                        <h2 class="visually-hidden" id="HeaderLanguageMobileLabelNoScriptDrawer">
-                          {{ 'localization.language_label' | t }}
-                        </h2>
-                        <select
-                          class="localization-selector link"
-                          name="locale_code"
-                          aria-labelledby="HeaderLanguageMobileLabelNoScriptDrawer"
-                        >
-                          {%- for language in localization.available_languages -%}
-                            <option
-                              value="{{ language.iso_code }}"
-                              lang="{{ language.iso_code }}"
-                              {%- if language.iso_code == localization.language.iso_code %}
-                                selected
-                              {% endif %}
-                            >
-                              {{ language.endonym_name | capitalize }}
-                            </option>
-                          {%- endfor -%}
-                        </select>
-                        {% render 'icon-caret' %}
-                      </div>
-                      <button class="button button--tertiary">{{ 'localization.update_language' | t }}</button>
-                    {%- endform -%}
-                  </noscript>
-
-                  <localization-form class="no-js-hidden">
-                    {%- form 'localization', id: 'HeaderLanguageMobileForm', class: 'localization-form' -%}
-                      <div>
-                        <h2 class="visually-hidden" id="HeaderLanguageMobileLabel">
-                          {{ 'localization.language_label' | t }}
-                        </h2>
-                        {%- render 'language-localization', localPosition: 'HeaderLanguageMobile' -%}
-                      </div>
-                    {%- endform -%}
-                  </localization-form>
-                {%- endif -%}
-              </div>
-            {%- endif -%}
-            {% endcomment %}
-            <ul class="list list-social list-unstyled" role="list">
-              
-                {%- if settings.social_instagram_link != blank -%}
-                <li class="list-social__item">
-                  <a href="{{ settings.social_instagram_link }}" class="list-social__link link">
-                    {%- render 'icon-instagram' -%}
-                    <span class="visually-hidden">{{ 'general.social.links.instagram' | t }}</span>
-                  </a>
-                </li>
-              {%- endif -%}
-              {%- if settings.social_facebook_link != blank -%}
-                <li class="list-social__item">
-                  <a href="{{ settings.social_facebook_link }}" class="list-social__link link">
-                    {%- render 'icon-facebook' -%}
-                    <span class="visually-hidden">{{ 'general.social.links.facebook' | t }}</span>
-                  </a>
-                </li>
-              {%- endif -%}
-              {%- if settings.social_pinterest_link != blank -%}
-                <li class="list-social__item">
-                  <a href="{{ settings.social_pinterest_link }}" class="list-social__link link">
-                    {%- render 'icon-pinterest' -%}
-                    <span class="visually-hidden">{{ 'general.social.links.pinterest' | t }}</span>
-                  </a>
-                </li>
-              {%- endif -%}
-            
-              {%- if settings.social_tiktok_link != blank -%}
-                <li class="list-social__item">
-                  <a href="{{ settings.social_tiktok_link }}" class="list-social__link link">
-                    {%- render 'icon-tiktok' -%}
-                    <span class="visually-hidden">{{ 'general.social.links.tiktok' | t }}</span>
-                  </a>
-                </li>
-              {%- endif -%}
-              {%- if settings.social_tumblr_link != blank -%}
-                <li class="list-social__item">
-                  <a href="{{ settings.social_tumblr_link }}" class="list-social__link link">
-                    {%- render 'icon-tumblr' -%}
-                    <span class="visually-hidden">{{ 'general.social.links.tumblr' | t }}</span>
-                  </a>
-                </li>
-              {%- endif -%}
-              {%- if settings.social_snapchat_link != blank -%}
-                <li class="list-social__item">
-                  <a href="{{ settings.social_snapchat_link }}" class="list-social__link link">
-                    {%- render 'icon-snapchat' -%}
-                    <span class="visually-hidden">{{ 'general.social.links.snapchat' | t }}</span>
-                  </a>
-                </li>
-              {%- endif -%}
-              {%- if settings.social_youtube_link != blank -%}
-                <li class="list-social__item">
-                  <a href="{{ settings.social_youtube_link }}" class="list-social__link link">
-                    {%- render 'icon-youtube' -%}
-                    <span class="visually-hidden">{{ 'general.social.links.youtube' | t }}</span>
-                  </a>
-                </li>
-              {%- endif -%}
-              {%- if settings.social_twitter_link != blank -%}
-                <li class="list-social__item">
-                  <a href="{{ settings.social_twitter_link }}" class="list-social__link link">
-                    {%- render 'icon-twitter' -%}
-                    <span class="visually-hidden">{{ 'general.social.links.twitter' | t }}</span>
-                  </a>
-                </li>
-              {%- endif -%}
-              {%- if settings.social_vimeo_link != blank -%}
-                <li class="list-social__item">
-                  <a href="{{ settings.social_vimeo_link }}" class="list-social__link link">
-                    {%- render 'icon-vimeo' -%}
-                    <span class="visually-hidden">{{ 'general.social.links.vimeo' | t }}</span>
-                  </a>
-                </li>
-              {%- endif -%}
-            </ul>
+          
+          
           </div>
         </div>
       </div>
     </div>
   </details>
 </header-drawer>
+<script>
+    window.addEventListener('DOMContentLoaded',() => {
+      var collection_swiper_men = new Swiper('.new_arrival_collection_slider', {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        lazy: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false
+       }, 
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true
+        },
+      });
+    },
+    { once: true }
+  );
+
+  window.addEventListener('DOMContentLoaded',() => {
+      var collection_swiper_men = new Swiper('.our_brand_collection_slider', {
+        slidesPerView: 3,
+        spaceBetween: 10,
+        lazy: true,
+      });
+    },
+    { once: true }
+  );
+
+   window.addEventListener('DOMContentLoaded',() => {
+      var collection_swiper_men = new Swiper('.featured_collection_slider', {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        lazy: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false
+       }, 
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true
+        },
+      });
+    },
+    { once: true }
+  );
+
+  function hideheaderIcon(){
+    document.querySelector('.header__icon--account').classList.toggle('hideIcon');
+    document.querySelector('.header__icon--cart').classList.toggle('hideIcon');
+    document.querySelector('.desktop-header-search').classList.toggle('hideIcon');
+    document.querySelector('.header-wishlist-btn').classList.toggle('hideIcon');
+    document.querySelector('.header__icon--localise').classList.toggle('hideIcon');
+   if(document.querySelector('.desktop-header-search').classList.contains('hideSearchIcon')){
+     document.querySelector('.desktop-header-search').click();
+   }
+    
+  }
+
+if (/iPhone/i.test(navigator.userAgent) && /Safari/i.test(navigator.userAgent) && !/Chrome/i.test(navigator.userAgent)) {
+    document.querySelector('.js .menu-drawer').classList.add('menu-main-menu-safari');
+    console.log("iPhone detected with Safari browser");
+}
+if (/Android/i.test(navigator.userAgent) && /Chrome/i.test(navigator.userAgent)) {
+     document.querySelector('.js .menu-drawer').classList.add('menu-main-menu-android');
+}
+</script>
+
