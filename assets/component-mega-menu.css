@@ -136,7 +136,7 @@ summary.header__menu-item.list-menu__item.link.focus-inset:after {
 .mega-menu[open] .mega-menu__content {
   opacity: 1;
   transform: translateY(0);
-  max-height: fit-content;
+  max-height: 90vh;
   transition: all 1s;
   -webkit-transition: all 1s;
   border-radius: 0px 0px 20px 20px;
