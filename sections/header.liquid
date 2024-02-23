@@ -1,3 +1,4 @@
+{{ 'component-search.css' | asset_url | stylesheet_tag }}
 <link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
@@ -11,7 +12,6 @@
   <link rel="stylesheet" href="{{ 'component-mega-menu.css' | asset_url }}" media="print" onload="this.media='all'">
   <noscript>{{ 'component-mega-menu.css' | asset_url | stylesheet_tag }}</noscript>
 {%- endif -%}
-
 {%- if settings.cart_type == "drawer" -%}
   {{ 'component-cart-drawer.css' | asset_url | stylesheet_tag }}
   {{ 'component-cart.css' | asset_url | stylesheet_tag }}
@@ -27,32 +27,33 @@
 <noscript>{{ 'component-cart-items.css' | asset_url | stylesheet_tag }}</noscript>
 
 <style>
-  .header-wishlist, .header__icon--cart, .header__icon--account{display:none !important;}
+    @media screen and (max-width:400px){
+      .header-localization .disclosure .localization-form__select{font-size:10px !important;}
+      .disclosure svg{height:10px !important;width:10px !important;}
+      .js .header-localization:not(.menu-drawer__localization) .localization-form__select{min-width:50px;}
+      .header__icons{gap:15px !important;}
+  }
+  .header__icon--cart svg{height:24px;width:24px;}
+  .header-wishlist-btn .topbadge{position:absolute;bottom: -7px;left: 1.2rem;background-color:#706660 !important;font-size: 9px;font-weight: 400;font-family:Poppins-Regular !important;height:1.7rem;width:1.7rem;}
+  .header-wishlist-btn{position:relative;}
+  .header-wishlist-btn svg{height:20px;width:24px;fill:#706660;}
   .reset__button:not(:focus):after{border:none !important;}
   .search-modal__form { max-width: 28.2rem;}
   .predictive-search__loading-state{display:none;}
   .headerdesktopsearch .search__button {left: 0;}
   .header__search{display:none !important;}
   .header__menu-item a{text-decoration:none;}
-  .header-wishlist{ display: flex; align-items: center; justify-content: center; position: relative;margin-right:5px;}
-  .header-wishlist span{position: absolute; right: 2%; bottom:20%; height: 1.7rem; width: 1.7rem; display: flex; align-items: center; justify-content: center;font-weight:300 !important;font-size:9px; padding-right: 7px!important;
-    padding-top: 4px!important;}
   predictive-search:not([loading]) .predictive-search__loading-state,
   predictive-search:not([loading]) .predictive-search-status__loading {  display: none; opacity: 0;}
   .headerdesktopsearch  .field:after,.headerdesktopsearch .field:hover.field:after{box-shadow:none;border:none;}
   .headermobilesearch .search__input.field__input{height:2rem;}
-  .headerdesktopsearch .search__input.field__input{background-color: #f1efef; height:1.4rem;padding: 1.5rem 4.8rem 1.5rem 4.5rem;border-radius: 5px;}
+  .headerdesktopsearch .search__input.field__input{border-bottom:1px solid #f1efef; height:1.4rem;padding: 1.5rem 4.8rem 1.5rem 4.5rem;}
   .headerdesktopsearch .search__button{left:0;}
   .headerdesktopsearch .search__button svg{width:2rem;}
   .headerdesktopsearch .field__label{padding-left:2.5rem;font-size: clamp(calc(var(--desktop-font-size-a) * .9px),calc(var(--desktop-font-size-a) * (100vw / var(--viewportDesktop))),calc(var(--desktop-font-size-a) * 1.1px));}
   .headerdesktopsearch .reset__button{    right: calc(var(--inputs-border-width) + 0.2rem);}
   .headerdesktopsearch .reset__button .icon.icon-close {height: 1rem;width: 1rem;}
   .headerdesktopsearch .reset__button svg path{stroke:#000;}
-   header-drawer { justify-self: start; }
-@media screen and (min-width:900px) and (max-width:1230px){
-    .headermobilesearch{display:block;}
-    .header-wishlist span{bottom:18%;}
-  }
   {%- if section.settings.sticky_header_type == 'reduce-logo-size' -%}
     .scrolled-past-header .header__heading-logo-wrapper {
       width: 75%;
@@ -80,14 +81,14 @@
   .list-menu--inline {
     display: inline-flex;
     flex-wrap: wrap;
+    align-items:baseline;
   }
 
   
 
   .list-menu__item {
-    display: flex;
-    align-items: center;
-    
+    display:block;
+    line-height: 0;
   }
 
   .list-menu__item--link {
@@ -104,24 +105,18 @@
     }
   }
   @media screen and (min-width:768px) and (max-width:820px){
-
-   .header {
-        grid-template-columns: 0px auto auto !important;}
-  }
   @media screen and (max-width:767px){
   .headerdesktopsearch{display:none;}
   .header__heading, .header__heading-link{    margin-left: 1vw;}
-  .header-wishlist span{bottom:20%; padding-top:2px!important;}
   .headermobilesearch .header__search{display:block !important;}
   }
-   @media screen and (max-width:369px){
-   .header__heading, .header__heading-link{    margin-left: -1vw;}
-  }
-  
 </style>
 
 {%- style -%}
-
+  .header {
+    padding-top: {{ section.settings.padding_top }}px; 
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
 
   .section-header {
     top:-1px;
@@ -190,10 +185,6 @@
   -%}
   <header class="header header--{{ section.settings.logo_position }} header--mobile-{{ section.settings.mobile_logo_position }} page-width{% if section.settings.menu_type_desktop == 'drawer' %} drawer-menu{% endif %}{% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %}{% if social_links %} header--has-social{% endif %}{% if shop.customer_accounts_enabled %} header--has-account{% endif %}{% if localization_forms %} header--has-localizations{% endif %}">
     {%- liquid
-      if section.settings.menu != blank
-        render 'header-drawer'
-      endif
-
       if section.settings.logo_position == 'top-center' or section.settings.menu == blank
         render 'header-search', input_id: 'Search-In-Modal-1'
       endif
@@ -217,7 +208,8 @@
                   width: settings.logo_width,
                   alt: logo_alt,
                   sizes: sizes,
-                  preload: true
+                  preload: true,
+                  draggable: false
                 }}
               </div>
             {%- else -%}
@@ -258,7 +250,8 @@
                   width: settings.logo_width,
                   alt: logo_alt,
                   sizes: sizes,
-                  preload: true
+                  preload: true,
+                  draggable: false
                 }}
               </div>
             {%- else -%}
@@ -271,7 +264,62 @@
     {%- endif -%}
 
     <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
-      <div class="desktop-localization-wrapper">
+
+         {% if section.settings.wishlist_page_link != blank %}
+            <a class="header__icon header-wishlist-btn" href="{{ section.settings.wishlist_page_link }}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="21" id="heart"><path fill="none" stroke="#706660" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.84 2.61a5.5 5.5 0 0 0-7.78 0L12 3.67l-1.06-1.06a5.501 5.501 0 0 0-7.78 7.78l1.06 1.06L12 19.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            </a>
+          {% endif %}
+          
+      {%- if shop.customer_accounts_enabled -%}
+        <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account link focus-inset small-hide {% if section.settings.menu != blank %} {% endif %}">
+         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M20.4009 21.6L20.4012 18.0003C20.4014 16.012 18.7896 14.4 16.8012 14.4H7.20197C5.2139 14.4 3.60219 16.0116 3.60197 17.9996L3.60156 21.6M15.6016 6.00002C15.6016 7.98825 13.9898 9.60002 12.0016 9.60002C10.0133 9.60002 8.40156 7.98825 8.40156 6.00002C8.40156 4.0118 10.0133 2.40002 12.0016 2.40002C13.9898 2.40002 15.6016 4.0118 15.6016 6.00002Z" stroke="#706660" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="visually-hidden">
+            {%- liquid
+              if customer
+                echo 'customer.account_fallback' | t
+              else
+                echo 'customer.log_in' | t
+              endif
+            -%}
+          </span>
+        </a>
+      {%- endif -%}
+
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when '@app' -%}
+            {% render block %}
+        {%- endcase -%}
+      {%- endfor -%}
+
+      <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
+        {%- liquid
+          if cart == empty
+            render 'icon-cart-empty'
+          else
+            render 'icon-cart'
+          endif
+        -%}
+        <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+        {%- if cart != empty -%}
+          <div class="cart-count-bubble">
+            {%- if cart.item_count < 100 -%}
+              <span aria-hidden="true">{{ cart.item_count }}</span>
+            {%- endif -%}
+            <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+          </div>
+        {%- endif -%}
+      </a>
+      <span class="desktop-header-search hideCrossIcon" onclick="showDesktopHeader(this)">{% render 'icon-search' %}
+      <custom-tag onclick='document.body.addEventListener("touchmove", preventDefault, { passive: false,})'>{% render 'icon-close' %}</custom-tag></span>
+
+      {% if section.settings.menu != blank %}
+          {% render 'header-drawer' %}
+      {% endif %}
+       <div class="desktop-localization-wrapper header__icon--localise">
         {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
           <noscript class="small-hide medium-hide">
             {%- form 'localization', id: 'HeaderCountryMobileFormNoScript', class: 'localization-form' -%}
@@ -301,7 +349,7 @@
         {% endif %}
 
         {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
-          <noscript class="small-hide medium-hide">
+          <noscript class="">
             {%- form 'localization', id: 'HeaderLanguageMobileFormNoScript', class: 'localization-form' -%}
               <div class="localization-form__select">
                 <h2 class="visually-hidden" id="HeaderLanguageMobileLabelNoScript">{{ 'localization.language_label' | t }}</h2>
@@ -318,7 +366,7 @@
             {%- endform -%}
           </noscript>
 
-          <localization-form class="small-hide medium-hide no-js-hidden">
+          <localization-form class="">
             {%- form 'localization', id: 'HeaderLanguageForm', class: 'localization-form' -%}
               <div>
                 <h2 class="visually-hidden" id="HeaderLanguageLabel">{{ 'localization.language_label' | t }}</h2>
@@ -328,7 +376,12 @@
           </localization-form>
         {%- endif -%}
       </div>
-                  <div class="headerdesktopsearch" role="dialog" aria-modal="true" aria-label="{{ 'general.search.search' | t }}">
+    </div>
+  </header>
+</{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}>
+
+
+   <div class="headerdesktopsearch hideDesktopSearch" role="dialog" aria-modal="true" aria-label="{{ 'general.search.search' | t }}" >
       <div class="search-modal__content{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} search-modal__content-top{% else %} search-modal__content-bottom{% endif %}" tabindex="-1">
         {%- if settings.predictive_search_enabled -%}
           <predictive-search class="search-modal__form" data-loading-text="{{ 'accessibility.loading' | t }}">
@@ -384,58 +437,10 @@
           {%- else -%}
             </search-form>
           {%- endif -%}
-     
       </div>
     </div>
- <div class="headermobilesearch">
-      {% render 'header-search', input_id: 'Search-In-Modal' %}
- </div>
-      <a class="header-wishlist" href="/a/wishlist">
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 500 500" id="heart"><path d="M349.6 64c-36.4 0-70.718 16.742-93.6 43.947C233.117 80.742 198.8 64 162.4 64 97.918 64 48 114.221 48 179.095c0 79.516 70.718 143.348 177.836 241.694L256 448l30.164-27.211C393.281 322.442 464 258.61 464 179.095 464 114.221 414.082 64 349.6 64zm-80.764 329.257l-4.219 3.873-8.617 7.773-8.616-7.772-4.214-3.869c-50.418-46.282-93.961-86.254-122.746-121.994C92.467 236.555 80 208.128 80 179.095c0-22.865 8.422-43.931 23.715-59.316C118.957 104.445 139.798 96 162.4 96c26.134 0 51.97 12.167 69.11 32.545L256 157.661l24.489-29.116C297.63 108.167 323.465 96 349.6 96c22.603 0 43.443 8.445 58.686 23.778C423.578 135.164 432 156.229 432 179.095c0 29.033-12.467 57.459-40.422 92.171-28.784 35.74-72.325 75.709-122.742 121.991z"></path></svg>
-      </a>
-      {%- if shop.customer_accounts_enabled -%}
-        <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account link focus-inset{% if section.settings.menu != blank %} {% endif %}">
-          {% render 'icon-account' %}
-          <span class="visually-hidden">
-            {%- liquid
-              if customer
-                echo 'customer.account_fallback' | t
-              else
-                echo 'customer.log_in' | t
-              endif
-            -%}
-          </span>
-        </a>
-      {%- endif -%}
 
-      {%- for block in section.blocks -%}
-        {%- case block.type -%}
-          {%- when '@app' -%}
-            {% render block %}
-        {%- endcase -%}
-      {%- endfor -%}
 
-      <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
-        {%- liquid
-          if cart == empty
-            render 'icon-cart-empty'
-          else
-            render 'icon-cart'
-          endif
-        -%}
-        <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
-        {%- if cart != empty -%}
-          <div class="cart-count-bubble">
-            {%- if cart.item_count < 100 -%}
-              <span aria-hidden="true">{{ cart.item_count }}</span>
-            {%- endif -%}
-            <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
-          </div>
-        {%- endif -%}
-      </a>
-    </div>
-  </header>
-</{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}>
 
 {%- if settings.cart_type == "notification" -%}
   {%- render 'cart-notification', color_scheme: section.settings.color_scheme, desktop_menu_type: section.settings.menu_type_desktop -%}
@@ -592,13 +597,115 @@
     }
   </script>
 {%- endif -%}
+<script>
+  function showDesktopHeader(e){
+    let iconSpan = document.querySelector('.desktop-header-search');
+    if(iconSpan.classList.contains('hideCrossIcon')) {
+      iconSpan.classList.remove('hideCrossIcon')
+       document.body.addEventListener("touchmove", preventDefault, { passive: false,});
+      document.querySelector('body').classList.add('search-overflow-hidden');
+    } else {
+      iconSpan.classList.add('hideCrossIcon')
+      document.body.removeEventListener("touchmove", preventDefault);
+      document.querySelector('body').classList.remove('search-overflow-hidden');
+    }
+    if(iconSpan.classList.contains('hideSearchIcon')) {
+      iconSpan.classList.remove('hideSearchIcon')
+      document.body.removeEventListener("touchmove", preventDefault);
+      document.querySelector('body').classList.remove('search-overflow-hidden');
+    } else {
+      iconSpan.classList.add('hideSearchIcon')
+       document.body.addEventListener("touchmove", preventDefault, { passive: false,});
+       document.querySelector('body').classList.add('search-overflow-hidden');
+    }
 
+       {% comment %} e.classList.toggle('hideCrossIcon'); {% endcomment %}
+       {% comment %} e.classList.toggle('hideSearchIcon');  {% endcomment %}
+    
+       document.querySelector('.headerdesktopsearch').classList.toggle('hideDesktopSearch');
+       
+           
+     
+  }
+
+  //  window.addEventListener('click', function(event) {
+  //   var target = event.target;
+  //   if(event.target && event.target.closest('.search-modal__content')){
+  //     document.body.removeEventListener("touchmove", preventDefault);
+  //     console.log("enable---")
+  //   }
+  // });
+</script>
 {% schema %}
 {
   "name": "t:sections.header.name",
   "class": "section-header",
-  "max_blocks": 3,
   "settings": [
+    {
+      "type": "text",
+      "id": "new_arrival_collection_slider_heading",
+      "label": "New Arrivals Heading"
+    },
+    {
+      "type": "text",
+      "id": "new_arrival_collection_slider_images",
+      "placeholder": "imageURL1 , imageURL2 , imageURL3 ...",
+      "label": "New Arrivals Images ',' seprated"
+    },
+    {
+      "type": "text",
+      "id": "new_arrival_collection_slider_url",
+      "placeholder": "URL1 , URL2 , URL3 ...",
+      "label": "New Arrivals URL ',' seprated"
+    },
+    {
+      "type": "text",
+      "id": "our_brand_collection_slider_heading",
+      "label": "Our Brand Heading"
+    },
+    {
+      "type": "text",
+      "id": "our_brand_collection_slider_images",
+      "placeholder": "imageURL1 , imageURL2 , imageURL3 ...",
+      "label": "Our Brand Images ',' seprated"
+    },
+    {
+      "type": "text",
+      "id": "our_brand_collection_slider_url",
+      "placeholder": "URL1 , URL2 , URL3 ...",
+      "label": "Our Brand URL ',' seprated"
+    },
+    {
+        "type": "image_picker",
+        "id": "skinn_fregnance_mobile_image",
+        "label": "Mobile Menu Skinn Fregnance Image"
+    },
+    {
+        "type": "url",
+        "id": "skinn_frenance_url",
+        "label": "Mobile Menu Skinn Fregnance URL"
+    },
+    {
+        "type": "text",
+        "id": "skinn_fregnance_mobile_title",
+        "default": "SKINN Fragrances",
+        "label": "Mobile Menu Skinn Fregnance Title"
+    },
+    {
+      "type": "text",
+      "id": "wishlist_page_link",
+      "label": "Wishlist Page link"
+    },
+    {
+      "type": "url",
+      "id": "store_locator_link",
+      "label": "Store locator link"
+    },
+    {
+      "type": "text",
+      "id": "store_locator_text",
+      "label": "Store locator Text"
+    },
     {
       "type": "select",
       "id": "logo_position",
@@ -781,8 +888,162 @@
   "blocks": [
     {
       "type": "@app"
-    }
-    
+    },
+    {
+       "type": "mobile_menu",
+       "name": "Mobile Menu",
+       "limit": 1,
+       "settings": [
+        {
+          "type": "link_list",
+          "id": "menu_mobile",
+          "label": "Mobile Menu"
+        }
+       ]
+    },
+     {
+       "type": "mobile_feature_collection",
+       "name": "Featured Slider",
+       "settings": [
+        {
+          "type": "text",
+          "id": "mobile_menu_to_append_to",
+          "default": "Men",
+          "placeholder": "Menu Title - Women",
+          "label": "Menu to add this"
+        },
+        {
+          "type": "text",
+          "id": "menu_featured_add_to",
+          "default": "Collection",
+          "placeholder": "Menu Title - Explore By Type",
+          "label": "Menu to add this Featured Collection",
+          "info":"Menu Title like Type"
+        },
+        {
+          "type": "text",
+          "id": "featured_collection_slider_text",
+          "label": "Featured Heading"
+        },
+        {
+          "type": "text",
+          "id": "featured_collection_slider_images",
+          "placeholder": "imageURL1 , imageURL2 , imageURL3 ...",
+          "label": "Featured Images ',' seprated"
+        },
+        {
+          "type": "text",
+          "id": "featured_collection_slider_url",
+          "placeholder": "URL1 , URL2 , URL3 ...",
+          "label": "Featured URL ',' seprated"
+        },
+         {
+          "type": "collection_list",
+          "id": "featured_collection_list_mobile",
+          "label": "Select Top Collections",
+           "info": "Valid when Menu to add this Featured Collection is collection"
+        },
+         {
+          "type": "collection_list",
+          "id": "explore_our_collection_list_mobile",
+          "label": "Select Our Collections",
+           "info": "Valid when Menu to add this Featured Collection is collection"
+        }
+       ]
+    },
+    {
+      "type": "menu_highlight",
+      "name": "Menu Highlight",
+      "limit": 5,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Select Menu"
+        },
+        {
+          "type": "text",
+          "id": "menu_to_append_to",
+          "default": "Men",
+          "placeholder": "Menu Title - Women",
+          "label": "Menu to add this Menu Highlight to"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_image",
+          "label": "Menu Image"
+        },
+        {
+          "type": "text",
+          "id": "menu_image_title",
+          "default": "SMART WATCHES",
+          "label": "Menu Image Title"
+        },
+        {
+          "type": "text",
+          "id": "menu_image_description",
+          "default": "Be the smartest in the crew",
+          "label": "Menu Image Descritpion"
+        },
+        {
+          "type": "image_picker",
+          "id": "left_side_bottom_image",
+          "label": "Left Side Bottom"
+        },
+        {
+          "type": "url",
+          "id": "left_side_bottom_image_link",
+          "label": "Left side bottom image link"
+        },
+        {
+          "type": "text",
+          "id": "right_side_title",
+          "label": "Right Side Main Heading",
+          "default": "NEW ARRIVALS"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_right_side_1",
+          "label": "Right Side 1 image"
+        },
+        {
+          "type": "url",
+          "id": "image_right_side_1_link",
+          "label": "Right Side Image 1 link"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_right_side_2",
+          "label": "Right Side 2 image"
+        },
+        {
+          "type": "url",
+          "id": "image_right_side_2_link",
+          "label": "Right Side Image 2 link"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_right_side_3",
+          "label": "Right Side 3 image"
+        },
+        {
+          "type": "url",
+          "id": "image_right_side_3_link",
+          "label": "Right Side Image 3 link"
+        },
+        {
+          "type": "text",
+          "id": "right_side_collection_title",
+          "label": "Right Side Collection Heading",
+          "default": "Featured Collections"
+        },
+        {
+          "type": "collection_list",
+          "id": "featured_collection_list",
+          "label": "Select Collections"
+        }
+
+      ]
+    } 
   ]
 }
 {% endschema %}
