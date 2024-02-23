@@ -8,7 +8,7 @@
         "65cfdea9-eb0f-4871-85f9-f83e6deb2edd": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Vector_2.png",
+            "image": "shopify:\/\/shop_images\/Titan_Logo.jpg",
             "image_width": 220,
             "alignment": "center"
           }
@@ -17,21 +17,21 @@
           "type": "link_list",
           "settings": {
             "heading": "About Us",
-            "menu": "about-us"
+            "menu": "footer"
           }
         },
         "link_list_HLcAUy": {
           "type": "link_list",
           "settings": {
             "heading": "Contact Us",
-            "menu": "contact-us"
+            "menu": "footer"
           }
         },
         "link_list_LMUAbx": {
           "type": "link_list",
           "settings": {
             "heading": "Policies",
-            "menu": "frequently-asked-questions"
+            "menu": "policies"
           }
         }
       },
