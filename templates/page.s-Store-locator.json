@@ -2,13 +2,82 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "rich_text_bNXak7": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_AGhHgy": {
+          "type": "heading",
+          "settings": {
+            "heading": "Find A Store Or Service Center",
+            "heading_size": "h1"
+          }
+        },
+        "text_3f3yQh": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Enter your location to find a store closest to you.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_AGhHgy",
+        "text_3f3yQh"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "17087616069c328926": {
+      "type": "apps",
+      "blocks": {
+        "s_store_locator_storeify_storelocator_9mn89G": {
+          "type": "shopify:\/\/apps\/s-store-locator\/blocks\/storeify-storelocator\/e7003487-cc51-4321-9488-2c47c07a5b17",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "s_store_locator_storeify_storelocator_9mn89G"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "1708761764011420d3": {
+      "type": "apps",
+      "blocks": {
+        "simple_store_locator_store_locator_VFa7Q3": {
+          "type": "shopify:\/\/apps\/simple-store-locator\/blocks\/store_locator\/271d5575-daa7-4857-a8af-4ecfc578a160",
+          "settings": {
+            "paddingTop": 0,
+            "paddingBottom": 0
+          }
+        }
+      },
+      "block_order": [
+        "simple_store_locator_store_locator_VFa7Q3"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "rich_text_bNXak7",
+    "17087616069c328926",
+    "1708761764011420d3"
   ]
 }
