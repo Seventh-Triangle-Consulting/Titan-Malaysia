@@ -50,6 +50,25 @@
       "block_order": [
         "s_store_locator_storeify_storelocator_9mn89G"
       ],
+      "disabled": true,
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "1708761764011420d3": {
+      "type": "apps",
+      "blocks": {
+        "simple_store_locator_store_locator_VFa7Q3": {
+          "type": "shopify:\/\/apps\/simple-store-locator\/blocks\/store_locator\/271d5575-daa7-4857-a8af-4ecfc578a160",
+          "settings": {
+            "paddingTop": 0,
+            "paddingBottom": 0
+          }
+        }
+      },
+      "block_order": [
+        "simple_store_locator_store_locator_VFa7Q3"
+      ],
       "settings": {
         "include_margins": true
       }
@@ -58,6 +77,7 @@
   "order": [
     "main",
     "rich_text_bNXak7",
-    "17087616069c328926"
+    "17087616069c328926",
+    "1708761764011420d3"
   ]
 }
