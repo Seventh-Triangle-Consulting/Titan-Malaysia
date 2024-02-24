@@ -141,28 +141,11 @@
         "popup-bg-img-mob": "shopify:\/\/shop_images\/popup-mobile.jpg",
         "contact-popup-text": "<p><strong>Welcome to the Titan Family! <\/strong><\/p><p>Enjoy exciting Discounts, exclusive offers<\/p><p>and much more!<\/p><p>Sign up to receive updates!<\/p>"
       }
-    },
-    "170876244406e2e30e": {
-      "type": "apps",
-      "blocks": {
-        "s_store_locator_storeify_storelocator_cEafPY": {
-          "type": "shopify:\/\/apps\/s-store-locator\/blocks\/storeify-storelocator\/e7003487-cc51-4321-9488-2c47c07a5b17",
-          "settings": {
-          }
-        }
-      },
-      "block_order": [
-        "s_store_locator_storeify_storelocator_cEafPY"
-      ],
-      "settings": {
-        "include_margins": true
-      }
     }
   },
   "order": [
     "announcement-bar",
     "header",
-    "f456190d-63ef-4fd2-ac86-77fddce8bcf6",
-    "170876244406e2e30e"
+    "f456190d-63ef-4fd2-ac86-77fddce8bcf6"
   ]
 }
