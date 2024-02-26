@@ -118,6 +118,17 @@
     },
     "header": {
       "type": "header",
+      "blocks": {
+        "mobile_menu_tRr8JP": {
+          "type": "mobile_menu",
+          "settings": {
+            "menu_mobile": "main-menu"
+          }
+        }
+      },
+      "block_order": [
+        "mobile_menu_tRr8JP"
+      ],
       "settings": {
         "new_arrival_collection_slider_heading": "",
         "new_arrival_collection_slider_images": "",
