@@ -526,10 +526,18 @@
           "type": "shopify:\/\/apps\/s-store-locator\/blocks\/storeify-storelocator\/e7003487-cc51-4321-9488-2c47c07a5b17",
           "settings": {
           }
+        },
+        "simple_store_locator_store_locator_RgMrJ7": {
+          "type": "shopify:\/\/apps\/simple-store-locator\/blocks\/store_locator\/271d5575-daa7-4857-a8af-4ecfc578a160",
+          "settings": {
+            "paddingTop": 0,
+            "paddingBottom": 0
+          }
         }
       },
       "block_order": [
-        "s_store_locator_storeify_storelocator_erGciP"
+        "s_store_locator_storeify_storelocator_erGciP",
+        "simple_store_locator_store_locator_RgMrJ7"
       ],
       "settings": {
         "include_margins": true
