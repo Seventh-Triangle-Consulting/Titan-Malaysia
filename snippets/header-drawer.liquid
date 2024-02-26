@@ -451,7 +451,7 @@ Usage:
     document.querySelector('.header__icon--account').classList.toggle('hideIcon');
     document.querySelector('.header__icon--cart').classList.toggle('hideIcon');
     document.querySelector('.desktop-header-search').classList.toggle('hideIcon');
-    // document.querySelector('.header-wishlist-btn').classList.toggle('hideIcon');
+    document.querySelector('.header-wishlist-btn')?.classList.toggle('hideIcon');
     document.querySelector('.header__icon--localise').classList.toggle('hideIcon');
    if(document.querySelector('.desktop-header-search').classList.contains('hideSearchIcon')){
      document.querySelector('.desktop-header-search').click();
