@@ -347,18 +347,16 @@
             "store-locator-map": ""
           }
         },
-        "simple_store_locator_store_locator_xrnX8D": {
-          "type": "shopify:\/\/apps\/simple-store-locator\/blocks\/store_locator\/271d5575-daa7-4857-a8af-4ecfc578a160",
+        "s_store_locator_storeify_storelocator_aDXPiD": {
+          "type": "shopify:\/\/apps\/s-store-locator\/blocks\/storeify-storelocator\/e7003487-cc51-4321-9488-2c47c07a5b17",
           "settings": {
-            "paddingTop": 0,
-            "paddingBottom": 0
           }
         }
       },
       "block_order": [
         "514d8d59-e5bb-410a-9dcb-cca4a9b0aadb",
         "176bbeb4-f815-45a1-b32a-2339f21546b8",
-        "simple_store_locator_store_locator_xrnX8D"
+        "s_store_locator_storeify_storelocator_aDXPiD"
       ],
       "settings": {
         "margin_bottom_desktop": 58,
