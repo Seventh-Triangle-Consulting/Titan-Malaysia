@@ -53,11 +53,28 @@
       "settings": {
         "include_margins": true
       }
+    },
+    "17089485021721fe89": {
+      "type": "apps",
+      "blocks": {
+        "s_store_locator_storeify_storelocator_F98CFz": {
+          "type": "shopify:\/\/apps\/s-store-locator\/blocks\/storeify-storelocator\/e7003487-cc51-4321-9488-2c47c07a5b17",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "s_store_locator_storeify_storelocator_F98CFz"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
     "main",
     "rich_text_bNXak7",
-    "1708948489c07751d4"
+    "1708948489c07751d4",
+    "17089485021721fe89"
   ]
 }
