@@ -119,6 +119,17 @@
     "header": {
       "type": "header",
       "settings": {
+        "new_arrival_collection_slider_heading": "",
+        "new_arrival_collection_slider_images": "",
+        "new_arrival_collection_slider_url": "",
+        "our_brand_collection_slider_heading": "",
+        "our_brand_collection_slider_images": "",
+        "our_brand_collection_slider_url": "",
+        "skinn_frenance_url": "",
+        "skinn_fregnance_mobile_title": "SKINN Fragrances",
+        "wishlist_page_link": "",
+        "store_locator_link": "shopify:\/\/pages\/store-locator",
+        "store_locator_text": "Find a Store",
         "logo_position": "middle-left",
         "menu": "main-menu",
         "menu_type_desktop": "mega",
