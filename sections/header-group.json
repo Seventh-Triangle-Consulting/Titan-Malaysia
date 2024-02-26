@@ -122,7 +122,7 @@
         "mobile_menu_tRr8JP": {
           "type": "mobile_menu",
           "settings": {
-            "menu_mobile": "main-menu"
+            "menu_mobile": ""
           }
         }
       },
@@ -136,6 +136,7 @@
         "our_brand_collection_slider_heading": "",
         "our_brand_collection_slider_images": "",
         "our_brand_collection_slider_url": "",
+        "skinn_fregnance_mobile_image": "shopify:\/\/shop_images\/Rectangle_40874.webp",
         "skinn_frenance_url": "",
         "skinn_fregnance_mobile_title": "SKINN Fragrances",
         "wishlist_page_link": "",
