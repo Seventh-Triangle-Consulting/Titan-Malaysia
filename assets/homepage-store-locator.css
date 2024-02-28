@@ -2,6 +2,7 @@
   padding-top: 90px;
 
 }
+.storeify-stl-col1{padding:0 !important;}
 .homepage-store-locator-container #SimpleStoreLocator div[style*="flex-basis: 33%"] {
   display:none;
 }
