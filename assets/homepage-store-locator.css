@@ -107,10 +107,6 @@ line-height: 24px; /* 150% */
       padding-bottom: 17.08px;
 }
 
-.homepage-store-locator-container .homepage-store-locator{
-  display:flex;
-  gap:43px;
-}
  .homepage-store-locator-container  .store-locator-right{
         flex-basis: 60%;
   }
