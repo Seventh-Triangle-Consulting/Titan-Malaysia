@@ -365,7 +365,7 @@
         "margin_bottom_mobile": 82,
         "store-locator_sub_title": "<p>Find Your Nearest Oasis: <br\/>Discover Our Stores Near You<\/p>",
         "store-locator_title": "<p>Store Locator<\/p>",
-        "store-locator-btn-text": "See all location",
+        "store-locator-btn-text": "",
         "store_locator_link": "shopify:\/\/pages\/store-locator"
       }
     }
