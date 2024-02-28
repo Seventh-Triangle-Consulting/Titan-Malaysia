@@ -327,7 +327,6 @@
       "blocks": {
         "514d8d59-e5bb-410a-9dcb-cca4a9b0aadb": {
           "type": "Text",
-          "disabled": true,
           "settings": {
             "store-locator-name": "<p>World Of Titan<\/p>",
             "store-locator-address": "<p>P.O. Box 3625 <br\/>Sheikh Khalifa Bin Saeed Street, Dubai, UAE<\/p>",
@@ -339,7 +338,6 @@
         },
         "176bbeb4-f815-45a1-b32a-2339f21546b8": {
           "type": "Text",
-          "disabled": true,
           "settings": {
             "store-locator-name": "<p>World Of Titan2<\/p>",
             "store-locator-address": "<p>P.O. Box 3625 <br\/>Sheikh Khalifa Bin Saeed Street, Dubai, UAE<\/p>",
