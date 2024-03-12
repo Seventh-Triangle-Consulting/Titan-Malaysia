@@ -1,9 +1,20 @@
-<div class="page-width">
+<style>
+  .static-section .row{
+    display:flex;
+  }
+  @media screen and (min-width:992px){
+    .static-section .col-lg-4{
+      flex: 0 0 33.333333%;
+      max-width: 33.333333%;
+    }
+  }
+</style>
+<div class="page-width static-section">
   <div  class="container">
 			<img src="https://cdn.shopify.com/s/files/1/0628/7690/9727/files/TEP_1.jpg?v=1710241518">
   </div>
 
-    <section class="banner-area pt-30 pl-15 pr-15">
+    <div class="banner-area pt-30 pl-15 pr-15">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-4 col-md-4">
@@ -24,7 +35,7 @@
 						
                     </div>
                 </div>
-            </section>
+            </div>
   
 </div>
 {% schema %}
