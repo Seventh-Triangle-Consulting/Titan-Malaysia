@@ -40,6 +40,16 @@
     text-align: center;
     position: relative;
   }
+   .static-section h2:after{
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background-color: #666666;
+  }
   @media screen and (min-width:992px){
     .static-section .col-lg-4{
       flex: 0 0 33.333333%;
