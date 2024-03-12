@@ -311,8 +311,8 @@
 
   // Retrieve input values
   var name = document.getElementById("name").value;
-  var phone = document.getElementById("contact").value;
   var email = document.getElementById("email").value;
+  var phone = document.getElementById("contact").value;
 
   // Validation
   if (name.trim() === '' || phone.trim() === '' || email.trim() === '') {
@@ -339,8 +339,8 @@
   // Data to be sent
     var formData = {
     name: name,
-    phone: phone,
     email: email
+    phone: phone,
     };
 
     var requestOptions = {
