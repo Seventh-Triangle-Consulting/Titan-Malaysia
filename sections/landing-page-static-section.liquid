@@ -327,6 +327,19 @@
       alert("Please enter a valid 10-digit phone number.");
       return;
     }
+
+    var formData = {
+    name: name,
+    phone: phone,
+    email: email
+    };
+
+    console.log(formData)
+    var requestOptions = {
+          method: 'POST',
+          body: JSON.stringify(formData),
+          redirect: 'follow',
+    };
     
   }
 </script>
