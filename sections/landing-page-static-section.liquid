@@ -315,6 +315,13 @@
         alert("Please fill out all fields.");
         return;
       }
+
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert("Please enter a valid email address.");
+        return;
+      }
+    
   }
 </script>
 {% schema %}
