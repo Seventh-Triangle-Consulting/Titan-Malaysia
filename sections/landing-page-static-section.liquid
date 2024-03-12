@@ -335,7 +335,6 @@
   }
 
   // If all validations pass, log success
-  return false;
   console.log("Success!");
   // Data to be sent
     var formData = {
@@ -353,7 +352,7 @@
       
 
     async function submitForm(){ 
-          const response = await fetch("https://script.google.com/macros/s/AKfycbykk2gnAG-AdAQS_YxHdN7dBdlsNrW8fDYUGcqHTUkK1oW--DFTWtrM1Va1M9vK1kP73Q/exec?action=sendResponse", requestOptions);
+          const response = await fetch("https://script.google.com/macros/s/AKfycbzOUm46D8x26nJgYSMMpiFSzkclKM0Vbf8KNngfHylJ39XS3Ts4gX-gOke3rZlDy1tl/exec?action=sendResponse", requestOptions);
           const result = await response.json();
           console.log('result', result);
     }
