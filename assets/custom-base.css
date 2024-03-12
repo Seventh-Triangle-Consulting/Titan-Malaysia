@@ -187,7 +187,9 @@ color:#000;}
 
 
 /* store locator app setting css */
-
+#storeify-sl-btn-trigger-popup{
+  display:none !important;
+}
 
 
 
