@@ -1,4 +1,10 @@
 <style>
+  @media screen and (max-width:768px){
+    .static-section  .section {
+        flex: 1 1 100%;
+        margin-right: 0;
+    }
+  }
   .static-section{
     padding:2em;
     background:#f1f1f1;
@@ -183,12 +189,6 @@
   @media (min-width: 576px)
     .static-section .container {
         max-width: 540px;
-    }
-  }
-  @media screen and (max-width:768px){
-    .static-section  .section {
-        flex: 1 1 100%;
-        margin-right: 0;
     }
   }
 </style>
