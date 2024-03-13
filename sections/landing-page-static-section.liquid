@@ -315,19 +315,19 @@
     var phone = document.getElementById("contact").value;
 
     if (name.trim() === '' || phone.trim() === '' || email.trim() === '') {
-        alert("Please fill out all fields.");
+        document.querySelector('#name-error-message').style.display="block";
         return;
       }
 
     var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(email)) {
-        alert("Please enter a valid email address.");
+        document.querySelector('#email-error-message').style.display="block";
         return;
       }
     
     var phoneRegex = /^\d{10}$/;
     if (!phoneRegex.test(phone)) {
-      alert("Please enter a valid 10-digit phone number.");
+      document.querySelector('#contact-error-message').style.display="block";
       return;
     }
     
