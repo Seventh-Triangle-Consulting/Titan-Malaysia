@@ -8,7 +8,7 @@
         "padding_bottom": 28
       }
     },
-    "landing_page_static_section_F36hTV": {
+    "landing_page_static_section_B3AbyX": {
       "type": "landing-page-static-section",
       "settings": {
       }
@@ -16,10 +16,6 @@
   },
   "order": [
     "main",
-    "landing_page_static_section_F36hTV"
-    }
-  },
-  "order": [
-    "main"
+    "landing_page_static_section_B3AbyX"
   ]
 }
