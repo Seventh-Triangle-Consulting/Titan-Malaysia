@@ -279,8 +279,7 @@
                 <input type="tel" id="contact" name="contact" required>
               </div>
               <button id="contactForm" type="submit" class="submit-btn" onclick="submitForm()">Submit</button>
-              <div id="name-error-message" style="display: none;color:red;font-size:12px;">Please Fill Name</div>
-               <div id="email-error-message" style="display: none;color:red;font-size:12px;">Please Fill Email Correctly</div>
+              <div id="email-error-message" style="display: none;color:red;font-size:12px;">Please Fill Email Correctly</div>
                <div id="contact-error-message" style="display: none;color:red;font-size:12px;">Please Fill Phone Number Correctly</div>
               <div id="successMessage" style="display: none;color:red;font-size:12px;">Success! Your submission has been recorded.</div>
              </form>
@@ -315,7 +314,6 @@
     var phone = document.getElementById("contact").value;
 
     if (name.trim() === '' || phone.trim() === '' || email.trim() === '') {
-        document.querySelector('#name-error-message').style.display="block";
         return;
       }
 
