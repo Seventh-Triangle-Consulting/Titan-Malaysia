@@ -327,14 +327,14 @@
       alert("Please enter a valid 10-digit phone number.");
       return;
     }
-
+    
     var formData = {
     name: name,
     phone: phone,
     email: email
     };
 
-    console.log(formData)
+    document.querySelector('#successMessage').style.display="block";
     var requestOptions = {
           method: 'POST',
           body: JSON.stringify(formData),
