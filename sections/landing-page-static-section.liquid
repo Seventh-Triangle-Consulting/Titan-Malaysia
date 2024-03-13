@@ -336,10 +336,13 @@
     };
 
     document.querySelector('#successMessage').style.display="block";
+    document.querySelector('#email-error-message').style.display="none";
+    document.querySelector('#contact-error-message').style.display="none";
     setTimeout(function() {
         document.getElementById("name").value = '';
         document.getElementById("email").value = '';
         document.getElementById("contact").value = '';
+        return
     }, 1000); 
     var requestOptions = {
           method: 'POST',
