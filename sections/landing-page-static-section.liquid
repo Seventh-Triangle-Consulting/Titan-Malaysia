@@ -1,0 +1,363 @@
+<style>
+   @media screen and (max-width:768px){
+    .static-section  .section {
+        flex: 1 1 100% !important;
+        margin-right: 0 !important;
+    }
+  }
+  .static-section{
+    padding:2em;
+    background:#f1f1f1;
+  }
+  .static-section img{
+    max-width: 100%;
+    transition: all 0.3s ease-out 0s;
+  }
+  .static-section .row{
+    display:flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px 
+  }
+  .static-section .container{
+    margin: 20px auto;
+    padding: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .static-section .col-lg-4{
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .static-section .banner{
+    margin-bottom:30px;
+  }
+  .static-section .banner-area{
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-top: 30px;
+  }
+  .static-section hr{
+    opacity:0;
+    margin: 30px 0;
+    padding: 0;
+  }
+  .static-section h2{
+    font-size: 36px;
+    font-family:Arial-Medium;
+    color: #333333;
+    margin-bottom: 10px;
+    text-align: center;
+    position: relative;
+    font-weight:500;
+  }
+   .static-section h2:after{
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background-color: #666666;
+  }
+  .static-section .section{
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    flex: 1 1 calc(50% - 20px);
+    transition: transform 0.3s ease;
+    margin-right: 20px;
+    position:relative;
+  }
+  .static-section h3{
+    font-size: 28px;
+    color: #10111e;
+    margin-top: 0px;
+    font-style: normal;
+    font-weight: 500;
+    text-transform: normal;
+    line-height: 1.1;
+    font-family:Rubik-Medium;
+  }
+  .static-section .section:hover{
+    transform: translateY(-5px);
+  }
+  .static-section .store-list-item{
+    font-family:Merriweather-Regular;
+    font-size: 16px;
+    color: #666666;
+    margin-bottom: 10px;
+  }
+  .static-section .placeholder-rectangle{
+    width: 100%;
+    height: 200px;
+    background-color: #cccccc;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 18px;
+    color: #666666;
+  }
+  .form-section{
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 0 10px 20px;
+    flex: 1 1 45%;
+  }
+  .static-section .form-subheading{
+    font-size: 1em;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .static-section .form-group{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .static-section .form-group label{
+    flex: 0 0 30%;
+    margin-right: 10px;
+    color: #7e7e7e;
+    cursor: pointer;
+    font-size: 14px;
+    font-family:Merriweather-Regular;
+  }
+  .static-section .form-group input[type="text"],.static-section .form-group input[type="email"],.static-section .form-group input[type="number"]{
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+  }
+  .static-section .submit-btn{
+    background-color: #000000;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+  }
+  .static-section form{
+    max-width: 600px;
+    text-align: center;
+    margin: 20px auto;
+  }
+  .static-section input,.static-section textarea,.static-section form{
+    border: 0;
+    outline: 0;
+    padding: 1em;
+    display: block;
+    width: 100%;
+    margin-top: 1em;
+    font-family: 'Merriweather', sans-serif;
+    resize: none;
+  }
+  #scrollUp{
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    background: black;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 60px;
+    color: white;
+    font-size: 18px;
+    display:none;
+  }
+  #scrollUp:hover{
+    background:#fe4536;
+  }
+  @media screen and (min-width:992px){
+    .static-section .col-lg-4{
+      flex: 0 0 33.333333%;
+      max-width: 33.333333%;
+    }
+  }
+</style>
+<div class="static-section">
+  <div  class="container">
+			<img src="https://cdn.shopify.com/s/files/1/0628/7690/9727/files/TEP_1.jpg?v=1710241518">
+  </div>
+
+    <section class="banner-area pt-30 pl-15 pr-15">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4">
+                            <div class="banner mb-30">
+                                <a href="shop.html"><img src="https://cdn.shopify.com/s/files/1/0628/7690/9727/files/product1.jpg?v=1710241743" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4">
+                            <div class="banner mb-30">
+                                <a href="shop.html"><img src="https://cdn.shopify.com/s/files/1/0628/7690/9727/files/product2.jpg?v=1710241748" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4">
+                            <div class="banner mb-30">
+                                <a href="shop.html"><img src="https://cdn.shopify.com/s/files/1/0628/7690/9727/files/product3.jpg?v=1710241751" alt=""></a>
+                            </div>
+                        </div>
+						
+                    </div>
+                </div>
+            </section>
+
+      <hr class="hr"/>
+      <h2 style="text-align: center;">Visit our stores to explore more!</h2>
+        <div class="container">
+          <section class="section" style="background-color: #f6f6f6;">
+            <h3 style="text-align:center">Titan Eye+ Stores</h3>
+            <ul class="store-list">
+              <li class="store-list-item">BurJuman Mall</li>
+              <li class="store-list-item">Shindagha City Centre</li>
+              <li class="store-list-item">Al-Ghurair City Centre</li>
+              <li class="store-list-item">Sahara City Centre</li>
+            </ul>
+             <p style="text-align:right;position:absolute;bottom:10px;width: 89%;font-weight:700;">+971565478229</p>
+          </section>
+          
+          <section class="section" style="background-color: #f6f6f6;">
+            <h3 style="text-align:center">Titan Watches Stores</h3>
+            <ul class="store-list">
+              <li class="store-list-item">Deira City Centre</li>
+              <li class="store-list-item">Lulu Karama</li>
+              <li class="store-list-item">Ibn Battuta</li>
+              <li class="store-list-item">Mazyad Mall</li>
+              <li class="store-list-item">Shindagha City Centre</li>
+              <li class="store-list-item">Nesto Nahda</li>
+              <li class="store-list-item">Nesto Deira</li>
+              <li class="store-list-item">Lulu Barsha</li>
+              <li class="store-list-item">BurJuman Mall</li>
+              <li class="store-list-item">Sharjah City Centre</li>
+              <li class="store-list-item">Lulu Ghusais</li>
+              <li class="store-list-item">Lulu Al Wanda</li>
+              <li class="store-list-item">Madinat Zayed</li>
+            </ul>
+            <p style="text-align:right;position:absolute;bottom:10px;width: 89%;font-weight:700;">+971505382756</p>
+          </section>
+        </div>
+        <hr class="hr"/>
+        <h2>Would you like a call back?</h2>
+        <div class="container custom-container">
+          <section class="section" style="background-color: #f6f6f6;">
+            <div class="placeholder-rectangle">
+        	<br>
+              <img src="https://cdn.shopify.com/s/files/1/0628/7690/9727/files/store_1.jpg?v=1710244233">
+            </div>
+          </section>
+        
+          <section class="form-section">
+            
+            <h3 class="form-subheading">Please share your contact details and let us find you the perfect gift!</h3>
+             <form id="contact-form">
+              <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label for="contact">Contact Number:</label>
+                <input type="number" id="contact" name="contact" required>
+              </div>
+              <button id="contactForm" type="submit" class="submit-btn" onclick="submitForm()">Submit</button>
+              <div id="email-error-message" style="display: none;color:red;font-size:12px;">Please Fill Email Correctly</div>
+               <div id="contact-error-message" style="display: none;color:red;font-size:12px;">Please Fill Phone Number Correctly</div>
+              <div id="successMessage" style="display: none;color:#50C878;font-size:12px;">Success! Your submission has been recorded.</div>
+             </form>
+          </section>
+        
+        </div>
+
+       <a id="scrollUp" href="#" style="position: fixed; z-index: 2147483647;"><i class="fas fa-arrow-up"></i></a>
+  
+</div>
+<script>
+  function submitForm(){
+    event.preventDefault();
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var phone = document.getElementById("contact").value;
+
+    if (name.trim() === '' || phone.trim() === '' || email.trim() === '') {
+        return;
+      }
+
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        document.querySelector('#email-error-message').style.display="block";
+        return;
+      }
+    
+    var phoneRegex = /^\d{10}$/;
+    if (!phoneRegex.test(phone)) {
+      document.querySelector('#contact-error-message').style.display="block";
+      return;
+    }
+    
+    var formData = {
+    name: name,
+    phone: phone,
+    email: email
+    };
+
+    document.querySelector('#successMessage').style.display="block";
+    document.querySelector('#email-error-message').style.display="none";
+    document.querySelector('#contact-error-message').style.display="none";
+    setTimeout(function() {
+        document.getElementById("name").value = '';
+        document.getElementById("email").value = '';
+        document.getElementById("contact").value = '';
+      document.querySelector('#successMessage').style.display="none";
+    }, 1000); 
+    var requestOptions = {
+          method: 'POST',
+          body: JSON.stringify(formData),
+          redirect: 'follow',
+    };
+
+    async function submitForm(){ 
+          const response = await fetch("https://script.google.com/macros/s/AKfycbw9fjCDQYeFXjcsuoCWZUiCKFB5oeuXrbOi15-S_REvEglyp5U1u6gvUGtvbrXalrVe-Q/exec?action=sendResponse", requestOptions);
+          const result = await response.json();
+          console.log('result', result);
+    }
+    submitForm(); 
+    
+  }
+
+   window.addEventListener('scroll', () => {
+        // Optional: Show or hide the "Scroll to Top" button based on scroll position
+        const scrollUpButton = document.getElementById('scrollUp');
+        if (window.pageYOffset > 100) { // Show button when page is scrolled down by 100px
+            scrollUpButton.style.display = 'block';
+        } else {
+            scrollUpButton.style.display = 'none';
+        }
+    });
+</script>
+{% schema %}
+  {
+    "name": "Static Section",
+    "settings": [],
+    "presets":[{"name":"Landing Page"}]
+  }
+{% endschema %}
