@@ -334,6 +334,9 @@
     };
 
     document.querySelector('#successMessage').style.display="block";
+    document.getElementById("name").value='';
+    document.getElementById("email").value='';
+    document.getElementById("contact").value='';
     var requestOptions = {
           method: 'POST',
           body: JSON.stringify(formData),
