@@ -68,6 +68,22 @@
     "451768ba-558a-46f8-8f07-3fb30eb32deb": {
       "type": "homepage-main-banner",
       "blocks": {
+        "image_tdnWwi": {
+          "type": "image",
+          "settings": {
+            "desktop_banner_image": "shopify:\/\/shop_images\/Website_Landing_Page.jpg",
+            "mobile_banner_image": "shopify:\/\/shop_images\/mobile_Landing_Page.jpg",
+            "desktop_banner_text": "",
+            "mobile_banner_text": "",
+            "button_text1": "",
+            "button_link1": "",
+            "button_text2": "",
+            "button_link2": "",
+            "buttoncolor": "",
+            "buttontextcolor": "",
+            "content-position": "bottom-center"
+          }
+        },
         "cd7ce330-2bb0-43b5-878c-b0553b6a33b4": {
           "type": "image",
           "settings": {
@@ -119,6 +135,7 @@
         }
       },
       "block_order": [
+        "image_tdnWwi",
         "cd7ce330-2bb0-43b5-878c-b0553b6a33b4",
         "e20a4714-88a6-4891-9ff1-da687a6caa14",
         "ceacbe85-9051-46b0-b723-d4de92328c20"
@@ -286,13 +303,8 @@
           "type": "shopify:\/\/apps\/quinn-shoppable-videos\/blocks\/app-stories-block\/150d2781-732b-4020-a9fb-1368e974e6bb",
           "disabled": true,
           "settings": {
-            "story_spacing_desktop": 20,
-            "story_spacing_mobile": 10,
             "story_margins_mobile": "0",
-            "story_margins_desktop": "0",
-            "story_padding_mobile": "0 10px",
-            "story_padding_desktop": "0 5px",
-            "layer_number": "1"
+            "story_margins_desktop": "0"
           }
         },
         "c86a8670-813e-4202-be02-1968108ef01d": {
