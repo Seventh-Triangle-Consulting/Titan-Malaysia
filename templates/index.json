@@ -75,12 +75,12 @@
             "mobile_banner_image": "shopify:\/\/shop_images\/Untitled-2.jpg",
             "desktop_banner_text": "",
             "mobile_banner_text": "",
-            "button_text1": "",
+            "button_text1": "Explore Now",
             "button_link1": "https:\/\/titanworld.com\/pages\/gifting",
             "button_text2": "",
             "button_link2": "https:\/\/titanworld.com\/pages\/gifting",
-            "buttoncolor": "",
-            "buttontextcolor": "",
+            "buttoncolor": "#ffffff",
+            "buttontextcolor": "#000000",
             "content-position": "bottom-center"
           }
         },
