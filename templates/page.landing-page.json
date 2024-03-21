@@ -16,8 +16,11 @@
     },
     "image_banner_rRxF97": {
       "type": "image-banner",
+      "custom_css": [
+
+      ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/New_Banner.jpg",
+        "image": "shopify:\/\/shop_images\/Website_Landing_Page.jpg",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
