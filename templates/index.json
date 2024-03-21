@@ -70,6 +70,7 @@
       "blocks": {
         "image_tdnWwi": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "desktop_banner_image": "shopify:\/\/shop_images\/Website_Landing_Page.jpg",
             "mobile_banner_image": "shopify:\/\/shop_images\/mobile_Landing_Page.jpg",
