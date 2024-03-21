@@ -78,9 +78,9 @@
             "button_text1": "Explore",
             "button_link1": "https:\/\/titanworld.com\/pages\/gifting",
             "button_text2": "",
-            "button_link2": "https:\/\/titanworld.com\/pages\/gifting",
+            "button_link2": "",
             "buttoncolor": "#ffffff",
-            "buttontextcolor": "#000000",
+            "buttontextcolor": "#121212",
             "content-position": "bottom-center"
           }
         },
