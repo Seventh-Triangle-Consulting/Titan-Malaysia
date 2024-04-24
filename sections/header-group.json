@@ -154,6 +154,46 @@
     },
     "gift_about_us_NFHLR8": {
       "type": "gift-about-us",
+      "blocks": {
+        "card_f8Q9x7": {
+          "type": "card",
+          "settings": {
+            "background_color": "#000000",
+            "Card_Number": "<h2>2400+<\/h2>",
+            "Card_text": "<h2>Retail store<\/h2>"
+          }
+        },
+        "card_Q3wqJA": {
+          "type": "card",
+          "settings": {
+            "background_color": "#000000",
+            "Card_Number": "<h2>10<\/h2>",
+            "Card_text": "<h2>Brands<\/h2>"
+          }
+        },
+        "card_jDUf8c": {
+          "type": "card",
+          "settings": {
+            "background_color": "#000000",
+            "Card_Number": "<h2>4<\/h2>",
+            "Card_text": "<h2>Categories<\/h2>"
+          }
+        },
+        "card_U7MpGf": {
+          "type": "card",
+          "settings": {
+            "background_color": "#000000",
+            "Card_Number": "<p>40+<\/p>",
+            "Card_text": "<h2>Countries<\/h2>"
+          }
+        }
+      },
+      "block_order": [
+        "card_f8Q9x7",
+        "card_Q3wqJA",
+        "card_jDUf8c",
+        "card_U7MpGf"
+      ],
       "settings": {
         "margin_bottom_desktop": 36,
         "margin_bottom_mobile": 36,
