@@ -142,71 +142,11 @@
         "popup-bg-img-mob": "shopify:\/\/shop_images\/popup-mobile.jpg",
         "contact-popup-text": "<p><strong>Welcome to the Titan Family! <\/strong><\/p><p>Enjoy exciting Discounts, exclusive offers<\/p><p>and much more!<\/p><p>Sign up to receive updates!<\/p>"
       }
-    },
-    "top_banner_JaTpef": {
-      "type": "TopBanner",
-      "settings": {
-        "margin_bottom_desktop": 36,
-        "margin_bottom_mobile": 36,
-        "about-full-width": "shopify:\/\/shop_images\/Website_Landing_Page.jpg",
-        "about-full-width-mob": "shopify:\/\/shop_images\/Untitled-2_2.jpg"
-      }
-    },
-    "gift_about_us_wYtcG7": {
-      "type": "gift-about-us",
-      "blocks": {
-        "card_D3wGQA": {
-          "type": "card",
-          "settings": {
-            "background_color": "#000000",
-            "Card_Number": "<p>2400+ <\/p>",
-            "Card_text": "<p>Retail Store<\/p>"
-          }
-        },
-        "card_FLpdWK": {
-          "type": "card",
-          "settings": {
-            "background_color": "#000000",
-            "Card_Number": "<p>10<\/p>",
-            "Card_text": "<p>Brands<\/p>"
-          }
-        },
-        "card_Xkw7iR": {
-          "type": "card",
-          "settings": {
-            "background_color": "#000000",
-            "Card_Number": "<p>4<\/p>",
-            "Card_text": "<p>Categories<\/p>"
-          }
-        },
-        "card_KWTPN4": {
-          "type": "card",
-          "settings": {
-            "background_color": "#000000",
-            "Card_Number": "<p>40+<\/p>",
-            "Card_text": "<p>Countries<\/p>"
-          }
-        }
-      },
-      "block_order": [
-        "card_D3wGQA",
-        "card_FLpdWK",
-        "card_Xkw7iR",
-        "card_KWTPN4"
-      ],
-      "settings": {
-        "margin_bottom_desktop": 36,
-        "margin_bottom_mobile": 36,
-        "About_Us_title": "<h2>About Titan<\/h2>",
-        "About_us_description": "<p>Started in 1984, Titan is the 5th largest integrated watch manufacturer in the world.<\/p><p>Widely known of transforming the watch and jewelry industry in India and for shaping India’s retail market by pioneering experiential retail.<\/p>"
-      }
     }
   },
   "order": [
     "announcement-bar",
     "header",
-    "f456190d-63ef-4fd2-ac86-77fddce8bcf6",
-    "top_banner_JaTpef",
-    "gift_about_us_wYtcG7"
+    "f456190d-63ef-4fd2-ac86-77fddce8bcf6"
   ]
 }
