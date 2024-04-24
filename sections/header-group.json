@@ -145,7 +145,6 @@
     },
     "top_banner_JaTpef": {
       "type": "TopBanner",
-      "disabled": true,
       "settings": {
         "margin_bottom_desktop": 36,
         "margin_bottom_mobile": 36,
@@ -195,7 +194,6 @@
         "card_Xkw7iR",
         "card_KWTPN4"
       ],
-      "disabled": true,
       "settings": {
         "margin_bottom_desktop": 36,
         "margin_bottom_mobile": 36,
