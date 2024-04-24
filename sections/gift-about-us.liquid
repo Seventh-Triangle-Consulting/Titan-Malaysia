@@ -1,0 +1,122 @@
+<style>
+
+  .about-us-container .text-container{
+        text-align: center;
+    }
+
+    .about-us-container .block-container{
+        display: flex;
+        justify-content: space-evenly;
+        text-align: center;
+    }
+    
+
+    .about-us-container  .box-container{
+        background-color: black;
+        height: 150px;
+        width: 200px;
+    }
+
+    .box-container h2{
+        color: white;
+    }
+
+
+</style>
+<div class="about-us-container main-baner-{{ section.id }} ">
+    <div class = "text-container">
+        {% if section.settings.About_Us_title != blank %}
+              <h2 class="gift-about-us-title">{{ section.settings.About_Us_title}}</h2>
+        {% endif %}
+
+        {% if section.settings.About_us_description != blank %}
+            <p class="gift-about-us-description">{{ section.settings.About_us_description }}</p>
+      {% endif %}
+        
+    </div>
+
+    <div class="block-container">
+        {% for block in section.blocks %}
+            <div class="box-container">
+                {% if block.settings.Card_Number != blank %}
+                    <h2 class="gift-about-us-title">{{ block.settings.Card_Number }}</h2>
+              {% endif %}
+
+              {% if block.settings.Card_text != blank%}
+                <h2 class="gift-about-us-description">{{ block.settings.Card_text }}</h2>
+          {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+
+{% schema %}
+  {
+    "name": "Gift About Us",
+    "settings": [
+
+      {
+        "type": "range",
+        "id": "margin_bottom_desktop",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Margin Bottom Desktop",
+        "default": 36
+      },
+      {
+        "type": "range",
+        "id": "margin_bottom_mobile",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Margin Bottom Mobile",
+        "default": 36
+      },
+      {
+        "type": "richtext",
+        "id": "About_Us_title",
+        "label": "About Us title"
+      },
+      {
+        "type": "richtext",
+        "id": "About_us_description",
+        "label": "About us description"
+      }
+
+    ],
+    "blocks":[
+   {
+     "name":"gift about us Card",
+     "type":"card",
+     "settings":[
+        {
+            "type": "color",
+            "id": "background_color",
+            "label": "Card BackGround Color",
+            "default": "#000000"
+          },
+          {
+            "type": "richtext",
+            "id": "Card_Number",
+            "label": "Card Number"
+          },
+          {
+            "type": "richtext",
+            "id": "Card_text",
+            "label": "Card text"
+          }
+     ]
+   }
+   ],
+    "presets": [
+      {
+        "name": "gift_About_Us"
+      }
+    ]
+  }
+{% endschema %}

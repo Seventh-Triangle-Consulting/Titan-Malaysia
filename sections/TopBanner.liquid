@@ -1,0 +1,123 @@
+<style>
+   .main-div-banner .content-mob{
+    display: none;
+    }
+
+
+    @media only screen and (max-width: 600px) {
+        .main-div-banner .content-desk{
+            display: none;
+        }
+
+        .main-div-banner .content-mob{
+            display: block;
+        }
+
+    }
+
+   
+</style>
+
+<div class="main-div-banner main-baner-{{ section.id }} ">
+    <div class="outer-main-banner">
+      <div class="inner-main-banner">
+        <div class="content-desk">
+          {% if section.settings['about-full-width'] != blank %}
+            <img
+              srcset="
+                {%- if section.settings.about-full-width.width >= 165 -%}{{ section.settings.about-full-width | image_url: width: 165, format: 'webp' }} 165w,{%- endif -%}
+                {%- if section.settings.about-full-width.width >= 360 -%}{{ section.settings.about-full-width | image_url: width: 214, format: 'webp' }} 360w,{%- endif -%}
+                {%- if section.settings.about-full-width.width >= 533 -%}{{ section.settings.about-full-width | image_url: width: 533, format: 'webp' }} 533w,{%- endif -%}
+                {%- if section.settings.about-full-width.width >= 750 -%}{{ section.settings.about-full-width | image_url: width: 720, format: 'webp' }} 720w,{%- endif -%}
+                {%- if section.settings.about-full-width.width >= 940 -%}{{ section.settings.about-full-width | image_url: width: 940, format: 'webp' }} 940w,{%- endif -%}
+                {%- if section.settings.about-full-width.width >= 1066 -%}{{ section.settings.about-full-width | image_url: width: 1066, format: 'webp' }} 1066w,{%- endif -%}
+                {%- if section.settings.about-full-width.width >= 1200 -%}{{ section.settings.about-full-width | image_url: width: 1066, format: 'webp' }} 1066w,{%- endif -%}
+                {%- if section.settings.about-full-width.width >= 1500 -%}{{ section.settings.about-full-width | image_url: width: 1066, format: 'webp' }} 1066w,{%- endif -%}
+                {%- if section.settings.about-full-width.width >= 1800 -%}{{ section.settings.about-full-width | image_url: width: 1066, format: 'webp' }} 1066w,{%- endif -%}
+                {%- if section.settings.about-full-width.width >= 2200 -%}{{ section.settings.about-full-width | image_url: width: 1066, format: 'webp' }} 1066w,{%- endif -%}
+                {%- if section.settings.about-full-width.width >= 2600 -%}{{ section.settings.about-full-width | image_url: width: 1066, format: 'webp' }} 1066w,{%- endif -%}
+                {{ section.settings.about-full-width | image_url }} {{ section.settings.about-full-width.width }}w
+              "
+              src="{{ section.settings.about-full-width | image_url: width: 1500, format: 'webp' }}"
+              size="auto"
+              alt="{{ section.settings.about-full-width.alt | escape }}"
+              loading="lazy"
+              class="logo-img"
+              width="{{ section.settings.about-full-width.width }}"
+              height="{{ section.settings.about-full-width.height }}">
+  
+         
+          {% endif %}
+        </div>
+        <div class="content-mob">
+          {% if section.settings['about-full-width-mob'] != blank %}
+            <img
+              srcset="
+                {%- if section.settings.about-full-width-mob.width >= 165 -%}{{ section.settings.about-full-width-mob | image_url: width: 165, format: 'webp' }} 165w,{%- endif -%}
+                {%- if section.settings.about-full-width-mob.width >= 360 -%}{{ section.settings.about-full-width-mob | image_url: width: 214, format: 'webp' }} 360w,{%- endif -%}
+                {%- if section.settings.about-full-width-mob.width >= 533 -%}{{ section.settings.about-full-width-mob | image_url: width: 533, format: 'webp' }} 533w,{%- endif -%}
+                {%- if section.settings.about-full-width-mob.width >= 750 -%}{{ section.settings.about-full-width-mob | image_url: width: 720, format: 'webp' }} 720w,{%- endif -%}
+                {%- if section.settings.about-full-width-mob.width >= 940 -%}{{ section.settings.about-full-width-mob | image_url: width: 940, format: 'webp' }} 940w,{%- endif -%}
+                {%- if section.settings.about-full-width-mob.width >= 1066 -%}{{ section.settings.about-full-width-mob | image_url: width: 1066, format: 'webp' }} 1066w,{%- endif -%}
+                {%- if section.settings.about-full-width-mob.width >= 1200 -%}{{ section.settings.about-full-width-mob | image_url: width: 1066, format: 'webp' }} 1066w,{%- endif -%}
+                {%- if section.settings.about-full-width-mob.widtah >= 1500 -%}{{ section.settings.about-full-width-mob | image_url: width: 1066, format: 'webp' }} 1066w,{%- endif -%}
+                {%- if section.settings.about-full-width-mob.width >= 1800 -%}{{ section.settings.about-full-width-mob | image_url: width: 1066, format: 'webp' }} 1066w,{%- endif -%}
+                {%- if section.settings.about-full-width-mob.width >= 2200 -%}{{ section.settings.about-full-width-mob | image_url: width: 1066, format: 'webp' }} 1066w,{%- endif -%}
+                {%- if section.settings.about-full-width-mob.width >= 2600 -%}{{ section.settings.about-full-width-mob | image_url: width: 1066, format: 'webp' }} 1066w,{%- endif -%}
+                {{ section.settings.about-full-width-mob | image_url }} {{ section.settings.about-full-width-mob.width }}w
+              "
+              src="{{ section.settings.about-full-width-mob | image_url: width: 1500, format: 'webp' }}"
+              size="auto"
+              alt="{{ section.settings.about-full-width-mob.alt | escape }}"
+              loading="lazy"
+              class="logo-img"
+              width="{{ section.settings.about-full-width-mob.width }}"
+              height="{{ section.settings.about-full-width-mob.height }}">
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% schema %}
+  {
+    "name": "About Us Main Banner",
+    "settings": [
+
+      {
+        "type": "range",
+        "id": "margin_bottom_desktop",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Margin Bottom Desktop",
+        "default": 36
+      },
+      {
+        "type": "range",
+        "id": "margin_bottom_mobile",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Margin Bottom Mobile",
+        "default": 36
+      },
+      {
+        "type": "image_picker",
+        "id": "about-full-width",
+        "label": "Image for desktop"
+      }, {
+        "type": "image_picker",
+        "id": "about-full-width-mob",
+        "label": "Image for mobile"
+      }
+    ],
+    "presets": [
+      {
+        "name": "about-us-mainn-banner"
+      }
+    ]
+  }
+{% endschema %}
