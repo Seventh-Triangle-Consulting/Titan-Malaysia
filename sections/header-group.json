@@ -183,7 +183,7 @@
           "type": "card",
           "settings": {
             "background_color": "#000000",
-            "Card_Number": "<p>40+<\/p>",
+            "Card_Number": "<h2>40+<\/h2>",
             "Card_text": "<h2>Countries<\/h2>"
           }
         }
