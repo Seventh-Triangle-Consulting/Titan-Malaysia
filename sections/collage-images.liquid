@@ -27,6 +27,9 @@ display:none;
   display:none;
 }
 @media only screen and (max-width: 768px) {
+.collage-img-container--{{ section.id }}{
+margin-bottom:{{section.settings.margin_bottom_mobile}}px;
+}
 .collage-img-container--{{ section.id }} > .coll-wrapper .first_imgflex .image_coll_con {
 width:100%; 
 }
@@ -187,7 +190,12 @@ flex-direction:column;
         "unit": "px",
         "label": "Margin Bottom Mobile",
         "default": 36
-      }
+      },
+  {
+          "type": "text",
+          "id": "heading_collage",
+          "label": "Heading"
+        }
 
     ],
 "blocks": [
