@@ -1,5 +1,23 @@
+<style>
+.grid_logos--{{ section.id }} .grid-text-logos-flex{
+display:flex;
+justify-content:center;
+}
+.grid_logos--{{ section.id }} .grid-text-logos-flex .main-log-grid{
+display:grid;
+  grid-template-columns: repeat(3, 1fr);
+}
 
-<div class="grid_logos--{{ section.id }}">
+</style>
+
+
+
+
+
+
+
+
+<div class="grid_logos--{{ section.id }} page-width">
 <div class="grid-text-logos-flex">
 <div class="Logos-text-custom">
 <h3>{{ section.settings.heading_logos }}</h3>
