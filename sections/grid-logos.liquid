@@ -1,4 +1,14 @@
 <style>
+    .grid_logos--{{ section.id }} {
+    margin-bottom: {{ section.settings.coll_margindesk }}px;
+  }
+
+  @media screen and (max-width: 750px) {
+    .grid_logos--{{ section.id }}{
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+    }
+  }
+  
 .grid_logos--{{ section.id }} .grid-text-logos-flex{
 display:flex;
 justify-content:center;
