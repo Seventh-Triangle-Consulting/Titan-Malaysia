@@ -178,12 +178,21 @@
             "Card_Number": "<p>4<\/p>",
             "Card_text": "<p>Categories<\/p>"
           }
+        },
+        "card_6jwNUk": {
+          "type": "card",
+          "settings": {
+            "background_color": "#000000",
+            "Card_Number": "<p>40+<\/p>",
+            "Card_text": "<p>Countries<\/p>"
+          }
         }
       },
       "block_order": [
         "card_jAAK9m",
         "card_LhmWcb",
-        "card_NJaBYa"
+        "card_NJaBYa",
+        "card_6jwNUk"
       ],
       "settings": {
         "margin_bottom_desktop": 36,
