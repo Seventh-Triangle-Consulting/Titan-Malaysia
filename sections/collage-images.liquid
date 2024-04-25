@@ -1,5 +1,15 @@
- 
-<div class="collage-img-container">
+ <style>
+.collage-img-container--{{ section.id }}{
+margin-bottom:{{section.settings.coll_margindesk}}px;
+}
+
+
+</style>
+
+
+
+
+<div class="collage-img-container--{{ section.id }}">
 <div class="coll-wrapper">
   {% for block in section.blocks %}
 <div class="first_imgflex">
@@ -104,7 +114,7 @@
 
       {
         "type": "range",
-        "id": "margin_bottom_desktop",
+        "id": "coll_margindesk",
         "min": 0,
         "max": 100,
         "step": 1,
