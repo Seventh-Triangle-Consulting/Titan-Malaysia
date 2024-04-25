@@ -61,7 +61,9 @@ width:100%;
 <div class="coll-wrapper">
   {% for block in section.blocks %}
 <div class="first_imgflex">
+
 <div class="image_coll_con">
+{% if block.settings.desk_imgcoll != blank %}
 <img
                       class="desk_imgcoll"
                       srcset="{%- if block.settings.desk_imgcoll.width >= 375 -%}{{ block.settings.desk_imgcoll | image_url: width: 375 }} 375w,{%- endif -%}
@@ -81,6 +83,8 @@ width:100%;
                       width="{{ block.settings.desk_imgcoll.width }}"
                       height="{{ block.settings.desk_imgcoll.height }}"
                        >
+{% endif %}
+{% if block.settings.mobile_imgcoll != blank %}
 <img
                       class="mobile_imgcoll"
                       srcset="{%- if block.settings.mobile_imgcoll.width >= 375 -%}{{ block.settings.mobile_imgcoll | image_url: width: 375 }} 375w,{%- endif -%}
@@ -100,9 +104,11 @@ width:100%;
                       width="{{ block.settings.mobile_imgcoll.width }}"
                       height="{{ block.settings.mobile_imgcoll.height }}"
                        >
+{% endif %}
 
 </div>
 <div class="Nextimage_coll_con">
+{% if block.settings.desk_imgcollnext != blank %}
 <img
                       class="desk_imgcollnext"
                       srcset="{%- if block.settings.desk_imgcollnext.width >= 375 -%}{{ block.settings.desk_imgcollnext | image_url: width: 375 }} 375w,{%- endif -%}
@@ -122,6 +128,7 @@ width:100%;
                       width="{{ block.settings.desk_imgcollnext.width }}"
                       height="{{ block.settings.desk_imgcollnext.height }}"
                        >
+{% endif %}
 <img
          class="mobile_imgcollnext"
                       srcset="{%- if block.settings.mobile_imgcollnext.width >= 375 -%}{{ block.settings.mobile_imgcollnext | image_url: width: 375 }} 375w,{%- endif -%}
