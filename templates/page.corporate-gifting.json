@@ -7,9 +7,69 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "top_banner_XHyJth": {
+      "type": "TopBanner",
+      "settings": {
+        "margin_bottom_desktop": 36,
+        "margin_bottom_mobile": 36,
+        "about-full-width": "shopify:\/\/shop_images\/Website_Landing_Page.jpg",
+        "about-full-width-mob": "shopify:\/\/shop_images\/Untitled-2_2.jpg"
+      }
+    },
+    "gift_about_us_9LA7ET": {
+      "type": "gift-about-us",
+      "blocks": {
+        "card_ygdw9j": {
+          "type": "card",
+          "settings": {
+            "background_color": "#000000",
+            "Card_Number": "<p>2400+<\/p>",
+            "Card_text": "<p>Retails Store<\/p>"
+          }
+        },
+        "card_UdQWJc": {
+          "type": "card",
+          "settings": {
+            "background_color": "#000000",
+            "Card_Number": "<p>10<\/p>",
+            "Card_text": "<p>Brands<\/p>"
+          }
+        },
+        "card_RzW6YL": {
+          "type": "card",
+          "settings": {
+            "background_color": "#000000",
+            "Card_Number": "<p>4<\/p>",
+            "Card_text": "<p>Categories<\/p>"
+          }
+        },
+        "card_J4jqyQ": {
+          "type": "card",
+          "settings": {
+            "background_color": "#000000",
+            "Card_Number": "<p>40+<\/p>",
+            "Card_text": "<p>Countries<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "card_ygdw9j",
+        "card_UdQWJc",
+        "card_RzW6YL",
+        "card_J4jqyQ"
+      ],
+      "settings": {
+        "margin_bottom_desktop": 36,
+        "margin_bottom_mobile": 36,
+        "About_Us_title": "<p>Titan About<\/p>",
+        "About_us_description": "<p>Started in 1984, Titan is the 5th largest integrated watch manufacturer in the world.<\/p><p>Widely known of transforming the watch and jewelry industry in India and for shaping India’s retail market by pioneering experiential retail.<\/p>"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "top_banner_XHyJth",
+    "gift_about_us_9LA7ET"
   ]
 }
