@@ -2,8 +2,25 @@
 .collage-img-container--{{ section.id }}{
 margin-bottom:{{section.settings.coll_margindesk}}px;
 }
-collage-img-container--{{ section.id }} > .coll-wrapper .first_imgflex{
+.collage-img-container--{{ section.id }} > .coll-wrapper .first_imgflex{
 display:flex;
+}
+.collage-img-container--{{ section.id }} > .coll-wrapper .first_imgflex > img{
+width:auto;
+height:auto;  
+}
+.collage-img-container--{{ section.id }} > .coll-wrapper .first_imgflex > .mobile_imgcoll{
+  display:none;
+}
+@media only screen and (max-width: 768px) {
+.collage-img-container--{{ section.id }} > .coll-wrapper .first_imgflex > .mobile_imgcoll{
+  display:block;
+}
+.collage-img-container--{{ section.id }} > .coll-wrapper .first_imgflex > .desk_imgcoll{
+  display:block;
+}
+
+
 
 }
 
