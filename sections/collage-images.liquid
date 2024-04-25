@@ -6,7 +6,7 @@ margin-bottom:{{section.settings.coll_margindesk}}px;
 display:flex;
 }
 .collage-img-container--{{ section.id }} > .coll-wrapper .first_imgflex > img{
-width:auto;
+width:60%;
 height:auto;  
 }
 .collage-img-container--{{ section.id }} > .coll-wrapper .first_imgflex .mobile_imgcoll{
@@ -14,6 +14,10 @@ height:auto;
 }
 .Nextimage_coll_con .mobile_imgcollnext {
 display:none;
+}
+.Nextimage_coll_con .desk_imgcollnext > img{
+width:40%
+height:auto;
 }
 @media only screen and (max-width: 768px) {
 .collage-img-container--{{ section.id }} > .coll-wrapper .first_imgflex > .mobile_imgcoll{
