@@ -68,6 +68,25 @@
     },
     "collage_images_DajQgU": {
       "type": "collage-images",
+      "blocks": {
+        "slide_bKECt7": {
+          "type": "slide",
+          "settings": {
+            "desk_imgcoll": "shopify:\/\/shop_images\/Men_2e6aeab4-de60-4133-8f5e-04ea56c329b5.webp",
+            "mobile_imgcoll": "shopify:\/\/shop_images\/New_Banner.jpg",
+            "desk_imgcollnext": "shopify:\/\/shop_images\/Group_1171276082_200d7108-c60d-4dea-b7c1-8b659f9da910.jpg"
+          }
+        },
+        "slide_Jy9DgM": {
+          "type": "slide",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "slide_bKECt7",
+        "slide_Jy9DgM"
+      ],
       "settings": {
         "coll_margindesk": 36,
         "margin_bottom_mobile": 36
