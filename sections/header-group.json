@@ -142,11 +142,21 @@
         "popup-bg-img-mob": "shopify:\/\/shop_images\/popup-mobile.jpg",
         "contact-popup-text": "<p><strong>Welcome to the Titan Family! <\/strong><\/p><p>Enjoy exciting Discounts, exclusive offers<\/p><p>and much more!<\/p><p>Sign up to receive updates!<\/p>"
       }
+    },
+    "top_banner_yLLF6c": {
+      "type": "TopBanner",
+      "settings": {
+        "margin_bottom_desktop": 36,
+        "margin_bottom_mobile": 36,
+        "about-full-width": "shopify:\/\/shop_images\/Website_Landing_Page.jpg",
+        "about-full-width-mob": "shopify:\/\/shop_images\/Untitled-2_2.jpg"
+      }
     }
   },
   "order": [
     "announcement-bar",
     "header",
-    "f456190d-63ef-4fd2-ac86-77fddce8bcf6"
+    "f456190d-63ef-4fd2-ac86-77fddce8bcf6",
+    "top_banner_yLLF6c"
   ]
 }
