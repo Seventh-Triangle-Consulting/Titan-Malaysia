@@ -112,22 +112,22 @@ width:100%;
 {% if block.settings.desk_imgcollnext != blank %}
 <img
                       class="desk_imgcollnext"
-                      srcset="{%- if block.settings.desk_imgcollnext.width >= 375 -%}{{ block.settings.desk_imgcollnext | image_url: width: 375 }} 375w,{%- endif -%}
-                      {%- if block.settings.desk_imgcollnext.width >= 550 -%}{{ block.settings.desk_imgcollnext | image_url: width: 550 }} 550w,{%- endif -%}
-                      {%- if block.settings.desk_imgcollnext.width >= 750 -%}{{ block.settings.desk_imgcollnext | image_url: width: 750 }} 750w,{%- endif -%}
-                      {%- if block.settings.desk_imgcollnext.width >= 1100 -%}{{ block.settings.desk_imgcollnext | image_url: width: 1100 }} 1100w,{%- endif -%}
-                      {%- if block.settings.desk_imgcollnext.width >= 1500 -%}{{ block.settings.desk_imgcollnext | image_url: width: 1500 }} 1500w,{%- endif -%}
-                      {%- if block.settings.desk_imgcollnext.width >= 1780 -%}{{ block.settings.desk_imgcollnext | image_url: width: 1780 }} 1780w,{%- endif -%}
-                      {%- if block.settings.desk_imgcollnext.width >= 2000 -%}{{ block.settings.desk_imgcollnext | image_url: width: 2000 }} 2000w,{%- endif -%}
-                      {%- if block.settings.desk_imgcollnext.width >= 3000 -%}{{ block.settings.desk_imgcollnext | image_url: width: 3000 }} 3000w,{%- endif -%}
-                      {%- if block.settings.desk_imgcollnext.width >= 3840 -%}{{ block.settings.desk_imgcollnext | image_url: width: 3840 }} 3840w,{%- endif -%}
-                      {{ block.settings.desk_imgcollnext | image_url }} {{ block.settings.desk_imgcollnext.width }}w"
+                      srcset="{%- if block.settings.Nextimage_coll_con.width >= 375 -%}{{ block.settings.Nextimage_coll_con | image_url: width: 375 }} 375w,{%- endif -%}
+                      {%- if block.settings.Nextimage_coll_con.width >= 550 -%}{{ block.settings.Nextimage_coll_con | image_url: width: 550 }} 550w,{%- endif -%}
+                      {%- if block.settings.Nextimage_coll_con.width >= 750 -%}{{ block.settings.Nextimage_coll_con | image_url: width: 750 }} 750w,{%- endif -%}
+                      {%- if block.settings.Nextimage_coll_con.width >= 1100 -%}{{ block.settings.Nextimage_coll_con | image_url: width: 1100 }} 1100w,{%- endif -%}
+                      {%- if block.settings.Nextimage_coll_con.width >= 1500 -%}{{ block.settings.Nextimage_coll_con | image_url: width: 1500 }} 1500w,{%- endif -%}
+                      {%- if block.settings.Nextimage_coll_con.width >= 1780 -%}{{ block.settings.Nextimage_coll_con | image_url: width: 1780 }} 1780w,{%- endif -%}
+                      {%- if block.settings.Nextimage_coll_con.width >= 2000 -%}{{ block.settings.Nextimage_coll_con | image_url: width: 2000 }} 2000w,{%- endif -%}
+                      {%- if block.settings.Nextimage_coll_con.width >= 3000 -%}{{ block.settings.Nextimage_coll_con | image_url: width: 3000 }} 3000w,{%- endif -%}
+                      {%- if block.settings.Nextimage_coll_con.width >= 3840 -%}{{ block.settings.Nextimage_coll_con | image_url: width: 3840 }} 3840w,{%- endif -%}
+                      {{ block.settings.Nextimage_coll_con | image_url }} {{ block.settings.Nextimage_coll_con.width }}w"
                       sizes="100vw"
-                      src="{{ block.settings.desk_imgcollnext | image_url: width: 1500 }}"
+                      src="{{ block.settings.Nextimage_coll_con | image_url: width: 1500 }}"
                       {% if forloop.index0==0 %}loading="none"{% else %}loading="lazy"{% endif %}
-                      alt="{{ block.settings.desk_imgcollnext.alt | escape }}"
-                      width="{{ block.settings.desk_imgcollnext.width }}"
-                      height="{{ block.settings.desk_imgcollnext.height }}"
+                      alt="{{ block.settings.Nextimage_coll_con.alt | escape }}"
+                      width="{{ block.settings.Nextimage_coll_con.width }}"
+                      height="{{ block.settings.Nextimage_coll_con.height }}"
                        >
 {% endif %}
 {% if block.settings. block.settings.mobile_imgcollnext != blank %}
