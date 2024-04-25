@@ -151,12 +151,35 @@
         "about-full-width": "shopify:\/\/shop_images\/Website_Landing_Page.jpg",
         "about-full-width-mob": "shopify:\/\/shop_images\/Untitled-2_2.jpg"
       }
+    },
+    "gift_about_us_TwRMWK": {
+      "type": "gift-about-us",
+      "blocks": {
+        "card_jAAK9m": {
+          "type": "card",
+          "settings": {
+            "background_color": "#000000",
+            "Card_Number": "<p>2400+<\/p>",
+            "Card_text": "<p>Retails Store<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "card_jAAK9m"
+      ],
+      "settings": {
+        "margin_bottom_desktop": 36,
+        "margin_bottom_mobile": 36,
+        "About_Us_title": "<p>About Titan<\/p>",
+        "About_us_description": "<p>Started in 1984, Titan is the 5th largest integrated watch manufacturer in the world.<\/p>"
+      }
     }
   },
   "order": [
     "announcement-bar",
     "header",
     "f456190d-63ef-4fd2-ac86-77fddce8bcf6",
-    "top_banner_yLLF6c"
+    "top_banner_yLLF6c",
+    "gift_about_us_TwRMWK"
   ]
 }
