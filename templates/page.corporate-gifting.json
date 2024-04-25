@@ -77,16 +77,10 @@
             "desk_imgcollnext": "shopify:\/\/shop_images\/Group_1171276082_200d7108-c60d-4dea-b7c1-8b659f9da910.jpg",
             "mobile_imgcollnext": "shopify:\/\/shop_images\/Group_1171276053.webp"
           }
-        },
-        "slide_Jy9DgM": {
-          "type": "slide",
-          "settings": {
-          }
         }
       },
       "block_order": [
-        "slide_bKECt7",
-        "slide_Jy9DgM"
+        "slide_bKECt7"
       ],
       "settings": {
         "coll_margindesk": 36,
