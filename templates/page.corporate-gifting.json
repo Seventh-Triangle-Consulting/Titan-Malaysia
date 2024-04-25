@@ -141,6 +141,15 @@
         "margin_bottom_mobile": 36,
         "heading_logos": "Woriking with The Best Partners"
       }
+    },
+    "top_banner_7dLf8Y": {
+      "type": "TopBanner",
+      "settings": {
+        "margin_bottom_desktop": 46,
+        "margin_bottom_mobile": 36,
+        "about-full-width": "shopify:\/\/shop_images\/Website_Landing_Page.jpg",
+        "about-full-width-mob": "shopify:\/\/shop_images\/Untitled-2_2.jpg"
+      }
     }
   },
   "order": [
@@ -148,6 +157,7 @@
     "top_banner_XHyJth",
     "gift_about_us_9LA7ET",
     "collage_images_DajQgU",
-    "grid_logos_RBQfHN"
+    "grid_logos_RBQfHN",
+    "top_banner_7dLf8Y"
   ]
 }
