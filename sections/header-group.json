@@ -170,11 +170,20 @@
             "Card_Number": "<p>10<\/p>",
             "Card_text": "<p>Brands<\/p>"
           }
+        },
+        "card_NJaBYa": {
+          "type": "card",
+          "settings": {
+            "background_color": "#000000",
+            "Card_Number": "<p>4<\/p>",
+            "Card_text": "<p>Categories<\/p>"
+          }
         }
       },
       "block_order": [
         "card_jAAK9m",
-        "card_LhmWcb"
+        "card_LhmWcb",
+        "card_NJaBYa"
       ],
       "settings": {
         "margin_bottom_desktop": 36,
