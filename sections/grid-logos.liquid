@@ -13,6 +13,32 @@ display:grid;
   width: 50%;
 gap: 2rem;
 }
+.Logos-text-custom > h3 {
+    width: 50%;
+    line-height: 1.4;
+}
+
+@media only screen and (max-width: 600px) {
+.grid_logos--{{ section.id }} .grid-text-logos-flex{
+flex-direction: column;
+}
+.grid_logos--{{ section.id }} .grid-text-logos-flex .main-log-grid{
+  width: 100%;
+}
+.Logos-text-custom {
+    width: 100%;
+    text-align: center;
+}
+.Logos-text-custom > h3 {
+    width: 100%;
+    line-height: 1.4;
+}
+
+
+}
+
+
+
 
 </style>
 
