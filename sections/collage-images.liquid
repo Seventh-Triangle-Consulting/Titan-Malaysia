@@ -130,7 +130,7 @@ width:100%;
                       height="{{ block.settings.Nextimage_coll_con.height }}"
                        >
 {% endif %}
-{% if block.settings. block.settings.mobile_imgcollnext != blank %}
+{% if  block.settings.mobile_imgcollnext != blank %}
 <img
          class="mobile_imgcollnext"
                       srcset="{%- if block.settings.mobile_imgcollnext.width >= 375 -%}{{ block.settings.mobile_imgcollnext | image_url: width: 375 }} 375w,{%- endif -%}
