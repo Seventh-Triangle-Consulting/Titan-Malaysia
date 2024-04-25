@@ -9,21 +9,82 @@
         justify-content: space-evenly;
         text-align: center;
     }
+
+    .about-us-container{
+      margin-Bottom: 80px
+    }
     
 
     .about-us-container  .box-container{
-        background-color: black;
-        height: 150px;
-        width: 200px;
+      background-color: black;
+    height: 150px;
+    display: flex;
+    width: 200px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: black;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
     }
 
     .box-container h2{
         color: white;
     }
 
+    .gift-about-us-title p{
+      font-size: 56px;
+      line-height: normal;
+    }
+
+    .about-us-container .gift-about-us-description p{
+      font-size: 15px !important;
+    }
+
+   .about-us-container  .text-container{
+    margin-Bottom: 60px;
+  }
+
+  .about-us-container .gift-about-us-title{
+    margin-Bottom: 30px;
+  }
+
+ .about-us-container .gift-card-about-us-title p{
+    font-size: 18px;
+    color: white;
+  }
+  
+  .about-us-container .gift-card-about-us-description p{
+    font-size: 18px;
+    color: white;
+
+  }
+
+
+  @media only screen and (max-width: 749px) {
+    .about-us-container .block-container{
+
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+  }
+
+  @media only screen and (max-width: 990px) {
+    .about-us-container .block-container{
+      gap: 26px;
+    }
+  }
+
+
+  block-container
+
+
+
+  
 
 </style>
-<div class="about-us-container main-baner-{{ section.id }} ">
+<div class="about-us-container main-baner-{{ section.id }} page-width">
     <div class = "text-container">
         {% if section.settings.About_Us_title != blank %}
               <h2 class="gift-about-us-title">{{ section.settings.About_Us_title}}</h2>
@@ -39,11 +100,11 @@
         {% for block in section.blocks %}
             <div class="box-container">
                 {% if block.settings.Card_Number != blank %}
-                    <h2 class="gift-about-us-title">{{ block.settings.Card_Number }}</h2>
+                    <h2 class="gift-card-about-us-title">{{ block.settings.Card_Number }}</h2>
               {% endif %}
 
               {% if block.settings.Card_text != blank%}
-                <h2 class="gift-about-us-description">{{ block.settings.Card_text }}</h2>
+                <h2 class="gift-card-about-us-description">{{ block.settings.Card_text }}</h2>
           {% endif %}
             </div>
         {% endfor %}
@@ -93,6 +154,7 @@
    {
      "name":"gift about us Card",
      "type":"card",
+     "limit": 4,
      "settings":[
         {
             "type": "color",

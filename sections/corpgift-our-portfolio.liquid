@@ -1,0 +1,40 @@
+<div class="our-portfolio main-baner-{{ section.id }} page-width">
+    <div class = "text-container">
+        {% if section.settings.About_Us_title != blank %}
+              <h2 class="gift-about-us-title">{{ section.settings.portfolio_title }}</h2>
+        {% endif %}
+    </div>
+    
+    <div class="block-container">
+        {% for block in section.blocks %}
+            <div class="box-container">
+                {% if block.settings.Card_Number != blank %}
+                    <h2 class="gift-card-about-us-title">{{ block.settings.Card_Number }}</h2>
+              {% endif %}
+
+              {% if block.settings.Card_text != blank%}
+                <h2 class="gift-card-about-us-description">{{ block.settings.Card_text }}</h2>
+          {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Corpgift Portfolio",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "portfolio_title",
+        "label": "Portfolio Title"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Corpgift_Portfolio"
+      }
+    ]
+  }
+{% endschema %}
