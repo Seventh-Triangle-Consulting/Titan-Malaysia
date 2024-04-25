@@ -67,7 +67,7 @@ flex-direction:column;
   {% for block in section.blocks %}
 <div class="first_imgflex">
 
-<div class="image_coll_con">
+<div class="image_coll_con" style="width:{{ block.settings.desk_imgcoll_width }}%">
 {% if block.settings.desk_imgcoll != blank %}
 <img
                       class="desk_imgcoll"
@@ -112,7 +112,7 @@ flex-direction:column;
 {% endif %}
 
 </div>
-<div class="Nextimage_coll_con">
+<div class="Nextimage_coll_con" style="width:{{ block.settings.desk_imgcoll_next_width }}%">
 {% if block.settings.desk_imgcollnext != blank %}
 <img
                       class="desk_imgcollnext"
