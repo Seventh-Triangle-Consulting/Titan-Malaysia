@@ -120,7 +120,7 @@
       "settings": {
         "margin_bottom_desktop": 36,
         "margin_bottom_mobile": 36,
-        "our_portfolio_title": "<p>Our Portfolio<\/p>",
+        "our_portfolio_title": "<h2>Our Portfolio<\/h2>",
         "our_portfolio_description": ""
       }
     },
