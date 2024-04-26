@@ -1,216 +1,208 @@
 <style>
-  
-   #{{ section.id }}--margin {
-    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+
+     #{{ section.id }}--margin {
+      margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+    }
+
+    @media screen and (max-width: 750px) {
+      #{{ section.id }}--margin{
+        margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+      }
+    }
+    .our_collection-container .text-container, .our_collection-container .text-container p{
+          text-align: center;
+
+      }
+  .our_collection-container .collection-image-container{
+    display:flex;
+    gap: 2rem;
+  }
+      .our_collection-container .block-container{
+          display: flex;
+          padding: 0 2rem;
+          text-align: center;
+        gap:4rem;
+
+        justify-content:space-evenly;
+      }
+
+
+
+      .our_collection-container  .box-container{
+      padding:4rem;
+            background: #282626;
+      border-radius: 5px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+
+      }
+
+      .our_collection-container .box-container h2{
+          color: white;
+        margin-bottom:2rem !important;
+      }
+
+      .our_collection-title p {
+        color: #000;
+      font-family: PlayfairDisplay-Bold;
+      line-height: normal;
+      letter-spacing: 0.3px;
+      font-size: 28px;
+      margin-bottom: 14px;
+      }
+
+
+
+     .our_collection-container  .text-container{
+      margin-Bottom: 4rem;
+    }
+
+
+
+    .our_collection-container .box-container p {
+      font-size: 16px;
+      color: white;
+          line-height: normal;
+
+    }
+  .our_collection-container a{
+    text-decoration:unset;
   }
 
-  @media screen and (max-width: 750px) {
-    #{{ section.id }}--margin{
-      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+    @media only screen and (max-width: 850px) {
+      .our_collection-container .block-container{
+        gap: 2rem;
+        flex-direction: column;
+      }
     }
-  }
-  .our_collection-container .text-container, .our_collection-container .text-container p{
-        text-align: center;
-
-    }
-.our_collection-container .collection-image-container{
-  display:flex;
-  gap: 2rem;
-}
-    .our_collection-container .block-container{
-        display: flex;
-        padding: 0 2rem;
-        text-align: center;
-      gap:4rem;
-    
-      justify-content:space-evenly;
-    }
-
-
-
-    .our_collection-container  .box-container{
-    padding:4rem;
-          background: #282626;
-    border-radius: 5px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
-
-    }
-
-    .our_collection-container .box-container h2{
-        color: white;
-      margin-bottom:2rem !important;
-    }
-
-    .our_collection-title p {
-      color: #000;
-    font-family: PlayfairDisplay-Bold;
-    line-height: normal;
-    letter-spacing: 0.3px;
-    font-size: 28px;
-    margin-bottom: 14px;
-    }
-
-  
-
-   .our_collection-container  .text-container{
-    margin-Bottom: 4rem;
-  }
-
-
-  
-  .our_collection-container .box-container p {
-    font-size: 16px;
-    color: white;
-        line-height: normal;
-
-  }
-.our_collection-container a{
-  text-decoration:unset;
-}
-
-  @media only screen and (max-width: 850px) {
-    .our_collection-container .block-container{
-      gap: 2rem;
-      flex-direction: column;
-    }
-  }
-
- 
-
-
-
-
-
-  
-
 </style>
 <section id="{{ section.id }}--margin">
-<div class="our_collection-container page-width">
-    <div class = "text-container">
-        {% if section.settings.our_collection_title != blank %}
-              <h2 class="our_collection-title">{{ section.settings.our_collection_title}}</h2>
-        {% endif %}
-        
+  <div class="our_collection-container page-width">
+    <div class="text-container">
+      {% if section.settings.our_collection_title != blank %}
+        <h2 class="our_collection-title">{{ section.settings.our_collection_title }}</h2>
+      {% endif %}
     </div>
-{% if section.blocks != blank %}
-    <div class="block-container">
+    {% if section.blocks != blank %}
+      <div class="block-container">
         {% for block in section.blocks %}
-            <div class="collection-image-container" style="{% if block.settings.show_image_first %} flex-direction:column; {% else %}flex-direction:column-reverse;{% endif %}">
-           {% if block.settings.collection_image != blank %}
-        
-           
-            <img
-              srcset="
-                {%- if block.settings.collection_image.width >= 165 -%}{{ block.settings.collection_image | image_url: width: 165, format: 'webp' }} 165w,{%- endif -%}
-                {%- if block.settings.collection_image.width >= 360 -%}{{ block.settings.collection_image | image_url: width: 214, format: 'webp' }} 360w,{%- endif -%}
-                {%- if block.settings.collection_image.width >= 533 -%}{{ block.settings.collection_image | image_url: width: 533, format: 'webp' }} 533w,{%- endif -%}
-                {%- if block.settings.collection_image.width >= 750 -%}{{ block.settings.collection_image | image_url: width: 720, format: 'webp' }} 720w,{%- endif -%}
-                {%- if block.settings.collection_image.width >= 940 -%}{{ block.settings.collection_image | image_url: width: 940, format: 'webp' }} 940w,{%- endif -%}
-                {%- if block.settings.collection_image.width >= 1066 -%}{{ block.settings.collection_image | image_url: width: 1066, format: 'webp' }} 1066w,{%- endif -%}
-                {%- if block.settings.collection_image.width >= 1200 -%}{{ block.settings.collection_image | image_url: width: 1066, format: 'webp' }} 1066w,{%- endif -%}
-                {%- if block.settings.collection_image.width >= 1500 -%}{{ block.settings.collection_image | image_url: width: 1066, format: 'webp' }} 1066w,{%- endif -%}
-                {%- if block.settings.collection_image.width >= 1800 -%}{{ block.settings.collection_image | image_url: width: 1066, format: 'webp' }} 1066w,{%- endif -%}
-                {%- if block.settings.collection_image.width >= 2200 -%}{{ block.settings.collection_image | image_url: width: 1066, format: 'webp' }} 1066w,{%- endif -%}
-                {%- if block.settings.collection_image.width >= 2600 -%}{{ block.settings.collection_image | image_url: width: 1066, format: 'webp' }} 1066w,{%- endif -%}
-                {{ block.settings.collection_image | image_url }} {{ block.settings.collection_image.width }}w
-              "
-              src="{{ block.settings.collection_image | image_url: width: 1500, format: 'webp' }}"
-              size="auto"
-              alt="{{ block.settings.collection_image.alt | escape }}"
-              loading="lazy"
-              class="logo-img"
-              width="{{ block.settings.collection_image.width }}"
-              height="{{ block.settings.collection_image.height }}">
-  
-         
-          
-         
-             {% endif %}
-          {% if block.settings.collection_text != blank or block.settings.collection_description != blank %}
-            <a href="{{ block.settings.collection_url }}">
-            <div class="box-container">
-                 {% if block.settings.collection_text != blank %}  <h2 class="collection_text-title">{{ block.settings.collection_text }}</h2> {% endif %}
-               {% if block.settings.collection_description != blank %} {{ block.settings.collection_description }}{% endif %}
-            </div>
-            </a>
+          <div
+            class="collection-image-container"
+            style="{% if block.settings.show_image_first %} flex-direction:column; {% else %}flex-direction:column-reverse;{% endif %}"
+          >
+            {% if block.settings.collection_image != blank %}
+              <img
+                srcset="
+                  {%- if block.settings.collection_image.width >= 165 -%}{{ block.settings.collection_image | image_url: width: 165, format: 'webp' }} 165w,{%- endif -%}
+                  {%- if block.settings.collection_image.width >= 360 -%}{{ block.settings.collection_image | image_url: width: 214, format: 'webp' }} 360w,{%- endif -%}
+                  {%- if block.settings.collection_image.width >= 533 -%}{{ block.settings.collection_image | image_url: width: 533, format: 'webp' }} 533w,{%- endif -%}
+                  {%- if block.settings.collection_image.width >= 750 -%}{{ block.settings.collection_image | image_url: width: 720, format: 'webp' }} 720w,{%- endif -%}
+                  {%- if block.settings.collection_image.width >= 940 -%}{{ block.settings.collection_image | image_url: width: 940, format: 'webp' }} 940w,{%- endif -%}
+                  {%- if block.settings.collection_image.width >= 1066 -%}{{ block.settings.collection_image | image_url: width: 1066, format: 'webp' }} 1066w,{%- endif -%}
+                  {%- if block.settings.collection_image.width >= 1200 -%}{{ block.settings.collection_image | image_url: width: 1066, format: 'webp' }} 1066w,{%- endif -%}
+                  {%- if block.settings.collection_image.width >= 1500 -%}{{ block.settings.collection_image | image_url: width: 1066, format: 'webp' }} 1066w,{%- endif -%}
+                  {%- if block.settings.collection_image.width >= 1800 -%}{{ block.settings.collection_image | image_url: width: 1066, format: 'webp' }} 1066w,{%- endif -%}
+                  {%- if block.settings.collection_image.width >= 2200 -%}{{ block.settings.collection_image | image_url: width: 1066, format: 'webp' }} 1066w,{%- endif -%}
+                  {%- if block.settings.collection_image.width >= 2600 -%}{{ block.settings.collection_image | image_url: width: 1066, format: 'webp' }} 1066w,{%- endif -%}
+                  {{ block.settings.collection_image | image_url }} {{ block.settings.collection_image.width }}w
+                "
+                src="{{ block.settings.collection_image | image_url: width: 1500, format: 'webp' }}"
+                size="auto"
+                alt="{{ block.settings.collection_image.alt | escape }}"
+                loading="lazy"
+                class="logo-img"
+                width="{{ block.settings.collection_image.width }}"
+                height="{{ block.settings.collection_image.height }}"
+              >
             {% endif %}
-               </div>
+            {% if block.settings.collection_text != blank or block.settings.collection_description != blank %}
+              <a href="{{ block.settings.collection_url }}">
+                <div class="box-container">
+                  {% if block.settings.collection_text != blank %}
+                    <h2 class="collection_text-title">{{ block.settings.collection_text }}</h2>
+                  {% endif %}
+                  {% if block.settings.collection_description != blank %}
+                    {{ block.settings.collection_description -}}
+                  {%- endif %}
+                </div>
+              </a>
+            {% endif %}
+          </div>
         {% endfor %}
-    </div>
-{% endif %}
-</div>
+      </div>
+    {% endif %}
+  </div>
 </section>
 
 {% schema %}
-  {
-    "name": "Our Collection",
-    "settings": [
+{
+  "name": "Our Collection",
+  "settings": [
 
-      {
-        "type": "range",
-        "id": "margin_bottom_desktop",
-        "min": 0,
-        "max": 100,
-        "step": 1,
-        "unit": "px",
-        "label": "Margin Bottom Desktop",
-        "default": 36
-      },
-      {
-        "type": "range",
-        "id": "margin_bottom_mobile",
-        "min": 0,
-        "max": 100,
-        "step": 1,
-        "unit": "px",
-        "label": "Margin Bottom Mobile",
-        "default": 36
-      },
-     {
-        "type": "richtext",
-        "id": "our_collection_title",
-        "label": "Heading"
-      }
-    ],
-    "blocks":[
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin Bottom Desktop",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin Bottom Mobile",
+      "default": 36
+    },
    {
-     "name":"Collection Card",
-     "type":"card",
-     "limit":3,
-     "settings":[
-          {
-            "type": "checkbox",
-            "id": "show_image_first",
-            "label": "Show Image First",
-            "default":true
-          },
-          {
-            "type": "image_picker",
-            "id": "collection_image",
-            "label": "Image"
-          },
-          {
-            "type": "richtext",
-            "id": "collection_text",
-            "label": "heading"
-          },
-          {
-            "type": "richtext",
-            "id": "collection_description",
-            "label": "Description"
-          },
-          {
-            "type": "url",
-            "id": "collection_url",
-            "label": "Url"
-          }
-     ]
-   }
-   ],
-    "presets": [
-      {
-        "name": "Gift Collection"
-      }
-    ]
-  }
+      "type": "richtext",
+      "id": "our_collection_title",
+      "label": "Heading"
+    }
+  ],
+  "blocks":[
+ {
+   "name":"Collection Card",
+   "type":"card",
+   "limit":3,
+   "settings":[
+        {
+          "type": "checkbox",
+          "id": "show_image_first",
+          "label": "Show Image First",
+          "default":true
+        },
+        {
+          "type": "image_picker",
+          "id": "collection_image",
+          "label": "Image"
+        },
+        {
+          "type": "richtext",
+          "id": "collection_text",
+          "label": "heading"
+        },
+        {
+          "type": "richtext",
+          "id": "collection_description",
+          "label": "Description"
+        },
+        {
+          "type": "url",
+          "id": "collection_url",
+          "label": "Url"
+        }
+   ]
+ }
+ ],
+  "presets": [
+    {
+      "name": "Gift Collection"
+    }
+  ]
+}
 {% endschema %}
