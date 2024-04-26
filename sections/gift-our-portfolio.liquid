@@ -3,6 +3,7 @@
    #{{ section.id }}--margin {
     margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
      overflow:hidden;
+     background: {{section.settings.portfolio_background_color}};
   }
 
   @media screen and (max-width: 750px) {
@@ -143,6 +144,11 @@
         "label": "Margin Bottom Mobile",
         "default": 36
       },
+      {
+            "type": "color",
+            "id": "portfolio_background_color",
+            "label": "BackGround Color"
+     },
       {
         "type": "richtext",
         "id": "our_portfolio_title",
