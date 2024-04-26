@@ -1,6 +1,197 @@
+<style>
+  
+   #{{ section.id }}--margin {
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+  }
+
+  @media screen and (max-width: 750px) {
+    #{{ section.id }}--margin{
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+    }
+  }
+  .about-us-container .text-container{
+        text-align: center;
+    }
+
+    .about-us-container .block-container{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+      gap:4rem;
+    }
+
+    .about-us-container{
+      margin-Bottom: 80px
+    }
+    
+
+    .about-us-container  .box-container{
+      background-color: black;
+    height: 150px;
+    display: flex;
+    width: 200px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: black;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    .box-container h2{
+        color: white;
+    }
+
+    .our_portfolio-title p{
+      color: #000;
+    font-family: PlayfairDisplay-Bold;
+    line-height: normal;
+    letter-spacing: 0.3px;
+    font-size: 28px;
+    margin-bottom: 14px;
+    }
+
+    .about-us-container .our_portfolio-description p{
+      font-size: 15px !important;
+    }
+
+   .about-us-container  .text-container{
+    margin-Bottom: 60px;
+  }
+
+  .about-us-container .our_portfolio-title{
+    margin-Bottom: 30px;
+  }
+
+ .about-us-container .gift-card-about-us-title p{
+    font-size: 18px;
+    color: white;
+  }
+  
+  .about-us-container .gift-card-about-us-description p{
+    font-size: 18px;
+    color: white;
+
+  }
+
+
+  @media only screen and (max-width: 749px) {
+    .about-us-container .block-container{
+
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+  }
+
+  @media only screen and (max-width: 990px) {
+    .about-us-container .block-container{
+      gap: 26px;
+    }
+  }
+
+
+
+
+
+
+  
+
+</style>
+<section id="{{ section.id }}--margin">
+<div class="our_portfolio-container main-baner-{{ section.id }} page-width">
+    <div class = "text-container">
+        {% if section.settings.our_portfolio_title != blank %}
+              <h2 class="our_portfolio-title">{{ section.settings.our_portfolio_title}}</h2>
+        {% endif %}
+
+        {% if section.settings.our_portfolio_description != blank %}
+            <p class="our_portfolio-description">{{ section.settings.our_portfolio_description }}</p>
+      {% endif %}
+        
+    </div>
+{% if section.blocks != blank %}
+    <div class="block-container">
+        {% for block in section.blocks %}
+          {% if block.settings.portfolio_text != blank and block.settings.Card_url !=blank %}
+            <a href="{{ block.settings.Card_url }}">
+            <div class="box-container" {% if block.settings.portfolio_background_color != blank %}style="background:{{ block.settings.portfolio_background_color }}" {% endif %}>
+                <h2 class="portfolio_text-title">{{ block.settings.portfolio_text }}</h2>
+              
+            </div>
+            </a>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endif %}
+</div>
+</section>
+
 {% schema %}
   {
-    "name": "Section name",
-    "settings": []
+    "name": "Our Portfolio",
+    "settings": [
+
+      {
+        "type": "range",
+        "id": "margin_bottom_desktop",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Margin Bottom Desktop",
+        "default": 36
+      },
+      {
+        "type": "range",
+        "id": "margin_bottom_mobile",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Margin Bottom Mobile",
+        "default": 36
+      },
+      {
+        "type": "richtext",
+        "id": "our_portfolio_title",
+        "label": "Heading"
+      },
+      {
+        "type": "richtext",
+        "id": "our_portfolio_description",
+        "label": "Description"
+      }
+
+    ],
+    "blocks":[
+   {
+     "name":"Porfolio Card",
+     "type":"card",
+     "settings":[
+        {
+            "type": "color",
+            "id": "portfolio_background_color",
+            "label": "Card BackGround Color",
+            "default": "#000000"
+          },
+          {
+            "type": "richtext",
+            "id": "portfolio_text",
+            "label": "Card Text"
+          },
+          {
+            "type": "url",
+            "id": "Card_url",
+            "label": "Card Url"
+          }
+     ]
+   }
+   ],
+    "presets": [
+      {
+        "name": "Gift Our Portfolio"
+      }
+    ]
   }
 {% endschema %}
