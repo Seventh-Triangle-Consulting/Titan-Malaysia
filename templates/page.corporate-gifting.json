@@ -161,6 +161,51 @@
         "heading_collage": "Get Inspired"
       }
     },
+    "gift_collection_picker_MHhCgx": {
+      "type": "gift-collection-picker",
+      "blocks": {
+        "card_DbFtGn": {
+          "type": "card",
+          "settings": {
+            "show_image_first": true,
+            "collection_image": "shopify:\/\/shop_images\/Men_2e6aeab4-de60-4133-8f5e-04ea56c329b5_1.webp",
+            "collection_text": "<h2>WORKWEAR<\/h2>",
+            "collection_description": "<p>Timeless style meets boardroom hustle. Elevate your workday with our range of sophisticated watches.<\/p>",
+            "collection_url": "#"
+          }
+        },
+        "card_dizcBk": {
+          "type": "card",
+          "settings": {
+            "show_image_first": false,
+            "collection_image": "shopify:\/\/shop_images\/Workwear_2.png",
+            "collection_text": "<h2>FASHION<\/h2>",
+            "collection_description": "<p>Our fashion collection blend bold designs with premium materials for a look that's effortlessly you<\/p>",
+            "collection_url": "#"
+          }
+        },
+        "card_xEGkQ8": {
+          "type": "card",
+          "settings": {
+            "show_image_first": true,
+            "collection_image": "shopify:\/\/shop_images\/New_Arrival.png",
+            "collection_text": "<h2>MARHABA<\/h2>",
+            "collection_description": "<p>Inspired by the UAE's rich heritage and vibrant style. Arabic calligraphy, Mashrabiya patterns, and premium materials blend in these exquisite timepieces.<\/p>",
+            "collection_url": "#"
+          }
+        }
+      },
+      "block_order": [
+        "card_DbFtGn",
+        "card_dizcBk",
+        "card_xEGkQ8"
+      ],
+      "settings": {
+        "margin_bottom_desktop": 36,
+        "margin_bottom_mobile": 36,
+        "our_collection_title": "<p>Collections<\/p>"
+      }
+    },
     "grid_logos_RBQfHN": {
       "type": "grid-logos",
       "blocks": {
@@ -231,6 +276,7 @@
     "gift_about_us_9LA7ET",
     "gift_our_portfolio_GbmABj",
     "collage_images_DajQgU",
+    "gift_collection_picker_MHhCgx",
     "grid_logos_RBQfHN",
     "top_banner_7dLf8Y"
   ]
