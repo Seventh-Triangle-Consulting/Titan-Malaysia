@@ -20,9 +20,13 @@
         text-align: center;
       gap:4rem;
       overflow-x:scroll;
+       -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  
     }
 
-  
+ .our_portfolio-container .block-container ::-webkit-scrollbar {
+  display: none;
+}
 
     .our_portfolio-container  .box-container{
       background-color: black;
