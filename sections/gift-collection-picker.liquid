@@ -2,9 +2,6 @@
   
    #{{ section.id }}--margin {
     margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
-     overflow:hidden;
-     background: {{section.settings.portfolio_background_color}};
-     padding: 5rem 0;
   }
 
   @media screen and (max-width: 750px) {
@@ -12,12 +9,12 @@
       margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
     }
   }
-  .our_portfolio-container .text-container, .our_portfolio-container .text-container p{
+  .our_collection-container .text-container, .our_collection-container .text-container p{
         text-align: center;
 
     }
 
-    .our_portfolio-container .block-container{
+    .our_collection-container .block-container{
         display: flex;
         padding: 0 2rem;
         text-align: center;
@@ -28,11 +25,11 @@
       justify-content:space-evenly;
     }
 
- .our_portfolio-container .block-container ::-webkit-scrollbar {
+ .our_collection-container .block-container ::-webkit-scrollbar {
   display: none;
 }
 
-    .our_portfolio-container  .box-container{
+    .our_collection-container  .box-container{
     height: 150px;
     display: flex;
     width: 200px;
@@ -48,7 +45,7 @@
         color: white;
     }
 
-    .our_portfolio-title p {
+    .our_collection-title p {
       color: #000;
     font-family: PlayfairDisplay-Bold;
     line-height: normal;
@@ -57,17 +54,17 @@
     margin-bottom: 14px;
     }
 
-    .our_portfolio-container .our_portfolio-description{
+    .our_collection-container .our_collection-description{
       font-size: 15px !important;
     }
 
-   .our_portfolio-container  .text-container{
+   .our_collection-container  .text-container{
     margin-Bottom: 4rem;
   }
 
 
   
-  .our_portfolio-container .our_portfolio-description {
+  .our_collection-container .our_collection-description {
     font-size: 18px;
     color: white;
 
@@ -75,7 +72,7 @@
 
 
   @media only screen and (max-width: 749px) {
-    .our_portfolio-container .block-container{
+    .our_collection-container .block-container{
       gap: 2rem;
     }
   }
@@ -90,24 +87,20 @@
 
 </style>
 <section id="{{ section.id }}--margin">
-<div class="our_portfolio-container main-baner-{{ section.id }}">
+<div class="our_collection-container page-width">
     <div class = "text-container">
-        {% if section.settings.our_portfolio_title != blank %}
-              <h2 class="our_portfolio-title">{{ section.settings.our_portfolio_title}}</h2>
+        {% if section.settings.our_collection_title != blank %}
+              <h2 class="our_collection-title">{{ section.settings.our_collection_title}}</h2>
         {% endif %}
-
-        {% if section.settings.our_portfolio_description != blank %}
-            <p class="our_portfolio-description">{{ section.settings.our_portfolio_description }}</p>
-      {% endif %}
         
     </div>
 {% if section.blocks != blank %}
     <div class="block-container">
         {% for block in section.blocks %}
-          {% if block.settings.portfolio_text != blank and block.settings.Card_url !=blank %}
+          {% if block.settings.collection_text != blank and block.settings.Card_url !=blank %}
             <a href="{{ block.settings.Card_url }}">
-            <div class="box-container" {% if block.settings.portfolio_background_color != blank %}style="background:{{ block.settings.portfolio_background_color }}" {% endif %}>
-                <h2 class="portfolio_text-title">{{ block.settings.portfolio_text }}</h2>
+            <div class="box-container" {% if block.settings.collection_background_color != blank %}style="background:{{ block.settings.collection_background_color }}" {% endif %}>
+                <h2 class="collection_text-title">{{ block.settings.collection_text }}</h2>
               
             </div>
             </a>
@@ -143,43 +136,42 @@
         "label": "Margin Bottom Mobile",
         "default": 36
       },
-      {
-            "type": "color",
-            "id": "portfolio_background_color",
-            "label": "BackGround Color"
-     },
-      {
+     {
         "type": "richtext",
-        "id": "our_portfolio_title",
+        "id": "our_collection_title",
         "label": "Heading"
-      },
-      {
-        "type": "richtext",
-        "id": "our_portfolio_description",
-        "label": "Description"
       }
-
     ],
     "blocks":[
    {
-     "name":"Porfolio Card",
+     "name":"Collection Card",
      "type":"card",
+     "limit":3,
      "settings":[
-        {
-            "type": "color",
-            "id": "portfolio_background_color",
-            "label": "Card BackGround Color",
-            "default": "#000000"
+          {
+            "type": "checkbox",
+            "id": "show_image_first",
+            "label": "Show Image First"
+          },
+          {
+            "type": "image_picker",
+            "id": "collection_image",
+            "label": "Image"
           },
           {
             "type": "richtext",
-            "id": "portfolio_text",
-            "label": "Card Text"
+            "id": "collection_text",
+            "label": "heading"
+          },
+          {
+            "type": "richtext",
+            "id": "collection_description",
+            "label": "Description"
           },
           {
             "type": "url",
-            "id": "Card_url",
-            "label": "Card Url"
+            "id": "collection_url",
+            "label": "Url"
           }
      ]
    }
