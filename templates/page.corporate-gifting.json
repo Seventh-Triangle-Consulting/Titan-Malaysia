@@ -164,6 +164,64 @@
         "about-full-width": "shopify:\/\/shop_images\/Website_Landing_Page.jpg",
         "about-full-width-mob": "shopify:\/\/shop_images\/Untitled-2_2.jpg"
       }
+    },
+    "gift_our_portfolio_GbmABj": {
+      "type": "gift-our-portfolio",
+      "blocks": {
+        "card_MzDXd3": {
+          "type": "card",
+          "settings": {
+            "portfolio_background_color": "#000000",
+            "portfolio_text": "<p><strong>Wallets & Belts<\/strong><\/p>",
+            "Card_url": "shopify:\/\/collections\/watches"
+          }
+        },
+        "card_JUnUQN": {
+          "type": "card",
+          "settings": {
+            "portfolio_background_color": "#000000",
+            "portfolio_text": "<p><strong>Jewellery<\/strong><\/p>",
+            "Card_url": "#"
+          }
+        },
+        "card_gQVGbU": {
+          "type": "card",
+          "settings": {
+            "portfolio_background_color": "#000000",
+            "portfolio_text": "<p><strong>Eyewear<\/strong><\/p>",
+            "Card_url": "#"
+          }
+        },
+        "card_QqEGDJ": {
+          "type": "card",
+          "settings": {
+            "portfolio_background_color": "#000000",
+            "portfolio_text": "<p><strong>Fragrances<\/strong><\/p>",
+            "Card_url": "#"
+          }
+        },
+        "card_ApxGjA": {
+          "type": "card",
+          "settings": {
+            "portfolio_background_color": "#000000",
+            "portfolio_text": "<p><strong>Watches & Clocks<\/strong><\/p>",
+            "Card_url": "#"
+          }
+        }
+      },
+      "block_order": [
+        "card_MzDXd3",
+        "card_JUnUQN",
+        "card_gQVGbU",
+        "card_QqEGDJ",
+        "card_ApxGjA"
+      ],
+      "settings": {
+        "margin_bottom_desktop": 36,
+        "margin_bottom_mobile": 36,
+        "our_portfolio_title": "<p>Our Portfolio<\/p>",
+        "our_portfolio_description": ""
+      }
     }
   },
   "order": [
@@ -172,6 +230,7 @@
     "gift_about_us_9LA7ET",
     "collage_images_DajQgU",
     "grid_logos_RBQfHN",
-    "top_banner_7dLf8Y"
+    "top_banner_7dLf8Y",
+    "gift_our_portfolio_GbmABj"
   ]
 }
