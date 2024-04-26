@@ -2,6 +2,7 @@
   
    #{{ section.id }}--margin {
     margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+     overflow:hidden;
   }
 
   @media screen and (max-width: 750px) {
@@ -18,12 +19,10 @@
         justify-content: center;
         text-align: center;
       gap:4rem;
+      overflow-x:scroll;
     }
 
-    .our_portfolio-container{
-      margin-Bottom: 80px
-    }
-    
+  
 
     .our_portfolio-container  .box-container{
       background-color: black;
@@ -73,16 +72,11 @@
 
       flex-direction: column;
       align-items: center;
-      gap: 40px;
+      gap: 2rem;
     }
   }
 
-  @media only screen and (max-width: 990px) {
-    .our_portfolio-container .block-container{
-      gap: 26px;
-    }
-  }
-
+ 
 
 
 
