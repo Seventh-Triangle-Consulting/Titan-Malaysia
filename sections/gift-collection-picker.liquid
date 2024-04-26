@@ -36,8 +36,9 @@
 
     }
 
-    .box-container h2 p{
+    .our_collection-container .box-container h2 p{
         color: white;
+      margin-bottom:2rem;
     }
 
     .our_collection-title p {
@@ -127,7 +128,7 @@
             <a href="{{ block.settings.collection_url }}">
             <div class="box-container">
                  {% if block.settings.collection_text != blank %}  <h2 class="collection_text-title">{{ block.settings.collection_text }}</h2> {% endif %}
-               {% if block.settings.collection_description != blank %} <p class="collection_text-title">{{ block.settings.collection_description }}</p>{% endif %}
+               {% if block.settings.collection_description != blank %} {{ block.settings.collection_description }}{% endif %}
             </div>
             </a>
             {% endif %}
