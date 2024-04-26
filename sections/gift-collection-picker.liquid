@@ -87,7 +87,7 @@
         {% for block in section.blocks %}
           <div
             class="collection-image-container"
-            style="{% if block.settings.show_image_first %} flex-direction:column; {% else %}flex-direction:column-reverse;{% endif %}"
+            style="{% if block.settings.show_image_first %} flex-direction:column;    justify-content: flex-start; {% else %}flex-direction:column-reverse;    justify-content: flex-end;{% endif %}"
           >
             {% if block.settings.collection_image != blank %}
               <img
