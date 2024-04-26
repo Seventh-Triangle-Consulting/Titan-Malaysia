@@ -120,6 +120,7 @@
       "settings": {
         "margin_bottom_desktop": 68,
         "margin_bottom_mobile": 36,
+        "portfolio_background_color": "#f1efef",
         "our_portfolio_title": "<p>Our Portfolio<\/p>",
         "our_portfolio_description": ""
       }
