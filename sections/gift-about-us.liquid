@@ -1,5 +1,9 @@
 <style>
 
+  .main-baner-{{ section.id }}{
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+  }
+
   .about-us-container .text-container, .about-us-container .text-container p{
         text-align: center;
            line-height:normal !important;
@@ -76,6 +80,10 @@
     }
       .about-us-container  .box-container{
         width:100%;
+      }
+
+      .main-baner-{{ section.id }}{
+        margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
       }
   }
 

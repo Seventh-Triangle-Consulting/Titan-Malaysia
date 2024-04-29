@@ -1,0 +1,397 @@
+<style>
+
+.corpgift-contact-us-{{ section.id }} {
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+}
+.gift-contact-us-container{
+    display: flex;
+}
+
+.gift-contact-us-container .contact-us-left-container{
+    display: flex;
+    gap: 30px;
+    margin-right: 30px;
+}
+
+.contact-us-left-container{
+    width :60%;
+}
+
+.contact-us-right-container{
+    width: 40%;
+    margin-left: 36px;
+}
+
+.gift-contact-us-container .gift-about-us-title p{
+    line-height: 1.2em;
+    {% comment %} font-size: 42px; {% endcomment %}
+}
+
+.gift-contact-us-container .text-container .gift-about-us-description{
+    font-size: 16px;
+    line-height: 1.4em;
+    letter-spacing: 0.05em;
+}
+
+{% comment %} .left-side-contact-image{
+    width: 100%;
+} {% endcomment %}
+
+.text-container{
+    width: 100%;
+}
+
+.left-side-contact-image img{
+    width: 316px;
+    height: 316px;
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+
+.gift-contact-us-container .text-container .gift-about-us-title{
+    width: 256px;
+    height: auto;
+}
+
+.gift-contact-us-container .text-container .gift-about-us-description{
+    width: 289px;
+    height: auto;
+}
+.text-container{
+    margin-top: 40px;
+}
+
+
+.form-inner-text > h2 {
+    font-weight: 600;
+    margin-bottom: 4%;
+  }
+  .form-inner-text > p {
+    color: #000000;
+    margin-bottom: 4%;
+  }
+
+  .form-inner-text > p {
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  .form-d-grid {
+    display: grid;
+    row-gap: 12px;
+    column-gap: 3%;
+  }
+  .form-d-grid > .fields > input {
+    border: 1px solid #00000080;
+    border-radius: 3px;
+    padding: 14px;
+    width: 100%;
+    color: #000 !important;
+  }
+  .form-d-grid > .fields > input:focus-visible {
+    outline: none !important;
+    outline-offset: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .form-d-grid > .fields > input {
+    border: 1px solid #00000080;
+    border-radius: 3px;
+    padding: 14px;
+    width: 100%;
+    color: #000 !important;
+  }
+  .form-d-grid > .fields > input:focus-visible {
+    outline: none !important;
+    outline-offset: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .form-container .fields label,
+.form-container .txtmob label,
+.form-container .full-textfield label {
+  /* color: #000000; */
+  margin-bottom: 5px;
+  display: inline-block;
+  color: #000000;
+   
+}
+
+button#sub_btn {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 33px;
+    color: #fff;
+    margin-top: 4%;
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0471c0;
+    box-shadow: 0 6px 20px -6px #1e2e4826;
+    border-radius: 3px;
+    border: none;
+    padding: 14px 30px;
+    cursor: pointer;
+    min-width: 170px;
+  }
+
+  .form-inner-text h2 p{
+    font-size: 30px;
+}
+
+.error_color {
+    color: red;
+    margin-top: 10px;
+  }
+@media only screen and (max-width: 990px) {
+    .gift-contact-us-container{
+      flex-direction: column;
+    }
+    .contact-us-left-container{
+        width: 100%;
+        justify-content: space-evenly;
+        margin-bottom: 50px;
+    }
+
+    .left-side-contact-image img{
+        width: 100%;
+    }
+
+    .contact-us-right-container{
+        width: 100%;
+        margin-left: 0px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .corpgift-contact-us-{{ section.id }} {
+        margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+    }
+
+    .gift-contact-us-container .contact-us-left-container{
+      flex-direction: column-reverse;
+    }
+    .text-container {
+         margin-top: 0;
+    }
+   
+
+}
+
+
+
+
+</style>
+
+
+<div class ="gift-contact-us-container corpgift-contact-us-{{ section.id }} page-width">
+    <div class="contact-us-left-container">
+        <div class = "left-side-contact-image">
+            {% if section.settings.contact_us_image != blank %}
+                  {% assign lazy = 'lazy' %}          
+                {{
+                    section.settings.contact_us_image
+                  | image_url: width: 1600
+                  | image_tag: class: 'desktop-banner-image', loading: lazy
+                }}
+            {% endif %}
+        </div>
+        <div class = "text-container">
+            {% if section.settings.About_Us_title != blank %}
+                  <h2 class="gift-about-us-title">{{ section.settings.About_Us_title}}</h2>
+            {% endif %}
+    
+            {% if section.settings.About_us_description != blank %}
+                <p class="gift-about-us-description">{{ section.settings.About_us_description }}</p>
+          {% endif %}
+            
+        </div>
+    </div>
+    <div class= "contact-us-right-container">
+        <div class="form-container">
+            <div class="form-inner-text">
+                <h2>{{ section.settings.right_side_title }}</h2>
+                <p>{{ section.settings.right_side_description }}</p>
+              </div>
+              <form
+                class="from_content"
+                id="form_data"
+                action="#"
+                name="myForm"
+                method="post"
+              >
+                <div class="form-d-grid">
+
+                  <div class="fields">
+                    <label>Name</label>
+                    <input type="text" id="name" name="name" required>
+                    <span class="error_color" id="name_error"></span>
+                  </div>
+
+                  <div class="fields">
+                    <label>Email</label>
+                    <input
+                      type="email"
+                      id="email"
+                      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                      name="email"
+                      placeholder="Email"
+                      required
+                    >
+                    <span class="error_color" id="email_error"></span>
+                  </div>
+
+                  <div class="fields">
+                    <label>Company/Oragnization</label>
+                    <input type="text" id="companyname" name="comname" required>
+                    <span class="error_color" id="cname_error"></span>
+                  </div>
+                </div>
+                <button type="button" id="sub_btn" class="submit_button" onclick="newfetchreq()" value="Submit">
+                  Submit
+                </button>
+              </form>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>
+        function newfetchreq() {
+            let namevalidate = NameValidator();
+            let emaiValidate = EmailValidate();
+            if (namevalidate && emaiValidate ) {
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const companyName = document.getElementById('companyname').value;
+                console.log('Name:', name);
+                console.log('Email:', email);
+                console.log('Company/Organization:', companyName);
+
+                handleFormSubmit();
+              }
+        }
+
+
+        const handleFormSubmit = async () => {
+            var appscript_url =
+              'https://script.google.com/macros/s/AKfycbzN4v_eQDuLxVc73KKH3MbM6xcfESmNDkzJs1DRoopjzarNjJrDP2FuHNuC5yrX5TpCdw/exec';
+        
+        
+            var raw = JSON.stringify({
+
+             Name: document.getElementById('name').value,
+             Email: document.getElementById('email').value,
+             Company:  document.getElementById('companyname').value
+
+            });
+        
+            var requestOptions = {
+              method: 'POST',
+              body: raw,
+              redirect: 'follow',
+            };
+        
+            fetch(`${appscript_url}?action=contact`, requestOptions)
+              .then((response) => response.text())
+              .then((result) => console.log(result))
+              .catch((error) => console.log('error', error));
+        
+              window.scrollTo(0,0);
+          };
+
+        function NameValidator() {
+            var name = document.getElementById('name').value;
+            if (name == null || name == '') {
+              document.getElementById('name_error').style.display = 'block';
+              document.getElementById('name_error').innerHTML = 'Please Fill The Name';
+              return false;
+            } else {
+              document.getElementById('name_error').style.display = 'none';
+        
+              return true;
+            }
+          }
+
+          function EmailValidate() {
+            var Email = document.getElementById('email').value;
+            var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (Email == null || Email == '') {
+              document.getElementById('email_error').style.display = 'block';
+              document.getElementById('email_error').innerHTML = 'Please Fill the Email';
+              return false;
+            } else if (!emailPattern.test(Email)) {
+              document.getElementById('email_error').style.display = 'block';
+              document.getElementById('email_error').innerHTML = 'Invalid Email Format';
+              return false;
+            } else {
+              document.getElementById('email_error').style.display = 'none';
+              return true;
+            }
+          }
+
+        
+    </script>
+
+
+
+{% schema %}
+  {
+    "name": "Corpgift Contact us",
+    "settings": [
+
+      {
+        "type": "range",
+        "id": "margin_bottom_desktop",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Margin Bottom Desktop",
+        "default": 36
+      },
+      {
+        "type": "range",
+        "id": "margin_bottom_mobile",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Margin Bottom Mobile",
+        "default": 36
+      },
+      {
+        "type": "richtext",
+        "id": "About_Us_title",
+        "label": "Left side title"
+      },
+      {
+        "type": "richtext",
+        "id": "About_us_description",
+        "label": "Left side description"
+      },
+      {
+        "type": "image_picker",
+        "id": "contact_us_image",
+        "label": "Left side Image"
+      },
+      {
+        "type": "richtext",
+        "id": "right_side_title",
+        "label": "Rigth side title"
+      },
+      {
+        "type": "richtext",
+        "id": "right_side_description",
+        "label": "Right side description"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Corpgift_Contact_us"
+      }
+    ]
+  }
+{% endschema %}
