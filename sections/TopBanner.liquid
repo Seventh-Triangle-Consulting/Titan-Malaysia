@@ -33,6 +33,7 @@
       <div class="inner-main-banner">
         <div class="content-desk">
           {% if section.settings['about-full-width'] != blank %}
+            <a {% if section.settings.about-full-width.width != blank%} href="{{ section.settings.homepage_banner_image }}" {% else %} style="cursor: default;" onclick="handleBannerRendering(window.event || event)" {% endif %}>
             <img
               srcset="
                 {%- if section.settings.about-full-width.width >= 165 -%}{{ section.settings.about-full-width | image_url: width: 165, format: 'webp' }} 165w,{%- endif -%}
@@ -55,12 +56,14 @@
               class="logo-img"
               width="{{ section.settings.about-full-width.width }}"
               height="{{ section.settings.about-full-width.height }}">
+              </a>
   
          
           {% endif %}
         </div>
         <div class="content-mob">
           {% if section.settings['about-full-width-mob'] != blank %}
+            <a {% if section.settings.about-full-width-mob != blank%} href="{{ section.settings.homepage_banner_image }}" {% else %} style="cursor: default;" onclick="handleBannerRendering(window.event || event)" {% endif %}>
             <img
               srcset="
                 {%- if section.settings.about-full-width-mob.width >= 165 -%}{{ section.settings.about-full-width-mob | image_url: width: 165, format: 'webp' }} 165w,{%- endif -%}
@@ -83,6 +86,7 @@
               class="logo-img"
               width="{{ section.settings.about-full-width-mob.width }}"
               height="{{ section.settings.about-full-width-mob.height }}">
+              </a>
           {% endif %}
         </div>
       </div>
@@ -122,6 +126,10 @@
         "type": "image_picker",
         "id": "about-full-width-mob",
         "label": "Image for mobile"
+      },{
+        "type": "url",
+        "id": "homepage_banner_image",
+        "label": "Banner Image URL"
       }
     ],
     "presets": [

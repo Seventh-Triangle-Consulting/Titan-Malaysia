@@ -24,7 +24,6 @@
 
 .gift-contact-us-container .gift-about-us-title p{
     line-height: 1.2em;
-    {% comment %} font-size: 42px; {% endcomment %}
 }
 
 .gift-contact-us-container .text-container .gift-about-us-description{
@@ -33,9 +32,6 @@
     letter-spacing: 0.05em;
 }
 
-{% comment %} .left-side-contact-image{
-    width: 100%;
-} {% endcomment %}
 
 .text-container{
     width: 100%;
@@ -82,7 +78,7 @@
     column-gap: 3%;
   }
   .form-d-grid > .fields > input {
-    border: 1px solid #00000080;
+    border: 3px solid black;
     border-radius: 3px;
     padding: 14px;
     width: 100%;
@@ -94,13 +90,7 @@
     box-shadow: none !important;
   }
 
-  .form-d-grid > .fields > input {
-    border: 1px solid #00000080;
-    border-radius: 3px;
-    padding: 14px;
-    width: 100%;
-    color: #000 !important;
-  }
+ 
   .form-d-grid > .fields > input:focus-visible {
     outline: none !important;
     outline-offset: 0 !important;
@@ -162,6 +152,10 @@ button#sub_btn {
         width: 100%;
         margin-left: 0px;
     }
+    .gift-contact-us-container .gift-about-us-title{
+         width: 100%;
+    }
+
 }
 
 @media only screen and (max-width: 767px) {
@@ -175,6 +169,14 @@ button#sub_btn {
     .text-container {
          margin-top: 0;
     }
+
+    .gift-contact-us-container .gift-about-us-title p{
+    text-align: center;
+}
+
+.gift-contact-us-container .text-container{
+    text-align: center !important;
+}
    
 
 }
