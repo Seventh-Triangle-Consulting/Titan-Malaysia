@@ -117,6 +117,14 @@
             "portfolio_text": "<p>Testing<\/p>",
             "Card_url": "shopify:\/\/products\/after-dark-blue-dial-leather-strap-watch-for-guys-3272sl01"
           }
+        },
+        "card_nUHqNK": {
+          "type": "card",
+          "settings": {
+            "portfolio_background_color": "#000000",
+            "portfolio_text": "<p>Testing1<\/p>",
+            "Card_url": "shopify:\/\/products\/camo-multicoloured-dial-plastic-strap-watch-for-men-77086pp09w"
+          }
         }
       },
       "block_order": [
@@ -125,7 +133,8 @@
         "card_gQVGbU",
         "card_QqEGDJ",
         "card_ApxGjA",
-        "card_JpEnUn"
+        "card_JpEnUn",
+        "card_nUHqNK"
       ],
       "settings": {
         "margin_bottom_desktop": 36,
