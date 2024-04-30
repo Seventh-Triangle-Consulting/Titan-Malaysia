@@ -263,6 +263,12 @@
           "settings": {
             "logos_main_inner": "shopify:\/\/shop_images\/Ramadan_Titan_Female_-Bangladesh_OFjnkn.jpg"
           }
+        },
+        "slide_HMUxxY": {
+          "type": "slide",
+          "settings": {
+            "logos_main_inner": "shopify:\/\/shop_images\/Ramadan_Titan_Female_-Bangladesh_OFjnkn.jpg"
+          }
         }
       },
       "block_order": [
@@ -271,7 +277,8 @@
         "slide_pyFXyc",
         "slide_QgHhnc",
         "slide_x9BB49",
-        "slide_RggXw3"
+        "slide_RggXw3",
+        "slide_HMUxxY"
       ],
       "settings": {
         "coll_margindesk": 36,
