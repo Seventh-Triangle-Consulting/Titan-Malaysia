@@ -25,8 +25,8 @@
           "type": "card",
           "settings": {
             "background_color": "#e93d3d",
-            "Card_Number": "<p>2400+<\/p>",
-            "Card_text": "<p>Retails Store<\/p>"
+            "Card_Number": "",
+            "Card_text": ""
           }
         },
         "card_UdQWJc": {
