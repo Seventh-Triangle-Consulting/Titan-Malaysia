@@ -16,13 +16,10 @@
       gap:4rem;
     }
 
-    .about-us-container{
-      margin-Bottom: 80px
-    }
     
 
     .about-us-container  .box-container{
-      background-color: black;
+      {% comment %} background-color: {{ block.settings.background_color; }} {% endcomment %}
     height: 150px;
     display: flex;
     width: 200px;
@@ -111,7 +108,7 @@
 
     <div class="block-container">
         {% for block in section.blocks %}
-            <div class="box-container">
+            <div class="box-container" {% if block.settings.background_color != blank %}style="background:{{ block.settings.background_color }}" {% endif %}>
                 {% if block.settings.Card_Number != blank %}
                     <h2 class="gift-card-about-us-title">{{ block.settings.Card_Number }}</h2>
               {% endif %}
