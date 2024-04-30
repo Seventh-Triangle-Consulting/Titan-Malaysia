@@ -13,6 +13,7 @@
       "settings": {
         "margin_bottom_desktop": 36,
         "margin_bottom_mobile": 36,
+        "about-full-width": "shopify:\/\/shop_images\/Website_Landing_Page.jpg",
         "about-full-width-mob": "shopify:\/\/shop_images\/Untitled-2_2.jpg",
         "homepage_banner_image": ""
       }
