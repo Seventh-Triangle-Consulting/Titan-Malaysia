@@ -109,6 +109,14 @@
             "portfolio_text": "<p><strong>Watches & Clocks<\/strong><\/p>",
             "Card_url": "#"
           }
+        },
+        "card_JpEnUn": {
+          "type": "card",
+          "settings": {
+            "portfolio_background_color": "#000000",
+            "portfolio_text": "<p>Testing<\/p>",
+            "Card_url": "shopify:\/\/products\/after-dark-blue-dial-leather-strap-watch-for-guys-3272sl01"
+          }
         }
       },
       "block_order": [
@@ -116,7 +124,8 @@
         "card_JUnUQN",
         "card_gQVGbU",
         "card_QqEGDJ",
-        "card_ApxGjA"
+        "card_ApxGjA",
+        "card_JpEnUn"
       ],
       "settings": {
         "margin_bottom_desktop": 36,
