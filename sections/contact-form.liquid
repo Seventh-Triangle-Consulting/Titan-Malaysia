@@ -67,32 +67,6 @@
           >
          
         </div>
-        <div class="field">
-           <label class="field__label" for="ContactForm-name">School Name   <span aria-hidden="true">*</span></label>
-          <input
-            class="field__input"
-            autocomplete="name"
-            type="text"
-            id="ContactForm-name" onkeydown="return /[a-z]/i.test(event.key)"
-            name="contact['School name']"
-            value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
-            placeholder="School Name" required
-          > 
-         
-        </div>
-       <div class="field">
-             <label class="field__label" for="ContactForm-name">City  <span aria-hidden="true">*</span></label>
-          <input
-            class="field__input"
-            autocomplete="name"
-            type="text"
-            id="ContactForm-name" required
-            name="contact['city']" onkeydown="return /[a-z]/i.test(event.key)"
-            value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.address }}{% endif %}"
-            placeholder="City"
-          >
-      
-        </div>
         <div class="field field--with-error">
            <label class="field__label" for="ContactForm-email">
             {{- 'templates.contact.form.email' | t }}
