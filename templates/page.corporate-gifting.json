@@ -14,7 +14,8 @@
         "margin_bottom_desktop": 36,
         "margin_bottom_mobile": 36,
         "about-full-width": "shopify:\/\/shop_images\/Website_Landing_Page.jpg",
-        "about-full-width-mob": "shopify:\/\/shop_images\/Untitled-2_2.jpg"
+        "about-full-width-mob": "shopify:\/\/shop_images\/Untitled-2_2.jpg",
+        "homepage_banner_image": ""
       }
     },
     "gift_about_us_9LA7ET": {
@@ -266,7 +267,20 @@
         "margin_bottom_desktop": 46,
         "margin_bottom_mobile": 36,
         "about-full-width": "shopify:\/\/shop_images\/Website_Landing_Page.jpg",
-        "about-full-width-mob": "shopify:\/\/shop_images\/Untitled-2_2.jpg"
+        "about-full-width-mob": "shopify:\/\/shop_images\/Untitled-2_2.jpg",
+        "homepage_banner_image": ""
+      }
+    },
+    "corpgift_contact_us_PLdmLH": {
+      "type": "corpgift-contact-us",
+      "settings": {
+        "margin_bottom_desktop": 36,
+        "margin_bottom_mobile": 36,
+        "About_Us_title": "<p>Gifting Redefined With Titan<\/p>",
+        "About_us_description": "<p>Empower Your Team with Timepieces that Define Success<\/p>",
+        "contact_us_image": "shopify:\/\/shop_images\/fff_4.png",
+        "right_side_title": "<p>Contact Us<\/p>",
+        "right_side_description": "<p>Embrace Excellence<\/p>"
       }
     }
   },
@@ -278,6 +292,7 @@
     "collage_images_DajQgU",
     "gift_collection_picker_MHhCgx",
     "grid_logos_RBQfHN",
-    "top_banner_7dLf8Y"
+    "top_banner_7dLf8Y",
+    "corpgift_contact_us_PLdmLH"
   ]
 }
