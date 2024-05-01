@@ -295,7 +295,8 @@ button#sub_btn {
         }
     }
 
-      document.getElementById("name")?.onkeypress=function(e){ 
+      
+      document.getElementById("name").onkeypress=function(e){ 
         var e=window.event || e 
         var keyunicode=e.charCode || e.keyCode 
         return (keyunicode>=65 && keyunicode<=122 || keyunicode==8 || keyunicode==32)? true : false 
