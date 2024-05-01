@@ -306,6 +306,9 @@ button#sub_btn {
        
 
         const handleFormSubmit = async () => {
+          const sub_btn = document.getElementById('sub_btn');
+          sub_btn.style.pointerEvent="none";
+          sub_btn.style.opactiy="0.5";
             var appscript_url =
               'https://script.google.com/macros/s/AKfycbzN4v_eQDuLxVc73KKH3MbM6xcfESmNDkzJs1DRoopjzarNjJrDP2FuHNuC5yrX5TpCdw/exec';
         
@@ -333,6 +336,9 @@ button#sub_btn {
                   document.getElementById('name').value='';
               document.getElementById('email').value = '';
              document.getElementById('companyname').value='';
+             sub_btn.style.pointerEvent="unset";
+              sub_btn.style.opactiy="1";
+              console.log("hello");
 
 
                 } 
@@ -342,7 +348,14 @@ button#sub_btn {
                   } 
                 },2000)
                })
-              .catch((error) => console.log('error', error));
+              .catch((error) => 
+              {
+                console.log('error', error)
+                sub_btn.style.pointerEvent="unset";
+              sub_btn.style.opactiy="1";
+              console.log("hello");
+              }
+            );
         
              
           };
