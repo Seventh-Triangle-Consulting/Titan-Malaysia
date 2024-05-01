@@ -307,8 +307,8 @@ button#sub_btn {
 
         const handleFormSubmit = async () => {
           const sub_btn = document.getElementById('sub_btn');
-          sub_btn.style.pointerEvent="none";
-          sub_btn.style.opactiy="0.5";
+          sub_btn.style.pointerEvents="none";
+          sub_btn.style.opacity="0.5";
             var appscript_url =
               'https://script.google.com/macros/s/AKfycbzN4v_eQDuLxVc73KKH3MbM6xcfESmNDkzJs1DRoopjzarNjJrDP2FuHNuC5yrX5TpCdw/exec';
         
@@ -330,15 +330,15 @@ button#sub_btn {
             fetch(`${appscript_url}?action=contact`, requestOptions)
               .then((response) =>response.text())
               .then((result) => {
-                console.log('result is' ,result,result.ok);
+               
                  if(result){
                   document.getElementById('success-msg').style.display = 'block';
                   document.getElementById('name').value='';
               document.getElementById('email').value = '';
              document.getElementById('companyname').value='';
-             sub_btn.style.pointerEvent="unset";
-              sub_btn.style.opactiy="1";
-              console.log("hello");
+             sub_btn.style.pointerEvents="unset";
+              sub_btn.style.opacity="1";
+             
 
 
                 } 
@@ -351,9 +351,9 @@ button#sub_btn {
               .catch((error) => 
               {
                 console.log('error', error)
-                sub_btn.style.pointerEvent="unset";
-              sub_btn.style.opactiy="1";
-              console.log("hello");
+                sub_btn.style.pointerEvents="unset";
+              sub_btn.style.opacity="1";
+            
               }
             );
         
