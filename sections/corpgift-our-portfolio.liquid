@@ -1,4 +1,11 @@
-<div class="our-portfolio main-baner-{{ section.id }} page-width">
+<style>
+  .corpgift-our-portfolio{{ section.id }}{
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+  }
+
+  @media only screen and (max-width: px) {...}
+</style>
+<div class="our-portfolio corpgift-our-portfolio{{ section.id }} page-width">
     <div class = "text-container">
         {% if section.settings.About_Us_title != blank %}
               <h2 class="gift-about-us-title">{{ section.settings.portfolio_title }}</h2>
@@ -25,6 +32,26 @@
   {
     "name": "Corpgift Portfolio",
     "settings": [
+      {
+        "type": "range",
+        "id": "margin_bottom_desktop",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Margin Bottom Desktop",
+        "default": 36
+      },
+      {
+        "type": "range",
+        "id": "margin_bottom_mobile",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Margin Bottom Mobile",
+        "default": 36
+      },
       {
         "type": "richtext",
         "id": "portfolio_title",
