@@ -136,7 +136,6 @@
     },
     "f456190d-63ef-4fd2-ac86-77fddce8bcf6": {
       "type": "contact-popup",
-      "disabled": true,
       "settings": {
         "popup-bg-img": "shopify:\/\/shop_images\/popupbg_1.jpg",
         "popup-bg-img-mob": "shopify:\/\/shop_images\/popup-mobile.jpg",
