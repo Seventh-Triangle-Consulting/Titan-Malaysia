@@ -78,16 +78,9 @@ gap: 2rem;
          class="logos_main_inner"
                       srcset="{%- if block.settings.logos_main_inner.width >= 375 -%}{{ block.settings.logos_main_inner | image_url: width: 375 }} 375w,{%- endif -%}
                       {%- if block.settings.logos_main_inner.width >= 550 -%}{{ block.settings.logos_main_inner | image_url: width: 550 }} 550w,{%- endif -%}
-                      {%- if block.settings.logos_main_inner.width >= 750 -%}{{ block.settings.logos_main_inner | image_url: width: 750 }} 750w,{%- endif -%}
-                      {%- if block.settings.logos_main_inner.width >= 1100 -%}{{ block.settings.logos_main_inner | image_url: width: 1100 }} 1100w,{%- endif -%}
-                      {%- if block.settings.logos_main_inner.width >= 1500 -%}{{ block.settings.logos_main_inner | image_url: width: 1500 }} 1500w,{%- endif -%}
-                      {%- if block.settings.logos_main_inner.width >= 1780 -%}{{ block.settings.logos_main_inner | image_url: width: 1780 }} 1780w,{%- endif -%}
-                      {%- if block.settings.logos_main_inner.width >= 2000 -%}{{ block.settings.logos_main_inner | image_url: width: 2000 }} 2000w,{%- endif -%}
-                      {%- if block.settings.logos_main_inner.width >= 3000 -%}{{ block.settings.logos_main_inner | image_url: width: 3000 }} 3000w,{%- endif -%}
-                      {%- if block.settings.logos_main_inner.width >= 3840 -%}{{ block.settings.logos_main_inner | image_url: width: 3840 }} 3840w,{%- endif -%}
                       {{ block.settings.logos_main_inner | image_url }} {{ block.settings.logos_main_inner.width }}w"
                       sizes="100vw"
-                      src="{{ block.settings.logos_main_inner | image_url: width: 1500 }}"
+                      src="{{ block.settings.logos_main_inner | image_url: width: 300 }}"
                       {% if forloop.index0==0 %}loading="none"{% else %}loading="lazy"{% endif %}
                       alt="{{ block.settings.logos_main_inner.alt | escape }}"
                       width="{{ block.settings.logos_main_inner.width }}"
