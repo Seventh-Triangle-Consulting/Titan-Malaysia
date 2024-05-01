@@ -134,10 +134,10 @@
           "settings": {
             "desk_imgcoll": "shopify:\/\/shop_images\/titanBanner.webp",
             "desk_imgcoll_width": "68",
-            "mobile_imgcoll": "shopify:\/\/shop_images\/Group_1000003104.webp",
+            "mobile_imgcoll": "shopify:\/\/shop_images\/titanBanner.webp",
             "desk_imgcollnext": "shopify:\/\/shop_images\/titan-banner.webp",
             "desk_imgcoll_next_width": "40",
-            "mobile_imgcollnext": "shopify:\/\/shop_images\/Group_1171276053.webp"
+            "mobile_imgcollnext": "shopify:\/\/shop_images\/titan-banner.webp"
           }
         },
         "slide_CMUL8f": {
@@ -145,7 +145,7 @@
           "settings": {
             "desk_imgcoll": "shopify:\/\/shop_images\/titan_banner1_2d64d66d-e45f-4278-90ed-2b997dc87c99.webp",
             "desk_imgcoll_width": "80",
-            "mobile_imgcoll": "shopify:\/\/shop_images\/Group_1000003104.webp",
+            "mobile_imgcoll": "shopify:\/\/shop_images\/titan_banner1_2d64d66d-e45f-4278-90ed-2b997dc87c99.webp",
             "desk_imgcollnext": "shopify:\/\/shop_images\/titan_banner_4_9f7c384e-44da-42c9-807c-f7ab561ac82e.webp",
             "desk_imgcoll_next_width": "20",
             "mobile_imgcollnext": "shopify:\/\/shop_images\/Group_1171276053.webp"
