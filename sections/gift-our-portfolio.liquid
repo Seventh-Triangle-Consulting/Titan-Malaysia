@@ -120,13 +120,13 @@
 {% if section.blocks != blank %}
     <div class="block-container">
         {% for block in section.blocks %}
-          {% if block.settings.portfolio_text != blank and block.settings.Card_url !=blank %}
-            <a href="{{ block.settings.Card_url }}">
+          {% if block.settings.portfolio_text != blank %}
+{% if block.settings.Card_url !=blank  %}<a href="{{ block.settings.Card_url }}">{% endif %}
             <div class="box-container" {% if block.settings.portfolio_background_color != blank %}style="background:{{ block.settings.portfolio_background_color }}" {% endif %}>
                 <h2 class="portfolio_text-title">{{ block.settings.portfolio_text }}</h2>
               
             </div>
-            </a>
+         {% if block.settings.Card_url !=blank  %}   </a> {% endif %}
             {% endif %}
         {% endfor %}
     </div>
