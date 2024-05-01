@@ -7,9 +7,39 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "homepage_main_banner_3iP8hb": {
+      "type": "homepage-main-banner",
+      "blocks": {
+        "image_afkYQ6": {
+          "type": "image",
+          "settings": {
+            "desktop_banner_image": "shopify:\/\/shop_images\/Hero_Banner.jpg",
+            "mobile_banner_image": "shopify:\/\/shop_images\/Hero_Banner.jpg",
+            "desktop_banner_text": "",
+            "mobile_banner_text": "",
+            "button_text1": "",
+            "button_link1": "",
+            "button_text2": "",
+            "button_link2": "",
+            "buttoncolor": "",
+            "buttontextcolor": "",
+            "content-position": "bottom-center"
+          }
+        }
+      },
+      "block_order": [
+        "image_afkYQ6"
+      ],
+      "settings": {
+        "margin_bottom_desktop": 36,
+        "margin_bottom_mobile": 36,
+        "autoplay": false
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "homepage_main_banner_3iP8hb"
   ]
 }
