@@ -24,7 +24,7 @@
             "button_link2": "",
             "buttoncolor": "",
             "buttontextcolor": "",
-            "content-position": "bottom-center"
+            "content-position": "middle-center"
           }
         }
       },
@@ -32,8 +32,8 @@
         "image_rraf6A"
       ],
       "settings": {
-        "margin_bottom_desktop": 36,
-        "margin_bottom_mobile": 36,
+        "margin_bottom_desktop": 12,
+        "margin_bottom_mobile": 12,
         "autoplay": false
       }
     },
