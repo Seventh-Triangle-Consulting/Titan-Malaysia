@@ -32,7 +32,7 @@
         "image_rraf6A"
       ],
       "custom_css": [
-        "div{border-radius:30px; padding: 10px 10px 10px 10px;}"
+        "div {border-radius: 30px; padding: 10px ,10px ,10px ,10px;}"
       ],
       "settings": {
         "margin_bottom_desktop": 12,
