@@ -129,9 +129,6 @@
     {% if page.template_suffix == 'sunspecs' and page.handle == 'lucky-draw-staycation' %}
       {% render 'head-meta-pixel-code' %}
       {% render 'head-google-add-code' %}
-      <script>
-        console.log('pageeeee opeeeennnn')
-      </script>
     {% endif %}
 	</head>
 
@@ -239,7 +236,7 @@ function  changeCss () {
 {% comment %}{{ '1checkout.js' | asset_url | script_tag }} {% endcomment %}
 <!-- --------------- END 1CHECKOUT JS --------------- -->
      {{ 'SwipeUp-reels-feed-scroll.js' | asset_url | script_tag }}
-    {% if page.template_suffix == 'sunspecsgradient' and page.handle == 'lucky-draw-staycation' %}
+    {% if page.template_suffix == 'sunspecs' and page.handle == 'lucky-draw-staycation' %}
       {% render 'body-meta-pixel-code' %}
       {% render 'body-google-add-code' %}
     {% endif %}
