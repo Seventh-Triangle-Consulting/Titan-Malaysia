@@ -135,7 +135,7 @@
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
     {% if page.template_suffix == 'sunspecs' and page.handle == 'lucky-draw-staycation' %}
       {% render 'body-meta-pixel-code' %}
-      {% render 'body-google-add-code' %}
+      {% comment %}{% render 'body-google-add-code' %}{% endcomment %}
     {% endif %}
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
