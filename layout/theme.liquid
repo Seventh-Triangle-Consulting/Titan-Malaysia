@@ -126,9 +126,13 @@
     &noscript=1"/>
     </noscript>
     <!-- End Facebook Pixel Code -->
+    {% if page.template_suffix == 'sunspecsgradient' and page.handle == 'lucky-draw-staycation' %}
+      {% render 'head-meta-pixel-code' %}
+      {% render 'head-google-add-code' %}
+    {% endif %}
 	</head>
 
-  <body class="{{ page.template_suffix }}gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
+  <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
