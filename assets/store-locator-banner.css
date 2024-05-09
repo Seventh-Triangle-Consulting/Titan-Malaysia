@@ -1,0 +1,128 @@
+.inner_wraper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    gap: 10px;
+}
+.wrapper_main {
+    position: relative;
+}
+.store_locator_heading {
+    font-family: 'Poppins-Bold';
+    font-size: 36px;
+    line-height: 48px;
+    color: white;
+    font-weight: 700;
+}
+.store_locator_subheading {
+    font-family: 'Poppins-Regular';
+    font-size: 24px;
+    line-height: 30px;
+    color: white;
+    font-weight: 400;
+    text-align: center;
+}
+.search_store_label {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    height: 45px;
+    padding: 10px;
+    border-radius: 9px;
+    gap: 5px;
+    position: relative;
+}
+.search_store_input {
+    width: 100%;
+    border: none;
+}
+.search_store_input:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+.search_store_input::placeholder {
+    font-size: 16px;
+    color: black;
+    font-family: 'Poppins-Regular';
+    font-weight: 400;
+}
+.mobile-store-locator-banner-image {
+    display: none;
+}
+.search-result-parent {
+    position: absolute;
+    background: white;
+    top: 100%;
+    width: 90%;
+    border-radius: 5px;
+    box-shadow: 1px 0px 4px #00000040;
+    overflow: auto;
+    scrollbar-width: thin;
+    max-height: 200px;
+}
+.search-result-wrapper{
+   overflow: hidden; 
+}
+.store-result-name {
+    font-size: 15px;
+    line-height: 22.5px;
+    font-weight: 500;
+    color: #000;
+    font-family: Poppins-Medium;
+}
+.store-result-address {
+    font-size: 15px;
+    line-height: 22.5px;
+    font-weight: 500;
+    color: #000;
+    font-family: Poppins-Medium;
+}
+.store-result {
+    border-bottom: 1px solid #cdcdcd;
+    padding: 5px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 999px) {
+    .inner_wraper {
+        top: 30%;
+    }
+    .store_locator_heading {
+        font-size: 24px;
+        line-height: 30px;
+    }
+    .store_locator_subheading {
+        font-size: 18px;
+        line-height: 24px;
+    }
+    .search_store_label {
+        width: 450px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .mobile-store-locator-banner-image {
+        display: block;
+    }
+    .desktop-store-locator-banner-image {
+        display: none;
+    }
+    .search_store_label {
+        width: 90%;
+    }
+    .store_locator_heading {
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .store_locator_subheading {
+        font-size: 15px;
+        line-height: 18px;
+        width: 90%;
+    }
+}
