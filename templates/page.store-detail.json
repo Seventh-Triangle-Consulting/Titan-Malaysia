@@ -2,13 +2,65 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
+      "custom_css": [
+
+      ],
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "rich_text_CTQ6bJ": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_zWm3aD": {
+          "type": "heading",
+          "settings": {
+            "heading": "Welcome to TITAN!",
+            "heading_size": "h1"
+          }
+        },
+        "text_cyGBPW": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Shop from a wide range of exquisite watches for all occasions.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_zWm3aD",
+        "text_cyGBPW"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "store_locator_banner_ifknzh": {
+      "type": "store-locator-banner",
+      "settings": {
+        "store_locator_img": "shopify:\/\/shop_images\/Mask_group.png",
+        "mobile_store_locator_img": "shopify:\/\/shop_images\/dummy_850x1000_ffffff_cccccc.png",
+        "store_locator_banner_heading": "Looking for a Store?",
+        "store_locator_banner_subheading": "Enter your location to find a store nearest to you"
+      }
+    },
+    "store_details_3eAg6Y": {
+      "type": "store-details",
+      "settings": {
+        "store_locator_img": "shopify:\/\/shop_images\/Container.png"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "rich_text_CTQ6bJ",
+    "store_locator_banner_ifknzh",
+    "store_details_3eAg6Y"
   ]
 }
