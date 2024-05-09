@@ -8,26 +8,26 @@
         "padding_bottom": 28
       }
     },
-    "rich_text_bNXak7": {
+    "rich_text_xYVLni": {
       "type": "rich-text",
       "blocks": {
-        "heading_AGhHgy": {
+        "heading_xFN78j": {
           "type": "heading",
           "settings": {
-            "heading": "Find A Store Or Service Center",
+            "heading": "Welcome to TITAN!",
             "heading_size": "h1"
           }
         },
-        "text_3f3yQh": {
+        "text_AYWKrW": {
           "type": "text",
           "settings": {
-            "text": "<p>Enter your location to find a store closest to you.<\/p>"
+            "text": "<p>Shop from a wide range of exquisite watches for all occasions.<\/p>"
           }
         }
       },
       "block_order": [
-        "heading_AGhHgy",
-        "text_3f3yQh"
+        "heading_xFN78j",
+        "text_AYWKrW"
       ],
       "settings": {
         "desktop_content_position": "center",
@@ -35,29 +35,48 @@
         "color_scheme": "",
         "full_width": true,
         "padding_top": 40,
-        "padding_bottom": 52
+        "padding_bottom": 0
       }
     },
-    "17087616069c328926": {
+    "1703961899413952ca": {
       "type": "apps",
       "blocks": {
-        "s_store_locator_storeify_storelocator_9mn89G": {
+        "s_store_locator_storeify_storelocator_Pfg7ML": {
           "type": "shopify:\/\/apps\/s-store-locator\/blocks\/storeify-storelocator\/e7003487-cc51-4321-9488-2c47c07a5b17",
           "settings": {
           }
         }
       },
       "block_order": [
-        "s_store_locator_storeify_storelocator_9mn89G"
+        "s_store_locator_storeify_storelocator_Pfg7ML"
       ],
+      "disabled": true,
       "settings": {
         "include_margins": true
+      }
+    },
+    "store_locator_banner_yghEnh": {
+      "type": "store-locator-banner",
+      "settings": {
+        "store_locator_img": "shopify:\/\/shop_images\/Mask_group.png",
+        "mobile_store_locator_img": "shopify:\/\/shop_images\/dummy_850x1000_ffffff_cccccc.png",
+        "store_locator_banner_heading": "Looking for a Store?",
+        "store_locator_banner_subheading": "Enter your location to find a store nearest to you"
+      }
+    },
+    "store_location_list_f7nLWT": {
+      "type": "store-location-list",
+      "settings": {
+        "store_location-list-heading": "Titan Stores in All Locations",
+        "store_details_link": "shopify:\/\/pages\/store-details"
       }
     }
   },
   "order": [
     "main",
-    "rich_text_bNXak7",
-    "17087616069c328926"
+    "rich_text_xYVLni",
+    "1703961899413952ca",
+    "store_locator_banner_yghEnh",
+    "store_location_list_f7nLWT"
   ]
 }
