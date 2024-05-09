@@ -1,6 +1,272 @@
-{% schema %}
-  {
-    "name": "Section name",
-    "settings": []
+{{ 'store-details.css' | asset_url | stylesheet_tag }}
+<style>
+  .store_details_page {
+    margin-top: {{ section.settings.desktop_margin_top }}px;
+    margin-bottom: {{ section.settings.desktop_margin_bottom }}px;
   }
+  
+  @media screen and (max-width: 600px) {
+    .store_details_page {
+      margin-top: {{ section.settings.mobile_margin_top }}px;
+      margin-bottom: {{ section.settings.mobile_margin_bottom }}px;
+    }
+  }
+  </style>
+
+<div class="page-width store_details_page">
+  <div class="store_details_parent">
+    <div class="store_details_inner store_details_info">
+      <h2 class="store_details_heading">
+        Shop from
+        <span class="store_name"></span>
+      </h2>
+      <div class="store_details_contact_btns">
+        <button class="store_details_direction">
+          <a target="_blank">
+            <span>{% render 'direction-svg' %}</span>
+            Get Directions
+          </a>
+        </button>
+        <button class="store_details_call">
+          <a>
+            <span>{% render 'call-svg' %}</span>
+            Make a Call
+          </a>
+        </button>
+      </div>
+      <p class="store_details_time"></p>
+    </div>
+    <div class="store_details_location_wrapper">
+      <div class="store_details_location_inner">
+        <div class="store_general_details_parent">
+          <div class="store_general_details">
+            <p class="store_general_name"></p>
+            <p class="store_general_address"></p>
+            <p class="store_general_phone"></p>
+            <p class="store_general_time"></p>
+          </div>
+        </div>
+        <div class="store_map_div">
+          <div class="store_map_div_wrapper"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let storeObject = JSON.parse(localStorage.getItem('storeObject'));
+  let storeName = storeObject.storeName;
+  let storeAddress = storeObject.storeAddress;
+  let storeContact = storeObject.storeContact;
+  let storeTime = storeObject.storeTime;
+  let pageStoreName = document.querySelector('.store_details_page .store_name');
+  let generalStoreName = document.querySelector('.store_details_page .store_general_name');
+  let generalStoreAddress = document.querySelector('.store_details_page .store_general_address');
+  let generalStorePhone = document.querySelector('.store_details_page .store_general_phone');
+  let pageStoreTime = document.querySelector('.store_details_time');
+  let generalStoreTime = document.querySelector('.store_details_page .store_general_time');
+  let mapContainer = document.querySelector('.store_map_div_wrapper');
+
+  if(storeName) {
+    pageStoreName.textContent = storeName;
+  }
+  if(storeName) {
+    generalStoreName.textContent = storeName;
+  }
+  if(storeAddress) {
+    generalStoreAddress.textContent = storeAddress;
+  }
+  if(storeContact) {
+    generalStorePhone.textContent = `Phone: ${storeContact}`;
+  }
+  if(storeTime) {
+    pageStoreTime.textContent = `Store opens from ${storeTime}`;
+  }
+
+  let encodedAddress = encodeURIComponent(storeAddress);
+  let iframe = document.createElement('iframe');
+  iframe.width = '100%';
+  iframe.height = '500';
+  iframe.frameborder = '0';
+  iframe.scrolling = 'no';
+  iframe.marginheight = 'no';
+  iframe.marginwidth = 'no';
+  iframe.src =
+    'https://maps.google.com/maps?width=100%25&height=550&hl=en&q=No ' +
+    storeAddress +
+    '&t=&z=14&ie=UTF8&iwloc=B&output=embed';
+  mapContainer.appendChild(iframe);
+
+  let openMapBtn = document.querySelector('.store_details_direction a');
+  let link = 'https://www.google.com/maps?q=' + encodedAddress;
+  openMapBtn.setAttribute('href', link);
+
+  let callBtn = document.querySelector('.store_details_call a');
+  if(storeContact) {
+    if (storeContact.includes(',')) {
+      let numbersArray = storeContact.split(',');
+      let firstNumber = numbersArray[0].trim();
+      let href = 'tel:' + firstNumber;
+      callBtn.setAttribute('href', href);
+    } else {
+      let href = 'tel:' + storeContact;
+      callBtn.setAttribute('href', href);
+    }
+  }
+  if(storeTime) {
+    if (storeTime.includes('-')) {
+      let timeArray = storeTime.split('-');
+      let lastTime = timeArray[1].trim();
+      generalStoreTime.textContent = `Open untill ${lastTime}`;
+    }
+  }
+
+  // functionality for store search
+  let storeData = JSON.parse(localStorage.getItem('storeArray'));
+  function searchStore(inputValue) {
+    // Convert input to lowercase for case-insensitive search
+    const searchTerm = inputValue.toLowerCase();
+    const matchingStores = [];
+
+    for (const store of storeData) {
+      const storeName = store.storeName.toLowerCase();
+      const storeAddress = store.storeAddress.toLowerCase();
+
+      // Check if search term exists in store name or address
+      if (storeName.includes(searchTerm) || storeAddress.includes(searchTerm)) {
+        matchingStores.push(store); // Add matching store to the array
+      }
+    }
+    renderSearchResult(matchingStores);
+    return matchingStores; // Return the array of matching stores
+  }
+
+  function renderSearchResult(arr) {
+    console.log(arr);
+    let searchWrapper = document.querySelector('.search-result-wrapper');
+    searchWrapper.innerHTML = '';
+
+    for (const store of arr) {
+      // Use for...of to iterate through objects
+      const storeResult = document.createElement('div');
+      storeResult.classList.add('store-result');
+
+      const storeNameElement = document.createElement('div');
+      storeNameElement.classList.add('store-result-name');
+      storeNameElement.textContent = store.storeName;
+
+      const storeAddressElement = document.createElement('div');
+      storeAddressElement.classList.add('store-result-address');
+      storeAddressElement.textContent = store.storeAddress;
+
+      const storeContactElement = document.createElement('div');
+      storeContactElement.classList.add('store-result-contact');
+      storeContactElement.classList.add('hidden');
+      storeContactElement.textContent = store.storeContact;
+
+      const storeTimeElement = document.createElement('div');
+      storeTimeElement.classList.add('store-result-time');
+      storeTimeElement.classList.add('hidden');
+      storeTimeElement.textContent = store.storeTime;
+
+      storeResult.appendChild(storeNameElement);
+      storeResult.appendChild(storeAddressElement);
+      storeResult.appendChild(storeContactElement);
+      storeResult.appendChild(storeTimeElement);
+
+      searchWrapper.appendChild(storeResult);
+    }
+
+    let allResult = document.querySelectorAll('.store-result');
+
+    allResult.forEach((result) => {
+      result.addEventListener('click', () => {
+        let name = result.querySelector('.store-result-name').textContent;
+        let address = result.querySelector('.store-result-address').textContent;
+        let contact = result.querySelector('.store-result-contact').textContent;
+        let time = result.querySelector('.store-result-time').textContent;
+
+        let storeObj = {
+          storeName: name,
+          storeAddress: address,
+          storeContact: contact,
+          storeTime: time,
+        };
+        if (localStorage.getItem('storeObject') == null) {
+          localStorage.setItem('storeObject', JSON.stringify(storeObj));
+        } else {
+          localStorage.removeItem('storeObject');
+          localStorage.setItem('storeObject', JSON.stringify(storeObj));
+        }
+        const redirectLink = localStorage.getItem('redirectLink');
+        if (redirectLink) {
+          window.location.href = redirectLink; // Redirect to stored link
+        } else {
+          console.error('Redirect link not found in local storage');
+        }
+      });
+    });
+  }
+
+  function checkLength(e) {
+    if(e.length < 1) {
+      let searchWrapper = document.querySelector('.search-result-wrapper');
+      searchWrapper.innerHTML = '';
+    } 
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Store locator banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "store_locator_img",
+      "label": "Banner Image"
+    },
+    {
+      "type": "range",
+      "id": "desktop_margin_top",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop Top Margin",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "desktop_margin_bottom",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop Bottom Margin",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "mobile_margin_top",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile Top Margin",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "mobile_margin_bottom",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile Bottom Margin",
+      "default": 16
+    }
+  ],
+  "presets": [{ "name": "Store details" }]
+}
 {% endschema %}
