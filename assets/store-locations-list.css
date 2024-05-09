@@ -1,0 +1,131 @@
+.store-loaction-list {
+    margin-top: 50px;
+}
+.store-loaction-list .store-location-list-inner-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 25px;
+    padding: 20px;
+    border: 1px solid #CBC9C9;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    border-radius: 17px;
+    margin-top: 20px;
+}
+.store-loaction-list .store-location-list-heading {
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 700;
+    font-family: 'Poppins-Bold';
+    color: #6C5C5D;
+    text-align: center;
+    text-decoration: underline;
+}
+.store-loaction-list .store_location_card {
+    background: #FFF9F4;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    border-radius: 22px;
+    padding: 45px 32px;
+}
+.store-loaction-list .store_name {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 27px;
+    color: #7c6667;
+    font-family: 'Poppins-Regular';
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}
+.store-loaction-list .store_link {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+    color: #7c6667;
+    margin-bottom: 8px;
+    display: block;
+    text-decoration: none;
+}
+.store-loaction-list .store_address {
+    font-size: 15px;
+    line-height: 22.5px;
+    font-weight: 500;
+    color: black;
+    font-family: 'Poppins-Medium';
+    margin-bottom: 40px;
+}
+.store-loaction-list .store_contact {
+    font-size: 15px;
+    line-height: 22.5px;
+    font-weight: 400;
+    color: black;
+    font-family: 'Poppins-Medium';
+    margin-bottom: 15px;
+}
+.store-loaction-list .store_contact span {
+    font-size: 15px;
+    line-height: 22.5px;
+    font-weight: 400;
+    color: black;
+    font-family: 'Poppins-Medium';
+    margin-bottom: 15px;
+}
+.store-loaction-list .store_time {
+    font-size: 15px;
+    line-height: 22.5px;
+    font-weight: 400;
+    color: black;
+    font-family: 'Poppins-Medium';
+    margin-bottom: 15px;
+}
+.store-loaction-list .store_time span {
+    font-size: 15px;
+    line-height: 22.5px;
+    font-weight: 400;
+    color: black;
+    font-family: 'Poppins-Medium';
+    margin-bottom: 15px;
+}
+.store-loaction-list .store_title {
+    border-bottom: 1px solid #7c6667;
+    margin-bottom: 15px;
+}
+.store-loaction-list .store_details {
+    border-bottom: 1px solid #7c6667;
+}
+.store-loaction-list .store_btn_div {
+    text-align: center;
+}
+.store-loaction-list .store_btn {
+    background: linear-gradient(90deg, #3C3B3B 0%, #B9989A 100.23%);
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    display: block;
+    width: fit-content;
+    margin: auto;
+    margin-top: 20px;
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 400;
+    color: white;
+    font-family: 'Poppins-Regular';
+}
+.store-loaction-list .store_btn svg {
+    margin-right: 8px;
+}
+
+@media screen and (max-width: 999px) {
+    .store-loaction-list .store-location-list-inner-wrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media screen and (max-width: 600px) {
+    .store-loaction-list .store-location-list-inner-wrapper {
+        grid-template-columns: 1fr;
+    }
+    .store-loaction-list .store_address {
+        margin-bottom: 20px;
+    }
+}
