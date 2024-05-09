@@ -61,14 +61,22 @@
         "store_locator_img": "shopify:\/\/shop_images\/Mask_group.png",
         "mobile_store_locator_img": "shopify:\/\/shop_images\/dummy_850x1000_ffffff_cccccc.png",
         "store_locator_banner_heading": "Looking for a Store?",
-        "store_locator_banner_subheading": "Enter your location to find a store nearest to you"
+        "store_locator_banner_subheading": "Enter your location to find a store nearest to you",
+        "desktop_margin_top": 16,
+        "desktop_margin_bottom": 16,
+        "mobile_margin_top": 16,
+        "mobile_margin_bottom": 16
       }
     },
     "store_location_list_f7nLWT": {
       "type": "store-location-list",
       "settings": {
         "store_location-list-heading": "Titan Stores in All Locations",
-        "store_details_link": "shopify:\/\/pages\/store-details"
+        "store_details_link": "shopify:\/\/pages\/store-details",
+        "desktop_margin_top": 16,
+        "desktop_margin_bottom": 16,
+        "mobile_margin_top": 16,
+        "mobile_margin_bottom": 16
       }
     }
   },
