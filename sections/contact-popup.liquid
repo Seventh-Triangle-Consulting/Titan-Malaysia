@@ -598,30 +598,8 @@
             console.error('There was a problem with the fetch operation:', error);
         });
 });
-</script>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    // Check if window.location.href contains "contact_posted=true"
-    if (window.location.href.includes('contact_posted=true')) {
-      // Your desired action when the parameter is present
-      setTimeout(function () {
-        document.querySelector('.inner-contact-popup').style.display = 'none';
-        document.querySelector('.contact-popup').style.display = 'flex';
-        document.querySelector('body').classList.add('overflow-hidden');
-        document.querySelector('.submit_success_div').style.display = 'block';
-      }, 3000);
-      setTimeout(function () {
-        document.querySelector('.contact-popup').style.display = 'none';
-        document.querySelector('body').classList.remove('overflow-hidden');
-        let currentUrl = window.location.href;
-        let cleanUrl = currentUrl.split('?')[0].split('#')[0];
-        window.history.replaceState({}, document.title, cleanUrl);
-      }, 6000);
-    }
-  });
-
-  window.addEventListener("DOMContentLoaded", (event) => {
+window.addEventListener("DOMContentLoaded", (event) => {
   fetch(`${window.location.origin}/browsing_context_suggestions.json`)
     .then((response) => response.json())
     .then((result) => {
@@ -651,6 +629,29 @@
     .catch((error) => console.log("error", error));
   });
   
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Check if window.location.href contains "contact_posted=true"
+    if (window.location.href.includes('contact_posted=true')) {
+      // Your desired action when the parameter is present
+      setTimeout(function () {
+        document.querySelector('.inner-contact-popup').style.display = 'none';
+        document.querySelector('.contact-popup').style.display = 'flex';
+        document.querySelector('body').classList.add('overflow-hidden');
+        document.querySelector('.submit_success_div').style.display = 'block';
+      }, 3000);
+      setTimeout(function () {
+        document.querySelector('.contact-popup').style.display = 'none';
+        document.querySelector('body').classList.remove('overflow-hidden');
+        let currentUrl = window.location.href;
+        let cleanUrl = currentUrl.split('?')[0].split('#')[0];
+        window.history.replaceState({}, document.title, cleanUrl);
+      }, 6000);
+    }
+  });
+
   function closePopup() {
     document.querySelector('.contact-popup').style.display = 'none';
     document.querySelector('body').classList.remove('overflow-hidden');
