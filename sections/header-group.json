@@ -133,10 +133,17 @@
         "padding_top": 10,
         "padding_bottom": 10
       }
+    },
+    "contact_popup_MMQq97": {
+      "type": "contact-popup",
+      "settings": {
+        "contact-popup-text": ""
+      }
     }
   },
   "order": [
     "announcement-bar",
-    "header"
+    "header",
+    "contact_popup_MMQq97"
   ]
 }
