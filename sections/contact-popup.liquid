@@ -639,6 +639,18 @@
       }, 6000);
     }
   });
+
+  window.addEventListener("DOMContentLoaded", (event) => {
+  fetch(`${window.location.origin}/browsing_context_suggestions.json`)
+    .then((response) => response.json())
+    .then((result) => {
+      console.log(result)
+      console.log(result.detected_values.country.name)
+      console.log("IP COUNTRY", result.detected_values.country.handle);
+    })
+    .catch((error) => console.log("error", error));
+  });
+  
   function closePopup() {
     document.querySelector('.contact-popup').style.display = 'none';
     document.querySelector('body').classList.remove('overflow-hidden');
