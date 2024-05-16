@@ -593,25 +593,6 @@
         .then(data => {
             console.log(data); // Output the fetched data
             document.getElementById('ContactForm-pincode').value = data.postal;
-            document.querySelectorAll('.contant-popup option').forEach((e)=>{
-               if(e.value == data.country_name){
-                 e.setAttribute('selected', 'selected');
-                 document.getElementById('ContactForm-country').value = e.value;
-               }
-            })
-          if(document.querySelector('.otherCountryStoreURL') != null){
-             document.querySelectorAll('.otherCountryStoreURL').forEach((e)=>{
-                  const buttonData = e.getAttribute('data').toLowerCase();
-                  const countryName = data.country_name.toLowerCase();
-                  console.log(countryName+" countryNamecountryName")
-                  console.log(buttonData+" buttonDatabuttonData")
-                  if (buttonData === countryName) {
-                     e.classList.add('displayLocationBtn');
-                     console.log(countryName+" countryNamematched")
-                     console.log(buttonData+" buttonDatamatched")
-                  }
-             })
-          }
         })
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
@@ -647,6 +628,25 @@
       console.log(result)
       console.log(result.detected_values.country.name)
       console.log("IP COUNTRY", result.detected_values.country.handle);
+        document.querySelectorAll('.contant-popup option').forEach((e)=>{
+               if(e.value == result.detected_values.country.name){
+                 e.setAttribute('selected', 'selected');
+                 document.getElementById('ContactForm-country').value = e.value;
+               }
+            })
+        if(document.querySelector('.otherCountryStoreURL') != null){
+             document.querySelectorAll('.otherCountryStoreURL').forEach((e)=>{
+                  const buttonData = e.getAttribute('data').toLowerCase();
+                  const countryName = result.detected_values.country.name.toLowerCase();
+                  console.log(countryName+" countryNamecountryName")
+                  console.log(buttonData+" buttonDatabuttonData")
+                  if (buttonData === countryName) {
+                     e.classList.add('displayLocationBtn');
+                     console.log(countryName+" countryNamematched")
+                     console.log(buttonData+" buttonDatamatched")
+                  }
+             })
+        }
     })
     .catch((error) => console.log("error", error));
   });
