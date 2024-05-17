@@ -1,0 +1,125 @@
+{{ 'store-locator-banner.css' | asset_url | stylesheet_tag }}
+<style>
+.store-locator-banner {
+  margin-top: {{ section.settings.desktop_margin_top }}px;
+  margin-bottom: {{ section.settings.desktop_margin_bottom }}px;
+}
+
+@media screen and (max-width: 600px) {
+  .store-locator-banner {
+    margin-top: {{ section.settings.mobile_margin_top }}px;
+    margin-bottom: {{ section.settings.mobile_margin_bottom }}px;
+  }
+}
+</style>
+
+<div class="store-locator-banner parent_div">
+  <div class="wrapper_main">
+    {% if section.settings.store_locator_img != blank %}
+    {{
+      section.settings.store_locator_img
+      | image_url: width: 1400
+      | image_tag: loading: 'lazy', class: 'desktop-store-locator-banner-image'
+    }}
+    {% endif %}
+    {% if section.settings.mobile_store_locator_img != blank %}
+    {{
+      section.settings.mobile_store_locator_img
+      | image_url: width: 1400
+      | image_tag: loading: 'lazy', class: 'mobile-store-locator-banner-image'
+    }}
+  {% endif %}
+  {% if section.settings.store_locator_img != blank %}
+    <div class="inner_wraper">
+      <h2 class="store_locator_heading">{{ section.settings.store_locator_banner_heading }}</h2>
+      <p class="store_locator_subheading">{{ section.settings.store_locator_banner_subheading }}</p>
+      <label for="gsearch" class="search_store_label">
+        <svg xmlns="http://www.w3.org/2000/svg" width="23" height="28" viewBox="0 0 23 28" fill="none">
+          <path d="M11.4604 14C12.2304 14 12.8895 13.7258 13.4379 13.1775C13.9862 12.6292 14.2604 11.97 14.2604 11.2C14.2604 10.43 13.9862 9.77083 13.4379 9.2225C12.8895 8.67417 12.2304 8.4 11.4604 8.4C10.6904 8.4 10.0312 8.67417 9.48288 9.2225C8.93454 9.77083 8.66038 10.43 8.66038 11.2C8.66038 11.97 8.93454 12.6292 9.48288 13.1775C10.0312 13.7258 10.6904 14 11.4604 14ZM11.4604 28C7.70371 24.8033 4.89788 21.8342 3.04288 19.0925C1.18788 16.3508 0.260376 13.8133 0.260376 11.48C0.260376 7.98 1.38621 5.19167 3.63788 3.115C5.88954 1.03833 8.49704 0 11.4604 0C14.4237 0 17.0312 1.03833 19.2829 3.115C21.5345 5.19167 22.6604 7.98 22.6604 11.48C22.6604 13.8133 21.7329 16.3508 19.8779 19.0925C18.0229 21.8342 15.217 24.8033 11.4604 28Z" fill="#534445"/>
+        </svg>
+        <input
+          type="search"
+          id="gsearch"
+          name="gsearch"
+          class="search_store_input"
+          placeholder="Search By Location"
+          oninput="searchStore(this.value);checkLength(this.value);"
+        >
+        <div class="search-result-parent">
+          <div class="search-result-wrapper"></div>
+        </div>
+      </label>
+    </div>
+  {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Store locator banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "store_locator_img",
+      "label": "Desktop Banner Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_store_locator_img",
+      "label": "Mobile Banner Image"
+    },
+    {
+      "type": "text",
+      "id": "store_locator_banner_heading",
+      "label": "Store Locator Banner Heading"
+    },
+    {
+      "type": "text",
+      "id": "store_locator_banner_subheading",
+      "label": "Store Locator Banner Subheading"
+    },
+    {
+      "type": "range",
+      "id": "desktop_margin_top",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop Top Margin",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "desktop_margin_bottom",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop Bottom Margin",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "mobile_margin_top",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile Top Margin",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "mobile_margin_bottom",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile Bottom Margin",
+      "default": 16
+    }
+    
+  ],
+  "presets": [{ "name": "Store locator banner" }]
+}
+{% endschema %}
