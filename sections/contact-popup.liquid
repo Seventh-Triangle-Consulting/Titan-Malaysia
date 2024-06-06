@@ -570,9 +570,9 @@
          {% if settings.store_url != blank %}
         {% assign urlArray = settings.store_url | split:"##" %}
         {% for url in urlArray %}
-          {% assign seperateCountry = url | split:"=" %}
+          {% assign seperateCountry = url | split:"==" %}
           {% assign countryURL = seperateCountry[1] | split:'/?utm_source' %}
-         <a class="otherCountryStoreURL" href="https://titanwatches.vn/?utm_source=titanworld.com&utm_medium=redirection+" target="_blank" data="{{ seperateCountry[0] }}">{{ settings.store_btn_text }} {{ countryURL[0] }}</a>
+         <a class="otherCountryStoreURL" href="{{ seperateCountry[1] }}" target="_blank" data="{{ seperateCountry[0] }}">{{ settings.store_btn_text }} {{ countryURL[0] }}</a>
         {% endfor %}
        {% endif %}
         <button type="button" class="button custom-button-popup">SUBMIT</button>
