@@ -305,12 +305,15 @@
         },
         "0e5d92cc-a74b-4a0c-91fb-d417bb1aff7a": {
           "type": "shopify:\/\/apps\/swipeup-video-shopping\/blocks\/reels-feed\/7b6d7967-af4c-461a-9edb-73155220c3a4",
+          "disabled": true,
           "settings": {
+            "background_color": "rgba(0,0,0,0)",
+            "background_gradient": "",
+            "autoplay_all": false,
+            "show_playbutton": false,
             "shop_button_text": "Shop",
             "mute_text": "Mute",
-            "unmute_text": "Unmute",
-            "background_color": "rgba(0,0,0,0)",
-            "show_playbutton": false
+            "unmute_text": "Unmute"
           }
         }
       },
