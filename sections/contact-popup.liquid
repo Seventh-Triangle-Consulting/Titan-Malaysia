@@ -524,7 +524,7 @@
               <option value="Uzbekistan">Uzbekistan</option>
               <option value="Vanuatu">Vanuatu</option>
               <option value="Venezuela">Venezuela</option>
-              <option value="Veitnam">Viet Nam</option>
+              <option value="Vietnam">Vietnam</option>
               <option value="Virgin Islands (British)">Virgin Islands (British)</option>
               <option value="Virgin Islands (U.S)">Virgin Islands (U.S.)</option>
               <option value="Wallis and Futuna Islands">Wallis and Futuna Islands</option>
@@ -570,8 +570,9 @@
          {% if settings.store_url != blank %}
         {% assign urlArray = settings.store_url | split:"##" %}
         {% for url in urlArray %}
-          {% assign seperateCountry = url | split:"=" %}
-         <a class="otherCountryStoreURL" href="{{ seperateCountry[1] }}" target="_blank" data="{{ seperateCountry[0] }}">{{ settings.store_btn_text }} {{ seperateCountry[1] | remove: 'https://' | remove: '/' }}</a>
+          {% assign seperateCountry = url | split:"==" %}
+          {% assign countryURL = seperateCountry[1] | split:'/?utm_source' %}
+         <a class="otherCountryStoreURL" href="{{ seperateCountry[1] }}" target="_blank" data="{{ seperateCountry[0] }}">{{ settings.store_btn_text }} {{ countryURL[0] | remove:'https://' }}</a>
         {% endfor %}
        {% endif %}
         <button type="button" class="button custom-button-popup">SUBMIT</button>
@@ -593,16 +594,29 @@
         .then(data => {
             console.log(data); // Output the fetched data
             document.getElementById('ContactForm-pincode').value = data.postal;
-            document.querySelectorAll('.contant-popup option').forEach((e)=>{
-               if(e.value == data.country_name){
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+});
+
+window.addEventListener("DOMContentLoaded", (event) => {
+  fetch(`${window.location.origin}/browsing_context_suggestions.json`)
+    .then((response) => response.json())
+    .then((result) => {
+      console.log(result)
+      console.log(result.detected_values.country.name)
+      console.log("IP COUNTRY", result.detected_values.country.handle);
+        document.querySelectorAll('.contant-popup option').forEach((e)=>{
+               if(e.value == result.detected_values.country.name){
                  e.setAttribute('selected', 'selected');
                  document.getElementById('ContactForm-country').value = e.value;
                }
             })
-          if(document.querySelector('.otherCountryStoreURL') != null){
+        if(document.querySelector('.otherCountryStoreURL') != null){
              document.querySelectorAll('.otherCountryStoreURL').forEach((e)=>{
                   const buttonData = e.getAttribute('data').toLowerCase();
-                  const countryName = data.country_name.toLowerCase();
+                  const countryName = result.detected_values.country.name.toLowerCase();
                   console.log(countryName+" countryNamecountryName")
                   console.log(buttonData+" buttonDatabuttonData")
                   if (buttonData === countryName) {
@@ -611,12 +625,11 @@
                      console.log(buttonData+" buttonDatamatched")
                   }
              })
-          }
-        })
-        .catch(error => {
-            console.error('There was a problem with the fetch operation:', error);
-        });
-});
+        }
+    })
+    .catch((error) => console.log("error", error));
+  });
+  
 </script>
 
 <script>
@@ -639,6 +652,7 @@
       }, 6000);
     }
   });
+
   function closePopup() {
     document.querySelector('.contact-popup').style.display = 'none';
     document.querySelector('body').classList.remove('overflow-hidden');
