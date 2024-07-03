@@ -81,7 +81,7 @@
                       </a>
                     </facet-remove>
                   {%- endfor -%}
-                  {% if filter.type == 'price_range' %}
+                  {% if filter.type.contains('price') %}
         price
                     {%- if filter.min_value.value != null or filter.max_value.value != null -%}
                       <facet-remove>
