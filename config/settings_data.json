@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "current": {
     "store_url": "India==https:\/\/www.titan.co.in\/?utm_source=titanworld.com&utm_medium=redirection+##Vietnam==https:\/\/titanwatches.vn\/?utm_source=titanworld.com&utm_medium=redirection+##Bangladesh==https:\/\/titanwatches.com.bd\/?utm_source=titanworld.com&utm_medium=redirection+##Nepal==https:\/\/www.titannepal.com\/?utm_source=titanworld.com&utm_medium=redirection+",
@@ -194,57 +203,6 @@
         "settings": {
         }
       },
-      "460015673350295975": {
-        "type": "shopify:\/\/apps\/simplify-my-login\/blocks\/simplify_my_login\/d8cea981-d551-4842-a6a1-d02bd1530222",
-        "disabled": false,
-        "settings": {
-        }
-      },
-      "16179990893605260579": {
-        "type": "shopify:\/\/apps\/simplify-my-login\/blocks\/sml_account\/d8cea981-d551-4842-a6a1-d02bd1530222",
-        "disabled": true,
-        "settings": {
-        }
-      },
-      "11905432258600982856": {
-        "type": "shopify:\/\/apps\/quinn-shoppable-videos\/blocks\/app-embed\/150d2781-732b-4020-a9fb-1368e974e6bb",
-        "disabled": false,
-        "settings": {
-          "custom_swatch_code": "<script><\/script>"
-        }
-      },
-      "12540575881001861153": {
-        "type": "shopify:\/\/apps\/quinn-shoppable-videos\/blocks\/app-embed-legacy\/150d2781-732b-4020-a9fb-1368e974e6bb",
-        "disabled": false,
-        "settings": {
-          "story_spacing_desktop": 20,
-          "story_spacing_mobile": 10,
-          "story_margins_mobile": "0",
-          "story_margins_desktop": "0",
-          "story_padding_mobile": "0",
-          "story_padding_desktop": "0",
-          "card_spacing_desktop": 20,
-          "card_spacing_mobile": 10,
-          "card_margins_desktop": "0",
-          "card_margins_mobile": "0",
-          "card_padding_desktop": "0",
-          "card_padding_mobile": "0",
-          "custom_swatch_code": "<script><\/script>"
-        }
-      },
-      "2687124262639893493": {
-        "type": "shopify:\/\/apps\/swipeup-video-shopping\/blocks\/reel-bubble\/7b6d7967-af4c-461a-9edb-73155220c3a4",
-        "disabled": false,
-        "settings": {
-          "bottom_offset": 46,
-          "right_offset": 12,
-          "bubble_position": "right",
-          "bubble_touch_size": "regular",
-          "shop_button_text": "Shop",
-          "mute_text": "Mute",
-          "unmute_text": "Unmute"
-        }
-      },
       "13768625480086291342": {
         "type": "shopify:\/\/apps\/forms\/blocks\/forms\/8744a304-fcb1-4347-b211-bb6b4759a76a",
         "disabled": false,
@@ -254,12 +212,6 @@
       "16278478101612877664": {
         "type": "shopify:\/\/apps\/pagefly-page-builder\/blocks\/app-embed\/83e179f7-59a0-4589-8c66-c0dddf959200",
         "disabled": false,
-        "settings": {
-        }
-      },
-      "5784066569132941777": {
-        "type": "shopify:\/\/apps\/s-store-locator\/blocks\/embed-app\/e7003487-cc51-4321-9488-2c47c07a5b17",
-        "disabled": true,
         "settings": {
         }
       }
