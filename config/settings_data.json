@@ -1,51 +1,51 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
-    "store_url": "India==https:\/\/www.titan.co.in\/?utm_source=titanworld.com&utm_medium=redirection+##Vietnam==https:\/\/titanwatches.vn\/?utm_source=titanworld.com&utm_medium=redirection+##Bangladesh==https:\/\/titanwatches.com.bd\/?utm_source=titanworld.com&utm_medium=redirection+##Nepal==https:\/\/www.titannepal.com\/?utm_source=titanworld.com&utm_medium=redirection+",
+    "store_url": "India==https://www.titan.co.in/?utm_source=titanworld.com&utm_medium=redirection+##Vietnam==https://titanwatches.vn/?utm_source=titanworld.com&utm_medium=redirection+##Bangladesh==https://titanwatches.com.bd/?utm_source=titanworld.com&utm_medium=redirection+##Nepal==https://www.titannepal.com/?utm_source=titanworld.com&utm_medium=redirection+##United States==https://titanwatches.online/?utm_source=titanworld.com&utm_medium=redirection+##Canada==https://titanwatches.online/?utm_source=titanworld.com&utm_medium=redirection+",
     "store_btn_text": "Visit",
-    "logo": "shopify:\/\/shop_images\/Titan_Logo.jpg",
+    "logo": "shopify://shop_images/Titan_Logo.jpg",
     "logo_width": 110,
-    "favicon": "shopify:\/\/shop_images\/Titan_Website_Logo.png",
+    "favicon": "shopify://shop_images/Titan_Website_Logo.png",
     "type_header_font": "rubik_n5",
     "heading_scale": 100,
     "type_body_font": "rubik_n4",
     "body_scale": 100,
-    "font-file-h1": "https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/7690\/9727\/files\/Roboto-Medium.ttf?v=1701241787",
+    "font-file-h1": "https://cdn.shopify.com/s/files/1/0628/7690/9727/files/Roboto-Medium.ttf?v=1701241787",
     "mobile-font-size-h1": 20,
-    "font-file-h2": "https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/7690\/9727\/files\/Roboto-Medium.ttf?v=1701241787",
+    "font-file-h2": "https://cdn.shopify.com/s/files/1/0628/7690/9727/files/Roboto-Medium.ttf?v=1701241787",
     "mobile-font-size-h2": 20,
     "desktop-font-size-h2": 30,
-    "font-file-h3": "https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/7690\/9727\/files\/Roboto-Medium.ttf?v=1701241787",
+    "font-file-h3": "https://cdn.shopify.com/s/files/1/0628/7690/9727/files/Roboto-Medium.ttf?v=1701241787",
     "mobile-font-size-h3": 20,
     "desktop-font-size-h3": 25,
-    "font-file-h4": "https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/7690\/9727\/files\/Roboto-Medium.ttf?v=1701241787",
+    "font-file-h4": "https://cdn.shopify.com/s/files/1/0628/7690/9727/files/Roboto-Medium.ttf?v=1701241787",
     "mobile-font-size-h4": 10,
     "desktop-font-size-h4": 12,
-    "font-file-h5": "https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/7690\/9727\/files\/Roboto-Medium.ttf?v=1701241787",
+    "font-file-h5": "https://cdn.shopify.com/s/files/1/0628/7690/9727/files/Roboto-Medium.ttf?v=1701241787",
     "mobile-font-size-h5": 18,
     "mobile-line-height-h5": "1.456",
     "desktop-font-size-h5": 18,
     "desktop-letter-spacing-h5": 0,
     "desktop-line-height-h5": "1.466",
-    "font-file-h6": "https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/7690\/9727\/files\/Roboto-Medium.ttf?v=1701241787",
+    "font-file-h6": "https://cdn.shopify.com/s/files/1/0628/7690/9727/files/Roboto-Medium.ttf?v=1701241787",
     "mobile-font-size-h6": 10,
     "mobile-line-height-h6": "1.456",
     "desktop-font-size-h6": 12,
     "desktop-line-height-h6": "1.235",
-    "font-file-p": "https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/7690\/9727\/files\/Roboto-Regular.ttf?v=1701241730",
+    "font-file-p": "https://cdn.shopify.com/s/files/1/0628/7690/9727/files/Roboto-Regular.ttf?v=1701241730",
     "mobile-font-size-p": 18,
     "mobile-line-height-p": "1.372",
     "desktop-font-size-p": 18,
     "desktop-line-height-p": "1.375",
-    "font-file-a": "https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/7690\/9727\/files\/Roboto-Regular.ttf?v=1701241730",
+    "font-file-a": "https://cdn.shopify.com/s/files/1/0628/7690/9727/files/Roboto-Regular.ttf?v=1701241730",
     "mobile-font-size-a": 16,
     "mobile-letter-spacing-a": 0,
     "mobile-line-height-a": "1",
@@ -137,7 +137,7 @@
     "popup_shadow_vertical_offset": 4,
     "popup_shadow_blur": 5,
     "collectionname": "Shop Men ## Shop Women",
-    "collectionurl": "\/collections\/mens-watch,\/collections\/female",
+    "collectionurl": "/collections/mens-watch,/collections/female",
     "drawer_border_thickness": 1,
     "drawer_border_opacity": 10,
     "drawer_shadow_opacity": 0,
@@ -149,10 +149,10 @@
     "sale_badge_color_scheme": "accent-2",
     "sold_out_badge_color_scheme": "inverse",
     "brand_headline": "",
-    "brand_description": "<p>dsdsadsdasasd<\/p>",
+    "brand_description": "<p>dsdsadsdasasd</p>",
     "brand_image_width": 100,
-    "social_facebook_link": "https:\/\/m.facebook.com\/titanmiddleeast\/?wtsid=rdr_0gAX00Ixle1pZUq9F",
-    "social_instagram_link": "https:\/\/www.instagram.com\/titanwatchesofficial\/",
+    "social_facebook_link": "https://m.facebook.com/titanmiddleeast/?wtsid=rdr_0gAX00Ixle1pZUq9F",
+    "social_instagram_link": "https://www.instagram.com/titanwatchesofficial/",
     "social_youtube_link": "",
     "social_tiktok_link": "",
     "social_twitter_link": "",
@@ -170,7 +170,7 @@
     "show_cart_note": false,
     "cart_drawer_collection": "men",
     "india_store_btn_text": "Visit Titan.Co.In",
-    "checkout_logo_image": "shopify:\/\/shop_images\/titan_logo_with_trademark_1.png",
+    "checkout_logo_image": "shopify://shop_images/titan_logo_with_trademark_1.png",
     "checkout_logo_size": "large",
     "collectioname": "Shop Men's##Shop Women's## Shop Kid's",
     "sections": {
@@ -192,25 +192,25 @@
     ],
     "blocks": {
       "11349500561483629931": {
-        "type": "shopify:\/\/apps\/Notify Me\/blocks\/app-embed\/b399b727-6c85-44fc-9e21-63114bd72054",
+        "type": "shopify://apps/Notify Me/blocks/app-embed/b399b727-6c85-44fc-9e21-63114bd72054",
         "disabled": false,
         "settings": {
         }
       },
       "14060646107696862457": {
-        "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/judgeme_core\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
         "disabled": false,
         "settings": {
         }
       },
       "13768625480086291342": {
-        "type": "shopify:\/\/apps\/forms\/blocks\/forms\/8744a304-fcb1-4347-b211-bb6b4759a76a",
+        "type": "shopify://apps/forms/blocks/forms/8744a304-fcb1-4347-b211-bb6b4759a76a",
         "disabled": false,
         "settings": {
         }
       },
       "16278478101612877664": {
-        "type": "shopify:\/\/apps\/pagefly-page-builder\/blocks\/app-embed\/83e179f7-59a0-4589-8c66-c0dddf959200",
+        "type": "shopify://apps/pagefly-page-builder/blocks/app-embed/83e179f7-59a0-4589-8c66-c0dddf959200",
         "disabled": false,
         "settings": {
         }
@@ -441,7 +441,7 @@
       "sale_badge_color_scheme": "accent-2",
       "sold_out_badge_color_scheme": "inverse",
       "brand_headline": "",
-      "brand_description": "<p><\/p>",
+      "brand_description": "<p></p>",
       "brand_image_width": 100,
       "social_twitter_link": "",
       "social_facebook_link": "",
