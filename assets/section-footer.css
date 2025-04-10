@@ -40,6 +40,7 @@ footer{border-top:1px solid #dadada !important;border-bottom:1px solid #dadada !
 a.link.link--text.list-menu__item.list-menu__item--link{
   display: flex;
     width: max-content;
+  gap:7px;
 }
 @media screen and (min-width: 950px) {
   .footer-block.grid__item.footer-block--menu{width:18%;}
