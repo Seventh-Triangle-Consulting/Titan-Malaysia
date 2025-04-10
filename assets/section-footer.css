@@ -41,6 +41,7 @@ a.link.link--text.list-menu__item.list-menu__item--link{
   display: flex;
     width: max-content;
   gap:7px;
+  line-height:1.5;
 }
 @media screen and (min-width: 950px) {
   .footer-block.grid__item.footer-block--menu{width:18%;}
