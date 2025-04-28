@@ -198,8 +198,15 @@
                               </a>
                             </li>
                           {%- endfor -%}
+
+                    
                         </ul>
                       {%- endif -%}
+
+                      <a href="javascript:Optanon.ToggleInfoDisplay();" style="color: black; text-decoration: none; cursor: pointer;">
+                        Your California Privacy Choices
+                       </a>
+                       
                     {%- when 'brand_information' -%}
                       <div class="footer-block__brand-info">
                         {%- if settings.brand_image != blank -%}
