@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "name": "t:sections.footer.name",
   "type": "footer",
@@ -9,14 +18,16 @@
           "type": "link_list",
           "settings": {
             "heading": "Info",
-            "menu": "footer"
+            "menu": "footer",
+            "california_Text": ""
           }
         },
         "091f35ca-987d-4c4b-9f08-b88020953c23": {
           "type": "link_list",
           "settings": {
             "heading": "POLICIES",
-            "menu": "policies"
+            "menu": "policies",
+            "california_Text": "Your California Privacy Choices"
           }
         }
       },
