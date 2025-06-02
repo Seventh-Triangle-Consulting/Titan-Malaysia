@@ -154,6 +154,29 @@ h1.main-page-title.page-title {
   width: 52.5rem;
   height: 52.5rem;
 }
+
+
+.main-page .otnotice-menu{
+  position: absolute !important;
+}
+
+.main-page table#isPasted{
+ font-size: unset !important;
+}
+
+.main-page table:not([class]){
+    table-layout: unset; 
+    border-collapse: collapse;
+    font-size: 1.4rem;
+    border-style: unset;
+}
+
+
+.main-page .otnotice-content .otnotice-sections .otnotice-section-content ol{
+  padding: 0;
+}
+
+
 @media screen and (max-width: 768px) {
   .container a {
     font-size: var(--mobile-font-size-p);
@@ -165,5 +188,33 @@ h1.main-page-title.page-title {
     font-size: var(--mobile-font-size-p);
     letter-spacing: var(--mobile-letter-spacing-p);
     line-height: var(--mobile-line-height-p);
+  }
+
+    .main-page .otnotice-menu-mobile{
+    width: 90%;
+  }
+
+ .main-page .otnotice-content .otnotice-sections .otnotice-section-content ol{
+  padding: 0;
+ }
+
+ .main-page .otnotice-content .otnotice-sections .otnotice-section-content ol{
+  padding: 0 !important;
+ }
+
+ .otnotice-sections > .otnotice-section > .otnotice-section-content{
+  margin-right: 1rem;
+  margin-left: 1rem;
+ }
+
+ .main-page table#isPasted{
+  width: 98% !important;
+ }
+ .main-page table:not([class]){
+  table-layout: fixed;
+ }
+
+ .main-page  .otnotice-section tr td:nth-child(1) {
+    width: 19% !important;
   }
 }
