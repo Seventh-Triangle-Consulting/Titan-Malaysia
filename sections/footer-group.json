@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "name": "t:sections.footer.name",
   "type": "footer",
@@ -8,7 +17,7 @@
         "65cfdea9-eb0f-4871-85f9-f83e6deb2edd": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Vector_2.png",
+            "image": "shopify://shop_images/Vector_2.png",
             "image_width": 220,
             "alignment": "center"
           }
@@ -42,8 +51,8 @@
         "link_list_LMUAbx"
       ],
       "settings": {
-        "need_help_footer": "<p>Need Help? <a href=\"mailto:hello@dragonflyapac.vn\" target=\"_blank\">Click Here<\/a> <\/p>",
-        "whatapp_phone_number_url": "https:\/\/wa.me\/+840708881010",
+        "need_help_footer": "<p>Need Help? <a href=\"mailto:hello@dragonflyapac.vn\" target=\"_blank\">Click Here</a> </p>",
+        "whatapp_phone_number_url": "https://wa.me/+840708881010",
         "chat_with_text_footer": "",
         "color_scheme": "accent-2",
         "newsletter_enable": false,
@@ -56,11 +65,11 @@
         "payment_enable": false,
         "menu_search": "",
         "show_policy": false,
-        "footer_bottom_privacy_policy_link": "shopify:\/\/pages\/privacy-policy",
+        "footer_bottom_privacy_policy_link": "shopify://pages/privacy-notice",
         "footer_bottom_privacy_policy_text": "Privacy Policy",
-        "footer_bottom_terms_cond_link": "shopify:\/\/pages\/terms-conditions",
+        "footer_bottom_terms_cond_link": "shopify://pages/terms-conditions",
         "footer_bottom_terms_cond_text": "Terms and Condition",
-        "footer_bottom_wear_privacy_policy_link": "shopify:\/\/pages\/cookie-policy",
+        "footer_bottom_wear_privacy_policy_link": "shopify://pages/cookie-policy",
         "footer_bottom_wear_privacy_policy_text": "Cookie Policy",
         "margin_top": 0,
         "padding_top": 72,
