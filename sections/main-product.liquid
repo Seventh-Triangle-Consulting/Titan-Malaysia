@@ -1041,8 +1041,9 @@ function initSwipersPDP(event, isQuickAdd = false) {
         },
       });
 
+       var sliderIndex = 0;
        var selectedVariantImage = document.querySelector('#selected-variant-image');  
-       var sliderIndex = selectedVariantImage.getAttribute('data-index'); 
+       sliderIndex = selectedVariantImage?.getAttribute('data-index'); 
        swiper.slideTo(sliderIndex);
        swiper2.slideTo(sliderIndex);
  
