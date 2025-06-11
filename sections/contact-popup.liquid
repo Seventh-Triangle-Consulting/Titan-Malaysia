@@ -592,7 +592,7 @@
             return response.json();
         })
         .then(data => {
-            console.log(data); // Output the fetched data
+           
             document.getElementById('ContactForm-pincode').value = data.postal;
         })
         .catch(error => {
@@ -604,9 +604,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   fetch(`${window.location.origin}/browsing_context_suggestions.json`)
     .then((response) => response.json())
     .then((result) => {
-      console.log(result)
-      console.log(result.detected_values.country.name)
-      console.log("IP COUNTRY", result.detected_values.country.handle);
+     
         document.querySelectorAll('.contant-popup option').forEach((e)=>{
                if(e.value == result.detected_values.country.name){
                  e.setAttribute('selected', 'selected');
