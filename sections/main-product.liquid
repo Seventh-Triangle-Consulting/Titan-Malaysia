@@ -987,28 +987,59 @@
   {%- endif -%}
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-      var productForm = document.querySelector('.productformdesktopsticky');
-      var productForm1 = document.querySelector('.productformmobilesticky');
-      var mainProduct = document.querySelector('.pdp_shipping_returns');
-      var productFormOffsetTop = mainProduct.offsetTop;
+// document.addEventListener('DOMContentLoaded', function() {
+//       var productForm = document.querySelector('.productformdesktopsticky');
+//       var productForm1 = document.querySelector('.productformmobilesticky');
+//       var mainProduct = document.querySelector('.pdp_shipping_returns');
+//       var productFormOffsetTop = mainProduct.offsetTop;
 
-      function toggleProductForm() {
-        if (window.scrollY >= productFormOffsetTop+100) {
-          productForm.classList.remove('hide-productformdesktopsticky');
-          productForm1.classList.remove('hide-productformmobilesticky');
-        } else {
-          productForm.classList.add('hide-productformdesktopsticky');
-          productForm1.classList.add('hide-productformmobilesticky');
-        }
+//       function toggleProductForm() {
+//         if (window.scrollY >= productFormOffsetTop+100) {
+//           productForm.classList.remove('hide-productformdesktopsticky');
+//           productForm1.classList.remove('hide-productformmobilesticky');
+//         } else {
+//           productForm.classList.add('hide-productformdesktopsticky');
+//           productForm1.classList.add('hide-productformmobilesticky');
+//         }
+//       }
+
+//       // Initial check
+//       toggleProductForm();
+
+//       // Add scroll event listener
+//       window.addEventListener('scroll', toggleProductForm);
+//     });
+  
+
+document.addEventListener('DOMContentLoaded', function () {
+  const productForm = document.querySelector('.productformdesktopsticky');
+  const productForm1 = document.querySelector('.productformmobilesticky');
+  const mainProduct = document.querySelector('.pdp_shipping_returns');
+
+
+  if (productForm && productForm1 && mainProduct) {
+    const productFormOffsetTop = mainProduct.offsetTop;
+
+    function toggleProductForm() {
+      if (window.scrollY >= productFormOffsetTop + 100) {
+        productForm.classList.remove('hide-productformdesktopsticky');
+        productForm1.classList.remove('hide-productformmobilesticky');
+      } else {
+        productForm.classList.add('hide-productformdesktopsticky');
+        productForm1.classList.add('hide-productformmobilesticky');
       }
+    }
 
-      // Initial check
-      toggleProductForm();
 
-      // Add scroll event listener
-      window.addEventListener('scroll', toggleProductForm);
-    });
+    toggleProductForm();
+
+ 
+    window.addEventListener('scroll', toggleProductForm);
+  } else {
+    console.warn('Required elements missing for sticky product form logic.');
+  }
+});
+
     
 function initSwipersPDP(event, isQuickAdd = false) {
     let pdpthumbswiper = '[data-id="pdpSwiperThumb"]';
