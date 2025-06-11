@@ -1160,17 +1160,64 @@ window.addEventListener('DOMContentLoaded', initSwipersPDP, { once: true });
   </script>
 <script>
 
-    let clone2 = document.querySelector('.product__title').cloneNode(true);
-    let clone3 = document.querySelector('.price-main-div').cloneNode(true);
-    let clone = document.querySelector('.product-form').cloneNode(true);
-    let clone1 = document.querySelector('.product-form').cloneNode(true);
-    document.querySelector('.productformmobilesticky').appendChild(clone1); 
+   
+   //  let clone2 = document.querySelector('.product__title').cloneNode(true);
+   //  let clone3 = document.querySelector('.price-main-div').cloneNode(true);
+   //  let clone = document.querySelector('.product-form').cloneNode(true);
+   //  let clone1 = document.querySelector('.product-form').cloneNode(true);
+   //  document.querySelector('.productformmobilesticky').appendChild(clone1); 
 
-   document.querySelector('.productformdesktoptitle').appendChild(clone2);
-   document.querySelector('.productformdesktoptitle').appendChild(clone3); 
-   document.querySelector('.productformdesktopsticky-variant-atc').appendChild(clone); 
-   let cloneNew = document.querySelector('.product-form').cloneNode(true);
-   document.querySelector('.custom-atc-product').appendChild(cloneNew); 
+   // document.querySelector('.productformdesktoptitle').appendChild(clone2);
+   // document.querySelector('.productformdesktoptitle').appendChild(clone3); 
+   // document.querySelector('.productformdesktopsticky-variant-atc').appendChild(clone); 
+   // let cloneNew = document.querySelector('.product-form').cloneNode(true);
+   // document.querySelector('.custom-atc-product').appendChild(cloneNew); 
+
+
+  // Clone product title
+      const productTitle = document.querySelector('.product__title');
+      if (productTitle) {
+        const clone2 = productTitle.cloneNode(true);
+        const titleContainer = document.querySelector('.productformdesktoptitle');
+        if (titleContainer) {
+          titleContainer.appendChild(clone2);
+        }
+      }
+      
+      // Clone price div
+      const priceDiv = document.querySelector('.price-main-div');
+      if (priceDiv) {
+        const clone3 = priceDiv.cloneNode(true);
+        const titleContainer = document.querySelector('.productformdesktoptitle');
+        if (titleContainer) {
+          titleContainer.appendChild(clone3);
+        }
+      }
+      
+      // Clone product form for desktop variant ATC
+      const productForm = document.querySelector('.product-form');
+      if (productForm) {
+        const clone = productForm.cloneNode(true);
+        const variantATCContainer = document.querySelector('.productformdesktopsticky-variant-atc');
+        if (variantATCContainer) {
+          variantATCContainer.appendChild(clone);
+        }
+      
+        // Clone again for mobile sticky
+        const clone1 = productForm.cloneNode(true);
+        const mobileSticky = document.querySelector('.productformmobilesticky');
+        if (mobileSticky) {
+          mobileSticky.appendChild(clone1);
+        }
+      
+        // Clone again for custom ATC
+        const cloneNew = productForm.cloneNode(true);
+        const customATCContainer = document.querySelector('.custom-atc-product');
+        if (customATCContainer) {
+          customATCContainer.appendChild(cloneNew);
+        }
+      }
+
   
   
     const isProductSoldOut = () => {
