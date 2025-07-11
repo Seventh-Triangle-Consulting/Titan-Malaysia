@@ -67,7 +67,7 @@
             "button_link": "shopify://products/camo-multicoloured-dial-plastic-strap-watch-for-men-77086pp11w"
           }
         },
-        "productslide_yVKiJD": {
+        "productslide_GRzyVm": {
           "type": "productslide",
           "settings": {
             "hotspot_top": 20,
@@ -81,7 +81,7 @@
             "button_link": "shopify://products/camo-multicoloured-dial-plastic-strap-watch-for-men-77086pp11w"
           }
         },
-        "productslide_kA3iPQ": {
+        "productslide_g9diLH": {
           "type": "productslide",
           "settings": {
             "hotspot_top": 20,
@@ -95,7 +95,7 @@
             "button_link": "shopify://products/camo-multicoloured-dial-plastic-strap-watch-for-men-77086pp11w"
           }
         },
-        "productslide_tBicWB": {
+        "productslide_ge6xpR": {
           "type": "productslide",
           "settings": {
             "hotspot_top": 20,
@@ -109,7 +109,7 @@
             "button_link": "shopify://products/camo-multicoloured-dial-plastic-strap-watch-for-men-77086pp11w"
           }
         },
-        "productslide_pckaF9": {
+        "productslide_JjKUYY": {
           "type": "productslide",
           "settings": {
             "hotspot_top": 20,
@@ -123,7 +123,7 @@
             "button_link": "shopify://products/camo-multicoloured-dial-plastic-strap-watch-for-men-77086pp11w"
           }
         },
-        "productslide_Yq4f6N": {
+        "productslide_NbJUkm": {
           "type": "productslide",
           "settings": {
             "hotspot_top": 20,
@@ -137,7 +137,7 @@
             "button_link": "shopify://products/camo-multicoloured-dial-plastic-strap-watch-for-men-77086pp11w"
           }
         },
-        "productslide_6Y7Ngd": {
+        "productslide_hFArPp": {
           "type": "productslide",
           "settings": {
             "hotspot_top": 20,
@@ -151,7 +151,21 @@
             "button_link": "shopify://products/camo-multicoloured-dial-plastic-strap-watch-for-men-77086pp11w"
           }
         },
-        "productslide_8yzyTf": {
+        "productslide_36LfGa": {
+          "type": "productslide",
+          "settings": {
+            "hotspot_top": 20,
+            "hotspot_left": 30,
+            "hotspot_hover_text": "temple arches and pillars",
+            "background_image": "shopify://shop_images/dasdas.png",
+            "mobile_background_image": "shopify://shop_images/dasdas_1.png",
+            "product_image": "shopify://shop_images/produtc1.png",
+            "product_name": "Nakashi Collection",
+            "product_description": "Inspired by the timeless designs of temple arches and pillars, with intricate Filigree detailing around each bracelet link.",
+            "button_link": "shopify://products/camo-multicoloured-dial-plastic-strap-watch-for-men-77086pp11w"
+          }
+        },
+        "productslide_PB4Ypi": {
           "type": "productslide",
           "settings": {
             "hotspot_top": 20,
@@ -168,13 +182,14 @@
       },
       "block_order": [
         "productslide_XgcHtB",
-        "productslide_yVKiJD",
-        "productslide_kA3iPQ",
-        "productslide_tBicWB",
-        "productslide_pckaF9",
-        "productslide_Yq4f6N",
-        "productslide_6Y7Ngd",
-        "productslide_8yzyTf"
+        "productslide_GRzyVm",
+        "productslide_g9diLH",
+        "productslide_ge6xpR",
+        "productslide_JjKUYY",
+        "productslide_NbJUkm",
+        "productslide_hFArPp",
+        "productslide_36LfGa",
+        "productslide_PB4Ypi"
       ],
       "name": "our collection",
       "settings": {
@@ -183,11 +198,25 @@
         "desktop_margin_bottom": 30,
         "mobile_margin_bottom": 20
       }
+    },
+    "timeless_gifts_baner_GLC838": {
+      "type": "timeless-gifts-baner",
+      "name": "timeless gift banner",
+      "settings": {
+        "banner_img_desk": "shopify://shop_images/Banner_Nebula.png",
+        "margin_top_desktop": 0,
+        "margin_btm_desktop": 0,
+        "banner_img_mob": "shopify://shop_images/Frame_1410085204_27c11698-a051-44c8-8d74-6f4d020759f7.jpg",
+        "margin_top_mob": 0,
+        "margin_btm_mob": 0,
+        "img_url": "#"
+      }
     }
   },
   "order": [
     "main",
     "nebula_image_banner_njDKkp",
-    "our_collection_section_bqLG38"
+    "our_collection_section_bqLG38",
+    "timeless_gifts_baner_GLC838"
   ]
 }
