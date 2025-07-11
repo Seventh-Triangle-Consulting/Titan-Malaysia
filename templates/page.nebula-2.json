@@ -11,13 +11,48 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "nebula_image_banner_njDKkp": {
+      "type": "nebula-image-banner",
+      "blocks": {
+        "banner_image_UQETd6": {
+          "type": "banner_image",
+          "settings": {
+            "banner_img_desk": "shopify://shop_images/01_1.jpg",
+            "banner_img_mob": "shopify://shop_images/01_8a54a21c-0b18-41ef-bbbe-0ec23040a06e.jpg",
+            "img_url": "#"
+          }
+        },
+        "banner_image_hU9Qht": {
+          "type": "banner_image",
+          "settings": {
+            "banner_img_desk": "shopify://shop_images/02.png",
+            "banner_img_mob": "shopify://shop_images/02_7fedd1af-f2ab-4224-aac7-0b200c67dc1d.png",
+            "img_url": "#"
+          }
+        }
+      },
+      "block_order": [
+        "banner_image_UQETd6",
+        "banner_image_hU9Qht"
+      ],
+      "name": "nebula image banner",
+      "settings": {
+        "margin_top_desktop": 0,
+        "margin_btm_desktop": 0,
+        "margin_top_mob": 0,
+        "margin_btm_mob": 0,
+        "swiper_autoplay": true
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "nebula_image_banner_njDKkp"
   ]
 }
