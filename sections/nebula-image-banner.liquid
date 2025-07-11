@@ -1,0 +1,216 @@
+<style>
+      .nebula_banner_main_{{ section.id }}{
+          margin-top:{{ section.settings.margin_top_desktop }}px;
+          margin-bottom:{{ section.settings.margin_btm_desktop }}px;
+          display:flex;
+          justify-content:center;
+      }
+      .nebula_banner_main_{{ section.id }} .nebula_mob_img{
+          display: none;
+      }
+      .nebula_banner_swiper_pagination .swiper-pagination-bullet{
+          width: 13.01px;
+          height: 13.01px;
+          background-color: #AFAFAF;
+      }
+      .nebula_banner_swiper_pagination .swiper-pagination-bullet-active{
+          width: 22.76px;
+          height: 13.01px;
+          border-radius: 32.52px;
+          background-color: #ffffff;
+      }
+      .nebula_banner_swiper_pagination{
+          bottom: 38px !important;
+      }
+  @media screen and (max-width:767px){
+      .nebula_banner_main_{{ section.id }} .nebula_desk_img{
+              display: none;
+      }
+      .nebula_banner_main_{{ section.id }} .nebula_mob_img{
+          display: block;
+      }
+      .nebula_banner_swiper_pagination .swiper-pagination-bullet{
+          width: 8px;
+          height: 8px;
+      }
+      .nebula_banner_swiper_pagination .swiper-pagination-bullet-active{
+          width: 14px;
+          height: 8px;
+          border-radius: 20px;
+      }
+      .nebula_banner_swiper_pagination{
+          bottom: 26px !important;
+      }
+      .nebula_banner_main_{{ section.id }}{
+          margin-top:{{ section.settings.margin_top_mob }}px;
+          margin-bottom:{{ section.settings.margin_btm_mob }}px;
+      }
+  }
+</style>
+{% if section.blocks.size > 0 %}
+  <div class="nebula_banner_main_{{ section.id }}">
+    <div class="swiper my-nebula-swiper-banner">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          {% if block.settings.banner_img_mob != blank and block.settings.banner_img_desk != blank %}
+            <div class="swiper-slide">
+              <a href="{{ block.settings.img_url }}">
+                <div class="both_img_loop">
+                  {% if block.settings.banner_img_desk != blank %}
+                    <div class="nebula_desk_img">
+                      {% if forloop.index0 == 0 %}
+                        {% assign lazy = 'eager' %}
+                        {% assign fetchPriority = 'high' %}
+                        {% assign preload = true %}
+                        {% assign decoding = 'auto' %}
+                      {% else %}
+                        {% assign lazy = 'lazy' %}
+                        {% assign fetchPriority = 'auto' %}
+                        {% assign preload = false %}
+                        {% assign decoding = 'async' %}
+                      {% endif %}
+                      {% assign alt = block.settings.banner_img_desk.alt | default: 'nebula-desktop-banner' %}
+                      {{
+                        block.settings.banner_img_desk
+                        | image_url: width: 2000, format: 'webp'
+                        | image_tag:
+                          class: 'nebula-desktop-banner',
+                          loading: lazy,
+                          fetchpriority: fetchPriority,
+                          preload: preload,
+                          decoding: decoding,
+                          alt: alt
+                      }}
+                    </div>
+                  {% endif %}
+                  {% if block.settings.banner_img_mob != blank %}
+                    <div class="nebula_mob_img">
+                      {% assign alt = block.settings.banner_img_mob.alt | default: 'nebula-mobile-banner' %}
+                      {{
+                        block.settings.banner_img_mob
+                        | image_url: width: 900, format: 'webp'
+                        | image_tag:
+                          class: 'nebula-mobile-banner',
+                          loading: lazy,
+                          fetchpriority: fetchPriority,
+                          preload: preload,
+                          decoding: decoding,
+                          alt: alt
+                      }}
+                    </div>
+                  {% endif %}
+                </div>
+              </a>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <div class="swiper-pagination nebula_banner_swiper_pagination"></div>
+    </div>
+  </div>
+{% endif %}
+{% if section.blocks.size > 1 %}
+  <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        let nabulaBannerSwiper = new Swiper('.nebula_banner_main_{{ section.id }} .my-nebula-swiper-banner', {
+          pagination: {
+            el: '.swiper-pagination.nebula_banner_swiper_pagination',
+            clickable: true,
+          },
+          {% if section.settings.swiper_autoplay %}
+          autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+          },
+          {% endif %}
+        });
+    });
+  </script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "nebula image banner",
+  "settings": [
+    { "type": "header", "content": "Desktop Settings" },
+    {
+      "type": "range",
+      "id": "margin_top_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_btm_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Mobile Settings"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_btm_mob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "checkbox",
+      "id": "swiper_autoplay",
+      "label": "Swiper Autoplay",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "banner_image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "banner_img_desk",
+          "label": "Desktop Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "banner_img_mob",
+          "label": "Mobile Image"
+        },
+        {
+        "type": "url",
+        "id": "img_url",
+        "label": "Image link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "nebula image banner"
+    }
+  ]
+}
+{% endschema %}
