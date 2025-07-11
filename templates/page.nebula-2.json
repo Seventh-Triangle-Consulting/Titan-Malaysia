@@ -211,12 +211,88 @@
         "margin_btm_mob": 0,
         "img_url": "#"
       }
+    },
+    "nebula_image_text_section_TV83kn": {
+      "type": "nebula-image-text-section",
+      "name": "nebula text image section",
+      "settings": {
+        "nebula_nebula_heading_gif_first": "Timeless Creations,",
+        "nebula_heading_gif": "Each Watch with a Unique Story",
+        "gif_video_desk": "shopify://shop_images/Titan_2.gif",
+        "margin_top_desktop": 0,
+        "margin_btm_desktop": 0,
+        "gif_video_mob": "shopify://shop_images/Titan_2.gif",
+        "margin_top_mob": 0,
+        "margin_btm_mob": 0
+      }
+    },
+    "exquisite_craftsmanship_section_hePYhF": {
+      "type": "exquisite-craftsmanship-section",
+      "blocks": {
+        "imagetext_slide_p8PPUN": {
+          "type": "imagetext-slide",
+          "settings": {
+            "heading": "Exquisite Craftsmanship",
+            "description": "Inspired by Indian art and culture, these timepieces are true masterpieces that reflect the essence of luxury",
+            "right_side_image": "shopify://shop_images/3f136a3c663fcb12c26b323f28ad8f16.png"
+          }
+        },
+        "imagetext_slide_UxCXzx": {
+          "type": "imagetext-slide",
+          "settings": {
+            "heading": "Exquisite Craftsmanship",
+            "description": "Inspired by Indian art and culture, these timepieces are true masterpieces that reflect the essence of luxury",
+            "right_side_image": "shopify://shop_images/3f136a3c663fcb12c26b323f28ad8f16.png"
+          }
+        },
+        "imagetext_slide_xwpwhb": {
+          "type": "imagetext-slide",
+          "settings": {
+            "heading": "Exquisite Craftsmanship",
+            "description": "Inspired by Indian art and culture, these timepieces are true masterpieces that reflect the essence of luxury",
+            "right_side_image": "shopify://shop_images/3f136a3c663fcb12c26b323f28ad8f16.png"
+          }
+        }
+      },
+      "block_order": [
+        "imagetext_slide_p8PPUN",
+        "imagetext_slide_UxCXzx",
+        "imagetext_slide_xwpwhb"
+      ],
+      "name": "Exquisite Craftsmanship",
+      "settings": {
+        "margin_bottom_desktop": 30,
+        "margin_bottom_mobile": 20,
+        "button_text": "EXPLORE COLLECTION",
+        "button_url": "shopify://products/camo-multicoloured-dial-plastic-strap-watch-for-men-77086pp11w",
+        "gif_bg_image": "shopify://shop_images/7946009-hd_720_1366_30fps_1.png",
+        "gif_bg_image_mobile": "shopify://shop_images/7946009-hd_720_1366_30fps_1.png"
+      }
+    },
+    "curate_collection_iNPP6F": {
+      "type": "curate-collection",
+      "name": "curate your collection",
+      "settings": {
+        "heading_text": "Curate Your Collection",
+        "content_text": "Handpick watches from our exquisite collections and book an appointment",
+        "button_text": "Explore Collection",
+        "button_link": "shopify://pages/faqs",
+        "image_with_text_image": "shopify://shop_images/Firefly-empty-premium-luxurious-watch-box-top-view-full-22454_3.png",
+        "margin_top_desktop": 0,
+        "margin_btm_desktop": 0,
+        "background_img_desk": "shopify://shop_images/background_1.png",
+        "margin_top_mob": 0,
+        "margin_btm_mob": 0
+      }
     }
   },
   "order": [
     "main",
     "nebula_image_banner_njDKkp",
     "our_collection_section_bqLG38",
-    "timeless_gifts_baner_GLC838"
+    "timeless_gifts_baner_GLC838",
+    "nebula_image_text_section_TV83kn",
+    "exquisite_craftsmanship_section_hePYhF",
+    "curate_collection_iNPP6F"
   ]
 }
