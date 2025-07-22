@@ -23,7 +23,7 @@
   }
 </style>
 {% if section.settings.banner_img_desk != blank and section.settings.banner_img_mob != blank %}
-  <a href="{{ section.settings.img_url }}">
+  <a href=" {% if section.settings.img_url != blank %}{{ section.settings.img_url }}{% else %}javascript:void(0){% endif %}">
     <div class="timeless_main_{{ section.id }}">
       {% if section.settings.banner_img_desk != blank %}
         <div class="desktop_main">
