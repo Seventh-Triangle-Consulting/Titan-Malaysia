@@ -68,6 +68,8 @@
       }
    }
 </style>
+
+{% if section.settings.gif_video_desk != blank or section.settings.gif_video_desk != blank or section.settings.nebula_nebula_heading_gif_first != blank or section.settings.nebula_heading_gif != blank %}
 <div class="main_container_gif_{{ section.id }} page-width">
    <div class="image-text-container">
     <div class="both_gif_main">
@@ -114,6 +116,7 @@
     {% endif %}
    </div>
 </div>
+{% endif %}
 {% schema %}
   {
     "name": "Nebula Text Image Section",

@@ -64,7 +64,7 @@
 {% endif %}
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-  const ourcollswiper = new Swiper('.ourcollectionSwiper', {
+  const ourcollswiper = new Swiper('.our-collection-section .ourcollectionSwiper', {
     slidesPerView: 3,
     spaceBetween: 33,
     loop: true,
@@ -83,8 +83,8 @@
       },
     },
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+      nextEl: '.our-collection-section .swiper-button-next',
+      prevEl: '.our-collection-section .swiper-button-prev',
     },
     on: {
       init: function () {
