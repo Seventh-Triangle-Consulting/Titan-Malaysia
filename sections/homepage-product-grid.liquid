@@ -1,31 +1,54 @@
 {{ 'homepage-product-grid.css' | asset_url | stylesheet_tag }}
 
-<section class="home-grid-section">
+<style>
+  .section-{{ section.id }} {
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+    padding-top: {{ section.settings.padding_top_desktop }}px;
+    padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+  }
+
+  @media only screen and (min-width: 750px) and (max-width: 1023px){
+    .section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_tablet }}px;
+      padding-bottom: {{ section.settings.padding_bottom_tablet }}px;
+    }
+  }
+
+  @media only screen and (max-width: 749px){
+    .section-{{ section.id }} {
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+  }
+</style>
+
+<section class="section-{{ section.id }} home-grid-section" style="background-color: {{ section.settings.bg_color }};">
   <div class="container">
-    {% comment %}  {% endcomment %}
     {% for block in section.blocks %}
-      {% comment %} {% assign home_grid_product = all_products[block.settings.home-grid-product] %} {% endcomment %}
-      <div class="watch-card ">
-        <div class="img-height">
-          {% if block.settings.grid_product_url != blank %}
-            <a href="{{ block.settings.grid_product_url }}">
-              {% if block.settings.grid_product_image != blank %}
-                {{
-                  block.settings.grid_product_image
-                  | image_url: width: 200
-                  | image_tag: class: 'watch-image', loading: 'lazy'
-                }}
-              {% endif %}
-            </a>
-          {% endif %}
-        </div>
-        <div class="overlay">
-          <div class="overlay-content">
-            <p>{{ block.settings.grid_product_text }}</p>
-            <div class="arrow">
-              <svg viewBox="0 0 24 24">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
+      <div class="grid-item span-desktop-{{ block.settings.desktop_view | replace: 'fr', '' }} span-tablet-{{ block.settings.tablet_view | replace: 'fr', '' }} span-mobile-{{ block.settings.mobile_view | replace: 'fr', '' }}">
+        <div class="watch-card">
+          <div class="img-height">
+            {% if block.settings.grid_product_url != blank %}
+              <a href="{{ block.settings.grid_product_url }}">
+                {% if block.settings.grid_product_image != blank %}
+                  {{
+                    block.settings.grid_product_image
+                    | image_url: width: 800
+                    | image_tag: class: 'watch-image', loading: 'lazy'
+                  }}
+                {% endif %}
+              </a>
+            {% endif %}
+          </div>
+          <div class="overlay" style="color: {{ section.settings.text_color }};">
+            <div class="overlay-content">
+              <p>{{ block.settings.grid_product_text }}</p>
+              <div class="arrow">
+                <svg viewBox="0 0 24 24">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </div>
             </div>
           </div>
         </div>
@@ -39,6 +62,102 @@
   "name": "Product Grid Section",
   "max_blocks": 10,
   "settings": [
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom Desktop",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom Mobile",
+      "default": 36
+    },
+    {
+      "type": "header",
+      "content": "Inner Spacing Desktop Settings"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Top Desktop",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom Desktop",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Inner Spacing Tablet Settings"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_tablet",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Top Desktop",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_tablet",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom Desktop",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Inner Spacing Mobile Settings"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Top Mobile",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom Mobile",
+      "default": 40
+    },
     {
       "type": "color",
       "id": "bg_color",
@@ -86,7 +205,8 @@
               "value": "2fr",
               "label": "2fr"
             }
-          ]
+          ],
+          "default": "1fr"
         },
         {
           "type": "select",
@@ -101,7 +221,8 @@
               "value": "2fr",
               "label": "2fr"
             }
-          ]
+          ],
+          "default": "1fr"
         },
         {
           "type": "select",
@@ -116,7 +237,8 @@
               "value": "2fr",
               "label": "2fr"
             }
-          ]
+          ],
+          "default": "1fr"
         }
       ]
     }
