@@ -122,7 +122,12 @@
   .home-grid-section .container {
     grid-template-columns: repeat(4, 1fr);
   }
-
+  .grid-item.span-tablet-2 .watch-card {
+    aspect-ratio: 6/4;
+  }
+  .grid-item.span-tablet-1 .watch-card {
+    aspect-ratio: 3/4;
+  }
   .grid-item.span-tablet-1 {
     grid-column: span 1;
   }
@@ -136,27 +141,19 @@
   .home-grid-section .container {
     grid-template-columns: repeat(2, 1fr);
   }
-
+  .grid-item.span-mobile-2 .watch-card {
+    aspect-ratio: 6/4;
+  }
+  .grid-item.span-mobile-1 .watch-card {
+    aspect-ratio: 3/4;
+  }
   .grid-item.span-mobile-1 {
     grid-column: span 1;
   }
   .grid-item.span-mobile-2 {
     grid-column: span 2;
   }
-
   .overlay-content p {
     font-size: 0.9rem;
-  }
-}
-
-/* Small Mobile */
-@media only screen and (max-width: 480px) {
-  .home-grid-section .container {
-    grid-template-columns: 1fr;
-  }
-
-  .grid-item.span-mobile-1,
-  .grid-item.span-mobile-2 {
-    grid-column: span 1;
   }
 }
