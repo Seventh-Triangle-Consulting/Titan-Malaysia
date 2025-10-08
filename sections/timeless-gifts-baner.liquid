@@ -1,0 +1,132 @@
+<style>
+    .timeless_main_{{ section.id }}{
+        margin-top:{{ section.settings.margin_top_desktop }}px;
+        margin-bottom:{{ section.settings.margin_btm_desktop }}px;
+    }
+    .timeless_main_{{ section.id }} .desktop_main{
+        display: flex;
+      }
+    .timeless_main_{{ section.id }} .mob_main{
+        display: none;
+      }
+    @media screen and (max-width:767px){
+        .timeless_main_{{ section.id }} .desktop_main{
+              display: none;
+      }
+      .timeless_main_{{ section.id }} .mob_main{
+          display: flex;
+      }
+      .timeless_main_{{ section.id }}{
+          margin-top:{{ section.settings.margin_top_mob }}px;
+          margin-bottom:{{ section.settings.margin_btm_mob }}px;
+      }
+  }
+</style>
+{% if section.settings.banner_img_desk != blank and section.settings.banner_img_mob != blank %}
+  <a href=" {% if section.settings.img_url != blank %}{{ section.settings.img_url }}{% else %}javascript:void(0){% endif %}">
+    <div class="timeless_main_{{ section.id }}">
+      {% if section.settings.banner_img_desk != blank %}
+        <div class="desktop_main">
+          {{
+            section.settings.banner_img_desk
+            | image_url: width: 2000, format: 'webp'
+            | image_tag:
+              class: 'nebula-desktop-banner',
+              loading: 'lazy',
+              fetchpriority: 'auto',
+              preload: false,
+              decoding: 'async',
+              alt: 'timeless gift banner'
+          }}
+        </div>
+      {% endif %}
+      {% if section.settings.banner_img_mob != blank %}
+        <div class="mob_main">
+          {{
+            section.settings.banner_img_mob
+            | image_url: width: 900, format: 'webp'
+            | image_tag:
+              class: 'nebula-mob-banner',
+              loading: 'lazy',
+              fetchpriority: 'auto',
+              preload: false,
+              decoding: 'async',
+              alt: 'timeless gift banner'
+          }}
+        </div>
+      {% endif %}
+    </div>
+  </a>
+{% endif %}
+{% schema %}
+{
+  "name": "Timeless Gift Banner",
+  "settings": [
+    { "type": "header", "content": "Desktop Settings" },
+    {
+      "type": "image_picker",
+      "id": "banner_img_desk",
+      "label": "Desktop Image"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_btm_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Mobile Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_img_mob",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_btm_mob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "url",
+      "id": "img_url",
+      "label": "Image link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "timeless gift banner"
+    }
+  ]
+}
+{% endschema %}

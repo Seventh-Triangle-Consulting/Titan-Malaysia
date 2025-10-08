@@ -1,0 +1,274 @@
+<style>
+  .curate_collection_main_{{ section.id }} {
+    margin-top: {{ section.settings.margin_top_desktop }}px;
+    margin-bottom: {{ section.settings.margin_btm_desktop }}px;
+  }
+  .curate_collection_main_{{ section.id }} .curate_collection_main__inside{
+    display: flex;
+    gap: 125px;
+    padding-top: 56px;
+    padding-bottom: 272.52px;
+  }
+  .curate_collection_main_{{ section.id }} .curate_left_main{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 23px;
+  }
+  .curate_collection_main_{{ section.id }} a{
+    text-decoration: none;
+  }
+  .heading_content_main{
+    display: flex;
+    flex-direction: column;
+    gap:23px;
+  }
+  .curate_collection_main_{{ section.id }} .curate_right_main{
+    width: 50%;
+  }
+  .curate_collection_main_{{ section.id }} .top_heading{
+    font-family: Playfair Display;
+    font-size: 36px;
+    font-weight: 500;
+    text-align: left;
+    color: #9C6532FA;
+  }
+  .curate_collection_main_{{ section.id }} .top_content{
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 1px;
+    text-align: left;
+    color: #323232CC;
+    max-width: 431.95px;
+  }
+  .curate_collection_main_{{ section.id }} .top_button_desk{
+    padding: 12px 16px 12px 16px;
+    border-radius: 0px 0px 0px 12px;
+    border: 1.5px solid #D7C2AE;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: 1.5px;
+    text-align: center;
+    background-color: #F4E8DC;
+    max-width: max-content;
+    text-decoration: none;
+    color:#0B0B0B;
+    min-width: 205px
+  }
+  .curate_collection_main_{{ section.id }} .top_button_mob{
+    display: none;
+  }
+
+  @media screen and (min-width:768px){
+    {% if section.settings.background_img_desk != blank %}
+      .curate_collection_main_{{ section.id }} {
+        background-image: url('{{ section.settings.background_img_desk | img_url: 'master' }}');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+    {% endif %}
+  }
+
+  @media screen and (max-width:767px){
+    .curate_collection_main_{{ section.id }}{
+      margin-top:{{ section.settings.margin_top_mob }}px;
+      margin-bottom:{{ section.settings.margin_btm_mob }}px;
+    }
+    .curate_collection_main_{{ section.id }} .top_button_desk{
+      display: none;
+    }
+    .curate_collection_main_{{ section.id }} .top_button_mob{
+      display: block;
+      padding: 12px 16px 12px 16px;
+      border-radius: 0px 0px 0px 12px;
+      border: 1.5px solid #D7C2AE;
+      font-family: Poppins;
+      font-size: 12px;
+      font-weight: 500;
+      text-align: center;
+      background-color: #F4E8DC;
+      max-width: max-content;
+      line-height: 18px;
+      letter-spacing: 1.5px;
+      text-align: center;
+      text-decoration: none;
+      margin: 0 auto;
+      min-width:184px;
+      max-height: 42px;
+    }
+    .curate_collection_main_{{ section.id }} .curate_collection_main__inside{
+      flex-direction: column;
+      gap: 30.84px;
+      padding-top:36px;
+      padding-bottom:74.47px;
+    }
+    .curate_collection_main_{{ section.id }} .curate_left_main{
+      gap: 0;
+      width: 100%;
+    }
+    .curate_collection_main_{{ section.id }} .curate_right_main{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 20.9px;
+    }
+    .curate_collection_main_{{ section.id }} .heading_content_main{
+      align-items: center;
+    }
+    .curate_collection_main_{{ section.id }} .top_content{
+      text-align: center;
+      font-size: 14px;
+      line-height: 21px;
+    }
+    .curate_collection_main_{{ section.id }} .top_heading{
+      text-align: center;
+      font-size: 28px;
+    }
+    .curate_collection_main_{{ section.id }} .heading_content_main{
+      gap: 12px;
+    }
+  }
+</style>
+
+{% if section.settings.image_with_text_image != blank %}
+  <div class="curate_collection_main_{{ section.id }}">
+    <div class="curate_collection_main__inside page-width">
+      <div class="curate_left_main">
+        {% if section.settings.heading_text != blank %}
+          <div class="heading_content_main">
+            {% if section.settings.heading_text != blank %}
+              <p class="top_heading">{{ section.settings.heading_text }}</p>
+            {% endif %}
+            {% if section.settings.content_text != blank %}
+              <p class="top_content">{{ section.settings.content_text }}</p>
+            {% endif %}
+          </div>
+        {% endif %}
+        {% if section.settings.button_text != blank and section.settings.button_link != blank %}
+          <a href="{{ section.settings.button_link }}">
+            <p class="top_button_desk">{{ section.settings.button_text }}</p>
+          </a>
+        {% endif %}
+      </div>
+      <div class="curate_right_main">
+        {{
+          section.settings.image_with_text_image
+          | image_url: width: 900, format: 'webp'
+          | image_tag:
+            class: 'nebula-desktop-banner',
+            loading: 'lazy',
+            fetchpriority: 'auto',
+            preload: false,
+            decoding: 'async',
+            alt: 'curate collection'
+        }}
+        {% if section.settings.button_text != blank and section.settings.button_link != blank %}
+          <a href="{{ section.settings.button_link }}">
+            <p class="top_button_mob">{{ section.settings.button_text }}</p>
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Curate Your Collection",
+  "settings": [
+    { "type": "header", "content": "Heading" },
+    {
+      "type": "text",
+      "id": "heading_text",
+      "label": "Heading",
+      "default": "Curate Your Collection"
+    },
+    { "type": "header", "content": "Paragraph Below Heading" },
+    {
+      "type": "text",
+      "id": "content_text",
+      "label": "Content",
+      "default": "content"
+    },
+    { "type": "header", "content": "Button Below Paragraph" },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Label",
+      "default": "Explore Collection"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    { "type": "header", "content": "Right Side Image" },
+    {
+      "type": "image_picker",
+      "id": "image_with_text_image",
+      "label": "Image"
+    },
+    { "type": "header", "content": "Desktop Settings" },
+    {
+      "type": "range",
+      "id": "margin_top_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_btm_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "image_picker",
+      "id": "background_img_desk",
+      "label": "Background Image"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Settings"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_btm_mob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin Bottom",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "curate your collection"
+    }
+  ]
+}
+{% endschema %}

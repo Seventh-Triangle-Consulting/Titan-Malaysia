@@ -1,0 +1,248 @@
+{{ 'our-collection.css' | asset_url | stylesheet_tag: media: 'screen' }}
+<style>
+   #{{section.id}}{
+      margin-bottom:{{section.settings.desktop_margin_bottom}}px;
+   }
+  @media screen and (max-width:768px){
+        #{{section.id}}{
+            margin-bottom:{{section.settings.mobile_margin_bottom}}px;
+        }
+   }
+</style>
+{% if section.blocks != blank %}
+<section id="{{ section.id }}" class="our-collection-section">
+   {% if section.settings.section_heading != blank %}<h2>{{ section.settings.section_heading }}</h2>{% endif %}
+   <div class="our-collection-main-container page-width">
+      <div class="background-wrapper"></div>
+     <div class="background-wrapper-bottom"></div>
+     <div class="ourcollectionSwiper-wrapper">
+        <div class="swiper ourcollectionSwiper">
+         <div class="swiper-wrapper">
+           {% for block in section.blocks %}
+            {% if  block.settings.product_image != blank %}
+              <div class="swiper-slide" data-bg="url('{{  block.settings.background_image | image_url }}')" mobile-top-data-bg="url('{{  block.settings.mobile_background_image | image_url }}')" mobile-bottom-data-bg="url('{{  block.settings.mobile__bottom_background_image | image_url }}')">
+                {% if  block.settings.product_image != blank %}
+                   <div class="product-image-ourcollection">
+                      {{
+                          block.settings.product_image
+                          | image_url: width: 800
+                          | image_tag: class: 'our-coll-product-image', loading: 'lazy'
+                        }}
+                     {% if block.settings.hotspot_hover_text != blank %}
+                       <div class="ourcoll-hostpot-container" style="top:{{ block.settings.hotspot_top }}%;left:{{ block.settings.hotspot_left }}%;">
+                          <div class="ourcoll-hostpot-wrapper">
+                             <span class="hotspot-svg">{% render 'hotspot-svg' %}</span>
+                             <span class="hotspot-hover-text">{{ block.settings.hotspot_hover_text | truncate: 25, "" }}</span>
+                          </div>
+                       </div>
+                     {% endif %}
+                   </div>
+                  {% endif %}
+                  <div class="product-info">
+                     {% if block.settings.product_name != blank %}
+                           <p class="product-info-name">{{ block.settings.product_name }}</p>
+                    {% endif %}
+                    {% if block.settings.product_description != blank %}
+                      <p class="product-info-description">
+                        {{ block.settings.product_description }}
+                      </p>
+                    {% endif %}
+                    {% if section.settings.button_text != blank %}
+                       <a href="{% if block.settings.button_link != blank %}{{ block.settings.button_link }}{% else %}javascript:void(0){% endif %}">{{ section.settings.button_text }}</a>
+                    {% endif %}
+                  </div>
+              </div>
+            {% endif %}
+           {% endfor %}
+         </div>
+         <div class="ourcoll-navigation">
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+         </div>
+      </div>
+     </div>
+   </div>
+</section>
+{% endif %}
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+  const ourcollswiper = new Swiper('.our-collection-section .ourcollectionSwiper', {
+    slidesPerView: 3,
+    spaceBetween: 33,
+    loop: true,
+    centeredSlides: true,
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+      769: {
+        spaceBetween: 20,
+      },
+      1100: {
+        slidesPerView: 3,
+        spaceBetween: 33,
+      },
+    },
+    navigation: {
+      nextEl: '.our-collection-section .swiper-button-next',
+      prevEl: '.our-collection-section .swiper-button-prev',
+    },
+    on: {
+      init: function () {
+        try {
+          updateBackground(this);
+        } catch (error) {
+          console.error('Error updating background during Swiper initialization:', error);
+        }
+      },
+      slideChange: function () {
+        try {
+          updateBackground(this);
+        } catch (error) {
+          console.error('Error updating background during slide change:', error);
+        }
+      }
+    }
+  });
+
+  function updateBackground(swiperInstance) {
+    try {
+      const activeSlide = swiperInstance.slides[swiperInstance.activeIndex];
+      const isMobile = window.innerWidth < 769;
+      const backgroundimagecontainer = isMobile 
+          ? activeSlide.getAttribute('mobile-top-data-bg') 
+          : activeSlide.getAttribute('data-bg');
+      const bottombackgroundimagecontainer = activeSlide.getAttribute('mobile-bottom-data-bg');
+      const backgroundUrl = activeSlide.getAttribute('data-bg');
+      
+      document.querySelectorAll('.our-coll-bg-image-cont').forEach((e) => {
+        e.style.display = 'none';
+      });
+      
+      if (backgroundimagecontainer) {
+        document.querySelector('.background-wrapper').style.backgroundImage = backgroundimagecontainer;
+      }
+      
+      if (bottombackgroundimagecontainer && isMobile) {
+        document.querySelector('.background-wrapper-bottom').style.backgroundImage = bottombackgroundimagecontainer;
+      }
+    } catch (error) {
+      console.error('Error in updateBackground function:', error);
+    }
+  }
+
+  window.addEventListener('resize', function () {
+    try {
+      updateBackground(ourcollswiper);
+    } catch (error) {
+      console.error('Error during resize event:', error);
+    }
+  });
+});
+
+</script>
+{% schema %}
+  {
+    "name": "Our Collection Section",
+    "settings": [
+        {
+          "type": "text",
+          "id": "section_heading",
+          "label": "Section Heading",
+          "default": "Our Collections"
+        },
+       {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "View Products"
+        },
+       {
+        "type": "range",
+        "id": "desktop_margin_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Desktop Margin Bottom",
+        "default": 30
+      },
+      {
+        "type": "range",
+        "id": "mobile_margin_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Mobile Margin Bottom",
+        "default": 20
+      }
+    ],
+    "blocks": [{
+      "type": "productslide",
+      "name":"Product",
+      "settings": [
+        {
+            "type": "range",
+            "id": "hotspot_top",
+            "min": 0,
+            "max": 100,
+            "step": 2,
+            "unit": "%",
+            "label": "Hotspot Top Position",
+            "default": 20
+          },
+        {
+          "type": "range",
+          "id": "hotspot_left",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "%",
+          "label": "Hotspot Left Postion",
+          "default": 30
+        },
+        {
+          "type": "text",
+          "id": "hotspot_hover_text",
+          "label": "Hotspot hover Text",
+          "default":"temple arches and pillars"
+        },
+        {
+          "type": "image_picker",
+          "id": "background_image",
+          "label": " Desktop Top Background Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_background_image",
+          "label": "Mobile Top Background Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "product_image",
+          "label": "Product Image"
+        },
+        {
+          "type": "text",
+          "id": "product_name",
+          "label": "Product Name",
+          "default": "Nakashi Collection"
+        },
+        {
+          "type": "textarea",
+          "id": "product_description",
+          "label": "Product Description",
+          "default": "Inspired by the timeless designs of temple arches and pillars, with intricate Filigree detailing around each bracelet link."
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        }
+      ]
+    }],
+     "presets": [{"name": "our collection"}]
+  }
+{% endschema %}

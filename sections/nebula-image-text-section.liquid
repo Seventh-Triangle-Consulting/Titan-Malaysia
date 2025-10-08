@@ -1,0 +1,194 @@
+<style>
+    .main_container_gif_{{ section.id }}{
+      position:relative;
+        margin-top:{{ section.settings.margin_top_desktop }}px;
+        margin-bottom:{{ section.settings.margin_btm_desktop }}px;
+    }
+    .main_container_gif_{{ section.id }} .nebula_heading_gif, .main_container_gif_{{ section.id }} .nebula_nebula_heading_gif_first{
+      font-family: Playfair Display;
+      font-size: 40px;
+      font-weight: 500;
+      line-height: 56px;
+      text-align: left;
+      text-underline-position: from-font;
+      text-decoration-skip-ink: none;
+      background: linear-gradient(100.54deg, #9C6532 38.25%, #362311 69.68%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .main_container_gif_{{ section.id }} .gif_container_mob{
+        display: none;
+    }
+    .gif_container_desk{
+      line-height:0;
+    }
+    @media screen and (max-width:1600px){
+    .main_container_gif_{{ section.id }}{
+        padding:0 !important;
+    }
+    }
+    @media screen and (max-width:768px){
+      .main_container_gif_{{ section.id }} .gif_container_mob{
+        display: block;
+        opacity: 0.6;
+    }
+    .main_container_gif_{{ section.id }} .gif_container_desk{
+        display: none;
+    }
+    .main_container_gif_{{ section.id }}{
+        margin-top:{{ section.settings.margin_top_mob }}px;
+        margin-bottom:{{ section.settings.margin_btm_mob }}px;
+    }
+    .main_container_gif_{{ section.id }} .nebula_heading_gif, .main_container_gif_{{ section.id }} .nebula_nebula_heading_gif_first{
+      font-size: 36px;
+      line-height: 46px;
+      text-align: center;
+    }
+    .main_container_gif_{{ section.id }} .nebula_both_heading_main {
+      top: 15%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      padding: 0 25px;
+      position:absolute;
+  }
+    }
+   @media screen and (min-width:769px){
+      .image-text-container{
+        display:flex;
+        flex-direction:row-reverse;
+        align-items:center;
+      }
+      .nebula_both_heading_main{
+         position: relative;
+         left: 109px;
+      }
+      .both_gif_main,.nebula_both_heading_main{
+          flex:1;
+      }
+   }
+</style>
+
+{% if section.settings.gif_video_desk != blank or section.settings.gif_video_desk != blank or section.settings.nebula_nebula_heading_gif_first != blank or section.settings.nebula_heading_gif != blank %}
+<div class="main_container_gif_{{ section.id }} page-width">
+   <div class="image-text-container">
+    <div class="both_gif_main">
+      {% if section.settings.gif_video_desk != blank %}
+        <div class="gif_container_desk">
+          {{
+            section.settings.gif_video_desk
+            | image_url: width: 2000, format: 'webp'
+            | image_tag:
+              class: 'gif_container_desk',
+              loading: 'lazy',
+              fetchpriority: 'auto',
+              preload: false,
+              decoding: 'async',
+              alt: 'GIF'
+          }}
+        </div>
+      {% endif %}
+      {% if section.settings.gif_video_desk != blank %}
+        <div class="gif_container_mob">
+          {{
+            section.settings.gif_video_mob
+            | image_url: width: 900, format: 'webp'
+            | image_tag:
+              class: 'gif_container_mob',
+              loading: 'lazy',
+              fetchpriority: 'auto',
+              preload: false,
+              decoding: 'async',
+              alt: 'GIF'
+          }}
+        </div>
+      {% endif %}
+    </div>
+    {% if section.settings.nebula_nebula_heading_gif_first != blank and section.settings.nebula_heading_gif != blank %}
+      <div class="nebula_both_heading_main">
+        {% if section.settings.nebula_nebula_heading_gif_first != blank %}
+          <h3 class="nebula_nebula_heading_gif_first">{{ section.settings.nebula_nebula_heading_gif_first }}</h3>
+        {% endif %}
+        {% if section.settings.nebula_heading_gif != blank %}
+          <h3 class="nebula_heading_gif">{{ section.settings.nebula_heading_gif }}</h3>
+        {% endif %}
+      </div>
+    {% endif %}
+   </div>
+</div>
+{% endif %}
+{% schema %}
+  {
+    "name": "Nebula Text Image Section",
+     "settings": [
+    {
+      "type": "text",
+      "id": "nebula_nebula_heading_gif_first",
+      "label": "Heading",
+      "default": "Quick links"
+    },
+    {
+      "type": "text",
+      "id": "nebula_heading_gif",
+      "label": "Heading",
+      "default": "Quick links"
+    },
+    { "type": "header", "content": "Desktop Settings" },
+    {
+      "type": "image_picker",
+      "id": "gif_video_desk",
+      "label": "GIF"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_btm_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Mobile Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "gif_video_mob",
+      "label": "GIF"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_btm_mob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin Bottom",
+      "default": 0
+    }
+  ],
+    "presets": [{"name": "nebula text image section"}]
+  }
+{% endschema %}
