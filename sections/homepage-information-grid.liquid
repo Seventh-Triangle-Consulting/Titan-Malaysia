@@ -1,0 +1,264 @@
+<style>
+      .explore-sec {
+         padding: 147px 85px 107px;
+         background: {{ section.settings.explore-background }};
+         color: {{ section.settings.body_text }};
+      }
+
+      .explore-content{
+          display:flex;
+          flex-direction:column;
+          {% comment %} justify-content:center; {% endcomment %}
+          align-items:center;
+        text-align:center;
+
+      }
+      .explore-content h2{
+      font-size:40px;
+      color: {{ section.settings.body_text }};
+      }
+      .explore-content p{
+       max-width:831px;
+       font-size:17px;
+      }
+      .explore-parent-card{
+      margin-top:111px;
+      }
+      .explore-wrapper {
+    display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+    overflow: hidden;
+    cursor: pointer;
+    text-align:center;
+  }
+  .explore-slide {
+    position: relative;
+    background: black;
+    text-align: center;
+    overflow: hidden;
+    cursor: pointer;
+    border-right: 1px solid #FFFFFF4D;
+    box-sizing: border-box;
+    transition: background 0.5s ease;
+     {% comment %} display: flex;
+    flex-direction: column;
+    align-items: center; {% endcomment %}
+
+  }
+  .explore-slide:first-child {
+    border-left: 1px solid #FFFFFF4D;
+  }
+
+  .card-text {
+
+    font-size: 20px;
+    z-index: 2;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    {% comment %} text-overflow: ellipsis; {% endcomment %}
+    margin-bottom:50px;
+
+  }
+
+
+  .card-hover-description{
+    display:none;
+    font-size: 18px;
+    margin: 10px 0;
+    color:#000;
+    transition: opacity 0.5s ease;
+
+  }
+
+  .explore-slide.active .card-hover-description{
+   display:block;
+  }
+  .explore-slide.active {
+    background: #fff;
+    color:#000;
+    padding: 15px 15px 10px;
+  }
+  .video-wrapper {
+    display: none;
+     z-index: 1;
+
+  }
+  .card-image{
+     height:auto;
+    
+  }
+  .card-video{
+      width:100%;
+      height:auto;
+      margin-top:50px;
+  }
+  .explore-slide.active .card-image {
+  display:none;
+  }
+
+  .explore-slide.active .video-wrapper {
+    display: block;
+  }
+</style>
+
+<section class="explore-sec">
+  <div class="explore-content">
+    {% if section.settings['explore-heading'] %}
+      <h2>{{ section.settings['explore-heading'] }}</h2>
+    {% endif %}
+    {% if section.settings['explore-subheading'] %}
+      <p>{{ section.settings['explore-subheading'] }}</p>
+    {% endif %}
+  </div>
+
+  <div class="swiper explore-swiper explore-parent-card">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper explore-wrapper ">
+      <!-- Slides -->
+      {% for block in section.blocks %}
+        <div class="swiper-slide explore-slide">
+          {% if block.settings['explore-paragraph'] %}
+            {{ block.settings['explore-paragraph'] | replace: '<p>', '<p class="card-text">' }}
+          {% endif %}
+          {% if block.settings['explore-sub-paragraph'] %}
+            <div class="card-hover-description">
+              {{ block.settings['explore-sub-paragraph'] }}
+            </div>
+          {% endif %}
+
+          {% if block.settings['explore-image'] %}
+            <div class="image-wrapper">
+              {{ block.settings['explore-image'] | image_url: width: 338 | image_tag: class: 'card-image' }}
+            </div>
+          {% endif %}
+
+          {% if block.settings['explore-video'] %}
+            <div class="video-wrapper">
+              {{
+                block.settings['explore-video']
+                | video_tag: autoplay: true, loop: true, muted: true, controls: false, class: 'card-video'
+              }}
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const slides = document.querySelectorAll('.explore-slide');
+    const canHover = window.matchMedia('(hover: hover)').matches;
+    slides.forEach((slide) => {
+      if (canHover) {
+        slide.addEventListener('mouseenter', () => {
+          slide.classList.add('active');
+        });
+        slide.addEventListener('mouseleave', () => {
+          slide.classList.remove('active');
+        });
+      } else {
+        slide.addEventListener('click', () => {
+          slides.forEach((s) => s.classList.remove('active'));
+          slide.classList.toggle('active');
+        });
+      }
+    });
+    const swiper = new Swiper('.explore-swiper', {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      pagination: { el: '.swiper-pagination', clickable: true },
+      breakpoints: { 425: { slidesPerView: 3 } },
+    });
+  });
+</script>
+{% schema %}
+{
+  "name": "information-grid",
+  "tag": "section",
+  "max_blocks": 3,
+  "settings": [
+    {
+      "type": "text",
+      "id": "explore-heading",
+      "label": "Heading",
+      "default": "Explore by Inspiration"
+    },
+    {
+      "type": "text",
+      "id": "explore-subheading",
+      "label": "Subheading",
+      "default": "Select a theme that speaks to you, and we’ll guide you through curated timepieces designed to intrigue, inspire, and elevate your watch collection."
+    },
+    {
+      "type": "color_background",
+      "id": "explore-background",
+      "label": "Background",
+      "default": " #000000"
+    },
+    {
+      "type": "color",
+      "id": "body_text",
+      "label": "Body text",
+      "default": "#000000"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "info",
+      "name": "info Item",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "explore-paragraph",
+          "label": "Paragraph"
+        },
+        {
+          "type": "text",
+          "id": "explore-sub-paragraph",
+          "label": "Sub Paragraph",
+          "default": "Detailed description"
+        },
+        {
+          "type": "image_picker",
+          "id": "explore-image",
+          "label": "Image"
+        },
+        {
+          "type": "video",
+          "id": "explore-video",
+          "label": "A Shopify-hosted video"
+        },
+        {
+          "type": "url",
+          "id": "explore-button-link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "information-grid",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "info",
+          "settings": {
+            "explore-paragraph": "<p>Start with <strong>bold text</strong> here</p>",
+            "explore-sub-paragraph": "Default sub paragraph",
+            "explore-button-link": "#"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
