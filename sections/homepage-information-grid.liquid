@@ -1,107 +1,12 @@
+{{ 'homepage-information-grid.css' | asset_url | stylesheet_tag }}
+
 <style>
-      .explore-sec {
-         padding: 147px 85px 107px;
-         background: {{ section.settings.explore-background }};
-         color: {{ section.settings.body_text }};
-      }
-
-      .explore-content{
-          display:flex;
-          flex-direction:column;
-          {% comment %} justify-content:center; {% endcomment %}
-          align-items:center;
-        text-align:center;
-
-      }
-      .explore-content h2{
-      font-size:40px;
-      color: {{ section.settings.body_text }};
-      }
-      .explore-content p{
-       max-width:831px;
-       font-size:17px;
-      }
-      .explore-parent-card{
-      margin-top:111px;
-      }
-      .explore-wrapper {
-    display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-    overflow: hidden;
-    cursor: pointer;
-    text-align:center;
+  .explore-sec {
+    background: {{ section.settings.explore-background }};
+    color: {{ section.settings.body_text }};
   }
-  .explore-slide {
-    position: relative;
-    background: black;
-    text-align: center;
-    overflow: hidden;
-    cursor: pointer;
-    border-right: 1px solid #FFFFFF4D;
-    box-sizing: border-box;
-    transition: background 0.5s ease;
-     {% comment %} display: flex;
-    flex-direction: column;
-    align-items: center; {% endcomment %}
-
-  }
-  .explore-slide:first-child {
-    border-left: 1px solid #FFFFFF4D;
-  }
-
-  .card-text {
-
-    font-size: 20px;
-    z-index: 2;
-    position: relative;
-    white-space: nowrap;
-    overflow: hidden;
-    {% comment %} text-overflow: ellipsis; {% endcomment %}
-    margin-bottom:50px;
-
-  }
-
-
-  .card-hover-description{
-    display:none;
-    font-size: 18px;
-    margin: 10px 0;
-    color:#000;
-    transition: opacity 0.5s ease;
-
-  }
-
-  .explore-slide.active .card-hover-description{
-   display:block;
-  }
-  .explore-slide.active {
-    background: #fff;
-    color:#000;
-    padding: 15px 15px 10px;
-  }
-  .video-wrapper {
-    display: none;
-     z-index: 1;
-
-  }
-  .card-image{
-     height:auto;
-    
-  }
-  .card-video{
-      width:100%;
-      height:auto;
-      margin-top:50px;
-  }
-  .explore-slide.active .card-image {
-  display:none;
-  }
-
-  .explore-slide.active .video-wrapper {
-    display: block;
+  .explore-content h2{
+    color: {{ section.settings.body_text }};
   }
 </style>
 
@@ -179,6 +84,7 @@
     });
   });
 </script>
+
 {% schema %}
 {
   "name": "information-grid",
