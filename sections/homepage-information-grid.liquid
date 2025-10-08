@@ -26,29 +26,40 @@
       <!-- Slides -->
       {% for block in section.blocks %}
         <div class="swiper-slide explore-slide">
-          {% if block.settings['explore-paragraph'] %}
-            {{ block.settings['explore-paragraph'] | replace: '<p>', '<p class="card-text">' }}
-          {% endif %}
-          {% if block.settings['explore-sub-paragraph'] %}
-            <div class="card-hover-description">
-              {{ block.settings['explore-sub-paragraph'] }}
-            </div>
-          {% endif %}
+          <div class="info-wrapper">
+            {% if block.settings['explore-paragraph'] %}
+              {{ block.settings['explore-paragraph'] | replace: '<p>', '<p class="card-text">' }}
+            {% endif %}
 
-          {% if block.settings['explore-image'] %}
-            <div class="image-wrapper">
-              {{ block.settings['explore-image'] | image_url: width: 338 | image_tag: class: 'card-image' }}
+            {% if block.settings['explore-image'] %}
+              <div class="image-wrapper">
+                {{ block.settings['explore-image'] | image_url: width: 338 | image_tag: class: 'card-image' }}
+              </div>
+            {% endif %}
+            <div class="hover-content">
+              {% if block.settings['explore-sub-paragraph'] %}
+                <div class="card-hover-description">
+                  {{ block.settings['explore-sub-paragraph'] }}
+                </div>
+              {% endif %}
+              <div class="arrow-btn">
+                <a href={{block.settings.explore-button-link}}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none">
+                    <path d="M10.8516 20.8486L26.1305 6.6103" stroke="black" stroke-width="1.5"/>
+                    <path d="M13.3867 6.61133H26.1301V19.3547" stroke="black" stroke-width="1.5"/>
+                  </svg>
+                </a>
+              </div>
+              {% if block.settings['explore-video'] %}
+                <div class="video-wrapper">
+                  {{
+                    block.settings['explore-video']
+                    | video_tag: autoplay: true, loop: true, muted: true, controls: false, class: 'card-video'
+                  }}
+                </div>
+              {% endif %}
             </div>
-          {% endif %}
-
-          {% if block.settings['explore-video'] %}
-            <div class="video-wrapper">
-              {{
-                block.settings['explore-video']
-                | video_tag: autoplay: true, loop: true, muted: true, controls: false, class: 'card-video'
-              }}
-            </div>
-          {% endif %}
+          </div>
         </div>
       {% endfor %}
     </div>
