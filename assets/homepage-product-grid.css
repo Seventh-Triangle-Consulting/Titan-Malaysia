@@ -6,8 +6,7 @@
   grid-gap: 5px;
   width: 100%;
 }
-
-.watch-card {
+.home-grid-section .watch-card {
   position: relative;
   width: 100%;
   aspect-ratio: 3/4;
@@ -15,11 +14,10 @@
   cursor: pointer;
   transition: transform 0.3s ease;
 }
-
-.grid-item.span-desktop-2 .watch-card {
+.home-grid-section .grid-item.span-desktop-2 .watch-card {
   aspect-ratio: 6/4;
 }
-.image-container {
+.home-grid-section .image-container {
   position: relative;
   width: 100%;
   height: 100%;
@@ -27,27 +25,23 @@
   display: flex;
   align-items: end;
 }
-
-.watch-image {
+.home-grid-section .watch-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
   transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-.image-link {
+.home-grid-section .image-link {
   width: 100%;
   height: 100%;
   display: flex;
   align-items: end;
 }
-
-.watch-card:hover .watch-image {
+.home-grid-section .watch-card:hover .watch-image {
   height: calc(100% - 250px);
 }
-
-.overlay {
+.home-grid-section .overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -61,30 +55,25 @@
   z-index: 10;
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-.watch-card:hover .overlay {
+.home-grid-section .watch-card:hover .overlay {
   background: linear-gradient(180deg, rgba(20, 30, 48, 0.95) 0%, rgba(20, 30, 48, 0.98) 100%);
 }
-
-.overlay-content {
+.home-grid-section .overlay-content {
   text-align: center;
   transform: translateY(-30px);
   opacity: 0;
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
 }
-
-.watch-card:hover .overlay-content {
+.home-grid-section .watch-card:hover .overlay-content {
   transform: translateY(0);
   opacity: 1;
 }
-
-.overlay-content p {
+.home-grid-section .overlay-content p {
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 25px;
 }
-
-.arrow {
+.home-grid-section .arrow {
   width: 40px;
   height: 40px;
   border: 2px solid;
@@ -95,13 +84,11 @@
   margin: 0 auto;
   transition: all 0.3s ease;
 }
-
-.watch-card:hover .arrow {
+.home-grid-section .watch-card:hover .arrow {
   transform: translateX(5px);
   background: rgba(255, 255, 255, 0.1);
 }
-
-.arrow svg {
+.home-grid-section .arrow svg {
   width: 20px;
   height: 20px;
   stroke: currentColor;
@@ -110,50 +97,48 @@
 }
 
 /* Desktop Grid Classes */
-.grid-item.span-desktop-1 {
+.home-grid-section .grid-item.span-desktop-1 {
   grid-column: span 1;
 }
-.grid-item.span-desktop-2 {
+.home-grid-section .grid-item.span-desktop-2 {
   grid-column: span 2;
 }
 
-/* Tablet Grid Classes */
 @media only screen and (min-width: 750px) and (max-width: 1023px) {
   .home-grid-section .container {
     grid-template-columns: repeat(4, 1fr);
   }
-  .grid-item.span-tablet-2 .watch-card {
+  .home-grid-section .grid-item.span-tablet-2 .watch-card {
     aspect-ratio: 6/4;
   }
-  .grid-item.span-tablet-1 .watch-card {
+  .home-grid-section .grid-item.span-tablet-1 .watch-card {
     aspect-ratio: 3/4;
   }
-  .grid-item.span-tablet-1 {
+  .home-grid-section .grid-item.span-tablet-1 {
     grid-column: span 1;
   }
-  .grid-item.span-tablet-2 {
+  .home-grid-section .grid-item.span-tablet-2 {
     grid-column: span 2;
   }
 }
 
-/* Mobile Grid Classes */
 @media only screen and (max-width: 749px) {
   .home-grid-section .container {
     grid-template-columns: repeat(2, 1fr);
   }
-  .grid-item.span-mobile-2 .watch-card {
+  .home-grid-section .grid-item.span-mobile-2 .watch-card {
     aspect-ratio: 6/4;
   }
-  .grid-item.span-mobile-1 .watch-card {
+  .home-grid-section .grid-item.span-mobile-1 .watch-card {
     aspect-ratio: 3/4;
   }
-  .grid-item.span-mobile-1 {
+  .home-grid-section .grid-item.span-mobile-1 {
     grid-column: span 1;
   }
-  .grid-item.span-mobile-2 {
+  .home-grid-section .grid-item.span-mobile-2 {
     grid-column: span 2;
   }
-  .overlay-content p {
+  .home-grid-section .overlay-content p {
     font-size: 0.9rem;
   }
 }
