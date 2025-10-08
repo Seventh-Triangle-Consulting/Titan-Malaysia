@@ -28,9 +28,9 @@
     {% for block in section.blocks %}
       <div class="grid-item span-desktop-{{ block.settings.desktop_view | replace: 'fr', '' }} span-tablet-{{ block.settings.tablet_view | replace: 'fr', '' }} span-mobile-{{ block.settings.mobile_view | replace: 'fr', '' }}">
         <div class="watch-card">
-          <div class="img-height">
+          <div class="image-container">
             {% if block.settings.grid_product_url != blank %}
-              <a href="{{ block.settings.grid_product_url }}">
+              <a class="image-link no-underline" href="{{ block.settings.grid_product_url }}">
                 {% if block.settings.grid_product_image != blank %}
                   {{
                     block.settings.grid_product_image
