@@ -7,11 +7,11 @@
       {% comment %} {% assign home_grid_product = all_products[block.settings.home-grid-product] %} {% endcomment %}
       <div class="watch-card ">
         <div class="img-height">
-          {% if block.grid_product_url != blank %}
-            <a href="{{ block.grid_product_url }}">
-              {% if block.grid_product_image != blank %}
+          {% if block.settings.grid_product_url != blank %}
+            <a href="{{ block.settings.grid_product_url }}">
+              {% if block.settings.grid_product_image != blank %}
                 {{
-                  block.grid_product_image
+                  block.settings.grid_product_image
                   | image_url: width: 200
                   | image_tag: class: 'watch-image', loading: 'lazy'
                 }}
@@ -21,7 +21,7 @@
         </div>
         <div class="overlay">
           <div class="overlay-content">
-            <p>{{ block.grid_product_text }}</p>
+            <p>{{ block.settings.grid_product_text }}</p>
             <div class="arrow">
               <svg viewBox="0 0 24 24">
                 <path d="M5 12h14M12 5l7 7-7 7" />
@@ -36,7 +36,8 @@
 
 {% schema %}
 {
-  "name": "Image Blocks Section",
+  "name": "Product Grid Section",
+  "max_blocks": 10,
   "settings": [
     {
       "type": "color",
@@ -53,8 +54,8 @@
   ],
   "blocks": [
     {
-      "type": "image_block",
-      "name": "Image Block",
+      "type": "product_block",
+      "name": "Product Block",
       "settings": [
         {
           "type": "image_picker",
@@ -120,10 +121,9 @@
       ]
     }
   ],
-  "max_blocks": 10,
   "presets": [
     {
-      "name": "Image Blocks Section"
+      "name": "Product Grid Section"
     }
   ]
 }
