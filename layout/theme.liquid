@@ -98,39 +98,61 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
-    <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "hqry04ooym");
-</script>
-    {%  render 'ga-new' %}
     
+    <script type="text/javascript">
+      (function (c, l, a, r, i, t, y) {
+        c[a] =
+          c[a] ||
+          function () {
+            (c[a].q = c[a].q || []).push(arguments);
+          };
+        t = l.createElement(r);
+        t.async = 1;
+        t.src = 'https://www.clarity.ms/tag/' + i;
+        y = l.getElementsByTagName(r)[0];
+        y.parentNode.insertBefore(t, y);
+      })(window, document, 'clarity', 'script', 'hqry04ooym');
+    </script>
+    {% render 'ga-new' %}
+
     <!-- Facebook Pixel Code -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window,document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-     fbq('init', '425367781975281'); 
-    fbq('track', 'PageView');
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = '2.0';
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '425367781975281');
+      fbq('track', 'PageView');
     </script>
+
     <noscript>
-     <img height="1" width="1" 
-    src="https://www.facebook.com/tr?id=425367781975281&ev=PageView
-    &noscript=1"/>
+      <img
+        height="1"
+        width="1"
+        src="
+          https://www.facebook.com/tr?id=425367781975281&ev=PageView
+          &noscript=1
+        "
+      >
     </noscript>
     <!-- End Facebook Pixel Code -->
     {% if page.template_suffix == 'sunspecs' and page.handle == 'lucky-draw-staycation' %}
       {% render 'head-meta-pixel-code' %}
       {% render 'head-google-add-code' %}
     {% endif %}
-	</head>
+  </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
     {% if page.template_suffix == 'sunspecs' and page.handle == 'lucky-draw-staycation' %}
@@ -160,66 +182,65 @@
     </ul>
 
     <script>
-        window.shopUrl = '{{ request.origin }}';
-        window.routes = {
-          cart_add_url: '{{ routes.cart_add_url }}',
-          cart_change_url: '{{ routes.cart_change_url }}',
-          cart_update_url: '{{ routes.cart_update_url }}',
-          cart_url: '{{ routes.cart_url }}',
-          predictive_search_url: '{{ routes.predictive_search_url }}',
-        };
-  
-        window.cartStrings = {
-          error: `{{ 'sections.cart.cart_error' | t }}`,
-          quantityError: `{{ 'sections.cart.cart_quantity_error_html' | t: quantity: '[quantity]' }}`,
-        };
-  
-        window.variantStrings = {
-          addToCart: `{{ 'products.product.add_to_cart' | t }}`,
-          soldOut: `{{ 'products.product.sold_out' | t }}`,
-          unavailable: `{{ 'products.product.unavailable' | t }}`,
-          unavailable_with_option: `{{ 'products.product.value_unavailable' | t: option_value: '[value]' }}`,
-        };
-  
-        window.quickOrderListStrings = {
-          itemsAdded: `{{ 'sections.quick_order_list.items_added.other' | t: quantity: '[quantity]' }}`,
-          itemAdded: `{{ 'sections.quick_order_list.items_added.one' | t: quantity: '[quantity]' }}`,
-          itemsRemoved: `{{ 'sections.quick_order_list.items_removed.other' | t: quantity: '[quantity]' }}`,
-          itemRemoved: `{{ 'sections.quick_order_list.items_removed.one' | t: quantity: '[quantity]' }}`,
-          viewCart: `{{- 'sections.quick_order_list.view_cart' | t -}}`,
-          each: `{{- 'sections.quick_order_list.each' | t: money: '[money]' }}`,
-        };
-  
-        window.accessibilityStrings = {
-          imageAvailable: `{{ 'products.product.media.image_available' | t: index: '[index]' }}`,
-          shareSuccess: `{{ 'general.share.success_message' | t }}`,
-          pauseSlideshow: `{{ 'sections.slideshow.pause_slideshow' | t }}`,
-          playSlideshow: `{{ 'sections.slideshow.play_slideshow' | t }}`,
-          recipientFormExpanded: `{{ 'recipient.form.expanded' | t }}`,
-          recipientFormCollapsed: `{{ 'recipient.form.collapsed' | t }}`,
-        };
-window.onscroll = function() {changeCss()};
+      window.shopUrl = '{{ request.origin }}';
+      window.routes = {
+        cart_add_url: '{{ routes.cart_add_url }}',
+        cart_change_url: '{{ routes.cart_change_url }}',
+        cart_update_url: '{{ routes.cart_update_url }}',
+        cart_url: '{{ routes.cart_url }}',
+        predictive_search_url: '{{ routes.predictive_search_url }}',
+      };
 
-function  changeCss () {
-{% if template.name == 'collection' %}var navElement = document.querySelector("#FacetFiltersFormMobile");{% endif %}
-   var menudrawer = document.querySelector("#menu-drawer");
-   var navcloseicon = document.querySelector(".header__icon .icon.icon-close"); 
-  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-     {% if template.name == 'collection' %} navElement.style.top = "57px"; {% endif %}
-     navcloseicon.style.top = "30px";
-     <!-- menudrawer.style.top = "-2%";    -->
-  } else {  
-    {% if template.name == 'collection' %} navElement.style.top = "91px"; {% endif %}
-       menudrawer.style.top = "-72%";
-     navcloseicon.style.top = "-10px";
-  }
-}
+      window.cartStrings = {
+        error: `{{ 'sections.cart.cart_error' | t }}`,
+        quantityError: `{{ 'sections.cart.cart_quantity_error_html' | t: quantity: '[quantity]' }}`,
+      };
 
-window.onscroll = function() {changeCss()};
+      window.variantStrings = {
+        addToCart: `{{ 'products.product.add_to_cart' | t }}`,
+        soldOut: `{{ 'products.product.sold_out' | t }}`,
+        unavailable: `{{ 'products.product.unavailable' | t }}`,
+        unavailable_with_option: `{{ 'products.product.value_unavailable' | t: option_value: '[value]' }}`,
+      };
 
-function  changeCss () {
+      window.quickOrderListStrings = {
+        itemsAdded: `{{ 'sections.quick_order_list.items_added.other' | t: quantity: '[quantity]' }}`,
+        itemAdded: `{{ 'sections.quick_order_list.items_added.one' | t: quantity: '[quantity]' }}`,
+        itemsRemoved: `{{ 'sections.quick_order_list.items_removed.other' | t: quantity: '[quantity]' }}`,
+        itemRemoved: `{{ 'sections.quick_order_list.items_removed.one' | t: quantity: '[quantity]' }}`,
+        viewCart: `{{- 'sections.quick_order_list.view_cart' | t -}}`,
+        each: `{{- 'sections.quick_order_list.each' | t: money: '[money]' }}`,
+      };
 
-}
+      window.accessibilityStrings = {
+        imageAvailable: `{{ 'products.product.media.image_available' | t: index: '[index]' }}`,
+        shareSuccess: `{{ 'general.share.success_message' | t }}`,
+        pauseSlideshow: `{{ 'sections.slideshow.pause_slideshow' | t }}`,
+        playSlideshow: `{{ 'sections.slideshow.play_slideshow' | t }}`,
+        recipientFormExpanded: `{{ 'recipient.form.expanded' | t }}`,
+        recipientFormCollapsed: `{{ 'recipient.form.collapsed' | t }}`,
+      };
+
+      window.onscroll = function() {changeCss()};
+
+      function  changeCss () {
+        {% if template.name == 'collection' %}var navElement = document.querySelector("#FacetFiltersFormMobile");{% endif %}
+        var menudrawer = document.querySelector("#menu-drawer");
+        var navcloseicon = document.querySelector(".header__icon .icon.icon-close"); 
+        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+          {% if template.name == 'collection' %} navElement.style.top = "57px"; {% endif %}
+          navcloseicon.style.top = "30px";
+          <!-- menudrawer.style.top = "-2%";    -->
+        } else {  
+          {% if template.name == 'collection' %} navElement.style.top = "91px"; {% endif %}
+          menudrawer.style.top = "-72%";
+          navcloseicon.style.top = "-10px";
+        }
+      }
+
+      window.onscroll = function() {changeCss()};
+      function  changeCss () {
+      }
     </script>
 
     {%- if settings.predictive_search_enabled -%}
@@ -228,17 +249,17 @@ function  changeCss () {
 
     <script data-defer="nodefer">
       {% if template.name == "index" %}
-      document.addEventListener("DOMContentLoaded", (event) => {
-       if (sessionStorage.getItem("showPopUp") === null ){ 
-        document.querySelector(".contact-popup").style.display = "flex";
-        document.querySelector('body').classList.add('overflow-hidden');
-      }
-});
+        document.addEventListener("DOMContentLoaded", (event) => {
+          if (sessionStorage.getItem("showPopUp") === null ){
+            document.querySelector(".contact-popup").style.display = "flex";
+            document.querySelector('body').classList.add('overflow-hidden');
+          }
+        });
       {% endif %}
     </script>
-	<!-- --------------- BEGIN 1CHECKOUT JS --------------- -->
-{% comment %}{{ '1checkout.js' | asset_url | script_tag }} {% endcomment %}
-<!-- --------------- END 1CHECKOUT JS --------------- -->
-     {{ 'SwipeUp-reels-feed-scroll.js' | asset_url | script_tag }}
-	</body>
+    <!-- --------------- BEGIN 1CHECKOUT JS --------------- -->
+    {% comment %}{{ '1checkout.js' | asset_url | script_tag }} {% endcomment %}
+    <!-- --------------- END 1CHECKOUT JS --------------- -->
+    {{ 'SwipeUp-reels-feed-scroll.js' | asset_url | script_tag }}
+  </body>
 </html>
