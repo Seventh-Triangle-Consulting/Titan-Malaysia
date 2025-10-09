@@ -45,7 +45,7 @@
     <div class="swiper-wrapper explore-wrapper ">
       <!-- Slides -->
       {% for block in section.blocks %}
-        <div class="swiper-slide explore-slide.info-wrapper .hover-content">
+        <div class="swiper-slide explore-slide ">
           <div class="info-wrapper">
             {% if block.settings['explore-paragraph'] %}
               {{ block.settings['explore-paragraph'] | replace: '<p>', '<p class="card-text">' }}
@@ -57,6 +57,9 @@
               </div>
             {% endif %}
             <div class="hover-content">
+              {% if block.settings['explore-paragraph'] %}
+              {{ block.settings['explore-paragraph'] | replace: '<p>', '<p class="card-text">' }}
+            {% endif %}
               {% if block.settings['explore-sub-paragraph'] %}
                 <div class="card-hover-description">
                   {{ block.settings['explore-sub-paragraph'] }}
@@ -252,7 +255,7 @@
       "type": "color",
       "id": "body_text",
       "label": "Body text",
-      "default": "#000000"
+      "default": "#fff"
     }
   ],
   "blocks": [
