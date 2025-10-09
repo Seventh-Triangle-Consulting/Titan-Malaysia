@@ -1,21 +1,36 @@
 {{ 'homepage-information-grid.css' | asset_url | stylesheet_tag }}
 
 <style>
+  .section-{{ section.id }} {
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+    padding-top: {{ section.settings.padding_top_desktop }}px;
+    padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+  }
   .explore-sec {
     background: {{ section.settings.explore-background }};
     color: {{ section.settings.body_text }};
-    padding: {{ section.settings.padding_top }}px 
-             {{ section.settings.padding_right }}px 
-             {{ section.settings.padding_bottom }}px 
-             {{ section.settings.padding_left }}px;
-  
   }
   .explore-content h2{
     color: {{ section.settings.body_text }};
   }
+
+  @media only screen and (min-width: 750px) and (max-width: 1023px){
+    .section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_tablet }}px;
+      padding-bottom: {{ section.settings.padding_bottom_tablet }}px;
+    }
+  }
+
+  @media only screen and (max-width: 749px){
+    .section-{{ section.id }} {
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+  }
 </style>
 
-<section class="explore-sec">
+<section class="section-{{ section.id }} explore-sec">
   <div class="explore-content">
     {% if section.settings['explore-heading'] %}
       <h2>{{ section.settings['explore-heading'] }}</h2>
@@ -48,7 +63,7 @@
                 </div>
               {% endif %}
               <div class="arrow-btn">
-                <a href={{block.settings.explore-button-link}}>
+                <a href="{{block.settings.explore-button-link}}">
                   <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none">
                     <path d="M10.8516 20.8486L26.1305 6.6103" stroke="black" stroke-width="1.5"/>
                     <path d="M13.3867 6.61133H26.1301V19.3547" stroke="black" stroke-width="1.5"/>
@@ -75,35 +90,36 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    {% comment %} const slides = document.querySelectorAll('.explore-slide');
-    const canHover = window.matchMedia('(hover: hover)').matches;
-    slides.forEach((slide) => {
-      if (canHover) {
-        slide.addEventListener('mouseenter', () => {
-          slide.classList.add('active');
+    let exploreSwiper = null;
+    const swiperContainer = document.querySelector('.explore-swiper');
+
+    function initExploreSwiper() {
+      if (window.innerWidth < 768 && !exploreSwiper) {
+        exploreSwiper = new Swiper('.explore-swiper', {
+          slidesPerView: 1,
+          spaceBetween: 20,
+          pagination: { el: '.swiper-pagination', clickable: true },
         });
-        slide.addEventListener('mouseleave', () => {
-          slide.classList.remove('active');
-        });
-      } else {
-        slide.addEventListener('click', () => {
-          slides.forEach((s) => s.classList.remove('active'));
-          slide.classList.toggle('active');
-        });
+      } else if (window.innerWidth >= 768 && exploreSwiper) {
+        exploreSwiper.destroy(true, true);
+        exploreSwiper = null;
+        // Reset inline styles applied by Swiper
+        swiperContainer.querySelector('.swiper-wrapper').removeAttribute('style');
+        swiperContainer.querySelectorAll('.swiper-slide').forEach((slide) => slide.removeAttribute('style'));
       }
-    }); {% endcomment %}
-    const swiper = new Swiper('.explore-swiper', {
-      slidesPerView: 1,
-      spaceBetween: 20,
-      pagination: { el: '.swiper-pagination', clickable: true },
-      breakpoints: { 768: { slidesPerView: 3 } },
-    });
+    }
+
+    // Initialize on load
+    initExploreSwiper();
+
+    // Re-check on resize
+    window.addEventListener('resize', initExploreSwiper);
   });
-</script> 
+</script>
 
 {% schema %}
 {
-  "name": "information-grid",
+  "name": "Information Grid",
   "tag": "section",
   "max_blocks": 3,
   "settings": [
@@ -131,7 +147,7 @@
       "label": "Body text",
       "default": "#000000"
     },
-     {
+    {
       "type": "range",
       "id": "padding_top",
       "label": "Padding Top",
@@ -171,7 +187,6 @@
       "unit": "px",
       "default": 85
     }
-
   ],
   "blocks": [
     {
@@ -209,7 +224,7 @@
   ],
   "presets": [
     {
-      "name": "information-grid",
+      "name": "Information Grid",
       "category": "Custom",
       "blocks": [
         {
