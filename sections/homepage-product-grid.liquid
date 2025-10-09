@@ -45,9 +45,13 @@
             <div class="overlay-content">
               <p>{{ block.settings.grid_product_text }}</p>
               <div class="arrow">
-                <svg viewBox="0 0 24 24">
+                <svg xmlns="http://www.w3.org/2000/svg" width="51" height="51" viewBox="0 0 51 51" fill="none" style="&#10;    color: black;&#10;">
+                  <path d="M17.8513 32.8486L33.1302 18.6103" stroke="white" stroke-width="1.5"/>
+                  <path d="M20.387 18.6118H33.1303V31.3552" stroke="white" stroke-width="1.5"/>
+                  </svg>
+                {% comment %} <svg viewBox="0 0 24 24">
                   <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
+                </svg> {% endcomment %}
               </div>
             </div>
           </div>
@@ -56,6 +60,11 @@
     {% endfor %}
   </div>
 </section>
+
+
+
+
+
 
 {% schema %}
 {
