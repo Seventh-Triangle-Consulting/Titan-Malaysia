@@ -5,36 +5,25 @@
   text-align: center;
   gap: 13px;
 }
-
 .explore-content h2 {
   font-size: 40px;
   font-weight: 500;
 }
-
 .explore-content p {
   max-width: 831px;
   font-size: 17px;
 }
-
 .explore-swiper {
   margin-top: 111px;
 }
-
 .explore-wrapper {
-  /* display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px; */
   overflow: hidden;
   cursor: pointer;
   text-align: center;
   justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
-
-/* .explore-wrapper .swiper-slide{
-  position: unset;
-} */
 .info-wrapper:hover .video-wrapper,
 .info-wrapper:hover .arrow-btn,
 .info-wrapper:hover .card-hover-description {
@@ -50,10 +39,6 @@
   color: #000;
 }
 .info-wrapper {
-  /* position: relative; */
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center; */
   background: black;
   text-align: center;
   overflow: hidden;
@@ -66,7 +51,6 @@
 .swiper-wrapper:nth-child(1) {
   border-left: 1px solid red;
 }
-
 .explore-slide.active .info-wrapper {
   background: #fff;
   color: #000;
@@ -75,15 +59,9 @@
   height: 100%;
 }
 .info-wrapper .hover-content {
-  /* position:absolute; */
-  /* background: #fff; */
-  /* padding: 15px; */
-  /* top:0;
-left:0; */
   width: 100%;
   z-index: 10;
 }
-
 .card-text {
   white-space: nowrap;
   overflow: hidden;
@@ -91,7 +69,6 @@ left:0; */
   width: 100%;
   font-size: 20px;
 }
-
 .card-hover-description {
   display: none;
   text-align: left;
@@ -102,45 +79,40 @@ left:0; */
   color: #000;
   transition: opacity 0.5s ease;
 }
-
 .explore-slide.active .card-hover-description {
   display: block;
 }
-
 .arrow-btn {
   display: none;
   text-align: right;
 }
-
 .video-wrapper {
   display: none;
 }
-
 .image-wrapper {
   margin-top: 50px;
 }
-
-.card-image {
-  height: auto;
-}
-
 .card-video {
   width: 100%;
   height: auto;
 }
-
 .explore-slide.active .card-image {
   display: none;
 }
-
 .explore-slide.active .video-wrapper {
   display: block;
 }
-
 .explore-slide.active .image-wrapper {
   margin-top: 0px;
 }
-
 .explore-slide.active .arrow-btn {
   display: block;
+}
+
+@media only screen and (max-width: 749px) {
+  .explore-wrapper {
+    display: flex;
+    justify-content: unset;
+    overflow: unset;
+  }
 }
