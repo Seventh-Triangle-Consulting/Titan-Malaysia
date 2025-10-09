@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "name": "t:sections.header.name",
   "type": "header",
@@ -8,7 +17,7 @@
         "a72aa487-20fa-446c-bf36-87e04df00a19": {
           "type": "announcement",
           "settings": {
-            "text": "Easy Returns\/Exchanges",
+            "text": "Easy Returns/Exchanges",
             "link": ""
           }
         },
@@ -29,7 +38,7 @@
         "ccc6f0ad-effe-4510-9e5a-2318d7e8d608": {
           "type": "announcement",
           "settings": {
-            "text": "Easy Returns\/Exchanges",
+            "text": "Easy Returns/Exchanges",
             "link": ""
           }
         },
@@ -50,7 +59,7 @@
         "b675a4de-6d5a-426b-8033-a4cb2fb21266": {
           "type": "announcement",
           "settings": {
-            "text": "Easy Returns\/Exchanges",
+            "text": "Easy Returns/Exchanges",
             "link": ""
           }
         },
@@ -71,7 +80,7 @@
         "9ec7de4f-14b4-4f58-a269-36dbf9f1b40d": {
           "type": "announcement",
           "settings": {
-            "text": "Easy Returns\/Exchanges",
+            "text": "Easy Returns/Exchanges",
             "link": ""
           }
         },
@@ -137,15 +146,71 @@
     "contact_popup_MMQq97": {
       "type": "contact-popup",
       "settings": {
-        "popup-bg-img": "shopify:\/\/shop_images\/popupbg_1.jpg",
-        "popup-bg-img-mob": "shopify:\/\/shop_images\/popup-mobile.jpg",
-        "contact-popup-text": "<p>Thank you fly stopping by! <\/p><p>We will be glad to assist you further. Please provide <\/p><p>the following information so we can contact you.<\/p>"
+        "popup-bg-img": "shopify://shop_images/popupbg_1.jpg",
+        "popup-bg-img-mob": "shopify://shop_images/popup-mobile.jpg",
+        "contact-popup-text": "<p>Thank you fly stopping by! </p><p>We will be glad to assist you further. Please provide </p><p>the following information so we can contact you.</p>"
+      }
+    },
+    "homepage_information_grid_Fg9CaR": {
+      "type": "homepage-information-grid",
+      "blocks": {
+        "info_VdDMkT": {
+          "type": "info",
+          "settings": {
+            "explore-paragraph": "<p><strong>Speed</strong>: Moved by momentum and edge</p>",
+            "explore-sub-paragraph": "Inspired by the thrill of the racetrack, the Titan Racecraft Collection fuses motorsport aesthetics with cutting-edge chronograph design—crafted for those who live fast, drive sharp, and demand precision.",
+            "explore-image": "shopify://shop_images/Rectangle_469_3.png",
+            "explore-video": "shopify://files/videos/e3dd1e19f9ab4373b32489fe70b2fd2d.mp4",
+            "explore-button-link": "#"
+          }
+        },
+        "info_9ggKJe": {
+          "type": "info",
+          "settings": {
+            "explore-paragraph": "<p><strong>Focus</strong>: The beauty of a quiet mind</p>",
+            "explore-sub-paragraph": "Inspired by the strategy and elegance of chess, the Titan Grandmaster Collection features bold contrasts, crown-like detailing, and precise design—crafted for minds that think ahead and move with intent.",
+            "explore-image": "shopify://shop_images/Rectangle_469_4.png",
+            "explore-video": "shopify://files/videos/e3dd1e19f9ab4373b32489fe70b2fd2d.mp4",
+            "explore-button-link": ""
+          }
+        },
+        "info_wagTxB": {
+          "type": "info",
+          "settings": {
+            "explore-paragraph": "<p><strong>Voyage</strong>: Eve on the move, ever curious</p>",
+            "explore-sub-paragraph": "Inspired by the spirit of sea voyages, the Titan Maritime Collection features nautical elements, compass-like dials, and rugged elegance—crafted for those who navigate life with purpose and adventure.",
+            "explore-image": "shopify://shop_images/Rectangle_469_5.png",
+            "explore-video": "shopify://files/videos/e3dd1e19f9ab4373b32489fe70b2fd2d.mp4",
+            "explore-button-link": ""
+          }
+        }
+      },
+      "block_order": [
+        "info_VdDMkT",
+        "info_9ggKJe",
+        "info_wagTxB"
+      ],
+      "name": "Information Grid",
+      "settings": {
+        "margin_bottom_desktop": 36,
+        "margin_bottom_mobile": 36,
+        "padding_top_desktop": 60,
+        "padding_bottom_desktop": 60,
+        "padding_top_tablet": 60,
+        "padding_bottom_tablet": 60,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "explore-heading": "Explore by Inspiration",
+        "explore-subheading": "Select a theme that speaks to you, and we’ll guide you through curated timepieces designed to intrigue, inspire, and elevate your watch collection.",
+        "explore-background": "#000000",
+        "body_text": "#ffffff"
       }
     }
   },
   "order": [
     "announcement-bar",
     "header",
-    "contact_popup_MMQq97"
+    "contact_popup_MMQq97",
+    "homepage_information_grid_Fg9CaR"
   ]
 }
