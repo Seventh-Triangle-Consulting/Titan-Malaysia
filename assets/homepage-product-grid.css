@@ -8,8 +8,9 @@
 }
 
 .home-grid-section .watch-card {
-    background: linear-gradient(180deg, rgba(20, 30, 48, 1) 0%, rgba(20, 30, 48, 1) 100%);
-
+  /* background: #486B9C; */
+  background: linear-gradient(180deg, rgba(20, 30, 48, 1) 0%, rgba(20, 30, 48, 1) 100%);
+  
   position: relative;
   width: 100%;
   aspect-ratio: 3/4;
@@ -18,13 +19,10 @@
   transition: transform 0.3s ease;
 }
 
-/* .watch-card:hover {
-  transform: translateY(-10px);
-} */
-
 .home-grid-section .grid-item.span-desktop-2 .watch-card {
-  aspect-ratio: 6/4;
+  aspect-ratio: 6/3.95;
 }
+
 .home-grid-section .image-container {
   position: relative;
   width: 100%;
@@ -48,15 +46,16 @@
   align-items: end;
 }
 .home-grid-section .watch-card:hover .watch-image {
-  height: calc(100% - 125px);
+  height: calc(100% - 130px);
 }
 .home-grid-section .overlay {
+  /* background: #486B9C; */
   background: linear-gradient(180deg, rgba(20, 30, 48, 1) 0%, rgba(20, 30, 48, 1) 100%);
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 124px;
+  height: 130px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -70,7 +69,8 @@
 }
 .home-grid-section .watch-card:hover .overlay {
   background: linear-gradient(180deg, rgba(20, 30, 48, 1) 0%, rgba(20, 30, 48, 1) 100%);
-  /* clip-path: inset(0 0 0 0); */
+  /* background: #486B9C; */
+  clip-path: inset(0 0 0 0);
   transform: translateY(0);
 }
 .home-grid-section .overlay-content {
@@ -101,12 +101,14 @@
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  transition: all 0.3s ease;
+  /* transition: all 0.3s ease; */
 }
+
 .home-grid-section .watch-card:hover .arrow {
-  transform: translateX(5px);
-  /* background: rgba(255, 255, 255, 0.1); */
+  /* transform: translateX(5px); */
+  transform: translateY(-5px); /* move up by 5px */
 }
+
 .home-grid-section .arrow svg {
   width: 51px;
   height: 51px;
@@ -130,7 +132,7 @@
     grid-template-columns: repeat(4, 1fr);
   }
   .home-grid-section .grid-item.span-tablet-2 .watch-card {
-    aspect-ratio: 6/4;
+    aspect-ratio: 6/3.95;
   }
   .home-grid-section .grid-item.span-tablet-1 .watch-card {
     aspect-ratio: 3/4;
@@ -148,7 +150,7 @@
     grid-template-columns: repeat(2, 1fr);
   }
   .home-grid-section .grid-item.span-mobile-2 .watch-card {
-    aspect-ratio: 6/4;
+    aspect-ratio: 6/3.95;
   }
   .home-grid-section .grid-item.span-mobile-1 .watch-card {
     aspect-ratio: 3/4;

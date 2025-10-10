@@ -26,7 +26,7 @@
 <section class="section-{{ section.id }} home-grid-section" style="background-color: {{ section.settings.bg_color }};">
   <div class="container">
     {% for block in section.blocks %}
-      <div class="grid-item span-desktop-{{ block.settings.desktop_view | replace: 'fr', '' }} span-tablet-{{ block.settings.tablet_view | replace: 'fr', '' }} span-mobile-{{ block.settings.mobile_view | replace: 'fr', '' }}">
+      <div class="grid-item span-desktop-{{ block.settings.desktop_view | replace: 'fr', '' }} span-tablet-{{ block.settings.tablet_view | replace: 'fr', '' }} span-mobile-{{ block.settings.mobile_view | replace: 'fr', '' }}" {{ block.shopify_attributes }}>
         <div class="watch-card">
           <div class="image-container">
             {% if block.settings.grid_product_url != blank %}
@@ -60,10 +60,6 @@
     {% endfor %}
   </div>
 </section>
-
-
-
-
 
 
 {% schema %}
