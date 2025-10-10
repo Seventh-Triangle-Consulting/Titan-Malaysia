@@ -37,14 +37,14 @@
   box-sizing: border-box;
   padding: 0 30px;
   transition: background 0.5s ease;
+  margin: -1px;
 }
 
 .explore-slide:hover .info-wrapper {
   background: #fff;
   color: #000;
-  
+
   width: 100%;
-   
 }
 .explore-slide:hover .card-text {
   color: #000;
@@ -72,7 +72,6 @@
   font-size: 20px;
 }
 .card-hover-description {
-  
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
