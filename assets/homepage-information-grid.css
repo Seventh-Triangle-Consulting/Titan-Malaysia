@@ -7,15 +7,17 @@
 }
 .explore-content h2 {
   font-size: 40px;
-  font-weight: 400;
+ font-family: 'PPMonumentNormal-Regular';
 }
 .explore-content p {
   max-width: 831px;
   font-size: 17px;
-  font-weight: 400;
+   font-family: 'SuisseIntl-Regular';
+  
 }
 .explore-swiper {
   margin-top: 111px;
+  position: relative;
 }
 .explore-wrapper {
   display: flex;
@@ -24,7 +26,6 @@
   cursor: pointer;
 }
 .explore-slide {
-  position: relative;
   border-right: 1px solid #ffffff4d;
   border-left: 1px solid #ffffff4d;
   margin-left: -1px; /* Prevents double borders */
@@ -55,11 +56,11 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-.explore-slide:hover .card-text {
+/* .explore-slide:hover .card-text {
   color: #000;
   opacity: 0;
   transition: opacity 0.3s ease;
-}
+} */
 
 .info-wrapper .hover-content {
   width: 100%;
@@ -84,6 +85,9 @@
   transform: translateY(0);
   pointer-events: all;
 }
+.explore-slide:hover .hover-content .card-text{
+  color:#000;
+}
 
 .card-text {
   white-space: nowrap;
@@ -94,17 +98,20 @@
   transition: opacity 0.3s ease;
   margin-top: 0;
   padding-top: 20px;
+   font-family: 'SuisseIntl-SemiBold';
+   font-weight: 600;
 }
 
 .card-hover-description {
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: left;
   font-size: 15px;
   font-weight: 400;
+   font-family: 'SuisseIntl-Regular';
   line-height: 22px;
   margin: 10px 0;
   color: #000;
@@ -136,8 +143,21 @@
 .info-wrapper {
   min-height: 350px; /* Adjust based on your content */
 }
+.explore-swiper .swiper-pagination{
+  position: relative;
+}
+.explore-swiper .swiper-pagination-bullet {
+    background-color: #d9d9d942;
+  }
+  .explore-swiper .swiper-pagination-bullet-active {
+    background-color: #d9d9d9;
+  }
+
 
 @media only screen and (max-width: 749px) {
+  .explore-sec{
+    padding-right: 0 !important;
+  }
   .explore-wrapper {
     display: flex;
     justify-content: unset;
@@ -166,14 +186,8 @@
   .info-wrapper .hover-content {
     padding: 20px 16px 18px;
   }
-
-  .explore-swiper .swiper-pagination-bullet {
-    background-color: #d9d9d942;
-  }
-  .explore-swiper .swiper-pagination-bullet-active {
-    background-color: #d9d9d9;
-  }
-
+ 
+  
   .explore-slide,
   .info-wrapper {
     min-height: 300px;
@@ -181,6 +195,10 @@
 }
 
 @media only screen and (min-width: 750px) and (max-width: 1023px) {
+  .explore-sec{
+    padding-right: 17px !important;
+    padding-left: 17px !important;
+  }
   .explore-swiper {
     margin-top: 80px;
   }
