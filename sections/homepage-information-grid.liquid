@@ -7,10 +7,16 @@
     padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
   }
   .explore-sec {
-    background: {{ section.settings.explore-background }};
+    background: {{ section.settings.explore_background }};
     color: {{ section.settings.body_text }};
   }
   .explore-content h2{
+    color: {{ section.settings.body_text }};
+  }
+  .explore-content p{
+    color: {{ section.settings.body_text }};
+  }
+  .card-text{
     color: {{ section.settings.body_text }};
   }
 
@@ -32,11 +38,11 @@
 
 <section class="section-{{ section.id }} explore-sec page-width">
   <div class="explore-content">
-    {% if section.settings['explore-heading'] %}
-      <h2>{{ section.settings['explore-heading'] }}</h2>
+    {% if section.settings['explore_heading'] %}
+      <h2>{{ section.settings['explore_heading'] }}</h2>
     {% endif %}
-    {% if section.settings['explore-subheading'] %}
-      <p>{{ section.settings['explore-subheading'] }}</p>
+    {% if section.settings['explore_subheading'] %}
+      <p>{{ section.settings['explore_subheading'] }}</p>
     {% endif %}
   </div>
 
@@ -47,36 +53,36 @@
       {% for block in section.blocks %}
         <div class="swiper-slide explore-slide ">
           <div class="info-wrapper">
-            {% if block.settings['explore-paragraph'] %}
-              {{ block.settings['explore-paragraph'] | replace: '<p>', '<p class="card-text">' }}
+            {% if block.settings['explore_paragraph'] %}
+              {{ block.settings['explore_paragraph'] | replace: '<p>', '<p class="card-text">' }}
             {% endif %}
 
-            {% if block.settings['explore-image'] %}
+            {% if block.settings['explore_image'] %}
               <div class="image-wrapper">
-                {{ block.settings['explore-image'] | image_url: width: 338 | image_tag: class: 'card-image' }}
+                {{ block.settings['explore_image'] | image_url: width: 388 | image_tag: class: 'card-image' }}
               </div>
             {% endif %}
             <div class="hover-content">
-              {% if block.settings['explore-paragraph'] %}
-              {{ block.settings['explore-paragraph'] | replace: '<p>', '<p class="card-text">' }}
+              {% if block.settings['explore_paragraph'] %}
+              {{ block.settings['explore_paragraph'] | replace: '<p>', '<p class="card-text">' }}
             {% endif %}
-              {% if block.settings['explore-sub-paragraph'] %}
+              {% if block.settings['explore_sub_paragraph'] %}
                 <div class="card-hover-description">
-                  {{ block.settings['explore-sub-paragraph'] }}
+                  {{ block.settings['explore_sub_paragraph'] }}
                 </div>
               {% endif %}
               <div class="arrow-btn">
-                <a href="{{block.settings.explore-button-link}}">
+                <a href="{{block.settings['explore_button_link']}}">
                   <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none">
                     <path d="M10.8516 20.8486L26.1305 6.6103" stroke="black" stroke-width="1.5"/>
                     <path d="M13.3867 6.61133H26.1301V19.3547" stroke="black" stroke-width="1.5"/>
                   </svg>
                 </a>
               </div>
-              {% if block.settings['explore-video'] %}
+              {% if block.settings['explore_video'] %}
                 <div class="video-wrapper">
                   {{
-                    block.settings['explore-video']
+                    block.settings['explore_video']
                     | video_tag: autoplay: true, loop: true, muted: true, controls: false, class: 'card-video'
                   }}
                 </div>
@@ -235,19 +241,19 @@
     },
     {
       "type": "text",
-      "id": "explore-heading",
+      "id": "explore_heading",
       "label": "Heading",
       "default": "Explore by Inspiration"
     },
     {
       "type": "text",
-      "id": "explore-subheading",
+      "id": "explore_subheading",
       "label": "Subheading",
       "default": "Select a theme that speaks to you, and we’ll guide you through curated timepieces designed to intrigue, inspire, and elevate your watch collection."
     },
     {
       "type": "color_background",
-      "id": "explore-background",
+      "id": "explore_background",
       "label": "Background",
       "default": " #000000"
     },
@@ -265,28 +271,28 @@
       "settings": [
         {
           "type": "richtext",
-          "id": "explore-paragraph",
+          "id": "explore_paragraph",
           "label": "Paragraph"
         },
         {
           "type": "text",
-          "id": "explore-sub-paragraph",
+          "id": "explore_sub_paragraph",
           "label": "Sub Paragraph",
           "default": "Detailed description"
         },
         {
           "type": "image_picker",
-          "id": "explore-image",
+          "id": "explore_image",
           "label": "Image"
         },
         {
           "type": "video",
-          "id": "explore-video",
+          "id": "explore_video",
           "label": "A Shopify-hosted video"
         },
         {
           "type": "url",
-          "id": "explore-button-link",
+          "id": "explore_button_link",
           "label": "Button link"
         }
       ]
@@ -300,9 +306,9 @@
         {
           "type": "info",
           "settings": {
-            "explore-paragraph": "<p>Start with <strong>bold text</strong> here</p>",
-            "explore-sub-paragraph": "Default sub paragraph",
-            "explore-button-link": "#"
+            "explore_paragraph": "<p>Start with <strong>bold text</strong> here</p>",
+            "explore_sub_paragraph": "Default sub paragraph",
+            "explore_button_link": "#"
           }
         }
       ]
