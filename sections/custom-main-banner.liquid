@@ -1,0 +1,709 @@
+{{ 'custom-main-banner.css' | asset_url | stylesheet_tag: media: 'screen' }}
+
+<style>
+  .section-{{ section.id }} {
+    --margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+    --margin-bottom-mobile: {{ section.settings.margin_bottom_mobile }}px;
+  }
+
+  /* Text content styles */
+  .section-{{ section.id }} .slide-content {
+    position: absolute;
+    z-index: 2;
+    padding: 20px;
+    max-width: 500px;
+    color: {{ section.settings.text_color }};
+  }
+
+  .section-{{ section.id }} .slide-title {
+    font-size: {{ section.settings.title_font_size_desktop }}px;
+    font-weight: {{ section.settings.title_font_weight }};
+    margin-bottom: {{ section.settings.title_margin_bottom }}px;
+    line-height: 1.2;
+  }
+
+  .section-{{ section.id }} .slide-description {
+    font-size: {{ section.settings.description_font_size_desktop }}px;
+    margin-bottom: {{ section.settings.description_margin_bottom }}px;
+    line-height: 1.4;
+  }
+
+  .section-{{ section.id }} .slide-button {
+    display: inline-block;
+    padding: {{ section.settings.button_padding_vertical }}px {{ section.settings.button_padding_horizontal }}px;
+    background-color: {{ section.settings.button_background_color }};
+    color: {{ section.settings.button_text_color }};
+    text-decoration: none;
+    border-radius: {{ section.settings.button_border_radius }}px;
+    font-size: {{ section.settings.button_font_size }}px;
+    font-weight: {{ section.settings.button_font_weight }};
+    transition: all 0.3s ease;
+  }
+
+  .section-{{ section.id }} .slide-button:hover {
+    background-color: {{ section.settings.button_hover_background_color }};
+    color: {{ section.settings.button_hover_text_color }};
+  }
+
+  /* Position classes */
+  .section-{{ section.id }} .slide-content.top-left {
+    top: 5%;
+    left: 5%;
+    text-align: left;
+  }
+
+  .section-{{ section.id }} .slide-content.top-center {
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+
+  .section-{{ section.id }} .slide-content.top-right {
+    top: 5%;
+    right: 5%;
+    text-align: right;
+  }
+
+  .section-{{ section.id }} .slide-content.middle-left {
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    text-align: left;
+  }
+
+  .section-{{ section.id }} .slide-content.middle-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .section-{{ section.id }} .slide-content.middle-right {
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    text-align: right;
+  }
+
+  .section-{{ section.id }} .slide-content.bottom-left {
+    bottom: 5%;
+    left: 5%;
+    text-align: left;
+  }
+
+  .section-{{ section.id }} .slide-content.bottom-center {
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+
+  .section-{{ section.id }} .slide-content.bottom-right {
+    bottom: 5%;
+    right: 5%;
+    text-align: right;
+  }
+
+  /* Mobile styles */
+  @media only screen and (max-width: 767px) {
+    .section-{{ section.id }} .slide-title {
+      font-size: {{ section.settings.title_font_size_mobile }}px;
+    }
+
+    .section-{{ section.id }} .slide-description {
+      font-size: {{ section.settings.description_font_size_mobile }}px;
+    }
+
+    .section-{{ section.id }} .slide-content {
+      padding: 15px;
+      max-width: 300px;
+    }
+  }
+</style>
+
+<section class="custom-main-banner-container section-{{ section.id }}" id="{{ section.id }}">
+  <div class="single-desktop-mobile-banner-container swiper-container custom_main_banner">
+    <div class="swiper-wrapper">
+      {% for block in section.blocks %}
+        {%- case block.type -%}
+          {%- when 'image_block' -%}
+            <div class="swiper-slide" {{ block.shopify_attributes }}>
+              <a href="{{ block.settings.image_link }}">
+                {% if block.settings.desktop_banner_image != blank %}
+                  {% if forloop.index0 == 0 %}
+                    {% assign lazy = 'eager' %}
+                  {% else %}
+                    {% assign lazy = 'lazy' %}
+                  {% endif %}
+                  {% assign alt = block.settings.desktop_banner_image.alt | default: 'main-desktop-banner' %}
+                  {{
+                    block.settings.desktop_banner_image
+                    | image_url: width: 1600
+                    | image_tag: class: 'desktop-main-banner', loading: lazy, alt: alt
+                  }}
+                {% endif %}
+                {% if block.settings.mobile_banner_image != blank %}
+                  {% if forloop.index0 == 0 %}
+                    {% assign lazy = 'eager' %}
+                  {% else %}
+                    {% assign lazy = 'lazy' %}
+                  {% endif %}
+                  {% assign alt = block.settings.mobile_banner_image.alt | default: 'main-mobile-banner' %}
+                  {{
+                    block.settings.mobile_banner_image
+                    | image_url: width: 600
+                    | image_tag: class: 'mobile-main-banner', loading: lazy, alt: alt
+                  }}
+                {% endif %}
+
+                <!-- Text Content -->
+                <div class="slide-content {{ block.settings.content_position }}">
+                  {% if block.settings.title != blank %}
+                    <h2 class="slide-title">{{ block.settings.title }}</h2>
+                  {% endif %}
+
+                  {% if block.settings.description != blank %}
+                    <div class="slide-description">{{ block.settings.description }}</div>
+                  {% endif %}
+
+                  {% if block.settings.button_text != blank and block.settings.button_link != blank %}
+                    <a href="{{ block.settings.button_link }}" class="slide-button">
+                      {{ block.settings.button_text }}
+                    </a>
+                  {% endif %}
+                </div>
+              </a>
+            </div>
+          {%- when 'video_block' -%}
+            <div class="swiper-slide" {{ block.shopify_attributes }}>
+              {% if block.settings.desktop_banner_video != blank %}
+                {% render 'video',
+                  videoObj: block.settings.desktop_banner_video,
+                  lazy: true,
+                  mutedOnLoad: true,
+                  muteButtons: true,
+                  loop: true,
+                  controlsList: 'nodownload',
+                  forloopIndex: forloop.index0,
+                  class: 'video-play-desktop-button-container'
+                %}
+              {% endif %}
+              {% if block.settings.mobile_banner_video != blank %}
+                {% render 'video',
+                  videoObj: block.settings.mobile_banner_video,
+                  lazy: true,
+                  mutedOnLoad: true,
+                  muteButtons: true,
+                  loop: true,
+                  controlsList: 'nodownload',
+                  forloopIndex: forloop.index0,
+                  class: 'video-play-mobile-button-container'
+                %}
+              {% endif %}
+
+              <!-- Text Content -->
+              <div class="slide-content {{ block.settings.content_position }}">
+                {% if block.settings.title != blank %}
+                  <h2 class="slide-title">{{ block.settings.title }}</h2>
+                {% endif %}
+
+                {% if block.settings.description != blank %}
+                  <div class="slide-description">{{ block.settings.description }}</div>
+                {% endif %}
+
+                {% if block.settings.button_text != blank and block.settings.button_link != blank %}
+                  <a href="{{ block.settings.button_link }}" class="slide-button">
+                    {{ block.settings.button_text }}
+                  </a>
+                {% endif %}
+              </div>
+            </div>
+        {%- endcase -%}
+      {% endfor %}
+    </div>
+    {% if section.settings.pagination == true %}
+      <div class="swiper-pagination"></div>
+    {% endif %}
+    {% if section.blocks.size > 1 %}
+      {% if section.settings.navigation == true %}
+        <div class="swiper-button-next">
+          {% render 'slider-right-arrow' %}
+        </div>
+        <div class="swiper-button-prev">
+          {% render 'slider-left-arrow' %}
+        </div>
+      {% endif %}
+    {% endif %}
+  </div>
+</section>
+
+{% if section.blocks.size > 1 %}
+  <script>
+  window.addEventListener('DOMContentLoaded', () => {
+    (async () => {
+      const customMainBanner = new Swiper(`#{{ section.id }} .custom_main_banner`, {
+        {% if section.settings.pagination == true %}
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+        {% endif %}
+        {% if section.settings.autoplay == true %}
+          autoplay: {
+            delay  : {{- section.settings.change_slides_speed | times: 1000 -}},
+            loop: {{- section.settings.loop -}},
+            stopOnLastSlide: {{- section.settings.stopon_last_slide -}},
+          },
+        {% endif %}
+        {% if section.settings.navigation == true %}
+          navigation: {
+            nextEl: '#{{ section.id }} .swiper-button-next',
+            prevEl: '#{{ section.id }} .swiper-button-prev',
+          },
+        {% endif %}
+      });
+    })();
+  },{ once: true });
+  </script>
+{% endif %}
+
+<script>
+  window.addEventListener(
+    'DOMContentLoaded',
+    () => {
+      (async () => {
+        if (document.querySelectorAll('#{{- section.id }} video-element').length > 0) {
+          document.querySelectorAll('#{{- section.id }} video-element').forEach((videoElement) => {
+            new VideoPlayer(videoElement);
+          });
+        }
+      })();
+    },
+    { once: true }
+  );
+</script>
+
+{% schema %}
+{
+  "name": "Custom Main Banner",
+  "settings": [
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin Bottom Desktop",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin Bottom Mobile",
+      "default": 36
+    },
+    {
+      "type": "header",
+      "content": "Text Content Settings"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "title_font_size_desktop",
+      "min": 16,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "label": "Title Font Size Desktop",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "title_font_size_mobile",
+      "min": 14,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "label": "Title Font Size Mobile",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "title_font_weight",
+      "min": 300,
+      "max": 900,
+      "step": 100,
+      "label": "Title Font Weight",
+      "default": 700
+    },
+    {
+      "type": "range",
+      "id": "title_margin_bottom",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Title Margin Bottom",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "description_font_size_desktop",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Description Font Size Desktop",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "description_font_size_mobile",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Description Font Size Mobile",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "description_margin_bottom",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Description Margin Bottom",
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "Button Settings"
+    },
+    {
+      "type": "color",
+      "id": "button_background_color",
+      "label": "Button Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_background_color",
+      "label": "Button Hover Background Color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_text_color",
+      "label": "Button Hover Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "button_padding_vertical",
+      "min": 8,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Button Vertical Padding",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "button_padding_horizontal",
+      "min": 16,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Button Horizontal Padding",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "min": 0,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "label": "Button Border Radius",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "button_font_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Button Font Size",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "button_font_weight",
+      "min": 300,
+      "max": 900,
+      "step": 100,
+      "label": "Button Font Weight",
+      "default": 600
+    },
+    {
+      "type": "header",
+      "content": "Autoplay Swiper Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Autoplay Enable/Disable"
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "label": "Loop the Announcements",
+      "default": false,
+      "info": "If enabled, unchecked the stop on last slide option"
+    },
+    {
+      "type": "checkbox",
+      "id": "stopon_last_slide",
+      "label": "Stop on Last Slide",
+      "default": false,
+      "info": "If enabled, unchecked the loop option"
+    },
+    {
+      "type": "range",
+      "id": "change_slides_speed",
+      "min": 3,
+      "max": 10,
+      "step": 1,
+      "unit": "sec",
+      "label": "Change Slides Every..",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Navigation/Pagination Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "navigation",
+      "label": "Navigation Enable/Disable"
+    },
+    {
+      "type": "checkbox",
+      "id": "pagination",
+      "label": "Pagination Enable/Disable"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image_block",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "desktop_banner_image",
+          "label": "Desktop Banner Image",
+          "info": "Image size should be 1920px X 710px"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_banner_image",
+          "label": "Mobile Banner Image",
+          "info": "Image size should be 770px X 900px"
+        },
+        {
+          "type": "header",
+          "content": "Text Content"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Slide Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Add your description text here"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "select",
+          "id": "content_position",
+          "label": "Content Position",
+          "options": [
+            {
+              "value": "top-left",
+              "label": "Top Left"
+            },
+            {
+              "value": "top-center",
+              "label": "Top Center"
+            },
+            {
+              "value": "top-right",
+              "label": "Top Right"
+            },
+            {
+              "value": "middle-left",
+              "label": "Middle Left"
+            },
+            {
+              "value": "middle-center",
+              "label": "Middle Center"
+            },
+            {
+              "value": "middle-right",
+              "label": "Middle Right"
+            },
+            {
+              "value": "bottom-left",
+              "label": "Bottom Left"
+            },
+            {
+              "value": "bottom-center",
+              "label": "Bottom Center"
+            },
+            {
+              "value": "bottom-right",
+              "label": "Bottom Right"
+            }
+          ],
+          "default": "middle-center"
+        }
+      ]
+    },
+    {
+      "type": "video_block",
+      "name": "Video",
+      "settings": [
+        {
+          "type": "video",
+          "id": "desktop_banner_video",
+          "label": "Desktop Banner Video",
+          "info": "Video Ratio should be 1920px X 710px, Format:mp4, Size:10mb"
+        },
+        {
+          "type": "video",
+          "id": "mobile_banner_video",
+          "label": "Mobile Banner Video",
+          "info": "Video Ratio should be 768px X 900px, Format:mp4, Size:10mb"
+        },
+        {
+          "type": "header",
+          "content": "Text Content"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Slide Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Add your description text here"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "select",
+          "id": "content_position",
+          "label": "Content Position",
+          "options": [
+            {
+              "value": "top-left",
+              "label": "Top Left"
+            },
+            {
+              "value": "top-center",
+              "label": "Top Center"
+            },
+            {
+              "value": "top-right",
+              "label": "Top Right"
+            },
+            {
+              "value": "middle-left",
+              "label": "Middle Left"
+            },
+            {
+              "value": "middle-center",
+              "label": "Middle Center"
+            },
+            {
+              "value": "middle-right",
+              "label": "Middle Right"
+            },
+            {
+              "value": "bottom-left",
+              "label": "Bottom Left"
+            },
+            {
+              "value": "bottom-center",
+              "label": "Bottom Center"
+            },
+            {
+              "value": "bottom-right",
+              "label": "Bottom Right"
+            }
+          ],
+          "default": "middle-center"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Main Banner",
+      "blocks": [
+        {
+          "type": "image_block"
+        },
+        {
+          "type": "video_block"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

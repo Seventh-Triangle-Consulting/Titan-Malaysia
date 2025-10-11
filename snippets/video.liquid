@@ -1,0 +1,111 @@
+{% comment %}
+  videoObj: Video Object Refrence
+  lazy: true | Boolean
+  mutedOnLoad: true | Boolean
+  muteButtons: true | Boolean
+  loop: true | Boolean
+  controlsList: "nodownload" | HTML Attribute Controls Value | String
+  forloopIndex: forloop.index0 | For Loop Index from where the snippet is rendered
+  class: "desktop_banner_video" | Class Attribute | String
+  posterImage: Image Object Refrence | Shopify Image Object
+
+  USAGE:
+  {% render 'video', videoObj: block.settings.desktop_banner_video, lazy: true, muteButtons: true, loop: true, controlsList: "nodownload", forloopIndex: forloop.index0, class: "desktop_banner_video" %}
+{% endcomment %}
+
+<style>
+  video-element {
+    display: block;
+    width: 100%;
+    height: auto;
+    line-height: 0;
+    position: relative;
+  }
+
+  video-element video {
+    width: 100%;
+    height: auto;
+  }
+
+  video-element .mute-buttons svg {
+    width: 35px;
+    height: auto;
+  }
+
+  video-element .mute-buttons,
+  video-element .play-button {
+    position: absolute;
+    z-index: 1;
+    line-height: 0;
+    cursor: pointer;
+  }
+
+  video-element .play-button {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  video-element .mute-buttons {
+    bottom: 25px;
+    right: 25px;
+  }
+</style>
+
+<video-element data-id="{{- videoObj.id -}}-{{- forloopIndex.index0 -}}" class="{{ class }}">
+  <video
+    {% if lazy %}
+      lazy="true"
+    {% endif %}
+    id="video-dek{{ forloop.index0 }}"
+    class="video border-radius"
+    width="{{ videoObj.sources[0].width }}"
+    height="{{ videoObj.sources[0].height }}"
+    controlsList="{{ controlsList }}"
+    {% if mutedOnLoad %}
+      muted="muted"
+    {% endif %}
+    {% if loop %}
+      loop="loop"
+    {% endif %}
+    playsinline="playsinline"
+    preload="metadata"
+    {% if posterImage != blank %}
+      poster="{{ posterImage | image_url: width: videoObj.sources[0].width }}"
+    {% else %}
+      poster="{{ videoObj.preview_image.src | image_url: width: videoObj.preview_image.width, format: 'webp' }}"
+    {% endif %}
+  >
+    {% for source in videoObj.sources %}
+      {% case source.format %}
+        {% when 'mp4' %}
+          <source data-src="{{ source.url }}" type="{{ source.mime_type }}">
+      {% endcase %}
+    {% endfor %}
+  </video>
+  <div data-id="play-button" class="play-button">
+    {% render 'play_button-banner' %}
+  </div>
+  <div
+    data-id="mute-button"
+    class="mute-buttons"
+    {% if mutedOnLoad %}
+      style="display:none;"
+    {% else %}
+      style="display:block;"
+    {% endif %}
+  >
+    {% render 'video-element-unmute-button', fill: '#FFFFFF' %}
+  </div>
+  <div
+    data-id="unmute-button"
+    class="mute-buttons"
+    {% if mutedOnLoad %}
+      style="display:block;"
+    {% else %}
+      style="display:none;"
+    {% endif %}
+  >
+    {% render 'video-element-mute-button', fill: '#FFFFFF' %}
+  </div>
+</video-element>
