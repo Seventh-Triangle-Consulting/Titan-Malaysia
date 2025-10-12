@@ -29,6 +29,7 @@
   border-right: 1px solid #ffffff4d;
   border-left: 1px solid #ffffff4d;
   margin-left: -1px; /* Prevents double borders */
+  overflow: hidden;
 }
 .explore-sec .swiper-wrapper:nth-child(1) {
   border-left: 1px solid #ffffff4d;
@@ -52,16 +53,9 @@
 
 .explore-slide:hover .info-wrapper {
   background: #fff;
-  transform: translateY(-5px);
+  transform: scale(1.02);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
-
-/* .explore-slide:hover .card-text {
-  color: #000;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-} */
-
 .info-wrapper .hover-content {
   width: 100%;
   position: absolute;
@@ -75,14 +69,15 @@
   justify-content: space-between;
   padding: 30px 30px 12px;
   opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.4s ease-in-out;
   pointer-events: none;
+  transform: translateY(30px); /* starts slightly lower */
+  transition: transform 1s cubic-bezier(0.25, 1, 0.3, 1), opacity 1s ease;
 }
 
 .explore-slide:hover .hover-content {
   opacity: 1;
   transform: translateY(0);
+   transition-delay: 0.3s;
   pointer-events: all;
 }
 .explore-slide:hover .hover-content .card-text{
@@ -99,12 +94,13 @@
   margin-top: 0;
   padding-top: 20px;
    font-family: 'SuisseIntl-SemiBold';
-   font-weight: 600;
+   
+
 }
 
 .card-hover-description {
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -125,17 +121,19 @@
 
 .image-wrapper {
   margin-top: 50px;
-  transition: opacity 0.3s ease;
+    transform-origin: bottom;
+   transition: transform 0.9s cubic-bezier(0.25, 1, 0.3, 1), opacity 0.9s ease;
+  opacity: 1; 
 }
 
 .explore-slide:hover .image-wrapper {
+   transform: scaleY(0); 
   opacity: 0;
 }
 
 .card-video {
   width: 100%;
   height: auto;
-  border-radius: 4px;
 }
 
 /* Ensure consistent height for all slides */
@@ -145,16 +143,19 @@
 }
 .explore-swiper .swiper-pagination{
   position: relative;
+  margin-top: 26px;
 }
 .explore-swiper .swiper-pagination-bullet {
     background-color: #d9d9d942;
+      opacity: 0.6;
   }
   .explore-swiper .swiper-pagination-bullet-active {
     background-color: #d9d9d9;
+      opacity: 1;
   }
 
 
-@media only screen and (max-width: 749px) {
+@media only screen and (max-width: 750px) {
   .explore-sec{
     padding-right: 0 !important;
   }
@@ -165,6 +166,7 @@
   }
   .explore-content {
     gap: 6px;
+    padding-right: 20px; 
   }
   .explore-content h2 {
     font-size: 26px;
@@ -173,9 +175,14 @@
   .explore-content p {
     font-size: 15px;
     max-width: 421px;
+
   }
   .explore-swiper {
     margin-top: 56px;
+  }
+   .card-hover-description {
+    -webkit-line-clamp: 2; 
+   
   }
   .card-text {
     font-size: 16px;
@@ -224,5 +231,16 @@
   .explore-slide,
   .info-wrapper {
     min-height: 320px;
+  }
+}
+@media only screen and (min-width: 1023px) and (max-width: 1065px) {
+  .explore-slide,
+  .info-wrapper {
+    min-height: 370px;
+  }
+    .card-hover-description {
+    -webkit-line-clamp: 4;
+    line-height: 20px;
+    max-height: 60px; /* just to ensure no overflow */
   }
 }

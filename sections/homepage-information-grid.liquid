@@ -67,8 +67,10 @@
                 {{ block.settings.explore_paragraph | replace: '<p>', '<p class="card-text">' }}
               {% endif %}
               {% if block.settings.explore_sub_paragraph %}
+                <div class="truncate-wrapper">
                 <div class="card-hover-description">
                   {{ block.settings.explore_sub_paragraph }}
+                </div>
                 </div>
               {% endif %}
               <div class="arrow-btn">
@@ -103,9 +105,13 @@
     const swiperContainer = document.querySelector('.explore-swiper');
 
     function initExploreSwiper() {
+      if (exploreSwiper) {
+    exploreSwiper.destroy(true, true); //  clean up old swiper
+  }
       exploreSwiper = new Swiper('.explore-swiper', {
         slidesPerView: 1.3,
         spaceBetween: 0,
+        slidesPerGroup: 1,
         breakpoints: {
           480: {
             slidesPerView: 1.3,
