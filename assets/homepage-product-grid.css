@@ -1,4 +1,6 @@
+
 .home-grid-section .container {
+  font-family:'PPMonumentNormal-Regular';
   padding: 5px;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -10,7 +12,6 @@
 .home-grid-section .watch-card {
   /* background: #486B9C; */
   background: linear-gradient(180deg, rgba(20, 30, 48, 1) 0%, rgba(20, 30, 48, 1) 100%);
-  
   position: relative;
   width: 100%;
   aspect-ratio: 3/4;
