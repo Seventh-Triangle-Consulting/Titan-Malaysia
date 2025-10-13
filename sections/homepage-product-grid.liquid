@@ -29,30 +29,33 @@
       <div class="grid-item span-desktop-{{ block.settings.desktop_view | replace: 'fr', '' }} span-tablet-{{ block.settings.tablet_view | replace: 'fr', '' }} span-mobile-{{ block.settings.mobile_view | replace: 'fr', '' }}" {{ block.shopify_attributes }}>
         <div class="watch-card">
           <div class="image-container">
+            
             {% if block.settings.grid_product_url != blank %}
-              <a class="image-link no-underline" href="{{ block.settings.grid_product_url }}">
-                {% if block.settings.grid_product_image != blank %}
-                  {{
-                    block.settings.grid_product_image
-                    | image_url: width: 800
-                    | image_tag: class: 'watch-image', loading: 'lazy'
-                  }}
-                {% endif %}
-              </a>
+              {% if block.settings.grid_product_image != blank %}
+                {{
+                  block.settings.grid_product_image
+                  | image_url: width: 800
+                  | image_tag: class: 'watch-image', loading: 'lazy'
+                }}
+              {% endif %}
+              
             {% endif %}
           </div>
           <div class="overlay" style="color: {{ section.settings.text_color }};">
             <div class="overlay-content">
               <p>{{ block.settings.grid_product_text }}</p>
+              <a class="arrow-link no-underline" href="{{ block.settings.grid_product_url }}">
               <div class="arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" width="51" height="51" viewBox="0 0 51 51" fill="none" style="&#10;    color: black;&#10;">
+                <svg class="arrow-main" xmlns="http://www.w3.org/2000/svg" width="51" height="51" viewBox="0 0 51 51" fill="none" style="&#10;    color: black;&#10;">
                   <path d="M17.8513 32.8486L33.1302 18.6103" stroke="white" stroke-width="1.5"/>
                   <path d="M20.387 18.6118H33.1303V31.3552" stroke="white" stroke-width="1.5"/>
-                  </svg>
-                {% comment %} <svg viewBox="0 0 24 24">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg> {% endcomment %}
-              </div>
+                </svg>
+                <svg class="arrow-alt" xmlns="http://www.w3.org/2000/svg" width="51" height="51" viewBox="0 0 51 51" fill="none" style="&#10;    color: black;&#10;">
+                  <path d="M17.8513 32.8486L33.1302 18.6103" stroke="white" stroke-width="1.5"/>
+                  <path d="M20.387 18.6118H33.1303V31.3552" stroke="white" stroke-width="1.5"/>
+                </svg>
+                  </div>
+                </a>
             </div>
           </div>
         </div>
