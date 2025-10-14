@@ -88,6 +88,7 @@
   text-overflow: ellipsis;
   width: 100%;
   font-size: 20px;
+  line-height: 19px;
   transition: opacity 0.3s ease;
   margin-top: 0;
    font-family: 'SuisseIntl-Regular';
@@ -195,6 +196,7 @@
 
   .card-text {
     font-size: 16px;
+    line-height: 20px;
   }
   .card-hover-description{
     font-size: 12px;
@@ -231,6 +233,11 @@
   }
   .card-text {
     font-size: 16px;
+    line-height: 20px;
+  }
+  .card-hover-description{
+    font-size: 12px;
+    line-height: 18px;
   }
 
   .info-wrapper {
