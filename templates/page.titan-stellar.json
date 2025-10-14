@@ -23,7 +23,7 @@
         "info_EkYjAK": {
           "type": "info",
           "settings": {
-            "explore_paragraph": "<p>Speed: Moved by momentum and edge</p>",
+            "explore_paragraph": "<p><strong>Speed</strong>: Moved by momentum and edge</p>",
             "explore_sub_paragraph": "Inspired by the thrill of the racetrack, the Titan Racecraft Collection fuses motorsport aesthetics with cutting-edge chronograph design—crafted for those who live fast, drive sharp, and demand precision.",
             "explore_image": "shopify://shop_images/Rectangle_469_3.png",
             "explore_video": "shopify://files/videos/e3dd1e19f9ab4373b32489fe70b2fd2d.mp4",
@@ -33,7 +33,7 @@
         "info_YVba9Y": {
           "type": "info",
           "settings": {
-            "explore_paragraph": "<p>Speed: Moved by momentum and edge</p>",
+            "explore_paragraph": "<p><strong>Speed</strong>: Moved by momentum and edge</p>",
             "explore_sub_paragraph": "Inspired by the thrill of the racetrack, the Titan Racecraft Collection fuses motorsport aesthetics with cutting-edge chronograph design—crafted for those who live fast, drive sharp, and demand precision.",
             "explore_image": "shopify://shop_images/Rectangle_469_4.png",
             "explore_video": "shopify://files/videos/4096d69872ce40d08e538bb07b2f1445.mp4",
@@ -43,7 +43,7 @@
         "info_YWEb6h": {
           "type": "info",
           "settings": {
-            "explore_paragraph": "<p>Speed: Moved by momentum and edge</p>",
+            "explore_paragraph": "<p><strong>Speed</strong>: Moved by momentum and edge</p>",
             "explore_sub_paragraph": "Inspired by the thrill of the racetrack, the Titan Racecraft Collection fuses motorsport aesthetics with cutting-edge chronograph design—crafted for those who live fast, drive sharp, and demand precision.",
             "explore_image": "shopify://shop_images/Rectangle_469_5.png",
             "explore_video": "shopify://files/videos/e3dd1e19f9ab4373b32489fe70b2fd2d.mp4",
@@ -69,7 +69,7 @@
         "explore_heading": "Explore by Inspiration",
         "explore_subheading": "Select a theme that speaks to you, and we’ll guide you through curated timepieces designed to intrigue, inspire, and elevate your watch collection.",
         "explore_background": "#000000",
-        "body_text": "#fff"
+        "body_text": "#ffffff"
       }
     }
   },
