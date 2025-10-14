@@ -70,7 +70,7 @@
               {% if block.settings.explore_sub_paragraph %}
                 <div class="truncate-wrapper">
                 <div class="card-hover-description">
-                  {{ block.settings.explore_sub_paragraph }}
+                  {{ block.settings.explore_sub_paragraph | truncate: 80, '' }}
                 </div>
                 </div>
               {% endif %}
@@ -245,13 +245,13 @@
       "type": "text",
       "id": "explore_heading",
       "label": "Heading",
-      "default": "Explore by Inspiration"
+      "default": "Enter the section heading"
     },
     {
       "type": "text",
       "id": "explore_subheading",
       "label": "Subheading",
-      "default": "Select a theme that speaks to you, and we’ll guide you through curated timepieces designed to intrigue, inspire, and elevate your watch collection."
+      "default": "Enter the section sub heading"
     },
     {
       "type": "color_background",
@@ -281,7 +281,7 @@
           "type": "text",
           "id": "explore_sub_paragraph",
           "label": "Sub Paragraph",
-          "default": "Enter text that fits within 2 lines; text longer than this will be truncated.",
+          "default": "Add up to 80 characters including space. Text beyond this limit may be hidden in the card.",
         },
         {
           "type": "image_picker",
