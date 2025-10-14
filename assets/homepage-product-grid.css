@@ -12,8 +12,8 @@
 }
 
 .home-grid-section .watch-card {
-  /* background: #486B9C; */
-  background: linear-gradient(180deg, rgba(20, 30, 48, 1) 0%, rgba(20, 30, 48, 1) 100%);
+  background: #486B9C;
+  /* background: linear-gradient(180deg, rgba(20, 30, 48, 1) 0%, rgba(20, 30, 48, 1) 100%); */
   position: relative;
   width: 100%;
   aspect-ratio: 3/4;
@@ -52,7 +52,7 @@
   height: calc(100% - 130px);
 }
 .home-grid-section .overlay {
-  background: linear-gradient(180deg, rgba(20, 30, 48, 1) 0%, rgba(20, 30, 48, 1) 100%);
+  background: #486B9C;
   position: absolute;
   top: 0;
   left: 0;
@@ -67,7 +67,7 @@
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .home-grid-section .watch-card:hover .overlay {
-  background: linear-gradient(180deg, rgba(20, 30, 48, 1) 0%, rgba(20, 30, 48, 1) 100%);
+  background: #486B9C;
   clip-path: inset(0 0 0 0);
   transform: translateY(0);
 }
@@ -86,7 +86,7 @@
   opacity: 1;
 }
 .home-grid-section .overlay-content p {
-  font-size: 1.1rem;
+  font-size: 13px;
   line-height: 1.6;
 }
 .home-grid-section .arrow {
@@ -165,7 +165,7 @@
     grid-column: span 2;
   }
   .home-grid-section .overlay-content p {
-    font-size: 1.1rem;
+    font-size: 12px;
     color: #fff;
   }
 }
