@@ -80,6 +80,7 @@
         "buy_buttons",
         "5084a510-7189-437e-bc00-7ae24be755b7"
       ],
+      "disabled": true,
       "settings": {
         "cod_text": "",
         "return_exchange_text": "",
@@ -102,6 +103,7 @@
     },
     "74932d3a-78c7-4b22-9880-9fc42033a56c": {
       "type": "about_the_brand",
+      "disabled": true,
       "settings": {
         "about_head1": "About the Brand",
         "brand_description": "<p>Titan has come a long way since 1984 when we started with one product category. Today, with over 8,000 employees and about 38,000 in the overall Titan ecosystem, 16 brands and over 2,000 retail stores, we are as committed  as ever to delivering profitable and responsible growth for all our stakeholders.</p><p>Titan is India's leading lifestyle company and among the most admired and respected corporates in the country. We have established leading positions in the Jewellery, Watches and EyeCare categories led by our trusted brands and superior customer experience. we have also diversified into Wearables, Indian Dress Wear and Fragrances & Fashion Accessories and are driving differentiation in these lifestyle categories, underpinned by our deep understanding of customer preferences.</p>",
@@ -113,6 +115,7 @@
     },
     "related-products": {
       "type": "related-products",
+      "disabled": true,
       "settings": {
         "heading": "You may also like",
         "heading_size": "h2",
@@ -129,11 +132,29 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "pdp_product_recommendation_rXJMU7": {
+      "type": "pdp-product-recommendation",
+      "name": "Product Recommendation",
+      "settings": {
+        "margin_bottom_desktop": 36,
+        "margin_bottom_mobile": 36,
+        "padding_top_desktop": 60,
+        "padding_bottom_desktop": 60,
+        "padding_top_tablet": 60,
+        "padding_bottom_tablet": 60,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "heading": "more from the collection",
+        "background_color": "#334fb4",
+        "text_color": "#ffffff"
+      }
     }
   },
   "order": [
     "main",
     "74932d3a-78c7-4b22-9880-9fc42033a56c",
-    "related-products"
+    "related-products",
+    "pdp_product_recommendation_rXJMU7"
   ]
 }
