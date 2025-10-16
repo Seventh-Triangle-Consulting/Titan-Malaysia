@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "name": "t:sections.header.name",
   "type": "header",
@@ -8,7 +17,7 @@
         "a72aa487-20fa-446c-bf36-87e04df00a19": {
           "type": "announcement",
           "settings": {
-            "text": "Easy Returns\/Exchanges",
+            "text": "Easy Returns/Exchanges",
             "link": ""
           }
         },
@@ -29,7 +38,7 @@
         "ccc6f0ad-effe-4510-9e5a-2318d7e8d608": {
           "type": "announcement",
           "settings": {
-            "text": "Easy Returns\/Exchanges",
+            "text": "Easy Returns/Exchanges",
             "link": ""
           }
         },
@@ -50,7 +59,7 @@
         "b675a4de-6d5a-426b-8033-a4cb2fb21266": {
           "type": "announcement",
           "settings": {
-            "text": "Easy Returns\/Exchanges",
+            "text": "Easy Returns/Exchanges",
             "link": ""
           }
         },
@@ -71,7 +80,7 @@
         "9ec7de4f-14b4-4f58-a269-36dbf9f1b40d": {
           "type": "announcement",
           "settings": {
-            "text": "Easy Returns\/Exchanges",
+            "text": "Easy Returns/Exchanges",
             "link": ""
           }
         },
@@ -137,9 +146,9 @@
     "contact_popup_MMQq97": {
       "type": "contact-popup",
       "settings": {
-        "popup-bg-img": "shopify:\/\/shop_images\/popupbg_1.jpg",
-        "popup-bg-img-mob": "shopify:\/\/shop_images\/popup-mobile.jpg",
-        "contact-popup-text": "<p>Thank you fly stopping by! <\/p><p>We will be glad to assist you further. Please provide <\/p><p>the following information so we can contact you.<\/p>"
+        "popup-bg-img": "shopify://shop_images/popupbg_1.jpg",
+        "popup-bg-img-mob": "shopify://shop_images/popup-mobile.jpg",
+        "contact-popup-text": "<p>Thank you fly stopping by! </p><p>We will be glad to assist you further. Please provide </p><p>the following information so we can contact you.</p>"
       }
     }
   },

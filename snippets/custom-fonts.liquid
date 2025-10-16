@@ -1,181 +1,192 @@
 <style>
+  @font-face {
+    font-family: '{{ settings['font-file-h1'] | split: '?v=' | first | split: '/' | last | split: '.' | first }}';
+    src: url("{{ settings['font-file-h1'] }}");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: '{{ settings['font-file-h2'] | split: '?v=' | first | split: '/' | last | split: '.' | first }}';
+    src: url("{{ settings['font-file-h2'] }}");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: '{{ settings['font-file-h3'] | split: '?v=' | first | split: '/' | last | split: '.' | first }}';
+    src: url("{{ settings['font-file-h3'] }}");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: '{{ settings['font-file-h4'] | split: '?v=' | first | split: '/' | last | split: '.' | first }}';
+    src: url("{{ settings['font-file-h4'] }}");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: '{{ settings['font-file-h5'] | split: '?v=' | first | split: '/' | last | split: '.' | first }}';
+    src: url("{{ settings['font-file-h5'] }}");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: '{{ settings['font-file-h6'] | split: '?v=' | first | split: '/' | last | split: '.' | first }}';
+    src: url("{{ settings['font-file-h6'] }}");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: '{{ settings['font-file-p'] | split: '?v=' | first | split: '/' | last | split: '.' | first }}';
+    src: url("{{ settings['font-file-p'] }}");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: '{{ settings['font-file-a'] | split: '?v=' | first | split: '/' | last | split: '.' | first }}';
+    src: url("{{ settings['font-file-a'] }}");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Rubik-Regular';
+    src: url('https://cdn.shopify.com/s/files/1/0559/6964/4716/files/Rubik-Regular_d4d71398-62e3-4531-b70e-dc618fa6f660.ttf?v=1694599790');
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Rubik-Medium';
+    src: url('https://cdn.shopify.com/s/files/1/0559/6964/4716/files/Rubik-Medium.ttf?v=1694516664');
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Rubik-Light';
+    src: url('https://cdn.shopify.com/s/files/1/0559/6964/4716/files/Rubik-Light_65bf6a0d-e045-448c-a56e-c848feb9beb4.ttf?v=1695189960');
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Rubik-Bold';
+    src: url('https://cdn.shopify.com/s/files/1/0559/6964/4716/files/Rubik-Bold.ttf?v=1696316400');
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Rubik-SemiBold';
+    src: url('https://cdn.shopify.com/s/files/1/0559/6964/4716/files/Rubik-SemiBold.ttf?v=1694516664');
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Jost-Regular';
+    src: url('https://cdn.shopify.com/s/files/1/0559/6964/4716/files/Jost-Regular.ttf?v=1696564786');
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Rubik-SemiBold';
+    src: url('https://cdn.shopify.com/s/files/1/0559/6964/4716/files/Rubik-SemiBold_18150f03-5ede-4032-83b7-d345f7133537.ttf?v=1696596566');
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Rubik-SemiBold';
+    src: url('https://cdn.shopify.com/s/files/1/0559/6964/4716/files/Rubik-SemiBold_18150f03-5ede-4032-83b7-d345f7133537.ttf?v=1696596566');
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Barlow-Regular';
+    src: url('https://cdn.shopify.com/s/files/1/0559/6964/4716/files/Barlow-Regular.ttf?v=1697019096');
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Roboto-Light';
+    src: url('https://cdn.shopify.com/s/files/1/0628/7690/9727/files/Roboto-Light.ttf?v=1701241641');
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Roboto-Regular';
+    src: url('https://cdn.shopify.com/s/files/1/0628/7690/9727/files/Roboto-Regular.ttf?v=1701241730');
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Roboto-Medium';
+    src: url('https://cdn.shopify.com/s/files/1/0628/7690/9727/files/Roboto-Medium.ttf?v=1701241787');
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Roboto-Bold';
+    src: url('https://cdn.shopify.com/s/files/1/0628/7690/9727/files/Roboto-Bold.ttf?v=1701241783');
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Roboto-Thin';
+    src: url('https://cdn.shopify.com/s/files/1/0628/7690/9727/files/Roboto-Thin.ttf?v=1701241768');
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'PlayfairDisplay-Bold';
+    src: url('https://cdn.shopify.com/s/files/1/0628/7690/9727/files/PlayfairDisplay-Bold.ttf?v=1701242107');
+    font-display: swap;
+  }
    @font-face {
-     font-family: '{{ settings['font-file-h1'] | split: '?v=' | first | split: '/' | last | split: '.' | first }}';
-     src: url("{{ settings['font-file-h1'] }}");
-     font-display: swap;
-   }
+    font-family: 'PlayfairDisplay-Regular';
+    src: url('https://cdn.shopify.com/s/files/1/0628/7690/9727/files/PlayfairDisplay-Regular.ttf?v=1701242161');
+    font-display: swap;
+  }
    @font-face {
-     font-family: '{{ settings['font-file-h2'] | split: '?v=' | first | split: '/' | last | split: '.' | first }}';
-     src: url("{{ settings['font-file-h2'] }}");
-     font-display: swap;
-   }
-   @font-face {
-     font-family: '{{ settings['font-file-h3'] | split: '?v=' | first | split: '/' | last | split: '.' | first }}';
-     src: url("{{ settings['font-file-h3'] }}");
-     font-display: swap;
-   }
-   @font-face {
-     font-family: '{{ settings['font-file-h4'] | split: '?v=' | first | split: '/' | last | split: '.' | first }}';
-     src: url("{{ settings['font-file-h4'] }}");
-     font-display: swap;
-   }
-   @font-face {
-     font-family: '{{ settings['font-file-h5'] | split: '?v=' | first | split: '/' | last | split: '.' | first }}';
-     src: url("{{ settings['font-file-h5'] }}");
-     font-display: swap;
-   }
-   @font-face {
-     font-family: '{{ settings['font-file-h6'] | split: '?v=' | first | split: '/' | last | split: '.' | first }}';
-     src: url("{{ settings['font-file-h6'] }}");
-     font-display: swap;
-   }
-   @font-face {
-     font-family: '{{ settings['font-file-p'] | split: '?v=' | first | split: '/' | last | split: '.' | first }}';
-     src: url("{{ settings['font-file-p'] }}");
-     font-display: swap;
-   }
-   @font-face {
-     font-family: '{{ settings['font-file-a'] | split: '?v=' | first | split: '/' | last | split: '.' | first }}';
-     src: url("{{ settings['font-file-a'] }}");
-     font-display: swap;
-   }
-
-   @font-face {
-     font-family: 'Rubik-Regular';
-     src: url('https://cdn.shopify.com/s/files/1/0559/6964/4716/files/Rubik-Regular_d4d71398-62e3-4531-b70e-dc618fa6f660.ttf?v=1694599790');
-     font-display: swap;
-   }
-
-   @font-face {
-     font-family: 'Rubik-Medium';
-     src: url('https://cdn.shopify.com/s/files/1/0559/6964/4716/files/Rubik-Medium.ttf?v=1694516664');
-     font-display: swap;
-   }
-
+    font-family: 'PlayfairDisplay-Medium';
+    src: url('https://cdn.shopify.com/s/files/1/0628/7690/9727/files/PlayfairDisplay-Medium.ttf?v=1701242111');
+    font-display: swap;
+  }
   @font-face {
-       font-family: 'Rubik-Light';
-       src: url('https://cdn.shopify.com/s/files/1/0559/6964/4716/files/Rubik-Light_65bf6a0d-e045-448c-a56e-c848feb9beb4.ttf?v=1695189960');
-       font-display: swap;
-     }
-
-     @font-face {
-       font-family: 'Rubik-Bold';
-       src: url('https://cdn.shopify.com/s/files/1/0559/6964/4716/files/Rubik-Bold.ttf?v=1696316400');
-       font-display: swap;
-     }
+    font-family: 'Poppins-Regular';
+    src: url('https://cdn.shopify.com/s/files/1/0628/7690/9727/files/Poppins-Regular.ttf?v=1701688757');
+    font-display: swap;
+  }
   @font-face {
-       font-family: 'Rubik-SemiBold';
-       src: url('https://cdn.shopify.com/s/files/1/0559/6964/4716/files/Rubik-SemiBold.ttf?v=1694516664');
-       font-display: swap;
-     }
+    font-family: 'Merriweather-Regular';
+    src: url('https://cdn.shopify.com/s/files/1/0628/7690/9727/files/Merriweather-Regular.ttf?v=1710243789');
+    font-display: swap;
+  }
   @font-face {
-       font-family: 'Jost-Regular';
-       src: url('https://cdn.shopify.com/s/files/1/0559/6964/4716/files/Jost-Regular.ttf?v=1696564786');
-       font-display: swap;
-     }
-
-     @font-face {
-      font-family: 'Rubik-SemiBold';
-      src: url('https://cdn.shopify.com/s/files/1/0559/6964/4716/files/Rubik-SemiBold_18150f03-5ede-4032-83b7-d345f7133537.ttf?v=1696596566');
-      font-display: swap;
-    }
-
-
-     @font-face {
-      font-family: 'Rubik-SemiBold';
-      src: url('https://cdn.shopify.com/s/files/1/0559/6964/4716/files/Rubik-SemiBold_18150f03-5ede-4032-83b7-d345f7133537.ttf?v=1696596566');
-      font-display: swap;
-    }
-
-    
-    @font-face {
-      font-family: 'Barlow-Regular';
-      src: url('https://cdn.shopify.com/s/files/1/0559/6964/4716/files/Barlow-Regular.ttf?v=1697019096');
-      font-display: swap;
-    }
+    font-family: 'Arial-Medium';
+    src: url('https://cdn.shopify.com/s/files/1/0628/7690/9727/files/arial.ttf?v=1710310371');
+    font-display: swap;
+  }
   @font-face {
-      font-family: 'Roboto-Light';
-      src: url('https://cdn.shopify.com/s/files/1/0628/7690/9727/files/Roboto-Light.ttf?v=1701241641');
-      font-display: swap;
-    }
+    font-family: 'Poppins-Regular';
+    src: url('https://cdn.shopify.com/s/files/1/0870/2564/7899/files/Poppins-Regular.ttf?v=1712233101');
+    font-display: swap;
+  }
   @font-face {
-      font-family: 'Roboto-Regular';
-      src: url('https://cdn.shopify.com/s/files/1/0628/7690/9727/files/Roboto-Regular.ttf?v=1701241730');
-      font-display: swap;
-    }
+    font-family: 'Poppins-Bold';
+    src: url('https://cdn.shopify.com/s/files/1/0870/2564/7899/files/Poppins-Bold.ttf?v=1712233117');
+    font-display: swap;
+  }
   @font-face {
-      font-family: 'Roboto-Medium';
-      src: url('https://cdn.shopify.com/s/files/1/0628/7690/9727/files/Roboto-Medium.ttf?v=1701241787');
-      font-display: swap;
-    }
+    font-family: 'Poppins-Medium';
+    src: url('https://cdn.shopify.com/s/files/1/0870/2564/7899/files/Poppins-Medium.ttf?v=1712233107');
+    font-display: swap;
+  }
   @font-face {
-      font-family: 'Roboto-Bold';
-      src: url('https://cdn.shopify.com/s/files/1/0628/7690/9727/files/Roboto-Bold.ttf?v=1701241783');
-      font-display: swap;
-    }
+    font-family: 'Poppins-SemiBold';
+    src: url('https://cdn.shopify.com/s/files/1/0870/2564/7899/files/Poppins-SemiBold.ttf?v=1712233092');
+    font-display: swap;
+  }
   @font-face {
-      font-family: 'Roboto-Thin';
-      src: url('https://cdn.shopify.com/s/files/1/0628/7690/9727/files/Roboto-Thin.ttf?v=1701241768');
-      font-display: swap;
-    }
+    font-family: 'Poppins-Light';
+    src: url('https://cdn.shopify.com/s/files/1/0870/2564/7899/files/Raleway-Light.ttf?v=1712233332');
+    font-display: swap;
+  }
   @font-face {
-      font-family: 'PlayfairDisplay-Bold';
-      src: url('https://cdn.shopify.com/s/files/1/0628/7690/9727/files/PlayfairDisplay-Bold.ttf?v=1701242107');
-      font-display: swap;
-    }
+    font-family: 'Poppins-Light';
+    src: url('https://cdn.shopify.com/s/files/1/0870/2564/7899/files/Raleway-Light.ttf?v=1712233332');
+    font-display: swap;
+  }
   @font-face {
-      font-family: 'PlayfairDisplay-Regular';
-      src: url('https://cdn.shopify.com/s/files/1/0628/7690/9727/files/PlayfairDisplay-Regular.ttf?v=1701242161');
-      font-display: swap;
-    }
+    font-family: 'SuisseIntl-Regular';
+    src: url('https://cdn.shopify.com/s/files/1/0628/7690/9727/files/SuisseIntl-Regular.woff2?v=1760094777');
+    font-display: swap;
+  }
   @font-face {
-      font-family: 'PlayfairDisplay-Medium';
-      src: url('https://cdn.shopify.com/s/files/1/0628/7690/9727/files/PlayfairDisplay-Medium.ttf?v=1701242111');
-      font-display: swap;
-    }
+    font-family: 'SuisseIntl-SemiBold';
+    src: url('https://cdn.shopify.com/s/files/1/0628/7690/9727/files/SuisseIntl-SemiBold.woff2?v=1760094962');
+    font-display: swap;
+  }
   @font-face {
-      font-family: 'Poppins-Regular';
-      src: url('https://cdn.shopify.com/s/files/1/0628/7690/9727/files/Poppins-Regular.ttf?v=1701688757');
-      font-display: swap;
-    }
+    font-family: 'PPMonumentNormal-Regular';
+    src: url('https://cdn.shopify.com/s/files/1/0628/7690/9727/files/PPMonumentNormal-Regular.otf?v=1760095139');
+    font-display: swap;
+  }
   @font-face {
-      font-family: 'Merriweather-Regular';
-      src: url('https://cdn.shopify.com/s/files/1/0628/7690/9727/files/Merriweather-Regular.ttf?v=1710243789');
-      font-display: swap;
-    }
-   @font-face {
-      font-family: 'Arial-Medium';
-      src: url('https://cdn.shopify.com/s/files/1/0628/7690/9727/files/arial.ttf?v=1710310371');
-      font-display: swap;
-    }
-  @font-face {
-   font-family: 'Poppins-Regular';
-   src: url('https://cdn.shopify.com/s/files/1/0870/2564/7899/files/Poppins-Regular.ttf?v=1712233101');
-   font-display: swap;
- }
- @font-face {
-   font-family: 'Poppins-Bold';
-   src: url('https://cdn.shopify.com/s/files/1/0870/2564/7899/files/Poppins-Bold.ttf?v=1712233117');
-   font-display: swap;
- }
- @font-face {
-   font-family: 'Poppins-Medium';
-   src: url('https://cdn.shopify.com/s/files/1/0870/2564/7899/files/Poppins-Medium.ttf?v=1712233107');
-   font-display: swap;
- }
-  @font-face {
-   font-family: 'Poppins-SemiBold';
-   src: url('https://cdn.shopify.com/s/files/1/0870/2564/7899/files/Poppins-SemiBold.ttf?v=1712233092');
-   font-display: swap;
- }
- @font-face {
-   font-family: 'Poppins-Light';
-   src: url('https://cdn.shopify.com/s/files/1/0870/2564/7899/files/Raleway-Light.ttf?v=1712233332');
-   font-display: swap;
- }
-   {% comment %} @font-face {
-     font-family: 'Neue-Helvetica-Bold';
-     src: url('https://cdn.shopify.com/s/files/1/0764/2808/3500/files/neue-helvetica-bold.otf?v=1684414272');
-     font-display: swap;
-   } {% endcomment %}
+    font-family: 'PPMonumentWide-Regular';
+    src: url('https://cdn.shopify.com/s/files/1/0628/7690/9727/files/PPMonumentWide-Regular.otf?v=1760095165');
+    font-display: swap;
+  }
 </style>

@@ -1,0 +1,331 @@
+{{ 'homepage-information-grid.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .section-{{ section.id }} {
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+    padding-top: {{ section.settings.padding_top_desktop }}px;
+    padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+  }
+  .explore-sec {
+    background: {{ section.settings.explore_background }};
+    color: {{ section.settings.body_text }};
+  }
+  .explore-content h2{
+    color: {{ section.settings.body_text }};
+  }
+  .explore-content p{
+    color: {{ section.settings.body_text }};
+  }
+  .card-text{
+    color: {{ section.settings.body_text }};
+  }
+
+  @media only screen and (min-width: 750px) and (max-width: 1023px){
+    .section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_tablet }}px;
+      padding-bottom: {{ section.settings.padding_bottom_tablet }}px;
+    }
+  }
+
+  @media only screen and (max-width: 750px){
+    .section-{{ section.id }} {
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+      padding-left:20px !important;
+    }
+  }
+</style>
+
+<section class="section-{{ section.id }} explore-sec page-width">
+  <div class="explore-content">
+    {% if section.settings.explore_heading %}
+      <h2>{{ section.settings.explore_heading }}</h2>
+    {% endif %}
+    {% if section.settings.explore_subheading %}
+      <p>{{ section.settings.explore_subheading }}</p>
+    {% endif %}
+  </div>
+
+  <div class="swiper explore-swiper explore-parent-card">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper explore-wrapper ">
+      <!-- Slides -->
+      {% for block in section.blocks %}
+        <div class="swiper-slide explore-slide ">
+          <div class="info-wrapper">
+            {% if block.settings.explore_paragraph %}
+              {{ block.settings.explore_paragraph | replace: '<p>', '<p class="card-text">' }}
+            {% endif %}
+
+            {% if block.settings.explore_image %}
+              <div class="image-wrapper">
+                {{ block.settings.explore_image | image_url: width: 388 | image_tag: class: 'card-image', loading: 'lazy', alt: 'Explore Image' }}
+              </div>
+            {% endif %}
+            <div class="hover-content">
+              {% if block.settings.explore_paragraph %}
+                {{ block.settings.explore_paragraph | replace: '<p>', '<p class="card-text">' }}
+              {% endif %}
+              {% if block.settings.explore_sub_paragraph %}
+                <div class="truncate-wrapper">
+                  <div class="card-hover-description">
+                    {{ block.settings.explore_sub_paragraph | truncate: 80, '' }}
+                  </div>
+                </div>
+              {% endif %}
+              <div class="arrow-btn">
+                <a href="{{block.settings['explore_button_link']}}">
+                  <svg
+                    class="arrow-main"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="33"
+                    height="32"
+                    viewBox="0 0 33 32"
+                    fill="none"
+                  >
+                    <path d="M10.8516 20.8486L26.1305 6.6103" stroke="black" stroke-width="1.5"/>
+                    <path d="M13.3867 6.61133H26.1301V19.3547" stroke="black" stroke-width="1.5"/>
+                  </svg>
+                </a>
+              </div>
+              {% if block.settings.explore_video %}
+                <div class="video-wrapper">
+                  {{
+                    block.settings.explore_video
+                    | video_tag: autoplay: true, loop: true, muted: true, controls: false, class: 'card-video'
+                  }}
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    let exploreSwiper = null;
+    const swiperContainer = document.querySelector('.explore-swiper');
+
+    function initExploreSwiper() {
+      if (exploreSwiper) {
+        exploreSwiper.destroy(true, true);
+      }
+      exploreSwiper = new Swiper('.explore-swiper', {
+        slidesPerView: 1.3,
+        spaceBetween: 0,
+        slidesPerGroup: 1,
+        breakpoints: {
+          480: {
+            slidesPerView: 1.3,
+            spaceBetween: 0,
+          },
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 0,
+          },
+          750: {
+            slidesPerView: 3,
+            spaceBetween: 0,
+          },
+        },
+        pagination: { 
+          el: '.swiper-pagination', 
+          clickable: true 
+        },
+      });
+    }
+
+    initExploreSwiper();
+
+    window.addEventListener('resize', function() {
+      initExploreSwiper();
+    }, { once: true });
+  }, { once: true });
+</script>
+
+{% schema %}
+{
+  "name": "Information Grid",
+  "tag": "section",
+  "max_blocks": 3,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom Desktop",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom Mobile",
+      "default": 36
+    },
+    {
+      "type": "header",
+      "content": "Inner Spacing Desktop Settings"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Top Desktop",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom Desktop",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Inner Spacing Tablet Settings"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_tablet",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Top Desktop",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_tablet",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom Desktop",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Inner Spacing Mobile Settings"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Top Mobile",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom Mobile",
+      "default": 40
+    },
+    {
+      "type": "text",
+      "id": "explore_heading",
+      "label": "Heading",
+      "default": "Enter the section heading"
+    },
+    {
+      "type": "text",
+      "id": "explore_subheading",
+      "label": "Subheading",
+      "default": "Enter the section sub heading"
+    },
+    {
+      "type": "color_background",
+      "id": "explore_background",
+      "label": "Background",
+      "default": " #000000"
+    },
+    {
+      "type": "color",
+      "id": "body_text",
+      "label": "Body text",
+      "default": "#fff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "info",
+      "name": "info Item",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "explore_paragraph",
+          "label": "Paragraph",
+          "default": "<p>Start with <strong>bold text</strong> here</p>"
+        },
+        {
+          "type": "text",
+          "id": "explore_sub_paragraph",
+          "label": "Sub Paragraph",
+          "default": "Add up to 80 characters including space. Text beyond this limit may be hidden in the card."
+        },
+        {
+          "type": "image_picker",
+          "id": "explore_image",
+          "label": "Image"
+        },
+        {
+          "type": "video",
+          "id": "explore_video",
+          "label": "A Shopify-hosted video"
+        },
+        {
+          "type": "url",
+          "id": "explore_button_link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Information Grid",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "info",
+          "settings": {
+            "explore_paragraph": "<p>Start with <strong>bold text</strong> here</p>",
+            "explore_sub_paragraph": "Enter text that fits within two lines. Try to keep it concise; avoid long sentences that may overflow the card.",
+            "explore_button_link": "#"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

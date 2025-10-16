@@ -11,13 +11,70 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "homepage_information_grid_jrkJDP": {
+      "type": "homepage-information-grid",
+      "blocks": {
+        "info_EkYjAK": {
+          "type": "info",
+          "settings": {
+            "explore_paragraph": "<p><strong>Speed</strong>: Moved by momentum and edge</p>",
+            "explore_sub_paragraph": "Inspired by the thrill of the racetrack, the Titan Racecraft Collection fuses motorsport aesthetics with cutting-edge chronograph design—crafted for those who live fast, drive sharp, and demand precision.",
+            "explore_image": "shopify://shop_images/Rectangle_469_3.png",
+            "explore_video": "shopify://files/videos/e3dd1e19f9ab4373b32489fe70b2fd2d.mp4",
+            "explore_button_link": "#"
+          }
+        },
+        "info_YVba9Y": {
+          "type": "info",
+          "settings": {
+            "explore_paragraph": "<p><strong>Speed</strong>: Moved by momentum and edge</p>",
+            "explore_sub_paragraph": "Inspired by the thrill of the racetrack, the Titan Racecraft Collection fuses motorsport aesthetics with cutting-edge chronograph design—crafted for those who live fast, drive sharp, and demand precision.",
+            "explore_image": "shopify://shop_images/Rectangle_469_4.png",
+            "explore_video": "shopify://files/videos/4096d69872ce40d08e538bb07b2f1445.mp4",
+            "explore_button_link": "#"
+          }
+        },
+        "info_YWEb6h": {
+          "type": "info",
+          "settings": {
+            "explore_paragraph": "<p><strong>Speed</strong>: Moved by momentum and edge</p>",
+            "explore_sub_paragraph": "Inspired by the thrill of the racetrack, the Titan Racecraft Collection fuses motorsport aesthetics with cutting-edge chronograph design—crafted for those who live fast, drive sharp, and demand precision.",
+            "explore_image": "shopify://shop_images/Rectangle_469_5.png",
+            "explore_video": "shopify://files/videos/e3dd1e19f9ab4373b32489fe70b2fd2d.mp4",
+            "explore_button_link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "info_EkYjAK",
+        "info_YVba9Y",
+        "info_YWEb6h"
+      ],
+      "name": "Information Grid",
+      "settings": {
+        "margin_bottom_desktop": 36,
+        "margin_bottom_mobile": 36,
+        "padding_top_desktop": 60,
+        "padding_bottom_desktop": 60,
+        "padding_top_tablet": 60,
+        "padding_bottom_tablet": 60,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "explore_heading": "Explore by Inspiration",
+        "explore_subheading": "Select a theme that speaks to you, and we’ll guide you through curated timepieces designed to intrigue, inspire, and elevate your watch collection.",
+        "explore_background": "#000000",
+        "body_text": "#ffffff"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "homepage_information_grid_jrkJDP"
   ]
 }
