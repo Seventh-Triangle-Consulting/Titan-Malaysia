@@ -47,6 +47,7 @@
     }
   }
 {%- endstyle -%}
+
 {% if section.blocks != blank %}
   <section class="homepage-main-banner-container section-{{ section.id }}-margin" id="{{ section.id }}">
     <div class="homepage-main-banner">
@@ -195,26 +196,26 @@
     </div>
   </section>
 {% endif %}
-<script> 
+
+<script>
   window.addEventListener(
     'DOMContentLoaded',
     () => {
-  const mainBannerSwiper{{- section.id | remove: "--" | remove: "__" | remove: "-" }} = new Swiper(`#{{ section.id }} .main-banner-swiper`, {
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-    
-    {% if section.settings.autoplay == true %}
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-      },
-    {% endif %}
-  });
-},
-{ once: true }
-);
+      const mainBannerSwiper{{- section.id | remove: "--" | remove: "__" | remove: "-" }} = new Swiper(`#{{ section.id }} .main-banner-swiper`, {
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        
+        {% if section.settings.autoplay == true %}
+          autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+          },
+        {% endif %}
+      });
+    },{ once: true }
+  );
 </script>
 
 {% schema %}
