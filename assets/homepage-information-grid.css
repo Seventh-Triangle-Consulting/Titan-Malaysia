@@ -31,7 +31,7 @@
 .explore-slide {
   border-right: 1px solid #ffffff4d;
   border-left: 1px solid #ffffff4d;
-  margin-left: -1px; /* Prevents double borders */
+  margin-left: -1px;
   overflow: hidden;
 }
 .explore-sec .swiper-wrapper:nth-child(1) {
@@ -69,7 +69,7 @@
   padding: 30px 30px 12px;
   opacity: 0;
   pointer-events: none;
-  transform: translateY(30px); /* starts slightly lower */
+  transform: translateY(30px);
   transition: transform 1s cubic-bezier(0.25, 1, 0.3, 1), opacity 1s ease;
 }
 .explore-slide:hover .hover-content {
