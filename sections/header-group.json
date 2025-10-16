@@ -145,6 +145,7 @@
     },
     "contact_popup_MMQq97": {
       "type": "contact-popup",
+      "disabled": true,
       "settings": {
         "popup-bg-img": "shopify://shop_images/popupbg_1.jpg",
         "popup-bg-img-mob": "shopify://shop_images/popup-mobile.jpg",

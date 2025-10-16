@@ -11,6 +11,7 @@
   "sections": {
     "banner": {
       "type": "main-collection-banner",
+      "disabled": true,
       "settings": {
         "show_collection_description": true,
         "show_collection_image": false,
@@ -19,6 +20,7 @@
     },
     "product-grid": {
       "type": "main-collection-product-grid",
+      "disabled": true,
       "settings": {
         "products_per_page": 16,
         "columns_desktop": 4,
