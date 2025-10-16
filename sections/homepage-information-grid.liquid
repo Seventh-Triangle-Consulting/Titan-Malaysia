@@ -60,7 +60,7 @@
 
             {% if block.settings.explore_image %}
               <div class="image-wrapper">
-                {{ block.settings.explore_image | image_url: width: 388 | image_tag: class: 'card-image' }}
+                {{ block.settings.explore_image | image_url: width: 388 | image_tag: class: 'card-image', loading: 'lazy', alt: 'Explore Image' }}
               </div>
             {% endif %}
             <div class="hover-content">
@@ -69,14 +69,21 @@
               {% endif %}
               {% if block.settings.explore_sub_paragraph %}
                 <div class="truncate-wrapper">
-                <div class="card-hover-description">
-                  {{ block.settings.explore_sub_paragraph | truncate: 80, '' }}
-                </div>
+                  <div class="card-hover-description">
+                    {{ block.settings.explore_sub_paragraph | truncate: 80, '' }}
+                  </div>
                 </div>
               {% endif %}
               <div class="arrow-btn">
                 <a href="{{block.settings['explore_button_link']}}">
-                  <svg class="arrow-main" xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none">
+                  <svg
+                    class="arrow-main"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="33"
+                    height="32"
+                    viewBox="0 0 33 32"
+                    fill="none"
+                  >
                     <path d="M10.8516 20.8486L26.1305 6.6103" stroke="black" stroke-width="1.5"/>
                     <path d="M13.3867 6.61133H26.1301V19.3547" stroke="black" stroke-width="1.5"/>
                   </svg>
@@ -107,8 +114,8 @@
 
     function initExploreSwiper() {
       if (exploreSwiper) {
-    exploreSwiper.destroy(true, true); //  clean up old swiper
-  }
+        exploreSwiper.destroy(true, true);
+      }
       exploreSwiper = new Swiper('.explore-swiper', {
         slidesPerView: 1.3,
         spaceBetween: 0,
@@ -127,16 +134,19 @@
             spaceBetween: 0,
           },
         },
-        pagination: { el: '.swiper-pagination', clickable: true },
+        pagination: { 
+          el: '.swiper-pagination', 
+          clickable: true 
+        },
       });
     }
 
-    // Initialize on load
     initExploreSwiper();
 
-    // Re-check on resize
-    window.addEventListener('resize', initExploreSwiper);
-  });
+    window.addEventListener('resize', function() {
+      initExploreSwiper();
+    }, { once: true });
+  }, { once: true });
 </script>
 
 {% schema %}
@@ -281,7 +291,7 @@
           "type": "text",
           "id": "explore_sub_paragraph",
           "label": "Sub Paragraph",
-          "default": "Add up to 80 characters including space. Text beyond this limit may be hidden in the card.",
+          "default": "Add up to 80 characters including space. Text beyond this limit may be hidden in the card."
         },
         {
           "type": "image_picker",
