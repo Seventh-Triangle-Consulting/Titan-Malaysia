@@ -17,6 +17,146 @@
         "padding_bottom": 28
       }
     },
+    "homepage_product_grid_F6wdtB": {
+      "type": "homepage-product-grid",
+      "blocks": {
+        "product_block_YNjdAq": {
+          "type": "product_block",
+          "settings": {
+            "grid_product_image": "shopify://shop_images/Rectangle_5.png",
+            "grid_product_url": "#",
+            "grid_product_text": "Vibrant gradient dials & sun-moon phases, embodying the celestial harmony of the sky's intricate patterns.",
+            "desktop_view": "1fr",
+            "tablet_view": "1fr",
+            "mobile_view": "1fr"
+          }
+        },
+        "product_block_YCBaMD": {
+          "type": "product_block",
+          "settings": {
+            "grid_product_image": "shopify://shop_images/watch_2_b3b7aaa8-d30c-417c-83f9-ba911b29ba4a.png",
+            "grid_product_url": "#",
+            "grid_product_text": "Vibrant gradient dials & sun-moon phases, embodying the celestial harmony of the sky's intricate patterns.",
+            "desktop_view": "1fr",
+            "tablet_view": "1fr",
+            "mobile_view": "1fr"
+          }
+        },
+        "product_block_TqReQy": {
+          "type": "product_block",
+          "settings": {
+            "grid_product_image": "shopify://shop_images/watch_3_a904996d-a25a-464f-9b69-788452b1276d.png",
+            "grid_product_url": "#",
+            "grid_product_text": "Vibrant gradient dials & sun-moon phases, embodying the celestial harmony of the sky's intricate patterns.",
+            "desktop_view": "2fr",
+            "tablet_view": "2fr",
+            "mobile_view": "2fr"
+          }
+        },
+        "product_block_CfCwgt": {
+          "type": "product_block",
+          "settings": {
+            "grid_product_image": "shopify://shop_images/watch_6_0f0ac8c1-b98e-4a04-9c83-859729c083bb.png",
+            "grid_product_url": "#",
+            "grid_product_text": "Vibrant gradient dials & sun-moon phases, embodying the celestial harmony of the sky's intricate patterns.",
+            "desktop_view": "1fr",
+            "tablet_view": "2fr",
+            "mobile_view": "1fr"
+          }
+        },
+        "product_block_AzzaHG": {
+          "type": "product_block",
+          "settings": {
+            "grid_product_image": "shopify://shop_images/watch_7_f606a4a2-83d9-40bf-a3c6-5ca8f2a4988d.png",
+            "grid_product_url": "#",
+            "grid_product_text": "Vibrant gradient dials & sun-moon phases, embodying the celestial harmony of the sky's intricate patterns.",
+            "desktop_view": "1fr",
+            "tablet_view": "1fr",
+            "mobile_view": "1fr"
+          }
+        },
+        "product_block_XmWCYM": {
+          "type": "product_block",
+          "settings": {
+            "grid_product_image": "shopify://shop_images/watch_10_c1250173-82e6-4630-bfe9-616071c73c59.png",
+            "grid_product_url": "#",
+            "grid_product_text": "Vibrant gradient dials & sun-moon phases, embodying the celestial harmony of the sky's intricate patterns.",
+            "desktop_view": "1fr",
+            "tablet_view": "1fr",
+            "mobile_view": "2fr"
+          }
+        },
+        "product_block_jARLrc": {
+          "type": "product_block",
+          "settings": {
+            "grid_product_image": "shopify://shop_images/watch_9_d7964117-54a3-44e4-9c02-80727938269c.png",
+            "grid_product_url": "#",
+            "grid_product_text": "Vibrant gradient dials & sun-moon phases, embodying the celestial harmony of the sky's intricate patterns.",
+            "desktop_view": "1fr",
+            "tablet_view": "1fr",
+            "mobile_view": "1fr"
+          }
+        },
+        "product_block_c6dtce": {
+          "type": "product_block",
+          "settings": {
+            "grid_product_image": "shopify://shop_images/watch_8_55c38614-dcee-4ef5-a60c-577d7602c0ef.png",
+            "grid_product_url": "#",
+            "grid_product_text": "Vibrant gradient dials & sun-moon phases, embodying the celestial harmony of the sky's intricate patterns.",
+            "desktop_view": "2fr",
+            "tablet_view": "1fr",
+            "mobile_view": "1fr"
+          }
+        },
+        "product_block_aHWJTw": {
+          "type": "product_block",
+          "settings": {
+            "grid_product_image": "shopify://shop_images/watch_5_ac17fd0b-c81f-40bb-880d-165082ac4186.png",
+            "grid_product_url": "#",
+            "grid_product_text": "Vibrant gradient dials & sun-moon phases, embodying the celestial harmony of the sky's intricate patterns.",
+            "desktop_view": "1fr",
+            "tablet_view": "1fr",
+            "mobile_view": "1fr"
+          }
+        },
+        "product_block_Jw49xH": {
+          "type": "product_block",
+          "settings": {
+            "grid_product_image": "shopify://shop_images/watch_4_d41aa6e1-2dfe-4a1c-bf2e-91e596ea41cd.png",
+            "grid_product_url": "#",
+            "grid_product_text": "Vibrant gradient dials & sun-moon phases, embodying the celestial harmony of the sky's intricate patterns.",
+            "desktop_view": "1fr",
+            "tablet_view": "1fr",
+            "mobile_view": "1fr"
+          }
+        }
+      },
+      "block_order": [
+        "product_block_YNjdAq",
+        "product_block_YCBaMD",
+        "product_block_TqReQy",
+        "product_block_CfCwgt",
+        "product_block_AzzaHG",
+        "product_block_XmWCYM",
+        "product_block_jARLrc",
+        "product_block_c6dtce",
+        "product_block_aHWJTw",
+        "product_block_Jw49xH"
+      ],
+      "name": "Product Grid Section",
+      "settings": {
+        "margin_bottom_desktop": 0,
+        "margin_bottom_mobile": 0,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 0,
+        "padding_top_tablet": 0,
+        "padding_bottom_tablet": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "bg_color": "#ffffff",
+        "text_color": "#ffffff"
+      }
+    },
     "homepage_information_grid_jrkJDP": {
       "type": "homepage-information-grid",
       "blocks": {
@@ -75,6 +215,7 @@
   },
   "order": [
     "main",
+    "homepage_product_grid_F6wdtB",
     "homepage_information_grid_jrkJDP"
   ]
 }
