@@ -44,11 +44,11 @@
   <div class="swiper product-swiper">
     <div class="swiper-wrapper products-card-wrapper">
       {% if template.name == 'collection' %}
-        {% assign my_collection = collections[section.settings.collection] %}
+        {% assign my_collection = collection.metafields.custom.stellar_more_collection.value %}
       {% else %}
         {% assign my_collection = product.metafields.custom.stellar_product_list.value %}
       {% endif %}
-      {% for product in my_collection limit:10 %}
+      {% for product in my_collection limit: 10 %}
         <div class="swiper-slide product-card-slide">
           <div class="product-image-sec">
             <div class="product-image-wrapper">
@@ -102,31 +102,35 @@
 </section>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    let productSwiper = null;
-    const swiperSelector = '.product-swiper';
+  document.addEventListener(
+    'DOMContentLoaded',
+    function () {
+      let productSwiper = null;
+      const swiperSelector = '.product-swiper';
 
-    function initProductSwiper() {
-      const isDesktop = window.innerWidth >= 1025;
+      function initProductSwiper() {
+        const isDesktop = window.innerWidth >= 1025;
 
-      if (productSwiper) {
-        productSwiper.destroy(true, true);
-        productSwiper = null;
+        if (productSwiper) {
+          productSwiper.destroy(true, true);
+          productSwiper = null;
+        }
+
+        if (isDesktop) {
+          productSwiper = new Swiper(swiperSelector, {
+            slidesPerView: 3.5,
+            spaceBetween: 15,
+            slidesOffsetAfter: 28,
+          });
+        }
       }
 
-      if (isDesktop) {
-        productSwiper = new Swiper(swiperSelector, {
-          slidesPerView: 3.5,
-          spaceBetween: 15,
-          slidesOffsetAfter: 28
-        });
-      }
-    }
+      initProductSwiper();
 
-    initProductSwiper();
-
-    window.addEventListener('resize', initProductSwiper, { once: true });
-  }, { once: true });
+      window.addEventListener('resize', initProductSwiper, { once: true });
+    },
+    { once: true }
+  );
 </script>
 
 {% schema %}
@@ -247,11 +251,6 @@
       "id": "text_color",
       "label": "Color",
       "default": "#000"
-    },
-    {
-      "type": "collection",
-      "id": "collection",
-      "label": "Select Collection"
     }
   ],
   "presets": [
