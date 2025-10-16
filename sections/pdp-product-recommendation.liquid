@@ -1,0 +1,270 @@
+{{ 'pdp-product-recommendation.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .section-{{ section.id }} {
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+    padding-top: {{ section.settings.padding_top_desktop }}px;
+    padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    background: {{ section.settings.background_color }};
+    color: {{ section.settings.text_color }};
+  }
+
+  .product-cards-heading h2{
+    color: {{ section.settings.text_color}};
+  }
+  .product-card-slide .product-title{
+    color: {{ section.settings.text_color}};
+  }
+
+
+  @media only screen and (min-width: 750px) and (max-width: 1023px){
+    .section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_tablet }}px;
+      padding-bottom: {{ section.settings.padding_bottom_tablet }}px;
+    }
+  }
+
+  @media only screen and (max-width: 749px){
+    .section-{{ section.id }} {
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+
+    }
+  }
+</style>
+
+<section class="section-{{ section.id }} products-card-section">
+  {% if section.settings.heading != blank %}
+    <div class="product-cards-heading">
+      <h2 class="section-heading">{{ section.settings.heading }}</h2>
+    </div>
+  {% endif %}
+
+  <div class="swiper product-swiper">
+    <div class="swiper-wrapper products-card-wrapper">
+      {% if template.name == 'collection' %}
+        {% assign my_collection = collections[section.settings.collection] %}
+      {% else %}
+        {% assign my_collection = product.metafields.custom.stellar_product_list.value %}
+      {% endif %}
+      {% for product in my_collection limit:10 %}
+        <div class="swiper-slide product-card-slide">
+          <div class="product-image-sec">
+            <div class="product-image-wrapper">
+              <a href="{{product.url}}">
+                {{
+                  product.featured_image
+                  | image_url: width: 400
+                  | image_tag: alt: product.title, class: 'product-card-image', loading: 'lazy', alt: product.title
+                }}
+              </a>
+            </div>
+
+            <div class="arrow-btn">
+              <a href="{{product.url}}">
+                <svg
+                  class="arrow-main"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="31"
+                  height="31"
+                  viewBox="0 0 33 32"
+                  fill="none"
+                >
+                  <path d="M10.8516 20.8486L26.1305 6.6103" stroke="white" stroke-width="1.5"/>
+                  <path d="M13.3867 6.61133H26.1301V19.3547" stroke="white" stroke-width="1.5"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="product-content">
+            <h3 class="product-title">{{ product.title }}</h3>
+            <div class="arrow-btn">
+              <a href="{{product.url}}">
+                <svg
+                  class="arrow-main"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="31"
+                  height="31"
+                  viewBox="0 0 33 32"
+                  fill="none"
+                >
+                  <path d="M10.8516 20.8486L26.1305 6.6103" stroke="{{section.settings.text_color}}" stroke-width="1.5"/>
+                  <path d="M13.3867 6.61133H26.1301V19.3547" stroke="{{ section.settings.text_color}}" stroke-width="1.5"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    let productSwiper = null;
+    const swiperSelector = '.product-swiper';
+
+    function initProductSwiper() {
+      const isDesktop = window.innerWidth >= 1025;
+
+      if (productSwiper) {
+        productSwiper.destroy(true, true);
+        productSwiper = null;
+      }
+
+      if (isDesktop) {
+        productSwiper = new Swiper(swiperSelector, {
+          slidesPerView: 3.5,
+          spaceBetween: 15,
+          slidesOffsetAfter: 28
+        });
+      }
+    }
+
+    initProductSwiper();
+
+    window.addEventListener('resize', initProductSwiper, { once: true });
+  }, { once: true });
+</script>
+
+{% schema %}
+{
+  "name": "Product Recommendation",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom Desktop",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom Mobile",
+      "default": 36
+    },
+    {
+      "type": "header",
+      "content": "Inner Spacing Desktop Settings"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Top Desktop",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom Desktop",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Inner Spacing Tablet Settings"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_tablet",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Top Desktop",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_tablet",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom Desktop",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Inner Spacing Mobile Settings"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Top Mobile",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom Mobile",
+      "default": 40
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "Featured Products"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Color",
+      "default": "#000"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Select Collection"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Recommendation",
+      "category": "Products",
+      "blocks": [],
+      "settings": {
+        "heading": "Featured Products",
+        "background_color": "#ffffff",
+        "text_color": "#000000"
+      }
+    }
+  ]
+}
+{% endschema %}
