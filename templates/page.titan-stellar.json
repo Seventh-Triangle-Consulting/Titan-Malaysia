@@ -35,10 +35,44 @@
             "buttontextcolor": "#486b9c",
             "content-position": "bottom-center"
           }
+        },
+        "image_KCiCcY": {
+          "type": "image",
+          "settings": {
+            "desktop_media_type": "video",
+            "desktop_banner_video": "shopify://files/videos/Titan-stellar-hero.mp4",
+            "mobile_media_type": "video",
+            "mobile_banner_video": "shopify://files/videos/Titan-stellar-hero.mp4",
+            "desktop_banner_text": "Titan Stellar–Explore The Unexplored",
+            "mobile_banner_text": "",
+            "button_text1": "explore the story",
+            "button_link1": "#",
+            "buttoncolor": "#ffffff",
+            "buttontextcolor": "#486b9c",
+            "content-position": "bottom-center"
+          }
+        },
+        "image_p7rL6n": {
+          "type": "image",
+          "settings": {
+            "desktop_media_type": "video",
+            "desktop_banner_video": "shopify://files/videos/Titan-stellar-hero.mp4",
+            "mobile_media_type": "video",
+            "mobile_banner_video": "shopify://files/videos/Titan-stellar-hero.mp4",
+            "desktop_banner_text": "Titan Stellar–Explore The Unexplored",
+            "mobile_banner_text": "",
+            "button_text1": "explore the story",
+            "button_link1": "#",
+            "buttoncolor": "#ffffff",
+            "buttontextcolor": "#486b9c",
+            "content-position": "bottom-center"
+          }
         }
       },
       "block_order": [
-        "image_mgP4zn"
+        "image_mgP4zn",
+        "image_KCiCcY",
+        "image_p7rL6n"
       ],
       "name": "Custom Main Banner Image",
       "settings": {
