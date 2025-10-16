@@ -203,10 +203,9 @@
     () => {
       const mainBannerSwiper{{- section.id | remove: "--" | remove: "__" | remove: "-" }} = new Swiper(`#{{ section.id }} .main-banner-swiper`, {
         pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
+          el: ".swiper-pagination",
+          clickable: true,
         },
-        
         {% if section.settings.autoplay == true %}
           autoplay: {
             delay: 3000,
