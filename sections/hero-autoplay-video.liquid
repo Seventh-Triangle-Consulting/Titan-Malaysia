@@ -1,0 +1,151 @@
+{{ 'hero-autoplay-video.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .autoplay-video-section {
+    margin-top: {{ section.settings.margin_top | default: 50 }}px;
+    margin-bottom: {{ section.settings.margin_bottom | default: 50 }}px;
+  }
+
+  /* Show desktop video only on desktop */
+  {% if section.settings.video_desktop != blank %}
+    .desktop-video { display: block; }
+    .mobile-video { display: none; }
+  {% endif %}
+
+  @media (max-width: 768px) {
+    {% if section.settings.video_mobile != blank %}
+      .desktop-video { display: none; }
+      .mobile-video { display: block; }
+    {% endif %}
+  }
+</style>
+
+<section class="autoplay-video-section">
+  <div class="video-wrapper">
+    {% if section.settings.video_desktop != blank %}
+      {%
+        render 'video', 
+        video: section.settings.video_desktop, 
+        autoplay: true, 
+        muted: true, 
+        loop: true, 
+        controls: false, 
+        playsinline: true, 
+        class: 'autoplay-video desktop-video', 
+        id: 'bgVideo'
+      %}
+    {% endif %}
+
+    {% if section.settings.video_mobile != blank %}
+      {%
+        render 'video', 
+        video: section.settings.video_mobile, 
+        autoplay: true, 
+        muted: true, 
+        loop: true, 
+        controls: false, 
+        playsinline: true, 
+        class: 'autoplay-video mobile-video', 
+        id: 'bgVideo'
+      %}
+    {% endif %}
+  </div>
+</section>
+
+<script>
+  const video = document.getElementById('bgVideo');
+  const playPauseBtn = document.getElementById('playPause');
+
+  // --- Changed: Use the new mute/unmute SVG as button instead of separate volumeIcon ---
+  const muteUnmuteBtn = document.getElementById('muteUnmute'); 
+
+  // --- Changed: Updated scroll down selector to the new SVG id ---
+  const scrollDown = document.getElementById('scrollDown');
+
+  // Play/Pause toggle
+  playPauseBtn.addEventListener('click', () => {
+    if (video.paused) {
+      video.play();
+      playPauseBtn.innerHTML = `
+        {% comment %} <path d="M8 5v14l11-7z"/> {% endcomment %}
+        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+      `;
+    } else {
+      video.pause();
+      playPauseBtn.innerHTML = `
+        <path d="M8 5v14l11-7z"/>
+      `;
+    }
+  });
+
+  // Mute/Unmute toggle
+  muteUnmuteBtn.addEventListener('click', () => {
+    video.muted = !video.muted;
+    // --- Changed: Update the path directly on the same SVG ---
+    muteUnmuteBtn.innerHTML = video.muted
+      ? `<path d="M16 7.82v8.36L12.41 12 16 7.82zM5 9v6h4l5 5V4l-5 5H5z"/>`
+      : `<path d="M5 9v6h4l5 5V4l-5 5H5z"/>`;
+  });
+
+  // Scroll down action
+  scrollDown.addEventListener('click', () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: 'smooth',
+    });
+  });
+
+</script>
+
+{% schema %}
+{
+  "name": "Autoplay Video",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Video Settings"
+    },
+    {
+      "type": "video",
+      "id": "video_desktop",
+      "label": "Desktop Video",
+      "info": "Upload a video for desktop view."
+    },
+    {
+      "type": "video",
+      "id": "video_mobile",
+      "label": "Mobile Video",
+      "info": "Upload a video for mobile view."
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "label": "Top margin",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "label": "Bottom margin",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    }
+  ],
+  "presets": [
+    {
+      "name": "Auto Play Video"
+    }
+  ]
+}
+{% endschema %}
