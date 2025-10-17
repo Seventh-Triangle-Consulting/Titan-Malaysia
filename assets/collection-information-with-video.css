@@ -1,0 +1,149 @@
+.collection-information-sec .container {
+    display: flex;
+    gap: 48px;
+    padding-left: 91px;
+}
+
+.collection-information-sec .collection-info-content {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: calc(31% - 24px);
+}
+
+.collection-information-sec .collection-info-content h2 {
+    font-family: 'PPMonumentWide-Regular', sans-serif;
+    font-size: 30px;
+    line-height: 40px;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+}
+
+.collection-information-sec .collection-info-content p {
+    font-family: 'SuisseIntl-Regular', sans-serif;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0px;
+}
+
+.collection-information-sec .collection-info-video {
+    position: relative;
+    width: calc(70% - 24px);
+    flex: 1 1 auto;
+}
+
+.collection-information-sec .video-controls {
+    position: absolute;
+    bottom: 0%;
+    width: 100%;
+    padding: 0 20px;
+    margin-bottom: 31px;
+}
+
+.collection-information-sec .video-wrapper {
+    width: 100%;
+
+}
+
+.collection-information-sec .video-wrapper video {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.collection-information-sec .video-controls .video-controls-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.collection-information-sec .video-controls-wrapper .control-btn {
+    background: none;
+    border: none;
+}
+
+.collection-information-sec .video-controls-wrapper .control-btn svg {
+    display: block;
+    background: none;
+}
+
+.video-controls-wrapper .video-items {
+    display: flex;
+    gap: 24px;
+
+}
+@media only screen and  (max-width: 1057px){
+.collection-information-sec .collection-info-content h2 {
+        font-size: 27px;
+    }
+}
+@media only screen and (min-width: 750px) and (max-width: 1024px) {
+    .collection-information-sec .container {
+        flex-direction: column-reverse;
+        padding: 0 14px;
+        gap: 20px;
+    }
+
+    .collection-information-sec .collection-info-content {
+        padding-left: 0;
+        padding-top: 0;
+        flex-direction: row;
+        width: 100%;
+        gap: 60px;
+    }
+
+    .collection-information-sec .collection-info-content h2 {
+        font-size: 16px;
+        line-height: 25px;
+    }
+
+    .collection-information-sec .collection-info-content p {
+        font-size: 15px;
+        line-height: 20px;
+    }
+
+    .collection-information-sec .collection-info-video {
+        width: 100%;
+    }
+
+    .collection-information-sec .video-controls {
+        padding: 0 32px;
+        margin-bottom: 31px;
+    }
+    .video-controls-wrapper .video-items {
+        gap: 20px;
+    }
+}
+@media only screen and (max-width: 749.9px) {
+    .collection-information-sec .container {
+        flex-direction: column;
+        gap: 38px;
+        padding-left: 0;
+    }
+
+    .collection-information-sec .collection-info-content {
+        padding: 0 21px;
+        flex-direction: column;
+        width: 100%;
+        gap: 6px;
+    }
+
+    .collection-information-sec .collection-info-content h2 {
+        font-size: 19px;
+        line-height: 28px;
+    }
+
+    .collection-information-sec .collection-info-content p {
+        font-size: 15px;
+        line-height: 20px;
+    }
+
+    .collection-information-sec .collection-info-video {
+        width: 100%;
+    }
+
+    .collection-information-sec .video-controls {
+        display: none;
+    }
+}
