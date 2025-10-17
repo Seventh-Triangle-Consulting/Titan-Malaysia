@@ -1,39 +1,46 @@
 {{ 'split-loading-animation.css' | asset_url | stylesheet_tag }}
 
 <style>
-  .split-opener .split.top {
-    background-image: url({{section.settings.split_image | img_url:'1600x900'}});
-  }
-  .split-opener .split.bottom {
-    background-image: url({{section.settings.split_image| img_url:'1600x900'}});
-  }
+  {% if section.settings.split_image != blank %}
+    .split-opener .split.top {
+      background-image: url({{ section.settings.split_image | img_url: '1600x900' }});
+    }
+    .split-opener .split.bottom {
+      background-image: url({{ section.settings.split_image | img_url: '1600x900' }});
+    }
+  {% endif %}
 
   @media screen and (max-width: 767px) {
-    .split-opener .split.top {
-      background-image: url({{section.settings.split_image_mobile | img_url:'800x600'}});
-    }
-
-    .split-opener .split.bottom {
-      background-image: url({{section.settings.split_image_mobile | img_url:'800x600'}});
-    }
+    {% if section.settings.split_image_mobile != blank %}
+      .split-opener .split.top {
+        background-image: url({{ section.settings.split_image_mobile | img_url: '800x600' }});
+      }
+      .split-opener .split.bottom {
+        background-image: url({{ section.settings.split_image_mobile | img_url: '800x600' }});
+      }
+    {% endif %}
   }
 </style>
 
 <section class="split-opener">
   <div class="split top">
     <div class="heading">
-      <h2 class="main-heading">
-        {{ section.settings.section_heading }}
-      </h2>
+      {% if section.settings.section_heading != blank %}
+        <h2 class="main-heading">
+          {{ section.settings.section_heading }}
+        </h2>
+      {% endif %}
     </div>
   </div>
 
   <div class="split bottom">
-    <div>
-      <h2 class="sub-heading">
-        {{ section.settings.section_sub_heading }}
-      </h2>
-    </div>
+    {% if section.settings.section_sub_heading != blank %}
+      <div>
+        <h2 class="sub-heading">
+          {{ section.settings.section_sub_heading }}
+        </h2>
+      </div>
+    {% endif %}
   </div>
 </section>
 
