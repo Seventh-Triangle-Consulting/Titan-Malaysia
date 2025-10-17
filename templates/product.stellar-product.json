@@ -12,75 +12,41 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "vendor": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
-        "title": {
-          "type": "title",
+        "stellar_title_qe4pMB": {
+          "type": "stellar-title",
           "settings": {}
         },
-        "b607d1c0-5375-49f3-859b-52d3887260ae": {
-          "type": "rating",
+        "stellar_price_mnBxjW": {
+          "type": "stellar-price",
           "settings": {}
         },
-        "price": {
-          "type": "price",
+        "stellar_desc_jDbBhk": {
+          "type": "stellar-desc",
           "settings": {}
         },
-        "description": {
-          "type": "description",
+        "stellar_share_mRncHT": {
+          "type": "stellar-share",
           "settings": {}
         },
-        "variant_picker": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button"
-          }
-        },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "disabled": true,
+        "stellar_thumbs_slider_Hqptnm": {
+          "type": "stellar-thumbs-slider",
           "settings": {}
         },
-        "6f357501-efe5-4a62-8b55-2936766130a5": {
-          "type": "USP",
-          "disabled": true,
+        "stellar_button_LaYkJY": {
+          "type": "stellar-button",
           "settings": {
-            "urllink": "https://cdn.shopify.com/s/files/1/0692/8321/7683/files/Group_13554_2x_89f9a917-1bb7-49c8-944d-7033b5df65fa.png?v=1677495191,https://cdn.shopify.com/s/files/1/0692/8321/7683/files/Group_13552_2x_66b757fd-577d-43f2-bd06-7f6247622b51.png?v=1677495208,https://cdn.shopify.com/s/files/1/0692/8321/7683/files/Path_6411_2x_956554d0-b950-4c2c-b85f-308da6728be4.png?v=1677495208",
-            "icontext": "Servicing Available##COD Available##Secure Payment"
-          }
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": false,
-            "show_gift_card_recipient": true
-          }
-        },
-        "5084a510-7189-437e-bc00-7ae24be755b7": {
-          "type": "share",
-          "settings": {
-            "share_label": ""
+            "Enquiry_button": "Enquiry now"
           }
         }
       },
       "block_order": [
-        "vendor",
-        "title",
-        "b607d1c0-5375-49f3-859b-52d3887260ae",
-        "price",
-        "description",
-        "variant_picker",
-        "quantity_selector",
-        "6f357501-efe5-4a62-8b55-2936766130a5",
-        "buy_buttons",
-        "5084a510-7189-437e-bc00-7ae24be755b7"
+        "stellar_title_qe4pMB",
+        "stellar_price_mnBxjW",
+        "stellar_desc_jDbBhk",
+        "stellar_share_mRncHT",
+        "stellar_thumbs_slider_Hqptnm",
+        "stellar_button_LaYkJY"
       ],
-      "disabled": true,
       "settings": {
         "cod_text": "",
         "return_exchange_text": "",
@@ -98,19 +64,9 @@
         "hide_variants": true,
         "enable_video_looping": false,
         "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "74932d3a-78c7-4b22-9880-9fc42033a56c": {
-      "type": "about_the_brand",
-      "disabled": true,
-      "settings": {
-        "about_head1": "About the Brand",
-        "brand_description": "<p>Titan has come a long way since 1984 when we started with one product category. Today, with over 8,000 employees and about 38,000 in the overall Titan ecosystem, 16 brands and over 2,000 retail stores, we are as committed  as ever to delivering profitable and responsible growth for all our stakeholders.</p><p>Titan is India's leading lifestyle company and among the most admired and respected corporates in the country. We have established leading positions in the Jewellery, Watches and EyeCare categories led by our trusted brands and superior customer experience. we have also diversified into Wearables, Indian Dress Wear and Fragrances & Fashion Accessories and are driving differentiation in these lifestyle categories, underpinned by our deep understanding of customer preferences.</p>",
-        "desk_image_with_text_image": "shopify://shop_images/Titan-Logo-PNG.png",
-        "mobile_image_with_text_image": "shopify://shop_images/Titan-Logo-PNG.png",
-        "know_more_btn_text": "Know More",
-        "know_button_link": "shopify://pages/about-us"
+        "padding_bottom": 36,
+        "stellar_delivery_message": "",
+        "popup-form-heading": "Enquiry Form"
       }
     },
     "related-products": {
@@ -133,6 +89,52 @@
         "padding_bottom": 28
       }
     },
+    "stellar_specifications_WUhp4K": {
+      "type": "stellar-specifications",
+      "name": "Stellar Specifications",
+      "settings": {
+        "section_heading": "Specifications & Craftsmanship Details",
+        "tab1_heading": "Watch",
+        "tab2_heading": "Movement",
+        "tab3_heading": "Features",
+        "tab4_heading": "Warranty Details",
+        "background_color": "#1a1f3a",
+        "padding_top_desktop": 60,
+        "padding_bottom_desktop": 60,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "margin_top_desktop": 0,
+        "margin_bottom_desktop": 0,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0
+      }
+    },
+    "stellar_image_swiper_kjx7E6": {
+      "type": "stellar-image-swiper",
+      "name": "Stellar Image Swiper",
+      "settings": {
+        "background_color": "#000",
+        "margin_top_Desktop": 0,
+        "margin_bottom_Desktop": 20,
+        "margin_top_Mobile": 0,
+        "margin_bottom_Mobile": 20,
+        "padding_top_Desktop": 15,
+        "padding_bottom_Desktop": 15,
+        "padding_top_Mobile": 15,
+        "padding_bottom_Mobile": 15
+      }
+    },
+    "stellar_video_banner_z9BAkA": {
+      "type": "stellar-video-banner",
+      "name": "Stellar Video Section",
+      "settings": {
+        "margin_top_Desktop": 4,
+        "margin_bottom_Desktop": 20,
+        "margin_top_Mobile": 4,
+        "margin_bottom_Mobile": 20,
+        "show_video_control": true
+      }
+    },
     "pdp_product_recommendation_rXJMU7": {
       "type": "pdp-product-recommendation",
       "name": "Product Recommendation",
@@ -153,8 +155,10 @@
   },
   "order": [
     "main",
-    "74932d3a-78c7-4b22-9880-9fc42033a56c",
-    "related-products",
-    "pdp_product_recommendation_rXJMU7"
+    "stellar_video_banner_z9BAkA",
+    "stellar_image_swiper_kjx7E6",
+    "stellar_specifications_WUhp4K",
+    "pdp_product_recommendation_rXJMU7",
+    "related-products"
   ]
 }
