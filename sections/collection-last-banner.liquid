@@ -1,0 +1,340 @@
+{{ 'collection-main-banner.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .section-{{ section.id }}-margin {
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+  }
+  #{{ section.id }} .desktop-media-slide {
+    display: block;
+  }
+  #{{ section.id }} .desktop-media-slide video {
+    width: 100%;
+    height: auto;
+  }
+  #{{ section.id }} .mobile-media-slide {
+    display: none;
+  }
+
+  @media screen and (max-width: 750px) {
+    .section-{{ section.id }}-margin {
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+    }
+    #{{ section.id }} .desktop-media-slide {
+      display: none !important;
+    }
+    #{{ section.id }} .mobile-media-slide {
+      display: block !important;
+    }
+    #{{ section.id }} .mobile-media-slide video {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    #{{ section.id }} .swiper-pagination {
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 20;
+      bottom: 28px;
+    }
+  }
+</style>
+
+{% assign desktop_list = collection.metafields.custom.stellar_collection_image_video_desktop.value %}
+{% assign mobile_list = collection.metafields.custom.stellar_collection_image_video_mobile.value %}
+{% assign blocks = section.blocks %}
+
+{% if desktop_list or mobile_list %}
+  <section class="collection-main-banner-container section-{{ section.id }}-margin" id="{{ section.id }}">
+    <div class="collection-main-banner">
+      {% if section.settings.heading_text != blank %}
+        <h2 class="desktop_banner_text1 heading-collection-banner">{{ section.settings.heading_text }}</h2>
+      {% endif %}
+      <div class="swiper main-banner-swiper">
+        <div class="swiper-wrapper">
+          {%- comment -%} Desktop slides {%- endcomment -%}
+          {% for desktop_item in desktop_list %}
+            {% assign current_block = blocks[forloop.index0] %}
+            <div class="swiper-slide desktop-media-slide">
+              {% if desktop_item.media_type == 'video' %}
+                {{ desktop_item | video_tag: autoplay: true, muted: true, loop: true, controls: false }}
+              {% else %}
+                {{
+                  desktop_item
+                  | image_url: width: 1600
+                  | image_tag: class: 'desktop-banner-image', alt: 'Desktop Banner', loading: 'lazy'
+                }}
+              {% endif %}
+
+              {% if current_block %}
+                <div class="desktop_banner_content {{ current_block.settings['content-position'] }}">
+                  {% if current_block.settings.desktop_banner_text != blank %}
+                    <h2 class="desktop_banner_text1">
+                      {{ current_block.settings.desktop_banner_text | split: '##' | first }}
+                    </h2>
+                  {% endif %}
+                  {% if current_block.settings.button_text1 != blank %}
+                    <div class="flex-27">
+                      <a href="{{ current_block.settings.button_link1 }}">
+                        <h3
+                          class="desktop_button_text1"
+                          style="background-color:{{ current_block.settings.buttoncolor }}; color:{{ current_block.settings.buttontextcolor }}"
+                        >
+                          {{ current_block.settings.button_text1 }}
+                        </h3>
+                      </a>
+                    </div>
+                  {% endif %}
+                </div>
+              {% endif %}
+            </div>
+          {% endfor %}
+
+          {%- comment -%} Mobile slides {%- endcomment -%}
+          {% for mobile_item in mobile_list %}
+            {% assign current_block = blocks[forloop.index0] %}
+            <div class="swiper-slide mobile-media-slide">
+              {% if mobile_item.media_type == 'video' %}
+                {{
+                  mobile_item
+                  | video_tag: autoplay: true, muted: true, loop: true, controls: false, playsinline: true
+                }}
+              {% else %}
+                {{
+                  mobile_item
+                  | image_url: width: 600
+                  | image_tag: class: 'mobile-banner-image', alt: 'Mobile Banner', loading: 'lazy'
+                }}
+              {% endif %}
+
+              <div class="mobile_banner_content {{ current_block.settings['content-position'] }}">
+                <div class="mobile_banner_content_div">
+                  {% if current_block.settings.mobile_banner_text != blank %}
+                    <h2 class="mobile_banner_text1">{{ current_block.settings.mobile_banner_text }}</h2>
+                  {% endif %}
+                  {% if current_block.settings.button_text1 != blank %}
+                    <div class="flex-11">
+                      <a href="{{ current_block.settings.button_link1 }}">
+                        <h3
+                          class="mobile_button_text1"
+                          style="background-color:{{ current_block.settings.buttoncolor }}; color:{{ current_block.settings.buttontextcolor }}"
+                        >
+                          {{ current_block.settings.button_text1 }}
+                        </h3>
+                      </a>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+
+        <!-- Swiper navigation -->
+        <button class="swiper-button-prev" aria-label="Previous slide" type="button">
+          <span class="visually-hidden">Previous</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+            <g opacity="0.3">
+              <foreignObject x="-40" y="-40" width="120" height="120">
+                <div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(20px);clip-path:url(#bgblur_0_230_1282_clip_path);height:100%;width:100%"></div>
+              </foreignObject>
+              <circle data-figma-bg-blur-radius="40" cx="20" cy="20" r="19.25" transform="matrix(-1 0 0 1 40 0)" stroke="black" stroke-width="1.5"/>
+              <path d="M22.4482 13L15.3772 20.0711L22.4482 27.1421" stroke="black" stroke-width="1.5" stroke-linejoin="round"/>
+            </g>
+            <defs>
+              <clipPath id="bgblur_0_230_1282_clip_path" transform="translate(40 40)">
+                <circle cx="20" cy="20" r="19.25" transform="matrix(-1 0 0 1 40 0)"/>
+              </clipPath>
+            </defs>
+          </svg>
+        </button>
+
+        <button class="swiper-button-next" aria-label="Next slide" type="button">
+          <span class="visually-hidden">Next</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+            <g opacity="0.3">
+              <foreignObject x="-40" y="-40" width="120" height="120">
+                <div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(20px);clip-path:url(#bgblur_0_230_1281_clip_path);height:100%;width:100%"></div>
+              </foreignObject>
+              <circle data-figma-bg-blur-radius="40" cx="20" cy="20" r="19.25" stroke="black" stroke-width="1.5"/>
+              <path d="M17.5518 13L24.6228 20.0711L17.5518 27.1421" stroke="black" stroke-width="1.5" stroke-linejoin="round"/>
+            </g>
+            <defs>
+              <clipPath id="bgblur_0_230_1281_clip_path" transform="translate(40 40)">
+                <circle cx="20" cy="20" r="19.25"/>
+              </clipPath>
+            </defs>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const sectionEl = document.getElementById('{{ section.id }}');
+    const swiperSelector = `#{{ section.id }} .main-banner-swiper`;
+
+    const swiperInstance = new Swiper(swiperSelector, {
+      navigation: {
+        nextEl: `#{{ section.id }} .swiper-button-next`,
+        prevEl: `#{{ section.id }} .swiper-button-prev`,
+      },
+      {% if section.settings.autoplay == true %}
+        autoplay: { delay: 3000, disableOnInteraction: false },
+      {% endif %}
+      observer: true,
+      observeParents: true,
+      loop: false,
+    });
+
+    // Pause all videos
+    const pauseAllVideos = () => {
+      sectionEl.querySelectorAll('video').forEach(v => {
+        try { v.pause(); v.currentTime = 0; } catch(e){}
+      });
+    };
+
+    // Play video in active slide
+    const playActiveVideo = () => {
+      const idx = swiperInstance.realIndex ?? swiperInstance.activeIndex;
+      const activeSlide = swiperInstance.slides[idx];
+      if (!activeSlide) return;
+
+      const vid = activeSlide.querySelector('video');
+      if (vid) {
+        // Lazy load src if needed
+        if (!vid.src && vid.dataset.src) {
+          vid.src = vid.dataset.src;
+          vid.load();
+        }
+        // Must be muted & playsinline to autoplay on mobile
+        vid.muted = true;
+        vid.playsInline = true;
+        vid.loop = true;
+        vid.play().catch(()=>{});
+      }
+    };
+
+    // IntersectionObserver for section visibility
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          playActiveVideo();
+        } else {
+          pauseAllVideos();
+        }
+      });
+    }, { threshold: 0.5 });
+
+    observer.observe(sectionEl);
+
+    // Swiper events
+    swiperInstance.on('init slideChangeTransitionEnd', playActiveVideo);
+
+    // Initialize
+    swiperInstance.init();
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Collection Last Banner",
+  "settings": [
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin Bottom Desktop",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin Bottom Mobile",
+      "default": 36
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Autoplay Enable/Disable"
+    },
+    {
+      "type": "text",
+      "id": "heading_text",
+      "label": "Heading"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Banner Slide",
+      "settings": [
+        {
+          "type": "text",
+          "id": "desktop_banner_text",
+          "label": "Desktop Banner Text",
+          "info": "Separate the text with double hash (##)"
+        },
+        {
+          "type": "text",
+          "id": "mobile_banner_text",
+          "label": "Mobile Banner Text"
+        },
+        {
+          "type": "text",
+          "id": "button_text1",
+          "label": "Text for Button"
+        },
+        {
+          "type": "url",
+          "id": "button_link1",
+          "label": "Button Link"
+        },
+        {
+          "type": "color",
+          "id": "buttoncolor",
+          "label": "Button Background Color"
+        },
+        {
+          "type": "color",
+          "id": "buttontextcolor",
+          "label": "Button Text Color"
+        },
+        {
+          "type": "select",
+          "id": "content-position",
+          "label": "Content Position",
+          "options": [
+            { "value": "top-left", "label": "Top Left" },
+            { "value": "top-center", "label": "Top Center" },
+            { "value": "top-right", "label": "Top Right" },
+            { "value": "middle-left", "label": "Middle Left" },
+            { "value": "middle-center", "label": "Middle Center" },
+            { "value": "middle-right", "label": "Middle Right" },
+            { "value": "bottom-left", "label": "Bottom Left" },
+            { "value": "bottom-center", "label": "Bottom Center" },
+            { "value": "bottom-right", "label": "Bottom Right" }
+          ],
+          "default": "bottom-center"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Last Banner"
+    }
+  ]
+}
+{% endschema %}
