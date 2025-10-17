@@ -1,0 +1,202 @@
+<style>
+  .section-{{ section.id }}-margin{
+      margin-bottom: {{ section.settings.margin_bottom_Desktop }}px;
+      margin-top: {{ section.settings.margin_top_Desktop }}px;
+  }
+
+
+    .homepage-video-container .mobile-video {
+      display: none;
+      line-height: 0;
+  }
+
+  .homepage-video-container .video-wrapper{
+    line-height: 0;
+  }
+
+  @media screen and (max-width: 768px) {
+      .section-{{ section.id }}-margin{
+          margin-bottom: {{ section.settings.margin_bottom_Mobile }}px;
+          margin-top: {{ section.settings.margin_top_Mobile }}px;
+      }
+      .homepage-video-container .desktop-video {
+          display: none;
+        }
+
+      .homepage-video-container .mobile-video {
+          display: block;
+          line-height: 0;
+      }
+  }
+</style>
+{% if section.settings.video_desktop != blank and section.settings.video_mobile != blank %}
+  <section class="homepage-video-container section-{{ section.id }}-margin" id="{{ section.id }}">
+    <div class="full-vh-height video-wrapper">
+      {% if section.settings.video_desktop != null %}
+        <div class="video_container desktop-video" onclick="playVideo(this)">
+          <video
+            class="homepage_video"
+            playsinline
+            muted
+            loop
+            autoplay
+            {% if section.settings.show_video_control %}
+              controls
+            {% endif %}
+            preload="auto"
+            width="100%"
+            height="100%"
+          >
+            {% for source in section.settings.video_desktop.sources %}
+              <source src="{{ source.url }}" type="{{ source.mime_type }}">
+            {% endfor %}
+          </video>
+        </div>
+      {% endif %}
+
+      {% if section.settings.video_mobile != null %}
+        <div class="video_container mobile-video" onclick="playVideo(this)">
+          <video
+            class="homepage_video"
+            playsinline
+            muted
+            loop
+            autoplay
+            {% if section.settings.show_video_control %}
+              controls
+            {% endif %}
+            preload="auto"
+            width="100%"
+            height="100%"
+          >
+            {% for source in section.settings.video_mobile.sources %}
+              <source src="{{ source.url }}" type="{{ source.mime_type }}">
+            {% endfor %}
+          </video>
+        </div>
+      {% endif %}
+    </div>
+  </section>
+{% endif %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const observerOptions = {
+      root: null,
+      threshold: 0.5,
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        const video = entry.target;
+
+        if (entry.isIntersecting) {
+          // Load the video if not already loaded
+          if (video.readyState === 0) {
+            video.load();
+          }
+          // Play the video
+          video.play().catch((error) => {
+            console.error('Failed to play video:', error);
+          });
+        } else {
+          video.pause();
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.homepage_video').forEach((video) => {
+      observer.observe(video);
+    });
+  });
+</script>
+
+{% if section.settings.show_video_control != true %}
+  <script>
+    function playVideo(ele) {
+      let video_wrapper = ele.closest('.video-wrapper');
+      let video = ele.querySelector('video');
+
+      if (video.paused) {
+        video.play();
+        if (video_wrapper.querySelector('.play-btn')) {
+          video_wrapper.querySelector('.play-btn').style.display = 'none';
+        }
+      } else {
+        video.pause();
+        if (video_wrapper.querySelector('.play-btn')) {
+          video_wrapper.querySelector('.play-btn').style.display = 'block';
+        }
+      }
+    }
+  </script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Stellar Video Section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "margin_top_Desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 4,
+      "unit": "px",
+      "label": "Margin Top (Desktop)"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_Desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 20,
+      "unit": "px",
+      "label": "Margin Bottom (Desktop)"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_Mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 4,
+      "unit": "px",
+      "label": "Margin Top (Mobile)"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_Mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 20,
+      "unit": "px",
+      "label": "Margin Bottom (Mobile)"
+    },
+    {
+      "type": "video",
+      "id": "video_desktop",
+      "label": "Desktop Video"
+    },
+    {
+      "type": "video",
+      "id": "video_mobile",
+      "label": "Mobile Video"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_video_control",
+      "label": "Show Video Control",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Stellar Video Section"
+    }
+  ]
+}
+{% endschema %}

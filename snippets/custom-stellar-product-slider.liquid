@@ -1,0 +1,107 @@
+<div
+  data-id="pdpSwiper steller"
+  class="custom-desktop-slider-mains swiper mySwiper2 stellar-main-swiper productssssssss grid__item product__media-wrapper"
+  style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
+>
+  <div class="swiper-wrapper">
+    {%- for media in product.media -%}
+      <div
+        data-media-id="{{ section.id }}-{{ media.id }}"
+        class="swiper-slide {% if variant_images contains media %}product__media-item--variant{% endif %}"
+        id="{% if product.selected_or_first_available_variant.featured_media contains media %}selected-variant-image{% endif %}"
+        data-index="{{ forloop.index}}"
+      >
+        {{ media | image_url: width: media.width | image_tag: class: 'product-image' }}
+      </div>
+    {%- endfor -%}
+  </div>
+
+  <div class="custom-wishlist-share"></div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    let stellarThumbElement = document.querySelector('.custom-desktop-slider-main-thumbs-ups');
+    let stellarMainElement = document.querySelector('.custom-desktop-slider-mains');
+
+    if (!stellarThumbElement || !stellarMainElement) {
+      return;
+    }
+
+    // Initialize thumbnail swiper first
+    var stellarThumbSwiper = new Swiper('.custom-desktop-slider-main-thumbs-ups', {
+      spaceBetween: 20,
+      slidesPerView: 5,
+      freeMode: true,
+      watchSlidesProgress: true,
+      breakpoints: {
+        320: {
+          slidesPerView: 4,
+          spaceBetween: 10,
+        },
+        768: {
+          slidesPerView: 5,
+          spaceBetween: 15,
+        },
+        1024: {
+          slidesPerView: 5,
+          spaceBetween: 20,
+        },
+      },
+      on: {
+        slideChange: function () {
+          if (stellarMainSwiper && !stellarMainSwiper.isTransitioning) {
+            setTimeout(() => {
+              stellarMainSwiper.slideTo(this.activeIndex, 0);
+              updateStellarActiveThumbnail(this.activeIndex);
+            }, 50);
+          }
+        },
+      },
+    });
+
+    // Initialize main swiper
+    var stellarMainSwiper = new Swiper('.custom-desktop-slider-mains', {
+      spaceBetween: 10,
+      slidesPerView: 1,
+      allowTouchMove: true,
+      keyboard: {
+        enabled: true,
+        onlyInViewport: true,
+      },
+      mousewheel: false,
+      thumbs: {
+        swiper: stellarThumbSwiper,
+      },
+      on: {
+        slideChange: function () {
+          if (stellarThumbSwiper && !stellarThumbSwiper.isTransitioning) {
+            setTimeout(() => {
+              stellarThumbSwiper.slideTo(this.activeIndex, 0);
+              updateStellarActiveThumbnail(this.activeIndex);
+            }, 50);
+          }
+        },
+      },
+    });
+
+    // Function to update active thumbnail styling
+    function updateStellarActiveThumbnail(activeIndex) {
+      var thumbSlides = document.querySelectorAll('.custom-desktop-slider-main-thumbs-ups .swiper-slide');
+      thumbSlides.forEach((slide, index) => {
+        slide.classList.remove('active', 'swiper-slide-thumb-active');
+        if (index === activeIndex) {
+          slide.classList.add('active', 'swiper-slide-thumb-active');
+        }
+      });
+    }
+
+    // Handle thumbnail clicks
+    window.handleThumbnailClick = function (index) {
+      if (stellarMainSwiper) {
+        stellarMainSwiper.slideTo(index);
+        updateStellarActiveThumbnail(index);
+      }
+    };
+  });
+</script>

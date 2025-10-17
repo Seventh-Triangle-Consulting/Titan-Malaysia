@@ -1,0 +1,888 @@
+{%- style -%}
+    .stellar-specifications-{{ section.id }} {
+      background-color: {{ section.settings.background_color | default: '#1a1f3a' }};
+      padding: {{ section.settings.padding_top_mobile }}px 0 {{ section.settings.padding_bottom_mobile }}px 0;
+      margin-top: {{ section.settings.margin_top_mobile }}px;
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+    }
+
+    .stellar-specifications-container {
+      display: flex;
+      gap: 60px;
+      align-items: self-start;
+      justify-content: space-between;
+    }
+
+    .stellar-specifications-left {
+      flex: 1;
+      max-width: 50%;
+    }
+
+    .stellar-specifications-right {
+      flex: 1;
+      max-width: 50%;
+    }
+
+    .stellar-specifications-heading {
+      font-family: 'PPMonumentWide-Regular';
+      font-weight: 400;
+      font-style: Regular;
+      font-size: 35px;
+      leading-trim: NONE;
+      line-height: 44px;
+      letter-spacing: 0%;
+      color: #FFFFFF;
+      margin-bottom: 30px;
+      margin-top: 30px;
+    }
+
+    .stellar-specifications-divider {
+      height: 1px;
+      background-color: #666666;
+      margin-bottom: 30px;
+    }
+
+    .stellar-specifications-tabs {
+      display: flex;
+      gap: 30px;
+    }
+
+    .stellar-specifications-tabs-divider {
+      height: 1px;
+      background-color: #FFFFFF4D;
+      margin-bottom: 21px;
+      display: block !important;
+
+    }
+
+    .stellar-specifications-tab {
+      background: none;
+      border: none;
+      color: #999999;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      font-family: 'PPMonumentWide-Regular';
+      font-weight: 400;
+      font-style: Regular;
+      font-size: 19px;
+      leading-trim: NONE;
+      line-height: 24px;
+      letter-spacing: 0%;
+      color: #FFFFFF66;
+      padding-bottom: 8px;
+    }
+
+    .stellar-specifications-tab.active {
+      color: #ffffff;
+    }
+
+    .stellar-specifications-tab.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: #ffffff;
+    }
+
+    .stellar-specifications-content-divider {
+      height: 1px;
+      background-color: #666666;
+      margin-bottom: 30px;
+    }
+
+    .stellar-specifications-content {
+      display: none;
+    }
+
+    .stellar-specifications-content.active {
+      display: grid;
+    }
+
+    .stellar-specification-item {
+      margin-bottom: 25px;
+    }
+
+    .stellar-specification-label {
+      color: #999999;
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+      font-family: 'SuisseIntl-Regular';
+      font-weight: 400;
+      font-style: Regular;
+      font-size: 15px;
+      leading-trim: NONE;
+      line-height: 24px;
+      letter-spacing: 0%;
+      text-transform: uppercase;
+      color: #FFFFFF99;
+      margin-bottom: 8px;
+
+    }
+
+    .stellar-specification-value {
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.4;
+      font-family: 'SuisseIntl-Regular';
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 19px;
+  leading-trim: NONE;
+  line-height: 24px;
+  letter-spacing: 0%;
+  color: #FFFFFF;
+
+    }
+
+    .stellar-specifications-image {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      transition: opacity 0.3s ease;
+    }
+
+    /* Tab image visibility control */
+    .stellar-specifications-image.tab-image {
+      display: none !important;
+      opacity: 0;
+    }
+
+    .stellar-specifications-image.tab-image.active {
+      display: block !important;
+      opacity: 1;
+    }
+
+    /* Desktop shows desktop images, hides mobile images */
+    .stellar-specifications-image.tab-image.mobile-image.active {
+      display: none !important;
+    }
+
+    .stellar-specifications-image.tab-image.desktop-image.active {
+      display: block !important;
+    }
+
+    @media screen and (max-width: 1024px) {
+
+      .stellar-specifications-container {
+        flex-direction: column-reverse;
+        gap: 40px;
+      }
+
+      .stellar-specifications-left,
+      .stellar-specifications-right {
+        max-width: 100%;
+        width: 100%;
+      }
+
+      .stellar-specifications-heading {
+        font-family: 'PPMonumentWide-Regular';
+          font-weight: 400;
+          font-style: Regular;
+          font-size: 25px;
+          leading-trim: NONE;
+          line-height: 37px;
+          letter-spacing: 0%;
+          margin-bottom: 36px;
+      }
+
+      .stellar-specifications-tabs {
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      .stellar-specifications-tabs-divider {
+          margin-bottom: 37px;
+      }
+
+      .stellar-specifications-tab {
+        font-family: 'PPMonumentWide-Regular';
+          font-weight: 400;
+          font-style: Regular;
+          font-size: 17px;
+          leading-trim: NONE;
+          line-height: 24px;
+          letter-spacing: 0%;
+          padding: 0px;
+      }
+
+      /* Mobile: hide desktop images, show mobile images */
+      .stellar-specifications-image.tab-image.desktop-image.active {
+        display: none !important;
+      }
+
+      .stellar-specifications-image.tab-image.mobile-image.active {
+        display: block !important;
+      }
+
+      .stellar-specifications-right.desktop{
+          display: none;
+      }
+      .stellar-specifications-right.mobile{
+          display: block;
+      }
+
+      .stellar-specifications-content.active{
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          justify-content: center;
+          row-gap: 30px;
+      }
+
+      .stellar-specification-label{
+        font-family: 'SuisseIntl-Regular';
+          font-weight: 400;
+          font-style: Regular;
+          font-size: 14px;
+          leading-trim: NONE;
+          line-height: 24px;
+          letter-spacing: 0%;
+          text-transform: uppercase;
+          color: #FFFFFF99;
+          magrin-bottom: 2px;
+      }
+
+      .stellar-specification-value{
+        font-family: 'SuisseIntl-Regular';
+          font-weight: 400;
+          font-style: Regular;
+          font-size: 15px;
+          leading-trim: NONE;
+          line-height: 20px;
+          letter-spacing: 0%;
+      }
+
+    }
+
+
+
+
+    @media screen and (max-width: 768px) {
+
+      .stellar-specifications-heading{
+        font-family: 'PPMonumentWide-Regular';
+          font-weight: 400;
+          font-style: Regular;
+          font-size: 16px !important;
+          leading-trim: NONE;
+          line-height: 33px;
+          letter-spacing: 0%;
+          margin-top: 44px;
+          margin-bottom: 20px;
+      }
+
+      .stellar-specifications-tab{
+          font-family: 'PPMonumentWide-Regular';
+          font-weight: 400;
+          font-style: Regular;
+          font-size: 15px;
+          leading-trim: NONE;
+          line-height: 24px;
+          letter-spacing: 0%;
+      }
+
+      .stellar-specifications-tabs{
+          gap: 27px;
+      }
+
+
+      .stellar-specifications-tabs-divider{
+          margin-bottom: 24px;
+      }
+
+
+      .stellar-specifications-tab{
+        font-family: 'SuisseIntl-Regular';
+          font-weight: 400;
+          font-style: Regular;
+          font-size: 14px;
+          leading-trim: NONE;
+          line-height: 24px;
+          letter-spacing: 0%;
+          text-transform: uppercase;
+      }
+
+      .stellar-specification-value{
+          font-family: Suisse Int';
+          font-weight: 400;
+          font-style: Regular;
+          font-size: 15px;
+          leading-trim: NONE;
+          line-height: 20px;
+          letter-spacing: 0%;
+          margin-bottom: 19px;
+      }
+
+      .stellar-specifications-content.active{
+          display: block;
+      }
+
+
+
+
+
+    }
+
+
+    @media screen and (max-width: 450px) {
+
+      .stellar-specifications-tabs{
+          gap: 10px;
+      }
+    }
+
+    @media screen and (max-width: 400px) {
+
+      .stellar-specifications-tabs{
+          gap: 10px;
+      }
+
+      .stellar-specifications-tab{
+          font-size: 10px;
+      }
+      .stellar-specification-label{
+          font-size: 10px;
+      }
+
+      .stellar-specification-value{
+          font-size: 10px;
+      }
+
+    }
+
+    @media screen and (min-width: 1025px) {
+      .stellar-specifications-right.desktop{
+          display: block;
+      }
+      .stellar-specifications-right.mobile{
+          display: none;
+      }
+    }
+
+    @media screen and (min-width: 750px) {
+      .stellar-specifications-{{ section.id }} {
+        padding: {{ section.settings.padding_top_desktop }}px 0 {{ section.settings.padding_bottom_desktop }}px 0;
+        margin-top: {{ section.settings.margin_top_desktop }}px;
+        margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+      }
+    }
+{%- endstyle -%}
+
+<div class="stellar-specifications-{{ section.id }}">
+  <div class="stellar-page-width">
+    <div class="stellar-specifications-right mobile">
+      <!-- Tab 1 (Watch) Images -->
+      {% if product.metafields.custom.stellar_specifications_desktop != blank %}
+        <div class="stellar-specifications-image desktop-image tab-image active" data-tab-image="watch">
+          {{
+            product.metafields.custom.stellar_specifications_desktop
+            | image_url: width: 1100
+            | image_tag: class: 'landing-card-image', loading: 'lazy'
+          }}
+        </div>
+      {% endif %}
+      {% if product.metafields.custom.stellar_specifications_mobile != blank %}
+        <div class="stellar-specifications-image mobile-image tab-image active" data-tab-image="watch">
+          {{
+            product.metafields.custom.stellar_specifications_mobile
+            | image_url: width: 800
+            | image_tag: class: 'landing-card-image', loading: 'lazy'
+          }}
+        </div>
+      {% endif %}
+
+      <!-- Tab 2 (Movement) Images -->
+      {% if product.metafields.custom.stellar_specifications_desktop_tab2 != blank %}
+        <div class="stellar-specifications-image desktop-image tab-image" data-tab-image="movement">
+          {{
+            product.metafields.custom.stellar_specifications_desktop_tab2
+            | image_url: width: 1100
+            | image_tag: class: 'landing-card-image', loading: 'lazy'
+          }}
+        </div>
+      {% endif %}
+      {% if product.metafields.custom.stellar_specifications_mobile_tab2 != blank %}
+        <div class="stellar-specifications-image mobile-image tab-image" data-tab-image="movement">
+          {{
+            product.metafields.custom.stellar_specifications_mobile_tab2
+            | image_url: width: 800
+            | image_tag: class: 'landing-card-image', loading: 'lazy'
+          }}
+        </div>
+      {% endif %}
+
+      <!-- Tab 3 (Features) Images -->
+      {% if product.metafields.custom.stellar_specifications_desktop_tab3 != blank %}
+        <div class="stellar-specifications-image desktop-image tab-image" data-tab-image="features">
+          {{
+            product.metafields.custom.stellar_specifications_desktop_tab3
+            | image_url: width: 1100
+            | image_tag: class: 'landing-card-image', loading: 'lazy'
+          }}
+        </div>
+      {% endif %}
+      {% if product.metafields.custom.stellar_specifications_mobile_tab3 != blank %}
+        <div class="stellar-specifications-image mobile-image tab-image" data-tab-image="features">
+          {{
+            product.metafields.custom.stellar_specifications_mobile_tab3
+            | image_url: width: 800
+            | image_tag: class: 'landing-card-image', loading: 'lazy'
+          }}
+        </div>
+      {% endif %}
+
+      <!-- Tab 4 (Warranty) Images -->
+      {% if product.metafields.custom.stellar_specifications_desktop_tab4 != blank %}
+        <div class="stellar-specifications-image desktop-image tab-image" data-tab-image="warranty">
+          {{
+            product.metafields.custom.stellar_specifications_desktop_tab4
+            | image_url: width: 1100
+            | image_tag: class: 'landing-card-image', loading: 'lazy'
+          }}
+        </div>
+      {% endif %}
+      {% if product.metafields.custom.stellar_specifications_mobile_tab4 != blank %}
+        <div class="stellar-specifications-image mobile-image tab-image" data-tab-image="warranty">
+          {{
+            product.metafields.custom.stellar_specifications_mobile_tab4
+            | image_url: width: 800
+            | image_tag: class: 'landing-card-image', loading: 'lazy'
+          }}
+        </div>
+      {% endif %}
+    </div>
+    <div class="stellar-specifications-heading-container">
+      {% if section.settings.section_heading != blank %}
+        <h2 class="stellar-specifications-heading">{{ section.settings.section_heading }}</h2>
+      {% endif %}
+    </div>
+    <div class="stellar-specifications-tabs">
+      <button class="stellar-specifications-tab active" data-tab="watch">
+        {{ section.settings.tab1_heading | default: 'Watch' }}
+      </button>
+      <button class="stellar-specifications-tab" data-tab="movement">
+        {{ section.settings.tab2_heading | default: 'Movement' }}
+      </button>
+      <button class="stellar-specifications-tab" data-tab="features">
+        {{ section.settings.tab3_heading | default: 'Features' }}
+      </button>
+      <button class="stellar-specifications-tab" data-tab="warranty">
+        {{ section.settings.tab4_heading | default: 'Warranty Details' }}
+      </button>
+    </div>
+    <div class="stellar-specifications-tabs-divider"></div>
+    <div class="stellar-specifications-container">
+      <div class="stellar-specifications-left">
+        <div class="stellar-specifications-divider"></div>
+
+        <div class="stellar-specifications-content-divider"></div>
+
+        <div class="stellar-specifications-content active" data-content="watch">
+          {% if product.metafields.custom.filter_collection.value != blank %}
+            <div class="stellar-specification-item">
+              <p class="stellar-specification-label">Filter Collection</p>
+              <p class="stellar-specification-value">{{ product.metafields.custom.filter_collection.value }}</p>
+            </div>
+          {% endif %}
+          {% if product.metafields.custom.case_diameter.value != blank %}
+            <div class="stellar-specification-item">
+              <p class="stellar-specification-label">Diameter</p>
+              <p class="stellar-specification-value">{{ product.metafields.custom.case_diameter.value }}</p>
+            </div>
+          {% endif %}
+          {% if product.metafields.custom.glass_material.value != blank %}
+            <div class="stellar-specification-item">
+              <p class="stellar-specification-label">Glass Material</p>
+              <p class="stellar-specification-value">{{ product.metafields.custom.glass_material.value }}</p>
+            </div>
+          {% endif %}
+          {% if product.metafields.custom.case_material.value != blank %}
+            <div class="stellar-specification-item">
+              <p class="stellar-specification-label">Case Material</p>
+              <p class="stellar-specification-value">{{ product.metafields.custom.case_material.value }}</p>
+            </div>
+          {% endif %}
+          {% if product.metafields.custom.case_back.value != blank %}
+            <div class="stellar-specification-item">
+              <p class="stellar-specification-label">Case Back</p>
+              <p class="stellar-specification-value">{{ product.metafields.custom.case_back.value }}</p>
+            </div>
+          {% endif %}
+          {% if product.metafields.custom.water_resistance.value != blank %}
+            <div class="stellar-specification-item">
+              <p class="stellar-specification-label">Water Resistance</p>
+              <p class="stellar-specification-value">{{ product.metafields.custom.water_resistance.value }}</p>
+            </div>
+          {% endif %}
+          {% if product.metafields.custom.filter_strap_material.value != blank %}
+            <div class="stellar-specification-item">
+              <p class="stellar-specification-label">Strap Material</p>
+              <p class="stellar-specification-value">{{ product.metafields.custom.filter_strap_material.value }}</p>
+            </div>
+          {% endif %}
+          {% if product.metafields.custom.filter_strap_color.value != blank %}
+            <div class="stellar-specification-item">
+              <p class="stellar-specification-label">Strap Color</p>
+              <p class="stellar-specification-value">{{ product.metafields.custom.filter_strap_color.value }}</p>
+            </div>
+          {% endif %}
+          {% if product.metafields.custom.lock_mechanism.value != blank %}
+            <div class="stellar-specification-item">
+              <p class="stellar-specification-label">Lock Mechanism</p>
+              <p class="stellar-specification-value">{{ product.metafields.custom.lock_mechanism.value }}</p>
+            </div>
+          {% endif %}
+          {% if product.metafields.custom.jewels.value != blank %}
+            <div class="stellar-specification-item">
+              <p class="stellar-specification-label">Jewels</p>
+              <p class="stellar-specification-value">{{ product.metafields.custom.jewels.value }}</p>
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="stellar-specifications-content" data-content="movement">
+          {% if product.metafields.custom.filter_movement.value != blank %}
+            <div class="stellar-specification-item">
+              <p class="stellar-specification-label">Movement</p>
+              <p class="stellar-specification-value">{{ product.metafields.custom.filter_movement.value }}</p>
+            </div>
+          {% endif %}
+          {% if product.metafields.custom.calibre.value != blank %}
+            <div class="stellar-specification-item">
+              <p class="stellar-specification-label">Calibre</p>
+              <p class="stellar-specification-value">{{ product.metafields.custom.calibre.value }}</p>
+            </div>
+          {% endif %}
+          {% if product.metafields.custom.filter_function.value != blank %}
+            <div class="stellar-specification-item">
+              <p class="stellar-specification-label">Function</p>
+              <p class="stellar-specification-value">{{ product.metafields.custom.filter_function.value }}</p>
+            </div>
+          {% endif %}
+          {% if product.metafields.custom.accuracy.value != blank %}
+            <div class="stellar-specification-item">
+              <p class="stellar-specification-label">Accuracy</p>
+              <p class="stellar-specification-value">{{ product.metafields.custom.accuracy.value }}</p>
+            </div>
+          {% endif %}
+          {% if product.metafields.custom.frequency.value != blank %}
+            <div class="stellar-specification-item">
+              <p class="stellar-specification-label">Frequency</p>
+              <p class="stellar-specification-value">{{ product.metafields.custom.frequency.value }}</p>
+            </div>
+          {% endif %}
+          {% if product.metafields.custom.power_reserve.value != blank %}
+            <div class="stellar-specification-item">
+              <p class="stellar-specification-label">Power Reserve</p>
+              <p class="stellar-specification-value">{{ product.metafields.custom.power_reserve.value }}</p>
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="stellar-specifications-content" data-content="features">
+          {% if product.metafields.custom.dial_shape.value != blank %}
+            <div class="stellar-specification-item">
+              <p class="stellar-specification-label">Dial Shape</p>
+              <p class="stellar-specification-value">{{ product.metafields.custom.dial_shape.value }}</p>
+            </div>
+          {% endif %}
+          {% if product.metafields.custom.filter_dial_color.value != blank %}
+            <div class="stellar-specification-item">
+              <p class="stellar-specification-label">Dial Color</p>
+              <p class="stellar-specification-value">{{ product.metafields.custom.filter_dial_color.value }}</p>
+            </div>
+          {% endif %}
+          {% if product.metafields.custom.case_length.value != blank %}
+            <div class="stellar-specification-item">
+              <p class="stellar-specification-label">Case Length</p>
+              <p class="stellar-specification-value">{{ product.metafields.custom.case_length.value }}</p>
+            </div>
+          {% endif %}
+          {% if product.metafields.custom.case_width.value != blank %}
+            <div class="stellar-specification-item">
+              <p class="stellar-specification-label">Case Width</p>
+              <p class="stellar-specification-value">{{ product.metafields.custom.case_width.value }}</p>
+            </div>
+          {% endif %}
+          {% if product.metafields.custom.case_thickness.value != blank %}
+            <div class="stellar-specification-item">
+              <p class="stellar-specification-label">Case Thickness</p>
+              <p class="stellar-specification-value">{{ product.metafields.custom.case_thickness.value }}</p>
+            </div>
+          {% endif %}
+          {% if product.metafields.custom.bezel.value != blank %}
+            <div class="stellar-specification-item">
+              <p class="stellar-specification-label">Bezel</p>
+              <p class="stellar-specification-value">{{ product.metafields.custom.bezel.value }}</p>
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="stellar-specifications-content" data-content="warranty">
+          {% if product.metafields.custom.warranty_period.value != blank %}
+            <div class="stellar-specification-item">
+              <p class="stellar-specification-label">Warranty Period</p>
+              <p class="stellar-specification-value">{{ product.metafields.custom.warranty_period.value }}</p>
+            </div>
+          {% endif %}
+          {% if product.metafields.custom.warranty_details.value != blank %}
+            <div class="stellar-specification-item">
+              <p class="stellar-specification-label">Details</p>
+              <p class="stellar-specification-value">{{ product.metafields.custom.warranty_details.value }}</p>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="stellar-specifications-right desktop">
+        {% if product.metafields.custom.stellar_specifications_desktop != blank %}
+          <div class="stellar-specifications-image desktop-image tab-image active" data-tab-image="watch">
+            {{
+              product.metafields.custom.stellar_specifications_desktop
+              | image_url: width: 1100
+              | image_tag: class: 'landing-card-image', loading: 'lazy'
+            }}
+          </div>
+        {% endif %}
+        {% if product.metafields.custom.stellar_specifications_mobile != blank %}
+          <div class="stellar-specifications-image mobile-image tab-image active" data-tab-image="watch">
+            {{
+              product.metafields.custom.stellar_specifications_mobile
+              | image_url: width: 800
+              | image_tag: class: 'landing-card-image', loading: 'lazy'
+            }}
+          </div>
+        {% endif %}
+
+        {% if product.metafields.custom.stellar_specifications_desktop_tab2 != blank %}
+          <div class="stellar-specifications-image desktop-image tab-image" data-tab-image="movement">
+            {{
+              product.metafields.custom.stellar_specifications_desktop_tab2
+              | image_url: width: 1100
+              | image_tag: class: 'landing-card-image', loading: 'lazy'
+            }}
+          </div>
+        {% endif %}
+        {% if product.metafields.custom.stellar_specifications_mobile_tab2 != blank %}
+          <div class="stellar-specifications-image mobile-image tab-image" data-tab-image="movement">
+            {{
+              product.metafields.custom.stellar_specifications_mobile_tab2
+              | image_url: width: 800
+              | image_tag: class: 'landing-card-image', loading: 'lazy'
+            }}
+          </div>
+        {% endif %}
+
+        {% if product.metafields.custom.stellar_specifications_desktop_tab3 != blank %}
+          <div class="stellar-specifications-image desktop-image tab-image" data-tab-image="features">
+            {{
+              product.metafields.custom.stellar_specifications_desktop_tab3
+              | image_url: width: 1100
+              | image_tag: class: 'landing-card-image', loading: 'lazy'
+            }}
+          </div>
+        {% endif %}
+        {% if product.metafields.custom.stellar_specifications_mobile_tab3 != blank %}
+          <div class="stellar-specifications-image mobile-image tab-image" data-tab-image="features">
+            {{
+              product.metafields.custom.stellar_specifications_mobile_tab3
+              | image_url: width: 800
+              | image_tag: class: 'landing-card-image', loading: 'lazy'
+            }}
+          </div>
+        {% endif %}
+
+        <!-- Tab 4 (Warranty) Images -->
+        {% if product.metafields.custom.stellar_specifications_desktop_tab4 != blank %}
+          <div class="stellar-specifications-image desktop-image tab-image" data-tab-image="warranty">
+            {{
+              product.metafields.custom.stellar_specifications_desktop_tab4
+              | image_url: width: 1100
+              | image_tag: class: 'landing-card-image', loading: 'lazy'
+            }}
+          </div>
+        {% endif %}
+        {% if product.metafields.custom.stellar_specifications_mobile_tab4 != blank %}
+          <div class="stellar-specifications-image mobile-image tab-image" data-tab-image="warranty">
+            {{
+              product.metafields.custom.stellar_specifications_mobile_tab4
+              | image_url: width: 800
+              | image_tag: class: 'landing-card-image', loading: 'lazy'
+            }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    document.addEventListener('DOMContentLoaded', function () {
+      const sectionContainer = document.querySelector('.stellar-specifications-{{ section.id }}');
+      if (!sectionContainer) return;
+
+      const tabs = sectionContainer.querySelectorAll('.stellar-specifications-tab');
+      const contents = sectionContainer.querySelectorAll('.stellar-specifications-content');
+      const tabImages = sectionContainer.querySelectorAll('.tab-image');
+
+      tabs.forEach((tab) => {
+        tab.addEventListener('click', function () {
+          const targetTab = this.getAttribute('data-tab');
+
+          tabs.forEach((t) => t.classList.remove('active'));
+          contents.forEach((c) => c.classList.remove('active'));
+          tabImages.forEach((img) => img.classList.remove('active'));
+
+          this.classList.add('active');
+          const targetContent = sectionContainer.querySelector(`[data-content="${targetTab}"]`);
+          if (targetContent) {
+            targetContent.classList.add('active');
+          }
+
+          const targetImages = sectionContainer.querySelectorAll(`[data-tab-image="${targetTab}"]`);
+          targetImages.forEach((img) => {
+            img.classList.add('active');
+          });
+        });
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Stellar Specifications",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+      "default": "Specifications & Craftsmanship Details"
+    },
+    {
+      "type": "text",
+      "id": "tab1_heading",
+      "label": "Tab 1 Heading",
+      "default": "Watch"
+    },
+    {
+      "type": "text",
+      "id": "tab2_heading",
+      "label": "Tab 2 Heading",
+      "default": "Movement"
+    },
+    {
+      "type": "text",
+      "id": "tab3_heading",
+      "label": "Tab 3 Heading",
+      "default": "Features"
+    },
+    {
+      "type": "text",
+      "id": "tab4_heading",
+      "label": "Tab 4 Heading",
+      "default": "Warranty Details"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#1a1f3a"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Top Desktop",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Bottom Desktop",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Top Mobile",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Bottom Mobile",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "margin_top_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin Top Desktop",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin Bottom Desktop",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin Top Mobile",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin Bottom Mobile",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Stellar Specifications"
+    }
+  ]
+}
+{% endschema %}

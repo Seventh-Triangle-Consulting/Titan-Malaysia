@@ -1,0 +1,785 @@
+/* Stellar Template Custom Page Width */
+.stellar-page-width {
+  max-width: 100%;
+  padding-left: 24px;
+  padding-right: 24px;
+  margin: 0 auto;
+}
+[data-id="pdpSwiper steller"] {
+  margin: 0px;
+}
+
+/* Desktop Page Width */
+@media screen and (min-width: 1024px) {
+  .stellar-page-width {
+    padding-left: 96px;
+    padding-right: 96px;
+  }
+}
+
+/* Tablet Page Width */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .stellar-page-width {
+    padding-left: 46px;
+    padding-right: 46px;
+  }
+}
+
+/* Mobile Page Width (default already set above) */
+@media screen and (max-width: 767px) {
+  .stellar-page-width {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+/* Header and Footer font override for Stellar template */
+.header__menu-item span,
+.header__icon p,
+.mega-menu__list .mega-menu__link--level-2,
+.mega-menu__list .list-unstyled li .mega-menu__link {
+  font-family: "SuisseIntl-Regular" !important;
+}
+
+.shopify-section-header .header__menu-item span,
+.shopify-section-header .header__icon p,
+.shopify-section-header .header__menu-item,
+.shopify-section-header .header__inline-menu a,
+.shopify-section-header .header__heading-link,
+.shopify-section-header .header__heading,
+.shopify-section-header .menu-drawer__menu-item,
+.shopify-section-group-footer-group .footer__content-top,
+.shopify-section-group-footer-group .footer__list-social,
+.shopify-section-group-footer-group .footer__blocks-wrapper,
+.shopify-section-group-footer-group .footer__content-bottom,
+.shopify-section-group-footer-group .footer-block__heading,
+.shopify-section-group-footer-group .footer-block__details-content,
+.shopify-section-group-footer-group .list-menu__item,
+.shopify-section-group-footer-group .footer__copyright {
+  font-family: "SuisseIntl-Regular" !important;
+}
+
+/* Specific footer elements with PPMonumentWide font */
+.shopify-section-group-footer-group .footer__content-top .footer-block__heading,
+.shopify-section-group-footer-group .need-help-footer p,
+.shopify-section-group-footer-group .need-help-footer a {
+  font-family: "PPMonumentWide-Regular" !important;
+}
+
+/* Menu drawer styles for Stellar template */
+.menu-drawer__menu-item,
+.menu-drawer__close-button,
+.opened-collection-custom.opened-collection-custom {
+  font-family: "SuisseIntl-Regular" !important;
+}
+
+/* Header drawer close icon stroke color */
+.drawer-close-svg .icon-close path {
+  stroke: #fff !important;
+}
+
+.main-product-page.product-stellar-container {
+  padding-left: 0;
+  background: #000000;
+  align-items: center;
+  padding-bottom: 46px;
+  margin-top: 0;
+}
+
+.main-product-page.product-stellar-container .product__info-wrapper {
+  margin-top: 0px;
+}
+
+.main-product-page.product-stellar-container .grid__item.product__media-wrapper {
+  line-height: 0;
+}
+
+.stellar-title {
+  color: #ffffff;
+  font-family: "PPMonumentWide-Regular";
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 0px;
+  margin-bottom: 17px;
+  margin-top: 0;
+}
+
+.stellar-price {
+  color: #fff;
+  font-family: "SuisseIntl-Regular";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 15px;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.main-product-page .stellar-description p {
+  color: #fff;
+  font-family: "Suisse Int";
+  font-weight: 400;
+  font-size: 16px !important;
+  line-height: 24px;
+  letter-spacing: 0px;
+  opacity: 0.6;
+}
+
+.stellar-collection-story {
+  color: #ffffff;
+  font-family: "SuisseIntl-Regular";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 15px;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+}
+
+.stellar-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+/* Stellar Wishlist Button with Icon and Text */
+.stellar-wishlist-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  position: relative;
+}
+
+.stellar-wishlist-btn:hover {
+  opacity: 0.8;
+}
+
+.stellar-wishlist-icon {
+  position: absolute !important;
+  width: 24px;
+  height: 24px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.stellar-wishlist-heart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min-content;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.stellar-wishlist-heart svg {
+  width: 20px;
+  height: 16px;
+  fill: transparent;
+  stroke: #fff;
+  stroke-width: 1.5;
+  transition: all 0.3s ease;
+}
+
+/* Default state - transparent fill */
+.stellar-wishlist-heart svg {
+  fill: transparent;
+  stroke: #fff;
+}
+
+/* Active/wishlisted state - white fill */
+.stellar-wishlist-heart.active svg,
+.stellar-wishlist-btn.wishlisted .stellar-wishlist-heart svg,
+.stellar-wishlist-btn .smartwishlist.bookmarked ~ .stellar-wishlist-heart svg,
+.stellar-wishlist-btn .smartwishlist[data-swym-added="true"] ~ .stellar-wishlist-heart svg,
+.stellar-wishlist-btn .smartwishlist.swym-added ~ .stellar-wishlist-heart svg,
+.stellar-wishlist-btn .smartwishlist.added ~ .stellar-wishlist-heart svg {
+  fill: #fff;
+  stroke: #fff;
+}
+
+/* Alternative selectors for different wishlist systems */
+.stellar-wishlist-btn .smartwishlist[data-swym-added="true"] + .stellar-wishlist-heart svg,
+.stellar-wishlist-btn .smartwishlist.swym-added + .stellar-wishlist-heart svg,
+.stellar-wishlist-btn .smartwishlist.added + .stellar-wishlist-heart svg {
+  fill: #fff;
+  stroke: #fff;
+}
+
+.stellar-wishlist-text {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: "SuisseIntl-Regular";
+  line-height: 15px;
+}
+
+/* Stellar Share Button Wrapper */
+.stellar-share-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+/* Style the default Shopify share button for stellar template */
+.stellar-share-wrapper .share-button {
+  display: inline-flex;
+  align-items: center;
+}
+
+.stellar-share-wrapper .share-button__button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Share button responsive display */
+.share-text.desktop {
+  display: inline;
+}
+
+.share-icon.mobile {
+  display: none;
+}
+
+.share-icon.mobile svg {
+  width: 20px;
+  height: 22px;
+}
+
+.stellar-share-wrapper .share-button__button svg {
+  width: 20px;
+  height: 20px;
+  fill: #fff;
+}
+
+.stellar-share-wrapper .share-button__button:hover svg {
+  fill: rgba(255, 255, 255, 0.8);
+}
+
+.stellar-share-wishlist {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.stellar-title-block.Tablet {
+  display: none;
+}
+
+.stellar-enquiry-block {
+  margin-top: 16px;
+}
+.stellar-enquiry-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: #fff;
+  color: #0c0f14;
+  border-radius: 6px;
+  text-decoration: none;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #ffffff;
+  background: #000;
+  border: 1.5px solid #ffffff;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-family: "SuisseIntl-Regular";
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 15px !important;
+  leading-trim: NONE;
+  line-height: 14px !important;
+  letter-spacing: 10% !important;
+  text-transform: uppercase !important;
+}
+
+/* Thumbs */
+.product-thumbnails-container {
+  margin-bottom: 4.6rem;
+}
+.custom-desktop-slider-main-thumbs-ups .swiper-slide {
+  width: auto;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.custom-desktop-slider-main-thumbs-ups .swiper-slide.active,
+.custom-desktop-slider-main-thumbs-ups .swiper-slide.swiper-slide-thumb-active {
+  opacity: 1;
+}
+
+.custom-desktop-slider-main-thumbs-ups .swiper-slide.active img,
+.custom-desktop-slider-main-thumbs-ups .swiper-slide.swiper-slide-thumb-active img {
+  opacity: 1;
+  border: 1px solid #5fd2ff;
+}
+
+.custom-desktop-slider-main-thumbs-ups .product-image {
+  max-width: 120px;
+  display: block;
+  border: 1px solid #ffffff33;
+}
+
+/* Main Slider */
+.custom-desktop-slider-mains {
+  width: 100%;
+  height: auto;
+}
+.custom-desktop-slider-mains .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.custom-desktop-slider-mains .product-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.stellar-wishlist-icon {
+  visibility: hidden;
+}
+
+@media screen and (min-width: 1600px) {
+  .custom-desktop-slider-main-thumbs-ups .product-image {
+    max-width: 200px;
+    display: block;
+    border: 1px solid #ffffff33;
+  }
+}
+
+@media screen and (min-width: 1051px) {
+  .product-stellar-info-wrapper.page-width {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .stellar-title-block.desktop {
+    display: block;
+    margin: 0px !important;
+  }
+
+  .stellar-product-slider-container-tablet {
+    display: none;
+  }
+
+  .stellar-price-block.desktop {
+    display: block;
+  }
+
+  .stellar-price-block.tablet {
+    display: none;
+  }
+
+  .stellar-description-block.desktop {
+    display: block;
+  }
+
+  .stellar-description-block.tablet {
+    display: none;
+  }
+
+  .stellar-share-wishlist.desktop {
+    display: flex !important;
+  }
+
+  .stellar-share-wishlist.tablet {
+    display: none !important;
+  }
+
+  .stellar-price-and-collection-text .stellar-price-block.tablet {
+    display: none;
+  }
+
+  .stellar-price-and-collection-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  .stellar-price-and-collection-text .stellar-collection-story {
+    font-family: "SuisseIntl-Regular" !important;
+    font-weight: 400;
+    font-size: 16px !important;
+    line-height: 15px;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+    color: #ffffff;
+  }
+
+  .stellar-collection-story.desktop {
+    display: block !important;
+  }
+
+  .stellar-collection-story.tablet {
+    display: none !important;
+  }
+
+  .share-text.desktop {
+    display: inline;
+    color: #fff;
+    font-family: "SuisseIntl-Regular";
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 15px;
+    letter-spacing: 0px;
+    text-align: right;
+    text-transform: uppercase;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .product-stellar-container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .stellar-title-block.Tablet {
+    display: block;
+    max-width: 85%;
+    position: absolute;
+    bottom: 0px;
+    z-index: 1;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 100%;
+  }
+
+  .stellar-title {
+    font-family: "PPMonumentWide-Regular";
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 0%;
+    text-align: center;
+    margin: 0;
+  }
+
+  .stellar-product-slider-container {
+    position: relative;
+  }
+
+  .stellar-product-slider-container-tablet {
+    position: relative;
+  }
+
+  .stellar-title-block.desktop {
+    display: none;
+  }
+
+  .product-thumbnails-container.desktop {
+    display: none;
+  }
+
+  .product-thumbnails-container.tablet {
+    display: block;
+  }
+
+  .stellar-product-slider-container-tablet {
+    display: block;
+  }
+
+  .stellar-price-block.desktop {
+    display: none;
+  }
+
+  .stellar-price-block.tablet {
+    display: none;
+  }
+
+  .stellar-description-block.desktop {
+    display: none !important;
+  }
+
+  .stellar-description-block.tablet {
+    display: block;
+  }
+
+  .stellar-share-wishlist.desktop {
+    display: none !important;
+  }
+
+  .stellar-share-wishlist.tablet {
+    display: block !important;
+  }
+
+  .custom-desktop-slider-main-thumbs-ups .product-image {
+    max-width: 100%;
+    display: block;
+  }
+
+  .main-product-page.product-stellar-container .titan_main_product.product__info-wrapper.grid__item {
+    margin-top: 15px;
+  }
+
+  .product-thumbnails-container {
+    margin-top: 90px;
+  }
+
+  .stellar-enquiry-block {
+    margin-top: 0;
+    margin-bottom: 6rem;
+  }
+
+  .stellar-price-and-collection-text .stellar-price-block.tablet {
+    display: block;
+  }
+
+  .stellar-price-and-collection-text .stellar-collection-story {
+    font-weight: 400;
+    font-size: 16px !important;
+    line-height: 15px;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+    font-family: "SuisseIntl-Regular" !important;
+  }
+
+  .stellar-price-and-collection-text {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+
+  .stellar-price {
+    font-family: "SuisseIntl-Regular";
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 15px;
+    letter-spacing: 0%;
+    text-transform: uppercase;
+  }
+
+  .stellar-collection-story.desktop {
+    display: none !important;
+  }
+
+  .stellar-collection-story.tablet {
+    display: block !important;
+  }
+
+  .main-product-page .stellar-description p {
+    font-family: Suisse Int;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 16px !important;
+    line-height: 24px;
+    letter-spacing: 0%;
+  }
+}
+
+/* Tab View - Position share and wishlist icons at top right of slider */
+@media screen and (max-width: 1024px) {
+  .stellar-share-wishlist.tablet {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    z-index: 1;
+    margin: 0;
+    background: transparent;
+  }
+
+  .stellar-share-wishlist.tablet .stellar-actions-row {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-end;
+  }
+
+  .stellar-share-wishlist.tablet .stellar-wishlist-btn {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .stellar-share-wishlist.tablet .stellar-wishlist-text {
+    display: none;
+  }
+
+  .stellar-share-wishlist.tablet .stellar-wishlist-heart svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .stellar-share-wishlist.tablet .stellar-share-wrapper {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .stellar-share-wishlist.tablet .share-button__button {
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .stellar-share-wishlist.tablet .share-button__button svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  /* Mobile/Tablet Share Button Display */
+  .share-text.desktop {
+    display: none;
+  }
+
+  .share-icon.mobile {
+    display: inline-block;
+  }
+
+  .share-icon.mobile svg {
+    width: 18px;
+    height: 20px;
+  }
+
+  .read-more-btn {
+    display: none;
+  }
+
+  .stellar-enquiry-btn {
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 18px !important;
+    line-height: 14px !important;
+    letter-spacing: 10%;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "SuisseIntl-Regular" !important;
+  }
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+  .stellar-actions-row {
+    gap: 20px;
+  }
+
+  .stellar-price-and-collection-text {
+    margin-bottom: 10px;
+  }
+
+  .main-product-page.product-stellar-container .titan_main_product {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .stellar-description p {
+    color: #fff !important;
+  }
+
+  .stellar-title {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: center;
+  }
+
+  .main-product-page.product-stellar-container .titan_main_product.product__info-wrapper.grid__item {
+    margin-top: 7px;
+  }
+
+  .product-thumbnails-container {
+    margin-bottom: 30px;
+  }
+
+  .stellar-enquiry-block {
+    margin-bottom: 3.7rem;
+  }
+
+  .main-product-page .stellar-description p {
+    font-family: "SuisseIntl-Regular";
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 14px !important;
+    line-height: 22px;
+    letter-spacing: 0px;
+  }
+
+  /* Read More Functionality for Mobile */
+  .stellar-description.read-more-container {
+    position: relative;
+  }
+
+  .stellar-description.read-more-container .read-more-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .stellar-description.read-more-container.expanded .read-more-text {
+    display: block;
+    -webkit-line-clamp: unset;
+    overflow: visible;
+  }
+
+  .read-more-btn {
+    color: #5fd2ff;
+    background: none;
+    border: none;
+    font-family: "SuisseIntl-Regular";
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 8px;
+    padding: 0;
+    text-decoration: none;
+    display: inline-block;
+    transition: opacity 0.2s ease;
+    font-family: "SuisseIntl-Regular";
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0%;
+    text-transform: uppercase;
+  }
+
+  .read-more-btn:hover {
+    opacity: 0.8;
+  }
+
+  .stellar-enquiry-btn {
+    padding-top: 18px;
+    padding-bottom: 18px;
+    font-family: "SuisseIntl-Regular";
+    font-weight: 400;
+    font-size: 14px !important;
+    line-height: 14px !important;
+    letter-spacing: 10%;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 10px;
+  }
+
+  .custom-desktop-slider-main-thumbs-ups .swiper-slide {
+    width: 100px;
+  }
+}
