@@ -1,0 +1,339 @@
+{{ 'collection-information-with-video.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .section-{{ section.id }} {
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+    padding-top: {{ section.settings.padding_top_desktop }}px;
+    padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+  }
+  .collection-information-sec {
+    background: {{ section.settings.collection_info_background }};
+    color: {{ section.settings.collection_info_text }};
+  }
+  .collection-information-sec h2{
+    color: {{ section.settings.collection_info_text }};
+  }
+  .collection-information-sec p{
+    color: {{ section.settings.collection_info_text }};
+  }
+
+  @media only screen and (min-width: 750px) and (max-width: 1023px){
+    .section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_tablet }}px;
+      padding-bottom: {{ section.settings.padding_bottom_tablet }}px;
+    }
+  }
+
+  @media only screen and (max-width: 750px){
+    .section-{{ section.id }} {
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+  }
+</style>
+
+<section class="section-{{section.id }} collection-information-sec">
+  <div class="container">
+    <div class="collection-info-content">
+      {% if section.settings.collection_info_heading %}
+        <h2>{{ section.settings.collection_info_heading }}</h2>
+      {% endif %}
+      {% if section.settings.collection_info_description %}
+        <p>{{ section.settings.collection_info_description }}</p>
+      {% endif %}
+    </div>
+    {% if section.settings.collection_info_video %}
+      <div class="collection-info-video">
+        <div class="video-wrapper">
+          {{
+            section.settings.collection_info_video
+            | video_tag:
+              autoplay: true,
+              muted: true,
+              loop: true,
+              controls: false,
+              playsinline: true,
+              class: 'info-custom-video'
+          }}
+        </div>
+
+        <div class="video-controls">
+          <div class="video-controls-wrapper">
+            <!-- Play/Pause -->
+            <button class="control-btn play-pause">
+              <svg
+                class="icon play"
+                xmlns="http://www.w3.org/2000/svg"
+                width="29"
+                height="29"
+                viewBox="0 0 29 29"
+                fill="none"
+              >
+                <path d="M14.5 0C6.50234 0 0 6.50234 0 14.5C0 22.4977 6.50234 29 14.5 29C22.4977 29 29 22.4977 29 14.5C29 6.50234 22.4977 0 14.5 0ZM14.5 27.1875C7.50488 27.1875 1.8125 21.4951 1.8125 14.5C1.8125 7.50488 7.50488 1.8125 14.5 1.8125C21.4951 1.8125 27.1875 7.50488 27.1875 14.5C27.1875 21.4951 21.4951 27.1875 14.5 27.1875ZM12.2061 9.3627V19.6373C12.2061 20.1357 11.7982 20.5436 11.2998 20.5436C10.8014 20.5436 10.3936 20.1357 10.3936 19.6373V9.3627C10.3936 8.86426 10.8014 8.45645 11.2998 8.45645C11.7982 8.45645 12.2061 8.85859 12.2061 9.3627ZM18.6064 9.3627V19.6373C18.6064 20.1357 18.1986 20.5436 17.7002 20.5436C17.2018 20.5436 16.7939 20.1357 16.7939 19.6373V9.3627C16.7939 8.86426 17.2018 8.45645 17.7002 8.45645C18.1986 8.45645 18.6064 8.85859 18.6064 9.3627Z" fill="white"/>
+              </svg>
+              <svg
+                class="icon pause hidden"
+                xmlns="http://www.w3.org/2000/svg"
+                width="29"
+                height="29"
+                viewBox="0 0 29 29"
+                fill="none"
+              >
+                <path d="M14.5 0C6.50234 0 0 6.50234 0 14.5C0 22.4977 6.50234 29 14.5 29C22.4977 29 29 22.4977 29 14.5C29 6.50234 22.4977 0 14.5 0ZM14.5 27.1875C7.50488 27.1875 1.8125 21.4951 1.8125 14.5C1.8125 7.50488 7.50488 1.8125 14.5 1.8125C21.4951 1.8125 27.1875 7.50488 27.1875 14.5C27.1875 21.4951 21.4951 27.1875 14.5 27.1875ZM12.2061 9.3627V19.6373C12.2061 20.1357 11.7982 20.5436 11.2998 20.5436C10.8014 20.5436 10.3936 20.1357 10.3936 19.6373V9.3627C10.3936 8.86426 10.8014 8.45645 11.2998 8.45645C11.7982 8.45645 12.2061 8.85859 12.2061 9.3627ZM18.6064 9.3627V19.6373C18.6064 20.1357 18.1986 20.5436 17.7002 20.5436C17.2018 20.5436 16.7939 20.1357 16.7939 19.6373V9.3627C16.7939 8.86426 17.2018 8.45645 17.7002 8.45645C18.1986 8.45645 18.6064 8.85859 18.6064 9.3627Z" fill="white"/>
+              </svg>
+            </button>
+
+            <div class="video-items">
+              <button class="control-btn mute-unmute">
+                <svg
+                  class="icon mute"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="25"
+                  height="25"
+                  viewBox="0 0 25 25"
+                  fill="none"
+                >
+                  <g opacity="0.6">
+                  <mask id="mask0_305_1179" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="25">
+                  <path d="M0 -5.72205e-06H25V25H0V-5.72205e-06Z" fill="white"/>
+                  </mask>
+                  <g mask="url(#mask0_305_1179)">
+                  <path d="M4.75171 17.1182H0.732422V7.88257H4.75171V17.1182Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M24.2678 16.127L17.0137 8.87285" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M17.0137 16.127L24.2678 8.87285" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M4.75195 7.8824V12.5002V17.118L13.1365 21.7337C13.5708 21.9728 14.1023 21.6586 14.1023 21.163V12.5002V3.83743C14.1023 3.34172 13.5708 3.02761 13.1365 3.26663L4.75195 7.8824Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                  </g>
+                  </g>
+                </svg>
+                <svg
+                  class="icon unmute hidden"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="25"
+                  height="25"
+                  viewBox="0 0 25 25"
+                  fill="none"
+                >
+                  <g opacity="0.6">
+                  <mask id="mask0_305_1179" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="25">
+                  <path d="M0 -5.72205e-06H25V25H0V-5.72205e-06Z" fill="white"/>
+                  </mask>
+                  <g mask="url(#mask0_305_1179)">
+                  <path d="M4.75171 17.1182H0.732422V7.88257H4.75171V17.1182Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M24.2678 16.127L17.0137 8.87285" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M17.0137 16.127L24.2678 8.87285" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M4.75195 7.8824V12.5002V17.118L13.1365 21.7337C13.5708 21.9728 14.1023 21.6586 14.1023 21.163V12.5002V3.83743C14.1023 3.34172 13.5708 3.02761 13.1365 3.26663L4.75195 7.8824Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                  </g>
+                  </g>
+                </svg>
+              </button>
+
+              <button class="control-btn fullscreen">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <g opacity="0.6">
+                  <path d="M6.54892 0.0283203H0.901555C0.89679 0.0283203 0.892025 0.0283984 0.887298 0.0285156C0.882533 0.0284375 0.877807 0.0283203 0.873041 0.0283203C0.446425 0.0283203 0.100586 0.374173 0.100586 0.800806V6.44843C0.100586 6.87506 0.446425 7.22092 0.873041 7.22092C1.29966 7.22092 1.6455 6.87506 1.6455 6.44843V1.57333H6.54896C6.97558 1.57333 7.32142 1.22748 7.32142 0.800845C7.32142 0.374212 6.97558 0.0283203 6.54892 0.0283203Z" fill="white"/>
+                  <path d="M19.7149 0.772485C19.7149 0.345853 19.369 0 18.9424 0H13.295C12.8683 0 12.5225 0.345853 12.5225 0.772485C12.5225 1.19912 12.8683 1.54497 13.295 1.54497H18.1699V6.44859C18.1699 6.87522 18.5157 7.22107 18.9424 7.22107C19.369 7.22107 19.7148 6.87522 19.7148 6.44859V0.801C19.7148 0.796235 19.7147 0.791469 19.7146 0.786743C19.7147 0.782016 19.7149 0.777251 19.7149 0.772485Z" fill="white"/>
+                  <path d="M18.84 12.7788C18.4134 12.7788 18.0676 13.1247 18.0676 13.5513V18.4264H13.1641C12.7374 18.4264 12.3916 18.7722 12.3916 19.1989C12.3916 19.6255 12.7374 19.9714 13.1641 19.9714H18.8115C18.8162 19.9714 18.821 19.9713 18.8257 19.9712C18.8305 19.9712 18.8352 19.9714 18.84 19.9714C19.2666 19.9714 19.6124 19.6255 19.6124 19.1989V13.5513C19.6125 13.1247 19.2666 12.7788 18.84 12.7788Z" fill="white"/>
+                  <path d="M6.41987 18.455H1.54491V13.5513C1.54491 13.1247 1.19907 12.7788 0.772456 12.7788C0.345839 12.7788 0 13.1247 0 13.5513V19.1989C0 19.2037 7.8125e-05 19.2085 0.000195306 19.2132C0.000117185 19.2179 0 19.2227 0 19.2274C0 19.6541 0.345839 19.9999 0.772456 19.9999H6.41987C6.84648 19.9999 7.19232 19.6541 7.19232 19.2274C7.19232 18.8008 6.84648 18.455 6.41987 18.455Z" fill="white"/>
+                  </g>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const section = document.querySelector('.section-{{ section.id }}');
+    if (!section) return;
+
+    const video = section.querySelector('.info-custom-video');
+    const playBtn = section.querySelector('.play-pause');
+    const playIcon = playBtn.querySelector('.play');
+    const pauseIcon = playBtn.querySelector('.pause');
+
+    const muteBtn = section.querySelector('.mute-unmute');
+    const muteIcon = muteBtn.querySelector('.mute');
+    const unmuteIcon = muteBtn.querySelector('.unmute');
+
+    const fullscreenBtn = section.querySelector('.fullscreen');
+
+    const toggle = (show, hide) => {
+      show.classList.remove('hidden');
+      hide.classList.add('hidden');
+    };
+
+    if (!video) return;
+
+    toggle(video.paused ? playIcon : pauseIcon, video.paused ? pauseIcon : playIcon);
+    toggle(video.muted ? muteIcon : unmuteIcon, video.muted ? unmuteIcon : muteIcon);
+
+    playBtn.addEventListener('click', () => {
+      if (video.paused) video.play();
+      else video.pause();
+      toggle(video.paused ? playIcon : pauseIcon, video.paused ? pauseIcon : playIcon);
+    });
+
+    muteBtn.addEventListener('click', () => {
+      video.muted = !video.muted;
+      toggle(video.muted ? muteIcon : unmuteIcon, video.muted ? unmuteIcon : muteIcon);
+    });
+
+    fullscreenBtn.addEventListener('click', () => {
+      if (video.requestFullscreen) video.requestFullscreen();
+      else if (video.webkitRequestFullscreen) video.webkitRequestFullscreen();
+      else if (video.msRequestFullscreen) video.msRequestFullscreen();
+    });
+
+    video.addEventListener('play', () => toggle(pauseIcon, playIcon));
+    video.addEventListener('pause', () => toggle(playIcon, pauseIcon));
+    video.addEventListener('volumechange', () =>
+      toggle(video.muted ? muteIcon : unmuteIcon, video.muted ? unmuteIcon : muteIcon)
+    );
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Information With Video",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom Desktop",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom Mobile",
+      "default": 36
+    },
+    {
+      "type": "header",
+      "content": "Inner Spacing Desktop Settings"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Top Desktop",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom Desktop",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Inner Spacing Tablet Settings"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_tablet",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Top Desktop",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_tablet",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom Desktop",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Inner Spacing Mobile Settings"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Top Mobile",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom Mobile",
+      "default": 40
+    },
+    {
+      "type": "text",
+      "id": "collection_info_heading",
+      "label": "Heading",
+      "default": "Enter the Heading"
+    },
+    {
+      "type": "text",
+      "id": "collection_info_description",
+      "label": "Description",
+      "default": "Enter the Description"
+    },
+    {
+      "type": "color",
+      "id": "collection_info_background",
+      "label": "Background",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "collection_info_text",
+      "label": "Body text",
+      "default": "#000"
+    },
+    {
+      "type": "video",
+      "id": "collection_info_video",
+      "label": "A Shopify-hosted video"
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Information With Video",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
