@@ -1,0 +1,119 @@
+.split-opener {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  overflow: hidden;
+  pointer-events: all;
+}
+
+.split-opener .split {
+  flex: 1;
+  background-size: 100% 200%;
+  background-position: center;
+  transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.split-opener .split h2,
+.split-opener .split h2 {
+  font-family: "PPMonumentExtended-Light";
+  color: #fff;
+}
+
+.split-opener .split h2 {
+  font-weight: 200;
+  font-size: 90px;
+  margin-bottom: 0;
+  letter-spacing: 3rem;
+}
+.split-opener .split h2 {
+  font-weight: 400;
+  font-size: 30px;
+  letter-spacing: 1rem;
+}
+.split-opener .split .heading {
+  padding-bottom: 22px;
+}
+.split-opener .split .sub-heading {
+  padding-top: 23px;
+}
+.split-opener .split.top {
+  background-position: center top;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: -1px;
+}
+.split-opener .split.bottom {
+  background-position: center bottom;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.split-opener.active .top {
+  transform: translateY(-100%);
+}
+.split-opener.active .bottom {
+  transform: translateY(100%);
+}
+
+.split-opener.hide {
+  display: none;
+}
+
+body {
+  overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+  .split-opener .split h2 {
+    font-size: 60px;
+  }
+
+  .split-opener .split h2 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .split-opener .split .heading {
+    padding-bottom: 16px;
+  }
+  .split-opener .split .sub-heading {
+    padding-top: 11px;
+  }
+  .split-opener .split h2 {
+    font-family: "PPMonumentWide-Regular";
+    letter-spacing: 20px;
+    font-size: 36px;
+  }
+
+  .split-opener .split h2 {
+    font-family: "PPMonumentWide-Regular";
+    letter-spacing: 2px;
+    font-size: 18px;
+  }
+  .split {
+    background-size: cover;
+    background-position: center;
+  }
+  .split.top {
+    background-position: center top;
+    object-fit: cover;
+  }
+  .split.bottom {
+    background-position: center bottom;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 370px) {
+  .split-opener .split h2 {
+    letter-spacing: 12px;
+  }
+  .split-opener .split h2 {
+    font-size: 14px;
+  }
+}

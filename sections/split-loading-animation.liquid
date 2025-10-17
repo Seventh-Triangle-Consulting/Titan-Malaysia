@@ -1,0 +1,120 @@
+{{ 'split-loading-animation.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .split-opener .split.top {
+    background-image: url({{section.settings.split_image | img_url:'1600x900'}});
+  }
+  .split-opener .split.bottom {
+    background-image: url({{section.settings.split_image| img_url:'1600x900'}});
+  }
+
+  @media screen and (max-width: 767px) {
+    .split-opener .split.top {
+      background-image: url({{section.settings.split_image_mobile | img_url:'800x600'}});
+    }
+
+    .split-opener .split.bottom {
+      background-image: url({{section.settings.split_image_mobile | img_url:'800x600'}});
+    }
+  }
+</style>
+
+<section class="split-opener">
+  <div class="split top">
+    <div class="heading">
+      <h2 class="main-heading">
+        {{ section.settings.section_heading }}
+      </h2>
+    </div>
+  </div>
+
+  <div class="split bottom">
+    <div>
+      <h2 class="sub-heading">
+        {{ section.settings.section_sub_heading }}
+      </h2>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+
+    const opener = document.querySelector('.split-opener');
+    const autoPlay = {{ section.settings.onload_animation | json }};
+
+    if (autoPlay) {
+      setTimeout(() => {
+        opener.classList.add('active');
+
+        setTimeout(() => {
+          opener.classList.add('hide');
+          document.body.style.overflow = 'auto';
+        }, 1200);
+      }, 1000);
+    }
+    else {
+      opener.addEventListener('click', () => {
+        opener.classList.add('active');
+
+        setTimeout(() => {
+          opener.classList.add('hide');
+          document.body.style.overflow = 'auto';
+        }, 1200);
+      });
+    }
+  });
+
+
+  function syncWidths() {
+    const mainHeading = document.querySelector('.heading h2');
+    const subHeading = document.querySelector('.sub-heading h2');
+
+    const mainHeadingWidth = mainHeading.offsetWidth;
+    subHeading.style.maxWidth = mainHeadingWidth + 'px';
+  }
+
+  syncWidths();
+
+  window.addEventListener('resize', syncWidths);
+</script>
+
+{% schema %}
+{
+  "name": "Split Loading animation",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "split_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "split_image_mobile",
+      "label": "Mobile Background Image"
+    },
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "section_sub_heading",
+      "label": "Sub Heading Text"
+    },
+    {
+      "type": "checkbox",
+      "id": "onload_animation",
+      "label": "Onload animation",
+      "info": "Show animation on page load",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Split Opener"
+    }
+  ]
+}
+{% endschema %}
