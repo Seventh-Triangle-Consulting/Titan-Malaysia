@@ -1,11 +1,11 @@
-.video-section {
+.autoplay-video-section {
   position: relative;
   height: 100vh;
   width: 100%;
   overflow: hidden;
 }
 
-.video-section video {
+.autoplay-video-section video {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -61,6 +61,6 @@
   background: #fafafa;
 }
 
-.split-opener.active + .video-section + .site-content {
+.split-opener.active + .autoplay-video-section + .site-content {
   opacity: 1;
 }
