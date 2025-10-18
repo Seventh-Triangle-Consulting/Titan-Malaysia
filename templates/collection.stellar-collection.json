@@ -43,6 +43,7 @@
       "name": "Auto Play Video",
       "settings": {
         "video_desktop": "shopify://files/videos/e3dd1e19f9ab4373b32489fe70b2fd2d.mp4",
+        "video_mobile": "shopify://files/videos/385fd330e57c4b59b821eda1dcf2766b.mp4",
         "margin_top": 40,
         "margin_bottom": 40
       }
