@@ -10,10 +10,35 @@
       padding: 0px;
     }
 
+    @media only screen and (min-width: 750px) and (max-width: 1024px){
+      .page-width.product{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0px !important;
+      }
+      [data-id="pdpSwiper steller"],
+      .titan_main_product.product__info-wrapper.grid__item{
+        width: 100% !important;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+      }
+      .section-{{ section.id }}-padding.main-product {
+        padding-bottom: 30px;
+      }
+      .stellar-share-wishlist.tablet {
+        display: flex !important;
+      }
+    }
+
     @media only screen and (max-width: 749px){
       .titan_main_product {
         padding-left: 20px !important;
         padding-right: 20px !important;
+      }
+      .section-{{ section.id }}-padding.main-product {
+        padding-bottom: 30px;
       }
     }
   </style>
