@@ -1,34 +1,31 @@
 <style>
   .section-{{ section.id }}-margin{
-      margin-bottom: {{ section.settings.margin_bottom_Desktop }}px;
-      margin-top: {{ section.settings.margin_top_Desktop }}px;
+    margin-bottom: {{ section.settings.margin_bottom_Desktop }}px;
+    margin-top: {{ section.settings.margin_top_Desktop }}px;
   }
-
-
-    .homepage-video-container .mobile-video {
-      display: none;
-      line-height: 0;
+  .homepage-video-container .mobile-video {
+    display: none;
+    line-height: 0;
   }
-
   .homepage-video-container .video-wrapper{
     line-height: 0;
   }
 
   @media screen and (max-width: 768px) {
-      .section-{{ section.id }}-margin{
-          margin-bottom: {{ section.settings.margin_bottom_Mobile }}px;
-          margin-top: {{ section.settings.margin_top_Mobile }}px;
-      }
-      .homepage-video-container .desktop-video {
-          display: none;
-        }
-
-      .homepage-video-container .mobile-video {
-          display: block;
-          line-height: 0;
-      }
+    .section-{{ section.id }}-margin{
+      margin-bottom: {{ section.settings.margin_bottom_Mobile }}px;
+      margin-top: {{ section.settings.margin_top_Mobile }}px;
+    }
+    .homepage-video-container .desktop-video {
+      display: none;
+    }
+    .homepage-video-container .mobile-video {
+      display: block;
+      line-height: 0;
+    }
   }
 </style>
+
 {% if section.settings.video_desktop != blank and section.settings.video_mobile != blank %}
   <section class="homepage-video-container section-{{ section.id }}-margin" id="{{ section.id }}">
     <div class="full-vh-height video-wrapper">
