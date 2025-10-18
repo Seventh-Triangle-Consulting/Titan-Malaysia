@@ -1,380 +1,296 @@
-{%- style -%}
-    .stellar-specifications-{{ section.id }} {
-      background-color: {{ section.settings.background_color | default: '#1a1f3a' }};
-      padding: {{ section.settings.padding_top_mobile }}px 0 {{ section.settings.padding_bottom_mobile }}px 0;
-      margin-top: {{ section.settings.margin_top_mobile }}px;
-      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
-    }
+<style>
+  .stellar-specifications-{{ section.id }} {
+    background-color: {{ section.settings.background_color | default: '#1a1f3a' }};
+    padding: {{ section.settings.padding_top_mobile }}px 0 {{ section.settings.padding_bottom_mobile }}px 0;
+    margin-top: {{ section.settings.margin_top_mobile }}px;
+    margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+  }
+  .stellar-specifications-container {
+    display: flex;
+    gap: 60px;
+    align-items: self-start;
+    justify-content: space-between;
+  }
+  .stellar-specifications-left {
+    flex: 1;
+    max-width: 50%;
+  }
+  .stellar-specifications-right {
+    flex: 1;
+    max-width: 50%;
+  }
+  .stellar-specifications-heading {
+    font-family: 'PPMonumentWide-Regular';
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 44px;
+    letter-spacing: 0%;
+    color: #FFFFFF;
+    margin-bottom: 30px;
+    margin-top: 30px;
+  }
+  .stellar-specifications-divider {
+    height: 1px;
+    background-color: #666666;
+    margin-bottom: 30px;
+  }
+  .stellar-specifications-tabs {
+    display: flex;
+    gap: 30px;
+  }
+  .stellar-specifications-tabs-divider {
+    height: 1px;
+    background-color: #FFFFFF4D;
+    margin-bottom: 21px;
+    display: block !important;
+  }
+  .stellar-specifications-tab {
+    background: none;
+    border: none;
+    color: #999999;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    font-family: 'PPMonumentWide-Regular';
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 24px;
+    letter-spacing: 0%;
+    color: #FFFFFF66;
+    padding-bottom: 8px;
+  }
+  .stellar-specifications-tab.active {
+    color: #ffffff;
+  }
+  .stellar-specifications-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #ffffff;
+  }
+  .stellar-specifications-content-divider {
+    height: 1px;
+    background-color: #666666;
+    margin-bottom: 30px;
+  }
+  .stellar-specifications-content {
+    display: none;
+  }
+  .stellar-specifications-content.active {
+    display: grid;
+  }
+  .stellar-specification-item {
+    margin-bottom: 25px;
+  }
+  .stellar-specification-label {
+    color: #999999;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+    font-family: 'SuisseIntl-Regular';
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: 0%;
+    text-transform: uppercase;
+    color: #FFFFFF99;
+    margin-bottom: 8px;
+  }
+  .stellar-specification-value {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+    font-family: 'SuisseIntl-Regular';
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 24px;
+    letter-spacing: 0%;
+    color: #FFFFFF;
+  }
+  .stellar-specifications-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: opacity 0.3s ease;
+  }
+  /* Tab image visibility control */
+  .stellar-specifications-image.tab-image {
+    display: none !important;
+    opacity: 0;
+  }
+  .stellar-specifications-image.tab-image.active {
+    display: block !important;
+    opacity: 1;
+  }
+  /* Desktop shows desktop images, hides mobile images */
+  .stellar-specifications-image.tab-image.mobile-image.active {
+    display: none !important;
+  }
+  .stellar-specifications-image.tab-image.desktop-image.active {
+    display: block !important;
+  }
 
+  @media screen and (max-width: 1024px) {
     .stellar-specifications-container {
-      display: flex;
-      gap: 60px;
-      align-items: self-start;
-      justify-content: space-between;
+      flex-direction: column-reverse;
+      gap: 40px;
     }
-
-    .stellar-specifications-left {
-      flex: 1;
-      max-width: 50%;
-    }
-
+    .stellar-specifications-left,
     .stellar-specifications-right {
-      flex: 1;
-      max-width: 50%;
+      max-width: 100%;
+      width: 100%;
     }
-
     .stellar-specifications-heading {
       font-family: 'PPMonumentWide-Regular';
       font-weight: 400;
-      font-style: Regular;
-      font-size: 35px;
-      leading-trim: NONE;
-      line-height: 44px;
+      font-size: 25px;
+      line-height: 37px;
       letter-spacing: 0%;
-      color: #FFFFFF;
-      margin-bottom: 30px;
-      margin-top: 30px;
+      margin-bottom: 36px;
     }
-
-    .stellar-specifications-divider {
-      height: 1px;
-      background-color: #666666;
-      margin-bottom: 30px;
-    }
-
     .stellar-specifications-tabs {
-      display: flex;
-      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: space-between;
     }
-
     .stellar-specifications-tabs-divider {
-      height: 1px;
-      background-color: #FFFFFF4D;
-      margin-bottom: 21px;
-      display: block !important;
-
+      margin-bottom: 37px;
     }
-
     .stellar-specifications-tab {
-      background: none;
-      border: none;
-      color: #999999;
-      font-size: 16px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      position: relative;
       font-family: 'PPMonumentWide-Regular';
       font-weight: 400;
-      font-style: Regular;
-      font-size: 19px;
-      leading-trim: NONE;
+      font-size: 17px;
       line-height: 24px;
-      letter-spacing: 0%;
-      color: #FFFFFF66;
-      padding-bottom: 8px;
+      padding: 0px;
     }
-
-    .stellar-specifications-tab.active {
-      color: #ffffff;
+    /* Mobile: hide desktop images, show mobile images */
+    .stellar-specifications-image.tab-image.desktop-image.active {
+      display: none !important;
     }
-
-    .stellar-specifications-tab.active::after {
-      content: '';
-      position: absolute;
-      bottom: -1px;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background-color: #ffffff;
+    .stellar-specifications-image.tab-image.mobile-image.active {
+      display: block !important;
     }
-
-    .stellar-specifications-content-divider {
-      height: 1px;
-      background-color: #666666;
-      margin-bottom: 30px;
-    }
-
-    .stellar-specifications-content {
+    .stellar-specifications-right.desktop{
       display: none;
     }
-
-    .stellar-specifications-content.active {
+    .stellar-specifications-right.mobile{
+      display: block;
+    }
+    .stellar-specifications-content.active{
       display: grid;
+      grid-template-columns: 1fr 1fr;
+      justify-content: center;
+      row-gap: 30px;
     }
-
-    .stellar-specification-item {
-      margin-bottom: 25px;
-    }
-
-    .stellar-specification-label {
-      color: #999999;
-      font-size: 12px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 4px;
+    .stellar-specification-label{
       font-family: 'SuisseIntl-Regular';
       font-weight: 400;
-      font-style: Regular;
-      font-size: 15px;
-      leading-trim: NONE;
+      font-size: 14px;
       line-height: 24px;
       letter-spacing: 0%;
       text-transform: uppercase;
       color: #FFFFFF99;
-      margin-bottom: 8px;
-
+      margin-bottom: 2px;
     }
-
-    .stellar-specification-value {
-      color: #ffffff;
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 1.4;
+    .stellar-specification-value{
       font-family: 'SuisseIntl-Regular';
-  font-weight: 400;
-  font-style: Regular;
-  font-size: 19px;
-  leading-trim: NONE;
-  line-height: 24px;
-  letter-spacing: 0%;
-  color: #FFFFFF;
-
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 20px;
+      letter-spacing: 0%;
     }
+  }
 
-    .stellar-specifications-image {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      transition: opacity 0.3s ease;
+  @media screen and (max-width: 768px) {
+    .stellar-specifications-heading{
+      font-family: 'PPMonumentWide-Regular';
+      font-weight: 400;
+      font-size: 16px !important;
+      line-height: 33px;
+      letter-spacing: 0%;
+      margin-top: 44px;
+      margin-bottom: 20px;
     }
-
-    /* Tab image visibility control */
-    .stellar-specifications-image.tab-image {
-      display: none !important;
-      opacity: 0;
+    .stellar-specifications-tab{
+      font-family: 'PPMonumentWide-Regular';
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 24px;
+      letter-spacing: 0%;
     }
-
-    .stellar-specifications-image.tab-image.active {
-      display: block !important;
-      opacity: 1;
+    .stellar-specifications-tabs{
+      gap: 27px;
     }
-
-    /* Desktop shows desktop images, hides mobile images */
-    .stellar-specifications-image.tab-image.mobile-image.active {
-      display: none !important;
+    .stellar-specifications-tabs-divider{
+      margin-bottom: 24px;
     }
-
-    .stellar-specifications-image.tab-image.desktop-image.active {
-      display: block !important;
+    .stellar-specifications-tab{
+      font-family: 'SuisseIntl-Regular';
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 24px;
+      letter-spacing: 0%;
+      text-transform: uppercase;
     }
-
-    @media screen and (max-width: 1024px) {
-
-      .stellar-specifications-container {
-        flex-direction: column-reverse;
-        gap: 40px;
-      }
-
-      .stellar-specifications-left,
-      .stellar-specifications-right {
-        max-width: 100%;
-        width: 100%;
-      }
-
-      .stellar-specifications-heading {
-        font-family: 'PPMonumentWide-Regular';
-          font-weight: 400;
-          font-style: Regular;
-          font-size: 25px;
-          leading-trim: NONE;
-          line-height: 37px;
-          letter-spacing: 0%;
-          margin-bottom: 36px;
-      }
-
-      .stellar-specifications-tabs {
-        flex-wrap: wrap;
-        justify-content: space-between;
-      }
-
-      .stellar-specifications-tabs-divider {
-          margin-bottom: 37px;
-      }
-
-      .stellar-specifications-tab {
-        font-family: 'PPMonumentWide-Regular';
-          font-weight: 400;
-          font-style: Regular;
-          font-size: 17px;
-          leading-trim: NONE;
-          line-height: 24px;
-          letter-spacing: 0%;
-          padding: 0px;
-      }
-
-      /* Mobile: hide desktop images, show mobile images */
-      .stellar-specifications-image.tab-image.desktop-image.active {
-        display: none !important;
-      }
-
-      .stellar-specifications-image.tab-image.mobile-image.active {
-        display: block !important;
-      }
-
-      .stellar-specifications-right.desktop{
-          display: none;
-      }
-      .stellar-specifications-right.mobile{
-          display: block;
-      }
-
-      .stellar-specifications-content.active{
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          justify-content: center;
-          row-gap: 30px;
-      }
-
-      .stellar-specification-label{
-        font-family: 'SuisseIntl-Regular';
-          font-weight: 400;
-          font-style: Regular;
-          font-size: 14px;
-          leading-trim: NONE;
-          line-height: 24px;
-          letter-spacing: 0%;
-          text-transform: uppercase;
-          color: #FFFFFF99;
-          magrin-bottom: 2px;
-      }
-
-      .stellar-specification-value{
-        font-family: 'SuisseIntl-Regular';
-          font-weight: 400;
-          font-style: Regular;
-          font-size: 15px;
-          leading-trim: NONE;
-          line-height: 20px;
-          letter-spacing: 0%;
-      }
-
+    .stellar-specification-value{
+      font-family: 'SuisseIntl-Regular';
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 20px;
+      letter-spacing: 0%;
+      margin-bottom: 19px;
     }
-
-
-
-
-    @media screen and (max-width: 768px) {
-
-      .stellar-specifications-heading{
-        font-family: 'PPMonumentWide-Regular';
-          font-weight: 400;
-          font-style: Regular;
-          font-size: 16px !important;
-          leading-trim: NONE;
-          line-height: 33px;
-          letter-spacing: 0%;
-          margin-top: 44px;
-          margin-bottom: 20px;
-      }
-
-      .stellar-specifications-tab{
-          font-family: 'PPMonumentWide-Regular';
-          font-weight: 400;
-          font-style: Regular;
-          font-size: 15px;
-          leading-trim: NONE;
-          line-height: 24px;
-          letter-spacing: 0%;
-      }
-
-      .stellar-specifications-tabs{
-          gap: 27px;
-      }
-
-
-      .stellar-specifications-tabs-divider{
-          margin-bottom: 24px;
-      }
-
-
-      .stellar-specifications-tab{
-        font-family: 'SuisseIntl-Regular';
-          font-weight: 400;
-          font-style: Regular;
-          font-size: 14px;
-          leading-trim: NONE;
-          line-height: 24px;
-          letter-spacing: 0%;
-          text-transform: uppercase;
-      }
-
-      .stellar-specification-value{
-          font-family: Suisse Int';
-          font-weight: 400;
-          font-style: Regular;
-          font-size: 15px;
-          leading-trim: NONE;
-          line-height: 20px;
-          letter-spacing: 0%;
-          margin-bottom: 19px;
-      }
-
-      .stellar-specifications-content.active{
-          display: block;
-      }
-
-
-
-
-
+    .stellar-specifications-content.active{
+      display: block;
     }
+  }
 
 
-    @media screen and (max-width: 450px) {
-
-      .stellar-specifications-tabs{
-          gap: 10px;
-      }
+  @media screen and (max-width: 450px) {
+    .stellar-specifications-tabs{
+      gap: 10px;
     }
+  }
 
-    @media screen and (max-width: 400px) {
-
-      .stellar-specifications-tabs{
-          gap: 10px;
-      }
-
-      .stellar-specifications-tab{
-          font-size: 10px;
-      }
-      .stellar-specification-label{
-          font-size: 10px;
-      }
-
-      .stellar-specification-value{
-          font-size: 10px;
-      }
-
+  @media screen and (max-width: 400px) {
+    .stellar-specifications-tabs{
+      gap: 10px;
     }
-
-    @media screen and (min-width: 1025px) {
-      .stellar-specifications-right.desktop{
-          display: block;
-      }
-      .stellar-specifications-right.mobile{
-          display: none;
-      }
+    .stellar-specifications-tab{
+      font-size: 10px;
     }
-
-    @media screen and (min-width: 750px) {
-      .stellar-specifications-{{ section.id }} {
-        padding: {{ section.settings.padding_top_desktop }}px 0 {{ section.settings.padding_bottom_desktop }}px 0;
-        margin-top: {{ section.settings.margin_top_desktop }}px;
-        margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
-      }
+    .stellar-specification-label{
+      font-size: 10px;
     }
-{%- endstyle -%}
+    .stellar-specification-value{
+      font-size: 10px;
+    }
+  }
+
+  @media screen and (min-width: 1025px) {
+    .stellar-specifications-right.desktop{
+      display: block;
+    }
+    .stellar-specifications-right.mobile{
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: 750px) {
+    .stellar-specifications-{{ section.id }} {
+      padding: {{ section.settings.padding_top_desktop }}px 0 {{ section.settings.padding_bottom_desktop }}px 0;
+      margin-top: {{ section.settings.margin_top_desktop }}px;
+      margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+    }
+  }
+</style>
 
 <div class="stellar-specifications-{{ section.id }}">
   <div class="stellar-page-width">
