@@ -38,6 +38,15 @@
         "padding_bottom": 36
       }
     },
+    "hero_autoplay_video_QWYqeA": {
+      "type": "hero-autoplay-video",
+      "name": "Auto Play Video",
+      "settings": {
+        "video_desktop": "shopify://files/videos/e3dd1e19f9ab4373b32489fe70b2fd2d.mp4",
+        "margin_top": 40,
+        "margin_bottom": 40
+      }
+    },
     "split_loading_animation_wUFJQH": {
       "type": "split-loading-animation",
       "disabled": true,
@@ -117,6 +126,7 @@
   "order": [
     "banner",
     "product-grid",
+    "hero_autoplay_video_QWYqeA",
     "split_loading_animation_wUFJQH",
     "collection_information_with_video_jQnCm4",
     "pdp_product_recommendation_bAJNRb",
