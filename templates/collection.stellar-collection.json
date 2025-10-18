@@ -87,6 +87,23 @@
     },
     "collection_last_banner_d8DJCa": {
       "type": "collection-last-banner",
+      "blocks": {
+        "image_4fLmiF": {
+          "type": "image",
+          "settings": {
+            "desktop_banner_text": "Explore More",
+            "mobile_banner_text": "",
+            "button_text1": "Explore Our Story",
+            "button_link1": "shopify://products/camo-multicoloured-dial-plastic-strap-watch-for-men-77086pp10w",
+            "buttoncolor": "#ffffff",
+            "buttontextcolor": "#486b9c",
+            "content-position": "bottom-center"
+          }
+        }
+      },
+      "block_order": [
+        "image_4fLmiF"
+      ],
       "name": "Collection Last Banner",
       "settings": {
         "margin_bottom_desktop": 0,
