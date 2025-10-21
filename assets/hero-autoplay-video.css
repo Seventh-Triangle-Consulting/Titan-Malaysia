@@ -13,23 +13,6 @@
   object-fit: cover;
 }
 
-/* ----- Video Controls ----- */
-/* .video-controls {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  transform: translateX(-50%);
-  /* z-index: 10; 
-} */
-
-/* .video-controls button {
-  background: rgba(0, 0, 0, 0.4);
-  border: none;
-  border-radius: 50%;
-  padding: 12px;
-  cursor: pointer;
-  transition: background 0.3s;
-} */
 
 /* ----- Scroll Down Arrow ----- */
 .video-controls {
@@ -60,7 +43,7 @@
   padding: 100px 20px;
   background: #fafafa;
 }
-
+/* 
 .split-opener.active + .autoplay-video-section + .site-content {
   opacity: 1;
-}
+} */
