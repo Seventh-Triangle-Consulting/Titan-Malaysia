@@ -1,22 +1,38 @@
 {{ 'hero-autoplay-video.css' | asset_url | stylesheet_tag }}
 
 <style>
-  .autoplay-video-section {
-    margin-top: {{ section.settings.margin_top | default: 50 }}px;
-    margin-bottom: {{ section.settings.margin_bottom | default: 50 }}px;
-  }
-
-
   .autoplay-video-section .mobile-video { display: none; }
   {% if section.settings.video_mobile != blank %}
     @media screen and (max-width: 768px) {
       .autoplay-video-section .desktop-video { display: none; }
       .autoplay-video-section .mobile-video { display: block; }
     }
-  {% endif %}
+  {% endif %} 
+
+
+  .section-{{ section.id }} {
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+    padding-top: {{ section.settings.padding_top_desktop }}px;
+    padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+  }
+
+  @media only screen and (min-width: 750px) and (max-width: 1023px){
+    .section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_tablet }}px;
+      padding-bottom: {{ section.settings.padding_bottom_tablet }}px;
+    }
+  }
+
+  @media only screen and (max-width: 749px){
+    .section-{{ section.id }} {
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+  }
 </style>
 
-<section class="autoplay-video-section">
+<section class="section-{{ section.id }} autoplay-video-section">
   {% if section.settings.video_desktop != blank and section.settings.video_mobile != blank %}
   <div class="container">
     {% if section.settings.video_desktop != blank %}
@@ -220,22 +236,94 @@
     },
     {
       "type": "range",
-      "id": "margin_top",
-      "label": "Top margin",
+      "id": "margin_bottom_desktop",
       "min": 0,
       "max": 100,
-      "step": 5,
+      "step": 1,
       "unit": "px",
+      "label": "Bottom Desktop",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom Mobile",
+      "default": 36
+    },
+    {
+      "type": "header",
+      "content": "Inner Spacing Desktop Settings"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Top Desktop",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom Desktop",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Inner Spacing Tablet Settings"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_tablet",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Top Tablet",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_tablet",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom Tablet",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Inner Spacing Mobile Settings"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Top Mobile",
       "default": 40
     },
     {
       "type": "range",
-      "id": "margin_bottom",
-      "label": "Bottom margin",
+      "id": "padding_bottom_mobile",
       "min": 0,
       "max": 100,
-      "step": 5,
+      "step": 1,
       "unit": "px",
+      "label": "Bottom Mobile",
       "default": 40
     }
   ],

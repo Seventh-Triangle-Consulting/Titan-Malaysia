@@ -15,19 +15,19 @@
   background-position: center;
   transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
 }
-.split-opener .split h2,
+
 .split-opener .split h2 {
   font-family: "PPMonumentExtended-Light";
   color: #fff;
 }
 
-.split-opener .split h2 {
+.split-opener .split.top h2 {
   font-weight: 200;
   font-size: 90px;
   margin-bottom: 0;
   letter-spacing: 3rem;
 }
-.split-opener .split h2 {
+.split-opener .split.bottom h2 {
   font-weight: 400;
   font-size: 30px;
   letter-spacing: 1rem;
@@ -68,11 +68,11 @@ body {
 }
 
 @media (max-width: 1024px) {
-  .split-opener .split h2 {
+  .split-opener .split.top h2 {
     font-size: 60px;
   }
 
-  .split-opener .split h2 {
+  .split-opener .split.bottom h2 {
     font-size: 20px;
   }
 }
@@ -112,10 +112,10 @@ body {
 }
 
 @media (max-width: 370px) {
-  .split-opener .split h2 {
+  .split-opener .split.top h2 {
     letter-spacing: 12px;
   }
-  .split-opener .split h2 {
+  .split-opener .split.bottom h2 {
     font-size: 14px;
   }
 }
