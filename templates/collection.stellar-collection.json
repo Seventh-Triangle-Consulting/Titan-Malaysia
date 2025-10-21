@@ -63,7 +63,7 @@
         "split_image_mobile": "shopify://shop_images/galaxy-mobile.png",
         "section_heading": "STELLAR",
         "section_sub_heading": "Explore The Unexplored",
-        "onload_animation": false
+        "onload_animation": true
       }
     },
     "collection_information_with_video_jQnCm4": {
