@@ -96,9 +96,9 @@
             "mobile_banner_text": "",
             "button_text1": "Explore Our Story",
             "button_link1": "shopify://products/camo-multicoloured-dial-plastic-strap-watch-for-men-77086pp10w",
-            "buttoncolor": "#ffffff",
-            "buttontextcolor": "#486b9c",
-            "content-position": "bottom-center"
+            "buttoncolor": "#00bdc0",
+            "buttontextcolor": "#ffffff",
+            "content-position": "middle-center"
           }
         }
       },
