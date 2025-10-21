@@ -109,7 +109,7 @@
       "settings": {
         "margin_bottom_desktop": 0,
         "margin_bottom_mobile": 0,
-        "autoplay": false,
+        "autoplay": true,
         "heading_text": "explore more stories"
       }
     }
