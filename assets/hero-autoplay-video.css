@@ -15,11 +15,10 @@
 
 
 /* ----- Scroll Down Arrow ----- */
-.video-controls {
+.autoplay-video-section .video-controls {
   position: absolute;
   bottom: 0;
   left: 0;
-  /* transform: translateX(-50%); */
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -27,23 +26,21 @@
   z-index: 10;
   padding: 0 46px 43px;
 }
+@media (max-width: 1024px) and (min-width: 769px) {
+  .autoplay-video-section .video-controls {
+    padding: 0 35px 41px;
+  }
+}
+
+@media (max-width: 768px) {
+  .autoplay-video-section .video-controls {
+    padding: 0 18px 27px;
+  }
+}
 
 /* ----- Control Buttons ----- */
-.video-controls svg {
-  /* border-radius: 50%;
-  padding: 10px; */
+.autoplay-video-section .video-controls svg {
   cursor: pointer;
 }
 
-/* ----- Main Content ----- */
-.site-content {
-  opacity: 0;
-  transition: opacity 1s ease 1s;
-  text-align: center;
-  padding: 100px 20px;
-  background: #fafafa;
-}
-/* 
-.split-opener.active + .autoplay-video-section + .site-content {
-  opacity: 1;
-} */
+
