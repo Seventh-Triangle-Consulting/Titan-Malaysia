@@ -156,8 +156,10 @@
       "type": "split-loading-animation",
       "name": "Split Opener",
       "settings": {
-        "section_heading": "",
-        "section_sub_heading": "",
+        "split_image": "shopify://shop_images/galaxy.png",
+        "split_image_mobile": "shopify://shop_images/galaxy-mobile.png",
+        "section_heading": "STELLAR",
+        "section_sub_heading": "Explore The Unexplored",
         "onload_animation": true
       }
     }
