@@ -151,11 +151,21 @@
         "popup-bg-img-mob": "shopify://shop_images/popup-mobile.jpg",
         "contact-popup-text": "<p>Thank you fly stopping by! </p><p>We will be glad to assist you further. Please provide </p><p>the following information so we can contact you.</p>"
       }
+    },
+    "split_loading_animation_tY6fBQ": {
+      "type": "split-loading-animation",
+      "name": "Split Opener",
+      "settings": {
+        "section_heading": "",
+        "section_sub_heading": "",
+        "onload_animation": true
+      }
     }
   },
   "order": [
     "announcement-bar",
     "header",
-    "contact_popup_MMQq97"
+    "contact_popup_MMQq97",
+    "split_loading_animation_tY6fBQ"
   ]
 }
