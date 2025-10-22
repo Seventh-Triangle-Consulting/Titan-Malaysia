@@ -1,0 +1,265 @@
+.image-grid-layout {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.grid-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.grid-item.div1 {
+  grid-area: 1 / 1 / 3 / 2;
+}
+
+.grid-item.div2 {
+  grid-area: 3 / 1 / 4 / 2;
+}
+
+.grid-item.div3 {
+  grid-area: 1 / 2 / 4 / 4;
+}
+
+.grid-item.div4 {
+  grid-area: 1 / 4 / 2 / 5;
+}
+
+.grid-item.div5 {
+  grid-area: 2 / 4 / 4 / 5;
+}
+
+.grid-image-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.grid-image,
+.slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Hotspot Styles */
+
+@media (max-width: 768px) {
+  .hotspot-btn {
+    top: var(--tablet-y, var(--desktop-y, 50%));
+    left: var(--tablet-x, var(--desktop-x, 50%));
+  }
+}
+
+@media (max-width: 480px) {
+  .hotspot-btn {
+    top: var(--mobile-y, var(--tablet-y, var(--desktop-y, 50%)));
+    left: var(--mobile-x, var(--tablet-x, var(--desktop-x, 50%)));
+  }
+}
+
+/* Slide Content Overlay */
+.slide-content-overlay {
+  position: absolute;
+  bottom: 20px;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.slide-title {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.slide-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.slide-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.slide-btn {
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: #007bff;
+  color: white;
+  border: 2px solid #007bff;
+}
+
+.btn-primary:hover {
+  background: transparent;
+  color: #007bff;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.btn-secondary:hover {
+  background: white;
+  color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .image-grid-layout {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    height: 100vh;
+  }
+
+  .grid-item.div1 {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  .grid-item.div2 {
+    grid-area: 2 / 1 / 3 / 2;
+  }
+  .grid-item.div3 {
+    grid-area: 1 / 2 / 3 / 3;
+  }
+  .grid-item.div4 {
+    grid-area: 3 / 1 / 4 / 2;
+  }
+  .grid-item.div5 {
+    grid-area: 3 / 2 / 4 / 3;
+  }
+
+  .slide-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .image-grid-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 1fr);
+    height: 120vh;
+  }
+
+  .grid-item.div1 {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  .grid-item.div2 {
+    grid-area: 2 / 1 / 3 / 2;
+  }
+  .grid-item.div3 {
+    grid-area: 3 / 1 / 4 / 2;
+  }
+  .grid-item.div4 {
+    grid-area: 4 / 1 / 5 / 2;
+  }
+  .grid-item.div5 {
+    grid-area: 5 / 1 / 6 / 2;
+  }
+
+  .slide-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* Mobile Swiper Container - Hidden on Desktop/Tablet */
+.mobile-swiper-container {
+  display: none;
+}
+
+/* Tablet Layout - 768px to 1024px */
+@media (max-width: 1024px) {
+  .image-grid-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* Main image first */
+  .grid-item.div3 {
+    order: -1;
+    width: 100%;
+  }
+
+  /* Small images in 4-column grid */
+  .grid-item.div1,
+  .grid-item.div2,
+  .grid-item.div4,
+  .grid-item.div5 {
+    width: calc(25% - 15px);
+    display: inline-block;
+  }
+
+  .mobile-swiper-container {
+    display: none;
+  }
+}
+
+/* Mobile Layout - Below 768px */
+@media (max-width: 1024px) {
+  .image-grid-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* Hide individual small images */
+  .grid-item.div1,
+  .grid-item.div2,
+  .grid-item.div4,
+  .grid-item.div5 {
+    display: none;
+  }
+
+  /* Main image first */
+  .grid-item.div3 {
+    order: -1;
+    width: 100%;
+  }
+
+  /* Show Swiper Container */
+  .mobile-swiper-container {
+    display: block;
+    width: 100%;
+    order: 1;
+  }
+
+  .mobile-small-images-swiper {
+    width: 100%;
+    padding-bottom: 30px;
+  }
+
+  .mobile-small-images-swiper .swiper-slide {
+    width: 28.57%; /* Shows 3.5 slides */
+    aspect-ratio: 1;
+  }
+
+  .mobile-small-images-swiper .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .mobile-small-images-swiper .swiper-scrollbar {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+  }
+
+  .mobile-small-images-swiper .swiper-scrollbar-drag {
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 2px;
+  }
+}
