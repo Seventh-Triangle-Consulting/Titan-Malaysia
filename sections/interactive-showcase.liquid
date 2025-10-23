@@ -1,12 +1,20 @@
 {{ 'interactive-showcase.css' | asset_url | stylesheet_tag }}
 
-{% assign slides = collection.metafields.custom.sasas.value %}
+{% assign slides = collection.metafields.custom.stellar_interactive_showcase.value %}
 {% if slides == blank %}
   <div class="placeholder-section">
     <p>Please add Interactive Slides to the collection metafield.</p>
   </div>
 {% else %}
   <section class="interactive-showcase" data-section-id="{{ section.id }}">
+    <div class="main-heading-container">
+      {% if section.settings.main_heading != blank %}
+        <h2 class="main-heading-title">{{ section.settings.main_heading }}</h2>
+      {% endif %}
+      {% if section.settings.main_subheading != blank %}
+        <p class="main-heading-subheading">{{ section.settings.main_subheading }}</p>
+      {% endif %}
+    </div>
     <div class="showcase-container">
       <!-- Slides Wrapper with Swiper -->
       <div class="swiper main-slides-swiper">
@@ -365,7 +373,7 @@
       closePopup() {
         this.popup.dataset.popupOpen = 'false';
         this.popup.style.display = 'none';
-        document.body.style.overflow = '';
+        document.body.style.overflow = 'auto';
       }
     }
 
@@ -376,69 +384,77 @@
       });
     });
   </script>
-{% endif %}
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    // Initialize Swiper only on mobile screens
-    function initMobileSwipers() {
-      if (window.innerWidth <= 1024) {
-        const swipers = document.querySelectorAll('.mobile-small-images-swiper');
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Initialize Swiper only on mobile screens
+      function initMobileSwipers() {
+        if (window.innerWidth <= 1024) {
+          const swipers = document.querySelectorAll('.mobile-small-images-swiper');
 
-        swipers.forEach((swiperEl) => {
-          // Destroy existing instance if any
-          if (swiperEl.swiper) {
-            swiperEl.swiper.destroy(true, true);
-          }
+          swipers.forEach((swiperEl) => {
+            // Destroy existing instance if any
+            if (swiperEl.swiper) {
+              swiperEl.swiper.destroy(true, true);
+            }
 
-          // Initialize new Swiper
-          new Swiper(swiperEl, {
-            slidesPerView: 3.5,
-            spaceBetween: 3,
-            freeMode: true,
-            scrollbar: {
-              el: '.swiper-scrollbar',
-              draggable: true,
-              dragSize: 'auto',
-            },
-            breakpoints: {
-              320: {
-                slidesPerView: 2.5,
-                spaceBetween: 3,
+            // Initialize new Swiper
+            new Swiper(swiperEl, {
+              slidesPerView: 3.5,
+              spaceBetween: 3,
+              freeMode: true,
+              scrollbar: {
+                el: '.swiper-scrollbar',
+                draggable: true,
+                dragSize: 'auto',
               },
-              480: {
-                slidesPerView: 4,
-                spaceBetween: 3,
+              breakpoints: {
+                320: {
+                  slidesPerView: 2.5,
+                  spaceBetween: 3,
+                },
+                480: {
+                  slidesPerView: 4,
+                  spaceBetween: 3,
+                },
               },
-            },
+            });
           });
-        });
+        }
       }
-    }
 
-    // Initialize on load
-    initMobileSwipers();
+      // Initialize on load
+      initMobileSwipers();
 
-    // Re-initialize on window resize
-    let resizeTimer;
-    window.addEventListener('resize', function () {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(function () {
-        initMobileSwipers();
-      }, 250);
+      // Re-initialize on window resize
+      let resizeTimer;
+      window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () {
+          initMobileSwipers();
+        }, 250);
+      });
     });
-  });
-</script>
+  </script>
+{% endif %}
 
 {% schema %}
 {
   "name": "Interactive Showcase",
-  "tag": "section",
-  "class": "section-interactive-showcase",
   "settings": [
     {
       "type": "paragraph",
       "content": "This section displays interactive slides from the collection's 'sasas' metafield. Configure the metafield in your collection settings."
+    },
+    {
+      "type": "text",
+      "id": "main_heading",
+      "label": "Main Heading"
+    },
+    {
+      "type": "text",
+      "id": "main_subheading",
+      "label": "Main Subheading"
     }
   ],
   "presets": [
