@@ -84,13 +84,14 @@ body {
   .split-opener .split .sub-heading {
     padding-top: 11px;
   }
-  .split-opener .split h2 {
+  .split-opener .split.top h2 {
     font-family: "PPMonumentWide-Regular";
     letter-spacing: 20px;
     font-size: 36px;
+    line-height:50px;
   }
 
-  .split-opener .split h2 {
+  .split-opener .split.bottom h2 {
     font-family: "PPMonumentWide-Regular";
     letter-spacing: 2px;
     font-size: 18px;
