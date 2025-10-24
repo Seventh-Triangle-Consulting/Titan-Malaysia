@@ -36,6 +36,10 @@
 .collection-main-banner-container .desktop_banner_content.middle-center{justify-content:center; align-items:center;}
 .collection-main-banner-container .desktop_banner_content.middle-right{justify-content:right; align-items:center;}
 
+.collection-main-banner-container .desktop_banner_content.bottom-left{justify-content:left; align-items:end;}
+.collection-main-banner-container .desktop_banner_content.bottom-center{justify-content:center; align-items:end;}
+.collection-main-banner-container .desktop_banner_content.bottom-right{justify-content:right; align-items:end;}
+
 
 /* .collection-main-banner-container .desktop_banner_content.middle-right,
 .collection-main-banner-container .desktop_banner_content.middle-left,
