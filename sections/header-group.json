@@ -143,15 +143,6 @@
         "padding_bottom": 10
       }
     },
-    "contact_popup_MMQq97": {
-      "type": "contact-popup",
-      "disabled": true,
-      "settings": {
-        "popup-bg-img": "shopify://shop_images/popupbg_1.jpg",
-        "popup-bg-img-mob": "shopify://shop_images/popup-mobile.jpg",
-        "contact-popup-text": "<p>Thank you fly stopping by! </p><p>We will be glad to assist you further. Please provide </p><p>the following information so we can contact you.</p>"
-      }
-    },
     "split_loading_animation_tY6fBQ": {
       "type": "split-loading-animation",
       "name": "Split Opener",
@@ -162,12 +153,21 @@
         "section_sub_heading": "Explore The Unexplored",
         "onload_animation": false
       }
+    },
+    "contact_popup_MMQq97": {
+      "type": "contact-popup",
+      "disabled": true,
+      "settings": {
+        "popup-bg-img": "shopify://shop_images/popupbg_1.jpg",
+        "popup-bg-img-mob": "shopify://shop_images/popup-mobile.jpg",
+        "contact-popup-text": "<p>Thank you fly stopping by! </p><p>We will be glad to assist you further. Please provide </p><p>the following information so we can contact you.</p>"
+      }
     }
   },
   "order": [
     "announcement-bar",
     "header",
-    "contact_popup_MMQq97",
-    "split_loading_animation_tY6fBQ"
+    "split_loading_animation_tY6fBQ",
+    "contact_popup_MMQq97"
   ]
 }
