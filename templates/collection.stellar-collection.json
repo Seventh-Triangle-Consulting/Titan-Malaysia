@@ -18,6 +18,14 @@
         "color_scheme": "background-1"
       }
     },
+    "interactive_showcase_4HEDac": {
+      "type": "interactive-showcase",
+      "name": "Interactive Showcase",
+      "settings": {
+        "main_heading": "",
+        "main_subheading": ""
+      }
+    },
     "product-grid": {
       "type": "main-collection-product-grid",
       "disabled": true,
@@ -118,6 +126,7 @@
     "banner",
     "product-grid",
     "split_loading_animation_wUFJQH",
+    "interactive_showcase_4HEDac",
     "collection_information_with_video_jQnCm4",
     "pdp_product_recommendation_bAJNRb",
     "collection_last_banner_d8DJCa"
