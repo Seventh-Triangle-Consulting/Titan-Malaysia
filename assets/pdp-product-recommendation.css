@@ -39,8 +39,8 @@
 
 .product-image-sec .arrow-btn {
   position: absolute;
-  right: 0%;
-  bottom: 0%;
+  right: 17px;
+  bottom: 5px;
 }
 
 .product-image-sec .arrow-btn .arrow-main {
@@ -154,4 +154,5 @@
   .product-content .arrow-btn {
     display: none;
   }
+ 
 }
