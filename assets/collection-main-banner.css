@@ -59,13 +59,6 @@
 .collection-main-banner-container .swiper-button-prev {
   transform: rotate(180deg);
 }
-
-/* Override transform for mobile to prevent touch issues */
-@media only screen and (max-width: 749px) {
-  .collection-main-banner-container .swiper-button-prev {
-    transform: translateY(-50%) rotate(180deg);
-  }
-}
 .collection-main-banner-container .swiper-button-prev:after,
 .collection-main-banner-container .homepage-main-banner-container .swiper-rtl .swiper-button-next:after {
   content: " ";
@@ -343,34 +336,24 @@
   .collection-main-banner-container .collection-main-banner>h2{margin-bottom:26px;}
   .collection-main-banner-container .swiper-button-prev svg,
   .collection-main-banner-container .swiper-button-next svg {
-    width: 50px;
-    height: 50px;
+    width: 43.2px;
+    height: 43.2px;
   }
   .collection-main-banner-container .swiper-button-prev,
   .collection-main-banner-container .swiper-button-next {
-    top: 50%;
-    transform: translateY(-50%);
+    top: 95%;
 
     background: unset;
     color: #fff;
 
     z-index: 30;
     border: none;
-    /* Ensure proper touch interaction */
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
-    /* Increase clickable area */
-    padding: 10px;
-    margin: -10px;
   }
   .collection-main-banner-container .swiper-button-prev {
-    left: 10px;
-    right: auto;
+    left: 35%;
   }
   .collection-main-banner-container .swiper-button-next {
-    right: 10px;
-    left: auto;
+    left: 50%;
   }
 }
 
