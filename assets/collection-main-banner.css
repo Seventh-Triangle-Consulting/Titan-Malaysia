@@ -176,8 +176,6 @@
 
 .collection-main-banner-container .flex-11 {
   display: flex;
-  gap: 11px;
-  justify-content: center;
 }
 .collection-main-banner-container .flex-11 a {
   text-decoration: none;
