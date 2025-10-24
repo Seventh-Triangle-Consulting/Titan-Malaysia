@@ -348,15 +348,15 @@
   .collection-main-banner-container .desktop_banner_content {
     display: none;
   }
-  .collection-main-banner-container .mobile_banner_content.bottom-center,
+  /* .collection-main-banner-container .mobile_banner_content.bottom-center,
   .collection-main-banner-container .mobile_banner_content.bottom-left,
   .collection-main-banner-container .mobile_banner_content.bottom-right {
     bottom: 15%;
-  }
-  .collection-main-banner-container .mobile_banner_content.bottom-left {
+  } */
+  /* .collection-main-banner-container .mobile_banner_content.bottom-left {
     place-items: self-start;
     padding-left: 10px;
-  }
+  } */
   .collection-main-banner-container .mobile_banner_content {
     display:flex;    
   }
