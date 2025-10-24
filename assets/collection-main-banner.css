@@ -207,6 +207,9 @@
   padding-right: 2rem;
 }
 
+.collection-main-banner-container .banner_content_inner{width:100%;height:auto;}
+
+
 /* Right aligned text for desktop positions */
 .collection-main-banner-container .desktop_banner_content.bottom-right .desktop_banner_text1,
 .collection-main-banner-container .desktop_banner_content.top-right .desktop_banner_text1,
