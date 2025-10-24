@@ -341,13 +341,12 @@
   }
   .collection-main-banner-container .swiper-button-prev,
   .collection-main-banner-container .swiper-button-next {
-    top: 95%;
-
+    top:unset;
     background: unset;
     color: #fff;
-
     z-index: 30;
     border: none;
+    bottom:-74px;
   }
   .collection-main-banner-container .swiper-button-prev {
     left: 35%;
