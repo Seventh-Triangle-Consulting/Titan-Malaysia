@@ -31,8 +31,7 @@
 .collection-main-banner-container .desktop_banner_content.top-center,
 .collection-main-banner-container .desktop_banner_content.top-left,
 .collection-main-banner-container .desktop_banner_content.top-right {
-  bottom: unset;
-  top: 13%;
+  bottom: unset;  
 }
 .collection-main-banner-container .desktop_banner_content.middle-right,
 .collection-main-banner-container .desktop_banner_content.middle-left,
