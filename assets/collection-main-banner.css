@@ -273,8 +273,7 @@
 }
 .collection-main-banner-container .swiper-button-prev,
 .collection-main-banner-container .swiper-button-next {
-  display: block !important; /* ensure navigation is visible */
-  opacity: 1;
+  display: block !important; 
 }
 
 /* Navigation button styling */
