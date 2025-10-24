@@ -37,11 +37,28 @@
 
 .collection-main-banner-container .mobile_banner_content {
   position: absolute;  
-  display: none;padding:60px;top:0px;left:0px;
+  display: none;padding:15px;top:0px;left:0px;
   width: 100%;height:100%;
 }
 
-.collection-main-banner-container .mobile_banner_content.bottom-center,
+
+
+
+.collection-main-banner-container .mobile_banner_content.top-left{justify-content:left;}
+.collection-main-banner-container .mobile_banner_content.top-center{justify-content:center;}
+.collection-main-banner-container .mobile_banner_content.top-right{justify-content:right;}
+
+.collection-main-banner-container .mobile_banner_content.middle-left{justify-content:left; align-items:center;}
+.collection-main-banner-container .mobile_banner_content.middle-center{justify-content:center; align-items:center;}
+.collection-main-banner-container .mobile_banner_content.middle-right{justify-content:right; align-items:center;}
+
+.collection-main-banner-container .mobile_banner_content.bottom-left{justify-content:left; align-items:end;}
+.collection-main-banner-container .mobile_banner_content.bottom-center{justify-content:center; align-items:end;}
+.collection-main-banner-container .mobile_banner_content.bottom-right{justify-content:right; align-items:end;}
+
+
+
+/* .collection-main-banner-container .mobile_banner_content.bottom-center,
 .collection-main-banner-container .mobile_banner_content.bottom-left,
 .collection-main-banner-container .mobile_banner_content.bottom-right {
   bottom: 0;
@@ -55,7 +72,7 @@
 .collection-main-banner-container .mobile_banner_content.middle-left,
 .collection-main-banner-container .mobile_banner_content.middle-right {
   top: 35%;
-}
+} */
 
 .collection-main-banner-container .swiper-button-prev {
   transform: rotate(180deg);
