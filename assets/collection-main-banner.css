@@ -355,8 +355,7 @@
     padding-left: 10px;
   }
   .collection-main-banner-container .mobile_banner_content {
-    display:flex;
-    place-items: center;
+    display:flex;    
   }
   .collection-main-banner-container .swiper-horizontal > .swiper-pagination-bullets,
   .collection-main-banner-container .swiper-pagination-bullets.swiper-pagination-horizontal {
