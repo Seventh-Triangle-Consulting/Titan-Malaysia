@@ -95,7 +95,7 @@ body {
     font-family: "PPMonumentWide-Regular";
     letter-spacing: 2.8px;
     font-size: 18px;
-    line-height:28px;
+    line-height:28px;text-transform:uppercase;
   }
   .split {
     background-size: cover;
