@@ -200,8 +200,7 @@
 .collection-main-banner-container .desktop_banner_content.bottom-left .flex-27,
 .collection-main-banner-container .desktop_banner_content.top-left .flex-27,
 .collection-main-banner-container .desktop_banner_content.middle-left .flex-27 {
-  justify-content: left;
-  padding-left: 2rem;
+  justify-content: left;  
 }
 .collection-main-banner-container .desktop_banner_content.bottom-right .flex-27,
 .collection-main-banner-container .desktop_banner_content.top-right .flex-27,
