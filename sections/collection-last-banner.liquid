@@ -196,6 +196,13 @@
       observer: true,
       observeParents: true,
       loop: false,
+      // Improve touch handling for mobile
+      touchRatio: 1,
+      touchAngle: 45,
+      simulateTouch: true,
+      allowTouchMove: true,
+      // Better mobile navigation
+      preventInteractionOnTransition: false,
     });
 
     // Pause all videos
@@ -244,6 +251,35 @@
 
     // Initialize
     swiperInstance.init();
+
+    // Add mobile-specific event handling for navigation buttons
+    const prevButton = sectionEl.querySelector('.swiper-button-prev');
+    const nextButton = sectionEl.querySelector('.swiper-button-next');
+    
+    if (prevButton && nextButton) {
+      // Add touch event listeners for better mobile interaction
+      [prevButton, nextButton].forEach(button => {
+        button.addEventListener('touchstart', (e) => {
+          e.preventDefault();
+          button.style.opacity = '0.7';
+        });
+        
+        button.addEventListener('touchend', (e) => {
+          e.preventDefault();
+          button.style.opacity = '1';
+        });
+        
+        button.addEventListener('click', (e) => {
+          e.preventDefault();
+          // Ensure the click event is properly handled
+          if (button.classList.contains('swiper-button-prev')) {
+            swiperInstance.slidePrev();
+          } else if (button.classList.contains('swiper-button-next')) {
+            swiperInstance.slideNext();
+          }
+        });
+      });
+    }
   });
 </script>
 
