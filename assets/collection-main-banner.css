@@ -12,7 +12,7 @@
   padding-bottom: 57px;
   position: relative;
 }
-.collection-main-banner-container .collection-main-banner>h2{margin-bottom:83px;}
+.collection-main-banner-container .collection-main-banner>h2{margin-bottom:83px; padding:0px;}
 .collection-main-banner-container .collection-main-banner .swiper {
   position: unset;
 }
