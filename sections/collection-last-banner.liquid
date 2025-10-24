@@ -70,6 +70,8 @@
 
               {% if current_block %}
                 <div class="desktop_banner_content {{ current_block.settings['content-position'] }}">
+                  <div class="banner_content_inner">
+                  
                   {% if current_block.settings.desktop_banner_text != blank %}
                     <h2 class="desktop_banner_text1">
                       {{ current_block.settings.desktop_banner_text | split: '##' | first }}
@@ -87,6 +89,9 @@
                       </a>
                     </div>
                   {% endif %}
+
+                </div>
+
                 </div>
               {% endif %}
             </div>
