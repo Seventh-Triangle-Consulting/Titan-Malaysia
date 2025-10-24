@@ -23,11 +23,6 @@
   position: absolute;padding:60px;top:0px;left:0px;
   width: 100%;height:100%;display:flex;
 }
-/* .collection-main-banner-container .desktop_banner_content.bottom-center,
-.collection-main-banner-container .desktop_banner_content.bottom-left,
-.collection-main-banner-container .desktop_banner_content.bottom-right {
-  bottom: 13%;
-} */
 .collection-main-banner-container .desktop_banner_content.top-left{justify-content:left;}
 .collection-main-banner-container .desktop_banner_content.top-center{justify-content:center;}
 .collection-main-banner-container .desktop_banner_content.top-right{justify-content:right;}
@@ -40,13 +35,6 @@
 .collection-main-banner-container .desktop_banner_content.bottom-center{justify-content:center; align-items:end;}
 .collection-main-banner-container .desktop_banner_content.bottom-right{justify-content:right; align-items:end;}
 
-
-/* .collection-main-banner-container .desktop_banner_content.middle-right,
-.collection-main-banner-container .desktop_banner_content.middle-left,
-.collection-main-banner-container .desktop_banner_content.middle-center {
-  bottom: unset;
-  top: 45%;
-} */
 .collection-main-banner-container .mobile_banner_content {
   position: absolute;
   bottom: 0;
