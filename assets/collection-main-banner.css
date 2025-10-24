@@ -40,10 +40,6 @@
   display: none;padding:15px 15px 25px 15px;top:0px;left:0px;
   width: 100%;height:100%;
 }
-
-
-
-
 .collection-main-banner-container .mobile_banner_content.top-left{justify-content:left;}
 .collection-main-banner-container .mobile_banner_content.top-center{justify-content:center;}
 .collection-main-banner-container .mobile_banner_content.top-right{justify-content:right;}
@@ -59,23 +55,6 @@
 .collection-main-banner-container .mobile_banner_content.bottom-right{justify-content:right; align-items:end;}
 .collection-main-banner-container .mobile_banner_content.bottom-center .flex-11{justify-content:center;}
 
-
-
-/* .collection-main-banner-container .mobile_banner_content.bottom-center,
-.collection-main-banner-container .mobile_banner_content.bottom-left,
-.collection-main-banner-container .mobile_banner_content.bottom-right {
-  bottom: 0;
-}
-.collection-main-banner-container .mobile_banner_content.top-center,
-.collection-main-banner-container .mobile_banner_content.top-left,
-.collection-main-banner-container .mobile_banner_content.top-right {
-  top: 5%;
-}
-.collection-main-banner-container .mobile_banner_content.middle-center,
-.collection-main-banner-container .mobile_banner_content.middle-left,
-.collection-main-banner-container .mobile_banner_content.middle-right {
-  top: 35%;
-} */
 
 .collection-main-banner-container .swiper-button-prev {
   transform: rotate(180deg);
@@ -244,13 +223,6 @@
 
 /* On mobile ensure grid placement ends at right for right positions */
 @media only screen and (max-width: 749px) {
-  
-  /* .collection-main-banner-container .mobile_banner_content.bottom-right,
-  .collection-main-banner-container .mobile_banner_content.top-right,
-  .collection-main-banner-container .mobile_banner_content.middle-right {
-    place-items: center end; 
-  } */
-
   .collection-main-banner-container .heading-collection-banner {
     font-size: 24px;
     line-height: 30px;
@@ -349,16 +321,7 @@
   .collection-main-banner-container .desktop_banner_content {
     display: none;
   }
-  /* .collection-main-banner-container .mobile_banner_content.bottom-center,
-  .collection-main-banner-container .mobile_banner_content.bottom-left,
-  .collection-main-banner-container .mobile_banner_content.bottom-right {
-    bottom: 15%;
-  } */
-  /* .collection-main-banner-container .mobile_banner_content.bottom-left {
-    place-items: self-start;
-    padding-left: 10px;
-  } */
-  .collection-main-banner-container .mobile_banner_content {
+ .collection-main-banner-container .mobile_banner_content {
     display:flex;    
   }
   .collection-main-banner-container .swiper-horizontal > .swiper-pagination-bullets,
