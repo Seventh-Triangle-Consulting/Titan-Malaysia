@@ -279,6 +279,11 @@
   .collection-main-banner-container .flex-27 {
     padding-top: 29px;
   }
+
+  .collection-main-banner-container .collection-main-banner {padding-top: 88px;}
+  .collection-main-banner-container .collection-main-banner>h2{margin-bottom:33px;}
+
+
 }
 .collection-main-banner-container .swiper-button-prev,
 .collection-main-banner-container .swiper-button-next {
