@@ -32,6 +32,9 @@
 .collection-main-banner-container .desktop_banner_content.top-center{justify-content:center;}
 .collection-main-banner-container .desktop_banner_content.top-right{justify-content:right;}
 
+.collection-main-banner-container .desktop_banner_content.middle-left{justify-content:left; align-items:center;}
+.collection-main-banner-container .desktop_banner_content.middle-center{justify-content:center; align-items:center;}
+.collection-main-banner-container .desktop_banner_content.middle-right{justify-content:right; align-items:center;}
 
 
 /* .collection-main-banner-container .desktop_banner_content.middle-right,
