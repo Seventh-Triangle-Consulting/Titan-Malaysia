@@ -331,7 +331,7 @@
   .collection-main-banner-container .collection-main-banner {
     padding: 0 12px;
     padding-top: 81px;
-    padding-bottom: 117px;
+    padding-bottom:0px;
   }
   .collection-main-banner-container .collection-main-banner>h2{margin-bottom:26px;}
   .collection-main-banner-container .swiper-button-prev svg,
