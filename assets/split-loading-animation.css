@@ -86,7 +86,7 @@ body {
   }
   .split-opener .split.top h2 {
     font-family: "PPMonumentWide-Regular";
-    letter-spacing: 20px;
+    letter-spacing: 169%;
     font-size: 36px;
     line-height:50px;
   }
@@ -95,6 +95,7 @@ body {
     font-family: "PPMonumentWide-Regular";
     letter-spacing: 2px;
     font-size: 18px;
+    line-height:28px;
   }
   .split {
     background-size: cover;
