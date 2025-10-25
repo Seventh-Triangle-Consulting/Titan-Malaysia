@@ -1,47 +1,70 @@
-{% if template == 'product.stellar-product' %}
+{% if template == 'product.stellar' %}
   {{ 'custom-stellar-pdp-main.css' | asset_url | stylesheet_tag }}
 
-  <style>
-    .section-{{ section.id }}-padding.main-product {
-      background: #000;
-      padding: 0px;
-    }
-    .page-width.product{
-      padding: 0px;
-    }
+.product-stellar-container {
+  padding-top: {{ section.settings.stellar_mobile_margin_top }}px !important;
+}
 
-    @media only screen and (min-width: 750px) and (max-width: 1024px){
-      .page-width.product{
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 0px !important;
-      }
-      [data-id="pdpSwiper steller"],
-      .titan_main_product.product__info-wrapper.grid__item{
-        width: 100% !important;
-        align-items: center;
-        justify-content: center;
-        display: flex;
-      }
-      .section-{{ section.id }}-padding.main-product {
-        padding-bottom: 30px;
-      }
-      .stellar-share-wishlist.tablet {
-        display: flex !important;
-      }
-    }
+/* Small tablet breakpoint (481px to 767px) */
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  .product-stellar-container {
+    padding-top: {{ section.settings.stellar_small_tablet_margin_top }}px !important;
+  }
+}
 
-    @media only screen and (max-width: 749px){
-      .titan_main_product {
-        padding-left: 20px !important;
-        padding-right: 20px !important;
-      }
-      .section-{{ section.id }}-padding.main-product {
-        padding-bottom: 30px;
-      }
-    }
-  </style>
+/* Large tablet breakpoint (768px to 1024px) */
+@media screen and (min-width: 768px) and (max-width: 1198px) {
+  .product-stellar-container {
+    padding-top: {{ section.settings.stellar_large_tablet_margin_top }}px !important;
+  }
+}
+
+/* Desktop breakpoint (1025px and above) */
+@media screen and (min-width: 1199px) {
+  .product-stellar-container {
+    padding-top: {{ section.settings.stellar_desktop_margin_top }}px !important;
+  }
+}
+
+/* Fix sticky content overlapping issue */
+.product-stellar-container .product__info {
+  position: relative;
+  z-index: 1;
+}
+
+/* Mobile scrolled state (max 480px) */
+@media screen and (max-width: 480px) {
+  .section-header.scrolled ~ .main-product .product-stellar-container {
+    padding-top: {{ section.settings.stellar_mobile_margin_top | plus: 20 }}px;
+  }
+}
+
+/* Small tablet scrolled state (481px to 767px) */
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  .section-header.scrolled ~ .main-product .product-stellar-container {
+    padding-top: {{ section.settings.stellar_small_tablet_margin_top | plus: 20 }}px;
+  }
+}
+
+/* Large tablet scrolled state (768px to 1024px) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .section-header.scrolled ~ .main-product .product-stellar-container {
+    padding-top: {{ section.settings.stellar_large_tablet_margin_top | plus: 30 }}px;
+  }
+}
+
+/* Desktop scrolled state (1025px and above) */
+@media screen and (min-width: 1025px) {
+  .section-header.scrolled ~ .main-product .product-stellar-container {
+    padding-top: {{ section.settings.stellar_desktop_margin_top | plus: 50 }}px;
+  }
+}
+
+/* Stellar Template Footer Color Override */
+.footer {
+  background-color: #000 !important;
+}
+
 {% endif %}
 
 <section
@@ -114,17 +137,18 @@
     | map: 'src'
   %}
 
+{% if template == 'product.stellar' %}<div class="stellar-background product-stellar-container">{% endif %}
   <div
     class="page-width product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% endif %}"
     data-productid="{{ product.id }}"
   >
-    {% if template == 'product.stellar-product' %}
+    {% if template == 'product.stellar' %}
       {% render 'custom-stellar-product-slider' %}
 
       {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when 'stellar-title' -%}
-            {% if template == 'product.stellar-product' %}
+            {% if template == 'product.stellar' %}
               {% if product.title != blank %}
                 <div class="stellar-title-block Tablet" {{ block.shopify_attributes }}>
                   <h1 class="stellar-title">{{ product.title | escape }}</h1>
@@ -133,7 +157,7 @@
             {% endif %}
 
           {%- when 'stellar-share' -%}
-            {% if template == 'product.stellar-product' %}
+            {% if template == 'product.stellar' %}
               <div class="stellar-share-wishlist tablet" {{ block.shopify_attributes }}>
                 <div class="stellar-actions-row">
                   <!-- Wishlist Icon with Text -->
@@ -921,7 +945,7 @@
             {%- when 'icon-with-text' -%}
               {% render 'icon-with-text', block: block %}
             {%- when 'stellar-thumbs-slider' -%}
-              {% if template == 'product.stellar-product' %}
+              {% if template == 'product.stellar' %}
                 <div class="product-thumbnails-container">
                   <div
                     thumbsSlider=""
@@ -946,7 +970,7 @@
                 </div>
               {% endif %}
             {%- when 'stellar-title' -%}
-              {% if template == 'product.stellar-product' %}
+              {% if template == 'product.stellar' %}
                 {% if product.title != blank %}
                   <div class="stellar-title-block desktop" {{ block.shopify_attributes }}>
                     <h1 class="stellar-title">{{ product.title | escape }}</h1>
@@ -954,7 +978,7 @@
                 {% endif %}
               {% endif %}
             {%- when 'stellar-price' -%}
-              {% if template == 'product.stellar-product' %}
+              {% if template == 'product.stellar' %}
                 <div
                   class="stellar-price-block desktop no-js-hidden"
                   id="price-{{ section.id }}"
@@ -965,7 +989,7 @@
                 </div>
               {% endif %}
             {%- when 'stellar-desc' -%}
-              {% if template == 'product.stellar-product' %}
+              {% if template == 'product.stellar' %}
                 <div class="stellar-description-block desktop" {{ block.shopify_attributes }}>
                   {%- if product.description != blank -%}
                     <div class="stellar-description rte">{{ product.description }}</div>
@@ -973,7 +997,7 @@
                 </div>
               {% endif %}
             {%- when 'stellar-share' -%}
-              {% if template == 'product.stellar-product' %}
+              {% if template == 'product.stellar' %}
                 <div class="stellar-share-wishlist desktop" {{ block.shopify_attributes }}>
                   <p class="stellar-collection-story desktop">The Collection Story</p>
                   <div class="stellar-actions-row">
@@ -1102,7 +1126,7 @@
                 </script>
               {% endif %}
             {%- when 'stellar-button' -%}
-              {% if template == 'product.stellar-product' %}
+              {% if template == 'product.stellar' %}
                 <div class="stellar-enquiry-block" {{ block.shopify_attributes }}>
                   <button
                     type="button"
@@ -1118,7 +1142,7 @@
               {% endif %}
 
               <div class="stellar-price-and-collection-text">
-                {% if template == 'product.stellar-product' %}
+                {% if template == 'product.stellar' %}
                   <div
                     class="stellar-price-block tablet no-js-hidden"
                     id="price-{{ section.id }}"
@@ -1131,7 +1155,7 @@
                 <p class="stellar-collection-story tablet">The Collection Story</p>
               </div>
 
-              {% if template == 'product.stellar-product' %}
+              {% if template == 'product.stellar' %}
                 <div class="stellar-description-block tablet" {{ block.shopify_attributes }}>
                   {%- if product.description != blank -%}
                     <div class="stellar-description rte read-more-container" id="stellar-desc-{{ section.id }}">
@@ -1195,7 +1219,7 @@
       </div>
     {%- endif -%}
 
-    {% unless template == 'product.stellar-product' %}
+    {% unless template == 'product.stellar' %}
       <div class="custom-product-description">
         {%- if product.description != blank -%}
           <div class="row description-row custom-description ">
@@ -1310,7 +1334,7 @@
     {% endunless %}
   </div>
   <div class="productformmobilesticky hide-productformmobilesticky"></div>
-  {% unless template == 'product.stellar-product' %}
+  {% unless template == 'product.stellar' %}
     <div class="productformdesktopsticky hide-productformdesktopsticky">
       <div class="productformdesktopsticky-title-image">
         {% if product.media[0] != blank %}
@@ -1648,7 +1672,7 @@
 </section>
 
 <!-- Stellar Enquiry Form Popup -->
-{% if template == 'product.stellar-product' %}
+              {% if template == 'product.stellar' %}
   <div
     id="stellar-enquiry-popup-overlay"
     class="stellar-enquiry-popup-overlay"
@@ -3996,6 +4020,50 @@
       "id": "popup-form-heading",
       "label": "Popup Form Heading",
       "default": "Enquiry Form"
+    },
+    {
+      "type": "header",
+      "content": "Stellar Template Padding Settings"
+    },
+    {
+      "type": "range",
+      "id": "stellar_mobile_margin_top",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Stellar Mobile Margin Top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "stellar_small_tablet_margin_top",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Stellar Small Tablet Margin Top (481-767px)",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "stellar_large_tablet_margin_top",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Stellar Large Tablet Margin Top (768-1198px)",
+      "default": 120
+    },
+    {
+      "type": "range",
+      "id": "stellar_desktop_margin_top",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Stellar Desktop Margin Top (1199px+)",
+      "default": 140
     }
   ]
 }

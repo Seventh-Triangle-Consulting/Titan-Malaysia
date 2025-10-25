@@ -1,12 +1,9 @@
 /* Stellar Template Custom Page Width */
 .stellar-page-width {
   max-width: 100%;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: 23px;
+  padding-right: 23px;
   margin: 0 auto;
-}
-[data-id="pdpSwiper steller"] {
-  margin: 0px;
 }
 
 /* Desktop Page Width */
@@ -20,16 +17,16 @@
 /* Tablet Page Width */
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .stellar-page-width {
-    padding-left: 46px;
-    padding-right: 46px;
+    padding-left: 48px;
+    padding-right: 48px;
   }
 }
 
 /* Mobile Page Width (default already set above) */
 @media screen and (max-width: 767px) {
   .stellar-page-width {
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: 23px;
+    padding-right: 23px;
   }
 }
 
@@ -78,19 +75,31 @@
   stroke: #fff !important;
 }
 
-.main-product-page.product-stellar-container {
+.stellar-background.product-stellar-container  {
   padding-left: 0;
   background: #000000;
   align-items: center;
   padding-bottom: 46px;
   margin-top: 0;
 }
+.main-product-page.stellar-page-width {
+  display:flex;
+  align-items: center;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
 
-.main-product-page.product-stellar-container .product__info-wrapper {
+.stellar-page-width{
+  max-width: 1512px;
+  margin: auto;
+
+}
+
+.stellar-background.product-stellar-container .product__info-wrapper {
   margin-top: 0px;
 }
 
-.main-product-page.product-stellar-container .grid__item.product__media-wrapper {
+.stellar-background.product-stellar-container .grid__item.product__media-wrapper {
   line-height: 0;
 }
 
@@ -98,16 +107,17 @@
   color: #ffffff;
   font-family: "PPMonumentWide-Regular";
   font-weight: 400;
-  font-size: 20px;
-  line-height: 30px;
+  /* font-size: clamp(20px, calc((36 / 1512) * 100vw), 36px); */
+  font-size:clamp(20px, calc(36* (100vw / 1512)), 36px);
+  line-height: clamp(28px, calc(44* (100vw / 1512)), 44px);
   letter-spacing: 0px;
   margin-bottom: 17px;
-  margin-top: 0;
+  margin-top: 33px;
 }
 
 .stellar-price {
   color: #fff;
-  font-family: "SuisseIntl-Regular";
+   font-family: 'SuisseIntl-Regular';
   font-weight: 400;
   font-size: 18px;
   line-height: 15px;
@@ -116,21 +126,22 @@
   margin-bottom: 18px;
 }
 
-.main-product-page .stellar-description p {
-  color: #fff;
-  font-family: "Suisse Int";
+.main-product-page .stellar-description p, .main-product-page .stellar-description p span, .main-product-page .stellar-description span {
+  color: rgba(255, 255, 255, 0.6);
+    font-family: 'SuisseIntl-Regular';
   font-weight: 400;
   font-size: 16px !important;
   line-height: 24px;
   letter-spacing: 0px;
-  opacity: 0.6;
+  
 }
 
-.stellar-collection-story {
+.stellar-share-wishlist p.stellar-collection-story {
   color: #ffffff;
-  font-family: "SuisseIntl-Regular";
+   font-family: 'SuisseIntl-Regular' !important;
   font-weight: 400;
-  font-size: 14px;
+  font-style: Regular;
+  font-size: 14px !important;
   line-height: 15px;
   letter-spacing: 0%;
   text-transform: uppercase;
@@ -150,7 +161,11 @@
   cursor: pointer;
   transition: opacity 0.2s ease;
   position: relative;
+
+ 
 }
+
+
 
 .stellar-wishlist-btn:hover {
   opacity: 0.8;
@@ -174,8 +189,8 @@
 }
 
 .stellar-wishlist-heart svg {
-  width: 20px;
-  height: 16px;
+  width: 19px;
+  height: 20px;
   fill: transparent;
   stroke: #fff;
   stroke-width: 1.5;
@@ -212,8 +227,8 @@
   font-size: 14px;
   font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-family: "SuisseIntl-Regular";
+  letter-spacing: 0em;
+   font-family: 'SuisseIntl-Regular';
   line-height: 15px;
 }
 
@@ -269,8 +284,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 20px;
-  margin-bottom: 15px;
+  margin-top: 0px;
+  margin-bottom: 35px;
 }
 
 .stellar-title-block.Tablet {
@@ -285,34 +300,31 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  background: #fff;
-  color: #0c0f14;
-  border-radius: 6px;
   text-decoration: none;
   padding-top: 20px;
   padding-bottom: 20px;
-  color: #ffffff;
-  background: #000;
-  border: 1.5px solid #ffffff;
+  color: #290C26;
+  background: #fff;
+  /* border: 1.5px solid #ffffff; */
   border-radius: 5px;
-  text-transform: uppercase;
-  font-family: "SuisseIntl-Regular";
+  font-family: 'SuisseIntl-Regular';
   font-weight: 400;
   font-style: Regular;
-  font-size: 15px !important;
-  leading-trim: NONE;
+  font-size: clamp(16px, calc(20* (100vw / 1512)), 20px)!important;
   line-height: 14px !important;
-  letter-spacing: 10% !important;
+  letter-spacing: 1.5px !important;
   text-transform: uppercase !important;
 }
 
 /* Thumbs */
 .product-thumbnails-container {
   margin-bottom: 4.6rem;
+  position: relative;
 }
 .custom-desktop-slider-main-thumbs-ups .swiper-slide {
   width: auto;
-  opacity: 0.5;
+  /* opacity: 0.5; */
+  opacity: 1;
   transition: opacity 0.3s ease;
   cursor: pointer;
 }
@@ -326,12 +338,48 @@
 .custom-desktop-slider-main-thumbs-ups .swiper-slide.swiper-slide-thumb-active img {
   opacity: 1;
   border: 1px solid #5fd2ff;
+  margin-left:1px;
 }
 
 .custom-desktop-slider-main-thumbs-ups .product-image {
   max-width: 120px;
   display: block;
-  border: 1px solid #ffffff33;
+  border: 1px solid #2A2A2A;
+  margin-right: 17px;
+  max-height: 101px;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+}
+
+/* Thumbnails navigation buttons (desktop/tablet only) */
+.stellar-thumbs-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  padding: 0;
+}
+
+.stellar-thumbs-prev { left: -16px; }
+.stellar-thumbs-next { right: -16px; }
+.stellar-thumbs-nav.stellar-thumbs-next.swiper-button-disabled{
+  opacity: 0;
+}
+.stellar-thumbs-nav.stellar-thumbs-prev.swiper-button-disabled{
+  opacity: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .stellar-thumbs-nav { display: none; }
 }
 
 /* Main Slider */
@@ -359,6 +407,15 @@
     max-width: 200px;
     display: block;
     border: 1px solid #ffffff33;
+    margin-right: 17px;
+  }
+
+}
+
+@media screen and (max-width: 1050px) {
+  .custom-desktop-slider-main-thumbs-ups .product-image{
+   max-width: unset;
+   max-height: unset;
   }
 }
 
@@ -389,6 +446,7 @@
 
   .stellar-description-block.desktop {
     display: block;
+    margin-bottom:18.03%;
   }
 
   .stellar-description-block.tablet {
@@ -435,13 +493,57 @@
   .share-text.desktop {
     display: inline;
     color: #fff;
-    font-family: "SuisseIntl-Regular";
+     font-family: 'SuisseIntl-Regular';
     font-weight: 400;
     font-size: 14px;
     line-height: 15px;
     letter-spacing: 0px;
     text-align: right;
     text-transform: uppercase;
+  }
+  /* Desktop Read More Functionality for description */
+  .stellar-description-block.desktop .stellar-description.read-more-container {
+    position: relative;
+  }
+
+  .stellar-description-block.desktop .stellar-description.read-more-container .read-more-text {
+    display: -webkit-box;
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    max-height: 72px; /* ~3 lines at 24px line-height */
+  }
+
+  .stellar-description-block.desktop .stellar-description.read-more-container.expanded .read-more-text {
+    display: block;
+    line-clamp: unset;
+    -webkit-line-clamp: unset;
+    overflow: hidden;
+    max-height: 2000px; /* large enough to show full text; JS will animate exact height */
+  }
+
+  .stellar-description-block.desktop .read-more-btn {
+    color: #5fd2ff;
+    background: none;
+    border: none;
+     font-family: 'SuisseIntl-Regular';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 8px;
+    padding: 0;
+    text-decoration: none;
+    display: inline-block;
+    transition: opacity 0.2s ease;
+  }
+
+  .stellar-description-block.desktop .read-more-btn:hover {
+    opacity: 0.8;
   }
 }
 
@@ -455,16 +557,20 @@
     display: block;
     max-width: 85%;
     position: absolute;
-    bottom: -230px;
     z-index: 1;
     left: 50%;
     transform: translate(-50%, 0);
     width: 100%;
+    bottom: 40px;
+    text-align: center;
+    margin: auto;
+    text-shadow: 0px 0px 5px black;
   }
 
   .stellar-title {
     font-family: "PPMonumentWide-Regular";
     font-weight: 400;
+    font-style: Regular;
     font-size: 24px;
     line-height: 28px;
     letter-spacing: 0%;
@@ -523,19 +629,23 @@
   .custom-desktop-slider-main-thumbs-ups .product-image {
     max-width: 100%;
     display: block;
+    max-height: unset;
   }
 
-  .main-product-page.product-stellar-container .titan_main_product.product__info-wrapper.grid__item {
-    margin-top: 15px;
+  .stellar-background.product-stellar-container .titan_main_product.product__info-wrapper.grid__item {
+    margin-top: 15.01px;
+    padding-left: 48px !important;
+    padding-right: 48px !important;
   }
 
   .product-thumbnails-container {
-    margin-top: 110px;
+    margin-bottom: 60.99px;
+    margin-top: 0px;
   }
 
   .stellar-enquiry-block {
     margin-top: 0;
-    margin-bottom: 24px;
+    margin-bottom: 66px;
   }
 
   .stellar-price-and-collection-text .stellar-price-block.tablet {
@@ -544,7 +654,7 @@
 
   .stellar-price-and-collection-text .stellar-collection-story {
     font-weight: 400;
-    font-size: 16px !important;
+    font-size: 14px !important;
     line-height: 15px;
     letter-spacing: 0px;
     text-transform: uppercase;
@@ -554,16 +664,13 @@
   .stellar-price-and-collection-text {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 24px;
+    margin-bottom: 28px;
   }
 
   .stellar-price {
-    font-family: "SuisseIntl-Regular";
-    font-weight: 400;
-    font-size: 16px;
+    font-size: 21px;
     line-height: 15px;
-    letter-spacing: 0%;
-    text-transform: uppercase;
+    margin-bottom:0px
   }
 
   .stellar-collection-story.desktop {
@@ -572,23 +679,14 @@
 
   .stellar-collection-story.tablet {
     display: block !important;
+    color:#fff;
   }
+ 
 
-  .main-product-page .stellar-description p {
-    font-family: "SuisseIntl-Regular";
-    font-weight: 400;
-    font-size: 16px !important;
-    line-height: 24px;
-    letter-spacing: 0%;
-  }
-}
-
-/* Tab View - Position share and wishlist icons at top right of slider */
-@media screen and (max-width: 1024px) {
   .stellar-share-wishlist.tablet {
     position: absolute;
-    top: 70px;
-    right: 20px;
+    top: 75px;
+    right: 45.22px;
     z-index: 1;
     margin: 0;
     background: transparent;
@@ -596,7 +694,7 @@
 
   .stellar-share-wishlist.tablet .stellar-actions-row {
     flex-direction: column;
-    gap: 16px;
+    gap: 0px;
     align-items: flex-end;
   }
 
@@ -607,6 +705,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    width:100%;
   }
 
   .stellar-share-wishlist.tablet .stellar-wishlist-text {
@@ -614,8 +713,8 @@
   }
 
   .stellar-share-wishlist.tablet .stellar-wishlist-heart svg {
-    width: 30px;
-    height: 30px;
+    width: 22px;
+    height: 22px;
   }
 
   .stellar-share-wishlist.tablet .stellar-share-wrapper {
@@ -637,8 +736,8 @@
   }
 
   .stellar-share-wishlist.tablet .share-button__button svg {
-    width: 30px;
-    height: 30px;
+    width: 19px;
+    height: 24px;
   }
 
   /* Mobile/Tablet Share Button Display */
@@ -661,88 +760,142 @@
 
   .stellar-enquiry-btn {
     font-weight: 400;
+    font-style: Regular;
     font-size: 18px !important;
     line-height: 14px !important;
-    letter-spacing: 10%;
+    letter-spacing: 1.8px;
     text-align: center;
     text-transform: uppercase;
     font-family: "SuisseIntl-Regular" !important;
+    margin-bottom:0px;
   }
 }
 
+@media screen and (max-width: 1230px) and (min-width:1050px) {
+  .stellar-title {
+    margin-top:23%;
+  }
+}
+
+/* @media screen and (max-width: 1023px) and (min-width:990px) {
+  .stellar-background.product-stellar-container{
+    margin-top:13rem;
+  }
+} */
+
+
 /* Mobile Responsive */
 @media screen and (max-width: 768px) {
+
+  .stellar-share-wishlist.tablet{
+     top:90px;
+     right:15px;
+  }
+  .stellar-share-wishlist.tablet .stellar-wishlist-heart svg,
+  .stellar-share-wishlist.tablet .share-button__button svg{
+    width:20px;
+    height:20px;
+  }
+  .stellar-share-wishlist.tablet .stellar-wishlist-btn{
+    height: unset;
+  }
   .stellar-actions-row {
     gap: 20px;
   }
+  .stellar-title-block.Tablet{
+    bottom: 0;
+    max-width: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 54.2%, rgba(0, 0, 0, 0.6) 100%);
+  }
 
   .stellar-price-and-collection-text {
-    margin-bottom: 10px;
+    margin-bottom: 37px;
+    padding-right:23px;
+    padding-left:15px;
   }
 
-  .main-product-page.product-stellar-container .titan_main_product {
-    padding-left: 20px;
-    padding-right: 20px;
+  .stellar-background.product-stellar-container .titan_main_product {
+    padding-left: 0px;
+    padding-right: 0px;
   }
 
-  .stellar-description p {
-    color: #fff !important;
+  .stellar-price{
+     font-size: clamp(12px,calc(18 * (100vw / 428)),18px);
+    
+  }
+
+  .stellar-price-and-collection-text .stellar-collection-story{
+    font-size:12px !important;
   }
 
   .stellar-title {
     font-weight: 400;
-    font-size: 16px;
-    line-height: 28px;
+    font-size: clamp(14px,calc(21 * (100vw / 428)),21px);
+    line-height: clamp(21px,calc(28 * (100vw / 428)),28px);
     text-align: center;
+    padding-bottom: 24px;
+    padding-left: 24px;
+    padding-right: 24px;
   }
 
-  .main-product-page.product-stellar-container .titan_main_product.product__info-wrapper.grid__item {
+  .stellar-background.product-stellar-container .titan_main_product.product__info-wrapper.grid__item {
     margin-top: 7px;
+    padding-left: 8px !important;
+    padding-right: 0 !important;
   }
 
   .product-thumbnails-container {
-    margin-bottom: 30px;
+    margin-bottom: 87px;
+  }
+  .custom-desktop-slider-main-thumbs-ups{
+      padding-right:20px;
+      padding-left:0px;
   }
 
   .stellar-enquiry-block {
-    margin-bottom: 18px;
-  }
-  .stellar-title-block.Tablet{
-    bottom: -15px;
+    margin-bottom: 3.7rem;
+    padding-right:23px;
+    padding-left:15px;
   }
 
   .main-product-page .stellar-description p {
-    font-family: "SuisseIntl-Regular";
-    font-weight: 400;
-    font-size: 14px !important;
-    line-height: 22px;
+     line-height: 22px;
     letter-spacing: 0px;
   }
 
   /* Read More Functionality for Mobile */
   .stellar-description.read-more-container {
     position: relative;
+    padding-right:23px;
+    padding-left:15px;
+  }
+  .stellar-background.product-stellar-container{
+    padding-bottom:67px;
   }
 
   .stellar-description.read-more-container .read-more-text {
     display: -webkit-box;
+    line-clamp: 3;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: max-height 0.3s ease;
+    max-height: 70px; /* ~3 lines at 22px line-height for mobile */
   }
 
   .stellar-description.read-more-container.expanded .read-more-text {
     display: block;
+    line-clamp: unset;
     -webkit-line-clamp: unset;
-    overflow: visible;
+    overflow: hidden;
+    max-height: 2000px;
   }
 
   .read-more-btn {
     color: #5fd2ff;
     background: none;
     border: none;
-    font-family: "SuisseIntl-Regular";
+     font-family: 'SuisseIntl-Regular';
     font-weight: 400;
     font-size: 14px;
     line-height: 14px;
@@ -754,7 +907,7 @@
     text-decoration: none;
     display: inline-block;
     transition: opacity 0.2s ease;
-    font-family: "SuisseIntl-Regular";
+     font-family: 'SuisseIntl-Regular';
     font-weight: 400;
     font-size: 14px;
     line-height: 22px;
@@ -769,14 +922,13 @@
   .stellar-enquiry-btn {
     padding-top: 18px;
     padding-bottom: 18px;
-    font-family: "SuisseIntl-Regular";
-    font-weight: 400;
     font-size: 14px !important;
     line-height: 14px !important;
-    letter-spacing: 10%;
+    letter-spacing: 1.4px;
     text-align: center;
     text-transform: uppercase;
-    border-radius: 10px;
+    border-radius: 8px;
+    margin-bottom:0;
   }
 
   .custom-desktop-slider-main-thumbs-ups .swiper-slide {

@@ -1,13 +1,13 @@
-<style>
+{%- style -%}
   .stellar-specifications-{{ section.id }} {
-    background-color: {{ section.settings.background_color | default: '#1a1f3a' }};
+    background-color: {{ section.settings.background_color | default: '#1C3250' }};
     padding: {{ section.settings.padding_top_mobile }}px 0 {{ section.settings.padding_bottom_mobile }}px 0;
     margin-top: {{ section.settings.margin_top_mobile }}px;
     margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
   }
   .stellar-specifications-container {
     display: flex;
-    gap: 60px;
+    gap: 23.98%;
     align-items: self-start;
     justify-content: space-between;
   }
@@ -22,12 +22,12 @@
   .stellar-specifications-heading {
     font-family: 'PPMonumentWide-Regular';
     font-weight: 400;
-    font-size: 35px;
+    font-size: clamp(25px, calc((45 / 1512) * 100vw), 45px);
     line-height: 44px;
     letter-spacing: 0%;
     color: #FFFFFF;
-    margin-bottom: 30px;
-    margin-top: 30px;
+    margin-bottom: 45px;
+  //  margin-top: 30px;
   }
   .stellar-specifications-divider {
     height: 1px;
@@ -96,6 +96,7 @@
     margin-bottom: 4px;
     font-family: 'SuisseIntl-Regular';
     font-weight: 400;
+    font-style: Regular;
     font-size: 15px;
     line-height: 24px;
     letter-spacing: 0%;
@@ -103,7 +104,7 @@
     color: #FFFFFF99;
     margin-bottom: 8px;
   }
-  .stellar-specification-value {
+  .stellar-specification-value , .stellar-specification-value p{
     color: #ffffff;
     font-size: 16px;
     font-weight: 400;
@@ -121,6 +122,7 @@
     border-radius: 8px;
     transition: opacity 0.3s ease;
   }
+
   /* Tab image visibility control */
   .stellar-specifications-image.tab-image {
     display: none !important;
@@ -139,6 +141,10 @@
   }
 
   @media screen and (max-width: 1024px) {
+
+    .stellar-specifications-{{ section.id }}{
+      padding-top:68px;
+    }
     .stellar-specifications-container {
       flex-direction: column-reverse;
       gap: 40px;
@@ -149,33 +155,52 @@
       width: 100%;
     }
     .stellar-specifications-heading {
-      font-family: 'PPMonumentWide-Regular';
-      font-weight: 400;
-      font-size: 25px;
+     font-size: 25px;
       line-height: 37px;
-      letter-spacing: 0%;
       margin-bottom: 36px;
+      margin-top:30px;
     }
+
     .stellar-specifications-tabs {
-      flex-wrap: wrap;
+      /* flex-wrap: wrap; */
       justify-content: space-between;
+      overflow-x: auto;
+      overflow-y: hidden;
     }
+
+    .stellar-specifications-tabs::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Firefox */
+      .stellar-specifications-tabs{
+        scrollbar-width: none;
+      }
+
+      /* IE and Edge */
+      .stellar-specifications-tabs{
+        -ms-overflow-style: none;
+      }
     .stellar-specifications-tabs-divider {
       margin-bottom: 37px;
     }
     .stellar-specifications-tab {
-      font-family: 'PPMonumentWide-Regular';
-      font-weight: 400;
-      font-size: 17px;
+       font-size: 17px;
       line-height: 24px;
       padding: 0px;
+      padding-bottom:5px;
     }
+    .stellar-specification-item{
+      margin-bottom:0;
+    }
+
     /* Mobile: hide desktop images, show mobile images */
     .stellar-specifications-image.tab-image.desktop-image.active {
       display: none !important;
     }
     .stellar-specifications-image.tab-image.mobile-image.active {
       display: block !important;
+      line-height:0;
     }
     .stellar-specifications-right.desktop{
       display: none;
@@ -188,6 +213,7 @@
       grid-template-columns: 1fr 1fr;
       justify-content: center;
       row-gap: 30px;
+      column-gap:60px;
     }
     .stellar-specification-label{
       font-family: 'SuisseIntl-Regular';
@@ -199,7 +225,7 @@
       color: #FFFFFF99;
       margin-bottom: 2px;
     }
-    .stellar-specification-value{
+    .stellar-specification-value, .stellar-specification-value p{
       font-family: 'SuisseIntl-Regular';
       font-weight: 400;
       font-size: 15px;
@@ -209,37 +235,47 @@
   }
 
   @media screen and (max-width: 768px) {
+
+    .stellar-specifications-{{ section.id }} {
+      padding: {{ section.settings.padding_top_mobile }}px 0 {{ section.settings.padding_bottom_mobile }}px 0;
+      margin-top: {{ section.settings.margin_top_mobile }}px;
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+    }
+
+    .stellar-specifications-{{ section.id }} .stellar-page-width{
+      padding-right:0;
+    }
+    .stellar-specifications-right.mobile{
+      padding-right:23px;
+    }
+
     .stellar-specifications-heading{
-      font-family: 'PPMonumentWide-Regular';
-      font-weight: 400;
-      font-size: 16px !important;
-      line-height: 33px;
-      letter-spacing: 0%;
+      font-size: clamp(14px,calc(23 * (100vw / 428)),23px); !important;
+      line-height: clamp(24px,calc(33 * (100vw / 428)),33px);
       margin-top: 44px;
       margin-bottom: 20px;
+      padding-right:23px;
     }
     .stellar-specifications-tab{
-      font-family: 'PPMonumentWide-Regular';
-      font-weight: 400;
       font-size: 15px;
       line-height: 24px;
-      letter-spacing: 0%;
     }
     .stellar-specifications-tabs{
       gap: 27px;
+      overflow-x: auto;
+      overflow-y: hidden;
     }
     .stellar-specifications-tabs-divider{
       margin-bottom: 24px;
     }
     .stellar-specifications-tab{
-      font-family: 'SuisseIntl-Regular';
-      font-weight: 400;
-      font-size: 14px;
+      font-size: 15px;
       line-height: 24px;
-      letter-spacing: 0%;
-      text-transform: uppercase;
+      text-transform: capitalize;
+      min-width: fit-content;
+      padding-bottom: 11px;
     }
-    .stellar-specification-value{
+    .stellar-specification-value, .stellar-specification-value p{
       font-family: 'SuisseIntl-Regular';
       font-weight: 400;
       font-size: 15px;
@@ -253,24 +289,17 @@
   }
 
 
-  @media screen and (max-width: 450px) {
-    .stellar-specifications-tabs{
-      gap: 10px;
-    }
-  }
 
   @media screen and (max-width: 400px) {
-    .stellar-specifications-tabs{
-      gap: 10px;
+    
+     .stellar-specifications-tabs{
+      gap: 20px;
+    } 
+    .stellar-specifications-tab , .stellar-specification-label{
+      font-size: 14px;
     }
-    .stellar-specifications-tab{
-      font-size: 10px;
-    }
-    .stellar-specification-label{
-      font-size: 10px;
-    }
-    .stellar-specification-value{
-      font-size: 10px;
+    .stellar-specification-value , .stellar-specification-value p{
+      font-size: 15px;
     }
   }
 
@@ -290,7 +319,7 @@
       margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
     }
   }
-</style>
+{%- endstyle -%}
 
 <div class="stellar-specifications-{{ section.id }}">
   <div class="stellar-page-width">
@@ -404,7 +433,7 @@
         <div class="stellar-specifications-content active" data-content="watch">
           {% if product.metafields.custom.filter_collection.value != blank %}
             <div class="stellar-specification-item">
-              <p class="stellar-specification-label">Filter Collection</p>
+              <p class="stellar-specification-label">Collection</p>
               <p class="stellar-specification-value">{{ product.metafields.custom.filter_collection.value }}</p>
             </div>
           {% endif %}
@@ -452,7 +481,7 @@
           {% endif %}
           {% if product.metafields.custom.lock_mechanism.value != blank %}
             <div class="stellar-specification-item">
-              <p class="stellar-specification-label">Lock Mechanism</p>
+              <p class="stellar-specification-label">Strap Closure/Lock Mechanism</p>
               <p class="stellar-specification-value">{{ product.metafields.custom.lock_mechanism.value }}</p>
             </div>
           {% endif %}
@@ -555,6 +584,12 @@
               <p class="stellar-specification-value">{{ product.metafields.custom.warranty_details.value }}</p>
             </div>
           {% endif %}
+           {% if section.settings.tab4_note != blank %}
+            <div class="stellar-specification-item">
+              <p class="stellar-specification-label">Note</p>
+              <div class="stellar-specification-value">{{ section.settings.tab4_note }}</div>
+            </div>
+          {% endif %}
         </div>
       </div>
 
@@ -641,7 +676,7 @@
 </div>
 
 <script>
-  (function () {
+  {% comment %} (function () {
     document.addEventListener('DOMContentLoaded', function () {
       const sectionContainer = document.querySelector('.stellar-specifications-{{ section.id }}');
       if (!sectionContainer) return;
@@ -653,6 +688,12 @@
       tabs.forEach((tab) => {
         tab.addEventListener('click', function () {
           const targetTab = this.getAttribute('data-tab');
+
+           tab.scrollIntoView({
+            behavior: 'smooth',
+            inline: 'center',
+            block: 'nearest'
+          });
 
           tabs.forEach((t) => t.classList.remove('active'));
           contents.forEach((c) => c.classList.remove('active'));
@@ -671,7 +712,59 @@
         });
       });
     });
-  })();
+  })(); {% endcomment %}
+
+
+  (function () {
+  document.addEventListener('DOMContentLoaded', function () {
+    const sectionContainer = document.querySelector('.stellar-specifications-{{ section.id }}');
+    if (!sectionContainer) return;
+
+    const tabsWrapper = sectionContainer.querySelector('.stellar-specifications-tabs'); // ensure this is your scroll container
+    const tabs = sectionContainer.querySelectorAll('.stellar-specifications-tab');
+    const contents = sectionContainer.querySelectorAll('.stellar-specifications-content');
+    const tabImages = sectionContainer.querySelectorAll('.tab-image');
+
+    const scrollIntoViewHorizontally = (container, target) => {
+      const targetLeft = target.offsetLeft;
+      const targetRight = targetLeft + target.offsetWidth;
+      const scrollLeft = container.scrollLeft;
+      const visibleRight = scrollLeft + container.offsetWidth;
+
+      // Scroll left
+      if (targetLeft < scrollLeft) {
+        container.scrollTo({ left: targetLeft - 20, behavior: 'smooth' });
+      }
+
+      // Scroll right
+      else if (targetRight > visibleRight) {
+        container.scrollTo({ left: targetRight - container.offsetWidth + 20, behavior: 'smooth' });
+      }
+    };
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', function () {
+        const targetTab = this.getAttribute('data-tab');
+
+        // Scroll tab into view horizontally
+        scrollIntoViewHorizontally(tabsWrapper, tab);
+
+        // Tab switching logic
+        tabs.forEach((t) => t.classList.remove('active'));
+        contents.forEach((c) => c.classList.remove('active'));
+        tabImages.forEach((img) => img.classList.remove('active'));
+
+        this.classList.add('active');
+        const targetContent = sectionContainer.querySelector(`[data-content="${targetTab}"]`);
+        if (targetContent) targetContent.classList.add('active');
+
+        const targetImages = sectionContainer.querySelectorAll(`[data-tab-image="${targetTab}"]`);
+        targetImages.forEach((img) => img.classList.add('active'));
+      });
+    });
+  });
+})();
+
 </script>
 
 {% schema %}
@@ -707,6 +800,12 @@
       "id": "tab4_heading",
       "label": "Tab 4 Heading",
       "default": "Warranty Details"
+    },
+    {
+      "type": "richtext",
+       "id": "tab4_note",
+       "label": "Tab 4 Note",
+       "default": "<p>As this is a limited edition watch, returns will not be accepted.</p>"
     },
     {
       "type": "color",
