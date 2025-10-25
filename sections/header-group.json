@@ -143,17 +143,6 @@
         "padding_bottom": 10
       }
     },
-    "split_loading_animation_tY6fBQ": {
-      "type": "split-loading-animation",
-      "name": "Split Opener",
-      "settings": {
-        "split_image": "shopify://shop_images/galaxy.png",
-        "split_image_mobile": "shopify://shop_images/galaxy-mobile.png",
-        "section_heading": "STELLAR",
-        "section_sub_heading": "Explore The Unexplored",
-        "onload_animation": false
-      }
-    },
     "contact_popup_MMQq97": {
       "type": "contact-popup",
       "disabled": true,
@@ -167,7 +156,6 @@
   "order": [
     "announcement-bar",
     "header",
-    "split_loading_animation_tY6fBQ",
     "contact_popup_MMQq97"
   ]
 }
