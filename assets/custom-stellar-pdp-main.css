@@ -824,6 +824,7 @@
     letter-spacing: 0px;
     text-transform: uppercase;
     color: #ffffff;
+    margin-bottom:0;
   }
 
   .stellar-collection-story.desktop {
@@ -969,7 +970,7 @@
 
   .stellar-price-block.tablet {
     display: block !important;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     order: 1;
   }
 
@@ -1226,8 +1227,8 @@
 @media screen and (max-width: 768px) {
 
   .stellar-share-wishlist.tablet{
-     top:90px;
-     right:15px;
+     top:80px;
+     right:23px;
   }
   .stellar-share-wishlist.tablet .stellar-wishlist-heart svg,
   .stellar-share-wishlist.tablet .share-button__button svg{
@@ -1238,7 +1239,7 @@
     height: unset;
   }
   .stellar-actions-row {
-    gap: 20px;
+    gap: 0px !important;
   }
 
   /* Mobile share dropdown positioning */
@@ -1309,12 +1310,12 @@
     margin-bottom: 3.7rem;
     padding-right:23px;
     padding-left:15px;
-    flex-direction: column;
-    gap: 12px;
+    gap: 15px;
+    flex-wrap: wrap;
   }
 
   .main-product-page .stellar-description p {
-     line-height: 22px;
+     line-height: 23px;
     letter-spacing: 0px;
   }
 
@@ -1376,7 +1377,15 @@
     text-transform: uppercase;
     border-radius: 8px;
     margin-bottom:0;
+    min-width:max-content;
   }
+  /* .stellar-atc-btn{
+    max-width:180px;
+  }
+  
+  .stellar-enquiry-btn{
+    max-width:176px;
+  } */
 
   
 }
