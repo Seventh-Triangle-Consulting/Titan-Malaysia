@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -5,14 +14,6 @@
       "blocks": {
         "stellar_thumbs": {
           "type": "stellar-thumbs-slider",
-          "settings": {}
-        },
-        "stellar_title_tablet": {
-          "type": "stellar-title",
-          "settings": {}
-        },
-        "stellar_share_tablet": {
-          "type": "stellar-share",
           "settings": {}
         },
         "stellar_title_desktop": {
@@ -38,8 +39,6 @@
       },
       "block_order": [
         "stellar_thumbs",
-        "stellar_title_tablet",
-        "stellar_share_tablet",
         "stellar_title_desktop",
         "stellar_price_desktop",
         "stellar_desc_desktop",
@@ -64,52 +63,43 @@
         "enable_video_looping": false,
         "padding_top": 0,
         "padding_bottom": 0,
+        "stellar_delivery_message": "<p>Delivery timeline: 8-10 weeks</p>",
+        "popup-form-heading": "Enquiry Form",
         "stellar_mobile_margin_top": 80,
         "stellar_small_tablet_margin_top": 100,
         "stellar_large_tablet_margin_top": 120,
-        "stellar_desktop_margin_top": 140,
-        "stellar_delivery_message": "<p>Delivery timeline: 8-10 weeks</p>",
-        "popup-form-heading": "Enquiry Form"
+        "stellar_desktop_margin_top": 140
       }
     },
     "stellar_video_banner": {
       "type": "stellar-video-banner",
       "settings": {
-        "desktop_video": "",
-        "mobile_video": "",
-        "heading": "",
         "margin_top_Desktop": 0,
-        "margin_bottom_Desktop": 0,
-        "margin_top_mobile": 0,
-        "margin_bottom_mobile": 0
+        "margin_bottom_Desktop": 0
       }
     },
     "stellar_image_swiper": {
       "type": "stellar-image-swiper",
       "settings": {
         "background_color": "#000000",
-        "padding_top_Desktop": 80,
-        "padding_bottom_Desktop": 80,
-        "padding_top_mobile": 40,
-        "padding_bottom_mobile": 40,
         "margin_top_Desktop": 0,
         "margin_bottom_Desktop": 0,
-        "margin_top_mobile": 0,
-        "margin_bottom_mobile": 0
+        "padding_top_Desktop": 80,
+        "padding_bottom_Desktop": 80
       }
     },
     "stellar_specifications": {
       "type": "stellar-specifications",
       "settings": {
         "background_color": "#1C3250",
-        "padding_top_mobile": 40,
-        "padding_bottom_mobile": 40,
         "padding_top_desktop": 80,
         "padding_bottom_desktop": 80,
-        "margin_top_mobile": 0,
-        "margin_bottom_mobile": 0,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
         "margin_top_desktop": 0,
-        "margin_bottom_desktop": 0
+        "margin_bottom_desktop": 0,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0
       }
     },
     "74932d3a-78c7-4b22-9880-9fc42033a56c": {
