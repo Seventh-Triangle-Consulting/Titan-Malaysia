@@ -2,9 +2,12 @@
 
 <style>
   .section-{{ section.id }} {
+    max-width:1512px;
+    margin:auto;
     margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
     padding-top: {{ section.settings.padding_top_desktop }}px;
     padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+
   }
 
   @media only screen and (min-width: 750px) and (max-width: 1023px){
