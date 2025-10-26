@@ -12,14 +12,18 @@
 {% endcomment %}
 <script src="{{ 'share.js' | asset_url }}" defer="defer"></script>
 
-<share-button id="Share-{{ section.id }}" class="share-button quick-add-hidden" {{ block.shopify_attributes }}>
+<share-button id="Share-{{ section.id }}" class="share-button quick-add-hidden{% if template == 'product.stellar' %} stellar-share-btn{% endif %}" {{ block.shopify_attributes }}>
   <button class="share-button__button hidden">
     {% render 'icon-share' %}
     {{ block.settings.share_label | escape }}
   </button>
   <details id="Details-{{ block.id }}-{{ section.id }}">
     <summary class="share-button__button">
-      {% render 'icon-share' %}
+      {% if template == 'product.stellar' %}
+        <span class="stellar-share-text">Share</span>
+      {% else %}
+        {% render 'icon-share' %}
+      {% endif %}
     </summary>
     <div class="share-button__fallback motion-reduce">
       <div class="field">

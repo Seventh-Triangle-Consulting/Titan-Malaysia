@@ -1,70 +1,71 @@
 {% if template == 'product.stellar' %}
   {{ 'custom-stellar-pdp-main.css' | asset_url | stylesheet_tag }}
+  
+  <style>
+    .product-stellar-container {
+      padding-top: {{ section.settings.stellar_mobile_margin_top }}px !important;
+    }
 
-.product-stellar-container {
-  padding-top: {{ section.settings.stellar_mobile_margin_top }}px !important;
-}
+    /* Small tablet breakpoint (481px to 767px) */
+    @media screen and (min-width: 481px) and (max-width: 767px) {
+      .product-stellar-container {
+        padding-top: {{ section.settings.stellar_small_tablet_margin_top }}px !important;
+      }
+    }
 
-/* Small tablet breakpoint (481px to 767px) */
-@media screen and (min-width: 481px) and (max-width: 767px) {
-  .product-stellar-container {
-    padding-top: {{ section.settings.stellar_small_tablet_margin_top }}px !important;
-  }
-}
+    /* Large tablet breakpoint (768px to 1024px) */
+    @media screen and (min-width: 768px) and (max-width: 1198px) {
+      .product-stellar-container {
+        padding-top: {{ section.settings.stellar_large_tablet_margin_top }}px !important;
+      }
+    }
 
-/* Large tablet breakpoint (768px to 1024px) */
-@media screen and (min-width: 768px) and (max-width: 1198px) {
-  .product-stellar-container {
-    padding-top: {{ section.settings.stellar_large_tablet_margin_top }}px !important;
-  }
-}
+    /* Desktop breakpoint (1025px and above) */
+    @media screen and (min-width: 1199px) {
+      .product-stellar-container {
+        padding-top: {{ section.settings.stellar_desktop_margin_top }}px !important;
+      }
+    }
 
-/* Desktop breakpoint (1025px and above) */
-@media screen and (min-width: 1199px) {
-  .product-stellar-container {
-    padding-top: {{ section.settings.stellar_desktop_margin_top }}px !important;
-  }
-}
+    /* Fix sticky content overlapping issue */
+    .product-stellar-container .product__info {
+      position: relative;
+      z-index: 1;
+    }
 
-/* Fix sticky content overlapping issue */
-.product-stellar-container .product__info {
-  position: relative;
-  z-index: 1;
-}
+    /* Mobile scrolled state (max 480px) */
+    @media screen and (max-width: 480px) {
+      .section-header.scrolled ~ .main-product .product-stellar-container {
+        padding-top: {{ section.settings.stellar_mobile_margin_top | plus: 20 }}px;
+      }
+    }
 
-/* Mobile scrolled state (max 480px) */
-@media screen and (max-width: 480px) {
-  .section-header.scrolled ~ .main-product .product-stellar-container {
-    padding-top: {{ section.settings.stellar_mobile_margin_top | plus: 20 }}px;
-  }
-}
+    /* Small tablet scrolled state (481px to 767px) */
+    @media screen and (min-width: 481px) and (max-width: 767px) {
+      .section-header.scrolled ~ .main-product .product-stellar-container {
+        padding-top: {{ section.settings.stellar_small_tablet_margin_top | plus: 20 }}px;
+      }
+    }
 
-/* Small tablet scrolled state (481px to 767px) */
-@media screen and (min-width: 481px) and (max-width: 767px) {
-  .section-header.scrolled ~ .main-product .product-stellar-container {
-    padding-top: {{ section.settings.stellar_small_tablet_margin_top | plus: 20 }}px;
-  }
-}
+    /* Large tablet scrolled state (768px to 1024px) */
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+      .section-header.scrolled ~ .main-product .product-stellar-container {
+        padding-top: {{ section.settings.stellar_large_tablet_margin_top | plus: 30 }}px;
+      }
+    }
 
-/* Large tablet scrolled state (768px to 1024px) */
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-  .section-header.scrolled ~ .main-product .product-stellar-container {
-    padding-top: {{ section.settings.stellar_large_tablet_margin_top | plus: 30 }}px;
-  }
-}
+    /* Desktop scrolled state (1025px and above) */
+    @media screen and (min-width: 1025px) {
+      .section-header.scrolled ~ .main-product .product-stellar-container {
+        padding-top: {{ section.settings.stellar_desktop_margin_top | plus: 50 }}px;
+      }
+    }
 
-/* Desktop scrolled state (1025px and above) */
-@media screen and (min-width: 1025px) {
-  .section-header.scrolled ~ .main-product .product-stellar-container {
-    padding-top: {{ section.settings.stellar_desktop_margin_top | plus: 50 }}px;
-  }
-}
-
-/* Stellar Template Footer Color Override */
-.footer {
-  background-color: #000 !important;
-}
-
+    /* Stellar Template Footer Color Override */
+    .footer {
+      background-color: #000 !important;
+    }
+  </style>
 {% endif %}
 
 <section
@@ -139,55 +140,57 @@
 
 {% if template == 'product.stellar' %}<div class="stellar-background product-stellar-container">{% endif %}
   <div
-    class="page-width product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% endif %}"
+    class=" main-product-page {% if template == 'product.stellar' %}stellar-page-width {% else %}page-width{% endif %} product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% endif %}"
     data-productid="{{ product.id }}"
   >
     {% if template == 'product.stellar' %}
-      {% render 'custom-stellar-product-slider' %}
+      <div class="grid__item product__media-wrapper stellar-product-slider-container">
+        {% render 'custom-stellar-product-slider' %}
 
-      {%- for block in section.blocks -%}
-        {%- case block.type -%}
-          {%- when 'stellar-title' -%}
-            {% if template == 'product.stellar' %}
-              {% if product.title != blank %}
-                <div class="stellar-title-block Tablet" {{ block.shopify_attributes }}>
-                  <h1 class="stellar-title">{{ product.title | escape }}</h1>
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'stellar-title' -%}
+              {% if template == 'product.stellar' %}
+                {% if product.title != blank %}
+                  <div class="stellar-title-block Tablet" {{ block.shopify_attributes }}>
+                    <h1 class="stellar-title">{{ product.title | escape }}</h1>
+                  </div>
+                {% endif %}
+              {% endif %}
+
+            {%- when 'stellar-share' -%}
+              {% if template == 'product.stellar' %}
+                <div class="stellar-share-wishlist tablet" {{ block.shopify_attributes }}>
+                  <div class="stellar-actions-row">
+                    <!-- Wishlist Icon with Text -->
+                    <div class="stellar-wishlist-btn" onclick="handleStellarWishlist(event)">
+                      <span
+                        class="smartwishlist stellar-wishlist-icon"
+                        data-product="{{ product.id }}"
+                        data-variant="{{ product.variants.first.id }}"
+                        product-title="{{ product.title }}"
+                        product-name="{{ product.title }}"
+                      ></span>
+                      <div class="stellar-wishlist-heart">
+                        {% render 'icon-like' %}
+                      </div>
+                      <span class="stellar-wishlist-text">Wishlist</span>
+                    </div>
+
+                    <!-- Share Button with Native Share Priority -->
+                    <div class="stellar-share-wrapper">
+                      {% assign share_url = product.selected_variant.url
+                        | default: product.url
+                        | prepend: request.origin
+                      %}
+                      {% render 'share-button', block: block, share_link: share_url %}
+                    </div>
+                  </div>
                 </div>
               {% endif %}
-            {% endif %}
-
-          {%- when 'stellar-share' -%}
-            {% if template == 'product.stellar' %}
-              <div class="stellar-share-wishlist tablet" {{ block.shopify_attributes }}>
-                <div class="stellar-actions-row">
-                  <!-- Wishlist Icon with Text -->
-                  <div class="stellar-wishlist-btn" onclick="handleStellarWishlist(event)">
-                    <span
-                      class="smartwishlist stellar-wishlist-icon"
-                      data-product="{{ product.id }}"
-                      data-variant="{{ product.variants.first.id }}"
-                      product-title="{{ product.title }}"
-                      product-name="{{ product.title }}"
-                    ></span>
-                    <div class="stellar-wishlist-heart">
-                      {% render 'icon-like' %}
-                    </div>
-                    <span class="stellar-wishlist-text">Wishlist</span>
-                  </div>
-
-                  <!-- Share Button with Default Shopify Functionality -->
-                  <div class="stellar-share-wrapper">
-                    {% assign share_url = product.selected_variant.url
-                      | default: product.url
-                      | prepend: request.origin
-                    %}
-                    {% render 'share-button', block: block, share_link: share_url %}
-                  </div>
-                </div>
-              </div>
-            {% endif %}
-        {% endcase %}
-      {% endfor %}
+          {% endcase %}
+        {% endfor %}
+      </div>
     {% else %}
       <div
         id="{{ section.id }}"
@@ -270,7 +273,7 @@
               </p>
             {%- when 'title' -%}
               <div class="product__title" {{ block.shopify_attributes }}>
-                <h1 class="Rubik-400-30px">{{ product.title | escape }}</h1>
+                <h1 class="{% unless template == 'product.stellar' %}Rubik-400-30px{% endunless %}">{{ product.title | escape }}</h1>
                 <h2 class="h1 product__title">
                   {{ product.title | escape }}
                 </h2>
@@ -946,25 +949,52 @@
               {% render 'icon-with-text', block: block %}
             {%- when 'stellar-thumbs-slider' -%}
               {% if template == 'product.stellar' %}
-                <div class="product-thumbnails-container">
-                  <div
-                    thumbsSlider=""
-                    data-id="pdpSwiperThumb"
-                    class="custom-desktop-slider-main-thumbs-ups swiper mySwiper"
-                  >
-                    <div class="swiper-wrapper">
-                      {%- for media in product.media -%}
-                        <div
-                          data-media-id="{{ section.id }}-{{ media.id }}"
-                          class="swiper-slide {% if variant_images contains media %}product__media-item--variant{% endif %}"
-                          data-index="{{ forloop.index}}"
-                          data-target="{{ section.id }}-{{ media.id }}"
-                          onclick="handleThumbnailClick({{ forloop.index0 }})"
-                          style="cursor: pointer;"
-                        >
-                          {{ media | image_url: width: media.width | image_tag: class: 'product-image' }}
-                        </div>
-                      {% endfor %}
+                <div class="product-thumbnails-container desktop">
+                  <div class="stellar-thumbs-wrapper">
+                    <div
+                      thumbsSlider=""
+                      data-id="pdpSwiperThumb"
+                      class="custom-desktop-slider-main-thumbs-ups swiper mySwiper"
+                    >
+                      <div class="swiper-wrapper">
+                        {%- for media in product.media -%}
+                          <div
+                            data-media-id="{{ section.id }}-{{ media.id }}"
+                            class="swiper-slide {% if variant_images contains media %}product__media-item--variant{% endif %}"
+                            data-index="{{ forloop.index}}"
+                            data-target="{{ section.id }}-{{ media.id }}"
+                            onclick="handleThumbnailClick({{ forloop.index0 }})"
+                            style="cursor: pointer;"
+                          >
+                            {{ media | image_url: width: media.width | image_tag: class: 'product-image' }}
+                          </div>
+                        {% endfor %}
+                      </div>
+                    </div>
+                    <!-- Navigation buttons outside swiper container -->
+                    <div class="stellar-thumbs-nav stellar-thumbs-prev swiper-button-prev">
+                      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <foreignObject x="-40" y="-40" width="120" height="120">
+                          <div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(20px);clip-path:url(#bgblur_thumb_prev_clip_path);height:100%;width:100%"></div>
+                        </foreignObject>
+                        <circle data-figma-bg-blur-radius="40" cx="20" cy="20" r="19.25" transform="matrix(-1 0 0 1 40 0)" fill="black" fill-opacity="0.6" stroke="white" stroke-width="1.5"/>
+                        <path d="M22.4483 13L15.3772 20.0711L22.4482 27.1421" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+                        <defs>
+                          <clipPath id="bgblur_thumb_prev_clip_path"><circle cx="20" cy="20" r="19.25" transform="matrix(-1 0 0 1 40 0)"/></clipPath>
+                        </defs>
+                      </svg>
+                    </div>
+                    <div class="stellar-thumbs-nav stellar-thumbs-next swiper-button-next">
+                      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <foreignObject x="-40" y="-40" width="120" height="120">
+                          <div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(20px);clip-path:url(#bgblur_thumb_next_clip_path);height:100%;width:100%"></div>
+                        </foreignObject>
+                        <circle data-figma-bg-blur-radius="40" cx="20" cy="20" r="19.25" fill="black" fill-opacity="0.6" stroke="white" stroke-width="1.5"/>
+                        <path d="M17.5518 13L24.6228 20.0711L17.5518 27.1421" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+                        <defs>
+                          <clipPath id="bgblur_thumb_next_clip_path"><circle cx="20" cy="20" r="19.25"/></clipPath>
+                        </defs>
+                      </svg>
                     </div>
                   </div>
                 </div>
@@ -992,7 +1022,12 @@
               {% if template == 'product.stellar' %}
                 <div class="stellar-description-block desktop" {{ block.shopify_attributes }}>
                   {%- if product.description != blank -%}
-                    <div class="stellar-description rte">{{ product.description }}</div>
+                    <div class="stellar-description rte read-more-container" id="stellar-desc-desktop-{{ section.id }}">
+                      <div class="read-more-text">{{ product.description }}</div>
+                      <button class="read-more-btn" onclick="toggleReadMore('stellar-desc-desktop-{{ section.id }}')">
+                        READ MORE
+                      </button>
+                    </div>
                   {%- endif -%}
                 </div>
               {% endif %}
@@ -1016,7 +1051,7 @@
                       <span class="stellar-wishlist-text">Wishlist</span>
                     </div>
 
-                    <!-- Share Button with Default Shopify Functionality -->
+                    <!-- Share Button with Native Share Priority -->
                     <div class="stellar-share-wrapper">
                       {% assign share_url = product.selected_variant.url
                         | default: product.url
@@ -1108,37 +1143,203 @@
                         updateWishlistState(btn, smartwishlistElement);
                       }
                     });
+
+                    // Stellar Share: Prioritize native share API
+                    if (navigator.share) {
+                      const stellarShareWrappers = document.querySelectorAll('.stellar-share-wrapper');
+                      stellarShareWrappers.forEach(wrapper => {
+                        const shareSummary = wrapper.querySelector('summary.share-button__button');
+                        const shareInput = wrapper.querySelector('input[id^="ShareUrl"]');
+                        const shareUrl = shareInput ? shareInput.value : window.location.href;
+                        const details = wrapper.querySelector('details');
+                        
+                        if (shareSummary) {
+                          shareSummary.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            
+                            // Close the details dropdown
+                            if (details && details.open) {
+                              details.removeAttribute('open');
+                            }
+                            
+                            // Trigger native share
+                            navigator.share({
+                              title: document.title,
+                              url: shareUrl
+                            }).then(() => {
+                              console.log('Share successful');
+                            }).catch((error) => {
+                              // User cancelled or error occurred
+                              if (error.name !== 'AbortError') {
+                                console.log('Share failed:', error);
+                                // Fallback: open the details dropdown
+                                if (details) {
+                                  details.setAttribute('open', '');
+                                }
+                              }
+                            });
+                          }, true); // Use capture to intercept before default
+                        }
+                      });
+                    }
                   });
 
-                  // Read More functionality
+                  // Initialize read more on page load
+                  function initReadMore() {
+                    // Initialize all read-more containers
+                    const allContainers = document.querySelectorAll('.read-more-container');
+                    
+                    allContainers.forEach(container => {
+                      const textContent = container.querySelector('.read-more-text');
+                      const button = container.querySelector('.read-more-btn');
+                      
+                      if (textContent && button) {
+                        const isDesktop = container.closest('.stellar-description-block.desktop');
+                        
+                        // Temporarily remove overflow hidden to get true height
+                        const originalOverflow = textContent.style.overflow;
+                        textContent.style.overflow = 'visible';
+                        textContent.style.maxHeight = 'none';
+                        
+                        const fullHeight = textContent.scrollHeight;
+                        // Fixed collapsed height to exactly 72px (3 lines * 24px)
+                        const collapsedHeight = 72;
+                        
+                        // Restore overflow
+                        textContent.style.overflow = originalOverflow;
+                        
+                        if (fullHeight > collapsedHeight + 5) {
+                          // Content overflows (added 5px buffer)
+                          if (isDesktop) {
+                            // Desktop: Start expanded
+                            container.classList.add('has-overflow');
+                            container.classList.add('expanded');
+                            textContent.style.maxHeight = fullHeight + 'px';
+                            button.textContent = 'READ LESS';
+                          } else {
+                            // Mobile/Tablet: Start collapsed
+                            container.classList.remove('expanded');
+                            textContent.style.maxHeight = collapsedHeight + 'px';
+                            button.textContent = 'READ MORE';
+                          }
+                        } else {
+                          // Content fits - hide button
+                          textContent.style.maxHeight = 'none';
+                          button.style.display = 'none';
+                        }
+                      }
+                    });
+                  }
+                  
+                  // Run on DOM load
+                  if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', initReadMore);
+                  } else {
+                    initReadMore();
+                  }
+                  
+                  // Run again after images load
+                  window.addEventListener('load', initReadMore);
+
+                  // Read More toggle with smooth transition
                   function toggleReadMore(containerId) {
                     const container = document.getElementById(containerId);
                     const button = container.querySelector('.read-more-btn');
+                    const textContent = container.querySelector('.read-more-text');
+                    
+                    // Fixed collapsed height to exactly 72px (3 lines * 24px)
+                    const collapsedHeight = 72;
 
                     if (container.classList.contains('expanded')) {
-                      container.classList.remove('expanded');
-                      button.textContent = 'READ MORE';
+                      // Collapse: expanded → collapsed
+                      // Get current scroll height
+                      const currentScrollHeight = textContent.scrollHeight;
+                      
+                      // Set to current height first
+                      textContent.style.maxHeight = currentScrollHeight + 'px';
+                      
+                      // Force reflow
+                      textContent.offsetHeight;
+                      
+                      // Animate to collapsed height (72px)
+                      requestAnimationFrame(() => {
+                        textContent.style.maxHeight = collapsedHeight + 'px';
+                        container.classList.remove('expanded');
+                        button.textContent = 'READ MORE';
+                      });
                     } else {
-                      container.classList.add('expanded');
-                      button.textContent = 'READ LESS';
+                      // Expand: collapsed → expanded
+                      // Get the full height when expanded
+                      const savedMaxHeight = textContent.style.maxHeight;
+                      textContent.style.maxHeight = 'none';
+                      const fullHeight = textContent.scrollHeight;
+                      textContent.style.maxHeight = savedMaxHeight;
+                      
+                      // Force reflow
+                      textContent.offsetHeight;
+                      
+                      // Animate to full height
+                      requestAnimationFrame(() => {
+                        textContent.style.maxHeight = fullHeight + 'px';
+                        container.classList.add('expanded');
+                        button.textContent = 'READ LESS';
+                      });
                     }
                   }
                 </script>
               {% endif %}
             {%- when 'stellar-button' -%}
               {% if template == 'product.stellar' %}
-                <div class="stellar-enquiry-block" {{ block.shopify_attributes }}>
+                <div class="stellar-buttons-container" {{ block.shopify_attributes }}>
                   <button
                     type="button"
-                    class="button button--primary stellar-enquiry-btn stellar-enquiry-block"
+                    class="button button--primary stellar-atc-btn"
+                    onclick="addToCartStellar()"
+                    data-product-id="{{ product.id }}"
+                    data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+                  >
+                    ADD TO CART
+                  </button>
+                  <button
+                    type="button"
+                    class="button button--secondary stellar-enquiry-btn"
                     onclick="openStellarEnquiryForm()"
                     data-product-id="{{ product.id }}"
                     data-product-title="{{ product.title | escape }}"
                     data-variant-id="{{ product.selected_or_first_available_variant.id }}"
                   >
-                    {{ block.settings.Enquiry_button | default: 'Enquiry now' }}
+                    {{ block.settings.Enquiry_button | default: 'ENQUIRE' }}
                   </button>
                 </div>
+
+                <script>
+                  function addToCartStellar() {
+                    const variantId = document.querySelector('.stellar-atc-btn').dataset.variantId;
+                    const formData = {
+                      items: [{
+                        id: variantId,
+                        quantity: 1
+                      }]
+                    };
+
+                    fetch('/cart/add.js', {
+                      method: 'POST',
+                      headers: {
+                        'Content-Type': 'application/json',
+                      },
+                      body: JSON.stringify(formData)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                      // Trigger cart drawer or redirect to cart
+                      window.location.href = '/cart';
+                    })
+                    .catch((error) => {
+                      console.error('Error:', error);
+                    });
+                  }
+                </script>
               {% endif %}
 
               <div class="stellar-price-and-collection-text">
@@ -1333,6 +1534,7 @@
       </div>
     {% endunless %}
   </div>
+{% if template == 'product.stellar' %}</div>{% endif %}
   <div class="productformmobilesticky hide-productformmobilesticky"></div>
   {% unless template == 'product.stellar' %}
     <div class="productformdesktopsticky hide-productformdesktopsticky">

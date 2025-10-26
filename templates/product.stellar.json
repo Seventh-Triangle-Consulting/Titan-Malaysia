@@ -1,84 +1,50 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main": {
       "type": "main-product",
       "blocks": {
-        "vendor": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
-        "title": {
-          "type": "title",
+        "stellar_thumbs": {
+          "type": "stellar-thumbs-slider",
           "settings": {}
         },
-        "b607d1c0-5375-49f3-859b-52d3887260ae": {
-          "type": "rating",
+        "stellar_title_tablet": {
+          "type": "stellar-title",
           "settings": {}
         },
-        "price": {
-          "type": "price",
+        "stellar_share_tablet": {
+          "type": "stellar-share",
           "settings": {}
         },
-        "description": {
-          "type": "description",
+        "stellar_title_desktop": {
+          "type": "stellar-title",
           "settings": {}
         },
-        "variant_picker": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button"
-          }
-        },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "disabled": true,
+        "stellar_price_desktop": {
+          "type": "stellar-price",
           "settings": {}
         },
-        "6f357501-efe5-4a62-8b55-2936766130a5": {
-          "type": "USP",
-          "disabled": true,
-          "settings": {
-            "urllink": "https://cdn.shopify.com/s/files/1/0692/8321/7683/files/Group_13554_2x_89f9a917-1bb7-49c8-944d-7033b5df65fa.png?v=1677495191,https://cdn.shopify.com/s/files/1/0692/8321/7683/files/Group_13552_2x_66b757fd-577d-43f2-bd06-7f6247622b51.png?v=1677495208,https://cdn.shopify.com/s/files/1/0692/8321/7683/files/Path_6411_2x_956554d0-b950-4c2c-b85f-308da6728be4.png?v=1677495208",
-            "icontext": "Servicing Available##COD Available##Secure Payment"
-          }
+        "stellar_desc_desktop": {
+          "type": "stellar-desc",
+          "settings": {}
         },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": false,
-            "show_gift_card_recipient": true
-          }
+        "stellar_share_desktop": {
+          "type": "stellar-share",
+          "settings": {}
         },
-        "5084a510-7189-437e-bc00-7ae24be755b7": {
-          "type": "share",
-          "settings": {
-            "share_label": ""
-          }
+        "stellar_button": {
+          "type": "stellar-button",
+          "settings": {}
         }
       },
       "block_order": [
-        "vendor",
-        "title",
-        "b607d1c0-5375-49f3-859b-52d3887260ae",
-        "price",
-        "description",
-        "variant_picker",
-        "quantity_selector",
-        "6f357501-efe5-4a62-8b55-2936766130a5",
-        "buy_buttons",
-        "5084a510-7189-437e-bc00-7ae24be755b7"
+        "stellar_thumbs",
+        "stellar_title_tablet",
+        "stellar_share_tablet",
+        "stellar_title_desktop",
+        "stellar_price_desktop",
+        "stellar_desc_desktop",
+        "stellar_share_desktop",
+        "stellar_button"
       ],
       "settings": {
         "cod_text": "",
@@ -86,18 +52,64 @@
         "country_of_origin": "Country Of Origin: India",
         "manufacturer_name": "Name Of Manufacturer/ Packer/ Importer: Titan",
         "manufacturer_address": "Address Of Manufacturer/ Packer/ Importer: Titan Address",
-        "enable_sticky_info": true,
-        "media_size": "medium",
+        "enable_sticky_info": false,
+        "media_size": "large",
         "constrain_to_viewport": true,
         "media_fit": "contain",
         "gallery_layout": "thumbnail_slider",
         "media_position": "left",
-        "image_zoom": "lightbox",
+        "image_zoom": "none",
         "mobile_thumbnails": "hide",
         "hide_variants": true,
         "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "stellar_mobile_margin_top": 80,
+        "stellar_small_tablet_margin_top": 100,
+        "stellar_large_tablet_margin_top": 120,
+        "stellar_desktop_margin_top": 140,
+        "stellar_delivery_message": "<p>Delivery timeline: 8-10 weeks</p>",
+        "popup-form-heading": "Enquiry Form"
+      }
+    },
+    "stellar_video_banner": {
+      "type": "stellar-video-banner",
+      "settings": {
+        "desktop_video": "",
+        "mobile_video": "",
+        "heading": "",
+        "margin_top_Desktop": 0,
+        "margin_bottom_Desktop": 0,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0
+      }
+    },
+    "stellar_image_swiper": {
+      "type": "stellar-image-swiper",
+      "settings": {
+        "background_color": "#000000",
+        "padding_top_Desktop": 80,
+        "padding_bottom_Desktop": 80,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "margin_top_Desktop": 0,
+        "margin_bottom_Desktop": 0,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0
+      }
+    },
+    "stellar_specifications": {
+      "type": "stellar-specifications",
+      "settings": {
+        "background_color": "#1C3250",
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 80,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0,
+        "margin_top_desktop": 0,
+        "margin_bottom_desktop": 0
       }
     },
     "74932d3a-78c7-4b22-9880-9fc42033a56c": {
@@ -133,6 +145,9 @@
   },
   "order": [
     "main",
+    "stellar_video_banner",
+    "stellar_image_swiper",
+    "stellar_specifications",
     "74932d3a-78c7-4b22-9880-9fc42033a56c",
     "related-products"
   ]

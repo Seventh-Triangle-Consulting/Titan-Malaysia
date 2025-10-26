@@ -316,7 +316,7 @@
     .stellar-specifications-{{ section.id }} {
       padding: {{ section.settings.padding_top_desktop }}px 0 {{ section.settings.padding_bottom_desktop }}px 0;
       margin-top: {{ section.settings.margin_top_desktop }}px;
-      margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+      margin-bottom: {{ section.settings.margin_bottom_desktop  | default: '-1'}}px;
     }
   }
 {%- endstyle -%}

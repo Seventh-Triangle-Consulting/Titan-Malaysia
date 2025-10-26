@@ -1,0 +1,20 @@
+{
+  "name": "Stellar Header Settings",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Stellar Header Logo"
+    },
+    {
+      "type": "paragraph",
+      "content": "This logo will be used on all Stellar product pages. Upload a white/light colored logo for best visibility on the transparent header."
+    },
+    {
+      "type": "image_picker",
+      "id": "stellar_header_logo",
+      "label": "Stellar Header Logo",
+      "info": "Recommended size: 200px wide, white/light color for visibility"
+    }
+  ]
+}
+
