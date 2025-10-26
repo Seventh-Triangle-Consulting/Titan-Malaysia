@@ -65,7 +65,7 @@
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .home-grid-section .watch-card:hover .overlay {
-  background: #486b9c;
+  background: #1C3251;
   clip-path: inset(0 0 0 0);
   transform: translateY(0);
 }
