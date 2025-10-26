@@ -12,10 +12,6 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "stellar_thumbs": {
-          "type": "stellar-thumbs-slider",
-          "settings": {}
-        },
         "stellar_title_desktop": {
           "type": "stellar-title",
           "settings": {}
@@ -32,17 +28,23 @@
           "type": "stellar-share",
           "settings": {}
         },
+        "stellar_thumbs": {
+          "type": "stellar-thumbs-slider",
+          "settings": {}
+        },
         "stellar_button": {
           "type": "stellar-button",
-          "settings": {}
+          "settings": {
+            "Enquiry_button": "Enquiry now"
+          }
         }
       },
       "block_order": [
-        "stellar_thumbs",
         "stellar_title_desktop",
         "stellar_price_desktop",
         "stellar_desc_desktop",
         "stellar_share_desktop",
+        "stellar_thumbs",
         "stellar_button"
       ],
       "settings": {
@@ -65,17 +67,22 @@
         "padding_bottom": 0,
         "stellar_delivery_message": "<p>Delivery timeline: 8-10 weeks</p>",
         "popup-form-heading": "Enquiry Form",
-        "stellar_mobile_margin_top": 80,
-        "stellar_small_tablet_margin_top": 100,
-        "stellar_large_tablet_margin_top": 120,
-        "stellar_desktop_margin_top": 140
+        "stellar_mobile_margin_top": 10,
+        "stellar_small_tablet_margin_top": 10,
+        "stellar_large_tablet_margin_top": 30,
+        "stellar_desktop_margin_top": 30
       }
     },
     "stellar_video_banner": {
       "type": "stellar-video-banner",
       "settings": {
         "margin_top_Desktop": 0,
-        "margin_bottom_Desktop": 0
+        "margin_bottom_Desktop": 0,
+        "margin_top_Mobile": 0,
+        "margin_bottom_Mobile": 0,
+        "video_desktop": "{{ product.metafields.custom.stellar_video_desktop.value }}",
+        "video_mobile": "{{ product.metafields.custom.stellar_video_mobile.value }}",
+        "show_video_control": true
       }
     },
     "stellar_image_swiper": {
@@ -84,37 +91,37 @@
         "background_color": "#000000",
         "margin_top_Desktop": 0,
         "margin_bottom_Desktop": 0,
-        "padding_top_Desktop": 80,
-        "padding_bottom_Desktop": 80
+        "margin_top_Mobile": 0,
+        "margin_bottom_Mobile": 0,
+        "padding_top_Desktop": 15,
+        "padding_bottom_Desktop": 15,
+        "padding_top_Mobile": 5,
+        "padding_bottom_Mobile": 110
       }
     },
     "stellar_specifications": {
       "type": "stellar-specifications",
       "settings": {
-        "background_color": "#1C3250",
-        "padding_top_desktop": 80,
-        "padding_bottom_desktop": 80,
-        "padding_top_mobile": 40,
-        "padding_bottom_mobile": 40,
+        "section_heading": "Specifications & Craftsmanship Details",
+        "tab1_heading": "Watch",
+        "tab2_heading": "Movement",
+        "tab3_heading": "Features",
+        "tab4_heading": "Warranty",
+        "tab4_note": "<p>As this is a limited edition watch, returns will not be accepted.</p>",
+        "background_color": "#1c3250",
+        "padding_top_desktop": 140,
+        "padding_bottom_desktop": 135,
+        "padding_top_mobile": 25,
+        "padding_bottom_mobile": 120,
         "margin_top_desktop": 0,
         "margin_bottom_desktop": 0,
         "margin_top_mobile": 0,
         "margin_bottom_mobile": 0
       }
     },
-    "74932d3a-78c7-4b22-9880-9fc42033a56c": {
-      "type": "about_the_brand",
-      "settings": {
-        "about_head1": "About the Brand",
-        "brand_description": "<p>Titan has come a long way since 1984 when we started with one product category. Today, with over 8,000 employees and about 38,000 in the overall Titan ecosystem, 16 brands and over 2,000 retail stores, we are as committed  as ever to delivering profitable and responsible growth for all our stakeholders.</p><p>Titan is India's leading lifestyle company and among the most admired and respected corporates in the country. We have established leading positions in the Jewellery, Watches and EyeCare categories led by our trusted brands and superior customer experience. we have also diversified into Wearables, Indian Dress Wear and Fragrances & Fashion Accessories and are driving differentiation in these lifestyle categories, underpinned by our deep understanding of customer preferences.</p>",
-        "desk_image_with_text_image": "shopify://shop_images/Titan-Logo-PNG.png",
-        "mobile_image_with_text_image": "shopify://shop_images/Titan-Logo-PNG.png",
-        "know_more_btn_text": "Know More",
-        "know_button_link": "shopify://pages/about-us"
-      }
-    },
     "related-products": {
       "type": "related-products",
+      "disabled": true,
       "settings": {
         "heading": "You may also like",
         "heading_size": "h2",
@@ -131,6 +138,23 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "pdp_product_recommendation_FdUKjN": {
+      "type": "pdp-product-recommendation",
+      "name": "Product Recommendation",
+      "settings": {
+        "margin_bottom_desktop": 0,
+        "margin_bottom_mobile": 0,
+        "padding_top_desktop": 2,
+        "padding_bottom_desktop": 69,
+        "padding_top_tablet": 14,
+        "padding_bottom_tablet": 100,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 100,
+        "heading": "More from the collection",
+        "background_color": "#1c3250",
+        "text_color": "#ffffff"
+      }
     }
   },
   "order": [
@@ -138,7 +162,7 @@
     "stellar_video_banner",
     "stellar_image_swiper",
     "stellar_specifications",
-    "74932d3a-78c7-4b22-9880-9fc42033a56c",
-    "related-products"
+    "related-products",
+    "pdp_product_recommendation_FdUKjN"
   ]
 }
