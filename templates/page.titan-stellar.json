@@ -262,8 +262,8 @@
       ],
       "name": "Information Grid",
       "settings": {
-        "margin_bottom_desktop": 36,
-        "margin_bottom_mobile": 36,
+        "margin_bottom_desktop": 0,
+        "margin_bottom_mobile": 0,
         "padding_top_desktop": 100,
         "padding_bottom_desktop": 60,
         "padding_top_tablet": 60,
