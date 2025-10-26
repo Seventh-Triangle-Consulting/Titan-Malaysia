@@ -35,7 +35,7 @@
         "stellar_button": {
           "type": "stellar-button",
           "settings": {
-            "Enquiry_button": "Enquiry now"
+            "Enquiry_button": "enquire"
           }
         }
       },
