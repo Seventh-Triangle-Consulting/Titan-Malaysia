@@ -188,6 +188,7 @@
 .desktop_banner_content.top-center .flex-27,
 .desktop_banner_content.middle-center .flex-27 {
   justify-content: center;
+  margin-bottom:63px;
 }
 .desktop_banner_content.bottom-left .flex-27,
 .desktop_banner_content.top-left .flex-27,
