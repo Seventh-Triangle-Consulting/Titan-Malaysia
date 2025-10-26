@@ -60,11 +60,13 @@
         padding-top: {{ section.settings.stellar_desktop_margin_top | plus: 50 }}px;
       }
     }
-
-    /* Stellar Template Footer Color Override */
-    .footer {
-      background-color: #000 !important;
+    @media screen and (max-width: 1023px) {
+      .product__info-container{
+        max-width:unset !important;
+      }
     }
+
+   
   </style>
 {% endif %}
 
