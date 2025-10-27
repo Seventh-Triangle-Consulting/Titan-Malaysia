@@ -413,7 +413,7 @@
   .collection-main-banner-container .mobile_banner_content .mobile_button_text2 {
     padding: 7px 10px;
     font-size: 14px;
-    width: 120px;
+    /* width: 120px; */
   }
   .collection-main-banner-container .mobile_banner_content_div {
     margin-bottom: 34px;
