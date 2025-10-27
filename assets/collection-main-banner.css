@@ -237,6 +237,9 @@
     font-weight:400;
     margin-bottom:19px;
   }
+  .collection-main-banner-container .mobile_banner_content .mobile_button_text1, .collection-main-banner-container .mobile_banner_content .mobile_button_text2{
+    padding:13.5px 15px;
+  }
 }
 
 .collection-main-banner-container .flex-27 a {
