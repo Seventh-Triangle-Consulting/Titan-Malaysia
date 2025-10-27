@@ -266,7 +266,9 @@
     padding-top: 29px;
   }
 
-  .collection-main-banner-container .collection-main-banner {padding-top: 88px;}
+  .collection-main-banner-container .collection-main-banner {
+    padding: 88px 63px 68px;
+  }
   .collection-main-banner-container .collection-main-banner>h2{margin-bottom:33px;}
 
 
