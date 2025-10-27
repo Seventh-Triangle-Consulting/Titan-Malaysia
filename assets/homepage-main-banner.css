@@ -278,6 +278,9 @@
   .swiper-pagination-bullets.swiper-pagination-horizontal {
     bottom:46px !important;
   }
+  .mobile_banner_content .mobile_banner_text1{
+    letter-spacing:0;
+  }
 }
 
 @media only screen and (max-width: 380px) {
