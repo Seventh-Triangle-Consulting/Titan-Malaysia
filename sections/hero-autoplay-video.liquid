@@ -101,17 +101,14 @@
 
 <script>
   window.addEventListener('load', () => {
-
   let video;
-
   const desktopVideo = document.getElementById('background-video-desktop');
-
   const mobileVideo = document.getElementById('background-video-mobile');
 
   // function to select the correct video element
-    function getActiveVideo() {
-      return window.innerWidth <= 768 ? mobileVideo : desktopVideo;
-    }
+  function getActiveVideo() {
+    return window.innerWidth <= 768 ? mobileVideo : desktopVideo;
+  }
   // function to handle mute/pause on inactive video
   function handleVideoStateChange() {
     const isMobile = window.innerWidth <= 768;
@@ -188,7 +185,7 @@
   // Mute/Unmute toggle
   muteUnmuteBtn.addEventListener('click', () => {
     video.muted = !video.muted;
-    // (your existing SVG logic preserved)
+    // existing SVG logic preserved
     muteUnmuteBtn.innerHTML = video.muted ?  `
       <g opacity="0.6">
       <mask id="mask0_294_1049" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="29" height="29">
