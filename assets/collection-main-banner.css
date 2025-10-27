@@ -263,6 +263,8 @@
   .collection-main-banner-container .swiper-button-prev,
   .collection-main-banner-container .swiper-button-next {
     top: 64% !important;
+    width:36px;
+    height:36px;
   }
   .collection-main-banner-container .desktop_banner_content .desktop_button_text1{
     border-radius:10px;
