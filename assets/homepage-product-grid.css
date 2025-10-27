@@ -150,6 +150,7 @@
 @media only screen and (max-width: 749px) {
   .home-grid-section .container {
     grid-template-columns: repeat(2, 1fr);
+    padding: 4px 5px 10px 5px;
   }
   .home-grid-section .grid-item.span-mobile-2 .watch-card {
     aspect-ratio: 6/3.95;
