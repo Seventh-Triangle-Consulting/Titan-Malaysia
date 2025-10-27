@@ -174,4 +174,8 @@
     width:38px;
     height:38px;
   }
+  .home-grid-section .overlay{
+    min-height:fit-content;
+    padding: 26px 17px 0;
+  }
 }
