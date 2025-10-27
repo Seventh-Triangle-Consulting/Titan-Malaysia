@@ -38,16 +38,15 @@
         "padding_bottom": 36
       }
     },
-    "split_loading_animation_wUFJQH": {
+    "split_loading_animation_6Wc6fA": {
       "type": "split-loading-animation",
-      "disabled": true,
       "name": "Split Opener",
       "settings": {
         "split_image": "shopify://shop_images/galaxy.png",
         "split_image_mobile": "shopify://shop_images/galaxy-mobile.png",
         "section_heading": "STELLAR",
-        "section_sub_heading": "Explore The Unexplored",
-        "onload_animation": false
+        "section_sub_heading": "EXPLORE THE UNEXPLORED",
+        "onload_animation": true
       }
     },
     "collection_information_with_video_jQnCm4": {
@@ -117,7 +116,7 @@
   "order": [
     "banner",
     "product-grid",
-    "split_loading_animation_wUFJQH",
+    "split_loading_animation_6Wc6fA",
     "collection_information_with_video_jQnCm4",
     "pdp_product_recommendation_bAJNRb",
     "collection_last_banner_d8DJCa"
