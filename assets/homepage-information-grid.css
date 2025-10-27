@@ -160,6 +160,9 @@
   .explore-swiper {
     margin-top: 80px;
   }
+  .explore-content {
+    padding-top: 6px;
+}
   .explore-content h2 {
     font-size: 30px;
     line-height: 30px;
