@@ -243,6 +243,9 @@
   .homepage-main-banner .swiper-pagination {
     bottom: 54px;
 }
+.desktop_banner_content.bottom-center, .desktop_banner_content.bottom-left, .desktop_banner_content.bottom-right {
+    bottom: 15%;
+}
 }
 @media only screen and (max-width: 749px) {
   .homepage-main-banner-container .desktop-banner-image {
