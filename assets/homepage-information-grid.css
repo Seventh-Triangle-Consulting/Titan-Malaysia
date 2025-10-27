@@ -142,6 +142,8 @@
 .explore-swiper .swiper-pagination-bullet {
   background-color: #d9d9d942;
   opacity: 0.6;
+  width:9px;
+  height:9px;
 }
 .explore-swiper .swiper-pagination-bullet-active {
   background-color: #d9d9d9;
@@ -242,6 +244,9 @@
   }
   .info-wrapper .hover-content {
     padding: 20px 18px 16px;
+  }
+   .card-text strong{
+    font-weight:700;
   }
 }
 
