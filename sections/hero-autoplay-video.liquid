@@ -47,13 +47,6 @@
           class: 'desktop-video',
           id: "background-video-desktop"
       }}
-    {% comment %} <video id="background-video-desktop" autoplay muted loop playsinline class="desktop-video">
-    {% for source in section.settings.video_desktop.sources %}
-      {% if source.format == 'mp4' %}
-          <source src="{{ source.url }}" type="{{ source.mime_type }}">
-        {% endif %}
-      {% endfor %}
-    </video> {% endcomment %}
     {% endif %}
     {% if section.settings.video_mobile != blank %}
       {{
@@ -67,13 +60,6 @@
           class: 'mobile-video',
           id: "background-video-mobile"
       }}
-    {% comment %} <video id="background-video-mobile" autoplay muted loop playsinline class="mobile-video">
-    {% for source in section.settings.video_mobile.sources %}
-      {% if source.format == 'mp4' %}
-          <source src="{{ source.url }}" type="{{ source.mime_type }}">
-        {% endif %}
-      {% endfor %}
-    </video> {% endcomment %}
     {% endif %}
 
     <!-- Controls -->
