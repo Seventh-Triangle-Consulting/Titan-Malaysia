@@ -237,6 +237,9 @@
     border-radius: 10px;
     letter-spacing: 1.4px;
   }
+  .desktop_banner_content.bottom-center .flex-27, .desktop_banner_content.top-center .flex-27, .desktop_banner_content.middle-center .flex-27{
+    margin-bottom:58px;
+  }
 }
 @media only screen and (max-width: 749px) {
   .homepage-main-banner-container .desktop-banner-image {
