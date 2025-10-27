@@ -248,6 +248,9 @@
    .card-text strong{
     font-weight:700;
   }
+  .video-wrapper {
+    line-height: 0;
+}
 }
 
 @media only screen and (max-width: 640px) {
