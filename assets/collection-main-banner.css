@@ -98,6 +98,7 @@
   padding-bottom: 50px;
   text-transform: uppercase;
   letter-spacing: 0;
+  text-align:center;
 }
 
 /* Center headline/subheadline when content position is center */
