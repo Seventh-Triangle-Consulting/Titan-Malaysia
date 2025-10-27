@@ -163,7 +163,7 @@
     font-size:12px;
     line-height:18px;
     letter-spacing:0;
-    margin-bottom:13px;
+    padding-bottom:13px;
   }
   .home-grid-section .arrow svg{
     width:41px;
@@ -196,6 +196,7 @@
     color: #fff;
     line-height: 18px;
     letter-spacing: 0;
+    padding-bottom:16px;
   }
   .home-grid-section .arrow svg{
     width:38px;
