@@ -203,6 +203,9 @@
   }
   .home-grid-section .overlay{
    height:auto;
-    padding: 26px 17px 0;
+    padding: 26px 17px 13.48px;
   }
+  .home-grid-section .span-desktop-2 .overlay{
+  padding: 26px 45px 13.48px;
+}
 }
