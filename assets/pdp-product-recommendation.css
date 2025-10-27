@@ -57,6 +57,7 @@
   font-family: "SuisseIntl-Regular", sans-serif;
   font-size: 20px;
   line-height: 18px;
+  font-weight:400;
   /*different from Figma */
   letter-spacing: 0;
 }
