@@ -262,7 +262,9 @@
   .collection-main-banner-container .swiper-button-next {
     top: 64% !important;
   }
-
+  .collection-main-banner-container .desktop_banner_content .desktop_button_text1{
+    border-radius:10px;
+  }
   .collection-main-banner-container .flex-27 {
     padding-top: 22px;
   }
