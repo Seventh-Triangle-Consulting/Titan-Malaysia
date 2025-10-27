@@ -239,7 +239,9 @@
   }
   .collection-main-banner-container .mobile_banner_content .mobile_button_text1, .collection-main-banner-container .mobile_banner_content .mobile_button_text2{
     padding:13.5px 15px;
-    font-size
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: 1.4px;
   }
 }
 
