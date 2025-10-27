@@ -261,6 +261,7 @@
   .mobile_banner_content.bottom-left,
   .mobile_banner_content.bottom-right {
     bottom: 15%;
+    padding: 0 36px;
   }
   .homepage-main-banner-container .swiper-button-prev,
   .homepage-main-banner-container .swiper-button-next {
