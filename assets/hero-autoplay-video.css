@@ -24,13 +24,13 @@
   align-items: center;
   padding: 0 46px 31px;
 }
-@media (max-width: 1024px) and (min-width: 769px) {
+@media (max-width: 1024px) and (min-width: 768px) {
   .autoplay-video-section .video-controls {
     padding: 0 35px 29px;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .autoplay-video-section .video-controls {
     padding: 0 18px 15px;
   }
