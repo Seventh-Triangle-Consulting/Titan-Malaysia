@@ -1,5 +1,5 @@
 .home-grid-section .container {
-  padding: 4px;
+     padding: 4px 4px 5px 4px;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-auto-rows: auto;
