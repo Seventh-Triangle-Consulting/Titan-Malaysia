@@ -56,7 +56,6 @@
     },
     "split_loading_animation_wUFJQH": {
       "type": "split-loading-animation",
-      "disabled": true,
       "name": "Split Opener",
       "settings": {
         "split_image": "shopify://shop_images/galaxy.png",
