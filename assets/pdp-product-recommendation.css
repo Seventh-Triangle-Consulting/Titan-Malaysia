@@ -46,7 +46,9 @@
 .product-image-sec .arrow-btn .arrow-main {
   display: block;
 }
-
+.product-image-sec .arrow-btn .arrow-main path{
+  fill:#fff;
+}
 .product-content {
   display: flex;
   flex-direction: column;
