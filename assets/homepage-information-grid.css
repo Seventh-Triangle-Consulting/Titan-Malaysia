@@ -136,7 +136,7 @@
   height: auto;
 }
 .explore-swiper .swiper-pagination {
-  position: relative;
+  position: unset;
   margin-top: 26px;
 }
 .explore-swiper .swiper-pagination-bullet {
