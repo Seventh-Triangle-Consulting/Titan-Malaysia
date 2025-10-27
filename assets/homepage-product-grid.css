@@ -156,6 +156,9 @@
     height:auto;
     padding:16px 21px 8px;
   }
+  .home-grid-section .span-desktop-2 .overlay{
+  padding: 16px 34px 8px;
+}
   .home-grid-section .overlay-content p{
     font-size:12px;
     line-height:18px;
