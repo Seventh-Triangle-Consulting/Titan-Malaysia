@@ -60,6 +60,10 @@
   /*different from Figma */
   letter-spacing: 0;
 }
+.product-content .arrow-btn svg{
+  width:51px;
+  height:51px;
+}
 
 @media (min-width: 1025px) {
   .products-card-section .product-image-sec .arrow-btn {
