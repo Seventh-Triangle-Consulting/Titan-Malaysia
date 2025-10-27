@@ -22,11 +22,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 46px 43px;
+  padding: 0 46px 31px;
 }
 @media (max-width: 1024px) and (min-width: 769px) {
   .autoplay-video-section .video-controls {
-    padding: 0 35px 41px;
+    padding: 0 35px 29px;
   }
 }
 
