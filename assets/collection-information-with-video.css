@@ -94,6 +94,7 @@
   .collection-information-sec .collection-info-content h2 {
     font-size: 16px;
     line-height: 25px;
+    font-weight:400;
   }
 
   .collection-information-sec .collection-info-content p {
