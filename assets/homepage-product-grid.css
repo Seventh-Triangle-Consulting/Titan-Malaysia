@@ -145,9 +145,17 @@
   .home-grid-section .grid-item.span-tablet-2 {
     grid-column: span 2;
   }
+  .home-grid-section .watch-card:hover .overlay{
+    background-color:#486B9C;
+  }
   .home-grid-section .overlay{
     height:auto;
     padding:16px 21px 8px;
+  }
+  .home-grid-section .overlay-content p{
+    font-size:12px;
+    line-height:18px;
+    letter-spacing:0;
   }
 }
 
