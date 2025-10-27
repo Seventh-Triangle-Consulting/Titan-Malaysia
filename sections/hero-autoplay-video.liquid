@@ -1,0 +1,340 @@
+{{ 'hero-autoplay-video.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .autoplay-video-section .mobile-video { display: none; }
+  {% if section.settings.video_mobile != blank %}
+    @media screen and (max-width: 768px) {
+      .autoplay-video-section .desktop-video { display: none; }
+      .autoplay-video-section .mobile-video { display: block; }
+    }
+  {% endif %} 
+
+
+  .section-{{ section.id }} {
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+    padding-top: {{ section.settings.padding_top_desktop }}px;
+    padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+  }
+
+  @media only screen and (min-width: 750px) and (max-width: 1023px){
+    .section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_tablet }}px;
+      padding-bottom: {{ section.settings.padding_bottom_tablet }}px;
+    }
+  }
+
+  @media only screen and (max-width: 749px){
+    .section-{{ section.id }} {
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+  }
+</style>
+
+<section class="section-{{ section.id }} autoplay-video-section">
+  {% if section.settings.video_desktop != blank and section.settings.video_mobile != blank %}
+  <div class="container">
+    {% if section.settings.video_desktop != blank %}
+      {{
+        section.settings.video_desktop
+        | video_tag:
+          autoplay: true,
+          muted: true,
+          loop: true,
+          controls: false,
+          playsinline: true,
+          class: 'desktop-video',
+          id: "background-video-desktop"
+      }}
+    {% endif %}
+    {% if section.settings.video_mobile != blank %}
+      {{
+        section.settings.video_desktop
+        | video_tag:
+          autoplay: true,
+          muted: true,
+          loop: true,
+          controls: false,
+          playsinline: true,
+          class: 'mobile-video',
+          id: "background-video-mobile"
+      }}
+    {% endif %}
+
+    <!-- Controls -->
+    <div class="video-controls">
+      <!-- Left: Play / Pause -->
+      {% render 'main-video-play-pause' %}
+
+      <!-- Center: Scroll Down -->
+      {% render 'main-video-scrolldown' %}
+
+      <!-- Right: Volume -->
+      {% render 'main-video-volume' %}
+    </div>
+  </div>
+  {% endif %}
+</section>
+
+
+
+
+
+<script>
+  window.addEventListener('load', () => {
+  let video;
+  const desktopVideo = document.getElementById('background-video-desktop');
+  const mobileVideo = document.getElementById('background-video-mobile');
+
+  // function to select the correct video element
+  function getActiveVideo() {
+    return window.innerWidth <= 768 ? mobileVideo : desktopVideo;
+  }
+  // function to handle mute/pause on inactive video
+  function handleVideoStateChange() {
+    const isMobile = window.innerWidth <= 768;
+
+    if (isMobile) {
+      if (desktopVideo) {
+        desktopVideo.pause();
+        desktopVideo.muted = true;
+      }
+      if (mobileVideo) {
+        mobileVideo.play();
+        mobileVideo.muted = true;
+      }
+    } else {
+      if (mobileVideo) {
+        mobileVideo.pause();
+        mobileVideo.muted = true;
+      }
+      if (desktopVideo) {
+        desktopVideo.play();
+        desktopVideo.muted = true;
+      }
+    }
+  }
+
+  // initial selection
+  video = getActiveVideo();
+  handleVideoStateChange();
+
+  // update selection if window is resized across breakpoint
+  {% if section.settings.video_mobile != blank  %}
+  window.addEventListener('resize', () => {
+    const newVideo = getActiveVideo();
+    if (newVideo !== video) {
+      // Pause + mute the previous one, play + unmute the new one
+      video.pause();
+      video.muted = true;
+      video = newVideo;
+      handleVideoStateChange();
+    }
+  });
+  {% endif %}
+
+  // --- Buttons ---
+  const playPauseBtn = document.getElementById('play-pause');
+  const muteUnmuteBtn = document.getElementById('mute-unmute');
+  const scrollDown = document.getElementById('scroll-down');
+
+  // Play/Pause toggle
+  playPauseBtn.addEventListener('click', () => {
+    if (video.paused) {
+      video.play();
+      playPauseBtn.innerHTML = `
+        <path d="M14.5 0C6.50234 0 0 6.50234 0 14.5C0 22.4977 6.50234 29 14.5 29C22.4977 29 29 22.4977 29 14.5C29 6.50234 22.4977 0 14.5 0ZM14.5 27.1875C7.50488 27.1875 1.8125 21.4951 1.8125 14.5C1.8125 7.50488 7.50488 1.8125 14.5 1.8125C21.4951 1.8125 27.1875 7.50488 27.1875 14.5C27.1875 21.4951 21.4951 27.1875 14.5 27.1875ZM12.2061 9.3627V19.6373C12.2061 20.1357 11.7982 20.5436 11.2998 20.5436C10.8014 20.5436 10.3936 20.1357 10.3936 19.6373V9.3627C10.3936 8.86426 10.8014 8.45645 11.2998 8.45645C11.7982 8.45645 12.2061 8.85859 12.2061 9.3627ZM18.6064 9.3627V19.6373C18.6064 20.1357 18.1986 20.5436 17.7002 20.5436C17.2018 20.5436 16.7939 20.1357 16.7939 19.6373V9.3627C16.7939 8.86426 17.2018 8.45645 17.7002 8.45645C18.1986 8.45645 18.6064 8.85859 18.6064 9.3627Z" fill="white"/>
+      `;
+    } else {
+      video.pause();
+      playPauseBtn.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29" fill="none">
+        <g opacity="0.6" clip-path="url(#clip0_1861_4931)">
+        <path d="M14.5 0C6.50234 0 0 6.50234 0 14.5C0 22.4977 6.50234 29 14.5 29C22.4977 29 29 22.4977 29 14.5C29 6.50234 22.4977 0 14.5 0ZM14.5 27.1875C7.50488 27.1875 1.8125 21.4951 1.8125 14.5C1.8125 7.50488 7.50488 1.8125 14.5 1.8125C21.4951 1.8125 27.1875 7.50488 27.1875 14.5C27.1875 21.4951 21.4951 27.1875 14.5 27.1875Z" fill="white"/>
+        <path d="M20.9809 13.1108L16.7462 10.6576L12.5408 8.23364C12.1319 8 11.6647 7.94159 11.2558 8.05841C10.8469 8.17523 10.4673 8.43807 10.2336 8.84693C10.146 8.96375 10.1168 9.10977 10.0584 9.25579C10.0292 9.3434 10.0292 9.46022 10 9.57704V19.6234C10 20.0906 10.2044 20.5287 10.4965 20.8207C10.8177 21.142 11.2266 21.3172 11.6939 21.3172C11.9567 21.3172 12.5116 21.0836 12.6576 20.996L16.8046 18.6012H16.8338L16.863 18.572L21.1561 16.0896C21.565 15.856 21.8278 15.4763 21.9446 15.0383C21.9738 14.9507 21.9738 14.8338 21.9738 14.717C21.9738 13.7533 20.9809 13.1108 20.9809 13.1108ZM20.3968 14.8338L16.1621 17.287C16.1329 17.287 16.1037 17.3162 16.1037 17.3162L11.9567 19.711C11.9275 19.7402 11.7815 19.7986 11.7231 19.7986C11.6647 19.7986 11.6062 19.7694 11.5478 19.7402C11.5186 19.711 11.4894 19.6234 11.4894 19.565V9.60624C11.4894 9.60624 11.4894 9.57704 11.5186 9.57704C11.5186 9.57704 11.5478 9.54783 11.5478 9.51863C11.577 9.48943 11.6354 9.46022 11.6647 9.43102H11.8107C11.8399 9.46022 11.8691 9.46022 11.8983 9.48943L16.0453 11.8842C16.0745 11.9134 16.1037 11.9134 16.1037 11.9134H16.1329L20.3676 14.3666C20.426 14.3958 20.5428 14.4834 20.5428 14.571C20.5428 14.6878 20.4552 14.8046 20.3968 14.8338Z" fill="white"/>
+        </g>
+        <defs>
+        <clipPath id="clip0_1861_4931">
+        <rect width="29" height="29" fill="white"/>
+        </clipPath>
+        </defs>
+        </svg>
+      `;
+    }
+  });
+
+  // Mute/Unmute toggle
+  muteUnmuteBtn.addEventListener('click', () => {
+    video.muted = !video.muted;
+    // existing SVG logic preserved
+    muteUnmuteBtn.innerHTML = video.muted ?  `
+      <g opacity="0.6">
+      <mask id="mask0_294_1049" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="29" height="29">
+      <path d="M0 -7.62939e-06H29V29H0V-7.62939e-06Z" fill="white"/>
+      </mask>
+      <g mask="url(#mask0_294_1049)">
+      <path d="M5.51198 19.8569H0.849609V9.14364H5.51198V19.8569Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M28.1501 18.7075L19.7354 10.2928" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M19.7354 18.7075L28.1501 10.2928" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M5.51172 9.14335V14.5V19.8566L15.2378 25.2109C15.7415 25.4882 16.3581 25.1238 16.3581 24.5488V14.5V4.45118C16.3581 3.87617 15.7415 3.5118 15.2378 3.78905L5.51172 9.14335Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      </g>
+    `
+      : `
+      <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29" fill="none">
+      <g opacity="0.6" clip-path="url(#clip0_1861_4953)">
+      <mask id="mask0_1861_4953" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="29" height="29">
+      <path d="M0 -7.62939e-06H29V29H0V-7.62939e-06Z" fill="white"/>
+      </mask>
+      <g mask="url(#mask0_1861_4953)">
+      <path d="M5.51198 19.8569H0.849609V9.14364H5.51198V19.8569Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M5.51172 9.14335V14.5V19.8566L15.2378 25.2109C15.7415 25.4882 16.3581 25.1238 16.3581 24.5488V14.5V4.45118C16.3581 3.87617 15.7415 3.5118 15.2378 3.78905L5.51172 9.14335Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M20.7677 19.7925C22.4093 16.826 22.4093 13.2236 20.7677 10.2571" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M25.5104 20.9003C27.4252 17.1646 27.4252 12.7357 25.5104 9.00006" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      </g>
+      <defs>
+      <clipPath id="clip0_1861_4953">
+      <rect width="29" height="29" fill="white" transform="matrix(1 0 0 -1 0 29)"/>
+      </clipPath>
+      </defs>
+      </svg>
+      `;
+  });
+
+  // Scroll down action
+  scrollDown.addEventListener('click', () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: 'smooth',
+    });
+  });
+});
+</script>
+
+
+{% schema %}
+{
+  "name": "Autoplay Video",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Video Settings"
+    },
+    {
+      "type": "video",
+      "id": "video_desktop",
+      "label": "Desktop Video",
+      "info": "Upload a video for desktop view."
+    },
+    {
+      "type": "video",
+      "id": "video_mobile",
+      "label": "Mobile Video",
+      "info": "Upload a video for mobile view."
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom Desktop",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom Mobile",
+      "default": 36
+    },
+    {
+      "type": "header",
+      "content": "Inner Spacing Desktop Settings"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Top Desktop",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom Desktop",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Inner Spacing Tablet Settings"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_tablet",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Top Tablet",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_tablet",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom Tablet",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Inner Spacing Mobile Settings"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Top Mobile",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom Mobile",
+      "default": 40
+    }
+  ],
+  "presets": [
+    {
+      "name": "Auto Play Video"
+    }
+  ]
+}
+{% endschema %}

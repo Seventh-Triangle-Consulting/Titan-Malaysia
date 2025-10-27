@@ -1,0 +1,43 @@
+.autoplay-video-section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.autoplay-video-section video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+}
+
+.autoplay-video-section .video-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 46px 31px;
+}
+
+@media (max-width: 1024px) and (min-width: 768px) {
+  .autoplay-video-section .video-controls {
+    padding: 0 35px 29px;
+  }
+}
+
+@media (max-width: 767px) {
+  .autoplay-video-section .video-controls {
+    padding: 0 18px 15px;
+  }
+}
+
+.autoplay-video-section .video-controls svg {
+  cursor: pointer;
+}
+
+

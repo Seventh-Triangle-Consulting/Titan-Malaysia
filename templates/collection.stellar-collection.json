@@ -38,15 +38,31 @@
         "padding_bottom": 36
       }
     },
-    "split_loading_animation_6Wc6fA": {
+    "hero_autoplay_video_QWYqeA": {
+      "type": "hero-autoplay-video",
+      "name": "Auto Play Video",
+      "settings": {
+        "video_desktop": "shopify://files/videos/e3dd1e19f9ab4373b32489fe70b2fd2d.mp4",
+        "video_mobile": "shopify://files/videos/Snapinsta.app_video_42600935_2132501510423175_4018292178255191890_n (2)_9a59c745-e90d-4472-9262-c053c9fe65ba.mp4",
+        "margin_bottom_desktop": 0,
+        "margin_bottom_mobile": 0,
+        "padding_top_desktop": 60,
+        "padding_bottom_desktop": 60,
+        "padding_top_tablet": 60,
+        "padding_bottom_tablet": 60,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
+      }
+    },
+    "split_loading_animation_wUFJQH": {
       "type": "split-loading-animation",
       "name": "Split Opener",
       "settings": {
         "split_image": "shopify://shop_images/galaxy.png",
         "split_image_mobile": "shopify://shop_images/galaxy-mobile.png",
         "section_heading": "STELLAR",
-        "section_sub_heading": "EXPLORE THE UNEXPLORED",
-        "onload_animation": false
+        "section_sub_heading": "Explore The Unexplored",
+        "onload_animation": true
       }
     },
     "collection_information_with_video_jQnCm4": {
@@ -116,7 +132,8 @@
   "order": [
     "banner",
     "product-grid",
-    "split_loading_animation_6Wc6fA",
+    "hero_autoplay_video_QWYqeA",
+    "split_loading_animation_wUFJQH",
     "collection_information_with_video_jQnCm4",
     "pdp_product_recommendation_bAJNRb",
     "collection_last_banner_d8DJCa"
