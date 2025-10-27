@@ -98,6 +98,10 @@
   padding-bottom: 0px;
   margin-top: 0px;
 }
+.info-wrapper .hover-content .card-text {
+  padding-bottom: 8.5px;
+  margin-top: 5px;
+}
 .card-text strong {
   font-weight: 600;
 }
