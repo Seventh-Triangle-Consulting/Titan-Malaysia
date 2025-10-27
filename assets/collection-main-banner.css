@@ -117,6 +117,8 @@
   border-radius: 15px;
   display: inline-block;
   text-transform: uppercase;
+  font-weight:400;
+  letter-spacing:1.4px;
 }
 .collection-main-banner-container .desktop_banner_content .desktop_button_text2 {
   font-family: Rubik-Medium;
