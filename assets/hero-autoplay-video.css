@@ -14,7 +14,6 @@
 }
 
 
-/* ----- Scroll Down Arrow ----- */
 .autoplay-video-section .video-controls {
   position: absolute;
   bottom: 0;
@@ -23,7 +22,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 10;
   padding: 0 46px 43px;
 }
 @media (max-width: 1024px) and (min-width: 769px) {
@@ -34,11 +32,10 @@
 
 @media (max-width: 768px) {
   .autoplay-video-section .video-controls {
-    padding: 0 18px 27px;
+    padding: 0 18px 15px;
   }
 }
 
-/* ----- Control Buttons ----- */
 .autoplay-video-section .video-controls svg {
   cursor: pointer;
 }

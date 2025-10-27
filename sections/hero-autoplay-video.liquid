@@ -36,22 +36,44 @@
   {% if section.settings.video_desktop != blank and section.settings.video_mobile != blank %}
   <div class="container">
     {% if section.settings.video_desktop != blank %}
-    <video id="background-video-desktop" autoplay muted loop playsinline class="desktop-video">
+      {{
+        section.settings.video_desktop
+        | video_tag:
+          autoplay: true,
+          muted: true,
+          loop: true,
+          controls: false,
+          playsinline: true,
+          class: 'desktop-video',
+          id: "background-video-desktop"
+      }}
+    {% comment %} <video id="background-video-desktop" autoplay muted loop playsinline class="desktop-video">
     {% for source in section.settings.video_desktop.sources %}
       {% if source.format == 'mp4' %}
           <source src="{{ source.url }}" type="{{ source.mime_type }}">
         {% endif %}
       {% endfor %}
-    </video>
+    </video> {% endcomment %}
     {% endif %}
     {% if section.settings.video_mobile != blank %}
-    <video id="background-video-mobile" autoplay muted loop playsinline class="mobile-video">
+      {{
+        section.settings.video_desktop
+        | video_tag:
+          autoplay: true,
+          muted: true,
+          loop: true,
+          controls: false,
+          playsinline: true,
+          class: 'mobile-video',
+          id: "background-video-mobile"
+      }}
+    {% comment %} <video id="background-video-mobile" autoplay muted loop playsinline class="mobile-video">
     {% for source in section.settings.video_mobile.sources %}
       {% if source.format == 'mp4' %}
           <source src="{{ source.url }}" type="{{ source.mime_type }}">
         {% endif %}
       {% endfor %}
-    </video>
+    </video> {% endcomment %}
     {% endif %}
 
     <!-- Controls -->
@@ -162,7 +184,17 @@
     } else {
       video.pause();
       playPauseBtn.innerHTML = `
-        <path d="M14.5 0C6.50234 0 0 6.50234 0 14.5C0 22.4977 6.50234 29 14.5 29C22.4977 29 29 22.4977 29 14.5C29 6.50234 22.4977 0 14.5 0ZM14.5 27.1875C7.50488 27.1875 1.8125 21.4951 1.8125 14.5C1.8125 7.50488 7.50488 1.8125 14.5 1.8125C21.4951 1.8125 27.1875 7.50488 27.1875 14.5C27.1875 21.4951 21.4951 27.1875 14.5 27.1875ZM12.2061 9.3627V19.6373C12.2061 20.1357 11.7982 20.5436 11.2998 20.5436C10.8014 20.5436 10.3936 20.1357 10.3936 19.6373V9.3627C10.3936 8.86426 10.8014 8.45645 11.2998 8.45645C11.7982 8.45645 12.2061 8.85859 12.2061 9.3627ZM18.6064 9.3627V19.6373C18.6064 20.1357 18.1986 20.5436 17.7002 20.5436C17.2018 20.5436 16.7939 20.1357 16.7939 19.6373V9.3627C16.7939 8.86426 17.2018 8.45645 17.7002 8.45645C18.1986 8.45645 18.6064 8.85859 18.6064 9.3627Z" fill="white"/>
+        <g opacity="0.6">
+        <mask id="mask0_294_1049" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="29" height="29">
+        <path d="M0 -7.62939e-06H29V29H0V-7.62939e-06Z" fill="white"/>
+        </mask>
+        <g mask="url(#mask0_294_1049)">
+        <path d="M5.51198 19.8569H0.849609V9.14364H5.51198V19.8569Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M28.1501 18.7075L19.7354 10.2928" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M19.7354 18.7075L28.1501 10.2928" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M5.51172 9.14335V14.5V19.8566L15.2378 25.2109C15.7415 25.4882 16.3581 25.1238 16.3581 24.5488V14.5V4.45118C16.3581 3.87617 15.7415 3.5118 15.2378 3.78905L5.51172 9.14335Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+        </g> 
       `;
     }
   });
@@ -185,17 +217,8 @@
       </g>
     `
       : `
-      <g opacity="0.6">
-      <mask id="mask0_294_1049" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="29" height="29">
-      <path d="M0 -7.62939e-06H29V29H0V-7.62939e-06Z" fill="white"/>
-      </mask>
-      <g mask="url(#mask0_294_1049)">
-      <path d="M5.51198 19.8569H0.849609V9.14364H5.51198V19.8569Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M28.1501 18.7075L19.7354 10.2928" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M19.7354 18.7075L28.1501 10.2928" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M5.51172 9.14335V14.5V19.8566L15.2378 25.2109C15.7415 25.4882 16.3581 25.1238 16.3581 24.5488V14.5V4.45118C16.3581 3.87617 15.7415 3.5118 15.2378 3.78905L5.51172 9.14335Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-      </g>
-      </g>
+      <path d="M14.5 0C6.50234 0 0 6.50234 0 14.5C0 22.4977 6.50234 29 14.5 29C22.4977 29 29 22.4977 29 14.5C29 6.50234 22.4977 0 14.5 0ZM14.5 27.1875C7.50488 27.1875 1.8125 21.4951 1.8125 14.5C1.8125 7.50488 7.50488 1.8125 14.5 1.8125C21.4951 1.8125 27.1875 7.50488 27.1875 14.5C27.1875 21.4951 21.4951 27.1875 14.5 27.1875ZM12.2061 9.3627V19.6373C12.2061 20.1357 11.7982 20.5436 11.2998 20.5436C10.8014 20.5436 10.3936 20.1357 10.3936 19.6373V9.3627C10.3936 8.86426 10.8014 8.45645 11.2998 8.45645C11.7982 8.45645 12.2061 8.85859 12.2061 9.3627ZM18.6064 9.3627V19.6373C18.6064 20.1357 18.1986 20.5436 17.7002 20.5436C17.2018 20.5436 16.7939 20.1357 16.7939 19.6373V9.3627C16.7939 8.86426 17.2018 8.45645 17.7002 8.45645C18.1986 8.45645 18.6064 8.85859 18.6064 9.3627Z" fill="white"/>
+      
       `;
   });
 
