@@ -243,6 +243,17 @@
     line-height: 14px;
     letter-spacing: 1.4px;
   }
+  .navigation-arrow-wrapper{
+    display: flex;
+    padding-top: 28px;
+    margin: 0;
+    justify-content: center;
+    gap: 30px;
+  }
+      .collection-main-banner-container .swiper-button-prev, .collection-main-banner-container .swiper-button-next {
+        position: unset;
+        transform: unset;
+    }
 }
 
 .collection-main-banner-container .flex-27 a {
