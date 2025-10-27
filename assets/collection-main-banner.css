@@ -243,9 +243,6 @@
     line-height: 14px;
     letter-spacing: 1.4px;
   }
-  .collection-main-banner .main-banner-swiper .swiper-wrapper{
-     padding-top: 28px;
-  }
   .navigation-arrow-wrapper{
     display: flex;
     padding-top: 28px;
@@ -256,6 +253,7 @@
       .collection-main-banner-container .swiper-button-prev, .collection-main-banner-container .swiper-button-next {
         position: unset!important;
         transform: unset!important;
+        margin:0;
     }
 }
 
