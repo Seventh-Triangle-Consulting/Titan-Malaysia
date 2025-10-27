@@ -251,8 +251,8 @@
     gap: 30px;
   }
       .collection-main-banner-container .swiper-button-prev, .collection-main-banner-container .swiper-button-next {
-        position: unset;
-        transform: unset;
+        position: unset!important;
+        transform: unset!important;
     }
 }
 
