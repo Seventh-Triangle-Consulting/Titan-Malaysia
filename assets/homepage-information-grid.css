@@ -18,7 +18,7 @@
   font-size: 17px;
   font-family: "SuisseIntl-Regular";
   line-height: 22px;
-  letter-spacing: 0%;
+  letter-spacing: 0;
 }
 .explore-swiper {
   margin-top: 111px;
@@ -99,7 +99,7 @@
   margin-top: 5px;
 }
 .card-text strong {
-  font-weight: 700;
+  font-weight: 600;
 }
 .card-hover-description {
   text-align: left;
