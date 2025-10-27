@@ -209,6 +209,7 @@
   .explore-content {
     gap: 6px;
     padding-right: 20px;
+    padding-top:0;
   }
   .explore-content h2 {
     font-size: 26px;
