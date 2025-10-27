@@ -276,7 +276,10 @@
     padding: 88px 63px 68px;
   }
   .collection-main-banner-container .collection-main-banner>h2{margin-bottom:33px;}
-
+   .collection-main-banner-container .swiper-button-prev svg, .collection-main-banner-container .swiper-button-next svg{
+    width:36px;
+    height:36px;
+   }
 
 }
 .collection-main-banner-container .swiper-button-prev,
