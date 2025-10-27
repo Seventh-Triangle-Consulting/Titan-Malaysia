@@ -47,7 +47,7 @@
   display: block;
 }
 .product-image-sec .arrow-btn .arrow-main path{
-  fill:#fff;
+  stroke:#fff;
 }
 .product-content {
   display: flex;
