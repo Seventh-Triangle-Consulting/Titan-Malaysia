@@ -205,8 +205,8 @@
     </div>
 
     <!-- Product Popup Modal -->
+    <div class="popup-overlay"></div>
     <div class="product-popup" data-popup-open="false">
-      <div class="popup-overlay"></div>
       <div class="popup-content">
         <button class="popup-close" aria-label="Close popup">
           <p class="popup-close-text">Close</p>
@@ -257,9 +257,14 @@
       constructor(container) {
         this.container = container;
         this.popup = container.querySelector('.product-popup');
+        this.popupContent = this.popup.querySelector('.popup-content');
+        this.popupOverlay = document.querySelector('.popup-overlay');
         this.popupBody = this.popup.querySelector('.popup-body');
         this.mainSwiper = null;
-
+        this.viewportWidth = window.innerWidth;
+        this.viewportHeight = window.innerHeight;
+        this.isPopupOpen = false;
+        this.isModalOpen = false;
         this.init();
       }
 
@@ -288,39 +293,137 @@
         // Hotspot clicks
         this.container.querySelectorAll('.hotspot-btn').forEach((btn) => {
           btn.addEventListener('click', (e) => this.handleHotspotClick(e));
+          btn.addEventListener('mouseenter', (e) => this.handleHotspotHover(e));
+          btn.addEventListener('mouseleave', (e) => this.handleHotspotLeave(e));
         });
 
         // Popup controls
         const closeBtn = this.popup.querySelector('.popup-close');
-        const overlay = this.popup.querySelector('.popup-overlay');
 
         if (closeBtn) {
           closeBtn.addEventListener('click', () => this.closePopup());
         }
 
-        if (overlay) {
-          overlay.addEventListener('click', () => this.closePopup());
+        if (this.popupOverlay) {
+          this.popupOverlay.addEventListener('click', () => this.closePopup());
         }
 
         // ESC key to close popup
         document.addEventListener('keydown', (e) => {
-          if (e.key === 'Escape' && this.popup.dataset.popupOpen === 'true') {
+          if (e.key === 'Escape' && this.isPopupOpen) {
             this.closePopup();
           }
         });
       }
 
+      getRandomAngle() {
+        const angle = Math.random() < 0.5 ? Math.random() * 30 : 150 + Math.random() * 50;
+        return `${angle}deg`;
+      }
+
+      handleHotspotHover(e) {
+        const btn = e.currentTarget;
+        // Calculate random angle between 0 and 180 degrees for visual feedback
+        const randomAngle = this.getRandomAngle();
+        btn.style.setProperty('--hotspot-angle', randomAngle);
+
+        // Only show line animation on hover, not full overlay
+        if (!this.isPopupOpen) {
+          this.animatePopupLine(btn);
+        }
+      }
+
+      async animatePopupLine(hotspotBtn) {
+        // Get the hotspot position and dimensions
+        const hotspotRect = hotspotBtn.getBoundingClientRect();
+
+        // Calculate the center of the hotspot
+        const hotspotCenterX = hotspotRect.left + hotspotRect.width / 2;
+        const hotspotCenterY = hotspotRect.top + hotspotRect.height / 2;
+
+        const scaleX = this.viewportWidth * 0.025;
+        const scaleY = 4 / this.viewportHeight;
+
+        // Get the random angle from the hotspot
+        const angle = hotspotBtn.style.getPropertyValue('--hotspot-angle') || '0deg';
+
+        // Reset and prepare the popup overlay for line animation
+        this.popupOverlay.style.setProperty('--top', `${hotspotCenterY}px`);
+        this.popupOverlay.style.setProperty('--left', `${hotspotCenterX}px`);
+        this.popupOverlay.style.opacity = '1';
+
+        this.popupOverlay.style.transition = 'none';
+        this.popupOverlay.style.transform = `translate(-50%, -50%) rotate(${angle}) scaleX(0) scaleY(${Math.min(scaleY,4)})`;
+
+        // Force a reflow to ensure the styles are applied
+        void this.popupOverlay.offsetHeight;
+
+        // Trigger the line animation (only horizontal expansion)
+        this.popupOverlay.style.transition = `transform 1.25s cubic-bezier(0, 0, 0.3, 1)`;
+
+        this.popupOverlay.style.transform = `translate(-50%, -50%) rotate(${angle}) scaleX(${Math.min(scaleX,1.5)}) scaleY(${Math.min(scaleY, 4)})`;
+      }
+
       async handleHotspotClick(e) {
+        this.isModalOpen = true;
         e.preventDefault();
         e.stopPropagation();
 
         const btn = e.currentTarget;
         const productHandle = btn.dataset.productHandle;
         const hotspotName = btn.querySelector('.hotspot-label')?.textContent || '';
+        document.body.style.overflow = 'hidden';
+
+        this.animatePopupScale(btn);
 
         if (productHandle) {
+          // Load product data and open popup after animation starts
           await this.loadProductData(productHandle, hotspotName);
-          this.openPopup();
+
+          // Delay popup opening slightly to sync with animation
+          setTimeout(() => {
+            this.openPopup();
+          }, 300);
+        }
+      }
+
+      animatePopupScale(hotspotBtn) {
+        this.isModalOpen = true;
+        // Get the hotspot position and dimensions
+        const hotspotRect = hotspotBtn.getBoundingClientRect();
+
+        // Calculate the center of the hotspot
+        const hotspotCenterX = hotspotRect.left + hotspotRect.width / 2;
+        const hotspotCenterY = hotspotRect.top + hotspotRect.height / 2;
+
+        // Get the random angle from the hotspot
+        const angle = hotspotBtn.style.getPropertyValue('--hotspot-angle') || '0deg';
+
+        // Reset and prepare for scale animation
+        this.popupOverlay.style.setProperty('--top', `${hotspotCenterY}px`);
+        this.popupOverlay.style.setProperty('--left', `${hotspotCenterX}px`);
+        this.popupOverlay.style.opacity = '1';
+        this.popupOverlay.style.setProperty('--rotate', `${angle}`);
+
+        // Start from the line state and scale to full screen
+        this.popupOverlay.style.transform = `translate(-50%, -50%) rotate(${angle}) scaleX(0.15) scaleY(0.002)`;
+
+        // Trigger the scale animation
+        this.popupOverlay.style.transition = 'transform 1.6s cubic-bezier(0.4, 0, 0.2, 1)';
+
+        // Calculate scale factors to cover entire viewport
+        const scaleX = Math.max(this.viewportWidth / 10, 1);
+        const scaleY = Math.max(this.viewportHeight / 10, 1);
+
+        this.popupOverlay.style.transform = `translate(-50%, -50%) rotate(${angle}) scaleX(${Math.min(scaleX,4)}) scaleY(${Math.min(scaleY, 4)})`;
+      }
+
+      handleHotspotLeave(e) {
+        if (!this.isPopupOpen && !this.isModalOpen) {
+          // Reset the overlay completely when mouse leaves (if popup not open)
+          this.popupOverlay.style.opacity = '0';
+          this.popupOverlay.style.transition = 'none';
+          this.popupOverlay.style.transform = 'translate(-50%, -50%) rotate(0deg) scaleX(0) scaleY(0)';
         }
       }
 
@@ -354,7 +457,6 @@
                   ${hotspotName ? `<h2 class="popup-product-subtitle">${hotspotName}</h2>` : ''}
                   <h3 class="popup-product-title">${product.title}</h3>
                 </div>
-
                 <div class="popup-product-description">
                   ${product.description}
                 </div>
@@ -365,15 +467,134 @@
       }
 
       openPopup() {
+        this.isPopupOpen = true;
         this.popup.dataset.popupOpen = 'true';
-        this.popup.style.display = 'flex';
+        this.popup.style.display = 'block';
+        this.popupOverlay.style.display = 'block';
+
+        // Force reflow
+        this.popup.offsetHeight;
+
+        this.popup.style.opacity = '1';
+        this.popupContent.style.opacity = '1';
+        this.popupContent.style.transform = 'scale(1)';
+        this.popupContent.style.pointerEvents = 'auto';
         document.body.style.overflow = 'hidden';
+
+        // Animate in the popup content with staggered transitions
+        this.animatePopupContentIn();
+      }
+
+      animatePopupContentIn() {
+        const image = this.popupBody.querySelector('.popup-product-image');
+        const subtitle = this.popupBody.querySelector('.popup-product-subtitle');
+        const title = this.popupBody.querySelector('.popup-product-title');
+        const description = this.popupBody.querySelector('.popup-product-description');
+
+        // Reset all transitions
+        [image, subtitle, title, description].forEach((el) => {
+          if (el) {
+            el.style.transition = 'none';
+            el.style.opacity = '0';
+            el.style.transform = 'translateX(0) translateY(0)';
+          }
+        });
+
+        // Force reflow
+        this.popupBody.offsetHeight;
+
+        // Staggered transitions for each element
+        if (image) {
+          image.style.transition = 'opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s';
+          image.style.opacity = '1';
+          image.style.transform = 'translateX(0)';
+        }
+
+        if (subtitle) {
+          subtitle.style.transition = 'opacity 0.5s ease 0.5s, transform 0.5s ease 0.5s';
+          subtitle.style.opacity = '1';
+          subtitle.style.transform = 'translateY(0)';
+        }
+
+        if (title) {
+          title.style.transition = 'opacity 0.5s ease 0.7s, transform 0.5s ease 0.7s';
+          title.style.opacity = '1';
+          title.style.transform = 'translateY(0)';
+        }
+
+        if (description) {
+          description.style.transition = 'opacity 0.5s ease 0.9s, transform 0.5s ease 0.9s';
+          description.style.opacity = '1';
+          description.style.transform = 'translateY(0)';
+        }
+      }
+
+      animatePopupContentOut() {
+        const image = this.popupBody.querySelector('.popup-product-image');
+        const subtitle = this.popupBody.querySelector('.popup-product-subtitle');
+        const title = this.popupBody.querySelector('.popup-product-title');
+        const description = this.popupBody.querySelector('.popup-product-description');
+
+        // Staggered transitions for closing (reverse order)
+        if (description) {
+          description.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+          description.style.opacity = '0';
+          description.style.transform = 'translateY(20px)';
+        }
+
+        if (title) {
+          title.style.transition = 'opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s';
+          title.style.opacity = '0';
+          title.style.transform = 'translateY(20px)';
+        }
+
+        if (subtitle) {
+          subtitle.style.transition = 'opacity 0.3s ease 0.2s, transform 0.3s ease 0.2s';
+          subtitle.style.opacity = '0';
+          subtitle.style.transform = 'translateY(20px)';
+        }
+
+        if (image) {
+          image.style.transition = 'opacity 0.4s ease 0.3s, transform 0.4s ease 0.3s';
+          image.style.opacity = '0';
+          image.style.transform = 'translateX(-50px)';
+        }
       }
 
       closePopup() {
-        this.popup.dataset.popupOpen = 'false';
-        this.popup.style.display = 'none';
-        document.body.style.overflow = 'auto';
+        if (!this.isPopupOpen) return;
+
+        this.isPopupOpen = false;
+
+        // Animate out the popup content first
+        this.animatePopupContentOut();
+
+        // Close popup and overlay after content animation
+        setTimeout(() => {
+          this.popup.style.opacity = '0';
+          this.popupContent.style.opacity = '0';
+          this.popupContent.style.transform = 'scale(0.9)';
+          this.popupContent.style.pointerEvents = 'none';
+
+          // Reset overlay completely
+          this.popupOverlay.style.opacity = '0';
+          this.popupOverlay.style.transition = 'none';
+          this.popupOverlay.style.transform = 'translate(-50%, -50%) rotate(0deg) scaleX(0) scaleY(0)';
+
+          document.body.style.overflow = 'auto';
+
+          // Hide elements after transition
+          setTimeout(() => {
+            this.popup.style.display = 'none';
+            this.popupOverlay.style.display = 'none';
+            this.popup.dataset.popupOpen = 'false';
+
+            // Additional reset to ensure clean state for next hover
+            setTimeout(() => {
+              this.popupOverlay.style.transform = 'translate(-50%, -50%) rotate(0deg) scaleX(0) scaleY(0)';
+            }, 50);
+          }, 300);
+        }, 400);
       }
     }
 
@@ -437,6 +658,21 @@
     });
   </script>
 {% endif %}
+
+<style>
+  /* Popup Content Transitions */
+  .popup-product-image {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  .popup-product-subtitle,
+  .popup-product-title,
+  .popup-product-description {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+</style>
 
 {% schema %}
 {
