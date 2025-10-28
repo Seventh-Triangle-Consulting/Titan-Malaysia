@@ -1294,7 +1294,7 @@
             {%- when 'stellar-button' -%}
               {% if template == 'product.stellar' %}
                 <div class="stellar-buttons-container" {{ block.shopify_attributes }}>
-                  <button
+                {% comment %}  <button
                     type="button"
                     class="button button--primary stellar-atc-btn"
                     onclick="addToCartStellar()"
@@ -1302,7 +1302,7 @@
                     data-variant-id="{{ product.selected_or_first_available_variant.id }}"
                   >
                     ADD TO CART
-                  </button>
+                  </button> {% endcomment %}
                   <button
                     type="button"
                     class="button button--secondary stellar-enquiry-btn"
@@ -1876,42 +1876,44 @@
 </section>
 
 <!-- Stellar Enquiry Form Popup -->
-              {% if template == 'product.stellar' %}
+{% if template == 'product.stellar' %}
   <div
     id="stellar-enquiry-popup-overlay"
     class="stellar-enquiry-popup-overlay"
     onclick="closeStellarEnquiryForm(event)"
   >
     <div class="stellar-enquiry-popup-content">
-      <div class="stellar-enquiry-popup-header">
-        {% if section.settings['popup-form-heading'] != blank %}
-          <h2 class="stellar-enquiry-popup-title">{{ section.settings['popup-form-heading'] }}</h2>
-        {% endif %}
-        <button type="button" class="stellar-enquiry-popup-close" onclick="closeStellarEnquiryForm(event)">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-      </div>
-
-      <!-- Delivery Message -->
-      {% if section.settings.stellar_delivery_message != blank %}
-        <div class="stellar-delivery-message">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            fill="none"
-            class="delivery-icon"
-          >
-            <path d="M8 1L10.5 6H15L11 9.5L12.5 15L8 12L3.5 15L5 9.5L1 6H5.5L8 1Z" fill="currentColor"/>
-          </svg>
-          <span>{{ section.settings.stellar_delivery_message }}</span>
+      <!-- Form Content -->
+      <div id="stellar-form-container">
+        <div class="stellar-enquiry-popup-header">
+          {% if section.settings['popup-form-heading'] != blank %}
+            <h2 class="stellar-enquiry-popup-title">{{ section.settings['popup-form-heading'] }}</h2>
+          {% endif %}
+          <button type="button" class="stellar-enquiry-popup-close" onclick="closeStellarEnquiryForm(event)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
         </div>
-      {% endif %}
 
-      <form id="stellar-enquiry-form" class="stellar-enquiry-form" onsubmit="handleStellarEnquirySubmit(event)">
+        <!-- Delivery Message -->
+        {% if section.settings.stellar_delivery_message != blank %}
+          <div class="stellar-delivery-message">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              class="delivery-icon"
+            >
+              <path d="M8 1L10.5 6H15L11 9.5L12.5 15L8 12L3.5 15L5 9.5L1 6H5.5L8 1Z" fill="currentColor"/>
+            </svg>
+            <span>{{ section.settings.stellar_delivery_message }}</span>
+          </div>
+        {% endif %}
+
+        <form id="stellar-enquiry-form" class="stellar-enquiry-form" onsubmit="handleStellarEnquirySubmit(event)">
         <div class="stellar-form-group">
           <label for="stellar-name" class="stellar-form-label">Name <span class="required">*</span></label>
           <input
@@ -1935,6 +1937,9 @@
             required
             placeholder="Enter your phone number"
             pattern="[0-9]{10,15}"
+            inputmode="numeric"
+            oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+            onkeypress="return event.charCode >= 48 && event.charCode <= 57"
           >
           <span class="stellar-form-error" id="phone-error"></span>
         </div>
@@ -1989,6 +1994,41 @@
           </span>
         </button>
       </form>
+      </div>
+
+      <!-- Submitting State -->
+      <div id="stellar-submitting-container" style="display: none;">
+         <div class="stellar-status-content">
+          <div class="stellar-status-icon">
+            <div class="stellar-spinner"></div>
+          </div>
+          <h2 class="stellar-enquiry-popup-title">SUBMITTING</h2>
+          <p class="stellar-status-message">Please wait while we process your request...</p>
+        </div>
+      </div>
+
+      <!-- Thank You State -->
+      <div id="stellar-thankyou-container" style="display: none;">
+        <div class="stellar-enquiry-popup-header">
+         
+          <button type="button" class="stellar-enquiry-popup-close" onclick="closeStellarEnquiryForm(event)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+        <div class="stellar-status-content">
+          <div class="stellar-status-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" stroke="#4caf50" stroke-width="2" fill="none"/>
+              <path d="M8 12l2 2 4-4" stroke="#4caf50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+           <h2 class="stellar-enquiry-popup-title">THANK YOU!</h2>
+          <p class="stellar-status-message">Your enquiry has been submitted successfully. We'll get back to you soon!</p>
+        
+        </div>
+      </div>
     </div>
   </div>
 
@@ -2015,7 +2055,7 @@
     .stellar-enquiry-popup-content {
       background: #fff;
       border-radius: 12px;
-      max-width: 65%;
+      max-width: 60%;
       width: 100%;
       max-height: 90vh;
       overflow-y: auto;
@@ -2026,7 +2066,7 @@
     /* Desktop: Make narrower with auto overflow when needed */
     @media (min-width: 1024px) {
       .stellar-enquiry-popup-content {
-        max-width: 50%;
+        max-width: 60%;
         max-height: 90vh;
         overflow-y: auto;
       }
@@ -2051,6 +2091,10 @@
       border-bottom: 1px solid #e5e5e5;
     }
 
+    #stellar-thankyou-container .stellar-enquiry-popup-header{
+        justify-content: flex-end;
+    }
+
     /* Desktop: Reduce header padding */
     @media (min-width: 1024px) {
       .stellar-enquiry-popup-header {
@@ -2059,11 +2103,13 @@
     }
 
     .stellar-enquiry-popup-title {
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 600;
-      font-family: 'Poppins-SemiBold', sans-serif;
+      font-family: 'PPMonumentWide-Regular';
       color: #000;
       margin: 0;
+      padding: 12px;
+      text-transform: uppercase;
     }
 
     .stellar-enquiry-popup-close {
@@ -2094,7 +2140,7 @@
 
       /* Name field - full width */
       .stellar-form-group:nth-child(1) {
-        margin-bottom: 12px;
+        margin-bottom: 20px;
       }
 
       /* Phone and Email side by side */
@@ -2103,7 +2149,7 @@
         display: inline-block;
         width: calc(50% - 6px);
         vertical-align: top;
-        margin-bottom: 12px;
+        margin-bottom: 20px;
         box-sizing: border-box;
         float: left;
       }
@@ -2114,7 +2160,7 @@
 
       /* Address field - full width */
       .stellar-form-group:nth-child(4) {
-        margin-bottom: 8px;
+        margin-bottom: 20px;
         clear: both;
       }
     }
@@ -2132,17 +2178,17 @@
 
     .stellar-form-label {
       display: block;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 500;
-      font-family: 'Poppins-Medium', sans-serif;
+      font-family: 'PPMonumentWide-Regular';
       color: #000;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     /* Desktop: Reduce label margin */
     @media (min-width: 1024px) {
       .stellar-form-label {
-        margin-bottom: 6px;
+        margin-bottom: 10px;
       }
     }
 
@@ -2157,7 +2203,7 @@
       border: 1px solid #ddd;
       border-radius: 8px;
       font-size: 14px;
-      font-family: 'Poppins-Regular', sans-serif;
+    font-family: 'SuisseIntl-Regular';
       color: #000;
       transition: border-color 0.2s;
     }
@@ -2270,6 +2316,9 @@
 
     .stellar-btn-text{
       color: #fff;
+      font-family: 'SuisseIntl-Regular';
+      letter-spacing:1.5px;
+      font-weight:400;
     }
 
     /* Delivery Message Styling */
@@ -2285,14 +2334,24 @@
       font-size: 14px;
       font-weight: 500;
       color: #2e7d32;
-      font-family: 'Poppins-Medium', sans-serif;
+      font-family: 'SuisseIntl-Regular';
+    }
+    .stellar-delivery-message p, .stellar-delivery-message span,
+    stellar-delivery-message p strong{
+      font-size: 14px;
+      font-weight: 500;
+      color: #2e7d32;
+      font-family: 'SuisseIntl-Regular';
     }
 
     /* Desktop: Reduce delivery message margin */
     @media (min-width: 1024px) {
       .stellar-delivery-message {
-        margin: 8px 24px 0;
+        margin: 12px 24px;
         padding: 8px 16px;
+        font-size: 13px;
+      }
+      .stellar-delivery-message p{        
         font-size: 13px;
       }
     }
@@ -2300,6 +2359,63 @@
     .stellar-delivery-message .delivery-icon {
       color: #4caf50;
       flex-shrink: 0;
+    }
+
+    /* Status Content Styles */
+    
+    .stellar-status-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 24px;
+      text-align: center;
+      min-height: 220px;
+    }
+
+    .stellar-status-icon {
+      margin-bottom: 0px;
+    }
+
+    .stellar-spinner {
+      width: 64px;
+      height: 64px;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #000;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .stellar-status-message {
+      font-size: 16px;
+      font-family: 'SuisseIntl-Regular';
+      color: #333;
+      margin: 0 0 32px 0;
+      line-height: 1.6;
+      max-width: 80%;
+    }
+
+    .stellar-status-close-btn {
+      background: #000;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 48px;
+      font-size: 16px;
+      font-weight: 600;
+      font-family: 'SuisseIntl-Regular';
+      letter-spacing: 1.5px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .stellar-status-close-btn:hover {
+      background: #333;
     }
 
     @media (max-width: 768px) {
@@ -2312,7 +2428,8 @@
       }
 
       .stellar-enquiry-popup-title {
-        font-size: 20px;
+        font-size: 16px;
+        padding:10px 0;
       }
 
       .stellar-enquiry-form {
@@ -2324,6 +2441,25 @@
         padding: 10px 12px;
         font-size: 13px;
       }
+
+      .stellar-status-content {
+        padding: 5px 20px;
+        min-height: 200px;
+      }
+
+      .stellar-status-message {
+        font-size: 14px;
+        max-width: 90%;
+        margin-bottom:10px;
+      }
+
+      .stellar-spinner {
+        width: 48px;
+        height: 48px;
+        border-width: 3px;
+      }
+
+     
     }
   </style>
 
@@ -2345,7 +2481,7 @@
 
     // Close Stellar Enquiry Form
     function closeStellarEnquiryForm(event) {
-      if (event && event.target !== event.currentTarget && !event.target.closest('.stellar-enquiry-popup-close')) {
+      if (event && event.target !== event.currentTarget && !event.target.closest('.stellar-enquiry-popup-close') && !event.target.closest('.stellar-status-close-btn')) {
         return;
       }
 
@@ -2366,6 +2502,13 @@
           form.reset();
           clearAllErrors();
         }
+
+        // Reset all container states
+        setTimeout(() => {
+          document.getElementById('stellar-form-container').style.display = 'block';
+          document.getElementById('stellar-submitting-container').style.display = 'none';
+          document.getElementById('stellar-thankyou-container').style.display = 'none';
+        }, 300);
       }
     }
 
@@ -2526,17 +2669,19 @@
         timestamp: new Date().toISOString(),
       };
 
-      // Show loader
-      const btnText = submitBtn.querySelector('.stellar-btn-text');
-      const btnLoader = submitBtn.querySelector('.stellar-btn-loader');
+      // Show submitting state
+      document.getElementById('stellar-form-container').style.display = 'none';
+      document.getElementById('stellar-submitting-container').style.display = 'block';
 
-      if (btnText) btnText.style.display = 'none';
-      if (btnLoader) btnLoader.style.display = 'inline-block';
-      submitBtn.disabled = true;
+
+     {% comment %}
+        google sheet link:
+        https://docs.google.com/spreadsheets/d/1pkeBL00PzcZnqnT0abAnfseuZ8h2w6glCzVhOphOa3g/edit?usp=sharing
+      {% endcomment %}
 
       // Send data to Google Sheets via Apps Script
       const scriptURL =
-        'https://script.google.com/macros/s/AKfycbygDagfx9vuI9Jfk5gpdNiP0zcZ5F2Wk7j1xO45wKStnHqbUYd1mKhCNTiidEvBQTCP/exec';
+        'https://script.google.com/macros/s/AKfycbx-wxa3POhvhrwZ5irUdNCFKPQyQ6yhCrFQLhjOU8AxWO8PHVsVTrltka4UTiqeI8c1/exec';
 
       const dataToSend = {
         name: formData.name,
@@ -2554,47 +2699,20 @@
           },
           body: JSON.stringify(dataToSend),
         });
+
+        // Show thank you state after successful submission
+        document.getElementById('stellar-submitting-container').style.display = 'none';
+        document.getElementById('stellar-thankyou-container').style.display = 'block';
+
       } catch (error) {
         console.error('❌ Error sending data to Google Sheets:', error);
+        
+        // Show thank you state even on error (since we're using no-cors)
+        document.getElementById('stellar-submitting-container').style.display = 'none';
+        document.getElementById('stellar-thankyou-container').style.display = 'block';
       }
 
-      // Close the form
-      closeStellarEnquiryForm(event);
-
-      // Call the existing Diwali gift function (adds product + free lamp, NO customer properties)
-      if (typeof window.handleDiwaliGift === 'function') {
-        window.handleDiwaliGift(submitBtn);
-      } else {
-        console.warn('handleDiwaliGift function not found, using fallback...');
-        try {
-          await fetch('/cart/clear.js', { method: 'POST' });
-
-          await fetch('/cart/add.js', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              items: [
-                {
-                  id: variantId,
-                  quantity: 1,
-                  // NO properties - customer data only in console/sessionStorage
-                },
-              ],
-            }),
-          });
-
-          setTimeout(() => {
-            window.location.href = '/checkout';
-          }, 300);
-        } catch (error) {
-          console.error('Error during fallback checkout:', error);
-          alert('Something went wrong. Please try again.');
-
-          if (btnText) btnText.style.display = 'inline-block';
-          if (btnLoader) btnLoader.style.display = 'none';
-          submitBtn.disabled = false;
-        }
-      }
+     
     }
   </script>
 {% endif %}

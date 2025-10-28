@@ -133,8 +133,8 @@
   .stellar-background .grid__item.product__media-wrapper,
   .stellar-background .stellar-product-slider-container {
     flex: 0 0 50% !important;
-    width: 50% !important;
-    max-width: 50% !important;
+    width: 53.44% !important;
+    max-width: 53.44% !important;
     display: block !important;
   }
 
@@ -143,7 +143,7 @@
   .stellar-background .titan_main_product.product__info-wrapper.grid__item {
     flex: 0 0 50% !important;
     width: 45% !important;
-    max-width: 45% !important;
+    max-width: 48% !important;
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -338,7 +338,7 @@
 }
 
 .stellar-wishlist-heart svg {
-  width: 19px;
+  width: 20px;
   height: 20px;
   fill: transparent;
   stroke: #fff;
@@ -450,7 +450,7 @@
 
 /* Stellar ATC Button (White) */
 .stellar-atc-btn {
-  display: inline-flex;
+  display: none;
   align-items: center;
   justify-content: center;
   flex: 1;
@@ -486,14 +486,14 @@
   text-decoration: none;
   padding-top: 20px;
   padding-bottom: 20px;
-  color: #ffffff;
-  background: transparent;
-  border: 1.5px solid #ffffff;
+  color: #000000;
+  background: #ffffff;
+  border: none;
   border-radius: 5px;
   font-family: 'SuisseIntl-Regular';
   font-weight: 400;
   font-style: Regular;
-  font-size: clamp(16px, calc(18* (100vw / 1512)), 18px)!important;
+  font-size: clamp(16px, calc(20* (100vw / 1512)), 20px)!important;
   line-height: 14px !important;
   letter-spacing: 1.5px !important;
   text-transform: uppercase !important;
@@ -501,10 +501,6 @@
   transition: all 0.3s ease;
 }
 
-.stellar-enquiry-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-  transform: translateY(-2px);
-}
 
 /* Thumbs */
 .product-thumbnails-container {
@@ -530,6 +526,8 @@
   opacity: 1;
   transition: opacity 0.3s ease;
   cursor: pointer;
+  max-width: 120px;
+  margin-right:17px;
 }
 
 .custom-desktop-slider-main-thumbs-ups .swiper-slide.active,
@@ -540,7 +538,7 @@
 .custom-desktop-slider-main-thumbs-ups .swiper-slide.active img,
 .custom-desktop-slider-main-thumbs-ups .swiper-slide.swiper-slide-thumb-active img {
   opacity: 1;
-  border: 1px solid #5fd2ff;
+  border: 1px solid #5FD2FF;
   margin-left:1px;
 }
 
@@ -604,6 +602,11 @@
   .stellar-thumbs-nav { display: none; }
   .stellar-thumbs-wrapper {
     padding: 0;
+  }
+
+  .custom-desktop-slider-main-thumbs-ups .swiper-slide {
+    max-width: 100px;
+    margin-right:10px;
   }
 }
 
@@ -731,6 +734,11 @@
   .custom-desktop-slider-main-thumbs-ups .product-image{
    max-width: unset;
    max-height: unset;
+   margin-right:13px;
+  }
+  .custom-desktop-slider-main-thumbs-ups .swiper-slide {
+    max-width: 120px;
+    margin-right:13px;
   }
 }
 
@@ -748,10 +756,10 @@
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
-    flex: 0 0 50% !important;
+    flex: 0 0 46% !important;
     width: 50% !important;
-    max-width: 50% !important;
-    padding-right: 5.23%;
+    max-width: 46% !important;
+    padding-right: 2.23%;
   }
 
   .stellar-title-block.Tablet {
@@ -993,11 +1001,11 @@
     justify-content: center;
   }
 
-  .stellar-atc-btn {
+  /* .stellar-atc-btn {
     display: block !important;
     flex: 1 !important;
     width: auto !important;
-  }
+  } */
 
   .stellar-enquiry-btn {
     display: block !important;
@@ -1177,37 +1185,34 @@
 
   .stellar-atc-btn,
   .stellar-enquiry-btn {
-    font-weight: 400;
-    font-style: Regular;
     font-size: 18px !important;
     line-height: 14px !important;
     letter-spacing: 1.8px;
     text-align: center;
-    text-transform: uppercase;
-    font-family: "SuisseIntl-Regular" !important;
     margin-bottom: 0px;
-    max-width:270px;
+    /* max-width:270px; */
+    border-radius: 10px;
   }
 
-  .stellar-atc-btn {
+  .stellar-enquiry-btn {
     background: #FFFFFF !important;
     border: 1.5px solid #FFFFFF;
     color: #000000 !important;
   }
 
-  .stellar-atc-btn:hover {
+  .stellar-enquiry-btn:hover {
     background: rgba(255, 255, 255, 0.9) !important;
   }
 
-  .stellar-enquiry-btn {
+  /* .stellar-enquiry-btn {
     background: transparent !important;
     border: 1.5px solid #FFFFFF;
     color: #FFFFFF !important;
-  }
+  } */
 
-  .stellar-enquiry-btn:hover {
+  /* .stellar-enquiry-btn:hover {
     background: rgba(255, 255, 255, 0.1) !important;
-  }
+  } */
 }
 
 @media screen and (max-width: 1230px) and (min-width:1050px) {
@@ -1339,14 +1344,14 @@
   }
 
   .read-more-btn {
-    color: #5fd2ff;
+    color: #5FD2FF;
     background: none;
     border: none;
      font-family: 'SuisseIntl-Regular';
     font-weight: 400;
-    font-size: 14px;
-    line-height: 14px;
-    letter-spacing: 0.1em;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0;
     text-transform: uppercase;
     cursor: pointer;
     margin-top: 8px;
@@ -1354,12 +1359,7 @@
     text-decoration: none;
     display: inline-block;
     transition: opacity 0.2s ease;
-     font-family: 'SuisseIntl-Regular';
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 22px;
-    letter-spacing: 0%;
-    text-transform: uppercase;
+    
   }
 
   .read-more-btn:hover {

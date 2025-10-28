@@ -116,6 +116,12 @@
 }
 .arrow-btn {
   text-align: right;
+  margin-bottom: 0;
+    line-height: 0;
+    padding-bottom: 0;
+}
+.arrow-btn a{
+  line-height: 0;
 }
 .image-wrapper {
   margin-top: 56px;
@@ -134,6 +140,9 @@
 .card-video {
   width: 100%;
   height: auto;
+  aspect-ratio: 388 / 295;
+  object-fit: cover;
+  max-height: 195px;
 }
 .explore-swiper .swiper-pagination {
   position: unset;
@@ -227,14 +236,26 @@
   .explore-swiper {
     margin-top: 56px;
   }
-
+  
+  .card-video {
+    aspect-ratio: 276 / 247;
+    object-fit: cover;
+    max-height: 247px;
+}
   .card-text {
     font-size: 16px;
     line-height: 20px;
   }
+  .info-wrapper .hover-content .card-text{
+    padding-bottom:0.5px;
+  }
   .card-hover-description {
     font-size: 12px;
     line-height: 18px;
+  }
+  .arrow-main{
+    width: 27.45px;
+    height: 27.25px;
   }
   .image-wrapper {
     margin-top: 20px;
@@ -271,5 +292,6 @@
   .explore-slide {
     width: calc(100% / 3);
     margin-right: 0px;
+    min-height: 502px;
   }
 }
