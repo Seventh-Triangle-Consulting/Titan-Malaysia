@@ -136,6 +136,9 @@
 .hotspot-btn:hover .hotspot-icon {
   transform: rotate(180deg);
 }
+.hotspot-btn:hover {
+  background: #000;
+}
 
 .hotspot-label {
   position: absolute;
@@ -378,6 +381,165 @@
 
 .popup-close:hover svg {
   transform: rotate(180deg);
+}
+
+/* Slide Navigation */
+.slide-navigation {
+  position: absolute;
+  left: 45%;
+  right: 45%;
+  bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.slide-nav-btn {
+  border: none;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  pointer-events: all;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 5px;
+}
+
+.slide-nav-btn:after {
+  content: none;
+}
+
+/* Popup Navigation */
+.popup-navigation {
+  position: absolute;
+  right: 20%;
+  bottom: 30px;
+  display: flex;
+  gap: 20px;
+  z-index: 1002;
+  pointer-events: all;
+}
+
+.popup-nav-btn {
+  position: relative;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+  padding: 0;
+}
+
+.popup-nav-btn:after {
+  content: none;
+}
+
+.popup-nav-label {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 8px 16px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  font-family: "SuisseIntl-Regular";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0px;
+  z-index: 10;
+}
+
+.popup-nav-tooltip {
+  color: #ffffff;
+  padding: 8px 16px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  font-family: "SuisseIntl-Regular", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0px;
+  z-index: 10;
+}
+
+.popup-nav-item {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.popup-nav-btn:hover svg path,
+.popup-nav-btn:hover svg circle {
+  stroke: #5fd2ff;
+}
+
+.popup-nav-title {
+  font-family: "SuisseIntl-Regular";
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 16px;
+  letter-spacing: 0px;
+  color: #fff;
+}
+
+.popup-nav-item:hover .popup-nav-tooltip.previous,
+.popup-nav-item:hover .popup-nav-tooltip.next {
+  opacity: 1;
+}
+.popup-nav-item:hover .popup-nav-tooltip.previous .popup-nav-title,
+.popup-nav-item:hover .popup-nav-tooltip.next .popup-nav-title {
+  color: #5fd2ff;
+}
+.popup-nav-item:hover .popup-nav-btn[disabled] {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.interactive-showcase .popup-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.interactive-showcase .loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  display: block !important;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.popup-product-image {
+  opacity: 0;
+  transform: translateX(-50px);
+}
+
+.popup-product-subtitle,
+.popup-product-title,
+.popup-product-description {
+  opacity: 0;
+  transform: translateY(20px);
 }
 
 .popup-close svg {

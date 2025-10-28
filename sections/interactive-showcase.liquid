@@ -216,6 +216,46 @@
           </svg>
         </button>
 
+        <!-- Popup Navigation -->
+        <div class="popup-navigation">
+          <div class="popup-nav-item">
+            <button class="popup-nav-btn popup-nav-prev" aria-label="Previous product">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                <foreignObject x="-40" y="-40" width="120" height="120"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(20px);clip-path:url(#bgblur_0_3915_731_clip_path);height:100%;width:100%"></div></foreignObject>
+                <circle data-figma-bg-blur-radius="40" cx="20" cy="20" r="19.25" transform="matrix(-1 0 0 1 40 0)" stroke="white" stroke-width="1.5"/>
+                <path d="M22.4482 13L15.3772 20.0711L22.4482 27.1421" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+                <defs>
+                    <clipPath id="bgblur_0_3915_731_clip_path" transform="translate(40 40)">
+                        <circle cx="20" cy="20" r="19.25" transform="matrix(-1 0 0 1 40 0)"/>
+                    </clipPath>
+                </defs>
+              </svg>
+            </button>
+            <div class="popup-nav-tooltip previous">
+              <span class="popup-nav-title"></span>
+            </div>
+          </div>
+          <div class="popup-nav-item">
+            <div class="popup-nav-tooltip next">
+              <span class="popup-nav-title"></span>
+            </div>
+            <button class="popup-nav-btn popup-nav-next" aria-label="Next product">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                <g opacity="0.7">
+                    <foreignObject x="-40" y="-40" width="120" height="120"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(20px);clip-path:url(#bgblur_0_3915_705_clip_path);height:100%;width:100%"></div></foreignObject>
+                    <circle data-figma-bg-blur-radius="40" cx="20" cy="20" r="19.25" stroke="white" stroke-width="1.5"/>
+                    <path d="M17.5518 13L24.6228 20.0711L17.5518 27.1421" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                    <clipPath id="bgblur_0_3915_705_clip_path" transform="translate(40 40)">
+                        <circle cx="20" cy="20" r="19.25"/>
+                    </clipPath>
+                </defs>
+              </svg>
+            </button>
+          </div>
+        </div>
+
         <div class="popup-body">
           <!-- Dynamic product content will be loaded here -->
         </div>
@@ -242,7 +282,9 @@
                   "url": {{ hotspot_ref.product_reference.value.url | json }},
                   "vendor": {{ hotspot_ref.product_reference.value.vendor | json }},
                   "description": {{ hotspot_ref.product_reference.value.description | strip_html | truncatewords: 30 | json }},
-                  "hotspot_name": {{ hotspot_ref.name | json }}
+                  "hotspot_name": {{ hotspot_ref.name | json }},
+                  "hotspot_index": {{ forloop.index0 }},
+                  "slide_index": {{ forloop.parentloop.index0 }}
                 }{% unless forloop.last %},{% endunless %}
               {% endif %}
             {% endfor %}
@@ -260,17 +302,139 @@
         this.popupContent = this.popup.querySelector('.popup-content');
         this.popupOverlay = document.querySelector('.popup-overlay');
         this.popupBody = this.popup.querySelector('.popup-body');
+        this.popupNavPrev = this.popup.querySelector('.popup-nav-prev');
+        this.popupNavNext = this.popup.querySelector('.popup-nav-next');
         this.mainSwiper = null;
         this.viewportWidth = window.innerWidth;
         this.viewportHeight = window.innerHeight;
         this.isPopupOpen = false;
         this.isModalOpen = false;
         this.init();
+
+        // Current hotspot tracking
+        this.currentHotspot = null;
+        this.currentSlideIndex = null;
+        this.currentHotspotIndex = null;
+        this.allHotspots = this.getAllHotspots();
       }
 
       init() {
         this.initMainSwiper();
         this.bindEvents();
+      }
+
+      getAllHotspots() {
+        const hotspots = [];
+        // Try to find the JSON script within the section first, then fall back to the document
+        const productDataScript =
+          this.container.querySelector('[data-showcase-products]') ||
+          document.querySelector('[data-showcase-products]');
+
+        if (!productDataScript || !productDataScript.textContent) {
+          return hotspots;
+        }
+
+        let productData;
+        try {
+          productData = JSON.parse(productDataScript.textContent);
+        } catch (parseError) {
+          console.error('Failed to parse showcase product data JSON:', parseError);
+          return hotspots;
+        }
+
+        if (!productData || typeof productData !== 'object') {
+          return hotspots;
+        }
+
+        Object.keys(productData).forEach((slideKey) => {
+          const slideIndex = parseInt(slideKey.split('-')[1]);
+          const slideHotspots = Array.isArray(productData[slideKey]) ? productData[slideKey] : [];
+
+          slideHotspots.forEach((hotspot, index) => {
+            hotspots.push({
+              ...hotspot,
+              slideIndex,
+              hotspotIndex: index,
+              element: this.container.querySelector(
+                `[data-slide-index="${slideIndex}"][data-hotspot-index="${index}"]`
+              ),
+            });
+          });
+        });
+
+        return hotspots;
+      }
+
+      getCurrentHotspotData() {
+        if (this.currentSlideIndex === null || this.currentHotspotIndex === null) return null;
+
+        const productDataScript =
+          this.container.querySelector('[data-showcase-products]') ||
+          document.querySelector('[data-showcase-products]');
+
+        if (!productDataScript || !productDataScript.textContent) return null;
+
+        let productData;
+        try {
+          productData = JSON.parse(productDataScript.textContent);
+        } catch (parseError) {
+          console.error('Failed to parse showcase product data JSON:', parseError);
+          return null;
+        }
+
+        const slideKey = `slide-${this.currentSlideIndex}`;
+        const slideHotspots = Array.isArray(productData?.[slideKey]) ? productData[slideKey] : [];
+        return slideHotspots[this.currentHotspotIndex] || null;
+      }
+
+      getAdjacentHotspots(direction) {
+        if (!Array.isArray(this.allHotspots) || this.allHotspots.length === 0) return null;
+
+        const currentIndex = this.allHotspots.findIndex(
+          (hotspot) =>
+            hotspot.slideIndex === this.currentSlideIndex && hotspot.hotspotIndex === this.currentHotspotIndex
+        );
+
+        if (currentIndex === -1) return null;
+
+        if (direction === 'next') {
+          return currentIndex < this.allHotspots.length - 1 ? this.allHotspots[currentIndex + 1] : null;
+        } else {
+          return currentIndex > 0 ? this.allHotspots[currentIndex - 1] : null;
+        }
+      }
+
+      updatePopupNavigation() {
+        const prevHotspot = this.getAdjacentHotspots('prev');
+        const nextHotspot = this.getAdjacentHotspots('next');
+
+        // Update prev button
+        const prevTooltip = this.popupNavPrev.closest('.popup-nav-item')?.querySelector('.popup-nav-title');
+        if (prevHotspot) {
+          this.popupNavPrev.disabled = false;
+          if (prevTooltip) {
+            prevTooltip.textContent = prevHotspot.hotspot_name || prevHotspot.title;
+          }
+        } else {
+          this.popupNavPrev.disabled = true;
+          if (prevTooltip) {
+            prevTooltip.textContent = '';
+          }
+        }
+
+        // Update next button tooltip title
+        const nextTooltip = this.popupNavNext.closest('.popup-nav-item')?.querySelector('.popup-nav-title');
+        if (nextHotspot) {
+          this.popupNavNext.disabled = false;
+          if (nextTooltip) {
+            nextTooltip.textContent = nextHotspot.hotspot_name || nextHotspot.title;
+          }
+        } else {
+          this.popupNavNext.disabled = true;
+          if (nextTooltip) {
+            nextTooltip.textContent = '';
+          }
+        }
       }
 
       initMainSwiper() {
@@ -308,12 +472,47 @@
           this.popupOverlay.addEventListener('click', () => this.closePopup());
         }
 
+        // Popup navigation
+        this.popupNavPrev.addEventListener('click', (e) => this.navigateToAdjacentHotspot(e, 'prev'));
+        this.popupNavNext.addEventListener('click', (e) => this.navigateToAdjacentHotspot(e, 'next'));
+
         // ESC key to close popup
         document.addEventListener('keydown', (e) => {
           if (e.key === 'Escape' && this.isPopupOpen) {
             this.closePopup();
           }
         });
+      }
+
+      async navigateToAdjacentHotspot(e, direction) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const adjacentHotspot = this.getAdjacentHotspots(direction);
+        if (!adjacentHotspot) return;
+
+        // Update current tracking
+        this.currentSlideIndex = adjacentHotspot.slideIndex;
+        this.currentHotspotIndex = adjacentHotspot.hotspotIndex;
+
+        // Show loading state
+        this.showLoadingState();
+
+        // Load and display the product data
+        await this.loadProductData(adjacentHotspot.handle, adjacentHotspot.hotspot_name);
+
+        // Update navigation
+        this.updatePopupNavigation();
+
+        this.animatePopupContentIn();
+      }
+
+      showLoadingState() {
+        this.popupBody.innerHTML = `
+          <div class="popup-loading">
+            <div class="loading-spinner"></div>
+          </div>
+        `;
       }
 
       getRandomAngle() {
@@ -353,7 +552,10 @@
         this.popupOverlay.style.opacity = '1';
 
         this.popupOverlay.style.transition = 'none';
-        this.popupOverlay.style.transform = `translate(-50%, -50%) rotate(${angle}) scaleX(0) scaleY(${Math.min(scaleY,4)})`;
+        this.popupOverlay.style.transform = `translate(-50%, -50%) rotate(${angle}) scaleX(0) scaleY(${Math.min(
+          scaleY,
+          4
+        )})`;
 
         // Force a reflow to ensure the styles are applied
         void this.popupOverlay.offsetHeight;
@@ -361,7 +563,10 @@
         // Trigger the line animation (only horizontal expansion)
         this.popupOverlay.style.transition = `transform 1.25s cubic-bezier(0, 0, 0.3, 1)`;
 
-        this.popupOverlay.style.transform = `translate(-50%, -50%) rotate(${angle}) scaleX(${Math.min(scaleX,1.5)}) scaleY(${Math.min(scaleY, 4)})`;
+        this.popupOverlay.style.transform = `translate(-50%, -50%) rotate(${angle}) scaleX(${Math.min(
+          scaleX,
+          1.5
+        )}) scaleY(${Math.min(scaleY, 4)})`;
       }
 
       async handleHotspotClick(e) {
@@ -372,13 +577,26 @@
         const btn = e.currentTarget;
         const productHandle = btn.dataset.productHandle;
         const hotspotName = btn.querySelector('.hotspot-label')?.textContent || '';
+        const slideIndex = parseInt(btn.dataset.slideIndex);
+        const hotspotIndex = parseInt(btn.dataset.hotspotIndex);
         document.body.style.overflow = 'hidden';
 
+        // Store current hotspot info
+        this.currentHotspot = btn;
+        this.currentSlideIndex = slideIndex;
+        this.currentHotspotIndex = hotspotIndex;
+
         this.animatePopupScale(btn);
+
+        // Show loading state in popup
+        this.showLoadingState();
 
         if (productHandle) {
           // Load product data and open popup after animation starts
           await this.loadProductData(productHandle, hotspotName);
+
+          // Update navigation
+          this.updatePopupNavigation();
 
           // Delay popup opening slightly to sync with animation
           setTimeout(() => {
@@ -415,7 +633,10 @@
         const scaleX = Math.max(this.viewportWidth / 10, 1);
         const scaleY = Math.max(this.viewportHeight / 10, 1);
 
-        this.popupOverlay.style.transform = `translate(-50%, -50%) rotate(${angle}) scaleX(${Math.min(scaleX,4)}) scaleY(${Math.min(scaleY, 4)})`;
+        this.popupOverlay.style.transform = `translate(-50%, -50%) rotate(${angle}) scaleX(${Math.min(
+          scaleX,
+          4
+        )}) scaleY(${Math.min(scaleY, 4)})`;
       }
 
       handleHotspotLeave(e) {
@@ -451,7 +672,7 @@
               <div class="popup-product-image">
                 <img src="${product.featured_image}" alt="${product.title}" loading="lazy">
               </div>
-              
+
               <div class="popup-product-info">
                 <div class="popup-header">
                   ${hotspotName ? `<h2 class="popup-product-subtitle">${hotspotName}</h2>` : ''}
@@ -658,21 +879,6 @@
     });
   </script>
 {% endif %}
-
-<style>
-  /* Popup Content Transitions */
-  .popup-product-image {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-
-  .popup-product-subtitle,
-  .popup-product-title,
-  .popup-product-description {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-</style>
 
 {% schema %}
 {
