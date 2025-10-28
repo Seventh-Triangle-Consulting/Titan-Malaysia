@@ -5,11 +5,12 @@
   text-align: center;
   gap: 13px;
   max-width:1512px;
+  padding-top:47px;
 }
 .explore-content h2 {
   font-size: 40px;
   line-height: 30px;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   font-family: "PPMonumentWide-Regular";
 }
 .explore-content p {
@@ -17,7 +18,7 @@
   font-size: 17px;
   font-family: "SuisseIntl-Regular";
   line-height: 22px;
-  letter-spacing: 0%;
+  letter-spacing: 0;
 }
 .explore-swiper {
   margin-top: 111px;
@@ -94,11 +95,14 @@
   margin-top: 0;
   font-family: "SuisseIntl-Regular";
   text-align: left;
-  padding-bottom: 3px;
-  margin-top: 5px;
+  padding-bottom: 0px;
+  margin-top: 0px;
+}
+.info-wrapper .hover-content .card-text {
+  padding-bottom: 8.5px;
 }
 .card-text strong {
-  font-weight: 700;
+  font-weight: 600;
 }
 .card-hover-description {
   text-align: left;
@@ -106,7 +110,7 @@
   font-weight: 400;
   font-family: "SuisseIntl-Regular";
   line-height: 22px;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   color: #000;
   flex-grow: 1;
 }
@@ -132,12 +136,14 @@
   height: auto;
 }
 .explore-swiper .swiper-pagination {
-  position: relative;
+  position: unset;
   margin-top: 26px;
 }
 .explore-swiper .swiper-pagination-bullet {
   background-color: #d9d9d942;
   opacity: 0.6;
+  width:9px;
+  height:9px;
 }
 .explore-swiper .swiper-pagination-bullet-active {
   background-color: #d9d9d9;
@@ -150,12 +156,16 @@
 
 @media only screen and (min-width: 750px) and (max-width: 1024px) {
   .explore-sec {
-    padding-right: 17px !important;
-    padding-left: 17px !important;
+    padding-right: 15px !important;
+    padding-left: 15px !important;
   }
   .explore-swiper {
     margin-top: 80px;
+    padding-bottom:3px;
   }
+  .explore-content {
+    padding-top: 6px;
+}
   .explore-content h2 {
     font-size: 30px;
     line-height: 30px;
@@ -167,8 +177,11 @@
     max-width: 579px;
   }
   .card-text {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 20px;
+  }
+  .card-text strong{
+    font-weight:700;
   }
   .card-hover-description {
     font-size: 12px;
@@ -197,7 +210,9 @@
   }
   .explore-content {
     gap: 6px;
-    padding-right: 20px;
+    padding-top:0;
+     padding-right: 30px;
+    padding-left: 23px;
   }
   .explore-content h2 {
     font-size: 26px;
@@ -230,6 +245,12 @@
   .info-wrapper .hover-content {
     padding: 20px 18px 16px;
   }
+   .card-text strong{
+    font-weight:700;
+  }
+  .video-wrapper {
+    line-height: 0;
+}
 }
 
 @media only screen and (max-width: 640px) {

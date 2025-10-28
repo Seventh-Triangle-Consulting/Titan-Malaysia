@@ -6,6 +6,7 @@
   }
   #{{ section.id }} .desktop-media-slide {
     display: block;
+    line-height:0;
   }
   #{{ section.id }} .desktop-media-slide video {
     width: 100%;
@@ -17,13 +18,14 @@
 
   @media screen and (max-width: 750px) {
     .section-{{ section.id }}-margin {
-      margin-bottom: {{ section.settings.margin_bottom_mobile | plus: 117  }}px;
+      margin-bottom: 45.8px;
     }
     #{{ section.id }} .desktop-media-slide {
       display: none !important;
     }
     #{{ section.id }} .mobile-media-slide {
       display: block !important;
+      line-height:0;
     }
     #{{ section.id }} .mobile-media-slide video {
       width: 100%;
@@ -138,6 +140,7 @@
         </div>
 
         <!-- Swiper navigation -->
+        <div class="navigation-arrow-wrapper">
         <button class="swiper-button-prev" aria-label="Previous slide" type="button">
           <span class="visually-hidden">Previous</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
@@ -173,6 +176,7 @@
             </defs>
           </svg>
         </button>
+      </div>
 
         
       </div>

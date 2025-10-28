@@ -16,7 +16,7 @@
 .desktop_banner_content.bottom-center,
 .desktop_banner_content.bottom-left,
 .desktop_banner_content.bottom-right {
-  bottom: 13%;
+  bottom: 11%;
 }
 .desktop_banner_content.top-center,
 .desktop_banner_content.top-left,
@@ -87,6 +87,7 @@
   font-size: 40px;
   line-height: 50px;
   color: #fff;
+  letter-spacing:0;
 }
 .desktop_banner_text2 {
   font-family: PlayfairDisplay-Medium;
@@ -114,6 +115,7 @@
   line-height: 14px;
   padding: 20px 25px;
   border-radius: 15px;
+  letter-spacing:1.6px;
 }
 .desktop_banner_content .desktop_button_text2 {
   font-family: Rubik-Medium;
@@ -231,7 +233,19 @@
   }
   .desktop_banner_content .desktop_button_text1 {
     font-size: 14px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    letter-spacing: 1.4px;
   }
+  .desktop_banner_content.bottom-center .flex-27, .desktop_banner_content.top-center .flex-27, .desktop_banner_content.middle-center .flex-27{
+    margin-bottom:58px;
+  }
+  .homepage-main-banner .swiper-pagination {
+    bottom: 54px;
+}
+.desktop_banner_content.bottom-center, .desktop_banner_content.bottom-left, .desktop_banner_content.bottom-right {
+    bottom: 15%;
+}
 }
 @media only screen and (max-width: 749px) {
   .homepage-main-banner-container .desktop-banner-image {
@@ -247,6 +261,7 @@
   .mobile_banner_content.bottom-left,
   .mobile_banner_content.bottom-right {
     bottom: 15%;
+    padding: 0 36px;
   }
   .homepage-main-banner-container .swiper-button-prev,
   .homepage-main-banner-container .swiper-button-next {
@@ -263,6 +278,12 @@
   .homepage-main-banner-container .swiper-horizontal > .swiper-pagination-bullets,
   .swiper-pagination-bullets.swiper-pagination-horizontal {
     bottom:46px !important;
+  }
+  .mobile_banner_content .mobile_banner_text1{
+    letter-spacing:0;
+  }
+  .mobile_banner_content .mobile_button_text1, .mobile_banner_content .mobile_button_text2{
+    letter-spacing:1.2px;
   }
 }
 
