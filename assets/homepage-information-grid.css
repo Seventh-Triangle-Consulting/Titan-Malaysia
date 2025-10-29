@@ -240,7 +240,7 @@
   .card-video {
     aspect-ratio: 276 / 247;
     object-fit: cover;
-    max-height: 195px;
+    max-height: 175px;
 }
   .card-text {
     font-size: 16px;
