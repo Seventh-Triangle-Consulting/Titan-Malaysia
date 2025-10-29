@@ -150,7 +150,7 @@
         "padding_top_tablet": 14,
         "padding_bottom_tablet": 100,
         "padding_top_mobile": 0,
-        "padding_bottom_mobile": 100,
+        "padding_bottom_mobile": 180,
         "heading": "More from the collection",
         "background_color": "#1c3250",
         "text_color": "#ffffff"
