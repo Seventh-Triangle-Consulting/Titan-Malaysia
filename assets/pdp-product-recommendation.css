@@ -139,6 +139,7 @@
 
   .products-card-section .product-swiper {
     padding: 0 24px;
+    z-index:0;
   }
 
   .products-card-section .product-cards-heading h2 {
