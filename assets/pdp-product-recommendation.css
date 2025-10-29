@@ -141,6 +141,10 @@
     padding: 0 24px;
     z-index:0;
   }
+  .product-image-wrapper .product-card-image{
+    aspect-ratio: 382/487;
+    object-fit:cover;
+  }
 
   .products-card-section .product-cards-heading h2 {
     font-size: 21px;
