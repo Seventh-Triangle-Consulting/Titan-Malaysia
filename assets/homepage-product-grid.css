@@ -68,7 +68,7 @@
   padding: 24px 48px 8px;
 }
 .home-grid-section .watch-card:hover .overlay {
-  background: #486B9C;
+  background: #1c3251;
   clip-path: inset(0 0 0 0);
   transform: translateY(0);
 }
