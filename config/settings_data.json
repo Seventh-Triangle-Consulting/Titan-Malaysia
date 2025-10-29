@@ -189,7 +189,7 @@
       "stellar-header": {
         "type": "stellar-header",
         "settings": {
-          "stellar_header_logo": "shopify://shop_images/Layer_1_c507dfc0-3709-4b32-930c-98e4e90d80b7.png",
+          "stellar_header_logo": "shopify://shop_images/Layer_1_1.png",
           "stellar_logo_width": 110,
           "stellar_logo_link": "shopify://pages/titan-stellar",
           "menu": "main-menu",
