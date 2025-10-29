@@ -37,6 +37,9 @@
   .autoplay-video-section .video-controls {
     padding: 0 18px 15px;
   }
+  .autoplay-video-section {
+       max-height:926px;
+  }
   .autoplay-video-section video {
     aspect-ratio: 702/926;
     max-height:926px;
