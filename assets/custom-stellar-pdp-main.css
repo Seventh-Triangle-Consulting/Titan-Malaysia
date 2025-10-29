@@ -1312,11 +1312,16 @@
   }
 
   .stellar-buttons-container {
-    margin-bottom: 3.7rem;
-    padding-right:23px;
-    padding-left:15px;
-    gap: 15px;
-    flex-wrap: wrap;
+   background: #000000B2;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-bottom: 0;
+    padding: 23px 43.5px 37px;
+    backdrop-filter: blur(30px);
+    left: 0;
+    z-index: 999999999;
+    max-height:110px;
   }
 
   .main-product-page .stellar-description p {
