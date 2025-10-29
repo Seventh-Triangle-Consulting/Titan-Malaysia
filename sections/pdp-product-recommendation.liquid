@@ -49,7 +49,7 @@
       {% else %}
         {% assign my_collection = product.metafields.custom.stellar_product_list.value %}
       {% endif %}
-      {% for product in my_collection limit: 10 %}
+      {% for product in my_collection limit: 8 %}
         <div class="swiper-slide product-card-slide">
           <div class="product-image-sec">
             <div class="product-image-wrapper">
