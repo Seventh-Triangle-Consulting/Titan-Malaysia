@@ -282,6 +282,12 @@
                   "url": {{ hotspot_ref.product_reference.value.url | json }},
                   "vendor": {{ hotspot_ref.product_reference.value.vendor | json }},
                   "description": {{ hotspot_ref.product_reference.value.description | strip_html | truncatewords: 30 | json }},
+                  "product_image_one": {% if hotspot_ref.product_images_one.value != blank %}{{ hotspot_ref.product_images_one.value | image_url: width: 250 | json }}{% else %}null{% endif %},
+                  "product_image_two": {% if hotspot_ref.product_images_two.value != blank %}{{ hotspot_ref.product_images_two.value | image_url: width: 250 | json }}{% else %}null{% endif %},
+                  "product_image_three": {% if hotspot_ref.product_images_three.value != blank %}{{ hotspot_ref.product_images_three.value | image_url: width: 250 | json }}{% else %}null{% endif %},
+                  "product_images_title_one": {% if hotspot_ref.product_images_title_one.value != blank %}{{ hotspot_ref.product_images_title_one.value | json }}{% else %}null{% endif %},
+                  "product_images_title_two": {% if hotspot_ref.product_images_title_two.value != blank %}{{ hotspot_ref.product_images_title_two.value | json }}{% else %}null{% endif %},
+                  "product_images_title_three": {% if hotspot_ref.product_images_title_three.value != blank %}{{ hotspot_ref.product_images_title_three.value | json }}{% else %}null{% endif %},
                   "hotspot_name": {{ hotspot_ref.name | json }},
                   "hotspot_index": {{ forloop.index0 }},
                   "slide_index": {{ forloop.parentloop.index0 }}
@@ -654,7 +660,10 @@
           const response = await fetch(`/products/${productHandle}.js`);
           const product = await response.json();
 
-          this.updatePopupContent(product, hotspotName);
+          // Get the current hotspot data with feature images
+          const hotspotData = this.getCurrentHotspotData();
+
+          this.updatePopupContent(product, hotspotName, hotspotData);
         } catch (error) {
           console.error('Error loading product data:', error);
           this.popupBody.innerHTML = `
@@ -665,7 +674,39 @@
         }
       }
 
-      updatePopupContent(product, hotspotName) {
+      updatePopupContent(product, hotspotName, hotspotData) {
+        // Build features section if data exists
+        let featuresHTML = '';
+        if (hotspotData && (hotspotData.product_image_one || hotspotData.product_image_two || hotspotData.product_image_three)) {
+          featuresHTML = `
+            <div class="popup-product-features">
+              <h4 class="features-heading">Designed in detail, crafted with purpose</h4>
+              <div class="features-content">
+                <div class="features-images">
+                  ${hotspotData.product_image_one ? `
+                    <div class="feature-image-item">
+                      <img src="${hotspotData.product_image_one}" alt="${hotspotData.product_images_title_one || 'Feature 1'}" loading="lazy">
+                      ${hotspotData.product_images_title_one ? `<p class="feature-title">${hotspotData.product_images_title_one}</p>` : ''}
+                    </div>
+                  ` : ''}
+                  ${hotspotData.product_image_two ? `
+                    <div class="feature-image-item">
+                      <img src="${hotspotData.product_image_two}" alt="${hotspotData.product_images_title_two || 'Feature 2'}" loading="lazy">
+                      ${hotspotData.product_images_title_two ? `<p class="feature-title">${hotspotData.product_images_title_two}</p>` : ''}
+                    </div>
+                  ` : ''}
+                  ${hotspotData.product_image_three ? `
+                    <div class="feature-image-item">
+                      <img src="${hotspotData.product_image_three}" alt="${hotspotData.product_images_title_three || 'Feature 3'}" loading="lazy">
+                      ${hotspotData.product_images_title_three ? `<p class="feature-title">${hotspotData.product_images_title_three}</p>` : ''}
+                    </div>
+                  ` : ''}
+                </div>
+              </div>
+            </div>
+          `;
+        }
+
         this.popupBody.innerHTML = `
           <div class="popup-product">
             <div class="popup-product-grid">
@@ -681,6 +722,7 @@
                 <div class="popup-product-description">
                   ${product.description}
                 </div>
+                ${featuresHTML}
               </div>
             </div>
           </div>
@@ -711,9 +753,9 @@
         const subtitle = this.popupBody.querySelector('.popup-product-subtitle');
         const title = this.popupBody.querySelector('.popup-product-title');
         const description = this.popupBody.querySelector('.popup-product-description');
-
+        const features = this.popupBody.querySelector('.popup-product-features');
         // Reset all transitions
-        [image, subtitle, title, description].forEach((el) => {
+        [image, subtitle, title, description, features].forEach((el) => {
           if (el) {
             el.style.transition = 'none';
             el.style.opacity = '0';
@@ -748,6 +790,12 @@
           description.style.opacity = '1';
           description.style.transform = 'translateY(0)';
         }
+
+        if (features) {
+          features.style.transition = 'opacity 0.5s ease 0.9s, transform 0.5s ease 0.9s';
+          features.style.opacity = '1';
+          features.style.transform = 'translateY(0)';
+        }
       }
 
       animatePopupContentOut() {
@@ -755,8 +803,22 @@
         const subtitle = this.popupBody.querySelector('.popup-product-subtitle');
         const title = this.popupBody.querySelector('.popup-product-title');
         const description = this.popupBody.querySelector('.popup-product-description');
-
+        const features = this.popupBody.querySelector('.popup-product-features');
         // Staggered transitions for closing (reverse order)
+        [features, description, title, subtitle, image].forEach((el) => {
+          if (el) {
+            el.style.transition = 'none';
+            el.style.opacity = '0';
+            el.style.transform = 'translateX(0) translateY(0)';
+          }
+        });
+
+        if (features) {
+          features.style.transition = 'opacity 0.3s ease 0.3s, transform 0.3s ease 0.3s';
+          features.style.opacity = '0';
+          features.style.transform = 'translateY(20px)';
+        }
+
         if (description) {
           description.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
           description.style.opacity = '0';
@@ -786,36 +848,53 @@
         if (!this.isPopupOpen) return;
 
         this.isPopupOpen = false;
+        this.isModalOpen = false;
 
         // Animate out the popup content first
         this.animatePopupContentOut();
 
-        // Close popup and overlay after content animation
+        // Get the stored angle and position from the overlay
+        const currentAngle = this.popupOverlay.style.getPropertyValue('--rotate') || '0deg';
+        const currentTop = this.popupOverlay.style.getPropertyValue('--top');
+        const currentLeft = this.popupOverlay.style.getPropertyValue('--left');
+
+        // Start closing animation after content begins fading
         setTimeout(() => {
           this.popup.style.opacity = '0';
           this.popupContent.style.opacity = '0';
           this.popupContent.style.transform = 'scale(0.9)';
           this.popupContent.style.pointerEvents = 'none';
 
-          // Reset overlay completely
-          this.popupOverlay.style.opacity = '0';
-          this.popupOverlay.style.transition = 'none';
-          this.popupOverlay.style.transform = 'translate(-50%, -50%) rotate(0deg) scaleX(0) scaleY(0)';
+          // STEP 1: Scale down from full screen to line (reverse of animatePopupScale)
+          this.popupOverlay.style.transition = 'transform 1.6s cubic-bezier(0.4, 0, 0.2, 1)';
 
-          document.body.style.overflow = 'auto';
+          const scaleX = this.viewportWidth * 0.025;
+          const scaleY = 4 / this.viewportHeight;
 
-          // Hide elements after transition
+          // Scale down to line state
+          this.popupOverlay.style.transform = `translate(-50%, -50%) rotate(${currentAngle}) scaleX(${Math.min(scaleX,1.5)}) scaleY(${Math.min(scaleY, 4)})`;
+
+          // STEP 2: After scaling to line, collapse the line (reverse of animatePopupLine)
+          setTimeout(() => {
+            this.popupOverlay.style.transition = 'transform 1.25s cubic-bezier(0, 0, 0.3, 1), opacity 0.3s ease 1s';
+            this.popupOverlay.style.transform = `translate(-50%, -50%) rotate(${currentAngle}) scaleX(0) scaleY(${Math.min(scaleY,4)})`;
+            this.popupOverlay.style.opacity = '0';
+          }, 1600);
+
+          // Hide elements after all animations complete
           setTimeout(() => {
             this.popup.style.display = 'none';
             this.popupOverlay.style.display = 'none';
             this.popup.dataset.popupOpen = 'false';
 
-            // Additional reset to ensure clean state for next hover
-            setTimeout(() => {
-              this.popupOverlay.style.transform = 'translate(-50%, -50%) rotate(0deg) scaleX(0) scaleY(0)';
-            }, 50);
-          }, 300);
-        }, 400);
+            // Complete reset for next interaction
+            this.popupOverlay.style.transition = 'none';
+            this.popupOverlay.style.opacity = '0';
+            this.popupOverlay.style.transform = 'translate(-50%, -50%) rotate(0deg) scaleX(0) scaleY(0)';
+            void this.popupOverlay.offsetHeight;
+            document.body.style.overflow = 'auto';
+          }, 2600); // 1600ms (scale) + 1250ms (line collapse) + 50ms buffer
+        }, 300);
       }
     }
 

@@ -99,7 +99,7 @@
   position: relative;
   margin: 0 auto;
   height: 100%;
-  aspect-ratio: 1/1;
+  /* aspect-ratio: 1/1; */
   object-fit: cover;
   display: flex;
   align-items: center;
@@ -537,7 +537,8 @@
 
 .popup-product-subtitle,
 .popup-product-title,
-.popup-product-description {
+.popup-product-description,
+.popup-product-features {
   opacity: 0;
   transform: translateY(20px);
 }
@@ -577,6 +578,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 29px;
   align-items: start;
+  display: flex;
 }
 
 .popup-product-image img {
@@ -589,6 +591,7 @@
   flex-direction: column;
   margin-top: 78px;
   padding-right: 20px;
+  width: 50%;
 }
 
 .popup-product-description p {
@@ -598,6 +601,77 @@
   font-size: 20px;
   line-height: 29px;
   letter-spacing: 0px;
+}
+
+.popup-product-features {
+  margin-top: 50px;
+}
+
+.features-heading {
+  font-family: "PPMonumentWide-Regular";
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 16px;
+  letter-spacing: 0px;
+  color: #ffffff;
+  margin-bottom: 21px;
+}
+
+.feature-title {
+  font-family: "SuisseIntl-Regular";
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0px;
+  color: #fffefa99;
+  margin-top: 18px;
+}
+
+.features-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.features-images {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+}
+.features-images::-webkit-scrollbar {
+  display: none;
+}
+
+.feature-image-item {
+  flex: 0 0 auto;
+  width: 230px;
+  height: 100%;
+  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .popup-product-features {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+  }
+
+  .features-heading {
+    font-size: 1.1rem;
+  }
+
+  .features-images {
+    gap: 11px;
+  }
+  .feature-image-item {
+    width: 186px;
+  }
 }
 
 .popup-section {
@@ -683,6 +757,7 @@
 
 .popup-product-image {
   line-height: 0;
+  width: 50%;
 }
 
 /* Responsive Design */
@@ -804,6 +879,15 @@
   .popup-product-grid {
     grid-template-columns: 1fr;
     gap: 0px;
+    flex-direction: column;
+  }
+
+  .popup-product-image {
+    width: 100%;
+  }
+
+  .popup-product-info {
+    width: 100%;
   }
 
   .popup-product-actions {
