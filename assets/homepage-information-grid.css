@@ -142,7 +142,7 @@
   height: auto;
   aspect-ratio: 388 / 295;
   object-fit: cover;
-  max-height: 195px;
+  max-height: 295px;
 }
 .explore-swiper .swiper-pagination {
   position: unset;
@@ -240,7 +240,7 @@
   .card-video {
     aspect-ratio: 276 / 247;
     object-fit: cover;
-    max-height: 247px;
+    max-height: 195px;
 }
   .card-text {
     font-size: 16px;
