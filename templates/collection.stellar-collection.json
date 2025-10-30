@@ -65,6 +65,14 @@
         "onload_animation": true
       }
     },
+    "interactive_showcase_DTazwL": {
+      "type": "interactive-showcase",
+      "name": "Interactive Showcase",
+      "settings": {
+        "main_heading": "Explore The Unexplored",
+        "main_subheading": "Await the night sky as it turns brighter and more breathtaking. Discover the timeless wonders of the universe with Titan Stellar. Inspired by the celestial beauty of supermoon, the star lit skies and the cosmic journey of a meteorite, each watch in this collection invites you to treasure an element of your being."
+      }
+    },
     "collection_information_with_video_jQnCm4": {
       "type": "collection-information-with-video",
       "name": "Information With Video",
@@ -134,6 +142,7 @@
     "product-grid",
     "hero_autoplay_video_QWYqeA",
     "split_loading_animation_wUFJQH",
+    "interactive_showcase_DTazwL",
     "collection_information_with_video_jQnCm4",
     "pdp_product_recommendation_bAJNRb",
     "collection_last_banner_d8DJCa"
