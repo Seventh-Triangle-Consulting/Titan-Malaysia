@@ -1,0 +1,1018 @@
+{{ 'interactive-showcase.css' | asset_url | stylesheet_tag }}
+
+{% assign slides = collection.metafields.custom.stellar_interactive_showcase.value %}
+{% if slides == blank %}
+  <div class="placeholder-section">
+    <p>Please add Interactive Slides to the collection metafield.</p>
+  </div>
+{% else %}
+  <section class="interactive-showcase" data-section-id="{{ section.id }}">
+    <div class="main-heading-container">
+      {% if section.settings.main_heading != blank %}
+        <h2 class="main-heading-title">{{ section.settings.main_heading }}</h2>
+      {% endif %}
+      {% if section.settings.main_subheading != blank %}
+        <p class="main-heading-subheading">{{ section.settings.main_subheading }}</p>
+      {% endif %}
+    </div>
+    <div class="showcase-container">
+      <!-- Slides Wrapper with Swiper -->
+      <div class="swiper main-slides-swiper">
+        <div class="swiper-wrapper">
+          {% for slide in slides %}
+            <div class="swiper-slide">
+              <div
+                class="showcase-slide"
+                data-slide-index="{{ forloop.index0 }}"
+              >
+                <!-- Unified Layout Container -->
+                <div class="image-grid-layout">
+                  {% for item in slide.small_image.value %}
+                    {% case forloop.index0 %}
+                      {% when 0 %}
+                        <!-- Grid Item 1 - Top Left (2x2) -->
+                        <div class="grid-item div1">
+                          <div class="grid-image-container">
+                            <img
+                              src="{{ item | image_url: width: 600 }}"
+                              class="grid-image"
+                              alt="{{ slide.title }} - Image 1"
+                              loading="lazy"
+                              width="{{ item.width }}"
+                              height="{{ item.height }}"
+                            >
+                          </div>
+                        </div>
+                      {% when 1 %}
+                        <!-- Grid Item 2 - Bottom Left (1x1) -->
+                        <div class="grid-item div2">
+                          <div class="grid-image-container">
+                            <img
+                              src="{{ item | image_url: width: 600 }}"
+                              class="grid-image"
+                              alt="{{ slide.title }} - Image 2"
+                              loading="lazy"
+                              width="{{ item.width }}"
+                              height="{{ item.height }}"
+                            >
+                          </div>
+                        </div>
+                      {% when 2 %}
+                        <!-- Grid Item 4 - Top Right (1x1) -->
+                        <div class="grid-item div4">
+                          <div class="grid-image-container">
+                            <img
+                              src="{{ item | image_url: width: 600 }}"
+                              class="grid-image"
+                              alt="{{ slide.title }} - Image 3"
+                              loading="lazy"
+                              width="{{ item.width }}"
+                              height="{{ item.height }}"
+                            >
+                          </div>
+                        </div>
+                      {% when 3 %}
+                        <!-- Grid Item 5 - Bottom Right (2x1) -->
+                        <div class="grid-item div5">
+                          <div class="grid-image-container">
+                            <img
+                              src="{{ item | image_url: width: 600 }}"
+                              class="grid-image"
+                              alt="{{ slide.title }} - Image 4"
+                              loading="lazy"
+                              width="{{ item.width }}"
+                              height="{{ item.height }}"
+                            >
+                          </div>
+                        </div>
+                    {% endcase %}
+                  {% endfor %}
+
+                  <!-- Grid Item 3 - Center Main Image (3x3) -->
+                  <div class="grid-item div3">
+                    <!-- Main Image with Hotspots -->
+                    <div class="slide-image-container">
+                      {% if slide.main_image %}
+                        <img
+                          src="{{ slide.main_image | image_url: width: 1920 }}"
+                          class="slide-image"
+                          alt="{{ slide.title }}"
+                          loading="lazy"
+                          width="{{ slide.main_image.width }}"
+                          height="{{ slide.main_image.height }}"
+                        >
+                      {% endif %}
+
+                      <!-- Hotspots -->
+                      {% if slide.hotspots.value %}
+                        <div class="hotspots-container">
+                          {% for hotspot_ref in slide.hotspots.value %}
+                            {% assign product_ref = hotspot_ref.product_reference.value %}
+                            {% if product_ref %}
+                              <div
+                                class="hotspot-btn"
+                                data-hotspot-index="{{ forloop.index0 }}"
+                                data-slide-index="{{ forloop.parentloop.index0 }}"
+                                data-product-handle="{{ product_ref.handle }}"
+                                style="
+                                  --desktop-x: {{ hotspot_ref.desktop_x }}%;
+                                  --desktop-y: {{ hotspot_ref.desktop_y }}%;
+                                  --tablet-x: {{ hotspot_ref.tablet_x }}%;
+                                  --tablet-y: {{ hotspot_ref.tablet_y }}%;
+                                  --mobile-x: {{ hotspot_ref.mobile_x }}%;
+                                  --mobile-y: {{ hotspot_ref.mobile_y }}%;
+                                "
+                                aria-label="View {{ hotspot_ref.name }}"
+                              >
+                                <span class="hotspot-icon">+</span>
+                                {% if hotspot_ref.name %}
+                                  <span class="hotspot-label">{{ hotspot_ref.name }}</span>
+                                {% endif %}
+                              </div>
+                            {% endif %}
+                          {% endfor %}
+                        </div>
+                      {% endif %}
+
+                      <!-- Slide Content Overlay -->
+                      <div class="slide-content-overlay">
+                        {% if slide.title %}
+                          <h1 class="slide-title">{{ slide.title }}</h1>
+                        {% endif %}
+                        {% if slide.subtitle %}
+                          <p class="slide-subtitle">{{ slide.subtitle }}</p>
+                        {% endif %}
+                        {% if slide.button_text and slide.button_link %}
+                          <div class="slide-actions">
+                            <a href="{{ slide.button_link }}" class="slide-btn btn-primary">
+                              {{ slide.button_text }}
+                            </a>
+                            <a href="{{ slide.button_link }}" class="slide-btn btn-secondary">ENQUIRE</a>
+                          </div>
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Small Images Swiper Container (Mobile Only) -->
+                  <div class="grid-item mobile-swiper-container">
+                    <div class="swiper mobile-small-images-swiper" data-slide-index="{{ forloop.index0 }}">
+                      <div class="swiper-wrapper">
+                        {% for item in slide.small_image.value %}
+                          <div class="swiper-slide">
+                            <img
+                              src="{{ item | image_url: width: 400 }}"
+                              class="grid-image"
+                              alt="{{ slide.title }} - Small Image {{ forloop.index }}"
+                              loading="lazy"
+                              width="{{ item.width }}"
+                              height="{{ item.height }}"
+                            >
+                          </div>
+                        {% endfor %}
+                      </div>
+                      <div class="swiper-scrollbar"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+
+        <!-- Navigation Arrows -->
+        <div class="slide-navigation">
+          <div class="slide-nav-btn slide-nav-prev swiper-button-prev" aria-label="Previous slide">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+              <foreignObject x="-40" y="-40" width="120" height="120"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(20px);clip-path:url(#bgblur_0_230_1223_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="40" cx="20" cy="20" r="19.25" transform="matrix(-1 0 0 1 40 0)" stroke="white" stroke-width="1.5"/>
+              <path d="M22.4482 13L15.3772 20.0711L22.4482 27.1421" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+              <defs>
+              <clipPath id="bgblur_0_230_1223_clip_path" transform="translate(40 40)"><circle cx="20" cy="20" r="19.25" transform="matrix(-1 0 0 1 40 0)"/>
+              </clipPath></defs>
+            </svg>
+          </div>
+          <div class="slide-nav-btn slide-nav-next swiper-button-next" aria-label="Next slide">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+              <foreignObject x="-40" y="-40" width="120" height="120"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(20px);clip-path:url(#bgblur_0_230_1226_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="40" cx="20" cy="20" r="19.25" stroke="white" stroke-width="1.5"/>
+              <path d="M17.5518 13L24.6228 20.0711L17.5518 27.1421" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+              <defs>
+              <clipPath id="bgblur_0_230_1226_clip_path" transform="translate(40 40)"><circle cx="20" cy="20" r="19.25"/>
+              </clipPath></defs>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Popup Modal -->
+    <div class="popup-overlay"></div>
+    <div class="product-popup" data-popup-open="false">
+      <div class="popup-content">
+        <button class="popup-close" aria-label="Close popup">
+          <p class="popup-close-text">Close</p>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+
+        <div class="popup-body">
+          <!-- Dynamic product content will be loaded here -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Preload Product Data -->
+  <script type="application/json" data-showcase-products>
+    {
+      {% for slide in slides %}
+        "slide-{{ forloop.index0 }}": [
+          {% if slide.hotspots.value %}
+            {% for hotspot_ref in slide.hotspots.value %}
+              {% if hotspot_ref.product_reference.value %}
+                {
+                  "id": {{ hotspot_ref.product_reference.value.id | json }},
+                  "title": {{ hotspot_ref.product_reference.value.title | json }},
+                  "handle": {{ hotspot_ref.product_reference.value.handle | json }},
+                  "price": {{ hotspot_ref.product_reference.value.price | json }},
+                  "compare_at_price": {{ hotspot_ref.product_reference.value.compare_at_price | json }},
+                  "available": {{ hotspot_ref.product_reference.value.available | json }},
+                  "featured_image": {{ hotspot_ref.product_reference.value.featured_image | image_url: width: 800 | json }},
+                  "url": {{ hotspot_ref.product_reference.value.url | json }},
+                  "vendor": {{ hotspot_ref.product_reference.value.vendor | json }},
+                  "description": {{ hotspot_ref.product_reference.value.description | strip_html | truncatewords: 30 | json }},
+                  "product_image_one": {% if hotspot_ref.product_images_one.value != blank %}{{ hotspot_ref.product_images_one.value | image_url: width: 250 | json }}{% else %}null{% endif %},
+                  "product_image_two": {% if hotspot_ref.product_images_two.value != blank %}{{ hotspot_ref.product_images_two.value | image_url: width: 250 | json }}{% else %}null{% endif %},
+                  "product_image_three": {% if hotspot_ref.product_images_three.value != blank %}{{ hotspot_ref.product_images_three.value | image_url: width: 250 | json }}{% else %}null{% endif %},
+                  "product_images_title_one": {% if hotspot_ref.product_images_title_one.value != blank %}{{ hotspot_ref.product_images_title_one.value | json }}{% else %}null{% endif %},
+                  "product_images_title_two": {% if hotspot_ref.product_images_title_two.value != blank %}{{ hotspot_ref.product_images_title_two.value | json }}{% else %}null{% endif %},
+                  "product_images_title_three": {% if hotspot_ref.product_images_title_three.value != blank %}{{ hotspot_ref.product_images_title_three.value | json }}{% else %}null{% endif %},
+                  "hotspot_name": {{ hotspot_ref.name | json }},
+                  "hotspot_index": {{ forloop.index0 }},
+                  "slide_index": {{ forloop.parentloop.index0 }}
+                }{% unless forloop.last %},{% endunless %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        ]{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    }
+  </script>
+
+  <script>
+    class InteractiveShowcase {
+      constructor(container) {
+        this.container = container;
+        this.popup = container.querySelector('.product-popup');
+        this.popupContent = this.popup.querySelector('.popup-content');
+        this.popupOverlay = document.querySelector('.popup-overlay');
+        this.popupBody = this.popup.querySelector('.popup-body');
+        this.mainSwiper = null;
+        this.viewportWidth = window.innerWidth;
+        this.viewportHeight = window.innerHeight;
+        this.isPopupOpen = false;
+        this.isModalOpen = false;
+        this.init();
+
+        // Current hotspot tracking
+        this.currentHotspot = null;
+        this.currentSlideIndex = null;
+        this.currentHotspotIndex = null;
+        this.allHotspots = this.getAllHotspots();
+      }
+
+      init() {
+        this.initMainSwiper();
+        this.bindEvents();
+      }
+
+      getAllHotspots() {
+        const hotspots = [];
+        // Try to find the JSON script within the section first, then fall back to the document
+        const productDataScript =
+          this.container.querySelector('[data-showcase-products]') ||
+          document.querySelector('[data-showcase-products]');
+
+        if (!productDataScript || !productDataScript.textContent) {
+          return hotspots;
+        }
+
+        let productData;
+        try {
+          productData = JSON.parse(productDataScript.textContent);
+        } catch (parseError) {
+          console.error('Failed to parse showcase product data JSON:', parseError);
+          return hotspots;
+        }
+
+        if (!productData || typeof productData !== 'object') {
+          return hotspots;
+        }
+
+        Object.keys(productData).forEach((slideKey) => {
+          const slideIndex = parseInt(slideKey.split('-')[1]);
+          const slideHotspots = Array.isArray(productData[slideKey]) ? productData[slideKey] : [];
+
+          slideHotspots.forEach((hotspot, index) => {
+            hotspots.push({
+              ...hotspot,
+              slideIndex,
+              hotspotIndex: index,
+              element: this.container.querySelector(
+                `[data-slide-index="${slideIndex}"][data-hotspot-index="${index}"]`
+              ),
+            });
+          });
+        });
+
+        return hotspots;
+      }
+
+      getCurrentHotspotData() {
+        if (this.currentSlideIndex === null || this.currentHotspotIndex === null) return null;
+
+        const productDataScript =
+          this.container.querySelector('[data-showcase-products]') ||
+          document.querySelector('[data-showcase-products]');
+
+        if (!productDataScript || !productDataScript.textContent) return null;
+
+        let productData;
+        try {
+          productData = JSON.parse(productDataScript.textContent);
+        } catch (parseError) {
+          console.error('Failed to parse showcase product data JSON:', parseError);
+          return null;
+        }
+
+        const slideKey = `slide-${this.currentSlideIndex}`;
+        const slideHotspots = Array.isArray(productData?.[slideKey]) ? productData[slideKey] : [];
+        return slideHotspots[this.currentHotspotIndex] || null;
+      }
+
+      getAdjacentHotspots(direction) {
+        if (!Array.isArray(this.allHotspots) || this.allHotspots.length === 0) return null;
+
+        const currentIndex = this.allHotspots.findIndex(
+          (hotspot) =>
+            hotspot.slideIndex === this.currentSlideIndex && hotspot.hotspotIndex === this.currentHotspotIndex
+        );
+
+        if (currentIndex === -1) return null;
+
+        if (direction === 'next') {
+          return currentIndex < this.allHotspots.length - 1 ? this.allHotspots[currentIndex + 1] : null;
+        } else {
+          return currentIndex > 0 ? this.allHotspots[currentIndex - 1] : null;
+        }
+      }
+
+      updatePopupNavigation() {
+        const prevHotspot = this.getAdjacentHotspots('prev');
+        const nextHotspot = this.getAdjacentHotspots('next');
+
+        // Get navigation elements from within popup-product-info
+        const popupNavPrev = this.popupBody.querySelector('.popup-nav-prev');
+        const popupNavNext = this.popupBody.querySelector('.popup-nav-next');
+        const prevTooltip = this.popupBody.querySelector('.popup-nav-tooltip.previous .popup-nav-title');
+        const nextTooltip = this.popupBody.querySelector('.popup-nav-tooltip.next .popup-nav-title');
+
+        // Update prev button
+        if (popupNavPrev) {
+          if (prevHotspot) {
+            popupNavPrev.disabled = false;
+            if (prevTooltip) {
+              prevTooltip.textContent = prevHotspot.hotspot_name || prevHotspot.title;
+            }
+          } else {
+            popupNavPrev.disabled = true;
+            if (prevTooltip) {
+              prevTooltip.textContent = '';
+            }
+          }
+        }
+
+        // Update next button tooltip title
+        if (popupNavNext) {
+          if (nextHotspot) {
+            popupNavNext.disabled = false;
+            if (nextTooltip) {
+              nextTooltip.textContent = nextHotspot.hotspot_name || nextHotspot.title;
+            }
+          } else {
+            popupNavNext.disabled = true;
+            if (nextTooltip) {
+              nextTooltip.textContent = '';
+            }
+          }
+        }
+      }
+
+      initMainSwiper() {
+        const swiperEl = this.container.querySelector('.main-slides-swiper');
+        if (swiperEl) {
+          this.mainSwiper = new Swiper(swiperEl, {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            navigation: {
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            },
+            loop: false,
+            allowTouchMove: true,
+          });
+        }
+      }
+
+      bindEvents() {
+        // Hotspot clicks
+        this.container.querySelectorAll('.hotspot-btn').forEach((btn) => {
+          btn.addEventListener('click', (e) => this.handleHotspotClick(e));
+          btn.addEventListener('mouseenter', (e) => this.handleHotspotHover(e));
+          btn.addEventListener('mouseleave', (e) => this.handleHotspotLeave(e));
+        });
+
+        // Popup controls
+        const closeBtn = this.popup.querySelector('.popup-close');
+
+        if (closeBtn) {
+          closeBtn.addEventListener('click', () => this.closePopup());
+        }
+
+        if (this.popupOverlay) {
+          this.popupOverlay.addEventListener('click', () => this.closePopup());
+        }
+
+        // ESC key to close popup
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && this.isPopupOpen) {
+            this.closePopup();
+          }
+        });
+
+        // Delegate popup navigation events since elements are dynamically created
+        this.popupBody.addEventListener('click', (e) => {
+          if (e.target.closest('.popup-nav-prev')) {
+            this.navigateToAdjacentHotspot(e, 'prev');
+          }
+          if (e.target.closest('.popup-nav-next')) {
+            this.navigateToAdjacentHotspot(e, 'next');
+          }
+        });
+      }
+
+      async navigateToAdjacentHotspot(e, direction) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const adjacentHotspot = this.getAdjacentHotspots(direction);
+        if (!adjacentHotspot) return;
+
+        // Update current tracking
+        this.currentSlideIndex = adjacentHotspot.slideIndex;
+        this.currentHotspotIndex = adjacentHotspot.hotspotIndex;
+
+        // Show loading state
+        this.showLoadingState();
+
+        // Load and display the product data
+        await this.loadProductData(adjacentHotspot.handle, adjacentHotspot.hotspot_name);
+
+        // Update navigation
+        this.updatePopupNavigation();
+
+        this.animatePopupContentIn();
+      }
+
+      showLoadingState() {
+        this.popupBody.innerHTML = `
+          <div class="popup-loading">
+            <div class="loading-spinner"></div>
+          </div>
+        `;
+      }
+
+      getRandomAngle() {
+        const angle = Math.random() < 0.5 ? Math.random() * 30 : 150 + Math.random() * 50;
+        return `${angle}deg`;
+      }
+
+      handleHotspotHover(e) {
+        const btn = e.currentTarget;
+        // Calculate random angle between 0 and 180 degrees for visual feedback
+        const randomAngle = this.getRandomAngle();
+        btn.style.setProperty('--hotspot-angle', randomAngle);
+
+        // Only show line animation on hover, not full overlay
+        if (!this.isPopupOpen) {
+          this.animatePopupLine(btn);
+        }
+      }
+
+      async animatePopupLine(hotspotBtn) {
+        // Get the hotspot position and dimensions
+        const hotspotRect = hotspotBtn.getBoundingClientRect();
+
+        // Calculate the center of the hotspot
+        const hotspotCenterX = hotspotRect.left + hotspotRect.width / 2;
+        const hotspotCenterY = hotspotRect.top + hotspotRect.height / 2;
+
+        const scaleX = this.viewportWidth * 0.025;
+        const scaleY = 4 / this.viewportHeight;
+
+        // Get the random angle from the hotspot
+        const angle = hotspotBtn.style.getPropertyValue('--hotspot-angle') || '0deg';
+
+        // Reset and prepare the popup overlay for line animation
+        this.popupOverlay.style.setProperty('--top', `${hotspotCenterY}px`);
+        this.popupOverlay.style.setProperty('--left', `${hotspotCenterX}px`);
+        this.popupOverlay.style.opacity = '1';
+
+        this.popupOverlay.style.transition = 'none';
+        this.popupOverlay.style.transform = `translate(-50%, -50%) rotate(${angle}) scaleX(0) scaleY(${Math.min(
+          scaleY,
+          4
+        )})`;
+
+        // Force a reflow to ensure the styles are applied
+        void this.popupOverlay.offsetHeight;
+
+        // Trigger the line animation (only horizontal expansion)
+        this.popupOverlay.style.transition = `transform 1.25s cubic-bezier(0, 0, 0.3, 1)`;
+
+        this.popupOverlay.style.transform = `translate(-50%, -50%) rotate(${angle}) scaleX(${Math.min(
+          scaleX,
+          1.5
+        )}) scaleY(${Math.min(scaleY, 4)})`;
+      }
+
+      async handleHotspotClick(e) {
+        this.isModalOpen = true;
+        e.preventDefault();
+        e.stopPropagation();
+
+        const btn = e.currentTarget;
+        const productHandle = btn.dataset.productHandle;
+        const hotspotName = btn.querySelector('.hotspot-label')?.textContent || '';
+        const slideIndex = parseInt(btn.dataset.slideIndex);
+        const hotspotIndex = parseInt(btn.dataset.hotspotIndex);
+        document.body.style.overflow = 'hidden';
+
+        // Store current hotspot info
+        this.currentHotspot = btn;
+        this.currentSlideIndex = slideIndex;
+        this.currentHotspotIndex = hotspotIndex;
+
+        this.animatePopupScale(btn);
+
+        // Show loading state in popup
+        this.showLoadingState();
+
+        if (productHandle) {
+          // Load product data and open popup after animation starts
+          await this.loadProductData(productHandle, hotspotName);
+
+          // Update navigation
+          this.updatePopupNavigation();
+
+          // Delay popup opening slightly to sync with animation
+          setTimeout(() => {
+            this.openPopup();
+          }, 300);
+        }
+      }
+
+      animatePopupScale(hotspotBtn) {
+        this.isModalOpen = true;
+        // Get the hotspot position and dimensions
+        const hotspotRect = hotspotBtn.getBoundingClientRect();
+
+        // Calculate the center of the hotspot
+        const hotspotCenterX = hotspotRect.left + hotspotRect.width / 2;
+        const hotspotCenterY = hotspotRect.top + hotspotRect.height / 2;
+
+        // Get the random angle from the hotspot
+        const angle = hotspotBtn.style.getPropertyValue('--hotspot-angle') || '0deg';
+
+        // Reset and prepare for scale animation
+        this.popupOverlay.style.setProperty('--top', `${hotspotCenterY}px`);
+        this.popupOverlay.style.setProperty('--left', `${hotspotCenterX}px`);
+        this.popupOverlay.style.opacity = '1';
+        this.popupOverlay.style.setProperty('--rotate', `${angle}`);
+
+        // Start from the line state and scale to full screen
+        this.popupOverlay.style.transform = `translate(-50%, -50%) rotate(${angle}) scaleX(0.15) scaleY(0.002)`;
+
+        // Trigger the scale animation
+        this.popupOverlay.style.transition = 'transform 1.6s cubic-bezier(0.4, 0, 0.2, 1)';
+
+        // Calculate scale factors to cover entire viewport
+        const scaleX = Math.max(this.viewportWidth / 10, 1);
+        const scaleY = Math.max(this.viewportHeight / 10, 1);
+
+        this.popupOverlay.style.transform = `translate(-50%, -50%) rotate(${angle}) scaleX(${Math.min(
+          scaleX,
+          4
+        )}) scaleY(${Math.min(scaleY, 4)})`;
+      }
+
+      handleHotspotLeave(e) {
+        if (!this.isPopupOpen && !this.isModalOpen) {
+          // Reset the overlay completely when mouse leaves (if popup not open)
+          this.popupOverlay.style.opacity = '0';
+          this.popupOverlay.style.transition = 'none';
+          this.popupOverlay.style.transform = 'translate(-50%, -50%) rotate(0deg) scaleX(0) scaleY(0)';
+        }
+      }
+
+      async loadProductData(productHandle, hotspotName) {
+        try {
+          // Fetch product data from Shopify AJAX API
+          const response = await fetch(`/products/${productHandle}.js`);
+          const product = await response.json();
+
+          // Get the current hotspot data with feature images
+          const hotspotData = this.getCurrentHotspotData();
+
+          this.updatePopupContent(product, hotspotName, hotspotData);
+        } catch (error) {
+          console.error('Error loading product data:', error);
+          this.popupBody.innerHTML = `
+            <div class="popup-error">
+              <p>Error loading product information. Please try again.</p>
+            </div>
+          `;
+        }
+      }
+
+      updatePopupContent(product, hotspotName, hotspotData) {
+        // Build features section if data exists
+        let featuresHTML = '';
+        if (hotspotData && (hotspotData.product_image_one || hotspotData.product_image_two || hotspotData.product_image_three)) {
+          featuresHTML = `
+            <div class="popup-product-features">
+              <h4 class="features-heading">Designed in detail, crafted with purpose</h4>
+              <div class="features-content">
+                <div class="features-images">
+                  ${hotspotData.product_image_one ? `
+                    <div class="feature-image-item">
+                      <img src="${hotspotData.product_image_one}" alt="${hotspotData.product_images_title_one || 'Feature 1'}" loading="lazy">
+                      ${hotspotData.product_images_title_one ? `<p class="feature-title">${hotspotData.product_images_title_one}</p>` : ''}
+                    </div>
+                  ` : ''}
+                  ${hotspotData.product_image_two ? `
+                    <div class="feature-image-item">
+                      <img src="${hotspotData.product_image_two}" alt="${hotspotData.product_images_title_two || 'Feature 2'}" loading="lazy">
+                      ${hotspotData.product_images_title_two ? `<p class="feature-title">${hotspotData.product_images_title_two}</p>` : ''}
+                    </div>
+                  ` : ''}
+                  ${hotspotData.product_image_three ? `
+                    <div class="feature-image-item">
+                      <img src="${hotspotData.product_image_three}" alt="${hotspotData.product_images_title_three || 'Feature 3'}" loading="lazy">
+                      ${hotspotData.product_images_title_three ? `<p class="feature-title">${hotspotData.product_images_title_three}</p>` : ''}
+                    </div>
+                  ` : ''}
+                </div>
+              </div>
+            </div>
+          `;
+        }
+
+        // Get adjacent hotspots for navigation
+        const prevHotspot = this.getAdjacentHotspots('prev');
+        const nextHotspot = this.getAdjacentHotspots('next');
+
+        this.popupBody.innerHTML = `
+          <div class="popup-product">
+            <div class="popup-product-grid">
+              <div class="popup-product-image">
+                <img src="${product.featured_image}" alt="${product.title}" loading="lazy">
+              </div>
+
+              <div class="popup-product-info">
+                <div class="popup-header">
+                  ${hotspotName ? `<h2 class="popup-product-subtitle">${hotspotName}</h2>` : ''}
+                  <h3 class="popup-product-title">${product.title}</h3>
+                </div>
+                <div class="popup-product-description">
+                  ${product.description}
+                </div>
+
+                ${featuresHTML}
+                
+                <!-- Popup Navigation inside popup-product-info -->
+                <div class="popup-navigation">
+                  <div class="popup-nav-item">
+                    <button class="popup-nav-btn popup-nav-prev" aria-label="Previous product" ${!prevHotspot ? 'disabled' : ''}>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <foreignObject x="-40" y="-40" width="120" height="120"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(20px);clip-path:url(#bgblur_0_3915_731_clip_path);height:100%;width:100%"></div></foreignObject>
+                        <circle data-figma-bg-blur-radius="40" cx="20" cy="20" r="19.25" transform="matrix(-1 0 0 1 40 0)" stroke="white" stroke-width="1.5"/>
+                        <path d="M22.4482 13L15.3772 20.0711L22.4482 27.1421" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+                        <defs>
+                          <clipPath id="bgblur_0_3915_731_clip_path" transform="translate(40 40)">
+                            <circle cx="20" cy="20" r="19.25" transform="matrix(-1 0 0 1 40 0)"/>
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </button>
+                    <div class="popup-nav-tooltip previous">
+                      <span class="popup-nav-title">${prevHotspot ? (prevHotspot.hotspot_name || prevHotspot.title) : ''}</span>
+                    </div>
+                  </div>
+                  <div class="popup-nav-item">
+                    <div class="popup-nav-tooltip next">
+                      <span class="popup-nav-title">${nextHotspot ? (nextHotspot.hotspot_name || nextHotspot.title) : ''}</span>
+                    </div>
+                    <button class="popup-nav-btn popup-nav-next" aria-label="Next product" ${!nextHotspot ? 'disabled' : ''}>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <foreignObject x="-40" y="-40" width="120" height="120"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(20px);clip-path:url(#bgblur_0_3915_705_clip_path);height:100%;width:100%"></div></foreignObject>
+                        <circle data-figma-bg-blur-radius="40" cx="20" cy="20" r="19.25" stroke="white" stroke-width="1.5"/>
+                        <path d="M17.5518 13L24.6228 20.0711L17.5518 27.1421" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+                        <defs>
+                          <clipPath id="bgblur_0_3915_705_clip_path" transform="translate(40 40)">
+                            <circle cx="20" cy="20" r="19.25"/>
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      openPopup() {
+        this.isPopupOpen = true;
+        this.popup.dataset.popupOpen = 'true';
+        this.popup.style.display = 'block';
+        this.popupOverlay.style.display = 'block';
+
+        // Force reflow
+        this.popup.offsetHeight;
+
+        this.popup.style.opacity = '1';
+        this.popupContent.style.opacity = '1';
+        this.popupContent.style.transform = 'scale(1)';
+        this.popupContent.style.pointerEvents = 'auto';
+        document.body.style.overflow = 'hidden';
+
+        // Animate in the popup content with staggered transitions
+        this.animatePopupContentIn();
+      }
+
+      animatePopupContentIn() {
+        const image = this.popupBody.querySelector('.popup-product-image');
+        const subtitle = this.popupBody.querySelector('.popup-product-subtitle');
+        const title = this.popupBody.querySelector('.popup-product-title');
+        const description = this.popupBody.querySelector('.popup-product-description');
+        const features = this.popupBody.querySelector('.popup-product-features');
+        const navigation = this.popupBody.querySelector('.popup-navigation');
+        
+        // Reset all transitions
+        [image, subtitle, title, description, features, navigation].forEach((el) => {
+          if (el) {
+            el.style.transition = 'none';
+            el.style.opacity = '0';
+            el.style.transform = 'translateX(0) translateY(0)';
+          }
+        });
+
+        // Force reflow
+        this.popupBody.offsetHeight;
+
+        // Staggered transitions for each element
+        if (image) {
+          image.style.transition = 'opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s';
+          image.style.opacity = '1';
+          image.style.transform = 'translateX(0)';
+        }
+
+        if (subtitle) {
+          subtitle.style.transition = 'opacity 0.5s ease 0.5s, transform 0.5s ease 0.5s';
+          subtitle.style.opacity = '1';
+          subtitle.style.transform = 'translateY(0)';
+        }
+
+        if (title) {
+          title.style.transition = 'opacity 0.5s ease 0.7s, transform 0.5s ease 0.7s';
+          title.style.opacity = '1';
+          title.style.transform = 'translateY(0)';
+        }
+
+        if (description) {
+          description.style.transition = 'opacity 0.5s ease 0.9s, transform 0.5s ease 0.9s';
+          description.style.opacity = '1';
+          description.style.transform = 'translateY(0)';
+        }
+
+        if (navigation) {
+          navigation.style.transition = 'opacity 0.5s ease 1.1s, transform 0.5s ease 1.1s';
+          navigation.style.opacity = '1';
+          navigation.style.transform = 'translateY(0)';
+        }
+
+        if (features) {
+          features.style.transition = 'opacity 0.5s ease 1.3s, transform 0.5s ease 1.3s';
+          features.style.opacity = '1';
+          features.style.transform = 'translateY(0)';
+        }
+      }
+
+      animatePopupContentOut() {
+        const image = this.popupBody.querySelector('.popup-product-image');
+        const subtitle = this.popupBody.querySelector('.popup-product-subtitle');
+        const title = this.popupBody.querySelector('.popup-product-title');
+        const description = this.popupBody.querySelector('.popup-product-description');
+        const features = this.popupBody.querySelector('.popup-product-features');
+        const navigation = this.popupBody.querySelector('.popup-navigation');
+        
+        // Staggered transitions for closing (reverse order)
+        [navigation, features, description, title, subtitle, image].forEach((el) => {
+          if (el) {
+            el.style.transition = 'none';
+            el.style.opacity = '0';
+            el.style.transform = 'translateX(0) translateY(0)';
+          }
+        });
+
+        if (navigation) {
+          navigation.style.transition = 'opacity 0.3s ease 0.2s, transform 0.3s ease 0.2s';
+          navigation.style.opacity = '0';
+          navigation.style.transform = 'translateY(20px)';
+        }
+
+        if (features) {
+          features.style.transition = 'opacity 0.3s ease 0.2s, transform 0.3s ease 0.2s';
+          features.style.opacity = '0';
+          features.style.transform = 'translateY(20px)';
+        }
+
+        if (description) {
+          description.style.transition = 'opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s';
+          description.style.opacity = '0';
+          description.style.transform = 'translateY(20px)';
+        }
+
+        if (title) {
+          title.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+          title.style.opacity = '0';
+          title.style.transform = 'translateY(20px)';
+        }
+
+        if (subtitle) {
+          subtitle.style.transition = 'opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s';
+          subtitle.style.opacity = '0';
+          subtitle.style.transform = 'translateY(20px)';
+        }
+
+        if (image) {
+          image.style.transition = 'opacity 0.4s ease 0.3s, transform 0.4s ease 0.3s';
+          image.style.opacity = '0';
+          image.style.transform = 'translateX(-50px)';
+        }
+      }
+
+      closePopup() {
+        if (!this.isPopupOpen) return;
+
+        this.isPopupOpen = false;
+        this.isModalOpen = false;
+
+        // Animate out the popup content first
+        this.animatePopupContentOut();
+
+        // Get the stored angle and position from the overlay
+        const currentAngle = this.popupOverlay.style.getPropertyValue('--rotate') || '0deg';
+        const currentTop = this.popupOverlay.style.getPropertyValue('--top');
+        const currentLeft = this.popupOverlay.style.getPropertyValue('--left');
+
+        // Start closing animation after content begins fading
+        setTimeout(() => {
+          this.popup.style.opacity = '0';
+          this.popupContent.style.opacity = '0';
+          this.popupContent.style.transform = 'scale(0.9)';
+          this.popupContent.style.pointerEvents = 'none';
+
+          // STEP 1: Scale down from full screen to line (reverse of animatePopupScale)
+          this.popupOverlay.style.transition = 'transform 1.6s cubic-bezier(0.4, 0, 0.2, 1)';
+
+          const scaleX = this.viewportWidth * 0.025;
+          const scaleY = 4 / this.viewportHeight;
+
+          // Scale down to line state
+          this.popupOverlay.style.transform = `translate(-50%, -50%) rotate(${currentAngle}) scaleX(${Math.min(scaleX,1.5)}) scaleY(${Math.min(scaleY, 4)})`;
+
+          // STEP 2: After scaling to line, collapse the line (reverse of animatePopupLine)
+          setTimeout(() => {
+            this.popupOverlay.style.transition = 'transform 1.25s cubic-bezier(0, 0, 0.3, 1), opacity 0.3s ease 1s';
+            this.popupOverlay.style.transform = `translate(-50%, -50%) rotate(${currentAngle}) scaleX(0) scaleY(${Math.min(scaleY,4)})`;
+            this.popupOverlay.style.opacity = '0';
+          }, 1600);
+
+          // Hide elements after all animations complete
+          setTimeout(() => {
+            this.popup.style.display = 'none';
+            this.popupOverlay.style.display = 'none';
+            this.popup.dataset.popupOpen = 'false';
+
+            // Complete reset for next interaction
+            this.popupOverlay.style.transition = 'none';
+            this.popupOverlay.style.opacity = '0';
+            this.popupOverlay.style.transform = 'translate(-50%, -50%) rotate(0deg) scaleX(0) scaleY(0)';
+            void this.popupOverlay.offsetHeight;
+            document.body.style.overflow = 'auto';
+          }, 2600); // 1600ms (scale) + 1250ms (line collapse) + 50ms buffer
+        }, 300);
+      }
+    }
+
+    // Initialize all showcases on page
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.interactive-showcase').forEach((showcase) => {
+        new InteractiveShowcase(showcase);
+      });
+    });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Initialize Swiper only on mobile screens
+      function initMobileSwipers() {
+        if (window.innerWidth <= 1024) {
+          const swipers = document.querySelectorAll('.mobile-small-images-swiper');
+
+          swipers.forEach((swiperEl) => {
+            // Destroy existing instance if any
+            if (swiperEl.swiper) {
+              swiperEl.swiper.destroy(true, true);
+            }
+
+            // Initialize new Swiper
+            new Swiper(swiperEl, {
+              slidesPerView: 3.5,
+              spaceBetween: 3,
+              freeMode: true,
+              scrollbar: {
+                el: '.swiper-scrollbar',
+                draggable: true,
+                dragSize: 'auto',
+              },
+              breakpoints: {
+                320: {
+                  slidesPerView: 2.5,
+                  spaceBetween: 3,
+                },
+                480: {
+                  slidesPerView: 4,
+                  spaceBetween: 3,
+                },
+              },
+            });
+          });
+        }
+      }
+
+      // Initialize on load
+      initMobileSwipers();
+
+      // Re-initialize on window resize
+      let resizeTimer;
+      window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () {
+          initMobileSwipers();
+        }, 250);
+      });
+    });
+  </script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Interactive Showcase",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "This section displays interactive slides from the collection's 'sasas' metafield. Configure the metafield in your collection settings."
+    },
+    {
+      "type": "text",
+      "id": "main_heading",
+      "label": "Main Heading"
+    },
+    {
+      "type": "text",
+      "id": "main_subheading",
+      "label": "Main Subheading"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Interactive Showcase"
+    }
+  ]
+}
+{% endschema %}
