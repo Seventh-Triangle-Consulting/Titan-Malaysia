@@ -3,430 +3,496 @@
 {% endcomment %}
 
 <style>
-  .stellar-custom-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    backdrop-filter: blur(40px);
-    background: #00000066;
-    padding: 30px 0;
-    transition: all 0.3s ease;
-  }
-  .stellar-custom-header:hover{
-     background: #000000CC;
-  }
+                .stellar-custom-header {
+                  position: fixed;
+                  top: 0;
+                  left: 0;
+                  right: 0;
+                  z-index: 100;
+                  backdrop-filter: blur(40px);
+                  background: #00000066;
+                  padding: 30px 0;
+                  transition: all 0.3s ease;
+                }
+                .stellar-custom-header:hover{
+                   background: #000000CC;
+                }
 
-  /* Prevent body scroll when drawer is open */
-  body.drawer-open {
-    overflow: hidden !important;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-  }
-  
-  /* Hide header-drawer summary button on stellar pages */
-  header-drawer summary.header__icon--menu {
-    display: none !important;
-  }
-  
-  /* Hide the image banner at top of drawer */
-  .menu-drawer__inner-container > *:first-child:not(.menu-drawer__navigation-container) {
-    display: none !important;
-  }
-  
-  /* Hide any promotional banner images */
-  .menu-drawer__utility-links ~ div:not(.menu-drawer__navigation-container),
-  .menu-drawer img[src*="banner"],
-  .menu-drawer .promotional-banner,
-  .menu-drawer__banner {
-    display: none !important;
-  }
-  
-  /* Stellar Drawer Styles with Slide Transition */
-  header-drawer.stellar-header-drawer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 99999999999;
-    pointer-events: none;
-  }
-  
-  .stellar-header-drawer .menu-drawer-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .stellar-header-drawer #menu-drawer {
-    position: fixed;
-    top: 0;
-    left: -100%;
-    width: 480px;
-    max-width: 85vw;
-    height: 100vh;
-    background: #000;
-    z-index: 10000;
-    overflow-y: auto;
-    transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    pointer-events: all;
-    padding: 30px 40px;
-    
-    /* Hide scrollbar for Chrome, Safari, and Opera */
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
-  }
+                /* Prevent body scroll when drawer is open */
+                body.drawer-open {
+                  overflow: hidden !important;
+                  position: fixed;
+                  width: 100%;
+                  height: 100%;
+                }
 
-  .stellar-header-drawer #menu-drawer::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
-  }
+                /* Hide header-drawer summary button on stellar pages */
+                header-drawer summary.header__icon--menu {
+                  display: none !important;
+                }
 
-  /* Drawer overlay */
-  .stellar-header-drawer .menu-drawer-container::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.4s ease, visibility 0.4s ease;
-    pointer-events: none;
-    z-index: 9999;
-  }
+                /* Hide the image banner at top of drawer */
+                .menu-drawer__inner-container > *:first-child:not(.menu-drawer__navigation-container) {
+                  display: none !important;
+                }
 
-  /* Open state */
-  .stellar-header-drawer .menu-drawer-container[open] {
-    pointer-events: all;
-  }
+                /* Hide any promotional banner images */
+                .menu-drawer__utility-links ~ div:not(.menu-drawer__navigation-container),
+                .menu-drawer img[src*="banner"],
+                .menu-drawer .promotional-banner,
+                .menu-drawer__banner {
+                  display: none !important;
+                }
 
-  .stellar-header-drawer .menu-drawer-container[open]::before {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: all;
-  }
+                /* Stellar Drawer Styles with Slide Transition */
+                header-drawer.stellar-header-drawer {
+                  position: fixed;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100vh;
+                  z-index: 99999999999;
+                  pointer-events: none;
+                }
 
-  .stellar-header-drawer .menu-drawer-container[open] #menu-drawer {
-    left: 0;
-  }
+                .stellar-header-drawer .menu-drawer-container {
+                  position: relative;
+                  width: 100%;
+                  height: 100%;
+                }
 
-  /* Close button */
-  .stellar-drawer-close {
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    cursor: pointer;
-    padding: 0;
-    z-index: 10001;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-  }
+                .stellar-header-drawer #menu-drawer {
+                  position: fixed;
+                  top: 0;
+                  left: -100%;
+                  width: 480px;
+                  max-width: 85vw;
+                  height: 100vh;
+                  background: #000;
+                  z-index: 10000;
+                  overflow-y: auto;
+                  transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                  pointer-events: all;
+                  padding: 30px 40px;
 
-  .stellar-drawer-close:hover {
-    background: rgba(95, 210, 255, 0.1);
-    border-color: #5fd2ff;
-  }
+                  /* Hide scrollbar for Chrome, Safari, and Opera */
+                  scrollbar-width: none; /* Firefox */
+                  -ms-overflow-style: none; /* IE and Edge */
+                }
 
-  .stellar-drawer-close svg {
-    width: 16px;
-    height: 16px;
-    stroke: #fff;
-    transition: stroke 0.3s ease;
-  }
+                .stellar-header-drawer #menu-drawer::-webkit-scrollbar {
+                  display: none; /* Chrome, Safari, Opera */
+                }
 
-  .stellar-drawer-close:hover svg {
-    stroke: #5fd2ff;
-  }
+                /* Drawer overlay */
+                .stellar-header-drawer .menu-drawer-container::before {
+                  content: '';
+                  position: fixed;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  background: rgba(0, 0, 0, 0.7);
+                  opacity: 0;
+                  visibility: hidden;
+                  transition: opacity 0.4s ease, visibility 0.4s ease;
+                  pointer-events: none;
+                  z-index: 9999;
+                }
 
-  /* Menu styling */
-  .stellar-header-drawer .menu-drawer__menu-item a {
-    color: #fff;
-    font-family: 'SuisseIntl-Regular' !important;
-    font-size: 16px;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: color 0.3s ease;
-    padding:20px 0;
-  }
-  .stellar-header-drawer .menu-drawer__menu-item a:hover{
-     text-decoration: none;
-  }
+                /* Open state */
+                .stellar-header-drawer .menu-drawer-container[open] {
+                  pointer-events: all;
+                }
 
-  .stellar-header-drawer .link--text:hover {
-    color: #5fd2ff;
-     text-decoration: none;
-  }
+                .stellar-header-drawer .menu-drawer-container[open]::before {
+                  opacity: 1;
+                  visibility: visible;
+                  pointer-events: all;
+                }
 
-  .stellar-header-drawer .menu-drawer__menu {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    margin-top: 20px;
-    list-style: none;
-    padding: 0;
-  }
+                .stellar-header-drawer .menu-drawer-container[open] #menu-drawer {
+                  left: 0;
+                }
 
-  .stellar-header-drawer .menu-drawer__menu > li {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
+                /* Close button */
+                .stellar-drawer-close {
+                  position: absolute;
+                  top: 30px;
+                  right: 30px;
+                  width: 40px;
+                  height: 40px;
+                  background: rgba(255, 255, 255, 0.05);
+                  border: 1px solid rgba(255, 255, 255, 0.1);
+                  border-radius: 50%;
+                  cursor: pointer;
+                  padding: 0;
+                  z-index: 10001;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  transition: all 0.3s ease;
+                }
 
-  .stellar-header-drawer .menu-drawer__menu-item {
-    padding: 0;
-    display: flex;
-    justify-content:space-between;
-  }
+                .stellar-drawer-close:hover {
+                  background: rgba(95, 210, 255, 0.1);
+                  border-color: #5fd2ff;
+                }
 
-  /* Submenu styles */
-  .stellar-header-drawer .menu-drawer__inner-submenu {
-    padding-left: 20px;
-    margin-top: 10px;
-  }
+                .stellar-drawer-close svg {
+                  width: 16px;
+                  height: 16px;
+                  stroke: #fff;
+                  transition: stroke 0.3s ease;
+                }
 
-  .stellar-header-drawer .menu-drawer__inner-submenu .menu-drawer__menu {
-    gap: 0;
-    margin-top: 0;
-  }
+                .stellar-drawer-close:hover svg {
+                  stroke: #5fd2ff;
+                }
 
-  .stellar-header-drawer .menu-drawer__inner-submenu .menu-drawer__menu-item {
-    padding: 12px 0;
-    font-size: 14px;
-    color:#fff;
-    text-decoration:none;
-  }
+                /* Menu styling */
+                .stellar-header-drawer .menu-drawer__menu-item a {
+                  color: #fff;
+                  font-family: 'SuisseIntl-Regular' !important;
+                  font-size: 16px;
+                  text-decoration: none;
+                  text-transform: uppercase;
+                  transition: color 0.3s ease;
+                  padding:20px 0;
+                }
+                .stellar-header-drawer .menu-drawer__menu-item a:hover{
+                   text-decoration: none;
+                }
 
-  .stellar-header-drawer .no-child-link{
-    color:#fff;
-    text-decoration:none;
-    padding:20px 0;
-    font-family: 'SuisseIntl-Regular' !important;
-    font-size: 16px;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: color 0.3s ease;
-  }
+                .stellar-header-drawer .link--text:hover {
+                  color: #5fd2ff;
+                   text-decoration: none;
+                }
 
+                .stellar-header-drawer .menu-drawer__menu {
+                  display: flex;
+                  flex-direction: column;
+                  gap: 0;
+                  margin-top: 20px;
+                  list-style: none;
+                  padding: 0;
+                }
 
-  /* Arrow icon for parent items */
-  .stellar-header-drawer .arrowIcon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s ease;
-    flex-shrink: 0;
-  }
+                .stellar-header-drawer .menu-drawer__menu > li {
+                  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                }
 
-  .stellar-header-drawer .arrowIcon svg {
-    width: 40px;
-    height: 40px;
-  }
+                .stellar-header-drawer .menu-drawer__menu-item {
+                  padding: 0;
+                  display: flex;
+                  justify-content:space-between;
+                }
 
-  .stellar-header-drawer details[open] > summary .arrowIcon {
-    transform: rotate(90deg);
-  }
+                /* Submenu styles */
+                .stellar-header-drawer .menu-drawer__inner-submenu {
+                  padding-left: 20px;
+                  margin-top: 10px;
+                }
 
-  .stellar-header-drawer summary {
-    list-style: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+                .stellar-header-drawer .menu-drawer__inner-submenu .menu-drawer__menu {
+                  gap: 0;
+                  margin-top: 0;
+                }
 
-  .stellar-header-drawer summary::-webkit-details-marker {
-    display: none;
-  }
+                .stellar-header-drawer .menu-drawer__inner-submenu .menu-drawer__menu-item {
+                  padding: 12px 0;
+                  font-size: 14px;
+                  color:#fff;
+                  text-decoration:none;
+                }
 
-  /* Smooth transitions for all details elements */
-  .stellar-header-drawer details {
-    transition: all 0.3s ease;
-  }
-
-  .stellar-header-drawer details > div {
-    overflow: hidden;
-    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
-    max-height: 0;
-    opacity: 0;
-  }
-
-  .stellar-header-drawer details[open] > div {
-    max-height: 2000px;
-    opacity: 1;
-  }
-
-  /* Third level submenu */
-  .stellar-header-drawer .menu-drawer__submenu {
-    padding-left: 15px;
-    margin-top: 0px;
-    background:#000;
-    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
-  }
-
-  .stellar-header-drawer .menu-drawer__submenu .menu-drawer__menu-item {
-    padding: 15px 0;
-    font-size: 14px;
-  }
-
-  .stellar-header-drawer .menu-drawer__submenu .menu-drawer__menu {
-    transition: all 0.3s ease;
-  }
-
-  .stellar-header-drawer .menu-drawer__close-button {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 0;
-    color: #fff;
-    font-size: 14px;
-    margin-bottom: 10px;
-  }
-
-  .stellar-header-drawer .menu-drawer__close-button svg {
-    width: 16px;
-    height: 16px;
-    transform: rotate(180deg);
-  }
-
-  /* Second level submenu items with arrow */
-  .stellar-header-drawer .menu-drawer__inner-submenu summary {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .stellar-header-drawer .menu-drawer__inner-submenu .arrowIcon svg {
-    width: 35px;
-    height: 35px;
-  }
-
-  @media screen and (max-width: 767px) {
-    .stellar-header-drawer #menu-drawer {
-      width: 100%;
-      max-width: 90vw;
-      padding: 20px 24px;
-      height:100%;
-    }
-    .stellar-header-drawer .menu-drawer__navigation-container{
-      padding-top:20px;
-    }
-
-    .stellar-drawer-close {
-      top: 20px;
-      right: 20px;
-      width: 36px;
-      height: 36px;
-    }
+                .stellar-header-drawer .no-child-link{
+                  color:#fff;
+                  text-decoration:none;
+                  padding:20px 0;
+                  font-family: 'SuisseIntl-Regular' !important;
+                  font-size: 16px;
+                  text-decoration: none;
+                  text-transform: uppercase;
+                  transition: color 0.3s ease;
+                }
 
 
-    .stellar-header-drawer .menu-drawer__menu {
-      margin-top: 50px;
-    }
-  }
+                /* Arrow icon for parent items */
+                .stellar-header-drawer .arrowIcon {
+                  display: inline-flex;
+                  align-items: center;
+                  justify-content: center;
+                  transition: transform 0.3s ease;
+                  flex-shrink: 0;
+                }
 
-  .stellar-header-container {
-    max-width: 1512px;
-    margin: 0 auto;
-    padding: 0 46px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+                .stellar-header-drawer .arrowIcon svg {
+                  width: 40px;
+                  height: 40px;
+                }
 
-  .stellar-header-logo {
-    display: flex;
-    align-items: center;
-  }
+                .stellar-header-drawer details[open] > summary .arrowIcon {
+                  transform: rotate(90deg);
+                }
 
-  .stellar-header-logo svg,
-  .stellar-header-logo img {
-    height: auto;
-    width: {{ section.settings.stellar_logo_width | default: 160 }}px;
-    max-height: 32px;
-    object-fit: contain;
-  }
+                .stellar-header-drawer summary {
+                  list-style: none;
+                  cursor: pointer;
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                }
 
-  .stellar-header-hamburger {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+                .stellar-header-drawer summary::-webkit-details-marker {
+                  display: none;
+                }
+
+                /* Smooth transitions for all details elements */
+                .stellar-header-drawer details {
+                  transition: all 0.3s ease;
+                }
+
+                .stellar-header-drawer details > div {
+                  overflow: hidden;
+                  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+                  max-height: 0;
+                  opacity: 0;
+                }
+
+                .stellar-header-drawer details[open] > div {
+                  max-height: 2000px;
+                  opacity: 1;
+                }
+
+                /* Third level submenu */
+                .stellar-header-drawer .menu-drawer__submenu {
+                  padding-left: 15px;
+                  margin-top: 0px;
+                  background:#000;
+                  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+                }
+
+                .stellar-header-drawer .menu-drawer__submenu .menu-drawer__menu-item {
+                  padding: 15px 0;
+                  font-size: 14px;
+                }
+
+                .stellar-header-drawer .menu-drawer__submenu .menu-drawer__menu {
+                  transition: all 0.3s ease;
+                }
+
+                .stellar-header-drawer .menu-drawer__close-button {
+                  display: flex;
+                  align-items: center;
+                  gap: 8px;
+                  padding: 12px 0;
+                  color: #fff;
+                  font-size: 14px;
+                  margin-bottom: 10px;
+                }
+
+                .stellar-header-drawer .menu-drawer__close-button svg {
+                  width: 16px;
+                  height: 16px;
+                  transform: rotate(180deg);
+                }
+
+                /* Second level submenu items with arrow */
+                .stellar-header-drawer .menu-drawer__inner-submenu summary {
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                }
+
+                .stellar-header-drawer .menu-drawer__inner-submenu .arrowIcon svg {
+                  width: 35px;
+                  height: 35px;
+                }
+
+                @media screen and (max-width: 767px) {
+                  .stellar-header-drawer #menu-drawer {
+                    width: 100%;
+                    max-width: 90vw;
+                    padding: 20px 24px;
+                    height:100%;
+                  }
+                  .stellar-header-drawer .menu-drawer__navigation-container{
+                    padding-top:20px;
+                  }
+
+                  .stellar-drawer-close {
+                    top: 20px;
+                    right: 20px;
+                    width: 36px;
+                    height: 36px;
+                  }
+
+
+                  .stellar-header-drawer .menu-drawer__menu {
+                    margin-top: 50px;
+                  }
+                }
+
+                .stellar-header-container {
+                  max-width: 1512px;
+                  margin: 0 auto;
+                  padding: 0 46px;
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                }
+
+                .stellar-header-logo {
+                  display: flex;
+                  align-items: center;
+                }
+
+                .stellar-header-logo svg,
+                .stellar-header-logo img {
+                  height: auto;
+                  width: {{ section.settings.stellar_logo_width | default: 160 }}px;
+                  max-height: 32px;
+                  object-fit: contain;
+                }
+
+                .stellar-header-hamburger {
+                  background: transparent;
+                  border: none;
+                  cursor: pointer;
+                  padding: 0;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 6px;
+                  width: 28px;
+                  height: 19px;
+                  
+                  position: relative;
+                  overflow: hidden;
+                }
+                .frame {
+                  display: flex;
+                 align-items: center;
+                 gap: 3px;
+                 transition: transform 0.6s ease;
+                }
+               .line {
+                 display: inline-block;
+                 height: 1.9px;
+                 background-color: white;
+                 transition: width 0.6s ease, opacity 0.6s ease;
+                 opacity: 1;
+                }
+              .frame1{
+               margin-right:-3px;
+              }
+              .frame1 .long-line:first-child {
+                width: 0;
+               opacity: 0;
+              }
+             .frame1 .short-line {
+              width: 10px;
+              }
+             .frame1 .long-line:last-child {
+              width: 28px;
+             }
+            .frame2{
+             margin-right:-3px;
+            }
+           .frame2 .short-line {
+            width: 0;
+            opacity: 0;
+           }
+          .frame2 .long-line {
+           width: 100%;
+          }
+
+  .frame3{
+  margin-left:3px;
+  Width:100%;
+  }
+  .frame3 .long-line:first-child {
     width: 28px;
-    height: 19px;
-    position: relative;
-    overflow: visible;
   }
-
-  .stellar-header-hamburger .ham-svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    backface-visibility: hidden;
-    perspective: 1000px;
-    transform: translateZ(0);
+  .frame3 .short-line {
+    width: 10px;
   }
-
-  .stellar-header-hamburger .ham-default {
-    opacity: 1;
-    transition: opacity 150ms ease-out;
-  }
-
-  .stellar-header-hamburger .ham-hover {
-    opacity: 0;
-    transition: opacity 150ms ease-out;
-  }
-
-  .stellar-header-hamburger:hover .ham-default {
+  .frame3 .long-line:last-child {
+    width: 0;
     opacity: 0;
   }
 
-  .stellar-header-hamburger:hover .ham-hover {
+  /* ---------- HOVER STATE ---------- */
+
+  .stellar-header-hamburger:hover .frame1 .long-line:first-child {
+    width: 28px;
+    opacity: 1;
+  }
+  .stellar-header-hamburger:hover .frame1 .short-line {
+    width: 10px;
+  }
+  .stellar-header-hamburger:hover .frame1 .long-line:last-child {
+    width: 0;
+    opacity: 0;
+  }
+
+  .stellar-header-hamburger:hover .frame2 .short-line {
+    width: 10px;
+    opacity: 1;
+  }
+  .stellar-header-hamburger:hover .frame2 .long-line {
+    width: 28px;
     opacity: 1;
   }
 
-   .stellar-header-drawer .menu-drawer__navigation-container{
-    padding-top:40px;
+  .stellar-header-hamburger:hover .frame3{
+   margin-left:0;
+   gap:0;
+  }
+  .stellar-header-hamburger:hover .frame3 .long-line:first-child {
+    width: 0;
+    opacity: 0;
+  }
+  .stellar-header-hamburger:hover .frame3 .short-line {
+    width: 10px;
+    opacity: 1;
+    margin-right:3px;
+  }
+  .stellar-header-hamburger:hover .frame3 .long-line:last-child {
+    width: 28px;
+    opacity: 1;
   }
 
-  @media screen and (max-width: 1023px) {
-    .stellar-header-container {
-      padding: 0 48px;
-    }
-    
-    .stellar-custom-header {
-      padding: 25px 0;
-    }
-  }
+                 .stellar-header-drawer .menu-drawer__navigation-container{
+                  padding-top:40px;
+                }
 
-  @media screen and (max-width: 767px) {
-    .stellar-header-container {
-      padding: 0 23px;
-    }
-    
-    .stellar-custom-header {
-      padding:27px 0px 23px 0px;
-    }
-    
-    .stellar-header-logo svg,
-    .stellar-header-logo img {
-      max-width: 95px;
-      max-height: 17px;
-      width:100%;
-    }
-  }
+                @media screen and (max-width: 1023px) {
+                  .stellar-header-container {
+                    padding: 0 48px;
+                  }
+
+                  .stellar-custom-header {
+                    padding: 25px 0;
+                  }
+                }
+
+                @media screen and (max-width: 767px) {
+                  .stellar-header-container {
+                    padding: 0 23px;
+                  }
+
+                  .stellar-custom-header {
+                    padding:27px 0px 23px 0px;
+                  }
+
+                  .stellar-header-logo svg,
+                  .stellar-header-logo img {
+                    max-width: 95px;
+                    max-height: 17px;
+                    width:100%;
+                  }
+                }
 </style>
 
 <header class="stellar-custom-header">
@@ -434,54 +500,42 @@
     <div class="stellar-header-logo">
       <a href="{{ section.settings.stellar_logo_link | default: '/' }}">
         {% if section.settings.stellar_header_logo != blank %}
-          <img 
-            src="{{ section.settings.stellar_header_logo | image_url: width: 400 }}" 
-            alt="{{ shop.name }}" 
+          <img
+            src="{{ section.settings.stellar_header_logo | image_url: width: 400 }}"
+            alt="{{ shop.name }}"
             loading="lazy"
             width="{{ section.settings.stellar_logo_width | default: 160 }}"
           >
-       
         {% endif %}
       </a>
     </div>
-    
+
     {% if section.settings.stellar_enable_menu_drawer %}
       <button class="stellar-header-hamburger" onclick="openStellarMenu()" aria-label="Open menu">
-      <!-- Default State -->
-      <svg class="ham-svg ham-default" width="28" height="19" viewBox="0 0 28 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <mask id="mask_default" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="28" height="19">
-          <rect width="28" height="19" fill="#D9D9D9"/>
-        </mask>
-        <g mask="url(#mask_default)">
-          <path d="M13 1.5H41" stroke="white" stroke-width="1.5"/>
-          <path d="M0 1.5H10" stroke="white" stroke-width="1.5"/>
-          <path d="M0 9H28" stroke="white" stroke-width="1.5"/>
-          <path d="M-13 17H15" stroke="white" stroke-width="1.5"/>
-          <path d="M18 17H28" stroke="white" stroke-width="1.5"/>
-        </g>
-      </svg>
-      
-      <!-- Hover State -->
-      <svg class="ham-svg ham-hover" width="28" height="19" viewBox="0 0 28 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <mask id="mask_hover" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="28" height="19">
-          <rect width="28" height="19" fill="#D9D9D9"/>
-        </mask>
-        <g mask="url(#mask_hover)">
-          <path d="M-11 1.5H17" stroke="white" stroke-width="1.5"/>
-          <path d="M20 1.5H30" stroke="white" stroke-width="1.5"/>
-          <path d="M10 9H38" stroke="white" stroke-width="1.5"/>
-          <path d="M-3 9H7" stroke="white" stroke-width="1.5"/>
-          <path d="M11 17H39" stroke="white" stroke-width="1.5"/>
-          <path d="M-2 17H8" stroke="white" stroke-width="1.5"/>
-        </g>
-      </svg>
-    </button>
+        <div class="frame frame1">
+          <span class="line long-line"></span>
+          <span class="line short-line"></span>
+          <span class="line long-line"></span>
+        </div>
+        <div class="frame frame2">
+          <span class="line short-line"></span>
+          <span class="line long-line"></span>
+        </div>
+        <div class="frame frame3">
+          <span class="line long-line"></span>
+          <span class="line short-line"></span>
+          <span class="line long-line"></span>
+        </div>
+      </button>
     {% endif %}
   </div>
 </header>
 
 <!-- Header Drawer for Menu -->
-<header-drawer class="stellar-header-drawer"  data-breakpoint="{% if section.settings.menu_type_desktop == 'drawer' %}desktop{% else %}tablet{% endif %}">
+<header-drawer
+  class="stellar-header-drawer"
+  data-breakpoint="{% if section.settings.menu_type_desktop == 'drawer' %}desktop{% else %}tablet{% endif %}"
+>
   <details id="Details-menu-drawer-container" class="menu-drawer-container">
     <summary
       class="header__icon header__icon--menu header__icon--summary link focus-inset"
@@ -499,7 +553,7 @@
           <path d="M2 2L18 18M18 2L2 18" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
         </svg>
       </button>
-      
+
       <div class="menu-drawer__inner-container">
         <div class="menu-drawer__navigation-container">
           <nav class="menu-drawer__navigation">
@@ -512,9 +566,20 @@
                         id="HeaderDrawer-{{ link.handle }}"
                         class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.child_active %} menu-drawer__menu-item--active{% endif %}"
                       >
-                        <a href="{{ link.url }}" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">{{ link.title | escape }}</a>
+                        <a
+                          href="{{ link.url }}"
+                          class="menu-drawer__menu-item list-menu__item link link--text focus-inset"
+                        >
+                          {{- link.title | escape -}}
+                        </a>
                         <div class="arrowIcon">
-                          <svg width="20" height="20" viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 51 51"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
                             <path d="M17.8516 32.8484L33.1305 18.6101" stroke="white" stroke-width="1.5"/>
                             <path d="M20.3872 18.6118H33.1306V31.3552" stroke="white" stroke-width="1.5"/>
                           </svg>
@@ -531,7 +596,9 @@
                                       id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}"
                                       href="{{ childlink.url }}"
                                       class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if childlink.current %} menu-drawer__menu-item--active{% endif %}"
-                                      {% if childlink.current %}aria-current="page"{% endif %}
+                                      {% if childlink.current %}
+                                        aria-current="page"
+                                      {% endif %}
                                     >
                                       {{ childlink.title | escape }}
                                     </a>
@@ -543,7 +610,13 @@
                                       >
                                         {{ childlink.title }}
                                         <div class="arrowIcon">
-                                          <svg width="18" height="18" viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                          <svg
+                                            width="18"
+                                            height="18"
+                                            viewBox="0 0 51 51"
+                                            fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                          >
                                             <path d="M17.8516 32.8484L33.1305 18.6101" stroke="white" stroke-width="1.5"/>
                                             <path d="M20.3872 18.6118H33.1306V31.3552" stroke="white" stroke-width="1.5"/>
                                           </svg>
@@ -553,7 +626,6 @@
                                         id="childlink-{{ childlink.handle | escape }}"
                                         class="menu-drawer__submenu has-submenu gradient motion-reduce"
                                       >
-                                       
                                         <ul class="menu-drawer__menu list-menu" role="list" tabindex="-1">
                                           {%- for grandchildlink in childlink.links -%}
                                             <li>
@@ -561,7 +633,9 @@
                                                 id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
                                                 href="{{ grandchildlink.url }}"
                                                 class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if grandchildlink.current %} menu-drawer__menu-item--active{% endif %}"
-                                                {% if grandchildlink.current %}aria-current="page"{% endif %}
+                                                {% if grandchildlink.current %}
+                                                  aria-current="page"
+                                                {% endif %}
                                               >
                                                 {{ grandchildlink.title | escape }}
                                               </a>
@@ -583,7 +657,9 @@
                       id="HeaderDrawer-{{ link.handle }}"
                       href="{{ link.url }}"
                       class="menu-drawer__menu-item list-menu__item no-child-link link link--text focus-inset{% if link.current %} menu-drawer__menu-item--active{% endif %}"
-                      {% if link.current %}aria-current="page"{% endif %}
+                      {% if link.current %}
+                        aria-current="page"
+                      {% endif %}
                     >
                       {{ link.title | escape }}
                     </a>
@@ -601,15 +677,15 @@
 <script>
   function openStellarMenu() {
     const menuDrawer = document.querySelector('.stellar-header-drawer #Details-menu-drawer-container');
-    
+
     if (menuDrawer) {
       // Save current scroll position
       const scrollY = window.scrollY;
       document.body.style.top = `-${scrollY}px`;
-      
+
       // Lock body scroll
       document.body.classList.add('drawer-open');
-      
+
       // Open drawer
       menuDrawer.setAttribute('open', '');
     } else {
@@ -619,14 +695,14 @@
 
   function closeStellarMenu() {
     const menuDrawer = document.querySelector('.stellar-header-drawer #Details-menu-drawer-container');
-    
+
     if (menuDrawer) {
       // Close drawer
       menuDrawer.removeAttribute('open');
-      
+
       // Unlock body scroll
       document.body.classList.remove('drawer-open');
-      
+
       // Restore scroll position
       const scrollY = document.body.style.top;
       document.body.style.top = '';
@@ -635,11 +711,11 @@
   }
 
   // Close drawer when clicking overlay
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     const menuDrawerContainer = document.querySelector('.stellar-header-drawer .menu-drawer-container');
-    
+
     if (menuDrawerContainer) {
-      menuDrawerContainer.addEventListener('click', function(e) {
+      menuDrawerContainer.addEventListener('click', function (e) {
         // Close if clicking the overlay (not the drawer itself)
         if (e.target === menuDrawerContainer || e.target.classList.contains('menu-drawer-container')) {
           closeStellarMenu();
@@ -649,23 +725,23 @@
 
     // Simple accordion behavior - close siblings when opening
     const drawer = document.querySelector('.stellar-header-drawer');
-    
+
     if (drawer) {
-      drawer.addEventListener('click', function(e) {
+      drawer.addEventListener('click', function (e) {
         const summary = e.target.closest('summary');
         if (!summary) return;
-        
+
         const clickedDetails = summary.parentElement;
         if (clickedDetails.tagName !== 'DETAILS') return;
-        
+
         // Small delay to allow the details to open first
         setTimeout(() => {
           if (clickedDetails.open) {
             // Close all sibling details at the same level
             const parent = clickedDetails.parentElement;
             const allSiblings = parent.querySelectorAll(':scope > li > details, :scope > details');
-            
-            allSiblings.forEach(sibling => {
+
+            allSiblings.forEach((sibling) => {
               if (sibling !== clickedDetails && sibling.open) {
                 sibling.open = false;
               }
@@ -751,4 +827,3 @@
   ]
 }
 {% endschema %}
-
