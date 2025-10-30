@@ -5,12 +5,68 @@
 {{ 'component-list-payment.css' | asset_url | stylesheet_tag }}
 {{ 'component-list-social.css' | asset_url | stylesheet_tag }}
 
-{%- style -%}
+ <style>
  
-   footer .titan-footer-stellar{
-    color:#fff;
-    background:#000;
-   }
+  {% if template.suffix contains 'stellar' %}
+    footer.color-{{ section.settings.color_scheme }}{
+      background:#000;
+      
+    }
+    .footer-block__newsletter .footer-block__heading{
+     color:#fff;
+      font-family: 'PPMonumentWide-Regular', sans-serif;
+    }
+     .footer-block__newsletter .footer-block_para{
+     color:#fff;
+     font-family: 'SuisseIntl-Regular', sans-serif;
+    }
+    .footer-block__newsletter .newsletter-form .field{
+     border-color:#fff;
+     font-family: 'SuisseIntl-Regular', sans-serif;
+    }
+     .footer-block__newsletter .newsletter-form__field-wrapper .field:after
+     {
+      border:none;
+    }
+    .footer-block__newsletter .newsletter-form .field input:placeholder{
+      font-family: 'SuisseIntl-Regular', sans-serif;
+    }
+    .footer-block__newsletter  .newsletter-form__field-wrapper  .newsletter-form__button{
+      background:#fff !important;
+      color:#000;
+      font-family: 'SuisseIntl-Regular', sans-serif;
+    }
+    .footer-block .footer-block__details-content{
+      gap:10px;
+    }
+    .footer__content-top .footer__blocks-wrapper .footer-block.grid__item h6{
+     color:#fff;
+     font-family: 'PPMonumentWide-Regular', sans-serif;
+    }
+    .footer__content-top .footer__blocks-wrapper .footer-block.grid__item h6 svg path{
+      stroke:white;
+    }
+    .footer__content-top .footer__blocks-wrapper .footer-block.grid__item .footer-block__details-content li a{
+     color:#fff;
+     font-family: 'SuisseIntl-Regular', sans-serif;
+     text-decoration: none;
+    }
+    .footer__content-top .footer__blocks-wrapper .footer-block.grid__item .footer-block__details-content li a:hover{
+    text-decoration:underline;
+    }
+     .footersocialicons .footer__list-social .list-social__item svg{
+      fill:white;
+      stroke:white;
+    }
+    .footer__content-bottom .footer__copyright.caption .copyright__content{
+     color:#fff;
+     font-family: 'SuisseIntl-Regular', sans-serif;
+    }
+    .footer__content-bottom .footer__copyright.caption .copyright__content a{
+     color:#fff;
+     font-family: 'SuisseIntl-Regular', sans-serif;
+    }
+    {% endif %}
   
   .footer {
     margin-top: {{ section.settings.margin_top | times: 0.75 | round: 0 }}px;
@@ -37,7 +93,7 @@
     .section-{{ section.id }}-padding {padding-bottom: 90px;}
       {% endif %}
   }
-{%- endstyle -%}
+</style>
 
 <footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
   <div class="custom-titan-footer page-width">
