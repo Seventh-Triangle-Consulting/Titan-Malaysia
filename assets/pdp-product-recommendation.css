@@ -150,8 +150,8 @@
   .products-card-section .product-cards-heading h2 {
     /* font-size: 21px;
     line-height: 34px; */
-    font-size: clamp(18px, calc(21 * (100vw / 428)), 21px);
-    line-height: clamp(30px, calc(34 * (100vw / 428)), 34px);
+    font-size: clamp(16px, calc(21 * (100vw / 428)), 21px);
+    line-height: clamp(29px, calc(34 * (100vw / 428)), 34px);
   }
 
   .products-card-section .product-swiper .product-card-slide {
