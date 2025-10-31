@@ -16,6 +16,19 @@
   .product-card-slide .product-title{
     color: {{ section.settings.text_color}};
   }
+.arrow-sprite-icon{
+  width:30px;
+  height:30px;
+  background-image: url('{{ "arrow-sprite-image.png" | asset_url }}');
+  background-repeat: no-repeat;
+  background-position:right top; 
+  transition: background-position 0.3s ease; 
+  display:block !important;
+}
+.products-card-section .product-swiper .product-card-slide:hover .arrow-sprite-icon{
+  background-position:left bottom; 
+}
+
 
   @media only screen and (min-width: 750px) and (max-width: 1023px){
     .section-{{ section.id }} {
@@ -61,18 +74,9 @@
             </div>
 
             <div class="arrow-btn">
-              <a href="{{poduct.url}}">
-                <svg
-                  class="arrow-main"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="31"
-                  height="31"
-                  viewBox="0 0 33 32"
-                  fill="none"
-                >
-                  <path d="M10.8516 20.8486L26.1305 6.6103" stroke="black" stroke-width="1.5"/>
-                  <path d="M13.3867 6.61133H26.1301V19.3547" stroke="black" stroke-width="1.5"/>
-                </svg>
+
+              <a href="{{product.url}}">
+                <div class="arrow-sprite-icon"></div>
               </a>
             </div>
           </div>
@@ -80,17 +84,7 @@
             <h3 class="product-title">{{ product.title }}</h3>
             <div class="arrow-btn">
               <a href="{{product.url}}">
-                <svg
-                  class="arrow-main"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="31"
-                  height="31"
-                  viewBox="0 0 33 32"
-                  fill="none"
-                >
-                  <path d="M10.8516 20.8486L26.1305 6.6103" stroke="{{section.settings.text_color}}" stroke-width="1.5"/>
-                  <path d="M13.3867 6.61133H26.1301V19.3547" stroke="{{ section.settings.text_color}}" stroke-width="1.5"/>
-                </svg>
+                 <div class="arrow-sprite-icon"></div>                
               </a>
             </div>
           </div>

@@ -78,7 +78,8 @@
       "settings": {
         "margin_bottom_desktop": 0,
         "margin_bottom_mobile": 0,
-        "autoplay": false
+        "autoplay": false,
+        "parallax_enabledisable": true
       }
     },
     "homepage_product_grid_F6wdtB": {

@@ -219,6 +219,29 @@
       });
     },{ once: true }
   );
+
+{% if section.settings.parallax_enabledisable %}  
+      document.addEventListener("DOMContentLoaded", () => {
+        const sectionElement = document.querySelector("#{{ section.id }}");
+        if (!sectionElement) return;
+        const sectionOffset = sectionElement.offsetTop;
+        const sectionHeight = sectionElement.clientHeight;
+        const desktopVideos = sectionElement.querySelectorAll(".desktop-media video");
+        const mobileVideos = sectionElement.querySelectorAll(".mobile-media video");
+        window.addEventListener("scroll", () => {
+          const scrollY = window.scrollY || window.pageYOffset;    
+          if (scrollY >= sectionOffset && scrollY <= sectionOffset + sectionHeight) {
+            const parallaxValue = (scrollY - sectionOffset) / 3;
+            desktopVideos.forEach(video => {
+              video.style.transform = `translateY(${parallaxValue}px)`;
+            });
+            mobileVideos.forEach(video => {
+              video.style.transform = `translateY(${parallaxValue}px)`;
+            });
+          }
+        });
+      });
+{% endif %}
 </script>
 
 {% schema %}
@@ -249,7 +272,13 @@
       "type": "checkbox",
       "id": "autoplay",
       "label": "Autoplay Enable/Disable"
+    },
+     {
+      "type": "checkbox",
+      "id": "parallax_enabledisable",
+      "label": "Parallax Enable/Disable"
     }
+  
   ],
   "blocks": [
     {

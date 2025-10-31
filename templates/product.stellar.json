@@ -82,7 +82,8 @@
         "margin_bottom_Mobile": 0,
         "video_desktop": "{{ product.metafields.custom.stellar_video_desktop.value }}",
         "video_mobile": "{{ product.metafields.custom.stellar_video_mobile.value }}",
-        "show_video_control": true
+        "show_video_control": true,
+        "parallax_enabledisable": true
       }
     },
     "stellar_image_swiper": {
