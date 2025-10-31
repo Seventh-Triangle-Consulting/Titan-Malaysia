@@ -44,6 +44,7 @@
       "settings": {
         "video_desktop": "shopify://files/videos/Titan-stellar-hero.mp4",
         "video_mobile": "shopify://files/videos/Snapinsta.app_video_42600935_2132501510423175_4018292178255191890_n (2)_9a59c745-e90d-4472-9262-c053c9fe65ba.mp4",
+        "parallax_enabledisable": true,
         "margin_bottom_desktop": 0,
         "margin_bottom_mobile": 0,
         "padding_top_desktop": 60,
