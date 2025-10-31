@@ -222,21 +222,31 @@
 
 
 
-document.addEventListener("DOMContentLoaded", (event) => {
-   const sectionElement = document.getElementById("{{ section.id }}");
-   const sectionHeight = sectionElement.clientHeight;
-   const desktopvideo = sectionElement.querySelectorAll('.desktop-media video');
-   const mobilevideo = sectionElement.querySelectorAll('.mobile-media video');
-   
-window.addEventListener('scroll', function() {
+document.addEventListener("DOMContentLoaded", () => {
+  const sectionElement = document.getElementById("{{ section.id }}");
+  if (!sectionElement) return;
+
+  const sectionHeight = sectionElement.clientHeight;
+  const desktopVideos = sectionElement.querySelectorAll(".desktop-media video");
+  const mobileVideos = sectionElement.querySelectorAll(".mobile-media video");
+
+  window.addEventListener("scroll", () => {
     let scrollY = window.scrollY || window.pageYOffset;
     console.log("Scroll in px:", scrollY);
-    console.log("Scroll in px:", sectionHeight);
+    console.log("Section height:", sectionHeight);
+
+    if (scrollY < sectionHeight) {
+      desktopVideos.forEach(video => {
+        video.style.transform = `translateY(${scrollY}px)`;
+      });
+
+      mobileVideos.forEach(video => {
+        video.style.transform = `translateY(${scrollY}px)`;
+      });
+    }
+  });
 });
 
-
-
-});
 
 
 
