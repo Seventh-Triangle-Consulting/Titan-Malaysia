@@ -185,30 +185,38 @@
     </script>
   {% endif %}
 
-  {% if section.settings.parallax_enabledisable %}  
+
+{% if section.settings.parallax_enabledisable %}  
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const sectionElement = document.querySelector(".section-{{ section.id }}-margin");
   if (!sectionElement) return;
-   const sectionOffset = sectionElement.offsetTop;
+
+  const sectionOffset = sectionElement.offsetTop;
   const sectionHeight = sectionElement.clientHeight;
   const desktopVideos = sectionElement.querySelectorAll(".desktop-video video");
   const mobileVideos = sectionElement.querySelectorAll(".mobile-video video");
-  console.log("sectionOffset", sectionOffset);
+
   window.addEventListener("scroll", () => {
     const scrollY = window.scrollY || window.pageYOffset;
-    if (scrollY < sectionHeight) {
+
+    // Start parallax when section reaches view
+    if (scrollY >= sectionOffset && scrollY <= sectionOffset + sectionHeight) {
+      const parallaxValue = (scrollY - sectionOffset) / 3;
+
       desktopVideos.forEach(video => {
-        video.style.transform = `translateY(${scrollY / 3}px)`;
+        video.style.transform = `translateY(${parallaxValue}px)`;
       });
+
       mobileVideos.forEach(video => {
-        video.style.transform = `translateY(${scrollY / 3}px)`;
+        video.style.transform = `translateY(${parallaxValue}px)`;
       });
     }
   });
 });
 </script>
 {% endif %}
+
   
   {% schema %}
   {
