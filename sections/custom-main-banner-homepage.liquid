@@ -247,7 +247,7 @@
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  const sectionElement = document.querySelector("{{ section.id }}");
+  const sectionElement = document.querySelector("#{{ section.id }}");
   if (!sectionElement) return;
   const sectionOffset = sectionElement.offsetTop;
   const sectionHeight = sectionElement.clientHeight;
