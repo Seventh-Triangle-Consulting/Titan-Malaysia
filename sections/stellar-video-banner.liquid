@@ -191,23 +191,17 @@
 document.addEventListener("DOMContentLoaded", () => {
   const sectionElement = document.querySelector(".section-{{ section.id }}-margin");
   if (!sectionElement) return;
-
   const sectionOffset = sectionElement.offsetTop;
   const sectionHeight = sectionElement.clientHeight;
   const desktopVideos = sectionElement.querySelectorAll(".desktop-video video");
   const mobileVideos = sectionElement.querySelectorAll(".mobile-video video");
-
   window.addEventListener("scroll", () => {
-    const scrollY = window.scrollY || window.pageYOffset;
-
-    // Start parallax when section reaches view
+    const scrollY = window.scrollY || window.pageYOffset;    
     if (scrollY >= sectionOffset && scrollY <= sectionOffset + sectionHeight) {
       const parallaxValue = (scrollY - sectionOffset) / 3;
-
       desktopVideos.forEach(video => {
         video.style.transform = `translateY(${parallaxValue}px)`;
       });
-
       mobileVideos.forEach(video => {
         video.style.transform = `translateY(${parallaxValue}px)`;
       });
