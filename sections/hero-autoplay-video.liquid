@@ -213,7 +213,28 @@
 });
 </script>
 
-
+{% if section.settings.parallax_enabledisable %}  
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const sectionElement = document.querySelector(".section-{{ section.id }}");
+  if (!sectionElement) return;
+  const sectionHeight = sectionElement.clientHeight;
+  const desktopVideos = sectionElement.querySelectorAll("video.desktop-video");
+  const mobileVideos = sectionElement.querySelectorAll("video.mobile-video");
+  window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY || window.pageYOffset;
+    if (scrollY < sectionHeight) {
+      desktopVideos.forEach(video => {
+        video.style.transform = `translateY(${scrollY / 3}px)`;
+      });
+      mobileVideos.forEach(video => {
+        video.style.transform = `translateY(${scrollY / 3}px)`;
+      });
+    }
+  });
+});
+</script>
+{% endif %}
 {% schema %}
 {
   "name": "Autoplay Video",
@@ -233,6 +254,11 @@
       "id": "video_mobile",
       "label": "Mobile Video",
       "info": "Upload a video for mobile view."
+    },
+    {
+      "type": "checkbox",
+      "id": "parallax_enabledisable",
+      "label": "Parallax Enable/Disable"
     },
     {
       "type": "header",
