@@ -25,12 +25,12 @@
   font-weight: 200;
   font-size: 90px;
   margin-bottom: 0;
-  letter-spacing: 3rem;
+  letter-spacing: 90px;
 }
 .split-opener .split.bottom h2 {
   font-weight: 400;
   font-size: 30px;
-  letter-spacing: 1rem;
+  letter-spacing: 30px;
 }
 .split-opener .split .heading {
   padding-bottom: 22px;
@@ -67,13 +67,15 @@ body {
   overflow: hidden;
 }
 
-@media (max-width: 1024px) {
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
   .split-opener .split.top h2 {
     font-size: 60px;
+    letter-spacing: 60px;
   }
 
   .split-opener .split.bottom h2 {
     font-size: 20px;
+    letter-spacing: 20px;
   }
 }
 
@@ -88,14 +90,15 @@ body {
     font-family: "PPMonumentWide-Regular";
     letter-spacing: 20px;
     font-size: 36px;
-    line-height:50px;
+    line-height: 50px;
   }
 
   .split-opener .split.bottom h2 {
     font-family: "PPMonumentWide-Regular";
     letter-spacing: 1.5px;
     font-size: 18px;
-    line-height:28px;text-transform:uppercase;
+    line-height: 28px;
+    text-transform: uppercase;
   }
   .split {
     background-size: cover;

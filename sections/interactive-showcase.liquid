@@ -273,6 +273,10 @@
         this.viewportHeight = window.innerHeight;
         this.isPopupOpen = false;
         this.isModalOpen = false;
+        
+        // Detect touch device
+        this.isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        
         this.init();
 
         // Current hotspot tracking
@@ -426,11 +430,19 @@
       }
 
       bindEvents() {
-        // Hotspot clicks
+        // Hotspot clicks - use touch events for mobile, click for desktop
         this.container.querySelectorAll('.hotspot-btn').forEach((btn) => {
-          btn.addEventListener('click', (e) => this.handleHotspotClick(e));
-          btn.addEventListener('mouseenter', (e) => this.handleHotspotHover(e));
-          btn.addEventListener('mouseleave', (e) => this.handleHotspotLeave(e));
+          if (this.isTouchDevice) {
+            // For touch devices: use touchstart to handle everything in one interaction
+            btn.addEventListener('touchstart', (e) => this.handleHotspotTouch(e), { passive: false });
+            // Prevent hover effects on touch devices
+            btn.style.touchAction = 'manipulation';
+          } else {
+            // For desktop: keep hover effects
+            btn.addEventListener('click', (e) => this.handleHotspotClick(e));
+            btn.addEventListener('mouseenter', (e) => this.handleHotspotHover(e));
+            btn.addEventListener('mouseleave', (e) => this.handleHotspotLeave(e));
+          }
         });
 
         // Popup controls
@@ -460,6 +472,48 @@
             this.navigateToAdjacentHotspot(e, 'next');
           }
         });
+      }
+
+      // Unified touch handler for mobile devices
+      handleHotspotTouch(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const btn = e.currentTarget;
+        const productHandle = btn.dataset.productHandle;
+        const hotspotName = btn.querySelector('.hotspot-label')?.textContent || '';
+        const slideIndex = parseInt(btn.dataset.slideIndex);
+        const hotspotIndex = parseInt(btn.dataset.hotspotIndex);
+        
+        document.body.style.overflow = 'hidden';
+
+        // Store current hotspot info
+        this.currentHotspot = btn;
+        this.currentSlideIndex = slideIndex;
+        this.currentHotspotIndex = hotspotIndex;
+
+        // Generate random angle for animation
+        const randomAngle = this.getRandomAngle();
+        btn.style.setProperty('--hotspot-angle', randomAngle);
+
+        // Start the animation and open popup immediately for touch devices
+        this.animatePopupScale(btn);
+
+        // Show loading state in popup
+        this.showLoadingState();
+
+        if (productHandle) {
+          // Load product data and open popup
+          this.loadProductData(productHandle, hotspotName).then(() => {
+            // Update navigation
+            this.updatePopupNavigation();
+            
+            // Open popup after data is loaded
+            setTimeout(() => {
+              this.openPopup();
+            }, 300);
+          });
+        }
       }
 
       async navigateToAdjacentHotspot(e, direction) {
@@ -499,6 +553,9 @@
       }
 
       handleHotspotHover(e) {
+        // Only for non-touch devices
+        if (this.isTouchDevice) return;
+        
         const btn = e.currentTarget;
         // Calculate random angle between 0 and 180 degrees for visual feedback
         const randomAngle = this.getRandomAngle();
@@ -511,6 +568,9 @@
       }
 
       async animatePopupLine(hotspotBtn) {
+        // Only for non-touch devices
+        if (this.isTouchDevice) return;
+        
         // Get the hotspot position and dimensions
         const hotspotRect = hotspotBtn.getBoundingClientRect();
 
@@ -548,6 +608,9 @@
       }
 
       async handleHotspotClick(e) {
+        // Only for non-touch devices
+        if (this.isTouchDevice) return;
+        
         this.isModalOpen = true;
         e.preventDefault();
         e.stopPropagation();
@@ -618,6 +681,9 @@
       }
 
       handleHotspotLeave(e) {
+        // Only for non-touch devices
+        if (this.isTouchDevice) return;
+        
         if (!this.isPopupOpen && !this.isModalOpen) {
           // Reset the overlay completely when mouse leaves (if popup not open)
           this.popupOverlay.style.opacity = '0';

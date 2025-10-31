@@ -4,8 +4,8 @@
   align-items: center;
   text-align: center;
   gap: 13px;
-  max-width:1512px;
-  padding-top:47px;
+  max-width: 1512px;
+  padding-top: 47px;
 }
 .explore-content h2 {
   font-size: 40px;
@@ -23,7 +23,7 @@
 .explore-swiper {
   margin-top: 111px;
   position: relative;
-  max-width:1512px;
+  max-width: 1512px;
 }
 .explore-wrapper {
   display: flex;
@@ -117,10 +117,10 @@
 .arrow-btn {
   text-align: right;
   margin-bottom: 0;
-    line-height: 0;
-    padding-bottom: 0;
+  line-height: 0;
+  padding-bottom: 0;
 }
-.arrow-btn a{
+.arrow-btn a {
   line-height: 0;
 }
 .image-wrapper {
@@ -151,8 +151,8 @@
 .explore-swiper .swiper-pagination-bullet {
   background-color: #d9d9d942;
   opacity: 0.6;
-  width:9px;
-  height:9px;
+  width: 9px;
+  height: 9px;
 }
 .explore-swiper .swiper-pagination-bullet-active {
   background-color: #d9d9d9;
@@ -170,11 +170,11 @@
   }
   .explore-swiper {
     margin-top: 80px;
-    padding-bottom:3px;
+    padding-bottom: 3px;
   }
   .explore-content {
     padding-top: 6px;
-}
+  }
   .explore-content h2 {
     font-size: 30px;
     line-height: 30px;
@@ -189,8 +189,8 @@
     font-size: 16px;
     line-height: 20px;
   }
-  .card-text strong{
-    font-weight:700;
+  .card-text strong {
+    font-weight: 700;
   }
   .card-hover-description {
     font-size: 12px;
@@ -219,8 +219,8 @@
   }
   .explore-content {
     gap: 6px;
-    padding-top:0;
-     padding-right: 30px;
+    padding-top: 0;
+    padding-right: 30px;
     padding-left: 23px;
   }
   .explore-content h2 {
@@ -236,24 +236,24 @@
   .explore-swiper {
     margin-top: 56px;
   }
-  
+
   .card-video {
     aspect-ratio: 276 / 247;
     object-fit: cover;
     max-height: 175px;
-}
+  }
   .card-text {
     font-size: 16px;
     line-height: 20px;
   }
-  .info-wrapper .hover-content .card-text{
-    padding-bottom:0.5px;
+  .info-wrapper .hover-content .card-text {
+    padding-bottom: 0.5px;
   }
   .card-hover-description {
     font-size: 12px;
     line-height: 18px;
   }
-  .arrow-main{
+  .arrow-main {
     width: 27.45px;
     height: 27.25px;
   }
@@ -266,12 +266,12 @@
   .info-wrapper .hover-content {
     padding: 20px 18px 16px;
   }
-   .card-text strong{
-    font-weight:700;
+  .card-text strong {
+    font-weight: 700;
   }
   .video-wrapper {
     line-height: 0;
-}
+  }
 }
 
 @media only screen and (max-width: 640px) {

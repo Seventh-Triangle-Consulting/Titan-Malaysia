@@ -30,7 +30,6 @@
 }
 
 
-
   @media only screen and (min-width: 750px) and (max-width: 1023px){
     .section-{{ section.id }} {
       padding-top: {{ section.settings.padding_top_tablet }}px;
@@ -43,7 +42,6 @@
       margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
       padding-top: {{ section.settings.padding_top_mobile }}px;
       padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
-
     }
   }
 </style>
@@ -76,6 +74,7 @@
             </div>
 
             <div class="arrow-btn">
+
               <a href="{{product.url}}">
                 <div class="arrow-sprite-icon"></div>
               </a>
@@ -112,7 +111,7 @@
 
         if (isDesktop) {
           productSwiper = new Swiper(swiperSelector, {
-            slidesPerView: 3.5,
+            slidesPerView: 3.6,
             spaceBetween: 15,
             slidesOffsetAfter: 28,
           });
@@ -198,7 +197,7 @@
       "type": "range",
       "id": "padding_bottom_tablet",
       "min": 0,
-      "max": 100,
+      "max": 200,
       "step": 1,
       "unit": "px",
       "label": "Bottom Desktop",
