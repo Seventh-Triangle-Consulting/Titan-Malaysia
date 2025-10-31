@@ -9,7 +9,7 @@
   line-height: 40px;
   letter-spacing: 0;
   text-transform: uppercase;
-  font-weight:400;
+  font-weight: 400;
 }
 
 .products-card-section .product-swiper {
@@ -47,8 +47,8 @@
 .product-image-sec .arrow-btn .arrow-main {
   display: block;
 }
-.product-image-sec .arrow-btn .arrow-main path{
-  stroke:#fff;
+.product-image-sec .arrow-btn .arrow-main path {
+  stroke: #fff;
 }
 .product-content {
   display: flex;
@@ -60,7 +60,7 @@
   font-family: "SuisseIntl-Regular", sans-serif;
   font-size: 20px;
   line-height: 18px;
-  font-weight:400;
+  font-weight: 400;
   /*different from Figma */
   letter-spacing: 0;
 }
@@ -103,7 +103,7 @@
     font-size: 24px;
     line-height: 33px;
     letter-spacing: 0;
-    font-weight:400;
+    font-weight: 400;
   }
 
   .products-card-section .product-swiper {
@@ -140,11 +140,11 @@
 
   .products-card-section .product-swiper {
     padding: 0 23px;
-    z-index:0;
+    z-index: 0;
   }
-  .product-image-wrapper .product-card-image{
+  .product-image-wrapper .product-card-image {
     aspect-ratio: 382/487;
-    object-fit:cover;
+    object-fit: cover;
   }
 
   .products-card-section .product-cards-heading h2 {
@@ -167,5 +167,4 @@
   .product-content .arrow-btn {
     display: none;
   }
- 
 }

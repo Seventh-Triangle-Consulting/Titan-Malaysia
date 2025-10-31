@@ -14,14 +14,15 @@
   background: #1c3250;
   position: relative;
   width: 100%;
-  aspect-ratio: 3/4;
+  /* aspect-ratio: 3/4; */
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
 
 .home-grid-section .grid-item.span-desktop-2 .watch-card {
-  aspect-ratio: 6/3.95;
+  /* aspect-ratio: 6/3.95; */
+  aspect-ratio: 6/5.07;
 }
 
 .home-grid-section .image-container {
@@ -177,10 +178,10 @@
     padding: 4px 5px 10px 5px;
   }
   .home-grid-section .grid-item.span-mobile-2 .watch-card {
-    aspect-ratio: 6/3.95;
+    /* aspect-ratio: 6/3.95; */
   }
   .home-grid-section .grid-item.span-mobile-1 .watch-card {
-    aspect-ratio: 3/4;
+    /* aspect-ratio: 3/4; */
   }
   .home-grid-section .grid-item.span-mobile-1 {
     grid-column: span 1;

@@ -71,26 +71,7 @@
       });
     }
   });
-
-
-  function syncWidths() {
-    const mainHeading = document.querySelector('.heading h2');
-    const subHeading = document.querySelector('.sub-heading h2');
-
-    const mainHeadingWidth = mainHeading.offsetWidth;
-    subHeading.style.maxWidth = mainHeadingWidth + 'px';
-  }
-
-  syncWidths();
-
-  window.addEventListener('resize', syncWidths);
 </script>
-
-
-
-
-
-
 
 {% schema %}
 {
