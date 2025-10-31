@@ -237,11 +237,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (scrollY < sectionHeight) {
       desktopVideos.forEach(video => {
-        video.style.transform = `translateY(${scrollY}px)`;
+        video.style.transform = `translateY(${scrollY / 2}px)`;
       });
 
       mobileVideos.forEach(video => {
-        video.style.transform = `translateY(${scrollY}px)`;
+        video.style.transform = `translateY(${scrollY /2}px)`;
       });
     }
   });
