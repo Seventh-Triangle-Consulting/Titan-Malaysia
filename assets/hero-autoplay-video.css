@@ -31,6 +31,10 @@
   .autoplay-video-section .video-controls {
     padding: 0 35px 29px;
   }
+  .autoplay-video-section video {
+    aspect-ratio: 834/1194;
+    max-height: 1194px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -38,16 +42,14 @@
     padding: 0 18px 15px;
   }
   .autoplay-video-section {
-       max-height:926px;
+    max-height: 926px;
   }
   .autoplay-video-section video {
     aspect-ratio: 702/926;
-    max-height:926px;
+    max-height: 926px;
   }
 }
 
 .autoplay-video-section .video-controls svg {
   cursor: pointer;
 }
-
-
