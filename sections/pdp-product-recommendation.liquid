@@ -113,7 +113,8 @@
             <h3 class="product-title">{{ product.title }}</h3>
             <div class="arrow-btn">
               <a href="{{product.url}}">
-                <svg
+                 <div class="arrow-sprite-icon"></div>
+                {% comment %} <svg
                   class="arrow-main"
                   xmlns="http://www.w3.org/2000/svg"
                   width="31"
@@ -123,7 +124,7 @@
                 >
                   <path d="M10.8516 20.8486L26.1305 6.6103" stroke="{{section.settings.text_color}}" stroke-width="1.5"/>
                   <path d="M13.3867 6.61133H26.1301V19.3547" stroke="{{ section.settings.text_color}}" stroke-width="1.5"/>
-                </svg>
+                </svg> {% endcomment %}
               </a>
             </div>
           </div>
