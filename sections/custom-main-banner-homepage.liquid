@@ -219,6 +219,26 @@
       });
     },{ once: true }
   );
+
+
+
+document.addEventListener("DOMContentLoaded", (event) => {
+   const sectionElement = document.getElementById("{{ section.id }}");
+   const sectionHeight = sectionElement.clientHeight;
+   const desktopvideo = sectionElement.querySelectorAll('.desktop-media video');
+   const mobilevideo = sectionElement.querySelectorAll('.mobile-media video');
+   
+window.addEventListener('scroll', function() {
+    let scrollY = window.scrollY || window.pageYOffset;
+    console.log("Scroll in px:", scrollY);
+});
+
+
+
+});
+
+
+
 </script>
 
 {% schema %}
