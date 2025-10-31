@@ -220,25 +220,26 @@
     },{ once: true }
   );
 
-document.addEventListener("DOMContentLoaded", () => {
-  const sectionElement = document.getElementById("{{ section.id }}");
-  if (!sectionElement) return;
-  const sectionHeight = sectionElement.clientHeight;
-  const desktopVideos = sectionElement.querySelectorAll(".desktop-media video");
-  const mobileVideos = sectionElement.querySelectorAll(".mobile-media video");
-  window.addEventListener("scroll", () => {
-    let scrollY = window.scrollY || window.pageYOffset;
-    if (scrollY < sectionHeight) {
-      desktopVideos.forEach(video => {
-        video.style.transform = `translateY(${scrollY / 2}px)`;
+{% if section.settings.parallax_enabledisable %}  
+      document.addEventListener("DOMContentLoaded", () => {
+        const sectionElement = document.getElementById("{{ section.id }}");
+        if (!sectionElement) return;
+        const sectionHeight = sectionElement.clientHeight;
+        const desktopVideos = sectionElement.querySelectorAll(".desktop-media video");
+        const mobileVideos = sectionElement.querySelectorAll(".mobile-media video");
+        window.addEventListener("scroll", () => {
+          let scrollY = window.scrollY || window.pageYOffset;
+          if (scrollY < sectionHeight) {
+            desktopVideos.forEach(video => {
+              video.style.transform = `translateY(${scrollY / 3}px)`;
+            });
+            mobileVideos.forEach(video => {
+              video.style.transform = `translateY(${scrollY /3}px)`;
+            });
+          }
+        });
       });
-      mobileVideos.forEach(video => {
-        video.style.transform = `translateY(${scrollY /2}px)`;
-      });
-    }
-  });
-});
-
+{% endif %}
 </script>
 
 {% schema %}
