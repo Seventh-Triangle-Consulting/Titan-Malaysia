@@ -21,7 +21,7 @@
   /* Prevent body scroll when drawer is open */
   body.drawer-open {
     overflow: hidden !important;
-    position: fixed;
+    {% comment %} position: fixed; {% endcomment %}
     width: 100%;
     height: 100%;
   }
@@ -62,7 +62,7 @@
   }
 
   .stellar-header-drawer #menu-drawer {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: -100%;
     width: 480px;
@@ -677,8 +677,8 @@
 
     if (menuDrawer) {
       // Save current scroll position
-      const scrollY = window.scrollY;
-      document.body.style.top = `-${scrollY}px`;
+      //const scrollY = window.scrollY;
+      //document.body.style.top = `-${scrollY}px`;
 
       // Lock body scroll
       document.body.classList.add('drawer-open');
@@ -701,9 +701,9 @@
       document.body.classList.remove('drawer-open');
 
       // Restore scroll position
-      const scrollY = document.body.style.top;
-      document.body.style.top = '';
-      window.scrollTo(0, parseInt(scrollY || '0') * -1);
+      //const scrollY = document.body.style.top;
+      //document.body.style.top = '';
+      //window.scrollTo(0, parseInt(scrollY || '0') * -1);
     }
   }
 

@@ -110,13 +110,7 @@
   fill: none;
   bottom: 0;
   position: absolute;
-  transition: transform 0.5s ease, color 0.4s ease opacity 0.4s ease;
-}
-.home-grid-section .arrow-main {
-  transition: transform 0.5s ease, color 0.4s ease opacity 0.4s ease;
-}
-.home-grid-section .arrow-alt {
-  transition: transform 0.5s ease, color 0.4s ease opacity 0.4s ease;
+  transition: transform 0.5s ease, color 0.4s ease;
 }
 .arrow-alt {
   transform: translateX(-50%) translateY(50%); /* off bottom-left */
