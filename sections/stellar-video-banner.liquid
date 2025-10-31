@@ -188,11 +188,13 @@
   {% if section.settings.parallax_enabledisable %}  
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  const sectionElement = document.querySelector(".section-{{ section.id }}");
+  const sectionElement = document.querySelector(".section-{{ section.id }}-margin");
   if (!sectionElement) return;
+   const sectionOffset = sectionElement.offsetTop;
   const sectionHeight = sectionElement.clientHeight;
-  const desktopVideos = sectionElement.querySelectorAll("video.desktop-video");
-  const mobileVideos = sectionElement.querySelectorAll("video.mobile-video");
+  const desktopVideos = sectionElement.querySelectorAll(".desktop-video video");
+  const mobileVideos = sectionElement.querySelectorAll(".mobile-video video");
+  console.log("sectionOffset", sectionOffset);
   window.addEventListener("scroll", () => {
     const scrollY = window.scrollY || window.pageYOffset;
     if (scrollY < sectionHeight) {
