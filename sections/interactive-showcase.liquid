@@ -274,8 +274,9 @@
         this.isPopupOpen = false;
         this.isModalOpen = false;
         
-        // Detect touch device
-        this.isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        // Detect if primary input is touch (mobile/tablet) vs pointer (desktop)
+        // Check for both touch capability AND small screen size to avoid false positives on desktop touchscreens
+        this.isTouchDevice = ('ontouchstart' in window || navigator.maxTouchPoints > 0) && window.innerWidth <= 1024;
         
         this.init();
 
